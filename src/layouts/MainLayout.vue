@@ -7,7 +7,13 @@ div
       a(href="" data-target="nav-mobile").sidenav-trigger.sidenav-trigger-right
         i.material-icons menu
 
-  ul.sidenav#mobile-demo
+  ul.sidenav.nav-mobile#nav-mobile
+    li
+      a General
+    li
+      a Search
+    li
+      a My Library
 
   main
     router-view
@@ -15,6 +21,12 @@ div
 </template>
 
 <script>
+
+  export default {
+    mounted() {
+      M.AutoInit();
+    }
+  }
 
 </script>
 
@@ -27,6 +39,9 @@ div
     position: relative
   &-wrapper
     width: 100%
+  &-mobile
+    width: 70%
+    padding: 2rem 0px
 
 .sidenav-trigger-right
   float: right !important
@@ -36,6 +51,5 @@ div
   position: fixed
   left: 0
   margin: 0 18px
-
 
 </style>
