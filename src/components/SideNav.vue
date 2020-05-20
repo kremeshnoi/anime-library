@@ -49,7 +49,7 @@ export default {
   justify-content: center !important
 
 .sidenav-under
-  margin-top: 64px !important
+  margin-top: 54px !important
 
 .user-top
   padding: 32px !important
