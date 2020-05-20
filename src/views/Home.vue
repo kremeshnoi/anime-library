@@ -11,6 +11,9 @@
     name: "Home",
     components: {
 
+    },
+    metaInfo: {
+      title: "Anime Library - Homepage"
     }
 
   };
