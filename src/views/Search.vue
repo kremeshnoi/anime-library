@@ -8,7 +8,10 @@
 <script>
 
 export default {
-  name: "Search"
+  name: "Search",
+  metaInfo: {
+    title: "Anime Library - Search"
+  }
 }
 
 </script>
