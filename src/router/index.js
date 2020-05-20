@@ -15,7 +15,14 @@ const routes = [
     name: "Search",
     meta: { layout: "main-layout" },
     component: () => import("../views/Search")
+  },
+  {
+    path: "/library",
+    name: "Library",
+    meta: { layout: "main-layout" },
+    component: () => import("../views/Library")
   }
+
 ];
 
 const router = new VueRouter({
