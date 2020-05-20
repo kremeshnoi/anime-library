@@ -1,11 +1,7 @@
 <template lang="pug">
 
 div
-  nav.nav-main.blue.darken-1
-    .nav-wrapper
-      a(href="").logo AnimeList
-      a(href="" data-target="nav-mobile").sidenav-trigger.sidenav-trigger-right
-        i.material-icons menu
+  MainNav
 
   ul.sidenav.nav-mobile#nav-mobile
     li
@@ -23,15 +19,21 @@ div
         a(href="")
           img.circle(src="@/assets/user.jpg")
     li
-      span.name John Doe
+      span.name User
     li
       .divider
     li
-      a.waves-effect(href="") Home
+      a.waves-effect.link-position(href="") Home
     li
-      a.waves-effect(href="") Search
+      a.waves-effect.link-position(href="") Search
     li
-      a.waves-effect(href="") My Library
+      a.waves-effect.link-position(href="") My Library
+        i.material-icons.icons-position view_module
+    li
+      .divider
+    li
+      .footer-copyright.subheader
+        .container © 2020 Anime Library
 
   main
     router-view
@@ -40,7 +42,12 @@ div
 
 <script>
 
+  import MainNav from "../components/MainNav";
+
   export default {
+    components: {
+      MainNav
+    },
     mounted() {
       M.AutoInit();
     }
@@ -50,20 +57,13 @@ div
 
 <style lang="sass">
 
-.nav
-  &-main
-    display: flex
-    justify-content: center
-    position: relative
-  &-wrapper
-    width: 100%
-  &-mobile
-    width: 70%
-    padding: 2rem 0px
+.icons-position
+  margin: 0 0 0 6px !important
+  float: initial !important
 
-.sticky-footer
-  position: fixed
-  bottom: 0
+.link-position
+  display: flex !important
+  justify-content: center !important
 
 .sidenav-trigger-right
   float: right !important
@@ -74,10 +74,6 @@ div
 .user-top
   padding: 32px !important
 
-.logo
-  font-size: 1.7rem
-  position: fixed
-  left: 0
-  margin: 0 18px
+
 
 </style>
