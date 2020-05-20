@@ -5,6 +5,9 @@
       a(href="").logo Anime Library
       a(href="" data-target="nav-mobile").sidenav-trigger.sidenav-trigger-right
         i.material-icons menu
+      .logout-wrapper
+        a(href="").logout Logout
+          i.material-icons.logout-icon exit_to_app
 
 </template>
 
@@ -31,6 +34,24 @@
     position: fixed
     left: 0
     margin: 0 18px
+
+  .logout
+    margin: 0 30px
+    display: flex
+    align-items: center
+
+    &-icon
+      display: initial
+      line-height: 16px
+      height: 16px
+      margin: 0 0 0 6px
+
+    &-wrapper
+      display: flex
+      justify-content: flex-end
+      align-items: center
+
+
 
   .sticky-footer
     position: fixed
