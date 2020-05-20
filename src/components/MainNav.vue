@@ -26,6 +26,9 @@ export default {
     display: flex
     justify-content: center
     position: relative
+    height: 54px
+    line-height: 54px
+    box-shadow: none
   &-wrapper
     width: 100%
 
