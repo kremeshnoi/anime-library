@@ -2,17 +2,19 @@
 
   ul#slide-out.sidenav.sidenav-fixed.sidenav-under
     li
-      .user-view.user-top.blue.darken-1
+      .user-view.user-top
         a.tooltipped(href="", data-position="right", data-tooltip="Settings").settings-link
           i.material-icons.settings-icon settings
         .background
           img
         a(href="")
-          img.circle(src="@/assets/user.jpg")
+          img.circle.shadow-circle(src="@/assets/user.jpg")
+    li
+      .divider.devider-margin
     li
       span.name User
     li
-      .divider
+      .divider.devider-margin
     li
       a.waves-effect.link-position(href="") Home
     li
@@ -21,7 +23,7 @@
       a.waves-effect.link-position(href="") My Library
         i.material-icons.icons-position view_module
     li
-      .divider
+      .divider.devider-margin
     li
       .footer-copyright.subheader
         .container © 2020 Anime Library
@@ -59,6 +61,13 @@
       right: 20px
       height: 24px !important
     &-icon
-      color: white
+      color: grey
 
+  .devider-margin
+    margin: 0 !important
+
+  .shadow-circle
+    height: 84px !important
+    width: 84px !important
+    box-shadow: 4px 4px 5px -1px rgba(0,0,0,0.65)
 </style>
