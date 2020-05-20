@@ -1,6 +1,5 @@
 <template lang="pug">
 
-div
   nav.nav-main.blue.darken-1
     .nav-wrapper
       a(href="").logo Anime Library
@@ -19,25 +18,25 @@ div
 
 <style lang="sass" scoped>
 
-.nav
-  &-main
-    display: flex
-    justify-content: center
-    position: relative
-  &-wrapper
-    width: 100%
-  &-mobile
-    width: 70%
-    padding: 2rem 0px
+  .nav
+    &-main
+      display: flex
+      justify-content: center
+      position: relative
+    &-wrapper
+      width: 100%
 
-.logo
-  font-size: 1.7rem
-  position: fixed
-  left: 0
-  margin: 0 18px
+  .logo
+    font-size: 1.7rem
+    position: fixed
+    left: 0
+    margin: 0 18px
 
-.sticky-footer
-  position: fixed
-  bottom: 0
+  .sticky-footer
+    position: fixed
+    bottom: 0
+
+  .sidenav-trigger-right
+    float: right !important
 
 </style>
