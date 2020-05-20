@@ -1,6 +1,7 @@
 <template lang="pug">
 
-h1 Search
+.Search
+  h1 Search
 
 </template>
 
