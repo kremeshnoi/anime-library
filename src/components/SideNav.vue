@@ -16,11 +16,11 @@ ul#slide-out.sidenav.sidenav-fixed.sidenav-under
   li
     .divider.devider-margin
   li
-    a.waves-effect.link-position(href="") Home
+    a.waves-effect.link-position(href="/") Home
   li
-    a.waves-effect.link-position(href="") Search
+    a.waves-effect.link-position(href="/search") Search
   li
-    a.waves-effect.link-position(href="") My Library
+    a.waves-effect.link-position(href="/library") My Library
       i.material-icons.icons-position view_module
   li
     .divider.devider-margin
