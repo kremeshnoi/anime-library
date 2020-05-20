@@ -23,6 +23,6 @@
   .nav
     &-mobile
       width: 70%
-      padding: 2rem 0px
+      padding: 2rem 0
 
 </style>

@@ -51,8 +51,6 @@
       justify-content: flex-end
       align-items: center
 
-
-
   .sticky-footer
     position: fixed
     bottom: 0
