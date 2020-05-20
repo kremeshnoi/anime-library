@@ -1,13 +1,13 @@
 <template lang="pug">
 
-div
+div.general-wrapper
   MainNav
 
   MobileNav
 
   SideNav
 
-  main
+  main.main-wrapper
     router-view
 
 </template>
@@ -33,6 +33,13 @@ export default {
 
 <style lang="sass" scoped>
 
+.general-wrapper
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: flex-end
 
+.main-wrapper
+  width: calc(100% - 300px)
 
 </style>
