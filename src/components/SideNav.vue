@@ -63,6 +63,9 @@ export default {
   &-icon
     color: grey
 
+.name
+  font-family: 'Cairo', sans-serif
+
 .devider-margin
   margin: 0 !important
 
