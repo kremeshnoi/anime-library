@@ -15,25 +15,27 @@ ul#slide-out.sidenav.sidenav-fixed.sidenav-under
     span.name User
   li
     .divider.devider-margin
-  li
-    a.waves-effect.link-position(href="/") Home
-  li
-    a.waves-effect.link-position(href="/search") Search
-  li
-    a.waves-effect.link-position(href="/library") My Library
-      i.material-icons.icons-position view_module
+  router-link(v-for="link in links" :key="link.url" tag="li" :to="link.url")
+    a.waves-effect.link-position {{link.title}}
+      <!--i.material-icons.icons-position view_module-->
   li
     .divider.devider-margin
   li
     .footer-copyright.subheader
       .container © 2020 Anime Library
-
 </template>
 
 <script>
 
 export default {
-  name: "SideNav"
+  name: "SideNav",
+  data: () => ({
+    links: [
+      { title: "Home", url: "/" },
+      { title: "Search", url: "/search" },
+      { title: "My Library", url: "/library" }
+    ]
+  })
 }
 
 </script>
