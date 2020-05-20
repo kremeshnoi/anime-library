@@ -3,6 +3,8 @@
   ul#slide-out.sidenav.sidenav-fixed.sidenav-under
     li
       .user-view.user-top.blue.darken-1
+        a.tooltipped(href="", data-position="right", data-tooltip="Settings").settings-link
+          i.material-icons.settings-icon settings
         .background
           img
         a(href="")
@@ -49,5 +51,14 @@
 
   .user-top
     padding: 32px !important
+
+  .settings
+    &-link
+      position: absolute
+      bottom: 20px
+      right: 20px
+      height: 24px !important
+    &-icon
+      color: white
 
 </style>
