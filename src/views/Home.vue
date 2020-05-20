@@ -1,21 +1,20 @@
 <template lang="pug">
 
-  .Home
+.Home
+  h1 Homepage
 
 </template>
 
 <script>
 
-  export default {
+export default {
+  name: "Home",
+  components: {
 
-    name: "Home",
-    components: {
-
-    },
-    metaInfo: {
-      title: "Anime Library - Homepage"
-    }
-
-  };
+  },
+  metaInfo: {
+    title: "Anime Library - Homepage"
+  }
+};
 
 </script>
