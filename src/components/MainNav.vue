@@ -4,7 +4,7 @@ nav.nav-main.blue.darken-1
   .nav-wrapper
     a(href="").logo Anime Library
     a(href="" data-target="nav-mobile").sidenav-trigger.sidenav-trigger-right
-      i.material-icons menu
+      i.material-icons.menu-icon menu
     .logout-wrapper
       a(href="").logout Logout
         i.material-icons.logout-icon exit_to_app
@@ -59,6 +59,12 @@ export default {
   bottom: 0
 
 .sidenav-trigger-right
+  height: 54px
+  line-height: 54px
   float: right !important
+
+.menu-icon
+  height: 54px
+  line-height: 54px
 
 </style>
