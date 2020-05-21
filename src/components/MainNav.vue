@@ -1,6 +1,6 @@
 <template lang="pug">
 
-nav.nav-main.blue.darken-1
+nav.nav-main.blue
   .nav-wrapper
     a(href="").logo Anime Library
     a(href="" data-target="nav-mobile").sidenav-trigger.sidenav-trigger-right

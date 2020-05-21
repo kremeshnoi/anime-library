@@ -40,6 +40,10 @@ export default {
   align-items: flex-end
 
 .main-wrapper
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
   width: calc(100% - 300px)
 
 </style>
