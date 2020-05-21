@@ -17,7 +17,7 @@ ul#slide-out.sidenav.sidenav-fixed.sidenav-under
     .divider.devider-margin
   router-link(v-for="link in links" :key="link.url" tag="li" :to="link.url")
     a.nav-links.waves-effect.waves-light.link-position {{link.title}}
-      <!--i.material-icons.icons-position view_module-->
+      i.material-icons.icons-position.grey-text.library-icon(v-if="link.title === 'My Library'") view_module
   li
     .divider.devider-margin
   li
@@ -84,4 +84,7 @@ export default {
 .nav-links
   color: #efeff1
 
+.library-icon
+  position: absolute
+  right: 86px
 </style>
