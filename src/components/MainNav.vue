@@ -1,6 +1,6 @@
 <template lang="pug">
 
-nav.nav-main.blue
+nav.nav-main
   .nav-wrapper
     a(href="").logo Anime Library
     a(href="" data-target="nav-mobile").sidenav-trigger.sidenav-trigger-right
@@ -29,6 +29,7 @@ export default {
     height: 54px
     line-height: 54px
     box-shadow: none
+    background-color: #18181b
   &-wrapper
     width: 100%
 
@@ -37,17 +38,20 @@ export default {
   position: fixed
   left: 0
   margin: 0 18px
+  color: #efeff1
 
 .logout
   margin: 0 30px
   display: flex
   align-items: center
+  color: #efeff1 !important
 
   &-icon
     display: initial
     line-height: 16px
     height: 16px
     margin: 0 0 0 6px
+    color: #efeff1
 
   &-wrapper
     display: flex

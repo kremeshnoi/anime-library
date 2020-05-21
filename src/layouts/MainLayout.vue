@@ -42,8 +42,8 @@ export default {
 .main-wrapper
   display: flex
   flex-direction: column
-  justify-content: center
   align-items: center
   width: calc(100% - 300px)
-
+  background-color: #0e0e10
+  height: 100vh
 </style>

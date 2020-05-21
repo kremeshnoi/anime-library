@@ -16,12 +16,12 @@ ul#slide-out.sidenav.sidenav-fixed.sidenav-under
   li
     .divider.devider-margin
   router-link(v-for="link in links" :key="link.url" tag="li" :to="link.url")
-    a.waves-effect.link-position {{link.title}}
+    a.nav-links.waves-effect.waves-light.link-position {{link.title}}
       <!--i.material-icons.icons-position view_module-->
   li
     .divider.devider-margin
   li
-    .footer-copyright.subheader
+    .footer-copyright.subheader.copyright-text.grey-text
       .container © 2020 Anime Library
 </template>
 
@@ -41,6 +41,9 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+
+.sidenav
+  background-color: #1f1f23
 
 .icons-position
   margin: 0 0 0 6px !important
@@ -63,17 +66,22 @@ export default {
     right: 20px
     height: 24px !important
   &-icon
-    color: grey
+    color: #efeff1
 
 .name
+  color: #efeff1
   font-family: 'Cairo', sans-serif
 
 .devider-margin
+  background-color: hsla(0, 0%, 100%, 0.1)
   margin: 0 !important
 
 .shadow-circle
   height: 84px !important
   width: 84px !important
   box-shadow: 4px 4px 5px -1px rgba(0,0,0,0.65)
+
+.nav-links
+  color: #efeff1
 
 </style>
