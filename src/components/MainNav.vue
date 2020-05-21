@@ -45,6 +45,9 @@ export default {
   display: flex
   align-items: center
   color: #efeff1 !important
+  &:hover
+    .logout-icon
+      transform: translateX(4px)
 
   &-icon
     display: initial
@@ -52,6 +55,7 @@ export default {
     height: 16px
     margin: 0 0 0 6px
     color: #efeff1
+
 
   &-wrapper
     display: flex
