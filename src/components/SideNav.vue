@@ -68,6 +68,8 @@ export default {
     bottom: 20px
     right: 20px
     height: 24px !important
+    &:hover
+      background-color: initial !important
   &-icon
     color: #efeff1
 
