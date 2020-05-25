@@ -36,5 +36,6 @@ h1, h2, h3, h4, h5, h6, a, p
   -moz-osx-font-smoothing: grayscale
   text-align: center
   color: #2c3e50
+  height: 100%
 
 </style>
