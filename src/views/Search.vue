@@ -11,7 +11,21 @@
           i.material-icons close
   section
     div.query-content(v-if="getAnime.length")
-      img.results(v-for="result in getAnime" v-bind:src="result")
+      .card(v-for="result in getAnime")
+        .card-image.waves-effect.waves-block.waves-light
+          img.activator(v-bind:src="result")
+        .card-content
+          span.card-title.activator.grey-text.text-darken-4
+            | Card Title
+            i.material-icons.right more_vert
+          p
+            a(href='#') This is a link
+        .card-reveal
+          span.card-title.grey-text.text-darken-4
+            | Card Title
+            i.material-icons.right close
+          p
+            | Here is some more information about this product that is only revealed once clicked on.
 
 </template>
 
@@ -70,4 +84,12 @@ export default {
       input
         border-radius: 3px !important
 
+  .query-content
+    display: grid
+    grid-template-columns: repeat(5, 1fr)
+    grid-gap: 20px
+  .card
+    img
+      height: 334px
+      object-fit: cover
 </style>
