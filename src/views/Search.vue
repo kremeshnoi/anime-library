@@ -1,7 +1,6 @@
 <template lang="pug">
 
 .Search
-  h1 Search
   nav.nav-search
     .nav-wrapper.white
       form
@@ -32,10 +31,15 @@ export default {
 <style lang="sass" scoped>
 
 .Search
-  width: 80%
+  width: 100%
+  padding: 0 40px
+  display: flex
+  justify-content: center
 
   .nav-search
-    margin-top: 100px
+    width: 60%
+    height: 50px
+    margin-top: 50px
     border-radius: 3px !important
 
     .nav-wrapper
@@ -44,6 +48,10 @@ export default {
     .input-field
       border-radius: 3px !important
       background-color: #ececec !important
+
+      i
+        height: 50px
+        line-height: 50px
 
       input
         border-radius: 3px !important
