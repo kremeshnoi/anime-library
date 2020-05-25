@@ -25,11 +25,13 @@ export default {
   &-main
     display: flex
     justify-content: center
-    position: relative
+    position: fixed
     height: 54px
     line-height: 54px
     box-shadow: none
     background-color: #18181b
+    top: 0
+    z-index: 99
   &-wrapper
     width: 100%
 
@@ -55,7 +57,6 @@ export default {
     height: 16px
     margin: 0 0 0 6px
     color: #efeff1
-
 
   &-wrapper
     display: flex
