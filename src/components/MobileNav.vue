@@ -1,30 +1,125 @@
 <template lang="pug">
 
-  ul#nav-mobile.sidenav.sidenav-mobile-list
+  ul#nav-mobile.sidenav.sidenav-fixed.sidenav-mobile-list
     li.sidenav-mobile-list-item
-      a.sidenav-mobile-list-link Home
+      .user-view.sidenav-user
+        a.sidenav-mobile-list-link.sidenav-mobile-list-link-settings(href="", data-position="right")
+          i.material-icons.sidenav-icon-settings settings
+        .background
+          img
+        a(href="")
+          img.circle.sidenav-user-circle(src="@/assets/user.jpg")
 
     li.sidenav-mobile-list-item
-      a.sidenav-mobile-list-link Search
+      .divider.sidenav-divider
 
     li.sidenav-mobile-list-item
-      a.sidenav-mobile-list-link My Library
+      span.sidenav-username User
+
+    li.sidenav-mobile-list-item
+      .divider.sidenav-divider
+
+    router-link(v-for="link in links" :key="link.url" tag="li" :to="link.url")
+      a.nav-links.waves-effect.waves-light.sidenav-mobile-list-link(v-bind:class="[link.title === 'My Library' ? 'm-left': true]") {{link.title}}
+        i.material-icons.grey-text.sidenav-icon-library(v-if="link.title === 'My Library'") view_module
+
+    li.sidenav-mobile-list-item
+      .divider.sidenav-divider
+
+    li.sidenav-mobile-list-item
+      .sidenav-mobile-list-logout
+        a(href="").sidenav-mobile-list-logout-link Logout
+          i.material-icons.sidenav-mobile-list-logout-icon-menu exit_to_app
+
+    li.sidenav-mobile-list-item
+      .footer-copyright.subheader.copyright-text.grey-text
+        .container © 2020 Anime Library
 
 </template>
 
 <script>
 
   export default {
-    name: "MobileNav"
+    name: "MobileNav",
+    data: () => ({
+      links: [
+        { title: "Home", url: "/" },
+        { title: "Search", url: "/search" },
+        { title: "My Library", url: "/library" }
+      ],
+
+    })
   }
 
 </script>
 
 <style lang="sass" scoped>
 
+  @import "../assets/styles/utils/index"
+
   .sidenav
+    &-user
+      padding: 32px !important
+
+      &-circle
+        height: 84px !important
+        width: 84px !important
+        box-shadow: 4px 4px 5px -1px rgba(0,0,0,0.65)
+
+    &-username
+      color: #efeff1
+      font-family: 'Cairo', sans-serif
+
+    &-divider
+      background-color: hsla(0, 0%, 100%, 0.1)
+      margin: 0 !important
+
     &-mobile-list
-      width: 70%
-      padding: 2rem 0
+      margin-top: 54px
+      background-color: #1f1f23
+      +mq(tablet-small, max)
+        width: 100%
+
+      &-link
+        display: flex
+        justify-content: center
+        color: #efeff1
+        &:hover
+          background-color: rgba(255,255,255, 0.04)
+
+        &-settings
+          position: absolute
+          bottom: 10px
+          right: 20px
+          height: 24px
+          &:hover
+            background-color: initial
+
+      &-logout
+        display: flex
+        justify-content: center
+        align-items: center
+        margin: 14px 0 0 24px
+
+        &-link
+          margin: 0 20px
+          display: flex
+          align-items: center
+          color: #efeff1 !important
+
+        &-icon-menu
+          display: initial
+          margin: 0 0 0 6px
+          color: #efeff1
+
+    &-icon
+      &-settings
+        color: #8d8d8e
+
+      &-library
+        margin: 0 0 0 6px !important
+
+  .m-left
+    margin-left: 24px
 
 </style>
