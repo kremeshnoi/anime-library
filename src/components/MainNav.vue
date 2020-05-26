@@ -21,6 +21,8 @@
 
 <style lang="sass" scoped>
 
+  @import "../assets/styles/utils/index"
+
   .nav
     &-global
       display: flex
@@ -56,6 +58,8 @@
         display: flex
         justify-content: flex-end
         align-items: center
+        +mq(tablet-wide, max)
+          display: none
 
         &-link
           margin: 0 20px
