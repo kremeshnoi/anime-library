@@ -20,7 +20,7 @@
       .divider.sidenav-divider
 
     router-link(v-for="link in links" :key="link.url" tag="li" :to="link.url")
-      a.nav-links.waves-effect.waves-light.sidenav-list-link {{link.title}}
+      a.nav-links.waves-effect.waves-light.sidenav-list-link(v-bind:class="[link.title === 'My Library' ? 'sidenav-list-link-library': true]") {{link.title}}
         i.material-icons.grey-text.sidenav-icon-library(v-if="link.title === 'My Library'") view_module
 
     li.sidenav-list-item
@@ -77,6 +77,9 @@
       &:hover
         background-color: rgba(255,255,255, 0.04)
 
+      &-library
+        margin: 0 0 0 24px
+
       &-settings
         position: absolute
         bottom: 10px
@@ -90,8 +93,6 @@
         color: #8d8d8e
 
       &-library
-        position: absolute
-        right: 86px
         margin: 0 0 0 6px !important
 
 </style>
