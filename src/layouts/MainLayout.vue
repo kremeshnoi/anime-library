@@ -1,14 +1,14 @@
 <template lang="pug">
 
-div.global-wrapper
-  MainNav
+  div.global-wrapper
+    MainNav
 
-  MobileNav
+    MobileNav
 
-  SideNav
+    SideNav
 
-  main.content-wrapper
-    router-view
+    main.content-wrapper
+      router-view
 
 </template>
 
