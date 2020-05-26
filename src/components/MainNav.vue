@@ -1,13 +1,13 @@
 <template lang="pug">
 
-nav.nav-main
-  .nav-wrapper
-    a(href="").logo Anime Library
-    a(href="" data-target="nav-mobile").sidenav-trigger.sidenav-trigger-right
-      i.material-icons.menu-icon menu
-    .logout-wrapper
-      a(href="").logout Logout
-        i.material-icons.logout-icon exit_to_app
+nav.nav-global
+  .nav-wrapper.nav-global-wrapper
+    a(href="").nav-global-logo.nav-global-link Anime Library
+    a(href="" data-target="nav-mobile").sidenav-trigger.nav-global-trigger.nav-global-link
+      i.material-icons.nav-global-icon-menu menu
+    .nav-global-logout
+      a(href="").nav-global-logout-link Logout
+        i.material-icons.nav-global-logout-icon-menu exit_to_app
 
 </template>
 
@@ -22,7 +22,7 @@ export default {
 <style lang="sass" scoped>
 
 .nav
-  &-main
+  &-global
     display: flex
     justify-content: center
     position: fixed
@@ -32,48 +32,45 @@ export default {
     background-color: #18181b
     top: 0
     z-index: 99
-  &-wrapper
-    width: 100%
 
-.logo
-  font-size: 1.7rem
-  position: fixed
-  left: 0
-  margin: 0 18px
-  color: #efeff1
+    &-wrapper
+      width: 100%
 
-.logout
-  margin: 0 30px
-  display: flex
-  align-items: center
-  color: #efeff1 !important
-  &:hover
-    .logout-icon
-      transform: translateX(4px)
+    &-logo
+      font-size: 1.7rem
+      position: fixed
+      left: 0
+      margin: 0 20px
+      color: #efeff1
 
-  &-icon
-    display: initial
-    line-height: 16px
-    height: 16px
-    margin: 0 0 0 6px
-    color: #efeff1
+    &-trigger
+      height: 54px
+      line-height: 54px
+      float: right !important
 
-  &-wrapper
-    display: flex
-    justify-content: flex-end
-    align-items: center
+    &-icon-menu
+      height: 54px
+      line-height: 54px
 
-.sticky-footer
-  position: fixed
-  bottom: 0
+    &-logout
+      display: flex
+      justify-content: flex-end
+      align-items: center
 
-.sidenav-trigger-right
-  height: 54px
-  line-height: 54px
-  float: right !important
+      &-link
+        margin: 0 20px
+        display: flex
+        align-items: center
+        color: #efeff1 !important
+        &:hover
+          .nav-global-logout-icon-menu
+            transform: translateX(4px)
 
-.menu-icon
-  height: 54px
-  line-height: 54px
+      &-icon-menu
+        display: initial
+        line-height: 16px
+        height: 16px
+        margin: 0 0 0 6px
+        color: #efeff1
 
 </style>
