@@ -46,8 +46,7 @@
         { title: "Home", url: "/" },
         { title: "Search", url: "/search" },
         { title: "My Library", url: "/library" }
-      ],
-
+      ]
     })
   }
 
