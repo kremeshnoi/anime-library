@@ -33,6 +33,8 @@ export default {
 
 <style lang="sass" scoped>
 
+@import "../assets/styles/utils/index"
+
 .general-wrapper
   display: flex
   flex-direction: column
@@ -45,5 +47,7 @@ export default {
   width: calc(100% - 300px)
   background-color: #0e0e10
   height: 100%
+  +mq(tablet-wide, max)
+    width: 100%
 
 </style>
