@@ -16,6 +16,6 @@
 
 </script>
 
-<style scoped lang="sass">
+<style lang="sass" scoped>
 
 </style>

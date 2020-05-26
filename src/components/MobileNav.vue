@@ -1,12 +1,14 @@
 <template lang="pug">
 
-ul.sidenav.nav-mobile#nav-mobile
-  li
-    a Home
-  li
-    a Search
-  li
-    a My Library
+ul#nav-mobile.sidenav.sidenav-mobile-list
+  li.sidenav-mobile-list-item
+    a.sidenav-mobile-list-link Home
+
+  li.sidenav-mobile-list-item
+    a.sidenav-mobile-list-link Search
+
+  li.sidenav-mobile-list-item
+    a.sidenav-mobile-list-link My Library
 
 </template>
 
@@ -20,8 +22,8 @@ export default {
 
 <style lang="sass" scoped>
 
-.nav
-  &-mobile
+.sidenav
+  &-mobile-list
     width: 70%
     padding: 2rem 0
 
