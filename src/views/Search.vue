@@ -76,15 +76,15 @@
       getResult(query) {
         this.getAnime(query)
       },
-      getTopResult() {
-        this.getTop()
+      getTopResult(type, page, subtype) {
+        this.getTop({ type, page, subtype })
       }
     },
     computed: {
       ...mapGetters(["fetchAnime", "fetchTop"])
     },
     mounted() {
-      this.getTopResult()
+      this.getTopResult("anime", 1, "favorite")
     }
   }
 
@@ -96,7 +96,7 @@
 
   .Search
     width: 100%
-    padding: 40px
+    padding: 0 20px 54px
     display: flex
     flex-direction: column
     align-items: center
@@ -105,7 +105,7 @@
     .nav-search
       width: 70%
       height: 50px
-      margin: 100px 0 80px 0
+      margin: 108px 0 54px
       border-radius: 3px
       +mq(phone, max)
         width: 90%
