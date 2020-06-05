@@ -1,12 +1,12 @@
 import jikanjs from "../../node_modules/jikanjs/lib/jikan.js"
 
-const getAnime = async (query) => {
+const fetchAnime = async (query) => {
   try {
     const data = [];
     const response = await jikanjs.search('anime', query);
     console.log(response.results)
     response.results.forEach(element => {
-      data.push(element.image_url)
+      data.push(element)
     })
     return data;
   } catch (error) {
@@ -14,8 +14,8 @@ const getAnime = async (query) => {
   }
 }
 
-const ApiService = {
-  getAnime
+const Search = {
+  fetchAnime
 }
 
-export {ApiService}
+export {Search}
