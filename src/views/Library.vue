@@ -1,7 +1,6 @@
 <template lang="pug">
 
   .Library
-    h1 Library
 
 </template>
 

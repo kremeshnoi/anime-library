@@ -23,9 +23,6 @@
       MainNav,
       MobileNav,
       SideNav
-    },
-    mounted() {
-      M.AutoInit();
     }
   }
 

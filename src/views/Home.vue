@@ -1,7 +1,6 @@
 <template lang="pug">
 
   .Home
-    h1 Homepage
 
 </template>
 
