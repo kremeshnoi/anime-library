@@ -14,10 +14,7 @@
 <script>
 
   export default {
-    name: "MainNav",
-    mounted() {
-      M.AutoInit();
-    }
+    name: "MainNav"
   }
 
 </script>
