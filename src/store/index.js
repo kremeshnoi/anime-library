@@ -23,8 +23,8 @@ export default new Vuex.Store({
       const animeSearchResult = await Search.fetchAnime(query);
       ctx.commit('SET_ANIME', animeSearchResult)
     },
-    async getTop(ctx, query) {
-      const animeTopResult = await Top.fetchTop(query);
+    async getTop(ctx, { type, page, subtype }) {
+      const animeTopResult = await Top.fetchTop(type, page, subtype);
       ctx.commit('SET_ANIME_TOP', animeTopResult)
     }
   },
