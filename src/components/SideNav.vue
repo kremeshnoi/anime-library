@@ -78,7 +78,7 @@
         background-color: rgba(255,255,255, 0.04)
 
       &-library
-        margin: 0 0 0 24px
+        padding: 0 0 0 24px
 
       &-settings
         position: absolute
