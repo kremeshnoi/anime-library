@@ -30,8 +30,7 @@
       position: fixed
       height: 54px
       line-height: 54px
-      box-shadow: none
-      background-color: rgba(31, 72, 165, 0.91)
+      background-color: rgb(35, 77, 173)
       top: 0
       z-index: 99
 
