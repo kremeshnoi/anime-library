@@ -24,11 +24,35 @@
             p.black-text.query-content-card-inner-text Score : {{result.score}}
             .input-field
               select.browser-default.query-content-card-inner-select
-                option(value='') Status
-                option(value='1') Plan to watch
-                option(value='2') Watching
-                option(value='3') Completed
-                option(value='4') Dropped
+                option(value="") Status
+                option(value="1") Plan to watch
+                option(value="2") Watching
+                option(value="3") Completed
+                option(value="4") Dropped
+              label
+            p.query-content-card-inner-text
+              a.blue-text(href="") More info
+
+
+      div.query-content(v-else-if="fetchTop.length")
+        .card.query-content-card(v-for="result in fetchTop")
+          .card-image.query-content-card-wrapper
+            img.activator.query-content-card-image(v-bind:src="result.image_url")
+
+          .card-content.query-content-card-outer
+            span.card-title.activator.query-content-card-title {{result.title}}
+
+          .card-reveal.query-content-card-inner
+            span.card-title.query-content-card-inner-title.black-text {{result.title}}
+            p.black-text.query-content-card-inner-text Type : {{result.type}}
+            p.black-text.query-content-card-inner-text Score : {{result.score}}
+            .input-field
+              select.browser-default.query-content-card-inner-select
+                option(value="") Status
+                option(value="1") Plan to watch
+                option(value="2") Watching
+                option(value="3") Completed
+                option(value="4") Dropped
               label
             p.query-content-card-inner-text
               a.blue-text(href="") More info
@@ -42,21 +66,25 @@
   export default {
     name: "Search",
     data: ()=> ({
-      query: ''
+      query: ""
     }),
     metaInfo: {
       title: "Anime Library - Search"
     },
     methods: {
-      ...mapActions(['getAnime']),
+      ...mapActions(["getAnime", "getTop"]),
       getResult(query) {
         this.getAnime(query)
+      },
+      getTopResult() {
+        this.getTop()
       }
     },
     computed: {
-      ...mapGetters(['fetchAnime'])
+      ...mapGetters(["fetchAnime", "fetchTop"])
     },
     mounted() {
+      this.getTopResult()
     }
   }
 
