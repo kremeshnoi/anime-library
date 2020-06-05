@@ -10,6 +10,8 @@
     main.content-wrapper
       router-view
 
+      MainFooter
+
 </template>
 
 <script>
@@ -17,12 +19,14 @@
   import MainNav from "../components/MainNav";
   import MobileNav from "../components/MobileNav";
   import SideNav from "../components/SideNav";
+  import MainFooter from "../components/MainFooter";
 
   export default {
     components: {
       MainNav,
       MobileNav,
-      SideNav
+      SideNav,
+      MainFooter
     },
     mounted() {
       M.AutoInit();
