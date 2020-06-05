@@ -31,7 +31,7 @@
       height: 54px
       line-height: 54px
       box-shadow: none
-      background-color: #18181b
+      background-color: rgba(31, 72, 165, 0.91)
       top: 0
       z-index: 99
 
