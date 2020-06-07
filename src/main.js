@@ -4,6 +4,7 @@ import App from "./App.vue";
 import VueMeta from "vue-meta"
 import VueAwesomeSwiper from "vue-awesome-swiper";
 import "materialize-css/dist/js/materialize.min.js";
+import "materialize-css/dist/css/materialize.min.css";
 
 //Libraries + Configurations
 import router from "./router/index.js";
