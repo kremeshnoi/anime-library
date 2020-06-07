@@ -25,8 +25,6 @@
 
 <style lang="sass">
 
-  @import "~materialize-css/dist/css/materialize.min.css"
-
   h1, h2, h3, h4, h5, h6, a, p
     color: #efeff1
 
