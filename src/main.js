@@ -1,12 +1,16 @@
+//Libraries
 import Vue from "vue";
 import App from "./App.vue";
-import "./registerServiceWorker";
-import router from "./router";
-import store from "./store";
 import VueMeta from "vue-meta"
-import "materialize-css/dist/js/materialize.min";
 import VueAwesomeSwiper from "vue-awesome-swiper";
-import "swiper/css/swiper.css"
+import "materialize-css/dist/js/materialize.min.js";
+
+//Libraries + Configurations
+import router from "./router/index.js";
+import store from "./store/index.js";
+import "./registerServiceWorker.js";
+
+//Styles
 import "./assets/styles/utils/index.sass"
 import "./assets/styles/theme/index.sass"
 
