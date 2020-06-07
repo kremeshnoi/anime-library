@@ -20,12 +20,16 @@ export default new Vuex.Store({
   },
   actions: {
     async getAnime(ctx, query) {
-      const animeSearchResult = await Search.fetchAnime(query);
-      ctx.commit('SET_ANIME', animeSearchResult)
+      try {
+        const animeSearchResult = await Search.fetchAnime(query);
+        ctx.commit("SET_ANIME", animeSearchResult)
+      } catch (e) {
+        M.toast({html: "Anime not found"})
+      }
     },
     async getTop(ctx, { type, page, subtype }) {
       const animeTopResult = await Top.fetchTop(type, page, subtype);
-      ctx.commit('SET_ANIME_TOP', animeTopResult)
+      ctx.commit("SET_ANIME_TOP", animeTopResult)
     }
   },
   modules: {},
