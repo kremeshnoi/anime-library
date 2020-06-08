@@ -12,11 +12,11 @@
           h5.white-text
           ul
             li
-              a.footer-link(href='https://www.linkedin.com/in/alexander-kremeshnoi/' target="_blank") LinkedIn
+              a.footer-link(href="https://www.linkedin.com/in/alexander-kremeshnoi/" target="_blank") LinkedIn
             li
-              a.footer-link(href='https://github.com/kremeshnoi' target="_blank") Github
+              a.footer-link(href="https://github.com/kremeshnoi" target="_blank") Github
             li
-              a.footer-link(href='https://shikimori.one/SIDREZNOR' target="_blank") Shikimori
+              a.footer-link(href="https://shikimori.one/SIDREZNOR" target="_blank") Shikimori
 
     .footer-copyright
       .container

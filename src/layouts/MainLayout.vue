@@ -16,10 +16,10 @@
 
 <script>
 
-  import MainNav from "../components/MainNav";
-  import MobileNav from "../components/MobileNav";
-  import SideNav from "../components/SideNav";
-  import MainFooter from "../components/MainFooter";
+  import MainNav from "../components/navigation/MainNav";
+  import MobileNav from "../components/navigation/MobileNav";
+  import SideNav from "../components/navigation/SideNav";
+  import MainFooter from "../components/navigation/MainFooter";
 
   export default {
     components: {

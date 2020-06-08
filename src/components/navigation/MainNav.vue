@@ -2,11 +2,11 @@
 
   nav.nav-global
     .nav-wrapper.nav-global-wrapper
-      a(href="").nav-global-logo.nav-global-link Anime Library
-      a(href="" data-target="nav-mobile").sidenav-trigger.nav-global-trigger.nav-global-link
+      a.nav-global-logo.nav-global-link AnimeLibrary
+      a(data-target="nav-mobile").sidenav-trigger.nav-global-trigger.nav-global-link
         i.material-icons.nav-global-icon-menu menu
       .nav-global-logout
-        a(href="").nav-global-logout-link Logout
+        a.nav-global-logout-link Logout
           i.material-icons.nav-global-logout-icon-menu exit_to_app
 
 </template>
@@ -21,7 +21,7 @@
 
 <style lang="sass" scoped>
 
-  @import "../assets/styles/utils/index"
+  @import "../../assets/styles/utils/index"
 
   .nav
     &-global
@@ -43,6 +43,7 @@
         left: 0
         margin: 0 20px
         color: #efeff1
+        font-family: "Days One", sans-serif
 
       &-trigger
         height: 54px
