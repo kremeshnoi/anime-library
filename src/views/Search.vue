@@ -10,18 +10,18 @@
               i.material-icons.black-text.nav-search-icon search
 
     section
-      div.query-content(v-if="fetchAnime.length")
+      .query-content(v-if="fetchAnime.length")
         .card.query-content-card(v-for="result in fetchAnime")
           .card-image.query-content-card-wrapper
-            img.activator.query-content-card-image(v-bind:src="result.image_url")
+            img.activator.query-content-card-image(v-bind:src="result['image_url']")
 
           .card-content.query-content-card-outer
-            span.card-title.activator.query-content-card-title {{result.title}}
+            span.card-title.activator.query-content-card-title {{ result['title'] }}
 
           .card-reveal.query-content-card-inner
-            span.card-title.query-content-card-inner-title.black-text {{result.title}}
-            p.black-text.query-content-card-inner-text Type : {{result.type}}
-            p.black-text.query-content-card-inner-text Score : {{result.score}}
+            span.card-title.query-content-card-inner-title.black-text {{ result['title'] }}
+            p.black-text.query-content-card-inner-text Type : {{ result['type'] }}
+            p.black-text.query-content-card-inner-text Score : {{ result['score'] }}
             .input-field
               select.browser-default.query-content-card-inner-select
                 option(value="") Status
@@ -31,31 +31,7 @@
                 option(value="4") Dropped
               label
             p.query-content-card-inner-text
-              a.blue-text(href="") More info
-
-
-      div.query-content(v-else-if="fetchTop.length")
-        .card.query-content-card(v-for="result in fetchTop")
-          .card-image.query-content-card-wrapper
-            img.activator.query-content-card-image(v-bind:src="result.image_url")
-
-          .card-content.query-content-card-outer
-            span.card-title.activator.query-content-card-title {{result.title}}
-
-          .card-reveal.query-content-card-inner
-            span.card-title.query-content-card-inner-title.black-text {{result.title}}
-            p.black-text.query-content-card-inner-text Type : {{result.type}}
-            p.black-text.query-content-card-inner-text Score : {{result.score}}
-            .input-field
-              select.browser-default.query-content-card-inner-select
-                option(value="") Status
-                option(value="1") Plan to watch
-                option(value="2") Watching
-                option(value="3") Completed
-                option(value="4") Dropped
-              label
-            p.query-content-card-inner-text
-              a.blue-text(href="") More info
+              a.blue-text More info
 
 </template>
 
@@ -69,22 +45,16 @@
       query: ""
     }),
     metaInfo: {
-      title: "Anime Library - Search"
+      title: "Search page"
     },
     methods: {
-      ...mapActions(["getAnime", "getTop"]),
+      ...mapActions(["getAnime"]),
       getResult(query) {
         this.getAnime(query)
-      },
-      getTopResult(type, page, subtype) {
-        this.getTop({ type, page, subtype })
       }
     },
     computed: {
-      ...mapGetters(["fetchAnime", "fetchTop"])
-    },
-    mounted() {
-      this.getTopResult("anime", 1, "favorite")
+      ...mapGetters(["fetchAnime"])
     }
   }
 
@@ -96,7 +66,7 @@
 
   .Search
     width: 100%
-    padding: 0 20px 54px
+    padding: 108px 20px 54px
     display: flex
     flex-direction: column
     align-items: center
@@ -105,7 +75,7 @@
     .nav-search
       width: 70%
       height: 50px
-      margin: 108px 0 54px
+      margin: 0 0 54px
       border-radius: 3px
       +mq(phone, max)
         width: 90%
@@ -129,6 +99,7 @@
       grid-template-columns: repeat(auto-fill, 228px)
       justify-content: center
       grid-gap: 20px
+      height: 100%
 
       &-card
         margin: 0
