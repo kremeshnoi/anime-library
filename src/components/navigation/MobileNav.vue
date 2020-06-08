@@ -3,12 +3,12 @@
   ul#nav-mobile.sidenav.sidenav-fixed.sidenav-mobile-list
     li.sidenav-mobile-list-item
       .user-view.sidenav-user
-        a.sidenav-mobile-list-link.sidenav-mobile-list-link-settings(href="", data-position="right")
+        a.sidenav-mobile-list-link.sidenav-mobile-list-link-settings(data-position="right")
           i.material-icons.sidenav-icon-settings settings
         .background
           img
-        a(href="")
-          img.circle.sidenav-user-circle(src="@/assets/user.jpg")
+        a
+          img.circle.sidenav-user-circle(src="@/assets/images/user.jpg")
 
     li.sidenav-mobile-list-item
       .divider.sidenav-divider
@@ -20,7 +20,7 @@
       .divider.sidenav-divider
 
     router-link(v-for="link in links" :key="link.url" tag="li" :to="link.url")
-      a.nav-links.waves-effect.waves-light.sidenav-mobile-list-link(v-bind:class="[link.title === 'My Library' ? 'sidenav-mobile-list-link-library': true]") {{link.title}}
+      a.nav-links.waves-effect.waves-light.sidenav-mobile-list-link(v-bind:class="[link.title ==='My Library' ? 'sidenav-mobile-list-link-library': true]") {{ link.title }}
         i.material-icons.grey-text.sidenav-icon-library(v-if="link.title === 'My Library'") view_module
 
     li.sidenav-mobile-list-item
@@ -28,7 +28,7 @@
 
     li.sidenav-mobile-list-item
       .sidenav-mobile-list-logout
-        a(href="").sidenav-mobile-list-logout-link Logout
+        a.sidenav-mobile-list-logout-link Logout
           i.material-icons.sidenav-mobile-list-logout-icon-menu exit_to_app
 
     li.sidenav-mobile-list-item
@@ -54,7 +54,7 @@
 
 <style lang="sass" scoped>
 
-  @import "../assets/styles/utils/index"
+  @import "../../assets/styles/utils/index"
 
   .sidenav
     &-user
@@ -67,7 +67,7 @@
 
     &-username
       color: #efeff1
-      font-family: 'Cairo', sans-serif
+      font-family: "Cairo", sans-serif
 
     &-divider
       background-color: hsla(0, 0%, 100%, 0.1)
