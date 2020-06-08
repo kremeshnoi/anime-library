@@ -44,7 +44,7 @@
     },
     methods: {},
     computed: {},
-    async mounted() {
+    mounted() {
       Top.fetchTop("anime", 1, "airing").then(response => {
         this.getTop = response
         if(this.getTop.length > 0) {
