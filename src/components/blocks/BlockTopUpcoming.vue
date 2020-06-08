@@ -33,7 +33,7 @@
 
 <script>
 
-  import { Top } from "../../services/top";
+  import {Top} from "../../services/top";
 
   export default {
     name: "BlockTopUpcoming",

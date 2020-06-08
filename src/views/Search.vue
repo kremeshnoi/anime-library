@@ -11,17 +11,17 @@
 
     section
       .query-content(v-if="fetchAnime.length")
-        .card.query-content-card(v-for="result in fetchAnime")
+        .card.query-content-card(v-for="result in fetchAnime" :key="result.id")
           .card-image.query-content-card-wrapper
             img.activator.query-content-card-image(v-bind:src="result['image_url']")
 
           .card-content.query-content-card-outer
-            span.card-title.activator.query-content-card-title {{ result['title'] }}
+            span.card-title.activator.query-content-card-title {{result['title']}}
 
           .card-reveal.query-content-card-inner
-            span.card-title.query-content-card-inner-title.black-text {{ result['title'] }}
-            p.black-text.query-content-card-inner-text Type : {{ result['type'] }}
-            p.black-text.query-content-card-inner-text Score : {{ result['score'] }}
+            span.card-title.query-content-card-inner-title.black-text {{result['title']}}
+            p.black-text.query-content-card-inner-text Type : {{result['type']}}
+            p.black-text.query-content-card-inner-text Score : {{result['score']}}
             .input-field
               select.browser-default.query-content-card-inner-select
                 option(value="") Status
