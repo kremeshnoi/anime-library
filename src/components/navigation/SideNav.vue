@@ -7,7 +7,7 @@
 					i.material-icons.sidenav-icon-settings settings
 				.background
 					img
-				a
+				a.sidenav-avatar
 					img.circle.sidenav-user-circle(src="@/assets/images/user.jpg")
 
 		li.sidenav-list-item
@@ -57,6 +57,9 @@
 				height: 84px !important
 				width: 84px !important
 				box-shadow: 4px 4px 5px -1px rgba(0, 0, 0, 0.65)
+
+		&-avatar
+			cursor: default
 
 		&-username
 			color: #efeff1
