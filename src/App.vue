@@ -1,33 +1,42 @@
 <template lang="pug">
 
-  #app
-    component(:is="layout")
-      router-view
+	#app
+		component(:is="layout")
+			router-view
 
 </template>
 
-<script>
+<script lang="ts">
 
-  import MainLayout from "./layouts/MainLayout.vue"
+	import { Component, Vue } from 'vue-property-decorator';
+	import MainLayout from "./layouts/MainLayout.vue"
 
-  export default {
-    computed: {
-      layout() {
-        return this.$route.meta.layout
-      }
-    },
-    components: {
-      MainLayout
-    }
-  }
+	@Component({
+		components: {
+			MainLayout
+		 },
+		computed: {
+			layout() {
+				return this.$route.meta.layout
+			 }
+		 }
+	 })
+
+	export default class App extends Vue {}
 
 </script>
 
 <style lang="sass">
 
-  #app
-    font-family: Avenir, Helvetica, Arial, sans-serif
-    text-align: center
-    height: 100%
+	a
+		cursor: pointer
+
+	section
+		width: 100%
+
+	#app
+		font-family: Avenir, Helvetica, Arial, sans-serif
+		text-align: center
+		height: 100%
 
 </style>

@@ -1,20 +1,17 @@
 <template lang="pug">
 
-	.Library
 
 </template>
 
 <script>
 
 	export default {
-		name: "Library",
-		metaInfo: {
-			title: "Your library"
-		 }
+		name: "Swiper"
 	 }
 
 </script>
 
 <style lang="sass" scoped>
+
 
 </style>

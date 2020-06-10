@@ -7,9 +7,9 @@ import "materialize-css/dist/js/materialize.min.js";
 import "materialize-css/dist/css/materialize.min.css";
 
 //Libraries + Configurations
-import router from "./router/index.js";
-import store from "./store/index.js";
-import "./registerServiceWorker.js";
+import router from "./router";
+import store from "./store";
+import "./registerServiceWorker.ts";
 
 //Styles
 import "./assets/styles/utils/index.sass"
@@ -19,7 +19,7 @@ Vue.config.productionTip = false;
 Vue.use(VueMeta, VueAwesomeSwiper)
 
 new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount("#app");
+	router,
+	store,
+	render: h => h(App)
+ }).$mount("#app");
