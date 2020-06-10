@@ -3,6 +3,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import VueMeta from "vue-meta"
 import VueAwesomeSwiper from "vue-awesome-swiper";
+import "swiper/css/swiper.css";
 import "materialize-css/dist/js/materialize.min.js";
 import "materialize-css/dist/css/materialize.min.css";
 
