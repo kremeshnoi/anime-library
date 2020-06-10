@@ -43,20 +43,20 @@
 		name: "Search",
 		data: () => ({
 			query: ""
-		 }),
+		}),
 		metaInfo: {
 			title: "Search page"
-		 },
+		},
 		methods: {
 			...mapActions(["getAnime"]),
 			getResult(query) {
 				this.getAnime(query)
-			 }
-		 },
+			}
+		},
 		computed: {
 			...mapGetters(["fetchAnime"])
-		 }
-	 }
+		}
+	}
 
 </script>
 
