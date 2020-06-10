@@ -3,9 +3,9 @@
 	.Block-top-airing
 		.title-block-airing
 			p.title-block-airing-text AIRING ANIME
-		.swiper-container.slider-airing-swiper-container
-			.swiper-wrapper.slider-airing-swiper-wrapper(v-if="getTopList.length")
-				.swiper-slide.slider-airing-swiper-slide(v-for="result in getTopList" :key="result.id")
+		.swiper-container.slider-airing-swiper-container(v-swiper:mySwiper="swiperOptions")
+			.swiper-wrapper.slider-airing-swiper-wrapper
+				.swiper-slide.slider-airing-swiper-slide(v-for="result in getTopList")
 					.query-content
 						.card.query-content-card
 							.card-image.query-content-card-wrapper
@@ -34,58 +34,62 @@
 <script>
 
 	import { TopList } from "../../services/topList";
+	import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
 
 	export default {
 		name: "BlockTopAiring",
 		data: () => {
 			return {
-				getTopList: []
-			 }
-		 },
+				getTopList: [],
+				swiperOptions: {
+					initialSlide: 7,
+					loop: true,
+					grabCursor: true,
+					centeredSlides: true,
+					breakpoints: {
+						320: {
+							slidesPerView: 1
+						},
+						480: {
+							slidesPerView: 2,
+							spaceBetween: 100
+						},
+						600: {
+							slidesPerView: 2,
+							spaceBetween: 0
+						},
+						768: {
+							slidesPerView: 3,
+							spaceBetween: 100
+						},
+						1300: {
+							slidesPerView: 4
+						},
+						1700: {
+							slidesPerView: 5
+						},
+						2000: {
+							slidesPerView: 5
+						}
+					}
+				}
+			}
+		},
+		components: {
+			Swiper,
+			SwiperSlide
+		},
+		directives: {
+			swiper: directive
+		},
 		methods: {  },
 		computed: {  },
 		mounted() {
-			TopList.fetchTopList(1, "airing").then(response => {
+			TopList.fetchTopList("anime",1, "airing").then(response => {
 				this.getTopList = response
-				if (this.getTopList.length > 0) {
-					setTimeout(() => {
-						const mySwiper = new Swiper(".slider-airing-swiper-container", {
-							initialSlide: 2,
-							loop: true,
-							grabCursor: true,
-							centeredSlides: true,
-							breakpoints: {
-								320: {
-									slidesPerView: 1
-								 },
-								480: {
-									slidesPerView: 2,
-									spaceBetween: 100
-								 },
-								600: {
-									slidesPerView: 2,
-									spaceBetween: 0
-								 },
-								768: {
-									slidesPerView: 3,
-									spaceBetween: 100
-								 },
-								1300: {
-									slidesPerView: 4
-								 },
-								1700: {
-									slidesPerView: 5
-								 },
-								2000: {
-									slidesPerView: 6
-								 }
-							 }
-						 })
-					 }, 400)
-				 }
-			 })
-		 }
-	 }
+			})
+		}
+	}
 
 </script>
 
@@ -145,7 +149,6 @@
 							margin: 30px 0 0 0
 
 		.slider-airing
-
 			&-swiper
 				&-container
 					width: 100%

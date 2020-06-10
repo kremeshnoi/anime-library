@@ -1,11 +1,11 @@
 <template lang="pug">
 
-	.Block-top-upcoming
-		.title-block-upcoming
-			p.title-block-upcoming-text TOP UPCOMING
-		.swiper-container.slider-upcoming-swiper-container
-			.swiper-wrapper.slider-upcoming-swiper-wrapper(v-if="getTopList.length")
-				.swiper-slide.slider-upcoming-swiper-slide(v-for="result in getTopList" :key="result.id")
+	.Block-top-favorite
+		.title-block-favorite
+			p.title-block-favorite-text FAVORITE ANIME
+		.swiper-container.slider-favorite-swiper-container(v-swiper:mySwiper="swiperOptions")
+			.swiper-wrapper.slider-favorite-swiper-wrapper
+				.swiper-slide.slider-favorite-swiper-slide(v-for="result in getTopList")
 					.query-content
 						.card.query-content-card
 							.card-image.query-content-card-wrapper
@@ -15,7 +15,7 @@
 								span.card-title.activator.query-content-card-title {{ result['title'] }}
 
 							.card-reveal.query-content-card-inner
-								span.card-title.query-content-card-inner-title.black-text { { result['title'] }}
+								span.card-title.query-content-card-inner-title.black-text {{ result['title'] }}
 								p.black-text.query-content-card-inner-text Type : {{ result['type'] }}
 								p.black-text.query-content-card-inner-text Score : {{ result['score'] }}
 								.input-field
@@ -27,71 +27,74 @@
 										option(value="4") Dropped
 									label
 								p.query-content-card-inner-text
-									a.blue-text More info
+									a.blue-text() More info
 
 </template>
 
 <script>
 
 	import { TopList } from "../../services/topList";
+	import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
 
 	export default {
-		name: "BlockTopUpcoming",
+		name: "BlockTopAiring",
 		data: () => {
 			return {
-				getTopList: []
-			 }
-		 },
+				getTopList: [],
+				swiperOptions: {
+					initialSlide: 7,
+					loop: true,
+					grabCursor: true,
+					centeredSlides: true,
+					breakpoints: {
+						320: {
+							slidesPerView: 1
+						},
+						480: {
+							slidesPerView: 2,
+							spaceBetween: 100
+						},
+						600: {
+							slidesPerView: 2,
+							spaceBetween: 0
+						},
+						768: {
+							slidesPerView: 3,
+							spaceBetween: 100
+						},
+						1300: {
+							slidesPerView: 4
+						},
+						1700: {
+							slidesPerView: 5
+						},
+						2000: {
+							slidesPerView: 5
+						}
+					}
+				}
+			}
+		},
+		components: {
+			Swiper,
+			SwiperSlide
+		},
+		directives: {
+			swiper: directive
+		},
 		methods: {  },
 		computed: {  },
 		mounted() {
-			TopList.fetchTopList(1, "upcoming").then(response => {
+			TopList.fetchTopList("anime",1, "favorite").then(response => {
 				this.getTopList = response
-				if (this.getTopList.length > 0) {
-					setTimeout(() => {
-						const mySwiper = new Swiper(".slider-upcoming-swiper-container", {
-							initialSlide: 2,
-							loop: true,
-							grabCursor: true,
-							centeredSlides: true,
-							breakpoints: {
-								320: {
-									slidesPerView: 1
-								 },
-								480: {
-									slidesPerView: 2,
-									spaceBetween: 100
-								 },
-								600: {
-									slidesPerView: 2,
-									spaceBetween: 0
-								 },
-								768: {
-									slidesPerView: 3,
-									spaceBetween: 100
-								 },
-								1300: {
-									slidesPerView: 4
-								 },
-								1700: {
-									slidesPerView: 5
-								 },
-								2000: {
-									slidesPerView: 6
-								 }
-							 }
-						 })
-					 }, 400)
-				 }
-			 })
-		 }
-	 }
-
+			})
+		}
+	}
 </script>
 
 <style lang="sass" scoped>
 
-	.Top-upcoming-anime
+	.Block-top-favorite
 
 		.query-content
 			display: grid
@@ -143,7 +146,7 @@
 						&:first-of-type
 							margin: 30px 0 0 0
 
-		.slider-upcoming
+		.slider-favorite
 			&-swiper
 				&-container
 					width: 100%
@@ -157,7 +160,7 @@
 					height: initial
 
 		.title-block
-			&-upcoming
+			&-favorite
 				background-color: #ececec
 				padding: 4px
 				box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2)

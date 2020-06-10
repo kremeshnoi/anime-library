@@ -2,20 +2,20 @@
 
 	.Home
 		BlockTopAiring
-		BlockTopUpcoming
+		BlockTopFavorite
 
 </template>
 
 <script>
 
 	import BlockTopAiring from "../components/blocks/BlockTopAiring";
-	import BlockTopUpcoming from "../components/blocks/BlockTopUpcoming";
+	import BlockTopFavorite from "../components/blocks/BlockTopFavorite";
 
 	export default {
 		name: "Home",
 		components: {
 			BlockTopAiring,
-			BlockTopUpcoming
+			BlockTopFavorite
 		 },
 		metaInfo: {
 			title: "Anime Library - Homepage"
