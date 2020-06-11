@@ -3,10 +3,10 @@ import Vue from "vue";
 import Vuex from "vuex";
 
 //Services
-import { Search } from "@/services/search";
-import { TopList } from "@/services/topList";
-import { State } from "@/interfaces";
-import { MaterialToastService } from "@/services/materialService"
+import { Search } from "@/services/search.ts";
+import { TopList } from "@/services/topList.ts";
+import { State } from "@/interfaces/state.ts";
+import { MaterialToastService } from "@/services/materialService.ts"
 
 Vue.use(Vuex);
 
@@ -30,7 +30,7 @@ export default new Vuex.Store({
 			try {
 				const animeSearchResult = await Search.fetchAnime(query);
 				if (Array.isArray(animeSearchResult) && animeSearchResult.length > 0) {
-					ctx.commit("SET_ANIME", animeSearchResult)
+					ctx.commit("SET_ANIME", animeSearchResult);
 				} else {
 					MaterialToastService.toast("Anime not found")
 				}
