@@ -2,11 +2,13 @@
 import Vue from "vue";
 import Vuex from "vuex";
 
-//Services
-import { Search } from "@/services/search.ts";
-import { TopList } from "@/services/topList.ts";
+//Interfaces
 import { State } from "@/interfaces/state.ts";
-import { MaterialToastService } from "@/services/materialService.ts"
+
+//Services
+import { FetchAnime } from "@/services/fetchAnime.ts";
+import { FetchTopList } from "@/services/fetchTopList.ts";
+import { TriggerToast } from "@/services/triggerToast.ts"
 
 Vue.use(Vuex);
 
@@ -28,11 +30,11 @@ export default new Vuex.Store({
 	actions: {
 		async getAnime(ctx, query) {
 			try {
-				const animeSearchResult = await Search.fetchAnime(query);
+				const animeSearchResult = await FetchAnime.fetchAnime(query);
 				if (Array.isArray(animeSearchResult) && animeSearchResult.length > 0) {
 					ctx.commit("SET_ANIME", animeSearchResult);
 				} else {
-					MaterialToastService.toast("Anime not found")
+					TriggerToast.toast("Anime not found")
 				}
 			} catch (e) {
 				console.log(e)
@@ -40,7 +42,7 @@ export default new Vuex.Store({
 		},
 		async getTopList(ctx, { type, page, subtype }) {
 			try {
-				const animeTopListResult = await TopList.fetchTopList(type, page, subtype);
+				const animeTopListResult = await FetchTopList.fetchTopList(type, page, subtype);
 				ctx.commit("SET_ANIME_TOP", animeTopListResult)
 			} catch (e) {
 				console.log(e)
