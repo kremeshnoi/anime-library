@@ -1,5 +1,5 @@
 import jikanjs from "../../node_modules/jikanjs/lib/jikan.js"
-import { SearchResponse, SearchResult } from "@/interfaces";
+import { SearchResponse, SearchResult } from "@/interfaces/search.ts";
 
 const fetchAnime = async (query: string) => {
 	try {
