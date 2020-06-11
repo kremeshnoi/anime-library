@@ -45,7 +45,7 @@
 			query: ""
 		}),
 		metaInfo: {
-			title: "Search page"
+			title: "Anime Library / Search"
 		},
 		methods: {
 			...mapActions(["getAnime"])
