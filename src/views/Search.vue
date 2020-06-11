@@ -3,7 +3,7 @@
 	.Search
 		nav.nav-search
 			.nav-wrapper.white.nav-search-wrapper
-				form.nav-search-form(v-on:submit.prevent="getResult(query)")
+				form.nav-search-form(v-on:submit.prevent="getAnime(query)")
 					.input-field.nav-search-field
 						input#search.nav-search-input(type="search", v-model="query")
 						label.label-icon(for="search")
@@ -11,7 +11,7 @@
 
 		section
 			.query-content(v-if="fetchAnime.length")
-				.card.query-content-card(v-for="result in fetchAnime" :key="result.id")
+				.card.query-content-card(v-for="result in fetchAnime")
 					.card-image.query-content-card-wrapper
 						img.activator.query-content-card-image(v-bind:src="result['image_url']")
 
@@ -48,10 +48,7 @@
 			title: "Search page"
 		},
 		methods: {
-			...mapActions(["getAnime"]),
-			getResult(query) {
-				this.getAnime(query)
-			}
+			...mapActions(["getAnime"])
 		},
 		computed: {
 			...mapGetters(["fetchAnime"])
@@ -61,7 +58,7 @@
 </script>
 
 <style lang="sass" scoped>
-	
+
 	@import "../assets/styles/utils/vars.sass"
 	@import "../assets/styles/utils/mixins.sass"
 

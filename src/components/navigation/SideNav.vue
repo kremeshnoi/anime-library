@@ -3,7 +3,7 @@
 	ul#slide-out.sidenav.sidenav-fixed.sidenav-list
 		li.sidenav-list-item
 			.user-view.sidenav-user
-				a.sidenav-list-link.sidenav-list-link-settings.tooltipped(data-position="right", data-tooltip="Settings")
+				a.sidenav-list-link.sidenav-list-link-settings.tooltipped(data-position="right" data-tooltip="Settings")
 					i.material-icons.sidenav-icon-settings settings
 				.background
 					img
@@ -19,7 +19,7 @@
 		li.sidenav-list-item
 			.divider.sidenav-divider
 
-		router-link(v-for="link in links" :key="link.url" tag="li" :to="link.url")
+		router-link(v-for="link in links" tag="li" :to="link.url")
 			a.nav-links.waves-effect.waves-light.sidenav-list-link(v-bind:class="[link.title === 'My Library' ? 'sidenav-list-link-library': true]") {{ link.title }}
 				i.material-icons.grey-text.sidenav-icon-library(v-if="link.title === 'My Library'") view_module
 
