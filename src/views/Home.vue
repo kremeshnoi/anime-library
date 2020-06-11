@@ -1,21 +1,17 @@
 <template lang="pug">
 
 	.Home
-		BlockTopAiring
-		BlockTopFavorite
 
 </template>
 
 <script>
 
 	import BlockTopAiring from "../components/blocks/BlockTopAiring";
-	import BlockTopFavorite from "../components/blocks/BlockTopFavorite";
 
 	export default {
 		name: "Home",
 		components: {
-			BlockTopAiring,
-			BlockTopFavorite
+			BlockTopAiring
 		 },
 		metaInfo: {
 			title: "Anime Library - Homepage"
