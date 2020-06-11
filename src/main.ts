@@ -13,8 +13,10 @@ import store from "./store";
 import "./registerServiceWorker.ts";
 
 //Styles
-import "./assets/styles/utils/index.sass"
-import "./assets/styles/theme/index.sass"
+import "./assets/styles/utils/vars.sass"
+import "./assets/styles/utils/mixins.sass"
+import "./assets/styles/theme/material-icons.sass"
+import "./assets/styles/theme/days-one-regular.sass"
 
 Vue.config.productionTip = false;
 Vue.use(VueMeta, VueAwesomeSwiper)
