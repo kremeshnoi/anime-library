@@ -33,7 +33,7 @@
 
 <script>
 
-	import { TopList } from "../../services/topList";
+	import { FetchTopList } from "@/services/fetchTopList.ts";
 	import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
 
 	export default {
@@ -85,7 +85,7 @@
 		methods: {  },
 		computed: {  },
 		mounted() {
-			TopList.fetchTopList("anime",1, "airing").then(response => {
+			FetchTopList.fetchTopList("anime",1, "airing").then(response => {
 				this.getTopList = response
 			})
 		}

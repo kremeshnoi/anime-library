@@ -6,11 +6,13 @@
 
 <script>
 
-	import BlockTopAiring from "../components/blocks/BlockTopAiring";
+	import BlockHero from "@/components/blocks/BlockHero.vue";
+	import BlockTopAiring from "@/components/blocks/BlockTopAiring.vue";
 
 	export default {
 		name: "Home",
 		components: {
+			BlockHero,
 			BlockTopAiring
 		 },
 		metaInfo: {
