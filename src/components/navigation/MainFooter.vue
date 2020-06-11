@@ -9,7 +9,6 @@
 					a.waves-effect.waves-light.btn(href="https://discord.com/invite/Ku72D5/" target="_blank") Chat
 
 				.col.l5.offset-l2.s12
-					h5.white-text
 					ul
 						li
 							a.footer-link(href="https://www.linkedin.com/in/alexander-kremeshnoi/" target="_blank") LinkedIn
@@ -22,9 +21,9 @@
 			.container
 				span.footer-very-low-bar
 					p.grey-text.text-lighten-4.footer-very-low-bar-text Inspired by
-						a.footer-link(href="https://myanimelist.net/" target="_blank") MAL
+						a.footer-link(href="https://myanimelist.net/" target="_blank") &nbsp;MAL
 					p.grey-text.text-lighten-4.footer-very-low-bar-text and
-						a.footer-link(href="https://shikimori.org/" target="_blank") Shikimori
+						a.footer-link(href="https://shikimori.org/" target="_blank") &nbsp;Shikimori
 
 </template>
 
@@ -32,7 +31,7 @@
 
 	export default {
 		name: "MainFooter"
-	 }
+	}
 
 </script>
 
@@ -44,6 +43,7 @@
 		background-color: rgb(35, 77, 173)
 
 		&-link
+			color: #f5f5f5
 			&:hover
 				color: rgba(255, 255, 255, 0.7)
 
