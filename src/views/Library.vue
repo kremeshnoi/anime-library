@@ -9,7 +9,7 @@
 	export default {
 		name: "Library",
 		metaInfo: {
-			title: "Your library"
+			title: "Anime Library / Library"
 		 }
 	 }
 
