@@ -5,7 +5,7 @@
 
 </template>
 
-<script>
+<script lang="ts">
 
 	import BlockHero from "@/components/blocks/BlockHero.vue";
 	import BlockTopAiring from "@/components/blocks/BlockTopAiring.vue";
