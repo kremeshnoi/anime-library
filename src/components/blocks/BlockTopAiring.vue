@@ -31,7 +31,7 @@
 
 </template>
 
-<script>
+<script lang="ts">
 
 	import { FetchTopList } from "@/services/fetchTopList.ts";
 	import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
