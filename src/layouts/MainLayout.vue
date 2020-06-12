@@ -54,7 +54,7 @@
 			flex-direction: column
 			align-items: center
 			width: calc(100% - 300px)
-			background-color: $color-white
+			background-color: $color-pure-white
 			height: 100%
 			+mq(tablet-wide, max)
 				width: 100%
