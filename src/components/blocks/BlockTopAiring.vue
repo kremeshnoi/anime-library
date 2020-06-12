@@ -95,8 +95,12 @@
 
 <style lang="sass" scoped>
 
+	@import "../../assets/styles/utils/vars.sass"
+	@import "../../assets/styles/utils/mixins.sass"
+	@import "../../assets/styles/utils/modules.sass"
+
 	.Block-top-airing
-		background-color: #f5f5f5
+		background-color: $color-white
 
 		.query-content
 			display: grid
@@ -146,7 +150,7 @@
 						text-align: start
 
 						&:first-of-type
-							margin: 30px 0 0 0
+							margin: 40px 0 0 0
 
 		.slider-airing
 			&-swiper
@@ -156,19 +160,19 @@
 
 				&-wrapper
 					box-sizing: border-box
-					margin: 40px 0
+					margin: 40px 0 40px 0
 
 				&-slide
 					height: initial
 
 		.title-block
 			&-airing
-				background-color: #ececec
+				background-color: $color-white
 				padding: 4px
 				box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2)
 
 				&-text
-					color: #6d6d6d
-					margin: 0
+					color: $color-grey
+					margin: 0 0 0 0
 
 </style>

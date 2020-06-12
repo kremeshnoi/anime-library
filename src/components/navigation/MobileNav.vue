@@ -28,7 +28,7 @@
 
 		li.sidenav-mobile-list-item
 			.sidenav-mobile-list-logout
-				a.sidenav-mobile-list-logout-link Logout
+				a.sidenav-mobile-list-logout-link Log out
 					i.material-icons.sidenav-mobile-list-logout-icon-menu exit_to_app
 
 		li.sidenav-mobile-list-item
@@ -56,7 +56,7 @@
 
 	@import "../../assets/styles/utils/vars.sass"
 	@import "../../assets/styles/utils/mixins.sass"
-
+	@import "../../assets/styles/utils/modules.sass"
 
 	.sidenav
 		&-user
@@ -68,26 +68,26 @@
 				box-shadow: 4px 4px 5px -1px rgba(0, 0, 0, 0.65)
 
 		&-username
-			color: #efeff1
+			color: $color-white
 			font-family: "Cairo", sans-serif
 
 		&-divider
-			background-color: hsla(0, 0%, 100%, 0.1)
+			background-color: $color-grey
 			margin: 0 !important
 
 		&-mobile-list
 			margin-top: 54px
-			background-color: #1f1f23
+			background-color: $color-dark
 			+mq(tablet-small, max)
 				width: 100%
 
 			&-link
 				display: flex
 				justify-content: center
-				color: #efeff1
+				color: $color-white
 
 				&:hover
-					background-color: rgba(255, 255, 255, 0.04)
+					opacity: 0.7
 
 				&-library
 					margin: 0 0 0 24px
@@ -111,16 +111,16 @@
 					margin: 0 20px
 					display: flex
 					align-items: center
-					color: #efeff1 !important
+					color: $color-white
 
 				&-icon-menu
 					display: initial
 					margin: 0 0 0 6px
-					color: #efeff1
+					color: $color-white
 
 		&-icon
 			&-settings
-				color: #8d8d8e
+				color: $color-grey
 
 			&-library
 				margin: 0 0 0 6px !important

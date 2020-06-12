@@ -6,7 +6,7 @@
 			a(data-target="nav-mobile").sidenav-trigger.nav-global-trigger.nav-global-link
 				i.material-icons.nav-global-icon-menu menu
 			.nav-global-logout
-				a.nav-global-logout-link Logout
+				a.nav-global-logout-link Sign in
 					i.material-icons.nav-global-logout-icon-menu exit_to_app
 
 </template>
@@ -23,6 +23,7 @@
 
 	@import "../../assets/styles/utils/vars.sass"
 	@import "../../assets/styles/utils/mixins.sass"
+	@import "../../assets/styles/utils/modules.sass"
 
 	.nav
 		&-global
@@ -31,7 +32,7 @@
 			position: fixed
 			height: 54px
 			line-height: 54px
-			background-color: rgb(35, 77, 173)
+			background-color: $color-blue
 			top: 0
 			z-index: 99
 
@@ -43,7 +44,7 @@
 				position: fixed
 				left: 0
 				margin: 0 20px
-				color: #efeff1
+				color: $color-white
 				font-family: "Days One", sans-serif
 
 			&-trigger
@@ -63,10 +64,9 @@
 					display: none
 
 				&-link
-					margin: 0 20px
+					margin: 0 20px 0 20px
 					display: flex
 					align-items: center
-					color: #efeff1 !important
 
 					&:hover
 						.nav-global-logout-icon-menu
@@ -77,6 +77,5 @@
 					line-height: 16px
 					height: 16px
 					margin: 0 0 0 6px
-					color: #efeff1
 
 </style>
