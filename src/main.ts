@@ -2,6 +2,9 @@
 import Vue from "vue";
 import App from "./App.vue";
 import VueMeta from "vue-meta"
+import firebase from "firebase/app";
+import "firebase/auth"
+import "firebase/database"
 import VueAwesomeSwiper from "vue-awesome-swiper";
 import "swiper/css/swiper.css";
 import "materialize-css/dist/js/materialize.min.js";
@@ -21,8 +24,27 @@ import "./assets/styles/theme/days-one-regular.sass"
 Vue.config.productionTip = false;
 Vue.use(VueMeta, VueAwesomeSwiper)
 
-new Vue({
-	router,
-	store,
-	render: h => h(App)
- }).$mount("#app");
+const firebaseConfig = {
+	apiKey: "AIzaSyD2Q4AAfZcG9elxTPTPmzADyY00YDiQpLw",
+	authDomain: "anime-library-72ebd.firebaseapp.com",
+	databaseURL: "https://anime-library-72ebd.firebaseio.com",
+	projectId: "anime-library-72ebd",
+	storageBucket: "anime-library-72ebd.appspot.com",
+	messagingSenderId: "107283771690",
+	appId: "1:107283771690:web:ccad8edf8dcdbc158dae53",
+	measurementId: "G-02RXVDVNL3"
+};
+
+firebase.initializeApp(firebaseConfig)
+
+let app
+
+firebase.auth().onAuthStateChanged(()=> {
+	if(!app) {
+		new Vue({
+			router,
+			store,
+			render: h => h(App)
+		}).$mount("#app");
+	}
+})
