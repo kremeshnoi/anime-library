@@ -2,6 +2,9 @@
 import Vue from "vue";
 import Vuex from "vuex";
 
+//Store modules
+import auth from "@/store/auth.ts";
+
 //Interfaces
 import { State } from "@/interfaces/state.ts";
 
