@@ -37,15 +37,19 @@
 
 <style lang="sass" scoped>
 
+	@import "../../assets/styles/utils/vars.sass"
+	@import "../../assets/styles/utils/mixins.sass"
+	@import "../../assets/styles/utils/modules.sass"
+
 	.footer
 		width: 100%
 		text-align: start
-		background-color: rgb(35, 77, 173)
+		background-color: $color-blue
 
 		&-link
-			color: #f5f5f5
+			color: $color-white
 			&:hover
-				color: rgba(255, 255, 255, 0.7)
+				opacity: 0.7
 
 		&-very-low-bar
 			display: flex

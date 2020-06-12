@@ -49,6 +49,10 @@
 
 <style lang="sass" scoped>
 
+	@import "../../assets/styles/utils/vars.sass"
+	@import "../../assets/styles/utils/mixins.sass"
+	@import "../../assets/styles/utils/modules.sass"
+
 	.sidenav
 		&-user
 			padding: 32px !important
@@ -62,23 +66,23 @@
 			cursor: default
 
 		&-username
-			color: #efeff1
+			color: $color-white
 
 		&-divider
-			background-color: hsla(0, 0%, 100%, 0.1)
+			background-color: $color-grey
 			margin: 0 !important
 
 		&-list
 			margin-top: 54px
-			background-color: #1f1f23
+			background-color: $color-dark
 
 		&-list-link
 			display: flex
 			justify-content: center
-			color: #efeff1
+			color: $color-white
 
 			&:hover
-				background-color: rgba(255, 255, 255, 0.04)
+				opacity: 0.7
 
 			&-library
 				padding: 0 0 0 24px
@@ -94,7 +98,7 @@
 
 		&-icon
 			&-settings
-				color: #8d8d8e
+				color: $color-light-grey
 
 			&-library
 				margin: 0 0 0 6px !important

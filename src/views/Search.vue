@@ -60,6 +60,7 @@
 
 	@import "../assets/styles/utils/vars.sass"
 	@import "../assets/styles/utils/mixins.sass"
+	@import "../assets/styles/utils/modules.sass"
 
 	.Search
 		width: 100%
@@ -82,7 +83,7 @@
 
 			&-field
 				border-radius: 3px
-				background-color: #ececec
+				background-color: $color-white
 
 			&-input
 				border-radius: 3px
