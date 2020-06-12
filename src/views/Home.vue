@@ -1,6 +1,7 @@
 <template lang="pug">
 
 	.Home
+		BlockHero
 
 </template>
 
@@ -26,6 +27,6 @@
 
 	.Home
 		width: 100%
-		padding: 108px 20px 54px
+		padding: 54px 0 0
 
 </style>
