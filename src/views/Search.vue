@@ -24,12 +24,11 @@
 						p.black-text.query-content-card-inner-text Score : {{ result['score'] }}
 						.input-field
 							select.browser-default.query-content-card-inner-select
-								option(value="") Status
+								option(value="1") Select status
 								option(value="1") Plan to watch
 								option(value="2") Watching
 								option(value="3") Completed
 								option(value="4") Dropped
-							label
 						p.query-content-card-inner-text
 							a.blue-text More info
 
@@ -135,6 +134,8 @@
 						border: none
 						padding: 0
 						outline: none
+						height: auto
+						margin: 0 0 0 -2px
 
 					&-text
 						text-align: start
