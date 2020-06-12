@@ -24,6 +24,7 @@
 	declare const M
 
 	export default {
+		name: "MainLayout",
 		components: {
 			MainNav,
 			MobileNav,
