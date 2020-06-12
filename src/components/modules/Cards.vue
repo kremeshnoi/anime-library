@@ -17,5 +17,4 @@
 	@import "../../assets/styles/utils/mixins.sass"
 	@import "../../assets/styles/utils/modules.sass"
 
-
 </style>
