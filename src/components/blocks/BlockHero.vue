@@ -39,17 +39,17 @@
 
 		&-text-side
 			text-align: start
-			@extend .indent-h-lg
+			@extend .margin-h-xlg
 			+flex(center, start, column)
 			+mq(tablet-wide, max)
 				text-align: center
 				+flex(center, center, column)
 
 			&-button
-				@extend .indent-v-sm
+				@extend .margin-v-sm
 
 			&-title
-				@extend .indent-v-sm
+				@extend .margin-v-sm
 				font-weight: 800
 				font-size: 32px
 				max-width: 560px
@@ -60,7 +60,7 @@
 					font-size: 18px
 
 			&-description
-				@extend .indent-v-sm
+				@extend .margin-v-sm
 				font-weight: 300
 				font-size: 20px
 				max-width: 560px
