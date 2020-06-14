@@ -18,6 +18,7 @@ import "./registerServiceWorker.ts";
 //Styles
 import "./assets/styles/base/base.sass"
 import "./assets/styles/base/reset.sass"
+import "./assets/styles/theme/scrollbar.sass"
 import "./assets/styles/theme/material-icons.sass"
 import "./assets/styles/theme/days-one-regular.sass"
 
