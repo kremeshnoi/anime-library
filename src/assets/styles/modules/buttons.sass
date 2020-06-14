@@ -1,0 +1,17 @@
+@import "../utils/vars.sass"
+
+//Button decor
+.shadow-btn
+	box-shadow: 2px 2px 2px black
+
+//Button states
+.hover-btn
+	&:hover
+		@extend .shadow-btn
+		filter: brightness(100%)
+
+.active-btn
+	&:focus
+		background: $color-aquamarine
+		box-shadow: 1px 1px 1px black
+

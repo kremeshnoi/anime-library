@@ -75,8 +75,7 @@
 			padding: 14px 20px 14px 20px
 
 			&-bar
-				display: flex
-				justify-content: center
+				+flex(center, initial, initial)
 
 				&-text
 					color: $color-white
