@@ -2,11 +2,10 @@
 
 	.Block-hero
 		.Block-hero-container
-			.Block-hero-text-side
-				h1.Block-hero-text-side-title Organize your anime library. Find, add, modify, communicate
-				p.Block-hero-text-side-description Join us to get full access of the site functionality
-				a.Block-hero-text-side-button.waves-effect.waves-light.btn(href="") Sign up
-			.Block-hero-image-side
+			.Block-hero-content
+				h1.Block-hero-title Organize your anime library. #[br] Find, add, modify, #[br] communicate
+				p.Block-hero-description Join us to get full access of the site functionality
+				a.Block-hero-button.btn(target="_blank") Sign up
 
 </template>
 
@@ -22,58 +21,57 @@
 
 	@import "../../assets/styles/utils/vars.sass"
 	@import "../../assets/styles/utils/mixins.sass"
-	@import "../../assets/styles/utils/modules.sass"
+	@import "../../assets/styles/modules/buttons.sass"
+	@import "../../assets/styles/modules/indentations.sass"
 
 	.Block-hero
 		height: 70vh
+		background-blend-mode: darken
+		background: center / cover no-repeat rgba(0, 0, 0, .6) url("../../assets/images/bg.jpg")
 		+mq(phablet, max)
-			height: 100vh
+			height: 50vh
 
 		&-container
 			height: 100%
-			display: grid
-			grid-template-columns: 1fr 1fr
-			+mq(tablet-wide, max)
-				grid-template-columns: 1fr
-				grid-template-rows: 1fr 1fr
-
-		&-text-side
 			text-align: start
-			@extend .margin-h-xlg
-			+flex(center, start, column)
+			@extend .margin-h-lg
+			+flex(center, center, column)
+
+		&-content
+			margin: 0 18% 0 0
 			+mq(tablet-wide, max)
-				text-align: center
-				+flex(center, center, column)
+				margin: 0 12% 0 0
+			+mq(tablet-mid, max)
+				margin: 0
+			+mq(phone-wide, max)
+				max-width: 272px
 
-			&-button
-				@extend .margin-v-sm
+		&-title
+			@extend .margin-v-sm
+			color: $color-white
+			font-weight: 800
+			font-size: 52px
+			text-shadow: 2px 2px 2px black
+			+mq(tablet-mid, max)
+				font-size: 44px
+			+mq(tablet, max)
+				font-size: 36px
+			+mq(tablet-small, max)
+				font-size: 30px
+			+mq(phablet, max)
+				font-size: 26px
 
-			&-title
-				@extend .margin-v-sm
-				font-weight: 800
-				font-size: 32px
-				max-width: 560px
-				+mq(phablet, max)
-					font-size: 22px
-					max-width: 460px
-				+mq(phone, max)
-					font-size: 18px
+		&-description
+			@extend .margin-v-sm
+			color: $color-white
+			font-weight: 300
+			font-size: 18px
+			text-shadow: 2px 2px 2px black
 
-			&-description
-				@extend .margin-v-sm
-				font-weight: 300
-				font-size: 20px
-				max-width: 560px
-				color: $color-grey
-				+mq(phablet, max)
-					font-size: 18px
-					max-width: 300px
-				+mq(phone, max)
-					font-size: 16px
-
-		&-image-side
-			background-size: cover
-			background-position: center
-			background-image: url("../../assets/images/bg.jpg")
+		&-button
+			@extend .hover-btn
+			@extend .shadow-btn
+			@extend .active-btn
+			@extend .margin-v-sm
 
 </style>
