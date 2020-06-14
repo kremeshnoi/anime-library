@@ -10,7 +10,7 @@ import "swiper/css/swiper.css";
 import "materialize-css/dist/js/materialize.min.js";
 import "materialize-css/dist/css/materialize.min.css";
 
-//Libraries + Configurations
+//Libraries through configurations
 import router from "./router";
 import store from "./store";
 import "./registerServiceWorker.ts";
