@@ -12,9 +12,9 @@
 						li.Main-footer-list-item
 							a.Main-footer-list-item-link(href="https://www.linkedin.com/in/alexander-kremeshnoi/" target="_blank") LinkedIn
 						li.Main-footer-list-item
-							a.Main-footer-list-item-link(href="https://github.com/kremeshnoi" target="_blank") Github
+							a.Main-footer-list-item-link(href="https://github.com/kremeshnoi/" target="_blank") Github
 						li.Main-footer-list-item
-							a.Main-footer-list-item-link(href="https://shikimori.one/SIDREZNOR" target="_blank") Shikimori
+							a.Main-footer-list-item-link(href="https://shikimori.one/SIDREZNOR/" target="_blank") Shikimori
 
 		.Main-footer-copyright
 			.container
