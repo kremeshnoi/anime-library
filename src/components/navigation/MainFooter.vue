@@ -39,7 +39,6 @@
 	@import "../../assets/styles/utils/vars.sass"
 	@import "../../assets/styles/utils/mixins.sass"
 	@import "../../assets/styles/modules/buttons.sass"
-	@import "../../assets/styles/modules/indentations.sass"
 
 	.Main-footer
 		width: 100%
@@ -47,7 +46,7 @@
 		background-color: $color-blue
 
 		&-title, &-description, &-button
-			@extend .margin-v-sm
+			margin: 8px 0 8px 0
 
 		&-description
 			+mq(tablet-mid, max)
@@ -63,7 +62,7 @@
 				text-align: center
 
 			&-item
-				@extend .margin-v-sm
+				margin: 8px 0 8px 0
 
 				&-link
 					color: $color-white
