@@ -22,7 +22,6 @@
 	@import "../../assets/styles/utils/vars.sass"
 	@import "../../assets/styles/utils/mixins.sass"
 	@import "../../assets/styles/modules/buttons.sass"
-	@import "../../assets/styles/modules/indentations.sass"
 
 	.Hero-block
 		height: 70vh
@@ -34,7 +33,7 @@
 		&-container
 			height: 100%
 			text-align: start
-			@extend .margin-h-lg
+			margin: 0 24px 0 24px
 			+flex(center, center, column)
 
 		&-content
@@ -47,7 +46,7 @@
 				max-width: 272px
 
 		&-title
-			@extend .margin-v-sm
+			margin: 8px 0 8px 0
 			color: $color-white
 			font-weight: 800
 			font-size: 52px
@@ -62,16 +61,16 @@
 				font-size: 26px
 
 		&-description
-			@extend .margin-v-sm
+			margin: 8px 0 8px 0
 			color: $color-white
 			font-weight: 300
 			font-size: 18px
 			text-shadow: 2px 2px 2px black
 
 		&-button
+			margin: 8px 0 8px 0
 			@extend .hover-btn
 			@extend .shadow-btn
 			@extend .active-btn
-			@extend .margin-v-sm
 
 </style>
