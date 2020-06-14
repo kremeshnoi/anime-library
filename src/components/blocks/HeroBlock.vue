@@ -1,18 +1,18 @@
 <template lang="pug">
 
-	.Block-hero
-		.Block-hero-container
-			.Block-hero-content
-				h1.Block-hero-title Organize your anime library. #[br] Find, add, modify, #[br] communicate
-				p.Block-hero-description Join us to get full access of the site functionality
-				a.Block-hero-button.btn(target="_blank") Sign up
+	.Hero-block
+		.Hero-block-container
+			.Hero-block-content
+				h1.Hero-block-title Organize your anime library. #[br] Find, add, modify, #[br] communicate
+				p.Hero-block-description Join us to get full access of the site functionality
+				a.Hero-block-button.btn(target="_blank") Sign up
 
 </template>
 
 <script lang="ts">
 
 	export default {
-		name: "BlockHero"
+		name: "HeroBlock"
 	}
 
 </script>
@@ -24,7 +24,7 @@
 	@import "../../assets/styles/modules/buttons.sass"
 	@import "../../assets/styles/modules/indentations.sass"
 
-	.Block-hero
+	.Hero-block
 		height: 70vh
 		background-blend-mode: darken
 		background: center / cover no-repeat rgba(0, 0, 0, .6) url("../../assets/images/bg.jpg")
