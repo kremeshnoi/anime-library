@@ -20,7 +20,7 @@
 			.divider.sidenav-divider
 
 		router-link(v-for="link in links" tag="li" :to="link.url")
-			a.nav-links.waves-effect.waves-light.sidenav-list-link(v-bind:class="[link.title === 'My Library' ? 'sidenav-list-link-library': true]") {{ link.title }}
+			a.nav-links.sidenav-list-link(v-bind:class="[link.title === 'My Library' ? 'sidenav-list-link-library': true]") {{ link.title }}
 				i.material-icons.grey-text.sidenav-icon-library(v-if="link.title === 'My Library'") view_module
 
 		li.sidenav-list-item
@@ -51,7 +51,7 @@
 
 	@import "../../assets/styles/utils/vars.sass"
 	@import "../../assets/styles/utils/mixins.sass"
-	@import "../../assets/styles/utils/modules.sass"
+	@import "../../assets/styles/modules/indentations.sass"
 
 	.sidenav
 		&-user
