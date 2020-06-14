@@ -34,7 +34,7 @@
 
 	@import "../assets/styles/utils/vars.sass"
 	@import "../assets/styles/utils/mixins.sass"
-	@import "../assets/styles/utils/modules.sass"
+	@import "../assets/styles/modules/indentations.sass"
 
 	.global-wrapper
 		display: flex

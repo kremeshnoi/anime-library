@@ -6,7 +6,7 @@
 				.col.l5.s12
 					h5.white-text Discord channel
 					p.white-text We will also be happy to meet you on our channel, where you can always find like-minded people. Feel free to come in.
-					a.waves-effect.waves-light.btn(href="https://discord.com/invite/Ku72D5/" target="_blank") Chat
+					a.btn(href="https://discord.com/invite/Ku72D5/" target="_blank") Chat
 
 				.col.l5.offset-l2.s12
 					ul
@@ -39,7 +39,7 @@
 
 	@import "../../assets/styles/utils/vars.sass"
 	@import "../../assets/styles/utils/mixins.sass"
-	@import "../../assets/styles/utils/modules.sass"
+	@import "../../assets/styles/modules/indentations.sass"
 
 	.footer
 		width: 100%
