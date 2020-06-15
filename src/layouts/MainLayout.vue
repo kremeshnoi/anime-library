@@ -21,8 +21,6 @@
 	import SideNav from "@/components/navigation/SideNav.vue";
 	import MainFooter from "@/components/navigation/MainFooter.vue";
 
-	declare const M
-
 	export default {
 		name: "MainLayout",
 		components: {
