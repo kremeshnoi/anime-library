@@ -7,7 +7,7 @@ import "firebase/auth"
 import "firebase/database"
 import VueAwesomeSwiper from "vue-awesome-swiper";
 import "swiper/css/swiper.css";
-import "materialize-css/dist/js/materialize.min.js";
+import "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
 
 //Libraries through configurations
