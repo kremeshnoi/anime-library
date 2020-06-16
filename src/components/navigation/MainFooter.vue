@@ -55,7 +55,7 @@
 		&-button
 			@extend .shadow-btn
 			@extend .hover-btn
-			@extend .active-btn
+			@extend .focus-btn
 
 		&-list
 			+mq(tablet-mid, max)
