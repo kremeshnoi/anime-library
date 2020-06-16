@@ -1,9 +1,11 @@
 <template lang="pug">
 
 	div.global-wrapper
-		MainNav
+		SignUpBlock
 
 		main.content-wrapper
+			MainNav
+
 			router-view
 
 			MainFooter
@@ -14,14 +16,14 @@
 
 	import MainNav from "@/components/navigation/MainNav.vue";
 	import MainFooter from "@/components/navigation/MainFooter.vue";
-
-	declare const M
+	import SignUpBlock from "@/components/blocks/SignUpBlock.vue";
 
 	export default {
 		name: "GuestLayout",
 		components: {
 			MainNav,
-			MainFooter
+			MainFooter,
+			SignUpBlock
 		},
 		mounted() {
 			M.AutoInit();
@@ -34,7 +36,6 @@
 
 	@import "../assets/styles/utils/vars.sass"
 	@import "../assets/styles/utils/mixins.sass"
-	@import "../assets/styles/modules/indentations.sass"
 
 	.global-wrapper
 		display: flex
