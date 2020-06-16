@@ -6,7 +6,7 @@
 			a(data-target="nav-mobile").sidenav-trigger.nav-global-trigger.nav-global-link
 				i.material-icons.nav-global-icon-menu menu
 			.nav-global-logout
-				a.nav-global-logout-link Sign in
+				router-link.nav-global-logout-link(to="/sign-in") Sign in
 					i.material-icons.nav-global-logout-icon-menu exit_to_app
 
 </template>
