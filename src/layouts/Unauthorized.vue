@@ -19,7 +19,7 @@
 	import SignUpBlock from "@/components/blocks/SignUpBlock.vue";
 
 	export default {
-		name: "GuestLayout",
+		name: "Unauthorized",
 		components: {
 			MainNav,
 			MainFooter,
