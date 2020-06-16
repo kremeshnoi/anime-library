@@ -9,6 +9,7 @@ import VueAwesomeSwiper from "vue-awesome-swiper";
 import "swiper/css/swiper.css";
 import "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
+import "vue-recaptcha"
 
 //Libraries through configurations
 import router from "./router";
