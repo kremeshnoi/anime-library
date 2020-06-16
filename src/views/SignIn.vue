@@ -1,16 +1,20 @@
 <template lang="pug">
 
 	.SignIn
-		form
+		form(v-on:submit.prevent="submitHandler")
 			.SignIn-row
-				.input-field
-					input#email.validate(type="email" name="email")
-					label(for='email') Email
+				.SignIn-field.input-field
+					input#email(type="text" name="email" v-model.trim="email" :class="{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }")
+					label(for="email") Email
+					span.SignIn-helper.helper-text(v-if="$v.email.$dirty && !$v.email.required" data-error="The field is empty")
+					span.SignIn-helper.helper-text(v-else-if="$v.email.$dirty && !$v.email.email" data-error="Incorrect email")
 
 			.SignIn-row
-				.input-field
-					input#password.validate(type="password" name="password")
-					label(for='password') Password
+				.SignIn-field.input-field
+					input#password(type="text" name="password" v-model.trim="password" :class="{ invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength) }")
+					label(for="password") Password
+					span.SignIn-helper.helper-text(v-if="$v.password.$dirty && !$v.password.required" data-error="The field is empty")
+					span.SignIn-helper.helper-text(v-else-if="$v.password.$dirty && !$v.password.minLength" data-error="Password too short")
 
 			.SignIn-row
 				router-link(to="/recovery") Forgot password?
@@ -20,7 +24,7 @@
 					vue-recaptcha(sitekey="6Lc-DaUZAAAAABeSVHxIZhS9Wk2xqSo53V4UeX-H")
 
 				.SignIn-row
-					button.SignIn-button.btn-large(type="submit" name="submit_registration") Sign In
+					button.SignIn-button.btn-large(type="submit" name="submitSignIn") Sign In
 
 		.SignIn-cancel
 			router-link(to="/") Back to Homepage?
@@ -29,15 +33,39 @@
 
 <script lang="ts">
 
-	import VueRecaptcha from 'vue-recaptcha';
+	import { email, required, minLength } from "vuelidate/lib/validators";
+	import VueRecaptcha from "vue-recaptcha";
 
 	export default {
 		name: "SignIn",
+		data: () => ({
+			email: "",
+		  	password: ""
+		}),
+		validations: {
+			email: { email, required },
+			password: { required, minLength: minLength(5) }
+		},
 		components: {
 			VueRecaptcha
 		},
 		metaInfo: {
 			title: "Anime Library - Sign In"
+		},
+		methods: {
+			submitHandler() {
+				if (this.$v.$invalid) {
+					this.$v.$touch()
+					return
+				}
+
+				const signInData = {
+					email: this.email,
+					password: this.password
+				}
+
+				this.$router.push("/")
+			}
 		}
 	}
 
@@ -66,6 +94,12 @@
 		&-row
 			margin: 20px auto 20px auto
 			max-width: 290px
+
+		&-field
+			+flex(center, start, column)
+
+		&-helper
+			width: 100%
 
 		&-button
 			@extend .hover-btn
