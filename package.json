@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@types/materialize-css": "^1.0.8",
+    "@types/vuelidate": "^0.7.13",
     "core-js": "^3.6.4",
     "firebase": "^7.15.1",
     "jikanjs": "^0.7.0",
