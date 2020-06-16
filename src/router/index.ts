@@ -8,20 +8,38 @@ const routes = [
 	{
 		path: "/",
 		name: "Home",
-		meta: { layout: "main-layout" },
+		meta: { layout: "unauthorized" },
 		component: () => import("../views/Home.vue")
 	},
 	{
 		path: "/search",
 		name: "Search",
-		meta: { layout: "main-layout" },
+		meta: { layout: "unauthorized" },
 		component: () => import("../views/Search.vue")
 	},
 	{
 		path: "/library",
 		name: "Library",
-		meta: { layout: "main-layout" },
+		meta: { layout: "unauthorized" },
 		component: () => import("../views/Library.vue")
+	},
+	{
+		path: "/sign-up",
+		name: "SignUp",
+		meta: { layout: "authentication" },
+		component: () => import("../views/SignUp.vue")
+	},
+	{
+		path: "/sign-in",
+		name: "SignIn",
+		meta: { layout: "authentication" },
+		component: () => import("../views/SignIn.vue")
+	},
+	{
+		path: "/recovery",
+		name: "Recovery",
+		meta: { layout: "authentication" },
+		component: () => import("../views/Recovery.vue")
 	}
 
 ];
