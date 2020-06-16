@@ -1,6 +1,6 @@
 <template lang="pug">
 
-	.Top-airing-block
+	section.Top-airing
 		.title-block-airing
 			p.title-block-airing-text AIRING ANIME
 		.swiper-container.slider-airing-swiper-container(v-swiper:mySwiper="swiperOptions")
@@ -37,7 +37,7 @@
 	import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
 
 	export default {
-		name: "TopAiringBlock",
+		name: "TopAiring",
 		data: () => {
 			return {
 				getTopList: [],
@@ -98,7 +98,7 @@
 	@import "../../assets/styles/utils/vars.sass"
 	@import "../../assets/styles/utils/mixins.sass"
 
-	.Top-airing-block
+	.Top-airing
 		background-color: $color-white
 
 		.query-content

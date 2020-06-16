@@ -16,13 +16,13 @@
 
 <script lang="ts">
 
-	import MainNav from "@/components/navigation/MainNav.vue";
+	import MainNav from "@/components/navigation/NavBar.vue";
 	import MobileNav from "@/components/navigation/MobileNav.vue";
 	import SideNav from "@/components/navigation/SideNav.vue";
-	import MainFooter from "@/components/navigation/MainFooter.vue";
+	import MainFooter from "@/components/navigation/Footer.vue";
 
 	export default {
-		name: "MainLayout",
+		name: "Authorized",
 		components: {
 			MainNav,
 			MobileNav,
