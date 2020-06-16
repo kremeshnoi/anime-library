@@ -52,7 +52,7 @@ export default new Vuex.Store({
 			}
 		}
 	},
-	modules: {  },
+	modules: { auth },
 	getters: {
 		fetchAnime: state => state.animeSearchResult,
 		fetchTopList: state => state.animeTopListResult
