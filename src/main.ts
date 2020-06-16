@@ -2,7 +2,7 @@
 import Vue from "vue";
 import App from "./App.vue";
 import VueMeta from "vue-meta"
-import Vuelidate from 'vuelidate'
+import Vuelidate from "vuelidate";
 import firebase from "firebase/app";
 import "firebase/auth"
 import "firebase/database"
@@ -25,8 +25,9 @@ import "./assets/styles/theme/material-icons.sass"
 import "./assets/styles/theme/days-one-regular.sass"
 
 Vue.config.productionTip = false;
-Vue.use(VueMeta, Vuelidate, VueAwesomeSwiper)
-
+Vue.use(VueMeta)
+Vue.use(Vuelidate)
+Vue.use(VueAwesomeSwiper)
 
 firebase.initializeApp({
 	apiKey: "AIzaSyD2Q4AAfZcG9elxTPTPmzADyY00YDiQpLw",
