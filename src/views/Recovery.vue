@@ -25,7 +25,7 @@
 	import VueRecaptcha from 'vue-recaptcha';
 
 	export default {
-		name: "PasswordRecovery",
+		name: "Recovery",
 		components: {
 			VueRecaptcha
 		},
