@@ -1,20 +1,23 @@
 <template lang="pug">
 
 	.SignIn
+		p.SignIn-title Login to account
 		form(v-on:submit.prevent="submitHandler")
 			.SignIn-row
 				.SignIn-field.input-field
-					input#email(type="text" name="email" v-model.trim="email" :class="{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }")
+					input#email(type="text" name="email" v-model.trim="email"
+						:class="{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }")
 					label(for="email") Email
 					span.SignIn-helper.helper-text(v-if="$v.email.$dirty && !$v.email.required" data-error="The field is empty")
 					span.SignIn-helper.helper-text(v-else-if="$v.email.$dirty && !$v.email.email" data-error="Incorrect email")
 
 			.SignIn-row
 				.SignIn-field.input-field
-					input#password(type="text" name="password" v-model.trim="password" :class="{ invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength) }")
+					input#password(type="text" name="password" v-model.trim="password"
+						:class="{ invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength) }")
 					label(for="password") Password
 					span.SignIn-helper.helper-text(v-if="$v.password.$dirty && !$v.password.required" data-error="The field is empty")
-					span.SignIn-helper.helper-text(v-else-if="$v.password.$dirty && !$v.password.minLength" data-error="Password too short")
+					span.SignIn-helper.helper-text(v-else-if="$v.password.$dirty && !$v.password.minLength" data-error="Password is too short")
 
 			.SignIn-row
 				router-link(to="/recovery") Forgot password?
@@ -85,11 +88,15 @@
 		bottom: 0
 		margin: auto
 		max-width: 400px
-		max-height: 570px
+		max-height: 640px
 		border-radius: 4px
 		padding: 20px 20px 20px 20px
 		background-color: $color-pure-white
 		box-shadow: 10px 10px 5px 0 rgba(0, 0, 0, 0.75)
+
+		&-title
+			padding: 20px 0 0 0
+			font-size: 22px
 
 		&-row
 			margin: 20px auto 20px auto

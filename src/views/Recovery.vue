@@ -5,7 +5,8 @@
 		form(v-on:submit.prevent="submitHandler")
 			.Recovery-row
 				.Recovery-field.input-field
-					input#email(type="text" name="email" v-model.trim="email" :class="{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }")
+					input#email(type="text" name="email" v-model.trim="email"
+						:class="{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }")
 					label(for="email") Email
 					span.Recovery-helper.helper-text(v-if="$v.email.$dirty && !$v.email.required" data-error="The field is empty")
 					span.Recovery-helper.helper-text(v-else-if="$v.email.$dirty && !$v.email.email" data-error="Incorrect email")
@@ -74,7 +75,7 @@
 		bottom: 0
 		margin: auto
 		max-width: 400px
-		max-height: 570px
+		max-height: 640px
 		border-radius: 4px
 		padding: 20px 20px 20px 20px
 		background-color: $color-pure-white
