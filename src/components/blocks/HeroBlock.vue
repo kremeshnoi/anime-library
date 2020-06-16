@@ -5,7 +5,7 @@
 			.Hero-block-content
 				h1.Hero-block-title Organize your anime library. #[br] Find, add, modify, #[br] communicate
 				p.Hero-block-description Join us to get full access of the site functionality
-				a.Hero-block-button.btn(target="_blank") Sign up
+				a.Hero-block-button.btn.modal-trigger(href="#SignUp" target="_blank") Sign up
 
 </template>
 
@@ -71,6 +71,6 @@
 			margin: 8px 0 8px 0
 			@extend .hover-btn
 			@extend .shadow-btn
-			@extend .active-btn
+			@extend .focus-btn
 
 </style>
