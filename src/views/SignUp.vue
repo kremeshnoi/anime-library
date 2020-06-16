@@ -2,21 +2,27 @@
 
 	.SignUp
 		p.SignUp-title Start using AnimeLibrary
-		form
+		form(v-on:submit.prevent="submitHandler")
 			.SignUp-row
-				.input-field
-					input#email.validate(type="email" name="email")
-					label(for='email') Email
+				.SignUp-field.input-field
+					input#email(type="text" name="email" v-model.trim="email" :class="{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }")
+					label(for="email") Email
+					span.SignUp-helper.helper-text(v-if="$v.email.$dirty && !$v.email.required" data-error="The field is empty")
+					span.SignUp-helper.helper-text(v-else-if="$v.email.$dirty && !$v.email.email" data-error="Incorrect email")
 
 			.SignUp-row
-				.input-field
-					input#username.validate(type="text" name="username")
+				.SignUp-field.input-field
+					input#username(type="text" name="username" v-model.trim="username" :class="{ invalid: ($v.username.$dirty && !$v.username.required) || ($v.username.$dirty && !$v.username.minLength) }")
 					label(for='username') Username
+					span.SignUp-helper.helper-text(v-if="$v.username.$dirty && !$v.username.required" data-error="The field is empty")
+					span.SignUp-helper.helper-text(v-else-if="$v.username.$dirty && !$v.username.minLength" data-error="Username too short")
 
 			.SignUp-row
-				.input-field
-					input#password.validate(type="password" name="password")
-					label(for='password') Password
+				.SignUp-field.input-field
+					input#password(type="text" name="password" v-model.trim="password" :class="{ invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength) }")
+					label(for="password") Password
+					span.SignUp-helper.helper-text(v-if="$v.password.$dirty && !$v.password.required" data-error="The field is empty")
+					span.SignUp-helper.helper-text(v-else-if="$v.password.$dirty && !$v.password.minLength" data-error="Password too short")
 
 			.SignUp-row
 				router-link(to="/sign-in") Already have an account?
@@ -26,7 +32,7 @@
 					vue-recaptcha(sitekey="6Lc-DaUZAAAAABeSVHxIZhS9Wk2xqSo53V4UeX-H")
 
 				.SignUp-row
-							button.SignUp-button.btn-large(type="submit" name="submit_registration") Create Account
+					button.SignUp-button.btn-large(type="submit" name="submitSignUp") Create Account
 
 		.SignUp-cancel
 			router-link(to="/") Back to Homepage?
@@ -35,15 +41,41 @@
 
 <script lang="ts">
 
-	import VueRecaptcha from 'vue-recaptcha';
+	import { email, required, minLength } from "vuelidate/lib/validators";
+	import VueRecaptcha from "vue-recaptcha";
 
 	export default {
 		name: "SignUp",
+		data: () => ({
+			email: "",
+			username: "",
+			password: ""
+		}),
+		validations: {
+			email: { email, required },
+			username: { required, minLength: minLength(5) },
+			password: { required, minLength: minLength(5) }
+		},
 		components: {
 			VueRecaptcha
 		},
 		metaInfo: {
 			title: "Anime Library - Sign Up"
+		},
+		methods: {
+			submitHandler() {
+				if (this.$v.$invalid) {
+					this.$v.$touch()
+					return
+				}
+
+				const signUpData = {
+					email: this.email,
+					password: this.password
+				}
+
+				this.$router.push("/")
+			}
 		}
 	}
 
@@ -76,6 +108,12 @@
 		&-row
 			margin: 20px auto 20px auto
 			max-width: 290px
+
+		&-field
+			+flex(center, start, column)
+
+		&-helper
+			width: 100%
 
 		&-button
 			@extend .hover-btn
