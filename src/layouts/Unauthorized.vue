@@ -1,29 +1,28 @@
 <template lang="pug">
 
 	div.global-wrapper
-		SignUpBlock
 
 		main.content-wrapper
-			MainNav
+			NavBar
 
 			router-view
 
-			MainFooter
+			Footer
 
 </template>
 
 <script lang="ts">
 
-	import MainNav from "@/components/navigation/MainNav.vue";
-	import MainFooter from "@/components/navigation/MainFooter.vue";
-	import SignUpBlock from "@/components/blocks/SignUpBlock.vue";
+	import NavBar from "@/components/navigation/NavBar.vue";
+	import Footer from "@/components/navigation/Footer.vue";
+	import SignUp from "@/views/SignUp.vue";
 
 	export default {
 		name: "Unauthorized",
 		components: {
-			MainNav,
-			MainFooter,
-			SignUpBlock
+			NavBar,
+			Footer,
+			SignUp
 		},
 		mounted() {
 			M.AutoInit();

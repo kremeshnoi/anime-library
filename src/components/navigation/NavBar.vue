@@ -2,7 +2,7 @@
 
 	nav.nav-global
 		.nav-wrapper.nav-global-wrapper
-			a.nav-global-logo.nav-global-link AnimeLibrary
+			router-link.nav-global-logo.nav-global-link(to="/") AnimeLibrary
 			a(data-target="nav-mobile").sidenav-trigger.nav-global-trigger.nav-global-link
 				i.material-icons.nav-global-icon-menu menu
 			.nav-global-logout
@@ -14,7 +14,7 @@
 <script lang="ts">
 
 	export default {
-		name: "MainNav"
+		name: "NavBar"
 	 }
 
 </script>

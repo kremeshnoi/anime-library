@@ -1,18 +1,18 @@
 <template lang="pug">
 
-	.Hero-block
-		.Hero-block-container
-			.Hero-block-content
-				h1.Hero-block-title Organize your anime library. #[br] Find, add, modify, #[br] communicate
-				p.Hero-block-description Join us to get full access of the site functionality
-				a.Hero-block-button.btn.modal-trigger(href="#SignUp" target="_blank") Sign up
+	section.Hero
+		.Hero-container
+			.Hero-content
+				h1.Hero-title Organize your anime library. #[br] Find, add, modify, #[br] communicate
+				p.Hero-description Join us to get full access of the site functionality
+				router-link.Hero-button.btn(to="/sign-up") Sign up
 
 </template>
 
 <script lang="ts">
 
 	export default {
-		name: "HeroBlock"
+		name: "Hero"
 	}
 
 </script>
@@ -23,7 +23,7 @@
 	@import "../../assets/styles/utils/mixins.sass"
 	@import "../../assets/styles/modules/buttons.sass"
 
-	.Hero-block
+	.Hero
 		height: 70vh
 		background-blend-mode: darken
 		background: center / cover no-repeat rgba(0, 0, 0, .6) url("../../assets/images/bg.jpg")
