@@ -9,30 +9,28 @@
 <script lang="ts">
 
 	import { Component, Vue } from 'vue-property-decorator';
-	import MainLayout from "@/layouts/MainLayout.vue"
+	import Unauthorized from "@/layouts/Unauthorized.vue";
+	import Authentication from "@/layouts/Authentication.vue";
+	import Authorized from "@/layouts/Authorized.vue";
 
 	@Component({
 		components: {
-			MainLayout
-		 },
+			Unauthorized,
+			Authentication,
+			Authorized
+		},
 		computed: {
 			layout() {
 				return this.$route.meta.layout
-			 }
-		 }
-	 })
+			}
+		}
+	})
 
 	export default class App extends Vue {}
 
 </script>
 
 <style lang="sass">
-
-	a
-		cursor: pointer
-
-	section
-		width: 100%
 
 	#app
 		font-family: Avenir, Helvetica, Arial, sans-serif

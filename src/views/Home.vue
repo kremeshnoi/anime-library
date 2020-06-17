@@ -1,20 +1,20 @@
 <template lang="pug">
 
 	.Home
-		HeroBlock
+		Hero
 
 </template>
 
 <script lang="ts">
 
-	import HeroBlock from "@/components/blocks/HeroBlock.vue";
-	import TopAiringBlock from "@/components/blocks/TopAiringBlock.vue";
+	import Hero from "@/components/blocks/Hero.vue";
+	import TopAiring from "@/components/blocks/TopAiring.vue";
 
 	export default {
 		name: "Home",
 		components: {
-			HeroBlock,
-			TopAiringBlock
+			Hero,
+			TopAiring
 		 },
 		metaInfo: {
 			title: "Anime Library - Homepage"
