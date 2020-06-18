@@ -68,8 +68,9 @@
 			color: $color-white
 
 		&-divider
-			background-color: $color-grey
+			opacity: 0.4
 			margin: 0 !important
+			background-color: $color-grey
 
 		&-list
 			margin-top: 54px
