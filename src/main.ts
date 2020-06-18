@@ -4,13 +4,13 @@ import App from "./App.vue";
 import VueMeta from "vue-meta"
 import Vuelidate from "vuelidate";
 import firebase from "firebase/app";
-import "firebase/auth"
-import "firebase/database"
+import "firebase/auth";
+import "firebase/database";
 import VueAwesomeSwiper from "vue-awesome-swiper";
-import "swiper/css/swiper.css";
+import "swiper"
 import "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
-import "vue-recaptcha"
+import "vue-recaptcha";
 
 //Libraries through configurations
 import router from "./router";
