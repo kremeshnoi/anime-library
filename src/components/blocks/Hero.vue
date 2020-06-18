@@ -5,7 +5,7 @@
 			.Hero-content
 				h1.Hero-title Organize your anime library. #[br] Find, add, modify, #[br] communicate
 				p.Hero-description Join us to get full access of the site functionality
-				router-link.Hero-button.btn(to="/sign-up") Sign up
+				router-link.Hero-button.btn(to="/register") Sign up
 
 </template>
 

@@ -28,7 +28,7 @@
 					span.SignUp-helper.helper-text(v-else-if="$v.password.$dirty && !$v.password.minLength" data-error="Password is too short")
 
 			.SignUp-row
-				router-link(to="/sign-in") Already have an account?
+				router-link(to="/login") Already have an account?
 
 			center
 				.SignUp-row
