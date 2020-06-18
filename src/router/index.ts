@@ -24,13 +24,13 @@ const routes = [
 		component: () => import("../views/Library.vue")
 	},
 	{
-		path: "/login",
+		path: "/register",
 		name: "SignUp",
 		meta: { layout: "authentication" },
 		component: () => import("../views/SignUp.vue")
 	},
 	{
-		path: "/register",
+		path: "/login",
 		name: "SignIn",
 		meta: { layout: "authentication" },
 		component: () => import("../views/SignIn.vue")
