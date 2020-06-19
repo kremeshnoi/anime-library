@@ -38,12 +38,6 @@
 
 		&-content
 			margin: 0 18% 0 0
-			+mq(tablet-wide, max)
-				margin: 0 12% 0 0
-			+mq(tablet-mid, max)
-				margin: 0
-			+mq(phone-wide, max)
-				max-width: 272px
 
 		&-title
 			margin: 8px 0 8px 0
@@ -51,14 +45,6 @@
 			font-weight: 800
 			font-size: 52px
 			text-shadow: 2px 2px 2px black
-			+mq(tablet-mid, max)
-				font-size: 44px
-			+mq(tablet, max)
-				font-size: 36px
-			+mq(tablet-small, max)
-				font-size: 30px
-			+mq(phablet, max)
-				font-size: 26px
 
 		&-description
 			margin: 8px 0 8px 0
