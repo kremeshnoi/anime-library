@@ -3,6 +3,7 @@
 	section.Top-airing
 		.Top-airing-container
 			.Top-airing-title AIRING ANIME
+				router-link.Top-airing-icon.material-icons(to="/airing-anime") list
 			Cards
 
 
@@ -29,11 +30,12 @@
 	.Top-airing
 
 		&-container
-			margin: 0 0 100px 0
-			padding: 0 24px 0 24px
+			margin: 24px 0 100px 0
+			padding: 0 40px 0 40px
 			+flex(center, center, column)
 
 		&-title
+
 			width: 100%
 			font-size: 16px
 			font-weight: 700
@@ -41,5 +43,9 @@
 			text-transform: uppercase
 			padding: 14px 0 14px 14px
 			border-left: 5px solid $color-light-grey
+			+flex(space-between, center, row)
+
+		&-icon
+			color: $color-grey
 
 </style>
