@@ -1,11 +1,17 @@
 import jikanjs from "../../node_modules/jikanjs/lib/jikan.js"
 
-const fetchTopList = async (type: string, page: number, subtype: string) => {
+const fetchTopList = async (type: string, page: number, subtype: string, hm: number) => {
 	try {
 		const data: Array<object> = [];
-		const response = await jikanjs.loadTop(type, page, subtype);
+		const response = await jikanjs.loadTop(type, page, subtype, hm);
+		let i:number = 0;
 		response.top.forEach((element: any) => {
-			data.push(element)
+			if (i < hm) {
+				data.push(element)
+				i++
+			} else {
+				return
+			}
 		})
 		return data;
 	}  catch (error) {
