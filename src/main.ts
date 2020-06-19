@@ -6,9 +6,6 @@ import Vuelidate from "vuelidate";
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/database";
-import "swiper";
-import "swiper/css/swiper.css";
-import VueAwesomeSwiper from "vue-awesome-swiper";
 import "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
 import "vue-recaptcha";
@@ -28,7 +25,6 @@ import "./assets/styles/theme/days-one-regular.sass";
 Vue.config.productionTip = false;
 Vue.use(VueMeta)
 Vue.use(Vuelidate)
-Vue.use(VueAwesomeSwiper)
 
 firebase.initializeApp({
 	apiKey: "AIzaSyD2Q4AAfZcG9elxTPTPmzADyY00YDiQpLw",
