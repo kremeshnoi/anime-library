@@ -2,6 +2,7 @@
 
 	.Home
 		Hero
+		TopAiring
 
 </template>
 
