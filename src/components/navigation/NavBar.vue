@@ -34,6 +34,7 @@
 			background-color: $color-blue
 			top: 0
 			z-index: 99
+			padding: 0 40px 0 40px
 
 			&-wrapper
 				width: 100%
@@ -41,14 +42,14 @@
 			&-logo
 				font-size: 1.7rem
 				position: fixed
-				left: 0
-				margin: 0 20px
+				left: 40px
 				color: $color-white
 				font-family: "Days One", sans-serif
 
 			&-trigger
 				height: 54px
 				line-height: 54px
+				margin: 0
 				float: right !important
 
 			&-icon-menu
@@ -63,7 +64,6 @@
 					display: none
 
 				&-link
-					margin: 0 20px 0 20px
 					display: flex
 					align-items: center
 
