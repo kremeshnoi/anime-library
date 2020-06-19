@@ -24,33 +24,28 @@
 	@import "../../assets/styles/modules/buttons.sass"
 
 	.Hero
-		height: 70vh
+		height: 50vh
 		background-blend-mode: darken
-		background: center / cover no-repeat rgba(0, 0, 0, .6) url("../../assets/images/bg.jpg")
-		+mq(phablet, max)
-			height: 50vh
+		background: center / cover no-repeat rgba(0, 0, 0, .2) url("../../assets/images/bg.jpg")
 
 		&-container
 			height: 100%
 			text-align: start
-			margin: 0 24px 0 24px
-			+flex(center, center, column)
-
-		&-content
-			margin: 0 18% 0 0
+			padding: 0 24px 0 24px
+			+flex(center, start, column)
 
 		&-title
+			font-size: 52px
+			font-weight: 800
 			margin: 8px 0 8px 0
 			color: $color-white
-			font-weight: 800
-			font-size: 52px
 			text-shadow: 2px 2px 2px black
 
 		&-description
+			font-size: 18px
+			font-weight: 300
 			margin: 8px 0 8px 0
 			color: $color-white
-			font-weight: 300
-			font-size: 18px
 			text-shadow: 2px 2px 2px black
 
 		&-button
