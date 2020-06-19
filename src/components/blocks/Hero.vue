@@ -31,7 +31,7 @@
 		&-container
 			height: 100%
 			text-align: start
-			padding: 0 24px 0 24px
+			padding: 0 40px 0 40px
 			+flex(center, start, column)
 
 		&-title
