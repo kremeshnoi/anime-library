@@ -2,7 +2,7 @@
 
 	.Cards(v-swiper:mySwiper="swiperOptions")
 		.Cards-container.swiper-wrapper
-			.Cards-item.card.swiper-slide(v-for="result in getTopList")
+			.Cards-item.card.swiper-slide(v-for="result in getTopList" v-bind:key="result.item")
 					.Cards-image-wrapper.card-image
 						img.Cards-image.activator(v-bind:src="result['image_url']")
 					.Cards-title-wrapper.card-content
