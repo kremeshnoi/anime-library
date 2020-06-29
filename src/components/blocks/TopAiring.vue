@@ -9,7 +9,7 @@
 
 </template>
 
-<script lang="ts">
+<script>
 
 	import Cards from "@/components/modules/Cards.vue";
 

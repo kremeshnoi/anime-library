@@ -6,7 +6,7 @@
 
 </template>
 
-<script lang="ts">
+<script>
 
 	import Hero from "@/components/blocks/Hero.vue";
 	import TopAiring from "@/components/blocks/TopAiring.vue";
