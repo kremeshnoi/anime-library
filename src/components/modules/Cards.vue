@@ -1,40 +1,69 @@
 <template lang="pug">
 
-	.Cards
-		.Cards-container
-			.Cards-item.card(v-for="result in getTopList")
-				.Cards-image-wrapper.card-image
-					img.Cards-image.activator(v-bind:src="result['image_url']")
-				.Cards-title-wrapper.card-content
-					span.Cards-title.card-title.activator {{ result['title'] }}
-				.Cards-reveal-wrapper.card-reveal
-					span.Cards-reveal-title.card-title {{ result['title'] }}
-					p.Cards-reveal-description Type : {{ result['type'] }}
-					p.Cards-reveal-description Score : {{ result['score'] }}
-					.Cards-reveal-input-field.input-field
-						label.Cards-reveal-label Status
-						select.Cards-reveal-select.browser-default
-							option(value="1") Plan to watch
-							option(value="2") Watching
-							option(value="3") Completed
-							option(value="4") On hold
-							option(value="4") Dropped
-							option(value="4") Reviewing
-					p.Cards-reveal-description
-						a.Cards-reveal-description More info
+	.Cards(v-swiper:mySwiper="swiperOptions")
+		.Cards-container.swiper-wrapper
+			.Cards-item.card.swiper-slide(v-for="result in getTopList")
+					.Cards-image-wrapper.card-image
+						img.Cards-image.activator(v-bind:src="result['image_url']")
+					.Cards-title-wrapper.card-content
+						span.Cards-title.card-title.activator {{ result['title'] }}
+
+		.swiper-button-prev
+		.swiper-button-next
 
 </template>
 
 <script>
 
-	import { FetchTopList } from "@/services/fetchTopList.ts";
+	import { FetchTopList } from "@/services/fetchTopList";
+	import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper"
 
 	export default {
 		name: "Cards",
 		data: () => {
 			return {
-				getTopList: []
+				getTopList: [],
+				swiperOptions: {
+					navigation: {
+						nextEl: '.swiper-button-next',
+						prevEl: '.swiper-button-prev',
+					},
+					spaceBetween: 10,
+					breakpoints: {
+						320: {
+							slidesPerView: 1
+						},
+						400: {
+							slidesPerView: 2
+						},
+						560: {
+							slidesPerView: 3
+						},
+						640: {
+							slidesPerView: 4
+						},
+						768: {
+							slidesPerView: 4
+						},
+						992: {
+							slidesPerView: 5
+						},
+						1248: {
+							slidesPerView: 6
+						},
+						1440: {
+							slidesPerView: 8
+						}
+					}
+				}
 			}
+		},
+		components: {
+			Swiper,
+			SwiperSlide
+		},
+		directives: {
+			swiper: directive
 		},
 		mounted() {
 			FetchTopList.fetchTopList("anime",1, "airing", 8).then(response => {
@@ -53,21 +82,15 @@
 	.Cards
 		width: 100%
 
-		&-container
-			display: grid
-			grid-gap: 20px
-			justify-content: space-between
-			grid-template-columns: repeat(auto-fit, 200px)
-
 		&-item
-			margin: 0
+			margin: 10px 10px 10px 0
 			height: fit-content
 			&:hover
 				opacity: 0.9
 
 		&-image
-			object-fit: contain
-			transform: scale(1.01)
+			object-fit: cover
+			transform: scale(1.02)
 			&-wrapper
 				overflow: hidden
 				cursor: pointer
@@ -85,11 +108,6 @@
 				justify-content: center
 				align-items: center
 				padding: 10px
-
-		&-reveal
-			&-wrapper
-				height: 101%
-				padding: 24px 14px 24px 14px
 
 			&-title
 				margin: 0 auto
@@ -116,5 +134,29 @@
 				padding: 0
 				border: none
 				outline: none
+
+	.swiper-button-prev, .swiper-button-next
+		top: 0
+		height: 50%
+		width: 40px
+		color: rgba(17,34,51,0.75)
+		transform: translateY(50%)
+		outline: none
+		&:after
+			font-size: 24px
+
+	.swiper-button-prev
+		left: 0
+		background: linear-gradient(to left, rgba(213,213,213,0), rgba(213,213,213,0.75) 70%, rgba(213,213,213,0.85))
+		border-bottom-right-radius: 100% 50%
+		border-top-right-radius: 100% 50%
+
+
+	.swiper-button-next
+		right: 0
+		background: linear-gradient(to right, rgba(213,213,213,0), rgba(213,213,213,0.75) 70%, rgba(213,213,213,0.85))
+		border-bottom-left-radius: 100% 50%
+		border-top-left-radius: 100% 50%
+
 
 </style>
