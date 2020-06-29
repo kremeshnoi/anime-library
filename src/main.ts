@@ -21,8 +21,8 @@ import "./registerServiceWorker.ts";
 import "./assets/styles/base/base.sass";
 import "./assets/styles/base/reset.sass";
 import "./assets/styles/theme/scrollbar.sass";
-import "./assets/styles/theme/material-icons.sass";
-import "./assets/styles/theme/days-one-regular.sass";
+import "./assets/styles/theme/fonts/material-icons.sass";
+import "./assets/styles/theme/fonts/days-one-regular.sass";
 
 Vue.config.productionTip = false;
 Vue.use(VueMeta)
