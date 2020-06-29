@@ -24,7 +24,7 @@
 	@import "../../assets/styles/modules/buttons.sass"
 
 	.Hero
-		height: 50vh
+		height: 70vh
 		background-blend-mode: darken
 		background: center / cover no-repeat rgba(0, 0, 0, .2) url("../../assets/images/bg.jpg")
 

@@ -6,7 +6,6 @@
 				.Top-airing-icon.material-icons keyboard_arrow_right
 			Cards
 
-
 </template>
 
 <script>
