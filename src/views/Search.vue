@@ -34,7 +34,7 @@
 
 </template>
 
-<script lang="ts">
+<script>
 
 	import { mapActions, mapGetters } from "vuex"
 

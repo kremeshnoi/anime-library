@@ -42,7 +42,7 @@
 
 </template>
 
-<script lang="ts">
+<script>
 
 	import { email, required, minLength } from "vuelidate/lib/validators";
 	import VueRecaptcha from "vue-recaptcha";

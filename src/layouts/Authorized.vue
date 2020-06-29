@@ -14,7 +14,7 @@
 
 </template>
 
-<script lang="ts">
+<script>
 
 	import MainNav from "@/components/navigation/NavBar.vue";
 	import MobileNav from "@/components/navigation/MobileNav.vue";
