@@ -87,7 +87,7 @@
 
 		&-row
 			margin: 20px auto 20px auto
-			max-width: 290px
+			max-width: 304px
 
 		&-field
 			+flex(center, flex-start, column)
