@@ -32,7 +32,7 @@
 			height: 100%
 			text-align: start
 			padding: 0 40px 0 40px
-			+flex(center, start, column)
+			+flex(center, flex-start, column)
 
 		&-title
 			font-size: 52px

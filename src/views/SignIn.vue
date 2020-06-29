@@ -103,7 +103,7 @@
 			max-width: 290px
 
 		&-field
-			+flex(center, start, column)
+			+flex(center, flex-start, column)
 
 		&-helper
 			width: 100%
