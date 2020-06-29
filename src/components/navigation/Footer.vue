@@ -29,7 +29,7 @@
 				p.Footer-copyright-bar-text Inspired by
 					a.Footer-copyright-link(href="https://myanimelist.net/" target="_blank") &nbsp;MAL
 				p.Footer-copyright-bar-text and
-					a.Footer-copyright-link(href="https://shikimori.org/" target="_blank") &nbsp;Shikimori
+					a.Footer-copyright-link(href="https://shikimori.one/" target="_blank") &nbsp;Shikimori
 
 
 </template>
