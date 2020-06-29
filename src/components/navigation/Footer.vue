@@ -79,7 +79,7 @@
 			height: 100%
 			padding: 0 24px 0 0
 			justify-content: flex-start !important
-			border-right: 2px solid rgba(225, 225, 225, 0.2)
+			border-right: 1px solid rgba(225, 225, 225, 0.2)
 			+flex(center, flex-start, column)
 			&:last-of-type
 				border: none
