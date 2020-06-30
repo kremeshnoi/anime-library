@@ -29,8 +29,8 @@
 	.Top-airing
 
 		&-container
-			margin: 40px 0 40px 0
-			padding: 0 40px 0 40px
+			padding: 40px 0 40px 0
+			margin: 0 40px 0 40px
 			+flex(center, center, column)
 
 		&-title
