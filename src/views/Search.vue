@@ -13,7 +13,7 @@
 			.query-content(v-if="fetchAnime.length")
 				.card.query-content-card(v-for="result in fetchAnime")
 					.card-image.query-content-card-wrapper
-						img.activator.query-content-card-image(v-bind:src="result['image_url']")
+						img.activator.query-content-card-image(:src="result['image_url']")
 
 					.card-content.query-content-card-outer
 						span.card-title.activator.query-content-card-title {{ result['title'] }}
