@@ -2,7 +2,7 @@
 
 	.Cards(v-swiper:mySwiper="swiperOptions")
 		.Cards-container.swiper-wrapper
-			.Cards-item.card.swiper-slide(v-for="result in getTopList.slice(0, 8)" :key="result.item")
+			.Cards-item.card.swiper-slide(v-for="result in getTopList.slice(0, 8)" :key="index")
 					.Cards-image-wrapper.card-image
 						img.Cards-image.activator(:src="result['image_url']")
 					.Cards-title-wrapper.card-content
