@@ -1,20 +1,17 @@
 <template lang="pug">
 
 	.Home
-		Hero
 		TopAiring
 
 </template>
 
 <script>
 
-	import Hero from "@/components/blocks/Hero.vue";
 	import TopAiring from "@/components/blocks/TopAiring.vue";
 
 	export default {
 		name: "Home",
 		components: {
-			Hero,
 			TopAiring
 		 },
 		metaInfo: {
