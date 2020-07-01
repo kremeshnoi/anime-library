@@ -2,7 +2,7 @@
 
 	.Cards(v-swiper:mySwiper="swiperOptions")
 		.Cards-container.swiper-wrapper
-			.Cards-item.card.swiper-slide(v-for="result in getTopList" :key="result.item")
+			.Cards-item.card.swiper-slide(v-for="result in getTopList.slice(0, 8)" :key="result.item")
 					.Cards-image-wrapper.card-image
 						img.Cards-image.activator(:src="result['image_url']")
 					.Cards-title-wrapper.card-content
@@ -66,7 +66,7 @@
 			swiper: directive
 		},
 		mounted() {
-			FetchTopList.fetchTopList("anime",1, "airing", 8).then(response => {
+			FetchTopList.fetchTopList("anime",1, "airing").then(response => {
 				this.getTopList = response
 			})
 		}
