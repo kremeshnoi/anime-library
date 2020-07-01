@@ -27,10 +27,12 @@
 	@import "../../assets/styles/utils/mixins.sass"
 
 	.Top-airing
+		+flex(center, center, column)
 
 		&-container
 			padding: 40px 0 40px 0
 			margin: 0 40px 0 40px
+			max-width: 1300px
 			+flex(center, center, column)
 
 		&-title
@@ -41,7 +43,7 @@
 			text-align: start
 			text-transform: uppercase
 			padding: 14px 0 14px 14px
-			border-left: 5px solid $color-light-blue
+			border-left: 5px solid $color-blue-light
 			+flex(space-between, center, row)
 			&:hover
 				color: orange
