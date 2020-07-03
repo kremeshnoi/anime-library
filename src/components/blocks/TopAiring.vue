@@ -27,11 +27,9 @@
 	@import "../../assets/styles/utils/mixins.sass"
 
 	.Top-airing
-		+flex(center, center, column)
-
 		&-container
-			padding: 40px 0 40px 0
-			margin: 0 40px 0 40px
+			margin: 0 auto
+			padding: 40px 40px 40px 40px
 			max-width: 1300px
 			+flex(center, center, column)
 
