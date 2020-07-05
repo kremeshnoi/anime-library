@@ -12,32 +12,29 @@
 </template>
 
 <script>
-
-	export default {
-		name: "FooterCopyright"
-	}
-
+export default {
+  name: "FooterCopyright"
+};
 </script>
 
 <style lang="sass" scoped>
 
-	@import "../../assets/styles/utils/vars"
-	@import "../../assets/styles/utils/mixins"
+@import "../../assets/styles/utils/vars"
+@import "../../assets/styles/utils/mixins"
 
-	.FooterCopyright
-		padding: 14px 20px 14px 20px
-		background-color: $color-blue-dark
+.FooterCopyright
+	padding: 14px 20px 14px 20px
+	background-color: $color-blue-dark
 
-		&-container
-			+flex(center, center, row)
+	&-container
+		+flex(center, center, row)
 
-		&-text
-			margin: 0 4px 0 0
-			color: $color-white
+	&-text
+		margin: 0 4px 0 0
+		color: $color-white
 
-		&-link
-			color: $color-white
-			&:hover
-				opacity: 0.6
-
+	&-link
+		color: $color-white
+		&:hover
+			opacity: 0.6
 </style>
