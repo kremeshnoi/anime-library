@@ -1,6 +1,6 @@
 import jikanjs from "../../node_modules/jikanjs/lib/jikan.js"
 
-const fetchTopList = async (type: string, page: number, subtype: string) => {
+const fetchTopList = async (type: string, page: number, subtype?: string) => {
 	try {
 		const data: Array<object> = [];
 		const response = await jikanjs.loadTop(type, page, subtype);
