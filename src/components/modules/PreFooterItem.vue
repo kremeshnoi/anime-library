@@ -1,20 +1,57 @@
 <template lang="pug">
 
 	.PreFooterListItem
-		router-link.PreFooterListItem-title(to="/")
+		router-link.PreFooterListItem-title(to="/") {{ titles[listName] }}
 			.PreFooterListItem-icon.material-icons keyboard_arrow_right
-		.PreFooterListItem-content(v-for="(result, index) in dataList.slice(0, 7)" :key="index")
+		.PreFooterListItem-content(v-for="(result, index) in lists[listName]" :key="index")
 			p.PreFooterListItem-digit {{ index + 1 }}.
-			router-link.PreFooterListItem-link(to="/")  {{ result['title'] }}
+			router-link.PreFooterListItem-link(to="/") {{ result['title'] }}
 
 </template>
 
 <script>
 
+	import {FetchTopList} from "@/services/fetchTopList";
+
+	const titles = Object.freeze({
+		topAnimeList: "Top Anime",
+		topMangaList: "Top Manga",
+		charactersList: "Most Popular Characters"
+	});
+
+	const titlesVerb = Object.freeze({
+		  topAnimeList: "anime",
+		  topMangaList: "manga",
+		  charactersList: "characters"
+  	})
+
 	export default {
 		name: "PreFooterItem",
 		props: {
-			dataList: Array
+			listName: {
+				type: String,
+				required: true
+			}
+		},
+		data: () => {
+			return {
+				lists: {},
+				titles
+			}
+		},
+		created() {
+			this.$nextTick(() => {
+				this.fetchList(this.listName);
+			});
+
+		},
+		methods: {
+			fetchList(listName) {
+				const isFav = listName !== "charactersList" ? "favorite" : "";
+				FetchTopList.fetchTopList(titlesVerb[listName],1, isFav).then(response => {
+					this.lists[listName] = response
+				});
+			}
 		}
 	}
 
