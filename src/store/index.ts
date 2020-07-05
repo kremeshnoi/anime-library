@@ -46,7 +46,7 @@ export default new Vuex.Store({
 		async getTopList(ctx, { type, page, subtype }) {
 			try {
 				const animeTopListResult = await FetchTopList.fetchTopList(type, page, subtype);
-				ctx.commit("SET_ANIME_TOP", animeTopListResult)
+				ctx.commit("SET_ANIME_TOP", animeTopListResult);
 			} catch (e) {
 				console.log(e)
 			}
