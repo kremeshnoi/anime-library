@@ -13,8 +13,4 @@ const fetchTopList = async (type: string, page: number, subtype?: string) => {
 	}
 }
 
-const FetchTopList = {
-	fetchTopList
-}
-
-export { FetchTopList }
+export { fetchTopList }
