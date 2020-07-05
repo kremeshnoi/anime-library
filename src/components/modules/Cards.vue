@@ -14,149 +14,145 @@
 </template>
 
 <script>
+import { fetchTopList } from "@/services/fetchTopList";
+import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper";
 
-	import { fetchTopList } from "@/services/fetchTopList";
-	import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper"
-
-	export default {
-		name: "Cards",
-		data: () => {
-			return {
-				getTopList: [],
-				swiperOptions: {
-					navigation: {
-						nextEl: '.swiper-button-next',
-						prevEl: '.swiper-button-prev',
-					},
-					spaceBetween: 10,
-					breakpoints: {
-						320: {
-							slidesPerView: 1
-						},
-						400: {
-							slidesPerView: 2
-						},
-						560: {
-							slidesPerView: 3
-						},
-						640: {
-							slidesPerView: 4
-						},
-						768: {
-							slidesPerView: 4
-						},
-						992: {
-							slidesPerView: 5
-						},
-						1248: {
-							slidesPerView: 6
-						},
-						1440: {
-							slidesPerView: 8
-						}
-					}
-				}
-			}
-		},
-		components: {
-			Swiper,
-			SwiperSlide
-		},
-		directives: {
-			swiper: directive
-		},
-		mounted() {
-			fetchTopList("anime",1, "airing").then(response => {
-				this.getTopList = response
-			})
-		}
-	 }
-
+export default {
+  name: "Cards",
+  data: () => {
+    return {
+      getTopList: [],
+      swiperOptions: {
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        },
+        spaceBetween: 10,
+        breakpoints: {
+          320: {
+            slidesPerView: 1
+          },
+          400: {
+            slidesPerView: 2
+          },
+          560: {
+            slidesPerView: 3
+          },
+          640: {
+            slidesPerView: 4
+          },
+          768: {
+            slidesPerView: 4
+          },
+          992: {
+            slidesPerView: 5
+          },
+          1248: {
+            slidesPerView: 6
+          },
+          1440: {
+            slidesPerView: 8
+          }
+        }
+      }
+    };
+  },
+  components: {
+    Swiper,
+    SwiperSlide
+  },
+  directives: {
+    swiper: directive
+  },
+  mounted() {
+    fetchTopList("anime", 1, "airing").then(response => {
+      this.getTopList = response;
+    });
+  }
+};
 </script>
 
 <style lang="sass" scoped>
 
-	@import "../../assets/styles/utils/vars"
-	@import "../../assets/styles/utils/mixins"
+@import "../../assets/styles/utils/vars"
+@import "../../assets/styles/utils/mixins"
 
-	.Cards
-		width: 100%
+.Cards
+	width: 100%
 
-		&-item
-			margin: 10px 10px 10px 0
-			height: fit-content
-			&:hover
-				opacity: 0.9
+	&-item
+		margin: 10px 10px 10px 0
+		height: fit-content
+		&:hover
+			opacity: 0.9
 
-		&-image
-			object-fit: cover
-			transform: scale(1.02)
-			&-wrapper
-				overflow: hidden
-				cursor: pointer
+	&-image
+		object-fit: cover
+		transform: scale(1.02)
+		&-wrapper
+			overflow: hidden
+			cursor: pointer
+
+	&-title
+		margin: 0 !important
+		width: 160px
+		font-size: 16px
+		display: block
+		overflow: hidden
+		white-space: nowrap
+		text-overflow: ellipsis
+		&-wrapper
+			display: flex
+			justify-content: center
+			align-items: center
+			padding: 10px
 
 		&-title
-			margin: 0 !important
-			width: 160px
+			margin: 0 auto
 			font-size: 16px
-			display: block
-			overflow: hidden
-			white-space: nowrap
-			text-overflow: ellipsis
-			&-wrapper
-				display: flex
-				justify-content: center
-				align-items: center
-				padding: 10px
+			max-width: 150px
 
-			&-title
-				margin: 0 auto
-				font-size: 16px
-				max-width: 150px
+		&-description
+			text-align: start
+			margin: 8px 0 8px 0
+			&:first-of-type
+				margin: 24px 0 0 0
 
-			&-description
-				text-align: start
-				margin: 8px 0 8px 0
-				&:first-of-type
-					margin: 24px 0 0 0
+		&-input-field
+			+flex(center, center, column)
 
-			&-input-field
-				+flex(center, center, column)
+		&-label
+			width: 100%
+			text-align: start
+			position: initial
+			margin: 0 0 8px 0
 
-			&-label
-				width: 100%
-				text-align: start
-				position: initial
-				margin: 0 0 8px 0
+		&-select
+			margin: 0
+			padding: 0
+			border: none
+			outline: none
 
-			&-select
-				margin: 0
-				padding: 0
-				border: none
-				outline: none
+.swiper-button-prev, .swiper-button-next
+	top: 0
+	height: 50%
+	width: 40px
+	color: rgba(17,34,51,0.75)
+	transform: translateY(50%)
+	outline: none
+	&:after
+		font-size: 24px
 
-	.swiper-button-prev, .swiper-button-next
-		top: 0
-		height: 50%
-		width: 40px
-		color: rgba(17,34,51,0.75)
-		transform: translateY(50%)
-		outline: none
-		&:after
-			font-size: 24px
-
-	.swiper-button-prev
-		left: 0
-		background: linear-gradient(to left, rgba(213,213,213,0), rgba(213,213,213,0.75) 70%, rgba(213,213,213,0.85))
-		border-bottom-right-radius: 100% 50%
-		border-top-right-radius: 100% 50%
+.swiper-button-prev
+	left: 0
+	background: linear-gradient(to left, rgba(213,213,213,0), rgba(213,213,213,0.75) 70%, rgba(213,213,213,0.85))
+	border-bottom-right-radius: 100% 50%
+	border-top-right-radius: 100% 50%
 
 
-	.swiper-button-next
-		right: 0
-		background: linear-gradient(to right, rgba(213,213,213,0), rgba(213,213,213,0.75) 70%, rgba(213,213,213,0.85))
-		border-bottom-left-radius: 100% 50%
-		border-top-left-radius: 100% 50%
-
-
+.swiper-button-next
+	right: 0
+	background: linear-gradient(to right, rgba(213,213,213,0), rgba(213,213,213,0.75) 70%, rgba(213,213,213,0.85))
+	border-bottom-left-radius: 100% 50%
+	border-top-left-radius: 100% 50%
 </style>

@@ -25,29 +25,29 @@ import "./assets/styles/theme/fonts/material-icons.sass";
 import "./assets/styles/theme/fonts/days-one-regular.sass";
 
 Vue.config.productionTip = false;
-Vue.use(VueMeta)
-Vue.use(Vuelidate)
-Vue.use(VueAwesomeSwiper)
+Vue.use(VueMeta);
+Vue.use(Vuelidate);
+Vue.use(VueAwesomeSwiper);
 
 firebase.initializeApp({
-	apiKey: "AIzaSyD2Q4AAfZcG9elxTPTPmzADyY00YDiQpLw",
-	authDomain: "anime-library-72ebd.firebaseapp.com",
-	databaseURL: "https://anime-library-72ebd.firebaseio.com",
-	projectId: "anime-library-72ebd",
-	storageBucket: "anime-library-72ebd.appspot.com",
-	messagingSenderId: "107283771690",
-	appId: "1:107283771690:web:ccad8edf8dcdbc158dae53",
-	measurementId: "G-02RXVDVNL3"
-})
+  apiKey: "AIzaSyD2Q4AAfZcG9elxTPTPmzADyY00YDiQpLw",
+  authDomain: "anime-library-72ebd.firebaseapp.com",
+  databaseURL: "https://anime-library-72ebd.firebaseio.com",
+  projectId: "anime-library-72ebd",
+  storageBucket: "anime-library-72ebd.appspot.com",
+  messagingSenderId: "107283771690",
+  appId: "1:107283771690:web:ccad8edf8dcdbc158dae53",
+  measurementId: "G-02RXVDVNL3"
+});
 
-let app
+let app;
 
-firebase.auth().onAuthStateChanged(()=> {
-	if(!app) {
-		app = new Vue({
-			router,
-			store,
-			render: h => h(App)
-		}).$mount("#app");
-	}
-})
+firebase.auth().onAuthStateChanged(() => {
+  if (!app) {
+    app = new Vue({
+      router,
+      store,
+      render: h => h(App)
+    }).$mount("#app");
+  }
+});

@@ -33,74 +33,71 @@
 </template>
 
 <script>
-
-	export default {
-		name: "SideNav",
-		data: () => ({
-			links: [
-				{ title: "Home", url: "/" },
-				{ title: "Search", url: "/search" },
-				{ title: "My Library", url: "/library" }
-			]
-		 })
-	 }
-
+export default {
+  name: "SideNav",
+  data: () => ({
+    links: [
+      { title: "Home", url: "/" },
+      { title: "Search", url: "/search" },
+      { title: "My Library", url: "/library" }
+    ]
+  })
+};
 </script>
 
 <style lang="sass" scoped>
 
-	@import "../../assets/styles/utils/vars"
-	@import "../../assets/styles/utils/mixins"
+@import "../../assets/styles/utils/vars"
+@import "../../assets/styles/utils/mixins"
 
-	.sidenav
-		&-user
-			padding: 32px !important
+.sidenav
+	&-user
+		padding: 32px !important
 
-			&-circle
-				height: 84px !important
-				width: 84px !important
-				box-shadow: 4px 4px 5px -1px rgba(0, 0, 0, 0.65)
+		&-circle
+			height: 84px !important
+			width: 84px !important
+			box-shadow: 4px 4px 5px -1px rgba(0, 0, 0, 0.65)
 
-		&-avatar
-			cursor: default
+	&-avatar
+		cursor: default
 
-		&-username
-			color: $color-white
+	&-username
+		color: $color-white
 
-		&-divider
-			opacity: 0.4
-			margin: 0 !important
-			background-color: $color-grey
+	&-divider
+		opacity: 0.4
+		margin: 0 !important
+		background-color: $color-grey
 
-		&-list
-			margin-top: 54px
-			background-color: $color-dark
+	&-list
+		margin-top: 54px
+		background-color: $color-dark
 
-		&-list-link
-			display: flex
-			justify-content: center
-			color: $color-white
+	&-list-link
+		display: flex
+		justify-content: center
+		color: $color-white
+
+		&:hover
+			opacity: 0.7
+
+		&-library
+			padding: 0 0 0 24px
+
+		&-settings
+			position: absolute
+			bottom: 10px
+			right: 20px
+			height: 24px
 
 			&:hover
-				opacity: 0.7
+				background-color: initial
 
-			&-library
-				padding: 0 0 0 24px
+	&-icon
+		&-settings
+			color: $color-light-grey
 
-			&-settings
-				position: absolute
-				bottom: 10px
-				right: 20px
-				height: 24px
-
-				&:hover
-					background-color: initial
-
-		&-icon
-			&-settings
-				color: $color-light-grey
-
-			&-library
-				margin: 0 0 0 6px !important
-
+		&-library
+			margin: 0 0 0 6px !important
 </style>
