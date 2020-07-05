@@ -15,8 +15,4 @@ const fetchAnime = async (query: string) => {
 	}
  }
 
-const FetchAnime = {
-	fetchAnime
- }
-
-export { FetchAnime }
+export { fetchAnime }

@@ -11,7 +11,7 @@
 
 <script>
 
-	import {FetchTopList} from "@/services/fetchTopList";
+	import {fetchTopList} from "@/services/fetchTopList";
 
 	const titles = Object.freeze({
 		topAnimeList: "Top Anime",
@@ -48,7 +48,7 @@
 		methods: {
 			fetchList(listName) {
 				const isFav = listName !== "charactersList" ? "favorite" : "";
-				FetchTopList.fetchTopList(titlesVerb[listName],1, isFav).then(response => {
+				fetchTopList(titlesVerb[listName],1, isFav).then(response => {
 					this.lists[listName] = response
 				});
 			}
