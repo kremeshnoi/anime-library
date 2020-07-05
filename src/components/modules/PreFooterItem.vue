@@ -3,7 +3,7 @@
 	.PreFooterListItem
 		router-link.PreFooterListItem-title(to="/") {{ titles[listName] }}
 			.PreFooterListItem-icon.material-icons keyboard_arrow_right
-		.PreFooterListItem-content(v-for="(result, index) in lists[listName]" :key="index")
+		.PreFooterListItem-content(v-for="(result, index) in lists" :key="index")
 			p.PreFooterListItem-digit {{ index + 1 }}.
 			router-link.PreFooterListItem-link(to="/") {{ result['title'] }}
 
@@ -39,15 +39,13 @@ export default {
     };
   },
   created() {
-    this.$nextTick(() => {
-      this.fetchList(this.listName);
-    });
+		this.fetchList(this.listName);
   },
   methods: {
     fetchList(listName) {
       const isFav = listName !== "charactersList" ? "favorite" : "";
       fetchTopList(titlesVerb[listName], 1, isFav).then(response => {
-        this.lists[listName] = response;
+        this.lists = response.slice(0, 8);
       });
     }
   }
