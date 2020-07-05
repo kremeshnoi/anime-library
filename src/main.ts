@@ -1,21 +1,21 @@
 //Libraries
 import Vue from "vue";
 import App from "./App.vue";
-import VueMeta from "vue-meta"
+import VueMeta from "vue-meta";
 import Vuelidate from "vuelidate";
-import firebase from "firebase/app";
 import VueAwesomeSwiper from "vue-awesome-swiper";
-import "swiper/css/swiper.css"
+import "swiper/css/swiper.min.css";
+import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/database";
+import "vue-recaptcha";
 import "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
-import "vue-recaptcha";
 
 //Libraries through configurations
 import router from "./router";
 import store from "./store";
-import "./registerServiceWorker.ts";
+import "./registerServiceWorker";
 
 //Styles
 import "./assets/styles/base/base.sass";
