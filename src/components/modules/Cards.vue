@@ -2,7 +2,7 @@
 
 	.Cards(v-swiper:mySwiper="swiperOptions")
 		.Cards-container.swiper-wrapper
-			.Cards-item.card.swiper-slide(v-for="(result, index) in getTopList.slice(0, 8)" :key="index")
+			.Cards-item.card.swiper-slide(v-for="(result, index) in topAnimeListData" :key="index")
 					.Cards-image-wrapper.card-image
 						img.Cards-image.activator(:src="result['image_url']")
 					.Cards-title-wrapper.card-content
@@ -14,14 +14,15 @@
 </template>
 
 <script>
-import { fetchTopList } from "@/services/fetchTopList";
+
 import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "Cards",
   data: () => {
     return {
-      getTopList: [],
+			topAnimeListData: [],
       swiperOptions: {
         navigation: {
           nextEl: ".swiper-button-next",
@@ -51,7 +52,7 @@ export default {
             slidesPerView: 6
           },
           1440: {
-            slidesPerView: 8
+            slidesPerView: 7
           }
         }
       }
@@ -64,11 +65,17 @@ export default {
   directives: {
     swiper: directive
   },
-  mounted() {
-    fetchTopList("anime", 1, "airing").then(response => {
-      this.getTopList = response;
-    });
-  }
+	methods: {
+		...mapActions(["fetchTopList"])
+	},
+	computed: {
+		...mapGetters(["getTopListResult"])
+	},
+	created() {
+  	 this.fetchTopList(["anime", 1, "airing"]).then(() => {
+			this.topAnimeListData = this.getTopListResult.slice(0, 12)
+		})
+	}
 };
 </script>
 
@@ -83,6 +90,7 @@ export default {
 	&-item
 		margin: 10px 10px 10px 0
 		height: fit-content
+		box-shadow: none
 		&:hover
 			opacity: 0.9
 
@@ -106,6 +114,7 @@ export default {
 			justify-content: center
 			align-items: center
 			padding: 10px
+			box-shadow: 0 8px 7px -7px rgba(0, 0, 0, 1)
 
 		&-title
 			margin: 0 auto
