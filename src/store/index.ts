@@ -7,54 +7,55 @@ import auth from "@/store/auth.ts";
 
 //Interfaces
 import { State } from "@/interfaces/state.ts";
+import { SearchResponse } from "@/interfaces/search.ts";
 
-//Services
-import { fetchAnime } from "@/services/fetchAnime.ts";
-import { fetchTopList } from "@/services/fetchTopList.ts";
-import { TriggerToast } from "@/services/triggerToast.ts";
+//API wrappers
+import jikanjs from "../../node_modules/jikanjs/lib/jikan.js";
 
 Vue.use(Vuex);
 
 export const state: State = {
-  animeSearchResult: [],
-  animeTopListResult: []
+  searchAnimeResult: [],
+  topListResult: []
 };
 
 export default new Vuex.Store({
   state,
   mutations: {
-    SET_ANIME(state, animeSearchResult) {
-      state.animeSearchResult = animeSearchResult;
+    SET_ANIME(state, searchAnimeResult) {
+      state.searchAnimeResult = searchAnimeResult;
     },
-    SET_ANIME_TOP(state, animeTopListResult) {
-      state.animeTopListResult = animeTopListResult;
+    SET_TOP_LIST(state, topListResult) {
+      state.topListResult = topListResult;
     }
   },
   actions: {
-    async getAnime(ctx, query) {
+    async fetchAnime(ctx, query) {
       try {
-        const animeSearchResult = await fetchAnime(query);
-        if (Array.isArray(animeSearchResult) && animeSearchResult.length > 0) {
-          ctx.commit("SET_ANIME", animeSearchResult);
+        const searchAnimeResponse: SearchResponse = await jikanjs.search("anime", query);
+        const searchAnimeResult = searchAnimeResponse.results;
+        if (Array.isArray(searchAnimeResult) && searchAnimeResult.length > 0) {
+          ctx.commit("SET_ANIME", searchAnimeResult);
         } else {
-          TriggerToast.toast("Anime not found");
+          M.toast({ html: "Anime not found" });
         }
-      } catch (e) {
-        console.log(e);
+      } catch (error) {
+        throw new Error(error);
       }
     },
-    async getTopList(ctx, { type, page, subtype }) {
+    async fetchTopList(ctx, [type, page, subtype]) {
       try {
-        const animeTopListResult = await fetchTopList(type, page, subtype);
-        ctx.commit("SET_ANIME_TOP", animeTopListResult);
-      } catch (e) {
-        console.log(e);
+        const topListResponse = await jikanjs.loadTop(type, page, subtype);
+        const topListResult = topListResponse.top;
+        ctx.commit("SET_TOP_LIST", topListResult);
+      } catch (error) {
+        throw new Error(error);
       }
     }
   },
   modules: { auth },
   getters: {
-    fetchAnime: state => state.animeSearchResult,
-    fetchTopList: state => state.animeTopListResult
+    getSearchAnimeResult: state => state.searchAnimeResult,
+    getTopListResult: state => state.topListResult
   }
 });
