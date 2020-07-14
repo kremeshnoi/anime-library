@@ -3,7 +3,7 @@
 	.PreFooterList
 		.PreFooterList-container
 			template(v-for="(listName, index) in listNames")
-				PreFooterItem(:listName="listName" :key="index")
+				PreFooterItem(:listTitle="listName" :key="index")
 
 </template>
 
