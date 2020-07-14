@@ -21,6 +21,9 @@
 
 			.SignIn-row
 				router-link(to="/recovery") Forgot password?
+			.SignIn-row - or -
+			.SignIn-row
+				router-link(to="/register") Still don't have account?
 
 			center
 				.SignIn-row
