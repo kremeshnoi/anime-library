@@ -3,15 +3,15 @@
 	.Search
 		nav.nav-search
 			.nav-wrapper.white.nav-search-wrapper
-				form.nav-search-form(v-on:submit.prevent="getAnime(query)")
+				form.nav-search-form(v-on:submit.prevent="fetchAnime(query)")
 					.input-field.nav-search-field
 						input#search.nav-search-input(type="search", v-model="query")
 						label.label-icon(for="search")
 							i.material-icons.black-text.nav-search-icon search
 
 		section
-			.query-content(v-if="fetchAnime.length")
-				.card.query-content-card(v-for="result in fetchAnime")
+			.query-content(v-if="getSearchAnimeResult.length")
+				.card.query-content-card(v-for="result in getSearchAnimeResult")
 					.card-image.query-content-card-wrapper
 						img.activator.query-content-card-image(:src="result['image_url']")
 
@@ -45,11 +45,11 @@ export default {
   metaInfo: {
     title: "Anime Library / Search"
   },
+	computed: {
+		...mapGetters(["getSearchAnimeResult"])
+	},
   methods: {
-    ...mapActions(["getAnime"])
-  },
-  computed: {
-    ...mapGetters(["fetchAnime"])
+    ...mapActions(["fetchAnime"])
   }
 };
 </script>
