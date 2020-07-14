@@ -1,7 +1,7 @@
 <template lang="pug">
 
 	.PreFooterListItem
-		router-link.PreFooterListItem-title(to="/") {{ titles[listName] }}
+		router-link.PreFooterListItem-title(to="/") {{ titles[listTitle] }}
 			.PreFooterListItem-icon.material-icons keyboard_arrow_right
 		.PreFooterListItem-content(v-for="(result, index) in lists" :key="index")
 			p.PreFooterListItem-digit {{ index + 1 }}.
@@ -10,7 +10,8 @@
 </template>
 
 <script>
-import { fetchTopList } from "@/services/fetchTopList";
+
+import {mapActions, mapGetters} from "vuex";
 
 const titles = Object.freeze({
   topAnimeList: "Top Anime",
@@ -27,7 +28,7 @@ const titlesVerb = Object.freeze({
 export default {
   name: "PreFooterItem",
   props: {
-    listName: {
+		listTitle: {
       type: String,
       required: true
     }
@@ -38,17 +39,21 @@ export default {
       titles
     };
   },
-  created() {
-		this.fetchList(this.listName);
-  },
   methods: {
+		...mapActions(["fetchTopList"]),
     fetchList(listName) {
       const isFav = listName !== "charactersList" ? "favorite" : "";
-      fetchTopList(titlesVerb[listName], 1, isFav).then(response => {
-        this.lists = response.slice(0, 8);
+			this.fetchTopList([titlesVerb[listName], 1, isFav]).then(() => {
+        this.lists = this.getTopListResult.slice(0, 9);
       });
     }
-  }
+  },
+	computed: {
+		...mapGetters(["getTopListResult"])
+	},
+	created() {
+		this.fetchList(this.listTitle);
+	}
 };
 </script>
 
