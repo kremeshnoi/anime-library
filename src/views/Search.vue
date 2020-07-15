@@ -45,9 +45,9 @@ export default {
   metaInfo: {
     title: "Anime Library / Search"
   },
-	computed: {
-		...mapGetters(["getSearchAnimeResult"])
-	},
+  computed: {
+    ...mapGetters(["getSearchAnimeResult"])
+  },
   methods: {
     ...mapActions(["fetchAnime"])
   }

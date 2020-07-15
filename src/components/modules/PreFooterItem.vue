@@ -10,8 +10,7 @@
 </template>
 
 <script>
-
-import {mapActions, mapGetters} from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 const titles = Object.freeze({
   topAnimeList: "Top Anime",
@@ -28,7 +27,7 @@ const titlesVerb = Object.freeze({
 export default {
   name: "PreFooterItem",
   props: {
-		listTitle: {
+    listTitle: {
       type: String,
       required: true
     }
@@ -40,20 +39,20 @@ export default {
     };
   },
   methods: {
-		...mapActions(["fetchTopList"]),
+    ...mapActions(["fetchTopList"]),
     fetchList(listName) {
       const isFav = listName !== "charactersList" ? "favorite" : "";
-			this.fetchTopList([titlesVerb[listName], 1, isFav]).then(() => {
+      this.fetchTopList([titlesVerb[listName], 1, isFav]).then(() => {
         this.lists = this.getTopListResult.slice(0, 9);
       });
     }
   },
-	computed: {
-		...mapGetters(["getTopListResult"])
-	},
-	created() {
-		this.fetchList(this.listTitle);
-	}
+  computed: {
+    ...mapGetters(["getTopListResult"])
+  },
+  created() {
+    this.fetchList(this.listTitle);
+  }
 };
 </script>
 

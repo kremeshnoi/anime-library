@@ -32,7 +32,10 @@ export default new Vuex.Store({
   actions: {
     async fetchAnime(ctx, query) {
       try {
-        const searchAnimeResponse: SearchResponse = await jikanjs.search("anime", query);
+        const searchAnimeResponse: SearchResponse = await jikanjs.search(
+          "anime",
+          query
+        );
         const searchAnimeResult = searchAnimeResponse.results;
         if (Array.isArray(searchAnimeResult) && searchAnimeResult.length > 0) {
           ctx.commit("SET_ANIME", searchAnimeResult);

@@ -14,7 +14,6 @@
 </template>
 
 <script>
-
 import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper";
 import { mapActions, mapGetters } from "vuex";
 
@@ -22,7 +21,7 @@ export default {
   name: "Cards",
   data: () => {
     return {
-			topAnimeListData: [],
+      topAnimeListData: [],
       swiperOptions: {
         navigation: {
           nextEl: ".swiper-button-next",
@@ -65,17 +64,17 @@ export default {
   directives: {
     swiper: directive
   },
-	methods: {
-		...mapActions(["fetchTopList"])
-	},
-	computed: {
-		...mapGetters(["getTopListResult"])
-	},
-	created() {
-  	 this.fetchTopList(["anime", 1, "airing"]).then(() => {
-			this.topAnimeListData = this.getTopListResult.slice(0, 12)
-		})
-	}
+  methods: {
+    ...mapActions(["fetchTopList"])
+  },
+  computed: {
+    ...mapGetters(["getTopListResult"])
+  },
+  created() {
+    this.fetchTopList(["anime", 1, "airing"]).then(() => {
+      this.topAnimeListData = this.getTopListResult.slice(0, 12);
+    });
+  }
 };
 </script>
 
