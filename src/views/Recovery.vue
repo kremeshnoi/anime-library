@@ -5,23 +5,18 @@
 		form(v-on:submit.prevent="submitHandler")
 			.Recovery-row
 				.Recovery-field.input-field
-					input#email(type="text"
-											name="email"
-											v-model.trim="email"
-											:class="{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }")
+					input#email(type="text" name="email" v-model.trim="email"
+						:class="{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }")
 					label(for="email") Email
-					span.Recovery-helper.helper-text(v-if="$v.email.$dirty && !$v.email.required"
-																					 data-error="The field is empty")
-					span.Recovery-helper.helper-text(v-else-if="$v.email.$dirty && !$v.email.email"
-																					 data-error="Incorrect email")
+					span.Recovery-helper.helper-text(v-if="$v.email.$dirty && !$v.email.required" data-error="The field is empty")
+					span.Recovery-helper.helper-text(v-else-if="$v.email.$dirty && !$v.email.email" data-error="Incorrect email")
 
 			center
 				.Recovery-row
 					vue-recaptcha(sitekey="6Lc-DaUZAAAAABeSVHxIZhS9Wk2xqSo53V4UeX-H")
 
 				.Recovery-row
-					button.SignUp-button.btn-large(type="submit"
-																				 name="submitRecover") Submit
+					button.SignUp-button.btn-large(type="submit" name="submitRecover") Submit
 
 		.SignUp-cancel
 			router-link(to="/") Back to Homepage?

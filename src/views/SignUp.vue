@@ -13,25 +13,19 @@
 
 			.SignUp-row
 				.SignUp-field.input-field
-					input#username(type="text" name="username"
-                        v-model.trim="username"
-						            :class="{ invalid: ($v.username.$dirty && !$v.username.required) || ($v.username.$dirty && !$v.username.minLength) }")
+					input#username(type="text" name="username" v-model.trim="username"
+						:class="{ invalid: ($v.username.$dirty && !$v.username.required) || ($v.username.$dirty && !$v.username.minLength) }")
 					label(for='username') Username
-					span.SignUp-helper.helper-text(v-if="$v.username.$dirty && !$v.username.required"
-                                        data-error="The field is empty")
-					span.SignUp-helper.helper-text(v-else-if="$v.username.$dirty && !$v.username.minLength"
-                                        data-error="Username is too short")
+					span.SignUp-helper.helper-text(v-if="$v.username.$dirty && !$v.username.required" data-error="The field is empty")
+					span.SignUp-helper.helper-text(v-else-if="$v.username.$dirty && !$v.username.minLength" data-error="Username is too short")
 
 			.SignUp-row
 				.SignUp-field.input-field
-					input#password(type="text" name="password"
-                        v-model.trim="password"
-						            :class="{ invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength) }")
+					input#password(type="text" name="password" v-model.trim="password"
+						:class="{ invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength) }")
 					label(for="password") Password
-					span.SignUp-helper.helper-text(v-if="$v.password.$dirty && !$v.password.required"
-                                        data-error="The field is empty")
-					span.SignUp-helper.helper-text(v-else-if="$v.password.$dirty && !$v.password.minLength"
-                                        data-error="Password is too short")
+					span.SignUp-helper.helper-text(v-if="$v.password.$dirty && !$v.password.required" data-error="The field is empty")
+					span.SignUp-helper.helper-text(v-else-if="$v.password.$dirty && !$v.password.minLength" data-error="Password is too short")
 
 			.SignUp-row
 				router-link(to="/login") Already have an account?
