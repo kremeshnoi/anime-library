@@ -3,10 +3,10 @@
 	.Cards(v-swiper:mySwiper="swiperOptions")
 		.Cards-container.swiper-wrapper
 			.Cards-item.card.swiper-slide(v-for="(result, index) in topAnimeListData" :key="index")
-					.Cards-image-wrapper.card-image
-						img.Cards-image.activator(:src="result['image_url']")
-					.Cards-title-wrapper.card-content
-						span.Cards-title.card-title.activator {{ result['title'] }}
+				.Cards-image-wrapper.card-image
+					img.Cards-image.activator(@click="computeRoute(result)" :src="result['image_url']")
+				.Cards-title-wrapper.card-content
+					span.Cards-title.card-title.activator {{ result['title'] }}
 
 		.swiper-button-prev
 		.swiper-button-next
@@ -15,153 +15,160 @@
 
 <script>
 
-import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper";
-import { mapActions, mapGetters } from "vuex";
+	import {Swiper, SwiperSlide, directive} from "vue-awesome-swiper";
+	import {mapActions, mapGetters} from "vuex";
 
-export default {
-  name: "Cards",
-  data: () => {
-    return {
-			topAnimeListData: [],
-      swiperOptions: {
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev"
-        },
-        spaceBetween: 10,
-        breakpoints: {
-          320: {
-            slidesPerView: 1
-          },
-          400: {
-            slidesPerView: 2
-          },
-          560: {
-            slidesPerView: 3
-          },
-          640: {
-            slidesPerView: 4
-          },
-          768: {
-            slidesPerView: 4
-          },
-          992: {
-            slidesPerView: 5
-          },
-          1248: {
-            slidesPerView: 6
-          },
-          1440: {
-            slidesPerView: 7
-          }
-        }
-      }
-    };
-  },
-  components: {
-    Swiper,
-    SwiperSlide
-  },
-  directives: {
-    swiper: directive
-  },
-	methods: {
-		...mapActions(["fetchTopList"])
-	},
-	computed: {
-		...mapGetters(["getTopListResult"])
-	},
-	created() {
-  	 this.fetchTopList(["anime", 1, "airing"]).then(() => {
-			this.topAnimeListData = this.getTopListResult.slice(0, 12)
-		})
-	}
-};
+	export default {
+		name: "Cards",
+		data: () => {
+			return {
+				topAnimeListData: [],
+				swiperOptions: {
+					navigation: {
+						nextEl: ".swiper-button-next",
+						prevEl: ".swiper-button-prev"
+					},
+					spaceBetween: 10,
+					breakpoints: {
+						320: {
+							slidesPerView: 1
+						},
+						400: {
+							slidesPerView: 2
+						},
+						560: {
+							slidesPerView: 3
+						},
+						640: {
+							slidesPerView: 4
+						},
+						768: {
+							slidesPerView: 4
+						},
+						992: {
+							slidesPerView: 5
+						},
+						1248: {
+							slidesPerView: 6
+						},
+						1440: {
+							slidesPerView: 7
+						}
+					}
+				}
+			};
+		},
+		components: {
+			Swiper,
+			SwiperSlide
+		},
+		directives: {
+			swiper: directive
+		},
+		methods: {
+			...mapActions(["fetchTopList", "computeRoute"])
+		},
+		computed: {
+			...mapGetters(["getTopListResult"])
+		},
+		created() {
+			this.fetchTopList(["anime", 1, "airing"]).then(() => {
+				this.topAnimeListData = this.getTopListResult.slice(0, 12);
+			});
+		}
+	};
+
 </script>
 
 <style lang="sass" scoped>
 
-@import "../../assets/styles/utils/vars"
-@import "../../assets/styles/utils/mixins"
+	@import "../../assets/styles/utils/vars"
+	@import "../../assets/styles/utils/mixins"
 
-.Cards
-	width: 100%
+	.Cards
+		width: 100%
 
-	&-item
-		margin: 10px 10px 10px 0
-		height: fit-content
-		box-shadow: none
-		&:hover
-			opacity: 0.9
+		&-item
+			margin: 10px 10px 10px 0
+			height: fit-content
+			box-shadow: none
 
-	&-image
-		object-fit: cover
-		transform: scale(1.02)
-		&-wrapper
-			overflow: hidden
-			cursor: pointer
+			&:hover
+				opacity: 0.9
 
-	&-title
-		margin: 0 !important
-		width: 160px
-		font-size: 16px
-		display: block
-		overflow: hidden
-		white-space: nowrap
-		text-overflow: ellipsis
-		&-wrapper
-			display: flex
-			justify-content: center
-			align-items: center
-			padding: 10px
-			box-shadow: 0 8px 7px -7px rgba(0, 0, 0, 1)
+		&-image
+			object-fit: cover
+			transform: scale(1.02)
+
+			&-wrapper
+				overflow: hidden
+				cursor: pointer
 
 		&-title
-			margin: 0 auto
+			margin: 0 !important
+			width: 160px
 			font-size: 16px
-			max-width: 150px
+			display: block
+			overflow: hidden
+			white-space: nowrap
+			text-overflow: ellipsis
 
-		&-description
-			text-align: start
-			margin: 8px 0 8px 0
-			&:first-of-type
-				margin: 24px 0 0 0
+			&-wrapper
+				display: flex
+				justify-content: center
+				align-items: center
+				padding: 10px
+				box-shadow: 0 8px 7px -7px rgba(0, 0, 0, 1)
 
-		&-input-field
-			+flex(center, center, column)
+			&-title
+				margin: 0 auto
+				font-size: 16px
+				max-width: 150px
 
-		&-label
-			width: 100%
-			text-align: start
-			position: initial
-			margin: 0 0 8px 0
+			&-description
+				text-align: start
+				margin: 8px 0 8px 0
 
-		&-select
-			margin: 0
-			padding: 0
-			border: none
-			outline: none
+				&:first-of-type
+					margin: 24px 0 0 0
 
-.swiper-button-prev, .swiper-button-next
-	top: 0
-	height: 50%
-	width: 40px
-	color: rgba(17,34,51,0.75)
-	transform: translateY(50%)
-	outline: none
-	&:after
-		font-size: 24px
+			&-input-field
+				+flex(center, center, column)
 
-.swiper-button-prev
-	left: 0
-	background: linear-gradient(to left, rgba(213,213,213,0), rgba(213,213,213,0.75) 70%, rgba(213,213,213,0.85))
-	border-bottom-right-radius: 100% 50%
-	border-top-right-radius: 100% 50%
+			&-label
+				width: 100%
+				text-align: start
+				position: initial
+				margin: 0 0 8px 0
+
+			&-select
+				margin: 0
+				padding: 0
+				border: none
+				outline: none
+
+	.swiper-button-prev, .swiper-button-next
+		top: 0
+		height: 50%
+		width: 40px
+		color: rgba(17, 34, 51, 0.75)
+		transform: translateY(50%)
+		outline: none
+
+		&:after
+			font-size: 24px
+
+	.swiper-button-prev
+		left: 0
+		background: linear-gradient(to left, rgba(213, 213, 213, 0), rgba(213, 213, 213, 0.75) 70%, rgba(213, 213, 213, 0.85))
+		border-bottom-right-radius: 100% 50%
+		border-top-right-radius: 100% 50%
 
 
-.swiper-button-next
-	right: 0
-	background: linear-gradient(to right, rgba(213,213,213,0), rgba(213,213,213,0.75) 70%, rgba(213,213,213,0.85))
-	border-bottom-left-radius: 100% 50%
-	border-top-left-radius: 100% 50%
+	.swiper-button-next
+		right: 0
+		background: linear-gradient(to right, rgba(213, 213, 213, 0), rgba(213, 213, 213, 0.75) 70%, rgba(213, 213, 213, 0.85))
+		border-bottom-left-radius: 100% 50%
+		border-top-left-radius: 100% 50%
+
 </style>
