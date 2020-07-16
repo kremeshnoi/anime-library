@@ -1,11 +1,11 @@
 <template lang="pug">
 
-    .PreFooterListItem
-        router-link.PreFooterListItem-title(to="/") {{ titles[listTitle] }}
-            .PreFooterListItem-icon.material-icons keyboard_arrow_right
-        .PreFooterListItem-content(v-for="(result, index) in lists" :key="index")
-            p.PreFooterListItem-digit {{ index + 1 }}.
-            router-link.PreFooterListItem-link(to="/") {{ result['title'] }}
+	.PreFooterListItem
+		router-link.PreFooterListItem-title(to="/") {{ titles[listTitle] }}
+			.PreFooterListItem-icon.material-icons keyboard_arrow_right
+		.PreFooterListItem-content(v-for="(result, index) in lists" :key="index")
+			p.PreFooterListItem-digit {{ index + 1 }}.
+			router-link.PreFooterListItem-link(to="/") {{ result['title'] }}
 
 </template>
 
@@ -55,41 +55,43 @@
 			this.fetchList(this.listTitle);
 		}
 	};
+
 </script>
 
 <style lang="sass" scoped>
 
-    @import "../../assets/styles/utils/vars"
-    @import "../../assets/styles/utils/mixins"
+	@import "../../assets/styles/utils/vars"
+	@import "../../assets/styles/utils/mixins"
 
-    .PreFooterListItem
-        +flex(center, flex-start, column)
+	.PreFooterListItem
+		+flex(center, flex-start, column)
 
-        &-title
-            color: $color-dark
-            font-size: 16px
-            text-align: start
-            padding: 0 0 8px 0
-            width: 100%
-            border-bottom: 1px solid rgba($color-dark, 0.2)
-            +flex(space-between, center, row)
+		&-title
+			color: $color-dark
+			font-size: 16px
+			text-align: start
+			padding: 0 0 8px 0
+			width: 100%
+			border-bottom: 1px solid rgba($color-dark, 0.2)
+			+flex(space-between, center, row)
 
-            &:hover
-                color: $color-orange
+			&:hover
+				color: $color-orange
 
-                .PreFooterList-icon
-                    color: inherit
+				.PreFooterList-icon
+					color: inherit
 
-        &-content
-            margin: 8px 0 0 0
-            +flex(center, center, row)
+		&-content
+			margin: 8px 0 0 0
+			+flex(center, center, row)
 
-        &-digit
-            margin: 0 8px 0 0
+		&-digit
+			margin: 0 8px 0 0
 
-        &-link
-            color: $color-blue
+		&-link
+			color: $color-blue
 
-            &:hover
-                text-decoration: underline $color-blue
+			&:hover
+				text-decoration: underline $color-blue
+
 </style>

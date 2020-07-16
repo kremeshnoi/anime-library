@@ -43,81 +43,84 @@
 </template>
 
 <script>
-import { email, required, minLength } from "vuelidate/lib/validators";
-import VueRecaptcha from "vue-recaptcha";
 
-export default {
-  name: "SignUp",
-  data: () => ({
-    email: "",
-    username: "",
-    password: ""
-  }),
-  validations: {
-    email: { email, required },
-    username: { required, minLength: minLength(5) },
-    password: { required, minLength: minLength(5) }
-  },
-  components: {
-    VueRecaptcha
-  },
-  metaInfo: {
-    title: "Anime Library - Sign Up"
-  },
-  methods: {
-    submitHandler() {
-      if (this.$v.$invalid) {
-        this.$v.$touch();
-        return;
-      }
+	import {email, required, minLength} from "vuelidate/lib/validators";
+	import VueRecaptcha from "vue-recaptcha";
 
-      const signUpData = {
-        email: this.email,
-        password: this.password
-      };
+	export default {
+		name: "SignUp",
+		data: () => ({
+			email: "",
+			username: "",
+			password: ""
+		}),
+		validations: {
+			email: {email, required},
+			username: {required, minLength: minLength(5)},
+			password: {required, minLength: minLength(5)}
+		},
+		components: {
+			VueRecaptcha
+		},
+		metaInfo: {
+			title: "Anime Library - Sign Up"
+		},
+		methods: {
+			submitHandler() {
+				if (this.$v.$invalid) {
+					this.$v.$touch();
+					return;
+				}
 
-      this.$router.push("/");
-    }
-  }
-};
+				const signUpData = {
+					email: this.email,
+					password: this.password
+				};
+
+				this.$router.push("/");
+			}
+		}
+	};
+
 </script>
 
 <style lang="sass" scoped>
 
-@import "../assets/styles/utils/vars"
-@import "../assets/styles/utils/mixins"
-@import "../assets/styles/modules/buttons"
+	@import "../assets/styles/utils/vars"
+	@import "../assets/styles/utils/mixins"
+	@import "../assets/styles/modules/buttons"
 
-.SignUp
-	position: fixed
-	top: 0
-	left: 0
-	right: 0
-	bottom: 0
-	margin: auto
-	max-width: 400px
-	max-height: 640px
-	border-radius: 4px
-	padding: 20px 20px 20px 20px
-	background-color: $color-pure-white
-	box-shadow: 10px 10px 5px 0 rgba(0, 0, 0, 0.75)
+	.SignUp
+		position: fixed
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		margin: auto
+		max-width: 400px
+		max-height: 640px
+		border-radius: 4px
+		padding: 20px 20px 20px 20px
+		background-color: $color-pure-white
+		box-shadow: 10px 10px 5px 0 rgba(0, 0, 0, 0.75)
 
-	&-title
-		padding: 20px 0 0 0
-		font-size: 22px
+		&-title
+			padding: 20px 0 0 0
+			font-size: 22px
 
-	&-row
-		margin: 20px auto 20px auto
-		max-width: 304px
+		&-row
+			margin: 20px auto 20px auto
+			max-width: 304px
 
-	&-field
-		+flex(center, flex-start, column)
+		&-field
+			+flex(center, flex-start, column)
 
-	&-helper
-		width: 100%
+		&-helper
+			width: 100%
 
-	&-button
-		@extend .hover-btn
-		@extend .shadow-btn
-		@extend .focus-btn
+		&-button
+			@extend .hover-btn
+			@extend .shadow-btn
+			@extend .focus-btn
+
 </style>
