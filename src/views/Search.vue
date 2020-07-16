@@ -35,109 +35,112 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
 
-export default {
-  name: "Search",
-  data: () => ({
-    query: ""
-  }),
-  metaInfo: {
-    title: "Anime Library / Search"
-  },
-	computed: {
-		...mapGetters(["getSearchAnimeResult"])
-	},
-  methods: {
-    ...mapActions(["fetchAnime"])
-  }
-};
+	import {mapActions, mapGetters} from "vuex";
+
+	export default {
+		name: "Search",
+		data: () => ({
+			query: ""
+		}),
+		metaInfo: {
+			title: "Anime Library / Search"
+		},
+		computed: {
+			...mapGetters(["getSearchAnimeResult"])
+		},
+		methods: {
+			...mapActions(["fetchAnime"])
+		}
+	};
+
 </script>
 
 <style lang="sass" scoped>
 
-@import "../assets/styles/utils/vars"
-@import "../assets/styles/utils/mixins"
+	@import "../assets/styles/utils/vars"
+	@import "../assets/styles/utils/mixins"
 
-.Search
-	width: 100%
-	padding: 108px 20px 54px
-	display: flex
-	flex-direction: column
-	align-items: center
-	justify-content: flex-start
+	.Search
+		width: 100%
+		padding: 108px 20px 54px
+		display: flex
+		flex-direction: column
+		align-items: center
+		justify-content: flex-start
 
-	.nav-search
-		width: 70%
-		height: 50px
-		margin: 0 0 54px
-		border-radius: 3px
-		+mq(phone, max)
-			width: 90%
-
-		&-wrapper
-			border-radius: 3px
-
-		&-field
-			border-radius: 3px
-			background-color: $color-white
-
-		&-input
-			border-radius: 3px
-
-		&-icon
+		.nav-search
+			width: 70%
 			height: 50px
-			line-height: 50px
-
-	.query-content
-		display: grid
-		grid-template-columns: repeat(auto-fill, 228px)
-		justify-content: center
-		grid-gap: 20px
-		height: 100%
-
-		&-card
-			margin: 0
+			margin: 0 0 54px
+			border-radius: 3px
+			+mq(phone, max)
+				width: 90%
 
 			&-wrapper
-				height: 84%
-				cursor: pointer
-				padding: 16px 0 0 0
+				border-radius: 3px
 
-			&-title
-				text-overflow: ellipsis
-				overflow: hidden
-				width: 160px
-				display: inline-block
-				white-space: nowrap
+			&-field
+				border-radius: 3px
+				background-color: $color-white
+
+			&-input
+				border-radius: 3px
+
+			&-icon
+				height: 50px
+				line-height: 50px
+
+		.query-content
+			display: grid
+			grid-template-columns: repeat(auto-fill, 228px)
+			justify-content: center
+			grid-gap: 20px
+			height: 100%
+
+			&-card
 				margin: 0
-				font-size: 16px
 
-			&-image
-				height: 100%
-				max-height: 280px
-				object-fit: contain
+				&-wrapper
+					height: 84%
+					cursor: pointer
+					padding: 16px 0 0 0
 
-			&-outer
-				display: flex
-				justify-content: center
-				align-items: center
-				padding: 10px
-
-			&-inner
 				&-title
+					text-overflow: ellipsis
+					overflow: hidden
+					width: 160px
+					display: inline-block
+					white-space: nowrap
+					margin: 0
 					font-size: 16px
 
-				&-select
-					border: none
-					padding: 0
-					outline: none
-					height: auto
-					margin: 0 0 0 -2px
+				&-image
+					height: 100%
+					max-height: 280px
+					object-fit: contain
 
-				&-text
-					text-align: start
+				&-outer
+					display: flex
+					justify-content: center
+					align-items: center
+					padding: 10px
 
-					&:first-of-type
-						margin: 30px 0 0 0
+				&-inner
+					&-title
+						font-size: 16px
+
+					&-select
+						border: none
+						padding: 0
+						outline: none
+						height: auto
+						margin: 0 0 0 -2px
+
+					&-text
+						text-align: start
+
+						&:first-of-type
+							margin: 30px 0 0 0
+
 </style>

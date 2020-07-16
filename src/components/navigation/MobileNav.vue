@@ -38,87 +38,90 @@
 </template>
 
 <script>
-export default {
-  name: "MobileNav",
-  data: () => ({
-    links: [
-      { title: "Home", url: "/" },
-      { title: "Search", url: "/search" },
-      { title: "My Library", url: "/library" }
-    ]
-  })
-};
+
+	export default {
+		name: "MobileNav",
+		data: () => ({
+			links: [
+				{title: "Home", url: "/"},
+				{title: "Search", url: "/search"},
+				{title: "My Library", url: "/library"}
+			]
+		})
+	};
+
 </script>
 
 <style lang="sass" scoped>
 
-@import "../../assets/styles/utils/vars"
-@import "../../assets/styles/utils/mixins"
+	@import "../../assets/styles/utils/vars"
+	@import "../../assets/styles/utils/mixins"
 
-.sidenav
-	&-user
-		padding: 32px !important
+	.sidenav
+		&-user
+			padding: 32px !important
 
-		&-circle
-			height: 84px !important
-			width: 84px !important
-			box-shadow: 4px 4px 5px -1px rgba(0, 0, 0, 0.65)
+			&-circle
+				height: 84px !important
+				width: 84px !important
+				box-shadow: 4px 4px 5px -1px rgba(0, 0, 0, 0.65)
 
-	&-username
-		color: $color-white
-		font-family: "Cairo", sans-serif
-
-	&-divider
-		background-color: $color-grey
-		margin: 0 !important
-
-	&-mobile-list
-		margin-top: 54px
-		background-color: $color-dark
-		+mq(tablet-small, max)
-			width: 100%
-
-		&-link
-			display: flex
-			justify-content: center
+		&-username
 			color: $color-white
+			font-family: "Cairo", sans-serif
 
-			&:hover
-				opacity: 0.7
+		&-divider
+			background-color: $color-grey
+			margin: 0 !important
 
-			&-library
-				margin: 0 0 0 24px
-
-			&-settings
-				position: absolute
-				bottom: 10px
-				right: 20px
-				height: 24px
-
-				&:hover
-					background-color: initial
-
-		&-logout
-			display: flex
-			justify-content: center
-			align-items: center
-			margin: 14px 0 0 24px
+		&-mobile-list
+			margin-top: 54px
+			background-color: $color-dark
+			+mq(tablet-small, max)
+				width: 100%
 
 			&-link
-				margin: 0 20px
 				display: flex
+				justify-content: center
+				color: $color-white
+
+				&:hover
+					opacity: 0.7
+
+				&-library
+					margin: 0 0 0 24px
+
+				&-settings
+					position: absolute
+					bottom: 10px
+					right: 20px
+					height: 24px
+
+					&:hover
+						background-color: initial
+
+			&-logout
+				display: flex
+				justify-content: center
 				align-items: center
-				color: $color-white
+				margin: 14px 0 0 24px
 
-			&-icon-menu
-				display: initial
-				margin: 0 0 0 6px
-				color: $color-white
+				&-link
+					margin: 0 20px
+					display: flex
+					align-items: center
+					color: $color-white
 
-	&-icon
-		&-settings
-			color: $color-grey
+				&-icon-menu
+					display: initial
+					margin: 0 0 0 6px
+					color: $color-white
 
-		&-library
-			margin: 0 0 0 6px !important
+		&-icon
+			&-settings
+				color: $color-grey
+
+			&-library
+				margin: 0 0 0 6px !important
+
 </style>
