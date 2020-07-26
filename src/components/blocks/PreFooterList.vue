@@ -31,7 +31,7 @@
 	@import "../../assets/styles/utils/mixins"
 
 	.PreFooterList
-		background-color: $color-dirty-white
+		background-color: $color-white-dark
 
 		&-container
 			display: grid

@@ -67,12 +67,12 @@
 		+flex(center, flex-start, column)
 
 		&-title
-			color: $color-dark
+			color: $color-black
 			font-size: 16px
 			text-align: start
 			padding: 0 0 8px 0
 			width: 100%
-			border-bottom: 1px solid rgba($color-dark, 0.2)
+			border-bottom: 1px solid rgba($color-black, 0.2)
 			+flex(space-between, center, row)
 
 			&:hover

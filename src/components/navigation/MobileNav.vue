@@ -71,12 +71,12 @@
 			font-family: "Cairo", sans-serif
 
 		&-divider
-			background-color: $color-grey
+			background-color: $color-grey-dark
 			margin: 0 !important
 
 		&-mobile-list
 			margin-top: 54px
-			background-color: $color-dark
+			background-color: $color-black
 			+mq(tablet-small, max)
 				width: 100%
 
@@ -119,7 +119,7 @@
 
 		&-icon
 			&-settings
-				color: $color-grey
+				color: $color-grey-dark
 
 			&-library
 				margin: 0 0 0 6px !important

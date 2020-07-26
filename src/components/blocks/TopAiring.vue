@@ -33,7 +33,7 @@
 			max-width: 1300px
 
 		&-title
-			color: $color-dark
+			color: $color-black
 			width: 100%
 			font-size: 16px
 			font-weight: 700
@@ -50,6 +50,6 @@
 					color: inherit
 
 		&-icon
-			color: $color-dark
+			color: $color-black
 
 </style>
