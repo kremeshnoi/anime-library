@@ -94,7 +94,7 @@
 		max-height: 640px
 		border-radius: 4px
 		padding: 20px 20px 20px 20px
-		background-color: $color-pure-white
+		background-color: $color-white-pure
 		box-shadow: 10px 10px 5px 0 rgba(0, 0, 0, 0.75)
 
 		&-title

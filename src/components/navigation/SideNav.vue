@@ -70,11 +70,11 @@
 		&-divider
 			opacity: 0.4
 			margin: 0 !important
-			background-color: $color-grey
+			background-color: $color-grey-dark
 
 		&-list
 			margin-top: 54px
-			background-color: $color-dark
+			background-color: $color-black
 
 		&-list-link
 			display: flex
@@ -98,7 +98,7 @@
 
 		&-icon
 			&-settings
-				color: $color-light-grey
+				color: $color-grey
 
 			&-library
 				margin: 0 0 0 6px !important
