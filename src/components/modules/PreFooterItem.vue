@@ -64,7 +64,7 @@
 	@import "../../assets/styles/utils/mixins"
 
 	.PreFooterListItem
-		+flex(center, flex-start, column)
+		+flex(flex-start, flex-start, column)
 
 		&-title
 			color: $color-black
@@ -83,7 +83,7 @@
 
 		&-content
 			margin: 8px 0 0 0
-			+flex(center, center, row)
+			+flex(center, flex-start, row)
 
 		&-digit
 			margin: 0 8px 0 0
