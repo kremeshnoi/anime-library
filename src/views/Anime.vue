@@ -1,6 +1,16 @@
 <template lang="pug">
 
-	.Anime {{ item }}
+	.Anime
+		.Anime-content
+			.Anime-block-left
+				.Anime-block-title
+					| {{ loadedAnimeResult['title'] }}
+					br
+					| {{ loadedAnimeResult['title_japanese'] }}
+				.Anime-block-
+				img.Anime-block-image(:src="loadedAnimeResult['image_url']")
+				.Anime-block-info
+			.Anime-block-right
 
 </template>
 
@@ -12,7 +22,7 @@
 		name: "Anime",
 		data: () => {
 			return {
-				item: {}
+				loadedAnimeResult: {}
 			};
 		},
 		methods: {
@@ -23,7 +33,7 @@
 		},
 		created() {
 			this.loadAnimeData().then(() => {
-				this.item = this.getLoadedAnimeResult;
+				this.loadedAnimeResult = this.getLoadedAnimeResult;
 			});
 		}
 	};
@@ -33,9 +43,23 @@
 <style lang="sass" scoped>
 
 	.Anime
-		min-height: 400px
-		background: red
 		width: 100%
-		margin: 200px
+		padding: 54px 0 0 0
+
+		&-content
+			margin: 0 auto
+			padding: 40px 40px 40px 40px
+			max-width: 1300px
+
+		&-block
+			display: grid
+			grid-template-columns: 1fr 1fr
+
+			&-left
+				display: grid
+
+			&-title
+				text-align: start
+				font-size: 22px
 
 </style>
