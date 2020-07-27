@@ -1,16 +1,12 @@
 <template lang="pug">
 
 	.anime
-
 		.anime__container
-
 			.anime__main-content
-
 				h1.anime__title
 					| {{ getAnimeResult['title'] }}
 					.divider_hidden
 					| {{ getAnimeResult['title_japanese'] }}
-
 				img.anime__cover(:src="getAnimeResult['image_url']")
 
 				.anime__info.anime-info
