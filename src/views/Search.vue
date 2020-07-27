@@ -3,7 +3,7 @@
 	.Search
 		nav.nav-search
 			.nav-wrapper.white.nav-search-wrapper
-				form.nav-search-form(v-on:submit.prevent="fetchAnime(query)")
+				form.nav-search-form(v-on:submit.prevent="searchAnime(query)")
 					.input-field.nav-search-field
 						input#search.nav-search-input(type="search", v-model="query")
 						label.label-icon(for="search")
@@ -50,7 +50,7 @@
 			...mapGetters(["getSearchAnimeResult"])
 		},
 		methods: {
-			...mapActions(["fetchAnime"])
+			...mapActions(["searchAnime"])
 		}
 	};
 

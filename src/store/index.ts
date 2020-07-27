@@ -17,8 +17,12 @@ Vue.use(Vuex);
 
 export const state: State = {
 	searchAnimeResult: [],
-	topListResult: [],
-	loadedAnimeResult: []
+	topAnimeResult: [],
+	topMangaResult: [],
+	topCharactersResult: [],
+	animeResult: [],
+	mangaResult: [],
+	charactersResult: []
 };
 
 export default new Vuex.Store({
@@ -35,7 +39,7 @@ export default new Vuex.Store({
 		}
 	},
 	actions: {
-		async fetchAnime(ctx, query) {
+		async searchAnime(ctx, query) {
 			try {
 				const searchAnimeResponse: SearchResponse = await jikanjs.search("anime", query);
 				const searchAnimeResult = searchAnimeResponse.results;
@@ -71,7 +75,7 @@ export default new Vuex.Store({
 				throw new Error(error);
 			}
 		},
-		async loadAnimeData(ctx) {
+		async loadAnime(ctx) {
 			try {
 				const loadedAnimeResponse = await jikanjs.loadAnime(router.app.$route.params.id);
 				const loadedAnimeResult = loadedAnimeResponse;
@@ -85,6 +89,6 @@ export default new Vuex.Store({
 	getters: {
 		getSearchAnimeResult: state => state.searchAnimeResult,
 		getTopListResult: state => state.topListResult,
-		getLoadedAnimeResult: state => state.loadedAnimeResult
+		getAnimeResult: state => state.loadedAnimeResult,
 	}
 });
