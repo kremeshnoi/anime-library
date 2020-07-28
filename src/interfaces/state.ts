@@ -1,11 +1,12 @@
-import {SearchAnimeResult} from "@/interfaces/searchedAnime.js";
-import {FavoriteAnimeResult} from "@/interfaces/favoriteAnime.js";
+import { SearchAnimeResult } from "@/interfaces/searchedAnime.ts";
+import { FavoriteAnimeResult } from "@/interfaces/favoriteAnime.ts";
+import { FavoriteMangaResult } from "@/interfaces/favoriteManga.ts";
 
 export interface State {
 	animeResult: [];
 	airingAnimeResult: [];
 	searchAnimeResult: SearchAnimeResult[];
 	favoriteAnimeResult: FavoriteAnimeResult[];
-	favoriteMangaResult: [];
+	favoriteMangaResult: FavoriteMangaResult[];
 	favoriteCharactersResult: []
 }
