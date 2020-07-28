@@ -8,7 +8,8 @@ import auth from "@/store/auth.ts";
 
 //Interfaces
 import { State } from "@/interfaces/state.ts";
-import { SearchResponse } from "@/interfaces/search.ts";
+import { SearchAnimeResponse } from "@/interfaces/search.ts";
+import { FavoriteAnimeResponse } from "@/interfaces/favorite.ts";
 
 //API wrappers
 import jikanjs from "../../node_modules/jikanjs/lib/jikan.js";
@@ -17,7 +18,7 @@ Vue.use(Vuex);
 
 export const state: State = {
 	searchAnimeResult: [],
-	topAnimeResult: [],
+	favoriteAnimeResult: [],
 	topMangaResult: [],
 	topCharactersResult: [],
 	animeResult: [],
@@ -31,8 +32,8 @@ export default new Vuex.Store({
 		SET_ANIME(state, searchAnimeResult) {
 			state.searchAnimeResult = searchAnimeResult;
 		},
-		SET_TOP_LIST(state, topListResult) {
-			state.topListResult = topListResult;
+		SET_FAVORITE_ANIME(state, favoriteAnimeResult) {
+			state.favoriteAnimeResult = favoriteAnimeResult;
 		},
 		SET_LOADED_ANIME_DATA(state, loadedAnimeResult) {
 			state.loadedAnimeResult = loadedAnimeResult;
@@ -41,7 +42,7 @@ export default new Vuex.Store({
 	actions: {
 		async searchAnime(ctx, query) {
 			try {
-				const searchAnimeResponse: SearchResponse = await jikanjs.search("anime", query);
+				const searchAnimeResponse: SearchAnimeResponse = await jikanjs.search("anime", query);
 				const searchAnimeResult = searchAnimeResponse.results;
 				if (Array.isArray(searchAnimeResult) && searchAnimeResult.length > 0) {
 					ctx.commit("SET_ANIME", searchAnimeResult);
@@ -52,11 +53,11 @@ export default new Vuex.Store({
 				throw new Error(error);
 			}
 		},
-		async fetchTopList(ctx, [type, page, subtype]) {
+		async loadFavoriteAnime(ctx, [type, page, subtype]) {
 			try {
-				const topListResponse = await jikanjs.loadTop(type, page, subtype);
-				const topListResult = topListResponse.top;
-				ctx.commit("SET_TOP_LIST", topListResult);
+				const favoriteAnimeResponse: FavoriteAnimeResponse = await jikanjs.loadTop("anime", "1", "favorite");
+				const favoriteAnimeResult = favoriteAnimeResponse.top;
+				ctx.commit("SET_FAVORITE_ANIME", favoriteAnimeResult);
 			} catch (error) {
 				throw new Error(error);
 			}
@@ -88,7 +89,7 @@ export default new Vuex.Store({
 	modules: { auth },
 	getters: {
 		getSearchAnimeResult: state => state.searchAnimeResult,
-		getTopListResult: state => state.topListResult,
+		getFavoriteAnimeResult: state => state.favoriteAnimeResult,
 		getAnimeResult: state => state.loadedAnimeResult,
 	}
 });
