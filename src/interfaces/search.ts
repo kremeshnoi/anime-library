@@ -1,25 +1,25 @@
-interface SearchResponse {
-	request_hash: string;
-	request_cached: boolean;
-	request_cache_expiry: number;
+interface SearchAnimeResponse {
 	last_page: number;
-	results: SearchResult[];
+	request_cache_expiry: number;
+	request_cached: boolean;
+	request_hash: string;
+	results: SearchAnimeResult[];
 }
 
-interface SearchResult {
-	mal_id: number;
-	url: string;
+interface SearchAnimeResult {
+	airing: boolean;
+	end_date: string;
+	episodes: number;
 	image_url: string;
+	mal_id: number;
+	members: number;
+	rated: string;
+	score: number;
+	start_date: string;
+	synopsis: string;
 	title: string;
 	type: string;
-	episodes?: number;
-	airing: boolean;
-	rating: string;
-	score: number;
-	members: number;
-	synopsis: string;
-	end_date?: string;
-	rated: string;
+	url: string;
 }
 
-export {SearchResponse, SearchResult};
+export {SearchAnimeResponse, SearchAnimeResult};
