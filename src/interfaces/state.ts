@@ -1,7 +1,5 @@
-import {SearchResult} from "@/interfaces/search";
+import {SearchAnimeResult} from "@/interfaces/search";
 
 export interface State {
-	searchAnimeResult: SearchResult[];
-	topListResult: SearchResult[];
-	loadedAnimeResult: SearchResult[];
+	searchAnimeResult: SearchAnimeResult[];
 }
