@@ -8,6 +8,7 @@ import auth from "@/store/auth.ts";
 
 //Interfaces
 import { State } from "@/interfaces/state.ts";
+import { AiringAnimeResponse } from "@/interfaces/airingAnime.ts";
 import { SearchAnimeResponse } from "@/interfaces/searchedAnime.ts";
 import { FavoriteAnimeResponse } from "@/interfaces/favoriteAnime.ts";
 import { FavoriteMangaResponse } from "@/interfaces/favoriteManga.ts";
@@ -61,7 +62,7 @@ export default new Vuex.Store({
 		},
 		async loadAiringAnime(ctx) {
 			try {
-				const airingAnimeResponse = await jikanjs.loadTop("anime", 1, "airing");
+				const airingAnimeResponse: AiringAnimeResponse = await jikanjs.loadTop("anime", 1, "airing");
 				const airingAnimeResult = airingAnimeResponse.top.slice(0, 12);
 				ctx.commit("SET_AIRING_ANIME", airingAnimeResult);
 			} catch (error) {
