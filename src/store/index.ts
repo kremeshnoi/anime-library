@@ -10,6 +10,7 @@ import auth from "@/store/auth.ts";
 import { State } from "@/interfaces/state.ts";
 import { SearchAnimeResponse } from "@/interfaces/searchedAnime.ts";
 import { FavoriteAnimeResponse } from "@/interfaces/favoriteAnime.ts";
+import { FavoriteMangaResponse } from "@/interfaces/favoriteManga.ts";
 
 //API wrappers
 import jikanjs from "../../node_modules/jikanjs/lib/jikan.js";
@@ -90,7 +91,7 @@ export default new Vuex.Store({
 		},
 		async loadFavoriteManga(ctx) {
 			try {
-				const favoriteMangaResponse = await jikanjs.loadTop("manga", 1, "favorite");
+				const favoriteMangaResponse: FavoriteMangaResponse = await jikanjs.loadTop("manga", 1, "favorite");
 				const favoriteMangaResult = favoriteMangaResponse.top.slice(0, 9);
 				ctx.commit("SET_FAVORITE_MANGA", favoriteMangaResult);
 			} catch (error) {
