@@ -39,6 +39,12 @@ export default new Vuex.Store({
 		},
 		SET_FAVORITE_ANIME(state, favoriteAnimeResult) {
 			state.favoriteAnimeResult = favoriteAnimeResult;
+		},
+		SET_FAVORITE_MANGA(state, favoriteMangaResult) {
+			state.favoriteMangaResult = favoriteMangaResult;
+		},
+		SET_FAVORITE_CHARACTERS(state, favoriteCharactersResult) {
+			state.favoriteCharactersResult = favoriteCharactersResult;
 		}
 	},
 	actions: {
@@ -76,8 +82,26 @@ export default new Vuex.Store({
 		async loadFavoriteAnime(ctx) {
 			try {
 				const favoriteAnimeResponse: FavoriteAnimeResponse = await jikanjs.loadTop("anime", 1, "favorite");
-				const favoriteAnimeResult = favoriteAnimeResponse.top;
+				const favoriteAnimeResult = favoriteAnimeResponse.top.slice(0, 9);
 				ctx.commit("SET_FAVORITE_ANIME", favoriteAnimeResult);
+			} catch (error) {
+				throw new Error(error);
+			}
+		},
+		async loadFavoriteManga(ctx) {
+			try {
+				const favoriteMangaResponse = await jikanjs.loadTop("manga", 1, "favorite");
+				const favoriteMangaResult = favoriteMangaResponse.top.slice(0, 9);
+				ctx.commit("SET_FAVORITE_MANGA", favoriteMangaResult);
+			} catch (error) {
+				throw new Error(error);
+			}
+		},
+		async loadFavoriteCharacters(ctx) {
+			try {
+				const favoriteCharactersResponse = await jikanjs.loadTop("characters");
+				const favoriteCharactersResult = favoriteCharactersResponse.top.slice(0, 9);
+				ctx.commit("SET_FAVORITE_CHARACTERS", favoriteCharactersResult);
 			} catch (error) {
 				throw new Error(error);
 			}
@@ -103,6 +127,7 @@ export default new Vuex.Store({
 		getAiringAnimeResult: state => state.airingAnimeResult,
 		getSearchAnimeResult: state => state.searchAnimeResult,
 		getFavoriteAnimeResult: state => state.favoriteAnimeResult,
-
+		getFavoriteMangaResult: state => state.favoriteMangaResult,
+		getFavoriteCharactersResult: state => state.favoriteCharactersResult
 	}
 });
