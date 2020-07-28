@@ -2,7 +2,7 @@
 
 	.Cards(v-swiper:mySwiper="swiperOptions")
 		.Cards-container.swiper-wrapper
-			.Cards-item.card.swiper-slide(v-for="(result, index) in topAnimeListData" :key="index")
+			.Cards-item.card.swiper-slide(v-for="(result, index) in getAiringAnimeResult" :key="index")
 				.Cards-image-wrapper.card-image
 					img.Cards-image.activator(@click="computeRoute(result)" :src="result['image_url']")
 				.Cards-title-wrapper.card-content
@@ -22,7 +22,6 @@
 		name: "Cards",
 		data: () => {
 			return {
-				topAnimeListData: [],
 				swiperOptions: {
 					navigation: {
 						nextEl: ".swiper-button-next",
@@ -66,15 +65,13 @@
 			swiper: directive
 		},
 		methods: {
-			...mapActions(["fetchTopList", "computeRoute"])
+			...mapActions(["loadAiringAnime", "computeRoute"])
 		},
 		computed: {
-			...mapGetters(["getTopListResult"])
+			...mapGetters(["getAiringAnimeResult"])
 		},
 		created() {
-			this.fetchTopList(["anime", 1, "airing"]).then(() => {
-				this.topAnimeListData = this.getTopListResult.slice(0, 12);
-			});
+			this.loadAiringAnime();
 		}
 	};
 
