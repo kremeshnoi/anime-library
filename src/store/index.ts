@@ -11,6 +11,7 @@ import { State } from "@/interfaces/state.ts";
 import { SearchAnimeResponse } from "@/interfaces/searchedAnime.ts";
 import { FavoriteAnimeResponse } from "@/interfaces/favoriteAnime.ts";
 import { FavoriteMangaResponse } from "@/interfaces/favoriteManga.ts";
+import { FavoriteCharactersResponse } from "@/interfaces/favoriteCharacters.ts";
 
 //API wrappers
 import jikanjs from "../../node_modules/jikanjs/lib/jikan.js";
@@ -100,7 +101,7 @@ export default new Vuex.Store({
 		},
 		async loadFavoriteCharacters(ctx) {
 			try {
-				const favoriteCharactersResponse = await jikanjs.loadTop("characters");
+				const favoriteCharactersResponse: FavoriteCharactersResponse = await jikanjs.loadTop("characters");
 				const favoriteCharactersResult = favoriteCharactersResponse.top.slice(0, 9);
 				ctx.commit("SET_FAVORITE_CHARACTERS", favoriteCharactersResult);
 			} catch (error) {
