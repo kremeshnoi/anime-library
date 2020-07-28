@@ -1,5 +1,5 @@
-import {SearchAnimeResult} from "@/interfaces/search.ts";
-import {FavoriteAnimeResult} from "@/interfaces/favorite.ts";
+import {SearchAnimeResult} from "@/interfaces/searchedAnime.js";
+import {FavoriteAnimeResult} from "@/interfaces/favoriteAnime.js";
 
 export interface State {
 	searchAnimeResult: SearchAnimeResult[];
