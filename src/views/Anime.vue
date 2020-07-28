@@ -147,7 +147,7 @@
 			display: inline-block
 
 			&_decor
-				padding: 4px
+				padding: 0 6px
 				border-radius: 4px
 				color: $color-white-pure
 				background-color: $color-yellow
