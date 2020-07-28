@@ -1,7 +1,7 @@
 <template lang="pug">
 
 	footer.Footer
-		PreFooterList
+		PreFooter
 		FooterContent
 		FooterCopyright
 
@@ -9,15 +9,15 @@
 
 <script>
 
-	import PreFooterList from "@/components/blocks/PreFooterList";
+	import PreFooter from "@/components/blocks/PreFooter";
 	import FooterContent from "@/components/blocks/FooterContent";
 	import FooterCopyright from "@/components/blocks/FooterCopyright";
 
 	export default {
 		name: "MainFooter",
 		components: {
+			PreFooter,
 			FooterContent,
-			PreFooterList,
 			FooterCopyright
 		}
 	};

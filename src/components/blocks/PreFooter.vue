@@ -1,25 +1,25 @@
 <template lang="pug">
 
-	.PreFooterList
-		.PreFooterList-container
-			template(v-for="(listName, index) in listNames")
-				PreFooterItem(:listTitle="listName" :key="index")
+	.PreFooter
+		.PreFooter-container
+			PreFooterTopAnime
+			PreFooterTopManga
+			PreFooterTopCharacters
 
 </template>
 
 <script>
 
-	import PreFooterItem from "@/components/modules/PreFooterItem";
+	import PreFooterTopAnime from "@/components/modules/PreFooterTopAnime";
+	import PreFooterTopManga from "@/components/modules/PreFooterTopManga";
+	import PreFooterTopCharacters from "@/components/modules/PreFooterTopCharacters";
 
 	export default {
-		name: "PreFooterList",
-		data: () => {
-			return {
-				listNames: ["topAnimeList", "topMangaList", "charactersList"]
-			};
-		},
+		name: "PreFooter",
 		components: {
-			PreFooterItem
+			PreFooterTopAnime,
+			PreFooterTopManga,
+			PreFooterTopCharacters
 		}
 	};
 
@@ -30,7 +30,7 @@
 	@import "../../assets/styles/utils/vars"
 	@import "../../assets/styles/utils/mixins"
 
-	.PreFooterList
+	.PreFooter
 		background-color: $color-white-dark
 
 		&-container
