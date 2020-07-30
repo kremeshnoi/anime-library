@@ -25,7 +25,7 @@
 
 <script>
 
-	import {email, required} from "vuelidate/lib/validators";
+	import { email, required } from "vuelidate/lib/validators";
 	import VueRecaptcha from "vue-recaptcha";
 
 	export default {
@@ -47,13 +47,11 @@
 				if (this.$v.$invalid) {
 					this.$v.$touch();
 					return;
-				}
-
+				};
 				const RecoveryData = {
 					email: this.email,
 					password: this.password
 				};
-
 				this.$router.push("/");
 			}
 		}

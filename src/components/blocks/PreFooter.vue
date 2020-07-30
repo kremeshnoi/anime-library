@@ -10,9 +10,9 @@
 
 <script>
 
-	import PreFooterTopAnime from "@/components/modules/PreFooterTopAnime";
-	import PreFooterTopManga from "@/components/modules/PreFooterTopManga";
-	import PreFooterTopCharacters from "@/components/modules/PreFooterTopCharacters";
+	import PreFooterTopAnime from "@/components/modules/PreFooterTopAnime.vue";
+	import PreFooterTopManga from "@/components/modules/PreFooterTopManga.vue";
+	import PreFooterTopCharacters from "@/components/modules/PreFooterTopCharacters.vue";
 
 	export default {
 		name: "PreFooter",

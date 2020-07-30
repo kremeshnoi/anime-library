@@ -39,7 +39,7 @@
 
 <script>
 
-	import {email, required, minLength} from "vuelidate/lib/validators";
+	import { email, required, minLength } from "vuelidate/lib/validators";
 	import VueRecaptcha from "vue-recaptcha";
 
 	export default {
@@ -49,8 +49,8 @@
 			password: ""
 		}),
 		validations: {
-			email: {email, required},
-			password: {required, minLength: minLength(5)}
+			email: { email, required },
+			password: { required, minLength: minLength(5) }
 		},
 		components: {
 			VueRecaptcha
@@ -63,13 +63,11 @@
 				if (this.$v.$invalid) {
 					this.$v.$touch();
 					return;
-				}
-
+				};
 				const signInData = {
 					email: this.email,
 					password: this.password
 				};
-
 				this.$router.push("/");
 			}
 		}

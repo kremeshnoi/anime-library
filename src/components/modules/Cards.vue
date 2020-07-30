@@ -15,8 +15,8 @@
 
 <script>
 
-	import {Swiper, SwiperSlide, directive} from "vue-awesome-swiper";
-	import {mapActions, mapGetters} from "vuex";
+	import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper";
+	import { mapActions, mapGetters } from "vuex";
 
 	export default {
 		name: "Cards",
