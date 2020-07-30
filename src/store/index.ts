@@ -27,7 +27,6 @@ export const state: State = {
 	animeFavorite: [],
 	charactersFavorite: [],
 	mangaFavorite: []
-
 };
 
 export default new Vuex.Store({
@@ -65,7 +64,7 @@ export default new Vuex.Store({
 		async loadAnimeAiring(ctx) {
 			try {
 				const animeAiringResponse: AnimeAiringResponse = await jikanjs.loadTop("anime", 1, "airing");
-				const animeAiring = animeAiringResponse.top.slice(0, 12);
+				const animeAiring = animeAiringResponse.top.slice(0, 14);
 				ctx.commit("SET_ANIME_AIRING", animeAiring);
 			} catch (error) {
 				throw new Error(error);
