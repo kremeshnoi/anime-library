@@ -1,6 +1,6 @@
 <template lang="pug">
 
-	ul#nav-mobile.sidenav.sidenav-fixed.sidenav-mobile-list
+	ul#nav-mobile.sidenav.sidenav-mobile-list
 		li.sidenav-mobile-list-item
 			.user-view.sidenav-user
 				a.sidenav-mobile-list-link.sidenav-mobile-list-link-settings(data-position="right")
@@ -54,8 +54,8 @@
 
 <style lang="sass" scoped>
 
-	@import "../../assets/styles/utils/vars"
-	@import "../../assets/styles/utils/mixins"
+	@import "../../assets/styles/utils/vars.sass"
+	@import "../../assets/styles/utils/mixins.sass"
 
 	.sidenav
 		&-user

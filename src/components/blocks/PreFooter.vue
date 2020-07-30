@@ -27,8 +27,8 @@
 
 <style lang="sass" scoped>
 
-	@import "../../assets/styles/utils/vars"
-	@import "../../assets/styles/utils/mixins"
+	@import "../../assets/styles/utils/vars.sass"
+	@import "../../assets/styles/utils/mixins.sass"
 
 	.PreFooter
 		background-color: $color-white-dark

@@ -1,6 +1,6 @@
 <template lang="pug">
 
-	ul#slide-out.sidenav.sidenav-fixed.sidenav-list
+	ul#slide-out.sidenav.sidenav-list
 		li.sidenav-list-item
 			.user-view.sidenav-user
 				a.sidenav-list-link.sidenav-list-link-settings.tooltipped(data-position="right" data-tooltip="Settings")
@@ -49,8 +49,8 @@
 
 <style lang="sass" scoped>
 
-	@import "../../assets/styles/utils/vars"
-	@import "../../assets/styles/utils/mixins"
+	@import "../../assets/styles/utils/vars.sass"
+	@import "../../assets/styles/utils/mixins.sass"
 
 	.sidenav
 		&-user

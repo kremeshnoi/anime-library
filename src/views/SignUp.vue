@@ -86,9 +86,9 @@
 
 <style lang="sass" scoped>
 
-	@import "../assets/styles/utils/vars"
-	@import "../assets/styles/utils/mixins"
-	@import "../assets/styles/modules/buttons"
+	@import "../assets/styles/utils/vars.sass"
+	@import "../assets/styles/utils/mixins.sass"
+	@import "../assets/styles/modules/buttons.sass"
 
 	.SignUp
 		position: fixed
