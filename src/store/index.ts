@@ -7,13 +7,13 @@ import router from "../router";
 import auth from "@/store/auth.ts";
 
 //Interfaces
-import { State } from "@/interfaces/state.ts";
-import { AnimeResponse } from "@/interfaces/animeResponse.ts";
-import { AnimeAiringResponse } from "@/interfaces/animeAiringResponse.ts";
-import { AnimeSearchedResponse } from "@/interfaces/animeSearchedResponse.ts";
-import { AnimeFavoriteResponse } from "@/interfaces/animeFavoriteResponse.ts";
-import { CharactersFavoriteResponse } from "@/interfaces/charactersFavoriteResponse.ts";
-import { MangaFavoriteResponse } from "@/interfaces/mangaFavoriteResponse.ts";
+import { State } from "@/interfaces/State.ts";
+import { AnimeResponse } from "@/interfaces/AnimeResponse.ts";
+import { AnimeAiringResponse } from "@/interfaces/AnimeAiringResponse.ts";
+import { AnimeSearchedResponse } from "@/interfaces/AnimeSearchedResponse.ts";
+import { AnimeFavoriteResponse } from "@/interfaces/AnimeFavoriteResponse.ts";
+import { CharactersFavoriteResponse } from "@/interfaces/CharactersFavoriteResponse.ts";
+import { MangaFavoriteResponse } from "@/interfaces/MangaFavoriteResponse.ts";
 
 //API wrappers
 import jikanjs from "../../node_modules/jikanjs/lib/jikan.js";
