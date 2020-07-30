@@ -1,6 +1,6 @@
 <template lang="pug">
 
-	.Home
+	.home
 		TopAiring
 
 </template>
@@ -25,9 +25,5 @@
 
 	@import "../assets/styles/utils/vars.sass"
 	@import "../assets/styles/utils/mixins.sass"
-
-	.Home
-		width: 100%
-		padding: 54px 0 0 0
 
 </style>
