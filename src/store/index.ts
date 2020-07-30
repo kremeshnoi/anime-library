@@ -8,11 +8,12 @@ import auth from "@/store/auth.ts";
 
 //Interfaces
 import { State } from "@/interfaces/state.ts";
-import { AiringAnimeResponse } from "@/interfaces/airingAnime.ts";
-import { SearchAnimeResponse } from "@/interfaces/searchedAnime.ts";
-import { FavoriteAnimeResponse } from "@/interfaces/favoriteAnime.ts";
-import { FavoriteMangaResponse } from "@/interfaces/favoriteManga.ts";
-import { FavoriteCharactersResponse } from "@/interfaces/favoriteCharacters.ts";
+import { AnimeResponse } from "@/interfaces/animeResponse.ts";
+import { AnimeAiringResponse } from "@/interfaces/animeAiringResponse.ts";
+import { AnimeSearchedResponse } from "@/interfaces/animeSearchedResponse.ts";
+import { AnimeFavoriteResponse } from "@/interfaces/animeFavoriteResponse.ts";
+import { MangaFavoriteResponse } from "@/interfaces/mangaFavoriteResponse.ts";
+import { CharactersFavoriteResponse } from "@/interfaces/charactersFavoriteResponse.ts";
 
 //API wrappers
 import jikanjs from "../../node_modules/jikanjs/lib/jikan.js";
@@ -53,7 +54,7 @@ export default new Vuex.Store({
 	actions: {
 		async loadAnime(ctx) {
 			try {
-				const animeResponse = await jikanjs.loadAnime(router.app.$route.params.id);
+				const animeResponse: AnimeResponse = await jikanjs.loadAnime(router.app.$route.params.id);
 				const animeResult = animeResponse;
 				ctx.commit("SET_ANIME", animeResult);
 			} catch (error) {
@@ -62,7 +63,7 @@ export default new Vuex.Store({
 		},
 		async loadAiringAnime(ctx) {
 			try {
-				const airingAnimeResponse: AiringAnimeResponse = await jikanjs.loadTop("anime", 1, "airing");
+				const airingAnimeResponse: AnimeAiringResponse = await jikanjs.loadTop("anime", 1, "airing");
 				const airingAnimeResult = airingAnimeResponse.top.slice(0, 12);
 				ctx.commit("SET_AIRING_ANIME", airingAnimeResult);
 			} catch (error) {
@@ -71,7 +72,7 @@ export default new Vuex.Store({
 		},
 		async searchAnime(ctx, query) {
 			try {
-				const searchAnimeResponse: SearchAnimeResponse = await jikanjs.search("anime", query);
+				const searchAnimeResponse: AnimeSearchedResponse = await jikanjs.search("anime", query);
 				const searchAnimeResult = searchAnimeResponse.results;
 				if (Array.isArray(searchAnimeResult) && searchAnimeResult.length > 0) {
 					ctx.commit("SET_SEARCHED_ANIME", searchAnimeResult);
@@ -84,7 +85,7 @@ export default new Vuex.Store({
 		},
 		async loadFavoriteAnime(ctx) {
 			try {
-				const favoriteAnimeResponse: FavoriteAnimeResponse = await jikanjs.loadTop("anime", 1, "favorite");
+				const favoriteAnimeResponse: AnimeFavoriteResponse = await jikanjs.loadTop("anime", 1, "favorite");
 				const favoriteAnimeResult = favoriteAnimeResponse.top.slice(0, 9);
 				ctx.commit("SET_FAVORITE_ANIME", favoriteAnimeResult);
 			} catch (error) {
@@ -93,7 +94,7 @@ export default new Vuex.Store({
 		},
 		async loadFavoriteManga(ctx) {
 			try {
-				const favoriteMangaResponse: FavoriteMangaResponse = await jikanjs.loadTop("manga", 1, "favorite");
+				const favoriteMangaResponse: MangaFavoriteResponse = await jikanjs.loadTop("manga", 1, "favorite");
 				const favoriteMangaResult = favoriteMangaResponse.top.slice(0, 9);
 				ctx.commit("SET_FAVORITE_MANGA", favoriteMangaResult);
 			} catch (error) {
@@ -102,7 +103,7 @@ export default new Vuex.Store({
 		},
 		async loadFavoriteCharacters(ctx) {
 			try {
-				const favoriteCharactersResponse: FavoriteCharactersResponse = await jikanjs.loadTop("characters");
+				const favoriteCharactersResponse: CharactersFavoriteResponse = await jikanjs.loadTop("characters");
 				const favoriteCharactersResult = favoriteCharactersResponse.top.slice(0, 9);
 				ctx.commit("SET_FAVORITE_CHARACTERS", favoriteCharactersResult);
 			} catch (error) {

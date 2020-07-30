@@ -1,12 +1,12 @@
-interface SearchAnimeResponse {
+interface AnimeSearchedResponse {
 	last_page: number;
 	request_cache_expiry: number;
 	request_cached: boolean;
 	request_hash: string;
-	results: SearchAnimeResult[];
+	results: AnimeSearchedResponseResults[];
 }
 
-interface SearchAnimeResult {
+interface AnimeSearchedResponseResults {
 	airing: boolean;
 	end_date: string;
 	episodes: number;
@@ -22,4 +22,4 @@ interface SearchAnimeResult {
 	url: string;
 }
 
-export {SearchAnimeResponse, SearchAnimeResult};
+export {AnimeSearchedResponse, AnimeSearchedResponseResults};
