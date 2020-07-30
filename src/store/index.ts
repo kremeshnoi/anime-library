@@ -12,8 +12,8 @@ import { AnimeResponse } from "@/interfaces/animeResponse.ts";
 import { AnimeAiringResponse } from "@/interfaces/animeAiringResponse.ts";
 import { AnimeSearchedResponse } from "@/interfaces/animeSearchedResponse.ts";
 import { AnimeFavoriteResponse } from "@/interfaces/animeFavoriteResponse.ts";
-import { MangaFavoriteResponse } from "@/interfaces/mangaFavoriteResponse.ts";
 import { CharactersFavoriteResponse } from "@/interfaces/charactersFavoriteResponse.ts";
+import { MangaFavoriteResponse } from "@/interfaces/mangaFavoriteResponse.ts";
 
 //API wrappers
 import jikanjs from "../../node_modules/jikanjs/lib/jikan.js";
@@ -21,61 +21,62 @@ import jikanjs from "../../node_modules/jikanjs/lib/jikan.js";
 Vue.use(Vuex);
 
 export const state: State = {
-	animeResult: [],
-	airingAnimeResult: [],
-	searchAnimeResult: [],
-	favoriteAnimeResult: [],
-	favoriteMangaResult: [],
-	favoriteCharactersResult: []
+	anime: [],
+	animeAiring: [],
+	animeSearched: [],
+	animeFavorite: [],
+	charactersFavorite: [],
+	mangaFavorite: []
+
 };
 
 export default new Vuex.Store({
 	state,
 	mutations: {
-		SET_ANIME(state, animeResult) {
-			state.animeResult = animeResult;
+		SET_ANIME(state, anime) {
+			state.anime = anime;
 		},
-		SET_AIRING_ANIME(state, airingAnimeResult) {
-			state.airingAnimeResult = airingAnimeResult;
+		SET_ANIME_AIRING(state, animeAiring) {
+			state.animeAiring = animeAiring;
 		},
-		SET_SEARCHED_ANIME(state, searchAnimeResult) {
-			state.searchAnimeResult = searchAnimeResult;
+		SET_ANIME_SEARCHED(state, animeSearched) {
+			state.animeSearched = animeSearched;
 		},
-		SET_FAVORITE_ANIME(state, favoriteAnimeResult) {
-			state.favoriteAnimeResult = favoriteAnimeResult;
+		SET_ANIME_FAVORITE(state, animeFavorite) {
+			state.animeFavorite = animeFavorite;
 		},
-		SET_FAVORITE_MANGA(state, favoriteMangaResult) {
-			state.favoriteMangaResult = favoriteMangaResult;
+		SET_MANGA_FAVORITE(state, mangaFavorite) {
+			state.mangaFavorite = mangaFavorite;
 		},
-		SET_FAVORITE_CHARACTERS(state, favoriteCharactersResult) {
-			state.favoriteCharactersResult = favoriteCharactersResult;
+		SET_CHARACTERS_FAVORITE(state, charactersFavorite) {
+			state.charactersFavorite = charactersFavorite;
 		}
 	},
 	actions: {
 		async loadAnime(ctx) {
 			try {
 				const animeResponse: AnimeResponse = await jikanjs.loadAnime(router.app.$route.params.id);
-				const animeResult = animeResponse;
-				ctx.commit("SET_ANIME", animeResult);
+				const anime = animeResponse;
+				ctx.commit("SET_ANIME", anime);
 			} catch (error) {
 				throw new Error(error);
 			}
 		},
-		async loadAiringAnime(ctx) {
+		async loadAnimeAiring(ctx) {
 			try {
-				const airingAnimeResponse: AnimeAiringResponse = await jikanjs.loadTop("anime", 1, "airing");
-				const airingAnimeResult = airingAnimeResponse.top.slice(0, 12);
-				ctx.commit("SET_AIRING_ANIME", airingAnimeResult);
+				const animeAiringResponse: AnimeAiringResponse = await jikanjs.loadTop("anime", 1, "airing");
+				const animeAiring = animeAiringResponse.top.slice(0, 12);
+				ctx.commit("SET_ANIME_AIRING", animeAiring);
 			} catch (error) {
 				throw new Error(error);
 			}
 		},
-		async searchAnime(ctx, query) {
+		async loadAnimeSearched(ctx, query) {
 			try {
-				const searchAnimeResponse: AnimeSearchedResponse = await jikanjs.search("anime", query);
-				const searchAnimeResult = searchAnimeResponse.results;
-				if (Array.isArray(searchAnimeResult) && searchAnimeResult.length > 0) {
-					ctx.commit("SET_SEARCHED_ANIME", searchAnimeResult);
+				const animeSearchedResponse: AnimeSearchedResponse = await jikanjs.search("anime", query);
+				const animeSearched = animeSearchedResponse.results;
+				if (Array.isArray(animeSearched) && animeSearched.length > 0) {
+					ctx.commit("SET_ANIME_SEARCHED", animeSearched);
 				} else {
 					M.toast({html: "Anime not found"});
 				}
@@ -83,29 +84,29 @@ export default new Vuex.Store({
 				throw new Error(error);
 			}
 		},
-		async loadFavoriteAnime(ctx) {
+		async loadAnimeFavorite(ctx) {
 			try {
 				const favoriteAnimeResponse: AnimeFavoriteResponse = await jikanjs.loadTop("anime", 1, "favorite");
-				const favoriteAnimeResult = favoriteAnimeResponse.top.slice(0, 9);
-				ctx.commit("SET_FAVORITE_ANIME", favoriteAnimeResult);
+				const animeFavorite = favoriteAnimeResponse.top.slice(0, 9);
+				ctx.commit("SET_ANIME_FAVORITE", animeFavorite);
 			} catch (error) {
 				throw new Error(error);
 			}
 		},
-		async loadFavoriteManga(ctx) {
-			try {
-				const favoriteMangaResponse: MangaFavoriteResponse = await jikanjs.loadTop("manga", 1, "favorite");
-				const favoriteMangaResult = favoriteMangaResponse.top.slice(0, 9);
-				ctx.commit("SET_FAVORITE_MANGA", favoriteMangaResult);
-			} catch (error) {
-				throw new Error(error);
-			}
-		},
-		async loadFavoriteCharacters(ctx) {
+		async loadCharactersFavorite(ctx) {
 			try {
 				const favoriteCharactersResponse: CharactersFavoriteResponse = await jikanjs.loadTop("characters");
-				const favoriteCharactersResult = favoriteCharactersResponse.top.slice(0, 9);
-				ctx.commit("SET_FAVORITE_CHARACTERS", favoriteCharactersResult);
+				const charactersFavorite = favoriteCharactersResponse.top.slice(0, 9);
+				ctx.commit("SET_CHARACTERS_FAVORITE", charactersFavorite);
+			} catch (error) {
+				throw new Error(error);
+			}
+		},
+		async loadMangaFavorite(ctx) {
+			try {
+				const favoriteMangaResponse: MangaFavoriteResponse = await jikanjs.loadTop("manga", 1, "favorite");
+				const mangaFavorite = favoriteMangaResponse.top.slice(0, 9);
+				ctx.commit("SET_MANGA_FAVORITE", mangaFavorite);
 			} catch (error) {
 				throw new Error(error);
 			}
@@ -127,11 +128,11 @@ export default new Vuex.Store({
 	},
 	modules: { auth },
 	getters: {
-		getAnimeResult: state => state.animeResult,
-		getAiringAnimeResult: state => state.airingAnimeResult,
-		getSearchAnimeResult: state => state.searchAnimeResult,
-		getFavoriteAnimeResult: state => state.favoriteAnimeResult,
-		getFavoriteMangaResult: state => state.favoriteMangaResult,
-		getFavoriteCharactersResult: state => state.favoriteCharactersResult
+		getAnime: state => state.anime,
+		getAnimeAiring: state => state.animeAiring,
+		getAnimeSearched: state => state.animeSearched,
+		getAnimeFavorite: state => state.animeFavorite,
+		getCharactersFavorite: state => state.charactersFavorite,
+		getMangaFavorite: state => state.mangaFavorite
 	}
 });

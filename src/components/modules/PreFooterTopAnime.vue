@@ -3,7 +3,7 @@
 	.PreFooterTopAnime
 		router-link.PreFooterTopAnime-title(to="/") Top Anime
 			.PreFooterTopAnime-icon.material-icons keyboard_arrow_right
-		.PreFooterTopAnime-content(v-for="(result, index) in getFavoriteAnimeResult" :key="index")
+		.PreFooterTopAnime-content(v-for="(result, index) in getAnimeFavorite" :key="index")
 			p.PreFooterTopAnime-digit {{ index + 1 }}.
 			router-link.PreFooterTopAnime-link(to="/") {{ result['title'] }}
 
@@ -16,13 +16,13 @@
 	export default {
 		name: "PreFooterAnime",
 		methods: {
-			...mapActions(["loadFavoriteAnime"]),
+			...mapActions(["loadAnimeFavorite"]),
 		},
 		computed: {
-			...mapGetters(["getFavoriteAnimeResult"])
+			...mapGetters(["getAnimeFavorite"])
 		},
 		async created() {
-			await this.loadFavoriteAnime();
+			await this.loadAnimeFavorite();
 		}
 	};
 

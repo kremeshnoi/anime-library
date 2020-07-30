@@ -3,15 +3,15 @@
 	.Search
 		nav.nav-search
 			.nav-wrapper.white.nav-search-wrapper
-				form.nav-search-form(v-on:submit.prevent="searchAnime(query)")
+				form.nav-search-form(v-on:submit.prevent="loadAnimeSearched(query)")
 					.input-field.nav-search-field
 						input#search.nav-search-input(type="search", v-model="query")
 						label.label-icon(for="search")
 							i.material-icons.black-text.nav-search-icon search
 
 		section
-			.query-content(v-if="getSearchAnimeResult.length")
-				.card.query-content-card(v-for="result in getSearchAnimeResult")
+			.query-content(v-if="getAnimeSearched.length")
+				.card.query-content-card(v-for="result in getAnimeSearched")
 					.card-image.query-content-card-wrapper
 						img.activator.query-content-card-image(:src="result['image_url']")
 
@@ -47,10 +47,10 @@
 			title: "Anime Library / Search"
 		},
 		computed: {
-			...mapGetters(["getSearchAnimeResult"])
+			...mapGetters(["getAnimeSearched"])
 		},
 		methods: {
-			...mapActions(["searchAnime"])
+			...mapActions(["loadAnimeSearched"])
 		}
 	};
 
