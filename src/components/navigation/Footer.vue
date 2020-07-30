@@ -9,9 +9,9 @@
 
 <script>
 
-	import PreFooter from "@/components/blocks/PreFooter";
-	import FooterContent from "@/components/blocks/FooterContent";
-	import FooterCopyright from "@/components/blocks/FooterCopyright";
+	import PreFooter from "@/components/blocks/PreFooter.vue";
+	import FooterContent from "@/components/blocks/FooterContent.vue";
+	import FooterCopyright from "@/components/blocks/FooterCopyright.vue";
 
 	export default {
 		name: "MainFooter",
