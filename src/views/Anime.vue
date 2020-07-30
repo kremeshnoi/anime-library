@@ -36,7 +36,7 @@
 								| Genres:
 							| &nbsp;
 							.anime-info__list-values(v-for="(result, index_genres) in getAnimeResult['genres']"
-											:key="index_genres")
+															:key="index_genres")
 								| {{ result['name'] }}
 						li.anime-info__list-item
 							.anime-info__list-key
@@ -49,7 +49,7 @@
 								| Studios:
 							| &nbsp;
 							.anime-info__list-values(v-for="(result, index_studios) in getAnimeResult['studios']"
-											:key="index_studios")
+															:key="index_studios")
 								| {{ result['name'] }}
 						li.anime-info__list-item
 							.anime-info__list-key
@@ -83,22 +83,19 @@
 
 <style lang="sass" scoped>
 
-	@import "../assets/styles/utils/vars"
-	@import "../assets/styles/utils/mixins"
-	@import "../assets/styles/modules/dividers"
+	@import "../assets/styles/utils/vars.sass"
+	@import "../assets/styles/utils/mixins.sass"
+	@import "../assets/styles/modules/dividers.sass"
+	@import "../assets/styles/modules/containers.sass"
 
 	.anime
 		width: 100%
-		padding: 54px 0 0 0
 
 		&__container
-			width: 100%
-			margin: 0 auto
-			padding: 40px 40px 40px 40px
-			max-width: 1300px
 			display: grid
 			grid-gap: 20px
 			grid-template-columns: 1fr 1fr
+			@extend .container-default
 
 		&__main-content
 			display: grid
@@ -108,7 +105,6 @@
 
 		&__sub-content
 
-
 		&__title
 			text-align: start
 			font-size: 20px
@@ -117,12 +113,11 @@
 		&__cover
 			grid-area: cover
 
-		&__info
-			text-align: start
-			grid-area: info
-			+flex(initial, initial, column)
-
 	.anime-info
+		text-align: start
+		grid-area: info
+		+flex(initial, initial, column)
+
 		&__header
 			color: $color-black
 			width: 100%
