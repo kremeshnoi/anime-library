@@ -1,14 +1,15 @@
-import { AiringAnimeResult } from "@/interfaces/airingAnime.ts";
-import { SearchAnimeResult } from "@/interfaces/searchedAnime.ts";
-import { FavoriteAnimeResult } from "@/interfaces/favoriteAnime.ts";
-import { FavoriteMangaResult } from "@/interfaces/favoriteManga.ts";
-import { FavoriteCharactersResult } from "@/interfaces/favoriteCharacters.ts";
+import { AnimeResponse } from "@/interfaces/animeResponse.ts";
+import { AnimeAiringResponseTop } from "@/interfaces/animeAiringResponse.ts";
+import { AnimeSearchedResponseResults } from "@/interfaces/animeSearchedResponse.ts";
+import { AnimeFavoriteResponseTop } from "@/interfaces/animeFavoriteResponse.ts";
+import { MangaFavoriteResponseTop } from "@/interfaces/mangaFavoriteResponse.ts";
+import { CharactersFavoriteResponseTop } from "@/interfaces/charactersFavoriteResponse.ts";
 
 export interface State {
-	animeResult: [];
-	airingAnimeResult: AiringAnimeResult[];
-	searchAnimeResult: SearchAnimeResult[];
-	favoriteAnimeResult: FavoriteAnimeResult[];
-	favoriteMangaResult: FavoriteMangaResult[];
-	favoriteCharactersResult: FavoriteCharactersResult[]
+	animeResult: AnimeResponse[];
+	airingAnimeResult: AnimeAiringResponseTop[];
+	searchAnimeResult: AnimeSearchedResponseResults[];
+	favoriteAnimeResult: AnimeFavoriteResponseTop[];
+	favoriteMangaResult: MangaFavoriteResponseTop[];
+	favoriteCharactersResult: CharactersFavoriteResponseTop[];
 }

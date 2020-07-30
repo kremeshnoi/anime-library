@@ -1,11 +1,11 @@
-interface FavoriteAnimeResponse {
+interface AnimeAiringResponse {
 	request_cache_expiry: number;
 	request_cached: boolean;
 	request_hash: string;
-	top: FavoriteAnimeResult[];
+	top: AnimeAiringResponseTop[];
 }
 
-interface FavoriteAnimeResult {
+interface AnimeAiringResponseTop {
 	end_date: string;
 	episodes: number;
 	image_url: string;
@@ -19,4 +19,4 @@ interface FavoriteAnimeResult {
 	url: string;
 }
 
-export {FavoriteAnimeResponse, FavoriteAnimeResult};
+export {AnimeAiringResponse, AnimeAiringResponseTop};
