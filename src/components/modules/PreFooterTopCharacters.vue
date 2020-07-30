@@ -3,7 +3,7 @@
 	.PreFooterTopCharacters
 		router-link.PreFooterTopCharacters-title(to="/") Popular Characters
 			.PreFooterTopCharacters-icon.material-icons keyboard_arrow_right
-		.PreFooterTopCharacters-content(v-for="(result, index) in getFavoriteCharactersResult" :key="index")
+		.PreFooterTopCharacters-content(v-for="(result, index) in getCharactersFavorite" :key="index")
 			p.PreFooterTopCharacters-digit {{ index + 1 }}.
 			router-link.PreFooterTopCharacters-link(to="/") {{ result['title'] }}
 
@@ -16,13 +16,13 @@
 	export default {
 		name: "PreFooterCharacters",
 		methods: {
-			...mapActions(["loadFavoriteCharacters"]),
+			...mapActions(["loadCharactersFavorite"]),
 		},
 		computed: {
-			...mapGetters(["getFavoriteCharactersResult"])
+			...mapGetters(["getCharactersFavorite"])
 		},
 		async created() {
-			await this.loadFavoriteCharacters();
+			await this.loadCharactersFavorite();
 		}
 	};
 

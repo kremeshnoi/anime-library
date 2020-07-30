@@ -2,7 +2,7 @@
 
 	.Cards(v-swiper:mySwiper="swiperOptions")
 		.Cards-container.swiper-wrapper
-			.Cards-item.card.swiper-slide(v-for="(result, index) in getAiringAnimeResult" :key="index")
+			.Cards-item.card.swiper-slide(v-for="(result, index) in getAnimeAiring" :key="index")
 				.Cards-image-wrapper.card-image
 					img.Cards-image.activator(@click="computeRoute(result)" :src="result['image_url']")
 				.Cards-title-wrapper.card-content
@@ -65,13 +65,13 @@
 			swiper: directive
 		},
 		methods: {
-			...mapActions(["loadAiringAnime", "computeRoute"])
+			...mapActions(["loadAnimeAiring", "computeRoute"])
 		},
 		computed: {
-			...mapGetters(["getAiringAnimeResult"])
+			...mapGetters(["getAnimeAiring"])
 		},
 		created() {
-			this.loadAiringAnime();
+			this.loadAnimeAiring();
 		}
 	};
 

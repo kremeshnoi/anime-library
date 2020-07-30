@@ -6,10 +6,10 @@ import { MangaFavoriteResponseTop } from "@/interfaces/mangaFavoriteResponse.ts"
 import { CharactersFavoriteResponseTop } from "@/interfaces/charactersFavoriteResponse.ts";
 
 export interface State {
-	animeResult: AnimeResponse[];
-	airingAnimeResult: AnimeAiringResponseTop[];
-	searchAnimeResult: AnimeSearchedResponseResults[];
-	favoriteAnimeResult: AnimeFavoriteResponseTop[];
-	favoriteMangaResult: MangaFavoriteResponseTop[];
-	favoriteCharactersResult: CharactersFavoriteResponseTop[];
+	anime: AnimeResponse[];
+	animeAiring: AnimeAiringResponseTop[];
+	animeSearched: AnimeSearchedResponseResults[];
+	animeFavorite: AnimeFavoriteResponseTop[];
+	charactersFavorite: CharactersFavoriteResponseTop[];
+	mangaFavorite: MangaFavoriteResponseTop[];
 }

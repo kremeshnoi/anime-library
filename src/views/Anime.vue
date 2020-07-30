@@ -4,10 +4,10 @@
 		.anime__container
 			.anime__main-content
 				h1.anime__title
-					| {{ getAnimeResult['title'] }}
+					| {{ getAnime['title'] }}
 					.divider_hidden
-					| {{ getAnimeResult['title_japanese'] }}
-				img.anime__cover(:src="getAnimeResult['image_url']")
+					| {{ getAnime['title_japanese'] }}
+				img.anime__cover(:src="getAnime['image_url']")
 
 				.anime__info.anime-info
 					h2.anime-info__header
@@ -18,24 +18,24 @@
 								| Type:
 							| &nbsp;
 							.anime-info__list-value
-								| {{ getAnimeResult['type'] }}
+								| {{ getAnime['type'] }}
 						li.anime-info__list-item
 							.anime-info__list-key
 								| Score:
 							| &nbsp;
 							span.anime-info__list-value.anime-info__list-value_decor
-								| {{ getAnimeResult['score'] }}
+								| {{ getAnime['score'] }}
 						li.anime-info__list-item
 							.anime-info__list-key
 								| Status:
 							| &nbsp;
 							.anime-info__list-value
-								| {{ getAnimeResult['status'] }}
+								| {{ getAnime['status'] }}
 						li.anime-info__list-item
 							.anime-info__list-key
 								| Genres:
 							| &nbsp;
-							.anime-info__list-values(v-for="(result, index_genres) in getAnimeResult['genres']"
+							.anime-info__list-values(v-for="(result, index_genres) in getAnime['genres']"
 															:key="index_genres")
 								| {{ result['name'] }}
 						li.anime-info__list-item
@@ -43,12 +43,12 @@
 								| Duration:
 							| &nbsp;
 							.anime-info__list-value
-								| {{ getAnimeResult['duration'] }}
+								| {{ getAnime['duration'] }}
 						li.anime-info__list-item
 							.anime-info__list-key
 								| Studios:
 							| &nbsp;
-							.anime-info__list-values(v-for="(result, index_studios) in getAnimeResult['studios']"
+							.anime-info__list-values(v-for="(result, index_studios) in getAnime['studios']"
 															:key="index_studios")
 								| {{ result['name'] }}
 						li.anime-info__list-item
@@ -56,7 +56,7 @@
 								| Rating:
 							| &nbsp;
 							.anime-info__list-value
-								| {{ getAnimeResult['rating'] }}
+								| {{ getAnime['rating'] }}
 
 			.anime__sub-content
 
@@ -72,7 +72,7 @@
 			...mapActions(["loadAnime"])
 		},
 		computed: {
-			...mapGetters(["getAnimeResult"])
+			...mapGetters(["getAnime"])
 		},
 		async created() {
 			await this.loadAnime();

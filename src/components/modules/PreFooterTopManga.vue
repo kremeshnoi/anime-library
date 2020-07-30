@@ -3,7 +3,7 @@
 	.PreFooterTopManga
 		router-link.PreFooterTopManga-title(to="/") Top Manga
 			.PreFooterTopManga-icon.material-icons keyboard_arrow_right
-		.PreFooterTopManga-content(v-for="(result, index) in getFavoriteMangaResult" :key="index")
+		.PreFooterTopManga-content(v-for="(result, index) in getMangaFavorite" :key="index")
 			p.PreFooterTopManga-digit {{ index + 1 }}.
 			router-link.PreFooterTopManga-link(to="/") {{ result['title'] }}
 
@@ -16,13 +16,13 @@
 	export default {
 		name: "PreFooterManga",
 		methods: {
-			...mapActions(["loadFavoriteManga"]),
+			...mapActions(["loadMangaFavorite"]),
 		},
 		computed: {
-			...mapGetters(["getFavoriteMangaResult"])
+			...mapGetters(["getMangaFavorite"])
 		},
 		async created() {
-			await this.loadFavoriteManga();
+			await this.loadMangaFavorite();
 		}
 	};
 
