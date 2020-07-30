@@ -1,9 +1,7 @@
 <template lang="pug">
 
-	div.global-wrapper
-
-		main.content-wrapper
-			router-view
+	.content-wrapper
+		router-view
 
 </template>
 
@@ -20,20 +18,12 @@
 
 <style lang="sass" scoped>
 
-	@import "../assets/styles/utils/vars"
-	@import "../assets/styles/utils/mixins"
+	@import "../assets/styles/utils/vars.sass"
+	@import "../assets/styles/utils/mixins.sass"
 
-	.global-wrapper
-		display: flex
-		flex-direction: column
-		align-items: flex-end
-
-		.content-wrapper
-			display: flex
-			flex-direction: column
-			align-items: center
-			width: 100%
-			background-color: $color-blue
-			height: 100vh
+	.content-wrapper
+		height: 100vh
+		background-color: $color-blue
+		+flex(initial, center, column)
 
 </style>
