@@ -26,4 +26,7 @@
 	@import "../assets/styles/utils/vars.sass"
 	@import "../assets/styles/utils/mixins.sass"
 
+	.home
+		width: 100%
+
 </style>
