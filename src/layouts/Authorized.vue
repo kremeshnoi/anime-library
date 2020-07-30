@@ -1,16 +1,11 @@
 <template lang="pug">
 
-	div.global-wrapper
+	.content-wrapper
 		MainNav
-
 		MobileNav
-
 		SideNav
-
-		main.content-wrapper
-			router-view
-
-			MainFooter
+		router-view
+		MainFooter
 
 </template>
 
@@ -38,22 +33,11 @@
 
 <style lang="sass" scoped>
 
-	@import "../assets/styles/utils/vars"
-	@import "../assets/styles/utils/mixins"
+	@import "../assets/styles/utils/vars.sass"
+	@import "../assets/styles/utils/mixins.sass"
 
-	.global-wrapper
-		display: flex
-		flex-direction: column
-		align-items: flex-end
-
-		.content-wrapper
-			display: flex
-			flex-direction: column
-			align-items: center
-			width: calc(100% - 300px)
-			background-color: $color-white-pure
-			height: 100%
-			+mq(tablet-wide, max)
-				width: 100%
+	.content-wrapper
+		background-color: $color-white-pure
+		+flex(initial, center, column)
 
 </style>
