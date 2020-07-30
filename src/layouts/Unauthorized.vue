@@ -31,6 +31,7 @@
 	@import "../assets/styles/utils/mixins.sass"
 
 	.content-wrapper
+		padding: 54px 0 0 0
 		background-color: $color-white-pure
 		+flex(initial, center, column)
 
