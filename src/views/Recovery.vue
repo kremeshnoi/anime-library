@@ -1,25 +1,37 @@
 <template lang="pug">
 
-	.Recovery
-		p.Recovery-title Send password recovery email
-		form(v-on:submit.prevent="submitHandler")
-			.Recovery-row
-				.Recovery-field.input-field
-					input#email(type="text" name="email" v-model.trim="email"
-						:class="{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }")
-					label(for="email") Email
-					span.Recovery-helper.helper-text(v-if="$v.email.$dirty && !$v.email.required" data-error="The field is empty")
-					span.Recovery-helper.helper-text(v-else-if="$v.email.$dirty && !$v.email.email" data-error="Incorrect email")
+	.recovery
+		h1.recovery__title
+			| Send password recovery email
 
-			center
-				.Recovery-row
+		form.recovery__form.recovery-form(v-on:submit.prevent="submitHandler")
+			.recovery-form__row
+				.recovery-form__field.input-field
+					input#email.recovery-form__input(type="text"
+																name="email"
+																v-model.trim="email"
+																:class="{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }")
+
+					label.recovery-form__label(for="email")
+						| Email
+
+					span.recovery-form__helper.helper-text(v-if="$v.email.$dirty && !$v.email.required"
+																		data-error="The field is empty")
+
+					span.recovery-form__helper.helper-text(v-else-if="$v.email.$dirty && !$v.email.email"
+																		data-error="Incorrect email")
+
+			center.recovery__center
+				.recovery-form__row
 					vue-recaptcha(sitekey="6Lc-DaUZAAAAABeSVHxIZhS9Wk2xqSo53V4UeX-H")
 
-				.Recovery-row
-					button.SignUp-button.btn-large(type="submit" name="submitRecover") Submit
+				.recovery-form__row
+					button.recovery-form_button.btn-large(type="submit" name="submitRecover")
+						| Submit
 
-		.SignUp-cancel
-			router-link(to="/") Back to Homepage?
+		.recovery__link-back
+			router-link(to="/")
+				| Back to Homepage?
 
 </template>
 
@@ -65,7 +77,7 @@
 	@import "../assets/styles/utils/mixins.sass"
 	@import "../assets/styles/modules/buttons.sass"
 
-	.Recovery
+	.recovery
 		position: fixed
 		top: 0
 		left: 0
@@ -79,21 +91,22 @@
 		background-color: $color-white-pure
 		box-shadow: 10px 10px 5px 0 rgba(0, 0, 0, 0.75)
 
-		&-title
+		&__title
 			padding: 20px 0 0 0
 			font-size: 22px
 
-		&-row
+	.recovery-form
+		&__row
 			margin: 20px auto 20px auto
 			max-width: 304px
 
-		&-field
+		&__field
 			+flex(center, flex-start, column)
 
-		&-helper
+		&__helper
 			width: 100%
 
-		&-button
+		&__button
 			@extend .hover-btn
 			@extend .shadow-btn
 			@extend .focus-btn
