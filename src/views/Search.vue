@@ -1,57 +1,26 @@
 <template lang="pug">
 
-	.Search
-		nav.nav-search
-			.nav-wrapper.white.nav-search-wrapper
-				form.nav-search-form(v-on:submit.prevent="loadAnimeSearched(query)")
-					.input-field.nav-search-field
-						input#search.nav-search-input(type="search", v-model="query")
-						label.label-icon(for="search")
-							i.material-icons.black-text.nav-search-icon search
-
-		section
-			.query-content(v-if="getAnimeSearched.length")
-				.card.query-content-card(v-for="result in getAnimeSearched")
-					.card-image.query-content-card-wrapper
-						img.activator.query-content-card-image(:src="result['image_url']")
-
-					.card-content.query-content-card-outer
-						span.card-title.activator.query-content-card-title {{ result['title'] }}
-
-					.card-reveal.query-content-card-inner
-						span.card-title.query-content-card-inner-title.black-text {{ result['title'] }}
-						p.black-text.query-content-card-inner-text Type : {{ result['type'] }}
-						p.black-text.query-content-card-inner-text Score : {{ result['score'] }}
-						.input-field
-							select.browser-default.query-content-card-inner-select
-								option(value="1") Select status
-								option(value="1") Plan to watch
-								option(value="2") Watching
-								option(value="3") Completed
-								option(value="4") Dropped
-						p.query-content-card-inner-text
-							a.blue-text More info
+	.search
+		.search__container
+			SearchBar
+			QueryContent
 
 </template>
 
 <script>
 
 	import { mapActions, mapGetters } from "vuex";
+	import SearchBar from "@/components/modules/SearchBar.vue";
+	import QueryContent from "@/components/modules/QueryContent";
 
 	export default {
 		name: "Search",
-		data: () => ({
-			query: ""
-		}),
+		components: {
+			QueryContent, SearchBar
+		},
 		metaInfo: {
 			title: "Anime Library / Search"
 		},
-		computed: {
-			...mapGetters(["getAnimeSearched"])
-		},
-		methods: {
-			...mapActions(["loadAnimeSearched"])
-		}
 	};
 
 </script>
@@ -60,87 +29,12 @@
 
 	@import "../assets/styles/utils/vars.sass"
 	@import "../assets/styles/utils/mixins.sass"
+	@import "../assets/styles/modules/containers.sass"
 
-	.Search
+	.search
 		width: 100%
-		padding: 108px 20px 54px
-		display: flex
-		flex-direction: column
-		align-items: center
-		justify-content: flex-start
 
-		.nav-search
-			width: 70%
-			height: 50px
-			margin: 0 0 54px
-			border-radius: 3px
-			+mq(phone, max)
-				width: 90%
-
-			&-wrapper
-				border-radius: 3px
-
-			&-field
-				border-radius: 3px
-				background-color: $color-white
-
-			&-input
-				border-radius: 3px
-
-			&-icon
-				height: 50px
-				line-height: 50px
-
-		.query-content
-			display: grid
-			grid-template-columns: repeat(auto-fill, 228px)
-			justify-content: center
-			grid-gap: 20px
-			height: 100%
-
-			&-card
-				margin: 0
-
-				&-wrapper
-					height: 84%
-					cursor: pointer
-					padding: 16px 0 0 0
-
-				&-title
-					text-overflow: ellipsis
-					overflow: hidden
-					width: 160px
-					display: inline-block
-					white-space: nowrap
-					margin: 0
-					font-size: 16px
-
-				&-image
-					height: 100%
-					max-height: 280px
-					object-fit: contain
-
-				&-outer
-					display: flex
-					justify-content: center
-					align-items: center
-					padding: 10px
-
-				&-inner
-					&-title
-						font-size: 16px
-
-					&-select
-						border: none
-						padding: 0
-						outline: none
-						height: auto
-						margin: 0 0 0 -2px
-
-					&-text
-						text-align: start
-
-						&:first-of-type
-							margin: 30px 0 0 0
+		&__container
+			@extend .container-default
 
 </style>
