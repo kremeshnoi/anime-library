@@ -52,7 +52,7 @@
 			VueRecaptcha
 		},
 		metaInfo: {
-			title: "Anime Library - Password Recovery"
+			title: "Otaku Library - Password Recovery"
 		},
 		methods: {
 			submitHandler() {

@@ -21,7 +21,7 @@
 			SearchBar
 		},
 		metaInfo: {
-			title: "Anime Library / Search"
+			title: "Otaku Library / Search"
 		},
 		computed: {
 			...mapGetters(["getAnimeSearched"])

@@ -2,7 +2,7 @@
 
 	nav.nav-global
 		.nav-wrapper.nav-global-wrapper
-			router-link.nav-global-logo.nav-global-link(to="/") AnimeLibrary
+			router-link.nav-global-logo.nav-global-link(to="/") Otaku Library
 			a(data-target="nav-mobile").sidenav-trigger.nav-global-trigger.nav-global-link
 				i.material-icons.nav-global-icon-menu menu
 			.nav-global-logout

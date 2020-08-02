@@ -56,7 +56,7 @@
 			VueRecaptcha
 		},
 		metaInfo: {
-			title: "Anime Library - Sign In"
+			title: "Otaku Library - Sign In"
 		},
 		methods: {
 			submitHandler() {
