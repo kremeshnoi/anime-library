@@ -2,7 +2,7 @@
 
 	.swiper-carousel(v-swiper:mySwiper="swiperOptions")
 		.swiper-carousel__container.swiper-wrapper
-			Cards.swiper-slide(v-for="(result, index) in getAnimeAiring" :key="index" :query="result")
+			cards.swiper-slide(v-for="(result, index) in getAnimeAiring" :key="index" :query="result")
 
 		.swiper-button-prev
 		.swiper-button-next

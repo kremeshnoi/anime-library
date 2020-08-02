@@ -5,7 +5,7 @@
 			router-link.top-airing__title(to="/airing-anime")
 				| AIRING ANIME
 				.top-airing__icon.material-icons keyboard_arrow_right
-			SwiperCarousel
+			swiper-carousel
 
 </template>
 

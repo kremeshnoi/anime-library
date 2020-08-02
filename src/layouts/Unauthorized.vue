@@ -1,22 +1,22 @@
 <template lang="pug">
 
 	.content-wrapper
-		NavBar
+		nav-bar
 		router-view
-		Footer
+		main-footer
 
 </template>
 
 <script>
 
 	import NavBar from "@/components/navigation/NavBar.vue";
-	import Footer from "@/components/navigation/Footer.vue";
+	import MainFooter from "@/components/navigation/MainFooter.vue";
 
 	export default {
 		name: "Unauthorized",
 		components: {
 			NavBar,
-			Footer
+			MainFooter
 		},
 		mounted() {
 			M.AutoInit();
