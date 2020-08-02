@@ -108,6 +108,7 @@
 		&__title
 			text-align: start
 			font-size: 20px
+			max-width: 460px
 			grid-area: title
 
 		&__cover
