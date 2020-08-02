@@ -10,7 +10,7 @@
 				img.anime__cover(:src="getAnime['image_url']")
 
 				.anime__info.anime-info
-					h2.anime-info__header
+					h2.anime-info__title
 						| Info
 					ul.anime-info__list
 						li.anime-info__list-item
@@ -68,6 +68,11 @@
 
 	export default {
 		name: "Anime",
+		metaInfo() {
+			return {
+				title: `Anime / ${ this.getAnime['title'] }`
+			}
+		},
 		methods: {
 			...mapActions(["loadAnime"])
 		},
@@ -119,7 +124,7 @@
 		grid-area: info
 		+flex(initial, initial, column)
 
-		&__header
+		&__title
 			color: $color-black
 			width: 100%
 			font-size: 16px
