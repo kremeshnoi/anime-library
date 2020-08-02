@@ -1,21 +1,29 @@
 <template lang="pug">
 
-	section.Top-airing
-		.Top-airing-container
-			router-link.Top-airing-title(to="/airing-anime") AIRING ANIME
-				.Top-airing-icon.material-icons keyboard_arrow_right
-			Cards
+	.top-airing
+		.top-airing__container
+			router-link.top-airing__title(to="/airing-anime")
+				| AIRING ANIME
+				.top-airing__icon.material-icons keyboard_arrow_right
+			SwiperCarousel
 
 </template>
 
 <script>
 
-	import Cards from "@/components/modules/Cards.vue";
+	import { mapActions, mapGetters } from "vuex";
+	import SwiperCarousel from "@/components/modules/SwiperCarousel.vue";
 
 	export default {
 		name: "TopAiring",
 		components: {
-			Cards
+			SwiperCarousel
+		},
+		methods: {
+			...mapActions(["loadAnimeAiring"])
+		},
+		created() {
+			this.loadAnimeAiring();
 		}
 	};
 
@@ -26,13 +34,15 @@
 	@import "../../assets/styles/utils/vars.sass"
 	@import "../../assets/styles/utils/mixins.sass"
 
-	.Top-airing
-		&-container
+	.top-airing
+		width: 100%
+
+		&__container
 			margin: 0 auto
 			padding: 40px 40px 40px 40px
 			max-width: 1300px
 
-		&-title
+		&__title
 			color: $color-black
 			width: 100%
 			font-size: 16px
@@ -49,7 +59,7 @@
 				.Top-airing-icon
 					color: inherit
 
-		&-icon
+		&__icon
 			color: $color-black
 
 </style>
