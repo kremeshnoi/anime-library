@@ -1,10 +1,10 @@
 <template lang="pug">
 
-	.card
-		.card__image-wrapper.card-image
-			img.card__image(@click="computeRoute(result)" :src="result['image_url']")
-		.card__title-wrapper.card-content
-			span.card__title {{ result['title'] }}
+	.cards
+		.cards__image-wrapper
+			img.cards__image(@click="computeRoute(query)" :src="query['image_url']")
+		.cards__title-wrapper
+			span.cards__title {{ query['title'] }}
 
 </template>
 
@@ -13,12 +13,8 @@
 	import { mapActions } from "vuex";
 
 	export default {
-		name: "Card",
-		data: () => {
-			return {
-				result: ""
-			}
-		},
+		name: "Cards",
+		props: ["query"],
 		methods: {
 			...mapActions(["computeRoute"])
 		}
@@ -28,7 +24,7 @@
 
 <style lang="sass" scoped>
 
-	.card
+	.cards
 		width: 100%
 		margin: 10px 10px 10px 0
 		height: fit-content
@@ -37,6 +33,7 @@
 			opacity: 0.9
 
 		&__image
+			width: 100%
 			object-fit: cover
 			transform: scale(1.02)
 
