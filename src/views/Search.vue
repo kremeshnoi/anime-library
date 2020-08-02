@@ -3,7 +3,8 @@
 	.search
 		.search__container
 			SearchBar
-			QueryContent
+			.search__query-content(v-if="getAnimeSearched.length")
+				Cards(:query="result" v-for="result in getAnimeSearched")
 
 </template>
 
@@ -11,24 +12,26 @@
 
 	import { mapActions, mapGetters } from "vuex";
 	import SearchBar from "@/components/modules/SearchBar.vue";
-	import QueryContent from "@/components/modules/QueryContent";
+	import Cards from "@/components/modules/Cards.vue";
 
 	export default {
 		name: "Search",
 		components: {
-			QueryContent, SearchBar
+			Cards,
+			SearchBar
 		},
 		metaInfo: {
 			title: "Anime Library / Search"
 		},
+		computed: {
+			...mapGetters(["getAnimeSearched"])
+		}
 	};
 
 </script>
 
 <style lang="sass" scoped>
 
-	@import "../assets/styles/utils/vars.sass"
-	@import "../assets/styles/utils/mixins.sass"
 	@import "../assets/styles/modules/containers.sass"
 
 	.search
@@ -36,5 +39,12 @@
 
 		&__container
 			@extend .container-default
+
+		&__query-content
+			display: grid
+			grid-template-columns: repeat(auto-fill, 200px)
+			justify-content: space-between
+			grid-gap: 20px
+			height: 100%
 
 </style>
