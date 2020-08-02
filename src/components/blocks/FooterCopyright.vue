@@ -3,11 +3,17 @@
 	.FooterCopyright
 		.FooterCopyright-container
 
-			p.FooterCopyright-text Inspired by
-				a.FooterCopyright-link(href="https://myanimelist.net/" target="_blank") &nbsp;MAL
+			p.FooterCopyright-text
+				| Inspired by
+				a.FooterCopyright-link(href="https://myanimelist.net/"
+												target="_blank")
+				| &nbsp;MAL
 
-			p.FooterCopyright-text and
-				a.FooterCopyright-link(href="https://shikimori.one/" target="_blank") &nbsp;Shikimori
+			p.FooterCopyright-text
+				| and
+				a.FooterCopyright-link(href="https://shikimori.one/"
+												target="_blank")
+				| &nbsp;Shikimori
 
 </template>
 

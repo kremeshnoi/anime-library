@@ -14,13 +14,19 @@
 			.divider.sidenav-divider
 
 		li.sidenav-mobile-list-item
-			span.sidenav-username User
+			span.sidenav-username
+				| User
 
 		li.sidenav-mobile-list-item
 			.divider.sidenav-divider
 
-		router-link(v-for="(link, index) in links" tag="li" :to="link.url" :key="index")
-			a.nav-links.sidenav-mobile-list-link(:class="[link.title ==='My Library' ? 'sidenav-mobile-list-link-library': true]") {{ link.title }}
+		router-link(v-for="(link, index) in links"
+						tag="li"
+						:to="link.url"
+						:key="index")
+
+			a.nav-links.sidenav-mobile-list-link(:class="[link.title ==='My Library' ? 'sidenav-mobile-list-link-library': true]")
+				| {{ link.title }}
 				i.material-icons.grey-text.sidenav-icon-library(v-if="link.title === 'My Library'") view_module
 
 		li.sidenav-mobile-list-item
@@ -28,12 +34,14 @@
 
 		li.sidenav-mobile-list-item
 			.sidenav-mobile-list-logout
-				a.sidenav-mobile-list-logout-link Log out
+				a.sidenav-mobile-list-logout-link
+					| Log out
 					i.material-icons.sidenav-mobile-list-logout-icon-menu exit_to_app
 
 		li.sidenav-mobile-list-item
 			.footer-copyright.subheader.copyright-text.grey-text
-				.container © 2020 Otaku Library
+				.container
+					| © 2020 Otaku Library
 
 </template>
 

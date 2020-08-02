@@ -3,21 +3,33 @@
 	.FooterContent.page-footer
 		.FooterContent-container
 			.FooterContent-item
-				h5.FooterContent-title Discord channel
-				p.FooterContent-description We will also be happy to meet you on our channel, where you can always find like-minded people. Feel free to come in.
-				a.FooterContent-button.btn(href="https://discord.com/invite/Ku72D5/" target="_blank") Chat
+				h5.FooterContent-title
+					| Discord channel
+				p.FooterContent-description
+					| We will also be happy to meet you on our channel, where you can always find like-minded people. Feel free to come in.
+				a.FooterContent-button.btn(href="https://discord.com/invite/Ku72D5/"
+													target="_blank")
+					| Chat
 
 			.FooterContent-item
-				h5.FooterContent-title Sitemap
-				router-link.FooterContent-link(to="") About project
-				h6.FooterContent-subtitle Sign in required
-				router-link.FooterContent-link(to="") Search page
-				router-link.FooterContent-link(to="") Your library
+				h5.FooterContent-title
+					| Sitemap
+				router-link.FooterContent-link(to="")
+					| About project
+				h6.FooterContent-subtitle
+					| Sign in required
+				router-link.FooterContent-link(to="")
+					| Search page
+				router-link.FooterContent-link(to="")
+					| Your library
 
 			.FooterContent-item
-				h5.FooterContent-title Help
-				router-link.FooterContent-link(to="/recovery") Forgot Password?
-				router-link.FooterContent-link(to="") Q/A
+				h5.FooterContent-title
+					| Help
+				router-link.FooterContent-link(to="/recovery")
+					| Forgot Password?
+				router-link.FooterContent-link(to="")
+					| Q/A
 
 </template>
 

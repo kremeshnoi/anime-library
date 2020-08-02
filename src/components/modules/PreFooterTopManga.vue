@@ -1,11 +1,17 @@
 <template lang="pug">
 
 	.PreFooterTopManga
-		router-link.PreFooterTopManga-title(to="/") Top Manga
+		router-link.PreFooterTopManga-title(to="/")
+			| Top Manga
+
 			.PreFooterTopManga-icon.material-icons keyboard_arrow_right
-		.PreFooterTopManga-content(v-for="(result, index) in getMangaFavorite" :key="index")
-			p.PreFooterTopManga-digit {{ index + 1 }}.
-			router-link.PreFooterTopManga-link(to="/") {{ result['title'] }}
+		.PreFooterTopManga-content(v-for="(result, index) in getMangaFavorite"
+											:key="index")
+
+			p.PreFooterTopManga-digit
+				| {{ index + 1 }}.
+			router-link.PreFooterTopManga-link(to="/")
+				| {{ result['title'] }}
 
 </template>
 
