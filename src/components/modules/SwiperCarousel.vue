@@ -2,7 +2,7 @@
 
 	.swiper-carousel(v-swiper:mySwiper="swiperOptions")
 		.swiper-carousel__container.swiper-wrapper
-			Card.swiper-slide(:query="result" v-for="(result, index) in getAnimeAiring" :key="index")
+			Cards.swiper-slide(v-for="(result, index) in getAnimeAiring" :key="index" :query="result")
 
 		.swiper-button-prev
 		.swiper-button-next
@@ -13,10 +13,10 @@
 
 	import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper";
 	import { mapActions, mapGetters } from "vuex";
-	import Card from "@/components/modules/Card";
+	import Cards from "@/components/modules/Cards.vue";
 
 	export default {
-		name: "Cards",
+		name: "SwiperCarousel",
 		data: () => {
 			return {
 				swiperOptions: {
@@ -55,21 +55,15 @@
 			};
 		},
 		components: {
-			Card,
+			Cards,
 			Swiper,
 			SwiperSlide
 		},
 		directives: {
 			swiper: directive
 		},
-		methods: {
-			...mapActions(["loadAnimeAiring", "computeRoute"])
-		},
 		computed: {
 			...mapGetters(["getAnimeAiring"])
-		},
-		created() {
-			this.loadAnimeAiring();
 		}
 	};
 
