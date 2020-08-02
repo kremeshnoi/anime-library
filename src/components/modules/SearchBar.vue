@@ -5,7 +5,8 @@
 			.search-bar__wrapper.white.nav-wrapper
 				form.search-bar__form(v-on:submit.prevent="loadAnimeSearched(query)")
 					.search-bar__field.input-field
-						input#search.search-bar__input(type="search", v-model="query")
+						input#search.search-bar__input(type="search"
+																v-model="query")
 						label.search-bar__label.label-icon(for="search")
 							i.search-bar__icon.material-icons.black-text search
 

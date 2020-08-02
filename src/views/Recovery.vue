@@ -46,7 +46,7 @@
 			email: ""
 		}),
 		validations: {
-			email: {email, required}
+			email: { email, required }
 		},
 		components: {
 			VueRecaptcha

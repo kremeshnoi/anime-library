@@ -1,11 +1,16 @@
 <template lang="pug">
 
 	.PreFooterTopCharacters
-		router-link.PreFooterTopCharacters-title(to="/") Popular Characters
+		router-link.PreFooterTopCharacters-title(to="/")
+			| Popular Characters
 			.PreFooterTopCharacters-icon.material-icons keyboard_arrow_right
-		.PreFooterTopCharacters-content(v-for="(result, index) in getCharactersFavorite" :key="index")
-			p.PreFooterTopCharacters-digit {{ index + 1 }}.
-			router-link.PreFooterTopCharacters-link(to="/") {{ result['title'] }}
+		.PreFooterTopCharacters-content(v-for="(result, index) in getCharactersFavorite"
+													:key="index")
+
+			p.PreFooterTopCharacters-digit
+				| {{ index + 1 }}.
+			router-link.PreFooterTopCharacters-link(to="/")
+				| {{ result['title'] }}
 
 </template>
 

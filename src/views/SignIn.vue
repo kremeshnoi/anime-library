@@ -1,39 +1,58 @@
 <template lang="pug">
 
 	.SignIn
-		p.SignIn-title Login to account
+		p.SignIn-title
+			| Login to account
 		form(v-on:submit.prevent="submitHandler")
 			.SignIn-row
 				.SignIn-field.input-field
-					input#email(type="text" name="email" v-model.trim="email"
-						:class="{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }")
-					label(for="email") Email
-					span.SignIn-helper.helper-text(v-if="$v.email.$dirty && !$v.email.required" data-error="The field is empty")
-					span.SignIn-helper.helper-text(v-else-if="$v.email.$dirty && !$v.email.email" data-error="Incorrect email")
+					input#email(type="text"
+									name="email"
+									v-model.trim="email"
+									:class="{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }")
+
+					label(for="email")
+						| Email
+					span.SignIn-helper.helper-text(v-if="$v.email.$dirty && !$v.email.required"
+															data-error="The field is empty")
+					span.SignIn-helper.helper-text(v-else-if="$v.email.$dirty && !$v.email.email"
+															data-error="Incorrect email")
 
 			.SignIn-row
 				.SignIn-field.input-field
-					input#password(type="text" name="password" v-model.trim="password"
-						:class="{ invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength) }")
-					label(for="password") Password
-					span.SignIn-helper.helper-text(v-if="$v.password.$dirty && !$v.password.required" data-error="The field is empty")
-					span.SignIn-helper.helper-text(v-else-if="$v.password.$dirty && !$v.password.minLength" data-error="Password is too short")
+					input#password(type="text"
+										name="password"
+										v-model.trim="password"
+										:class="{ invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength) }")
+
+					label(for="password")
+						| Password
+					span.SignIn-helper.helper-text(v-if="$v.password.$dirty && !$v.password.required"
+															data-error="The field is empty")
+					span.SignIn-helper.helper-text(v-else-if="$v.password.$dirty && !$v.password.minLength"
+															data-error="Password is too short")
 
 			.SignIn-row
-				router-link(to="/recovery") Forgot password?
-			.SignIn-row - or -
+				router-link(to="/recovery")
+					| Forgot password?
 			.SignIn-row
-				router-link(to="/register") Still don't have account?
+				| - or -
+			.SignIn-row
+				router-link(to="/register")
+					| Still don't have an account?
 
 			center
 				.SignIn-row
 					vue-recaptcha(sitekey="6Lc-DaUZAAAAABeSVHxIZhS9Wk2xqSo53V4UeX-H")
 
 				.SignIn-row
-					button.SignIn-button.btn-large(type="submit" name="submitSignIn") Sign In
+					button.SignIn-button.btn-large(type="submit"
+															name="submitSignIn")
+						| Sign In
 
 		.SignIn-cancel
-			router-link(to="/") Back to Homepage?
+			router-link(to="/")
+				| Back to Homepage?
 
 </template>
 

@@ -3,7 +3,8 @@
 	ul#slide-out.sidenav.sidenav-list
 		li.sidenav-list-item
 			.user-view.sidenav-user
-				a.sidenav-list-link.sidenav-list-link-settings.tooltipped(data-position="right" data-tooltip="Settings")
+				a.sidenav-list-link.sidenav-list-link-settings.tooltipped(data-position="right"
+																							data-tooltip="Settings")
 					i.material-icons.sidenav-icon-settings settings
 				.background
 					img
@@ -14,13 +15,19 @@
 			.divider.sidenav-divider
 
 		li.sidenav-list-item
-			span.sidenav-username User
+			span.sidenav-username
+				| User
 
 		li.sidenav-list-item
 			.divider.sidenav-divider
 
-		router-link(v-for="(link, index) in links" tag="li" :to="link.url" :key="index")
-			a.nav-links.sidenav-list-link(:class="[link.title === 'My Library' ? 'sidenav-list-link-library': true]") {{ link.title }}
+		router-link(v-for="(link, index) in links"
+						tag="li"
+						:to="link.url"
+						:key="index")
+
+			a.nav-links.sidenav-list-link(:class="[link.title === 'My Library' ? 'sidenav-list-link-library': true]")
+				| {{ link.title }}
 				i.material-icons.grey-text.sidenav-icon-library(v-if="link.title === 'My Library'") view_module
 
 		li.sidenav-list-item
@@ -28,7 +35,8 @@
 
 		li.sidenav-list-item
 			.footer-copyright.subheader.copyright-text.grey-text
-				.container © 2020 Otaku Library
+				.container
+					| © 2020 Otaku Library
 
 </template>
 
@@ -38,9 +46,9 @@
 		name: "SideNav",
 		data: () => ({
 			links: [
-				{title: "Home", url: "/"},
-				{title: "Search", url: "/search"},
-				{title: "My Library", url: "/library"}
+				{ title: "Home", url: "/" },
+				{ title: "Search", url: "/search" },
+				{ title: "My Library", url: "/library" }
 			]
 		})
 	};

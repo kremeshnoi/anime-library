@@ -1,11 +1,16 @@
 <template lang="pug">
 
 	.PreFooterTopAnime
-		router-link.PreFooterTopAnime-title(to="/") Top Anime
+		router-link.PreFooterTopAnime-title(to="/")
+			| Top Anime
 			.PreFooterTopAnime-icon.material-icons keyboard_arrow_right
-		.PreFooterTopAnime-content(v-for="(result, index) in getAnimeFavorite" :key="index")
-			p.PreFooterTopAnime-digit {{ index + 1 }}.
-			router-link.PreFooterTopAnime-link(to="/") {{ result['title'] }}
+		.PreFooterTopAnime-content(v-for="(result, index) in getAnimeFavorite"
+											:key="index")
+
+			p.PreFooterTopAnime-digit
+				| {{ index + 1 }}.
+			router-link.PreFooterTopAnime-link(to="/")
+				| {{ result['title'] }}
 
 </template>
 

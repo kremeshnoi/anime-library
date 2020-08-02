@@ -1,44 +1,67 @@
 <template lang="pug">
 
 	.SignUp
-		p.SignUp-title Start using Otaku Library
+		p.SignUp-title
+			| Start using Otaku Library
 		form(v-on:submit.prevent="submitHandler")
 			.SignUp-row
 				.SignUp-field.input-field
-					input#email(type="text" name="email" v-model.trim="email"
-						:class="{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }")
-					label(for="email") Email
-					span.SignUp-helper.helper-text(v-if="$v.email.$dirty && !$v.email.required" data-error="The field is empty")
-					span.SignUp-helper.helper-text(v-else-if="$v.email.$dirty && !$v.email.email" data-error="Incorrect email")
+					input#email(type="text"
+									name="email"
+									v-model.trim="email"
+									:class="{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }")
+
+					label(for="email")
+						| Email
+					span.SignUp-helper.helper-text(v-if="$v.email.$dirty && !$v.email.required"
+															data-error="The field is empty")
+					span.SignUp-helper.helper-text(v-else-if="$v.email.$dirty && !$v.email.email"
+															data-error="Incorrect email")
 
 			.SignUp-row
 				.SignUp-field.input-field
-					input#username(type="text" name="username" v-model.trim="username"
-						:class="{ invalid: ($v.username.$dirty && !$v.username.required) || ($v.username.$dirty && !$v.username.minLength) }")
-					label(for='username') Username
-					span.SignUp-helper.helper-text(v-if="$v.username.$dirty && !$v.username.required" data-error="The field is empty")
-					span.SignUp-helper.helper-text(v-else-if="$v.username.$dirty && !$v.username.minLength" data-error="Username is too short")
+					input#username(type="text"
+										name="username"
+										v-model.trim="username"
+										:class="{ invalid: ($v.username.$dirty && !$v.username.required) || ($v.username.$dirty && !$v.username.minLength) }")
+
+					label(for='username')
+						| Username
+					span.SignUp-helper.helper-text(v-if="$v.username.$dirty && !$v.username.required"
+															data-error="The field is empty")
+					span.SignUp-helper.helper-text(v-else-if="$v.username.$dirty && !$v.username.minLength"
+															data-error="Username is too short")
 
 			.SignUp-row
 				.SignUp-field.input-field
-					input#password(type="text" name="password" v-model.trim="password"
-						:class="{ invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength) }")
-					label(for="password") Password
-					span.SignUp-helper.helper-text(v-if="$v.password.$dirty && !$v.password.required" data-error="The field is empty")
-					span.SignUp-helper.helper-text(v-else-if="$v.password.$dirty && !$v.password.minLength" data-error="Password is too short")
+					input#password(type="text"
+										name="password"
+										v-model.trim="password"
+										:class="{ invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength) }")
+
+					label(for="password")
+						| Password
+					span.SignUp-helper.helper-text(v-if="$v.password.$dirty && !$v.password.required"
+															data-error="The field is empty")
+					span.SignUp-helper.helper-text(v-else-if="$v.password.$dirty && !$v.password.minLength"
+															data-error="Password is too short")
 
 			.SignUp-row
-				router-link(to="/login") Already have an account?
+				router-link(to="/login")
+					| Already have an account?
 
 			center
 				.SignUp-row
 					vue-recaptcha(sitekey="6Lc-DaUZAAAAABeSVHxIZhS9Wk2xqSo53V4UeX-H")
 
 				.SignUp-row
-					button.SignUp-button.btn-large(type="submit" name="submitSignUp") Create Account
+					button.SignUp-button.btn-large(type="submit"
+															name="submitSignUp")
+						| Create Account
 
 		.SignUp-cancel
-			router-link(to="/") Back to Homepage?
+			router-link(to="/")
+				| Back to Homepage?
 
 </template>
 
