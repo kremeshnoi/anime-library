@@ -2,9 +2,9 @@
 
 	.PreFooter
 		.PreFooter-container
-			PreFooterTopAnime
-			PreFooterTopManga
-			PreFooterTopCharacters
+			pre-footer-top-anime
+			pre-footer-top-manga
+			pre-footer-top-characters
 
 </template>
 

@@ -1,11 +1,11 @@
 <template lang="pug">
 
 	.content-wrapper
-		MainNav
-		MobileNav
-		SideNav
+		main-nav
+		mobile-nav
+		side-nav
 		router-view
-		MainFooter
+		main-footer
 
 </template>
 
@@ -14,7 +14,7 @@
 	import MainNav from "@/components/navigation/NavBar.vue";
 	import MobileNav from "@/components/navigation/MobileNav.vue";
 	import SideNav from "@/components/navigation/SideNav.vue";
-	import MainFooter from "@/components/navigation/Footer.vue";
+	import MainFooter from "@/components/navigation/MainFooter.vue";
 
 	export default {
 		name: "Authorized",

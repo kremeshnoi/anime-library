@@ -1,9 +1,9 @@
 <template lang="pug">
 
 	footer.Footer
-		PreFooter
-		FooterContent
-		FooterCopyright
+		pre-footer
+		footer-content
+		footer-copyright
 
 </template>
 

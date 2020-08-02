@@ -1,7 +1,7 @@
 <template lang="pug">
 
 	.home
-		TopAiring
+		top-airing
 
 </template>
 
