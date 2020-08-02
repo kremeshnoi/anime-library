@@ -1,7 +1,7 @@
 <template lang="pug">
 
 	.SignUp
-		p.SignUp-title Start using AnimeLibrary
+		p.SignUp-title Start using Otaku Library
 		form(v-on:submit.prevent="submitHandler")
 			.SignUp-row
 				.SignUp-field.input-field
@@ -63,7 +63,7 @@
 			VueRecaptcha
 		},
 		metaInfo: {
-			title: "Anime Library - Sign Up"
+			title: "Otaku Library - Sign Up"
 		},
 		methods: {
 			submitHandler() {

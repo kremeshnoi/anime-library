@@ -15,7 +15,7 @@
 			TopAiring
 		},
 		metaInfo: {
-			title: "Anime Library - Homepage"
+			title: "Otaku Library - Organize your own anime / manga list"
 		}
 	};
 

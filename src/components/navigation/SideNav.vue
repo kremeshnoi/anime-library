@@ -28,7 +28,7 @@
 
 		li.sidenav-list-item
 			.footer-copyright.subheader.copyright-text.grey-text
-				.container © 2020 Anime Library
+				.container © 2020 Otaku Library
 
 </template>
 
