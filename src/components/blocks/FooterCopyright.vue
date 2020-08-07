@@ -1,19 +1,17 @@
 <template lang="pug">
 
-	.FooterCopyright
-		.FooterCopyright-container
-
-			p.FooterCopyright-text
+	.footer-copyright
+		.footer-copyright__container
+			p.footer-copyright__text
 				| Inspired by
-				a.FooterCopyright-link(href="https://myanimelist.net/"
+				a.footer-copyright__link(href="https://myanimelist.net/"
 												target="_blank")
-				| &nbsp;MAL
-
-			p.FooterCopyright-text
+					| &nbsp;MAL
+			p.footer-copyright__text
 				| and
-				a.FooterCopyright-link(href="https://shikimori.one/"
+				a.footer-copyright__link(href="https://shikimori.one/"
 												target="_blank")
-				| &nbsp;Shikimori
+					| &nbsp;Shikimori
 
 </template>
 
@@ -30,20 +28,19 @@
 	@import "../../assets/styles/utils/vars.sass"
 	@import "../../assets/styles/utils/mixins.sass"
 
-	.FooterCopyright
+	.footer-copyright
 		padding: 14px 20px 14px 20px
 		background-color: $color-blue-dark
 
-		&-container
+		&__container
 			+flex(center, center, row)
 
-		&-text
+		&__text
 			margin: 0 4px 0 0
 			color: $color-white
 
-		&-link
+		&__link
 			color: $color-white
-
 			&:hover
 				opacity: 0.6
 
