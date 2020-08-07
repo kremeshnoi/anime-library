@@ -3,6 +3,7 @@
 	.pre-footer-top-characters
 		router-link.pre-footer-top-characters__title(to="/")
 			| Popular Characters
+
 			.pre-footer-top-characters__icon.material-icons keyboard_arrow_right
 		.pre-footer-top-characters__content(v-for="(result, index) in getCharactersFavorite"
 														:key="index")
