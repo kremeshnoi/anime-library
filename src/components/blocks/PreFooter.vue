@@ -1,7 +1,7 @@
 <template lang="pug">
 
-	.PreFooter
-		.PreFooter-container
+	.pre-footer
+		.pre-footer__container
 			pre-footer-top-anime
 			pre-footer-top-manga
 			pre-footer-top-characters
@@ -30,10 +30,10 @@
 	@import "../../assets/styles/utils/vars.sass"
 	@import "../../assets/styles/utils/mixins.sass"
 
-	.PreFooter
+	.pre-footer
 		background-color: $color-white-dark
 
-		&-container
+		&__container
 			display: grid
 			width: 100%
 			justify-content: space-between
