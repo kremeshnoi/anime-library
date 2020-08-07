@@ -3,8 +3,7 @@
 	.cards
 		.cards__image-wrapper
 			img.cards__image(@click="computeRoute(query)"
-									:src="query['image_url']"
-									:key="index")
+									:src="query['image_url']")
 
 		.cards__title-wrapper
 			span.cards__title
