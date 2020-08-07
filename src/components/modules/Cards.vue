@@ -27,6 +27,9 @@
 
 <style lang="sass" scoped>
 
+	@import "../../assets/styles/utils/vars.sass"
+	@import "../../assets/styles/utils/mixins.sass"
+
 	.cards
 		width: 100%
 		margin: 10px 10px 10px 0
@@ -40,12 +43,12 @@
 			object-fit: cover
 			transform: scale(1.02)
 
-			&-wrapper
-				overflow: hidden
-				cursor: pointer
+		&__image-wrapper
+			overflow: hidden
+			cursor: pointer
 
 		&__title
-			margin: 0 !important
+			margin: 0
 			width: 160px
 			font-size: 16px
 			display: block
@@ -53,11 +56,9 @@
 			white-space: nowrap
 			text-overflow: ellipsis
 
-			&-wrapper
-				display: flex
-				justify-content: center
-				align-items: center
-				padding: 10px
-				box-shadow: 0 8px 7px -7px rgba(0, 0, 0, 1)
+		&__title-wrapper
+			padding: 10px
+			box-shadow: 0 8px 7px -7px rgba(0, 0, 0, 1)
+			+flex(center,center, initial)
 
 </style>
