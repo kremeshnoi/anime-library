@@ -1,11 +1,11 @@
 <template lang="pug">
 
-	.SignUp
-		p.SignUp-title
+	.sign-up
+		h1.sign-up__title
 			| Start using Otaku Library
-		form(v-on:submit.prevent="submitHandler")
-			.SignUp-row
-				.SignUp-field.input-field
+		form.sign-up__form.sign-up-form(v-on:submit.prevent="submitHandler")
+			.sign-up-form__row
+				.sign-up-form__field.input-field
 					input#email(type="text"
 									name="email"
 									v-model.trim="email"
@@ -13,13 +13,13 @@
 
 					label(for="email")
 						| Email
-					span.SignUp-helper.helper-text(v-if="$v.email.$dirty && !$v.email.required"
-															data-error="The field is empty")
-					span.SignUp-helper.helper-text(v-else-if="$v.email.$dirty && !$v.email.email"
-															data-error="Incorrect email")
+					span.sign-up-form__helper.helper-text(v-if="$v.email.$dirty && !$v.email.required"
+																		data-error="The field is empty")
+					span.sign-up-form__helper.helper-text(v-else-if="$v.email.$dirty && !$v.email.email"
+																		data-error="Incorrect email")
 
-			.SignUp-row
-				.SignUp-field.input-field
+			.sign-up-form__row
+				.sign-up-form__field.input-field
 					input#username(type="text"
 										name="username"
 										v-model.trim="username"
@@ -27,13 +27,13 @@
 
 					label(for='username')
 						| Username
-					span.SignUp-helper.helper-text(v-if="$v.username.$dirty && !$v.username.required"
-															data-error="The field is empty")
-					span.SignUp-helper.helper-text(v-else-if="$v.username.$dirty && !$v.username.minLength"
-															data-error="Username is too short")
+					span.sign-up-form__helper.helper-text(v-if="$v.username.$dirty && !$v.username.required"
+																		data-error="The field is empty")
+					span.sign-up-form__helper.helper-text(v-else-if="$v.username.$dirty && !$v.username.minLength"
+																		data-error="Username is too short")
 
-			.SignUp-row
-				.SignUp-field.input-field
+			.sign-up-form__row
+				.sign-up-form__field.input-field
 					input#password(type="text"
 										name="password"
 										v-model.trim="password"
@@ -41,25 +41,25 @@
 
 					label(for="password")
 						| Password
-					span.SignUp-helper.helper-text(v-if="$v.password.$dirty && !$v.password.required"
-															data-error="The field is empty")
-					span.SignUp-helper.helper-text(v-else-if="$v.password.$dirty && !$v.password.minLength"
-															data-error="Password is too short")
+					span.sign-up-form__field.helper-text(v-if="$v.password.$dirty && !$v.password.required"
+																	data-error="The field is empty")
+					span.sign-up-form__field.helper-text(v-else-if="$v.password.$dirty && !$v.password.minLength"
+																	data-error="Password is too short")
 
-			.SignUp-row
+			.sign-up-form__row
 				router-link(to="/login")
 					| Already have an account?
 
 			center
-				.SignUp-row
+				.sign-up-form__row
 					vue-recaptcha(sitekey="6Lc-DaUZAAAAABeSVHxIZhS9Wk2xqSo53V4UeX-H")
 
-				.SignUp-row
+				.sign-up-form__row
 					button.SignUp-button.btn-large(type="submit"
 															name="submitSignUp")
 						| Create Account
 
-		.SignUp-cancel
+		.sign-up__link-back
 			router-link(to="/")
 				| Back to Homepage?
 
@@ -111,7 +111,7 @@
 	@import "../assets/styles/utils/mixins.sass"
 	@import "../assets/styles/modules/buttons.sass"
 
-	.SignUp
+	.sign-up
 		position: fixed
 		top: 0
 		left: 0
@@ -125,23 +125,24 @@
 		background-color: $color-white-pure
 		box-shadow: 10px 10px 5px 0 rgba(0, 0, 0, 0.75)
 
-		&-title
+		&__title
 			padding: 20px 0 0 0
 			font-size: 22px
 
-		&-row
-			margin: 20px auto 20px auto
-			max-width: 304px
+		.sign-up-form
+			&__row
+				margin: 20px auto 20px auto
+				max-width: 304px
 
-		&-field
-			+flex(center, flex-start, column)
+			&__field
+				+flex(center, flex-start, column)
 
-		&-helper
-			width: 100%
+			&__helper
+				width: 100%
 
-		&-button
-			@extend .hover-btn
-			@extend .shadow-btn
-			@extend .focus-btn
+			&__button
+				@extend .hover-btn
+				@extend .shadow-btn
+				@extend .focus-btn
 
 </style>
