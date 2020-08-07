@@ -3,6 +3,7 @@
 	.sign-up
 		h1.sign-up__title
 			| Start using Otaku Library
+
 		form.sign-up__form.sign-up-form(v-on:submit.prevent="submitHandler")
 			.sign-up-form__row
 				.sign-up-form__field.input-field
@@ -10,7 +11,6 @@
 									name="email"
 									v-model.trim="email"
 									:class="{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }")
-
 					label(for="email")
 						| Email
 					span.sign-up-form__helper.helper-text(v-if="$v.email.$dirty && !$v.email.required"
@@ -24,7 +24,6 @@
 										name="username"
 										v-model.trim="username"
 										:class="{ invalid: ($v.username.$dirty && !$v.username.required) || ($v.username.$dirty && !$v.username.minLength) }")
-
 					label(for='username')
 						| Username
 					span.sign-up-form__helper.helper-text(v-if="$v.username.$dirty && !$v.username.required"
@@ -38,7 +37,6 @@
 										name="password"
 										v-model.trim="password"
 										:class="{ invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength) }")
-
 					label(for="password")
 						| Password
 					span.sign-up-form__field.helper-text(v-if="$v.password.$dirty && !$v.password.required"
