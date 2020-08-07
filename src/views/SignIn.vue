@@ -11,13 +11,10 @@
 									name="email"
 									v-model.trim="email"
 									:class="{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }")
-
 					label(for="email")
 						| Email
-
 					span.sign-in-form__helper.helper-text(v-if="$v.email.$dirty && !$v.email.required"
 																		data-error="The field is empty")
-
 					span.sign-in-form__helper.helper-text(v-else-if="$v.email.$dirty && !$v.email.email"
 																		data-error="Incorrect email")
 
@@ -27,7 +24,6 @@
 										name="password"
 										v-model.trim="password"
 										:class="{ invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength) }")
-
 					label(for="password")
 						| Password
 					span.sign-in-form__helper.helper-text(v-if="$v.password.$dirty && !$v.password.required"
@@ -38,8 +34,10 @@
 			.sign-in-form__row
 				router-link(to="/recovery")
 					| Forgot password?
+
 			.sign-in-form__row
 				| - or -
+
 			.sign-in-form__row
 				router-link(to="/register")
 					| Still don't have an account?
