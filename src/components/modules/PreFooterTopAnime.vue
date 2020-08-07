@@ -1,15 +1,15 @@
 <template lang="pug">
 
-	.PreFooterTopAnime
-		router-link.PreFooterTopAnime-title(to="/")
+	.pre-footer-top-anime
+		router-link.pre-footer-top-anime__title(to="/")
 			| Top Anime
-			.PreFooterTopAnime-icon.material-icons keyboard_arrow_right
-		.PreFooterTopAnime-content(v-for="(result, index) in getAnimeFavorite"
-											:key="index")
+			.pre-footer-top-anime__icon.material-icons keyboard_arrow_right
+		.pre-footer-top-anime__content(v-for="(result, index) in getAnimeFavorite"
+												:key="index")
 
-			p.PreFooterTopAnime-digit
+			p.pre-footer-top-anime__digit
 				| {{ index + 1 }}.
-			router-link.PreFooterTopAnime-link(to="/")
+			router-link.pre-footer-top-anime__link(to="/")
 				| {{ result['title'] }}
 
 </template>
@@ -21,7 +21,7 @@
 	export default {
 		name: "PreFooterAnime",
 		methods: {
-			...mapActions(["loadAnimeFavorite"]),
+			...mapActions(["loadAnimeFavorite"])
 		},
 		computed: {
 			...mapGetters(["getAnimeFavorite"])
@@ -38,10 +38,10 @@
 	@import "../../assets/styles/utils/vars.sass"
 	@import "../../assets/styles/utils/mixins.sass"
 
-	.PreFooterTopAnime
+	.pre-footer-top-anime
 		+flex(flex-start, flex-start, column)
 
-		&-title
+		&__title
 			color: $color-black
 			font-size: 16px
 			text-align: start
@@ -49,23 +49,21 @@
 			width: 100%
 			border-bottom: 1px solid rgba($color-black, 0.2)
 			+flex(space-between, center, row)
-
 			&:hover
 				color: $color-orange
 
-				.PreFooterList-icon
+				.pre-footer-top-anime__icon
 					color: inherit
 
-		&-content
+		&__content
 			margin: 8px 0 0 0
 			+flex(center, flex-start, row)
 
-		&-digit
+		&__digit
 			margin: 0 8px 0 0
 
-		&-link
+		&__link
 			color: $color-blue
-
 			&:hover
 				text-decoration: underline $color-blue
 
