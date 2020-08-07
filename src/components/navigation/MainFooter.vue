@@ -1,6 +1,6 @@
 <template lang="pug">
 
-	footer.Footer
+	footer.main-footer
 		pre-footer
 		footer-content
 		footer-copyright
@@ -30,7 +30,7 @@
 	@import "../../assets/styles/utils/mixins.sass"
 	@import "../../assets/styles/modules/buttons.sass"
 
-	.Footer
+	.main-footer
 		width: 100%
 
 </style>
