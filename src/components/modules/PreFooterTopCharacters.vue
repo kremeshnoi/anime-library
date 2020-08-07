@@ -1,15 +1,15 @@
 <template lang="pug">
 
-	.PreFooterTopCharacters
-		router-link.PreFooterTopCharacters-title(to="/")
+	.pre-footer-top-characters
+		router-link.pre-footer-top-characters__title(to="/")
 			| Popular Characters
-			.PreFooterTopCharacters-icon.material-icons keyboard_arrow_right
-		.PreFooterTopCharacters-content(v-for="(result, index) in getCharactersFavorite"
-													:key="index")
+			.pre-footer-top-characters__icon.material-icons keyboard_arrow_right
+		.pre-footer-top-characters__content(v-for="(result, index) in getCharactersFavorite"
+														:key="index")
 
-			p.PreFooterTopCharacters-digit
+			p.pre-footer-top-characters__digit
 				| {{ index + 1 }}.
-			router-link.PreFooterTopCharacters-link(to="/")
+			router-link.pre-footer-top-characters__link(to="/")
 				| {{ result['title'] }}
 
 </template>
@@ -38,10 +38,10 @@
 	@import "../../assets/styles/utils/vars.sass"
 	@import "../../assets/styles/utils/mixins.sass"
 
-	.PreFooterTopCharacters
+	.pre-footer-top-characters
 		+flex(flex-start, flex-start, column)
 
-		&-title
+		&__title
 			color: $color-black
 			font-size: 16px
 			text-align: start
@@ -49,23 +49,21 @@
 			width: 100%
 			border-bottom: 1px solid rgba($color-black, 0.2)
 			+flex(space-between, center, row)
-
 			&:hover
 				color: $color-orange
 
-				.PreFooterList-icon
+				.pre-footer-top-characters__icon
 					color: inherit
 
-		&-content
+		&__content
 			margin: 8px 0 0 0
 			+flex(center, flex-start, row)
 
-		&-digit
+		&__digit
 			margin: 0 8px 0 0
 
-		&-link
+		&__link
 			color: $color-blue
-
 			&:hover
 				text-decoration: underline $color-blue
 
