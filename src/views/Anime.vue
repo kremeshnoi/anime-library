@@ -141,12 +141,16 @@
 			width: 100%
 			+flex(space-between, initial, column)
 
+		&__list-item
+			margin: 6px 0
+			&:last-of-type
+				margin: 0
+
 		&__list-key
 			display: inline-block
 
 		&__list-value
 			display: inline-block
-
 			&_decor
 				padding: 0 6px
 				border-radius: 4px
@@ -159,7 +163,6 @@
 			transition: 0.5s
 			display: inline-block
 			border-bottom: 1px dashed $color-grey-light
-
 			&:hover
 				cursor: pointer
 				border-bottom: 1px dashed $color-blue
