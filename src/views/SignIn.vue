@@ -1,11 +1,12 @@
 <template lang="pug">
 
-	.SignIn
-		p.SignIn-title
+	.sign-in
+		h1.sign-in__title
 			| Login to account
-		form(v-on:submit.prevent="submitHandler")
-			.SignIn-row
-				.SignIn-field.input-field
+
+		form.sign-in__form.sign-in-form(v-on:submit.prevent="submitHandler")
+			.sign-in-form__row
+				.sign-in-form__field.input-field
 					input#email(type="text"
 									name="email"
 									v-model.trim="email"
@@ -13,13 +14,15 @@
 
 					label(for="email")
 						| Email
-					span.SignIn-helper.helper-text(v-if="$v.email.$dirty && !$v.email.required"
-															data-error="The field is empty")
-					span.SignIn-helper.helper-text(v-else-if="$v.email.$dirty && !$v.email.email"
-															data-error="Incorrect email")
 
-			.SignIn-row
-				.SignIn-field.input-field
+					span.sign-in-form__helper.helper-text(v-if="$v.email.$dirty && !$v.email.required"
+																		data-error="The field is empty")
+
+					span.sign-in-form__helper.helper-text(v-else-if="$v.email.$dirty && !$v.email.email"
+																		data-error="Incorrect email")
+
+			.sign-in-form__row
+				.sign-in-form__helper.input-field
 					input#password(type="text"
 										name="password"
 										v-model.trim="password"
@@ -27,30 +30,30 @@
 
 					label(for="password")
 						| Password
-					span.SignIn-helper.helper-text(v-if="$v.password.$dirty && !$v.password.required"
-															data-error="The field is empty")
-					span.SignIn-helper.helper-text(v-else-if="$v.password.$dirty && !$v.password.minLength"
-															data-error="Password is too short")
+					span.sign-in-form__helper.helper-text(v-if="$v.password.$dirty && !$v.password.required"
+																		data-error="The field is empty")
+					span.sign-in-form__helper.helper-text(v-else-if="$v.password.$dirty && !$v.password.minLength"
+																		data-error="Password is too short")
 
-			.SignIn-row
+			.sign-in-form__row
 				router-link(to="/recovery")
 					| Forgot password?
-			.SignIn-row
+			.sign-in-form__row
 				| - or -
-			.SignIn-row
+			.sign-in-form__row
 				router-link(to="/register")
 					| Still don't have an account?
 
 			center
-				.SignIn-row
+				.sign-in-form__row
 					vue-recaptcha(sitekey="6Lc-DaUZAAAAABeSVHxIZhS9Wk2xqSo53V4UeX-H")
 
-				.SignIn-row
-					button.SignIn-button.btn-large(type="submit"
+				.sign-in-form__row
+					button.sign-in__button.btn-large(type="submit"
 															name="submitSignIn")
 						| Sign In
 
-		.SignIn-cancel
+		.sign-in__link-back
 			router-link(to="/")
 				| Back to Homepage?
 
@@ -100,7 +103,7 @@
 	@import "../assets/styles/utils/mixins.sass"
 	@import "../assets/styles/modules/buttons.sass"
 
-	.SignIn
+	.sign-in
 		position: fixed
 		top: 0
 		left: 0
@@ -114,21 +117,22 @@
 		background-color: $color-white-pure
 		box-shadow: 10px 10px 5px 0 rgba(0, 0, 0, 0.75)
 
-		&-title
+		&__title
 			padding: 20px 0 0 0
 			font-size: 22px
 
-		&-row
+	.sign-in-form
+		&__row
 			margin: 20px auto 20px auto
 			max-width: 304px
 
-		&-field
+		&__field
 			+flex(center, flex-start, column)
 
-		&-helper
+		&__helper
 			width: 100%
 
-		&-button
+		&__button
 			@extend .hover-btn
 			@extend .shadow-btn
 			@extend .focus-btn
