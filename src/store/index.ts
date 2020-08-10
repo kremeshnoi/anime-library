@@ -64,7 +64,7 @@ export default new Vuex.Store({
 		async loadAnimeAiring(ctx) {
 			try {
 				const animeAiringResponse: AnimeAiringResponse = await jikanjs.loadTop("anime", 1, "airing");
-				const animeAiring = animeAiringResponse.top.slice(0, 14);
+				const animeAiring = animeAiringResponse.top.slice(0, 9);
 				ctx.commit("SET_ANIME_AIRING", animeAiring);
 			} catch (error) {
 				throw new Error(error);
@@ -77,7 +77,7 @@ export default new Vuex.Store({
 				if (Array.isArray(animeSearched) && animeSearched.length > 0) {
 					ctx.commit("SET_ANIME_SEARCHED", animeSearched);
 				} else {
-					M.toast({html: "Anime not found"});
+					M.toast({ html: "Anime not found" });
 				}
 			} catch (error) {
 				throw new Error(error);
