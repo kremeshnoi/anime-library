@@ -5,12 +5,10 @@
 			router-link.nav-global-logo.nav-global-link(to="/")
 				| Otaku Library
 
-			a(data-target="side-nav").sidenav-trigger.nav-global-trigger.nav-global-link
-				i.material-icons.nav-global-icon-menu menu
 			.nav-global-logout
 				router-link.nav-global-logout-link(to="/login")
 					| Sign in
-					i.material-icons.nav-global-logout-icon-menu exit_to_app
+					i.material-icons.nav-global-logout-icon exit_to_app
 
 </template>
 
@@ -41,43 +39,35 @@
 
 			&-wrapper
 				width: 100%
+				+flex(flex-end, initial, row)
 
 			&-logo
 				font-size: 24px
-				position: fixed
-				left: 40px
 				color: $color-white
+				position: absolute
+				right: 50%
+				width: 100%
+				transform: translateX(50%)
 				font-family: "Days One", sans-serif
-
-			&-trigger
-				height: 54px
-				line-height: 54px
-				margin: 0
-				float: right !important
-
-			&-icon-menu
-				height: 54px
-				line-height: 54px
 
 			&-logout
 				display: flex
 				justify-content: flex-end
-				align-items: center
+				width: auto
+				z-index: 999
 				+mq(tablet-wide, max)
 					display: none
+				&-icon
+					height: 54px
+					line-height: 54px
+					margin: 0 0 0 6px
 
 				&-link
 					display: flex
 					align-items: center
 
 					&:hover
-						.nav-global-logout-icon-menu
+						.nav-global-logout-icon
 							transform: translateX(4px)
-
-				&-icon-menu
-					display: initial
-					line-height: 16px
-					height: 16px
-					margin: 0 0 0 6px
 
 </style>
