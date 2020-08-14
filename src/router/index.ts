@@ -8,25 +8,25 @@ const routes = [
 	{
 		path: "/",
 		name: "Home",
-		meta: {layout: "unauthorized"},
+		meta: {layout: "authorized"},
 		component: () => import("../views/Home.vue")
 	},
 	{
 		path: "/anime/:id/:title",
 		name: "Anime",
-		meta: {layout: "unauthorized"},
+		meta: {layout: "authorized"},
 		component: () => import("../views/Anime.vue")
 	},
 	{
 		path: "/search",
 		name: "Search",
-		meta: {layout: "unauthorized"},
+		meta: {layout: "authorized"},
 		component: () => import("../views/Search.vue")
 	},
 	{
 		path: "/library",
 		name: "Library",
-		meta: {layout: "unauthorized"},
+		meta: {layout: "authorized"},
 		component: () => import("../views/Library.vue")
 	},
 	{

@@ -1,18 +1,18 @@
 <template lang="pug">
 
-	.content-wrapper
+	.global-wrapper
 		main-nav
-		mobile-nav
 		side-nav
-		router-view
-		main-footer
+
+		.content-wrapper
+			router-view
+			main-footer
 
 </template>
 
 <script>
 
 	import MainNav from "@/components/navigation/NavBar.vue";
-	import MobileNav from "@/components/navigation/MobileNav.vue";
 	import SideNav from "@/components/navigation/SideNav.vue";
 	import MainFooter from "@/components/navigation/MainFooter.vue";
 
@@ -20,7 +20,6 @@
 		name: "Authorized",
 		components: {
 			MainNav,
-			MobileNav,
 			SideNav,
 			MainFooter
 		},
@@ -37,7 +36,9 @@
 	@import "../assets/styles/utils/mixins.sass"
 
 	.content-wrapper
+		margin: 0 0 0 auto
 		padding: 54px 0 0 0
+		width: calc(100% - 60px)
 		background-color: $color-white-pure
 		+flex(initial, center, column)
 
