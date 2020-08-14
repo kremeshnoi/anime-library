@@ -5,7 +5,7 @@
 			router-link.nav-global-logo.nav-global-link(to="/")
 				| Otaku Library
 
-			a(data-target="nav-mobile").sidenav-trigger.nav-global-trigger.nav-global-link
+			a(data-target="side-nav").sidenav-trigger.nav-global-trigger.nav-global-link
 				i.material-icons.nav-global-icon-menu menu
 			.nav-global-logout
 				router-link.nav-global-logout-link(to="/login")
@@ -43,7 +43,7 @@
 				width: 100%
 
 			&-logo
-				font-size: 1.7rem
+				font-size: 24px
 				position: fixed
 				left: 40px
 				color: $color-white
