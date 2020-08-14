@@ -1,6 +1,6 @@
 <template lang="pug">
 
-		ul#side-nav.side-nav.sidenav
+		ul.side-nav.sidenav
 			li.side-nav__item
 				.side-nav__user.user-view
 					button.side-nav__btn.side-nav__btn(@click="collapse")
@@ -67,13 +67,11 @@
 			collapse() {
 				const sidenav = document.querySelector('.sidenav');
 				const sidenav_overlay = document.querySelector(".sidenav-overlay");
-				const sidenav_instance = M.Sidenav.init(sidenav, { preventScrolling: false, inDuration: 0, outDuration: 0, draggable: false });
 				const icon_arrow = document.querySelector(".side-nav__icon-arrow");
 				const icons_route = document.querySelectorAll(".side-nav__icon-route");
+				const sidenav_instance = M.Sidenav.init(sidenav, { preventScrolling: false, inDuration: 0, outDuration: 0, draggable: false });
 
 				sidenav_instance._overlay.addEventListener("click", toogleElems, false)
-
-				sidenav_overlay.removeEventListener("click", sidenav_instance.close, false)
 
 				function toogleElems() {
 					sidenav.classList.toggle("side-nav_release");
@@ -91,9 +89,6 @@
 
 				toogleElems();
 			}
-		},
-		mounted() {
-			const sidenav_instance = M.Sidenav.init(document.querySelector('.sidenav'), { preventScrolling: false, inDuration: 0, outDuration: 0, draggable: false });
 		}
 	};
 
