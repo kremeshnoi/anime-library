@@ -7,9 +7,10 @@
 		form.sign-up__form.sign-up-form(v-on:submit.prevent="submitHandler")
 			.sign-up-form__row
 				.sign-up-form__field.input-field
-					input#email(type="text"
+					input#email(type="email"
 									name="email"
 									v-model.trim="email"
+									autocomplete="email"
 									:class="{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }")
 					label(for="email")
 						| Email
@@ -23,8 +24,9 @@
 					input#username(type="text"
 										name="username"
 										v-model.trim="username"
+										autocomplete="username"
 										:class="{ invalid: ($v.username.$dirty && !$v.username.required) || ($v.username.$dirty && !$v.username.minLength) }")
-					label(for='username')
+					label(for="username")
 						| Username
 					span.sign-up-form__helper.helper-text(v-if="$v.username.$dirty && !$v.username.required"
 																		data-error="The field is empty")
@@ -33,9 +35,10 @@
 
 			.sign-up-form__row
 				.sign-up-form__field.input-field
-					input#password(type="text"
+					input#password(type="password"
 										name="password"
 										v-model.trim="password"
+										autocomplete="current-password"
 										:class="{ invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength) }")
 					label(for="password")
 						| Password
@@ -87,16 +90,24 @@
 			title: "Otaku Library - Sign Up"
 		},
 		methods: {
-			submitHandler() {
+			async submitHandler() {
 				if (this.$v.$invalid) {
 					this.$v.$touch();
 					return;
 				};
 				const signUpData = {
 					email: this.email,
-					password: this.password
+					password: this.password,
+					username: this.username
 				};
-				this.$router.push("/");
+
+				try {
+					await this.$store.dispatch("registration", signUpData);
+					this.$router.push("/");
+					M.toast({ html: "Successful registration", classes: "green" });
+				} catch (error) {
+					throw new Error(error);
+				}
 			}
 		}
 	};

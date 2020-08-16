@@ -30,14 +30,14 @@ Vue.use(Vuelidate);
 Vue.use(VueAwesomeSwiper);
 
 firebase.initializeApp({
-	apiKey: "AIzaSyD2Q4AAfZcG9elxTPTPmzADyY00YDiQpLw",
-	authDomain: "anime-library-72ebd.firebaseapp.com",
-	databaseURL: "https://anime-library-72ebd.firebaseio.com",
-	projectId: "anime-library-72ebd",
-	storageBucket: "anime-library-72ebd.appspot.com",
-	messagingSenderId: "107283771690",
-	appId: "1:107283771690:web:ccad8edf8dcdbc158dae53",
-	measurementId: "G-02RXVDVNL3"
+	apiKey: "AIzaSyCIPI4pf_bCw6vyUB7sg8ZWvU2MpCmR288",
+	authDomain: "otaku-library-b5dd4.firebaseapp.com",
+	databaseURL: "https://otaku-library-b5dd4.firebaseio.com",
+	projectId: "otaku-library-b5dd4",
+	storageBucket: "otaku-library-b5dd4.appspot.com",
+	messagingSenderId: "75933468300",
+	appId: "1:75933468300:web:ea747d3df0d9d601a19da9",
+	measurementId: "G-P47VCZ10ZJ"
 });
 
 let app;

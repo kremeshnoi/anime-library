@@ -7,9 +7,10 @@
 		form.sign-in__form.sign-in-form(v-on:submit.prevent="submitHandler")
 			.sign-in-form__row
 				.sign-in-form__field.input-field
-					input#email(type="text"
+					input#email(type="email"
 									name="email"
 									v-model.trim="email"
+									autocomplete="email"
 									:class="{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }")
 					label(for="email")
 						| Email
@@ -20,9 +21,10 @@
 
 			.sign-in-form__row
 				.sign-in-form__helper.input-field
-					input#password(type="text"
+					input#password(type="password"
 										name="password"
 										v-model.trim="password"
+										autocomplete="password"
 										:class="{ invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength) }")
 					label(for="password")
 						| Password
@@ -79,16 +81,23 @@
 			title: "Otaku Library - Sign In"
 		},
 		methods: {
-			submitHandler() {
+			async submitHandler() {
 				if (this.$v.$invalid) {
-					this.$v.$touch();
-					return;
+					this.$v.$touch()
+					return
 				};
 				const signInData = {
 					email: this.email,
 					password: this.password
 				};
-				this.$router.push("/");
+
+				try {
+					await this.$store.dispatch('signIn', signInData);
+					this.$router.push("/");
+					M.toast({ html: "Signed In successfully", classes: "green" });
+				} catch (error) {
+					throw new Error(error);
+				}
 			}
 		}
 	};

@@ -45,11 +45,11 @@
 			ul.side-nav__footer
 				li.side-nav__item
 					.side-nav__logout
-						a.side-nav__link-logout
-							| Log out
+						a.side-nav__link-logout(@click="signOut")
+							| Sign out
 							i.material-icons.side-nav__icon-logout.grey-text exit_to_app
 
-						a.side-nav__link-logout
+						a.side-nav__link-logout(@click="signOut")
 							i.material-icons.side-nav__icon-route.side-nav__icon-route-logout.grey-text exit_to_app
 
 				li.side-nav__item
@@ -88,6 +88,14 @@
 				};
 
 				toogleElems();
+			},
+			signOut() {
+				try {
+					this.$store.dispatch("signOut");
+					M.toast({ html: "Signed Out successfully", classes: "green" });
+				} catch (error) {
+					throw new Error(error);
+				}
 			}
 		}
 	};
