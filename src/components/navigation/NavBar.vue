@@ -46,7 +46,6 @@
 				color: $color-white
 				position: absolute
 				right: 50%
-				width: 100%
 				transform: translateX(50%)
 				font-family: "Days One", sans-serif
 
