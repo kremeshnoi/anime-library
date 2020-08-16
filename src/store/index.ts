@@ -77,7 +77,7 @@ export default new Vuex.Store({
 				if (Array.isArray(animeSearched) && animeSearched.length > 0) {
 					ctx.commit("SET_ANIME_SEARCHED", animeSearched);
 				} else {
-					M.toast({ html: "Anime not found" });
+					M.toast({ html: "The request was not found", classes: "red" });
 				}
 			} catch (error) {
 				throw new Error(error);
