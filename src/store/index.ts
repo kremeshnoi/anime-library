@@ -8,6 +8,7 @@ import auth from "@/store/auth.ts";
 
 //Interfaces
 import { State } from "@/interfaces/State.ts";
+import { UserInfoResponse } from "@/interfaces/UserInfoResponse";
 import { AnimeResponse } from "@/interfaces/AnimeResponse.ts";
 import { AnimeAiringResponse } from "@/interfaces/AnimeAiringResponse.ts";
 import { AnimeSearchedResponse } from "@/interfaces/AnimeSearchedResponse.ts";
@@ -17,10 +18,12 @@ import { MangaFavoriteResponse } from "@/interfaces/MangaFavoriteResponse.ts";
 
 //API wrappers
 import jikanjs from "../../node_modules/jikanjs/lib/jikan.js";
+import firebase from "firebase";
 
 Vue.use(Vuex);
 
 export const state: State = {
+	userInfo: [],
 	anime: [],
 	animeAiring: [],
 	animeSearched: [],
@@ -32,6 +35,9 @@ export const state: State = {
 export default new Vuex.Store({
 	state,
 	mutations: {
+		SET_USER_INFO(state, userInfo) {
+			state.userInfo = userInfo;
+		},
 		SET_ANIME(state, anime) {
 			state.anime = anime;
 		},
@@ -127,6 +133,7 @@ export default new Vuex.Store({
 	},
 	modules: { auth },
 	getters: {
+		getUserInfo: state => state.userInfo,
 		getAnime: state => state.anime,
 		getAnimeAiring: state => state.animeAiring,
 		getAnimeSearched: state => state.animeSearched,

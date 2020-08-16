@@ -1,4 +1,5 @@
 import firebase from "firebase/app";
+import {UserInfoResponse} from "@/interfaces/UserInfoResponse";
 
 export default {
 	actions: {
@@ -16,6 +17,17 @@ export default {
 				await firebase.database().ref(`/users/${uid}/info`).set({
 					username
 				});
+			} catch (error) {
+				throw new Error(error);
+			}
+		},
+		async loadUserInfo({ dispatch, commit }) {
+			try {
+				const uid = await dispatch("getUid");
+				const userInfoResponse = await firebase.database().ref(`/users/${uid}/info/username`)
+					.on("value", (data) => {
+						commit("SET_USER_INFO", data.val());
+					});
 			} catch (error) {
 				throw new Error(error);
 			}

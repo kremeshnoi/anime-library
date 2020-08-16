@@ -19,7 +19,7 @@
 
 			li.side-nav__item
 				span.side-nav__username
-					| User
+					| {{ getUserInfo }}
 
 			li.side-nav__item
 				.side-nav__divider.divider
@@ -61,9 +61,12 @@
 
 <script>
 
+	import { mapActions, mapGetters } from "vuex";
+
 	export default {
 		name: "SideNav",
 		methods: {
+			...mapActions(["loadUserInfo"]),
 			collapse() {
 				const sidenav = document.querySelector('.sidenav');
 				const sidenav_overlay = document.querySelector(".sidenav-overlay");
@@ -97,6 +100,12 @@
 					throw new Error(error);
 				}
 			}
+		},
+		computed: {
+			...mapGetters(["getUserInfo"])
+		},
+		async created() {
+			await this.loadUserInfo();
 		}
 	};
 
