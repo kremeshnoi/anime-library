@@ -11,7 +11,7 @@
 			p.footer-categories-top-characters__digit
 				| {{ index + 1 }}.
 			router-link.footer-categories-top-characters__link( to="/" )
-				| {{ result['title'] }}
+				| {{ result["title"] }}
 
 </template>
 

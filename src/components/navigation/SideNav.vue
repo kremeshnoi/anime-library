@@ -68,7 +68,7 @@
 		methods: {
 			...mapActions(["loadUserInfo"]),
 			collapse() {
-				const sidenav = document.querySelector('.sidenav');
+				const sidenav = document.querySelector(".sidenav");
 				const sidenav_overlay = document.querySelector(".sidenav-overlay");
 				const icon_arrow = document.querySelector(".side-nav__icon-arrow");
 				const icons_route = document.querySelectorAll(".side-nav__icon-route");

@@ -48,7 +48,7 @@
 
 			.sign-in-form__row
 				router-link( to="/register" )
-					| Still don't have an account?
+					| Still don"t have an account?
 
 			center
 				.sign-in-form__row
@@ -99,7 +99,7 @@
 				};
 
 				try {
-					await this.$store.dispatch('signIn', signInData);
+					await this.$store.dispatch("signIn", signInData);
 					this.$router.push("/");
 					M.toast({ html: "Signed In successfully", classes: "green" });
 				} catch (error) {

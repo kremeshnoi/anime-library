@@ -11,7 +11,7 @@
 			p.footer-categories-top-manga__digit
 				| {{ index + 1 }}.
 			router-link.footer-categories-top-manga__link( to="/" )
-				| {{ result['title'] }}
+				| {{ result["title"] }}
 
 </template>
 
