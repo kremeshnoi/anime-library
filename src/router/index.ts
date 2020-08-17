@@ -9,43 +9,43 @@ const routes = [
 		path: "/",
 		name: "Home",
 		meta: {layout: "authorized"},
-		component: () => import("../views/Home.vue")
+		component: () => import("../components/views/Home.vue")
 	},
 	{
 		path: "/anime/:id/:title",
 		name: "Anime",
 		meta: {layout: "authorized"},
-		component: () => import("../views/Anime.vue")
+		component: () => import("../components/views/Anime.vue")
 	},
 	{
 		path: "/search",
 		name: "Search",
 		meta: {layout: "authorized"},
-		component: () => import("../views/Search.vue")
+		component: () => import("../components/views/Search.vue")
 	},
 	{
 		path: "/library",
 		name: "Library",
 		meta: {layout: "authorized"},
-		component: () => import("../views/Library.vue")
+		component: () => import("../components/views/Library.vue")
 	},
 	{
 		path: "/register",
 		name: "SignUp",
 		meta: {layout: "authentication"},
-		component: () => import("../views/SignUp.vue")
+		component: () => import("../components/views/SignUp.vue")
 	},
 	{
 		path: "/login",
 		name: "SignIn",
 		meta: {layout: "authentication"},
-		component: () => import("../views/SignIn.vue")
+		component: () => import("../components/views/SignIn.vue")
 	},
 	{
 		path: "/recovery",
 		name: "Recovery",
 		meta: {layout: "authentication"},
-		component: () => import("../views/Recovery.vue")
+		component: () => import("../components/views/Recovery.vue")
 	}
 ];
 

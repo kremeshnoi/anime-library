@@ -9,9 +9,9 @@
 <script lang="ts">
 
 	import { Component, Vue } from "vue-property-decorator";
-	import Unauthorized from "@/layouts/Unauthorized.vue";
-	import Authentication from "@/layouts/Authentication.vue";
-	import Authorized from "@/layouts/Authorized.vue";
+	import Unauthorized from "@/components/layouts/Unauthorized.vue";
+	import Authentication from "@/components/layouts/Authentication.vue";
+	import Authorized from "@/components/layouts/Authorized.vue";
 
 	@Component({
 		components: {
