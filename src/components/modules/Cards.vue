@@ -7,7 +7,7 @@
 
 		.cards__title-wrapper
 			span.cards__title
-				| {{ query['title'] }}
+				| {{ query["title"] }}
 
 </template>
 

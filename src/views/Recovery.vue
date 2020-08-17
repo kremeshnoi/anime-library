@@ -66,7 +66,7 @@
 				};
 
 				try {
-					await this.$store.dispatch('recoverPassword', RecoveryData);
+					await this.$store.dispatch("recoverPassword", RecoveryData);
 					this.$router.push("/");
 					M.toast({ html: "Email has been send", classes: "green" });
 				} catch (error) {
