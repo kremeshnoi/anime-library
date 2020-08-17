@@ -55,16 +55,24 @@
 			title: "Otaku Library - Password Recovery"
 		},
 		methods: {
-			submitHandler() {
+			async submitHandler() {
 				if (this.$v.$invalid) {
 					this.$v.$touch();
 					return;
 				};
+
 				const RecoveryData = {
-					email: this.email,
-					password: this.password
+					email: this.email
 				};
-				this.$router.push("/");
+
+				try {
+					await this.$store.dispatch('recoverPassword', RecoveryData);
+					this.$router.push("/");
+					M.toast({ html: "Email has been send", classes: "green" });
+				} catch (error) {
+					throw new Error(error);
+				}
+
 			}
 		}
 	};
