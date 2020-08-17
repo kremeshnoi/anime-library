@@ -14,15 +14,15 @@
 			.footer-main-info__item
 				h5.footer-main-info__title.footer-main-info__subtitle
 					| Sign in required
-				router-link.footer-main-info__link(to="")
+				router-link.footer-main-info__link(to="/search")
 					| Search page
-				router-link.footer-main-info__link(to="")
+				router-link.footer-main-info__link(to="/library")
 					| Your library
 
 			.footer-main-info__item
 				h5.footer-main-info__title
 					| Help
-				router-link.footer-main-info__link(to="")
+				router-link.footer-main-info__link(to="/about")
 					| Q/A
 				router-link.footer-main-info__link(to="/register")
 					| Registration
