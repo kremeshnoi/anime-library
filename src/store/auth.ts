@@ -40,7 +40,7 @@ export default {
 				throw new Error(error);
 			}
 		},
-		async deleteAccount( { dispatch }, { email } ) {
+		async deleteAccount() {
 			try {
 				await firebase.auth().currentUser?.delete();
 			} catch (error) {
