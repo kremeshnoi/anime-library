@@ -1,15 +1,15 @@
 <template lang="pug">
 
-	.footer-copyright
-		.footer-copyright__container
-			p.footer-copyright__text
+	.footer-note
+		.footer-note__container
+			p.footer-note__text
 				| Inspired by
-				a.footer-copyright__link(href="https://myanimelist.net/"
+				a.footer-note__link(href="https://myanimelist.net/"
 												target="_blank")
 					| &nbsp;MAL
-			p.footer-copyright__text
+			p.footer-note__text
 				| and
-				a.footer-copyright__link(href="https://shikimori.one/"
+				a.footer-note__link(href="https://shikimori.one/"
 												target="_blank")
 					| &nbsp;Shikimori
 
@@ -18,7 +18,7 @@
 <script>
 
 	export default {
-		name: "FooterCopyright"
+		name: "FooterNote"
 	};
 
 </script>
@@ -28,7 +28,7 @@
 	@import "../../assets/styles/utils/vars.sass"
 	@import "../../assets/styles/utils/mixins.sass"
 
-	.footer-copyright
+	.footer-note
 		padding: 14px 20px 14px 20px
 		background-color: $color-blue-dark
 
