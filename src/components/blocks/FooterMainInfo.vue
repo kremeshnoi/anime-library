@@ -1,42 +1,40 @@
 <template lang="pug">
 
-	.footer-content.page-footer
-		.footer-content__container
-			.footer-content__item
-				h5.footer-content__title
+	.footer-main-info.page-footer
+		.footer-main-info__container
+			.footer-main-info__item
+				h5.footer-main-info__title
 					| Discord channel
-				p.footer-content__description
+				p.footer-main-info__description
 					| We will also be happy to meet you on our channel, where you can always find like-minded people. Feel free to come in.
-				a.footer-content__link_decor.btn(href="https://discord.com/invite/Ku72D5/"
-														target="_blank")
+				a.footer-main-info__link_decor.btn(href="https://discord.com/invite/Ku72D5/"
+																target="_blank")
 					| Chat
 
-			.footer-content__item
-				h5.footer-content__title
-					| Sitemap
-				router-link.footer-content__link(to="")
-					| About project
-				h6.footer-content__subtitle
+			.footer-main-info__item
+				h5.footer-main-info__title.footer-main-info__subtitle
 					| Sign in required
-				router-link.footer-content__link(to="")
+				router-link.footer-main-info__link(to="")
 					| Search page
-				router-link.footer-content__link(to="")
+				router-link.footer-main-info__link(to="")
 					| Your library
 
-			.footer-content__item
-				h5.footer-content__title
+			.footer-main-info__item
+				h5.footer-main-info__title
 					| Help
-				router-link.footer-content__link(to="/recovery")
-					| Forgot Password?
-				router-link.footer-content__link(to="")
+				router-link.footer-main-info__link(to="")
 					| Q/A
+				router-link.footer-main-info__link(to="/register")
+					| Registration
+				router-link.footer-main-info__link(to="/recovery")
+					| Forgot Password?
 
 </template>
 
 <script>
 
 	export default {
-		name: "FooterContent"
+		name: "FooterMainInfo"
 	};
 
 </script>
@@ -47,7 +45,7 @@
 	@import "../../assets/styles/utils/mixins.sass"
 	@import "../../assets/styles/modules/buttons.sass"
 
-	.footer-content
+	.footer-main-info
 		text-align: start
 		padding: 0
 		background-color: $color-blue
@@ -68,7 +66,6 @@
 			padding: 0 0 8px 0
 
 		&__subtitle
-			padding: 16px 0 8px 0
 			border-bottom: 1px solid rgba($color-orange, 0.6)
 
 		&__link

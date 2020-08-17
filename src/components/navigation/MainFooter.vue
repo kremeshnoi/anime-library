@@ -2,7 +2,7 @@
 
 	footer.main-footer
 		footer-categories
-		footer-content
+		footer-main-info
 		footer-copyright
 
 </template>
@@ -10,14 +10,14 @@
 <script>
 
 	import FooterCategories from "@/components/blocks/FooterCategories.vue";
-	import FooterContent from "@/components/blocks/FooterContent.vue";
+	import FooterMainInfo from "@/components/blocks/FooterMainInfo.vue";
 	import FooterCopyright from "@/components/blocks/FooterCopyright.vue";
 
 	export default {
 		name: "MainFooter",
 		components: {
 			FooterCategories,
-			FooterContent,
+			FooterMainInfo,
 			FooterCopyright
 		}
 	};
