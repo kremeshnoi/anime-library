@@ -3,7 +3,7 @@
 	footer.main-footer
 		footer-categories
 		footer-main-info
-		footer-copyright
+		footer-note
 
 </template>
 
@@ -11,14 +11,14 @@
 
 	import FooterCategories from "@/components/blocks/FooterCategories.vue";
 	import FooterMainInfo from "@/components/blocks/FooterMainInfo.vue";
-	import FooterCopyright from "@/components/blocks/FooterCopyright.vue";
+	import FooterNote from "@/components/blocks/FooterNote.vue";
 
 	export default {
 		name: "MainFooter",
 		components: {
 			FooterCategories,
 			FooterMainInfo,
-			FooterCopyright
+			FooterNote
 		}
 	};
 
