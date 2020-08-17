@@ -92,6 +92,7 @@
 					this.$v.$touch()
 					return
 				};
+
 				const signInData = {
 					email: this.email,
 					password: this.password

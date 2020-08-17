@@ -17,4 +17,4 @@ interface MangaFavoriteResponseTop {
 	url: string;
 }
 
-export {MangaFavoriteResponse, MangaFavoriteResponseTop};
+export { MangaFavoriteResponse, MangaFavoriteResponseTop };

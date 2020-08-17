@@ -19,4 +19,4 @@ interface AnimeAiringResponseTop {
 	url: string;
 }
 
-export {AnimeAiringResponse, AnimeAiringResponseTop};
+export { AnimeAiringResponse, AnimeAiringResponseTop };
