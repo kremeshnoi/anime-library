@@ -24,6 +24,5 @@
 	.content-wrapper
 		height: 100vh
 		background-color: $color-blue
-		+flex(initial, center, column)
 
 </style>

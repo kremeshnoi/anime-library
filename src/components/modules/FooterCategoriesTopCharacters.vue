@@ -1,16 +1,16 @@
 <template lang="pug">
 
 	.footer-categories-top-characters
-		router-link.footer-categories-top-characters__title(to="/")
+		router-link.footer-categories-top-characters__title( to="/" )
 			| Popular Characters
 
 			.footer-categories-top-characters__icon.material-icons keyboard_arrow_right
-		.footer-categories-top-characters__content(v-for="(result, index) in getCharactersFavorite"
-														:key="index")
+		.footer-categories-top-characters__content( v-for="(result, index) in getCharactersFavorite"
+																  :key="index" )
 
 			p.footer-categories-top-characters__digit
 				| {{ index + 1 }}.
-			router-link.footer-categories-top-characters__link(to="/")
+			router-link.footer-categories-top-characters__link( to="/" )
 				| {{ result['title'] }}
 
 </template>
