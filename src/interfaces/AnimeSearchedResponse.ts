@@ -22,4 +22,4 @@ interface AnimeSearchedResponseResults {
 	url: string;
 }
 
-export {AnimeSearchedResponse, AnimeSearchedResponseResults};
+export { AnimeSearchedResponse, AnimeSearchedResponseResults };

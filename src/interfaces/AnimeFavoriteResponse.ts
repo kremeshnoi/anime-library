@@ -19,4 +19,4 @@ interface AnimeFavoriteResponseTop {
 	url: string;
 }
 
-export {AnimeFavoriteResponse, AnimeFavoriteResponseTop};
+export { AnimeFavoriteResponse, AnimeFavoriteResponseTop };

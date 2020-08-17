@@ -31,4 +31,4 @@ interface CharactersFavoriteResponseTopMangaography {
 	url: string;
 }
 
-export {CharactersFavoriteResponse, CharactersFavoriteResponseTop};
+export { CharactersFavoriteResponse, CharactersFavoriteResponseTop };

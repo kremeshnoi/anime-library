@@ -1,8 +1,13 @@
 import firebase from "firebase/app";
 import {UserInfoResponse} from "@/interfaces/UserInfoResponse";
+import {email} from "vuelidate/lib/validators";
 
 export default {
 	actions: {
+		getUid() {
+			const user = firebase.auth().currentUser;
+			return user ? user.uid : null;
+		},
 		async signIn({ dispatch, commit }, { email, password }) {
 			try {
 				await firebase.auth().signInWithEmailAndPassword(email, password);
@@ -10,13 +15,34 @@ export default {
 				throw new Error(error);
 			}
 		},
-		async registration({ dispatch }, { email, password, username }) {
+		async signUp({ dispatch }, { email, password, username }) {
 			try {
 				await firebase.auth().createUserWithEmailAndPassword(email, password);
 				const uid = await dispatch("getUid");
 				await firebase.database().ref(`/users/${uid}/info`).set({
 					username
 				});
+			} catch (error) {
+				throw new Error(error);
+			}
+		},
+		async signOut() {
+			try {
+				await firebase.auth().signOut();
+			} catch (error) {
+				throw new Error(error);
+			}
+		},
+		async recoverPassword( { dispatch }, { email } ) {
+			try {
+				await firebase.auth().sendPasswordResetEmail(email);
+			} catch (error) {
+				throw new Error(error);
+			}
+		},
+		async deleteAccount( { dispatch }, { email } ) {
+			try {
+				await firebase.auth().currentUser?.delete();
 			} catch (error) {
 				throw new Error(error);
 			}
@@ -32,16 +58,5 @@ export default {
 				throw new Error(error);
 			}
 		},
-		getUid() {
-			const user = firebase.auth().currentUser;
-			return user ? user.uid : null;
-		},
-		async signOut() {
-			try {
-				await firebase.auth().signOut();
-			} catch (error) {
-				throw new Error(error);
-			}
-		}
 	}
 };

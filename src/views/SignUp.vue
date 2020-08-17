@@ -103,6 +103,7 @@
 					this.$v.$touch();
 					return;
 				};
+
 				const signUpData = {
 					email: this.email,
 					password: this.password,
@@ -110,7 +111,7 @@
 				};
 
 				try {
-					await this.$store.dispatch("registration", signUpData);
+					await this.$store.dispatch("signUp", signUpData);
 					this.$router.push("/");
 					M.toast({ html: "Successful registration", classes: "green" });
 				} catch (error) {
