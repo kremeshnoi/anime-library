@@ -8,9 +8,8 @@
 			.sign-in-form__row
 				.sign-in-form__field.input-field
 					input#email(type="email"
-									name="email"
+									name="username"
 									v-model.trim="email"
-									autocomplete="email"
 									:class="{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }")
 					label(for="email")
 						| Email
@@ -24,7 +23,6 @@
 					input#password(type="password"
 										name="password"
 										v-model.trim="password"
-										autocomplete="password"
 										:class="{ invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength) }")
 					label(for="password")
 						| Password
