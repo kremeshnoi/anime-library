@@ -1,7 +1,7 @@
 <template lang="pug">
 
 	footer.main-footer
-		pre-footer
+		footer-categories
 		footer-content
 		footer-copyright
 
@@ -9,14 +9,14 @@
 
 <script>
 
-	import PreFooter from "@/components/blocks/PreFooter.vue";
+	import FooterCategories from "@/components/blocks/FooterCategories.vue";
 	import FooterContent from "@/components/blocks/FooterContent.vue";
 	import FooterCopyright from "@/components/blocks/FooterCopyright.vue";
 
 	export default {
 		name: "MainFooter",
 		components: {
-			PreFooter,
+			FooterCategories,
 			FooterContent,
 			FooterCopyright
 		}

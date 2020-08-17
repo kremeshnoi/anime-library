@@ -1,16 +1,16 @@
 <template lang="pug">
 
-	.pre-footer-top-anime
-		router-link.pre-footer-top-anime__title(to="/")
-			| Top Anime
+	.footer-categories-top-characters
+		router-link.footer-categories-top-characters__title(to="/")
+			| Popular Characters
 
-			.pre-footer-top-anime__icon.material-icons keyboard_arrow_right
-		.pre-footer-top-anime__content(v-for="(result, index) in getAnimeFavorite"
-												:key="index")
+			.footer-categories-top-characters__icon.material-icons keyboard_arrow_right
+		.footer-categories-top-characters__content(v-for="(result, index) in getCharactersFavorite"
+														:key="index")
 
-			p.pre-footer-top-anime__digit
+			p.footer-categories-top-characters__digit
 				| {{ index + 1 }}.
-			router-link.pre-footer-top-anime__link(to="/")
+			router-link.footer-categories-top-characters__link(to="/")
 				| {{ result['title'] }}
 
 </template>
@@ -20,15 +20,15 @@
 	import { mapActions, mapGetters } from "vuex";
 
 	export default {
-		name: "PreFooterAnime",
+		name: "FooterCategoriesTopCharacters",
 		methods: {
-			...mapActions(["loadAnimeFavorite"])
+			...mapActions(["loadCharactersFavorite"]),
 		},
 		computed: {
-			...mapGetters(["getAnimeFavorite"])
+			...mapGetters(["getCharactersFavorite"])
 		},
 		async created() {
-			await this.loadAnimeFavorite();
+			await this.loadCharactersFavorite();
 		}
 	};
 
@@ -39,7 +39,7 @@
 	@import "../../assets/styles/utils/vars.sass"
 	@import "../../assets/styles/utils/mixins.sass"
 
-	.pre-footer-top-anime
+	.footer-categories-top-characters
 		+flex(flex-start, flex-start, column)
 
 		&__title
@@ -53,7 +53,7 @@
 			&:hover
 				color: $color-orange
 
-				.pre-footer-top-anime__icon
+				.footer-categories-top-characters__icon
 					color: inherit
 
 		&__content

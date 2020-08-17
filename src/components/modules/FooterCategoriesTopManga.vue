@@ -1,16 +1,16 @@
 <template lang="pug">
 
-	.pre-footer-top-manga
-		router-link.pre-footer-top-manga__title(to="/")
+	.footer-categories-top-manga
+		router-link.footer-categories-top-manga__title(to="/")
 			| Top Manga
 
-			.pre-footer-top-manga__icon.material-icons keyboard_arrow_right
-		.pre-footer-top-manga__content(v-for="(result, index) in getMangaFavorite"
+			.footer-categories-top-manga__icon.material-icons keyboard_arrow_right
+		.footer-categories-top-manga__content(v-for="(result, index) in getMangaFavorite"
 												:key="index")
 
-			p.pre-footer-top-manga__digit
+			p.footer-categories-top-manga__digit
 				| {{ index + 1 }}.
-			router-link.pre-footer-top-manga__link(to="/")
+			router-link.footer-categories-top-manga__link(to="/")
 				| {{ result['title'] }}
 
 </template>
@@ -20,7 +20,7 @@
 	import { mapActions, mapGetters } from "vuex";
 
 	export default {
-		name: "PreFooterManga",
+		name: "FooterCategoriesTopManga",
 		methods: {
 			...mapActions(["loadMangaFavorite"]),
 		},
@@ -39,7 +39,7 @@
 	@import "../../assets/styles/utils/vars.sass"
 	@import "../../assets/styles/utils/mixins.sass"
 
-	.pre-footer-top-manga
+	.footer-categories-top-manga
 		+flex(flex-start, flex-start, column)
 
 		&__title
