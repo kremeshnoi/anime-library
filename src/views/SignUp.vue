@@ -8,9 +8,8 @@
 			.sign-up-form__row
 				.sign-up-form__field.input-field
 					input#email(type="email"
-									name="email"
+									name="username"
 									v-model.trim="email"
-									autocomplete="email"
 									:class="{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }")
 					label(for="email")
 						| Email
@@ -22,9 +21,7 @@
 			.sign-up-form__row
 				.sign-up-form__field.input-field
 					input#username(type="text"
-										name="username"
 										v-model.trim="username"
-										autocomplete="username"
 										:class="{ invalid: ($v.username.$dirty && !$v.username.required) || ($v.username.$dirty && !$v.username.minLength) }")
 					label(for="username")
 						| Username
@@ -38,7 +35,6 @@
 					input#password(type="password"
 										name="password"
 										v-model.trim="password"
-										autocomplete="current-password"
 										:class="{ invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength) }")
 					label(for="password")
 						| Password
