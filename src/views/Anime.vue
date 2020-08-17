@@ -7,7 +7,7 @@
 					| {{ getAnime['title'] }}
 					.divider_hidden
 					| {{ getAnime['title_japanese'] }}
-				img.anime__cover(:src="getAnime['image_url']")
+				img.anime__cover( :src="getAnime['image_url']" )
 
 				.anime__info.anime-info
 					h2.anime-info__title
@@ -35,8 +35,8 @@
 							.anime-info__list-key
 								| Genres:
 							| &nbsp;
-							.anime-info__list-values(v-for="(result, index_genres) in getAnime['genres']"
-															:key="index_genres")
+							.anime-info__list-values( v-for="(result, index_genres) in getAnime['genres']"
+															  :key="index_genres" )
 								| {{ result['name'] }}
 						li.anime-info__list-item
 							.anime-info__list-key
@@ -48,8 +48,8 @@
 							.anime-info__list-key
 								| Studios:
 							| &nbsp;
-							.anime-info__list-values(v-for="(result, index_studios) in getAnime['studios']"
-															:key="index_studios")
+							.anime-info__list-values( v-for="(result, index_studios) in getAnime['studios']"
+															  :key="index_studios" )
 								| {{ result['name'] }}
 						li.anime-info__list-item
 							.anime-info__list-key

@@ -4,13 +4,13 @@
 		.footer-note__container
 			p.footer-note__text
 				| Inspired by
-				a.footer-note__link(href="https://myanimelist.net/"
-												target="_blank")
+				a.footer-note__link( href="https://myanimelist.net/"
+											target="_blank" )
 					| &nbsp;MAL
 			p.footer-note__text
 				| and
-				a.footer-note__link(href="https://shikimori.one/"
-												target="_blank")
+				a.footer-note__link( href="https://shikimori.one/"
+											target="_blank" )
 					| &nbsp;Shikimori
 
 </template>

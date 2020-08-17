@@ -1,7 +1,7 @@
 <template lang="pug">
 
 	#app
-		component(:is="layout")
+		component( :is="layout" )
 			router-view
 
 </template>

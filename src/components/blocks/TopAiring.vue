@@ -2,7 +2,7 @@
 
 	.top-airing
 		.top-airing__container
-			router-link.top-airing__title(to="/airing-anime")
+			router-link.top-airing__title( to="/airing-anime" )
 				| AIRING ANIME
 				.top-airing__icon.material-icons keyboard_arrow_right
 			swiper-carousel

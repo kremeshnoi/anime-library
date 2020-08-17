@@ -2,11 +2,11 @@
 
 	nav.nav-global
 		.nav-wrapper.nav-global-wrapper
-			router-link.nav-global-logo.nav-global-link(to="/")
+			router-link.nav-global-logo.nav-global-link( to="/" )
 				| Otaku Library
 
 			.nav-global-logout
-				router-link.nav-global-logout-link(to="/login")
+				router-link.nav-global-logout-link( to="/login" )
 					| Sign in
 					i.material-icons.nav-global-logout-icon exit_to_app
 
