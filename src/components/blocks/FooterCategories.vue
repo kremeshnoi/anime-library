@@ -43,5 +43,9 @@
 			margin: 0 auto
 			padding: 40px 40px 40px 40px
 			text-align: start
+			+mq(tablet, max)
+				grid-template-columns: 1fr 1fr
+			+mq(tablet-small, max)
+				grid-template-columns: 1fr
 
 </style>
