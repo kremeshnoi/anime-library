@@ -28,22 +28,19 @@
 					},
 					spaceBetween: 10,
 					breakpoints: {
-						320: {
-							slidesPerView: 1
-						},
 						400: {
 							slidesPerView: 2
 						},
 						560: {
-							slidesPerView: 3
+							slidesPerView: 2
 						},
 						640: {
-							slidesPerView: 4
+							slidesPerView: 3
 						},
 						768: {
 							slidesPerView: 4
 						},
-						992: {
+						1024: {
 							slidesPerView: 5
 						},
 						1248: {
