@@ -33,7 +33,7 @@
 
 <style lang="sass" scoped>
 
-	@import "../../assets/styles/modules/containers"
+	@import "../../assets/styles/modules/containers.sass"
 
 	.search
 		width: 100%
