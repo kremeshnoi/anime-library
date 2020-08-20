@@ -61,6 +61,11 @@
 			align-items: flex-start
 			justify-content: space-between
 			grid-template-columns: repeat(3, 1fr)
+			+mq(tablet, max)
+				grid-template-columns: 1fr 1fr
+			+mq(tablet-small, max)
+				grid-template-columns: 1fr
+				justify-content: center
 
 		&__title
 			padding: 0 0 8px 0
@@ -87,11 +92,12 @@
 			+flex(center, flex-start, column)
 			&:last-of-type
 				border: none
+			+mq(tablet, max)
+				border: none
+				padding: 0
 
 		&__description
 			margin: 8px 0 0 0
 			max-width: 300px
-			+mq(tablet-mid, max)
-				max-width: 70%
 
 </style>
