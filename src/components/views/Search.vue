@@ -34,6 +34,8 @@
 <style lang="sass" scoped>
 
 	@import "../../assets/styles/modules/containers.sass"
+	@import "../../assets/styles/utils/vars.sass"
+	@import "../../assets/styles/utils/mixins.sass"
 
 	.search
 		width: 100%
@@ -43,9 +45,17 @@
 
 		&__query-content
 			display: grid
-			grid-template-columns: repeat(auto-fill, 200px)
-			justify-content: space-between
+			grid-template-columns: repeat(5, 1fr)
+			justify-content: center
 			grid-gap: 20px
 			height: 100%
+			+mq(desktop, max)
+				grid-template-columns: repeat(4, 1fr)
+			+mq(tablet-mid, max)
+				grid-template-columns: repeat(3, 1fr)
+			+mq(tablet, max)
+				grid-template-columns: repeat(2, 1fr)
+			+mq(phablet-small, max)
+				grid-template-columns: repeat(1, 1fr)
 
 </style>
