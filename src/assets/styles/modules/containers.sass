@@ -1,6 +1,12 @@
+@import "../../assets/styles/utils/vars.sass"
+@import "../../assets/styles/utils/mixins.sass"
+
 .container-default
 	width: 100%
 	margin: 0 auto
 	max-width: 1300px
 	padding: 40px 40px 40px 40px
+	+mq(tablet-small, max)
+		padding: 40px 20px 40px 20px
+
 
