@@ -70,7 +70,7 @@ export default new Vuex.Store({
 		async loadAnimeAiring(ctx) {
 			try {
 				const animeAiringResponse: AnimeAiringResponse = await jikanjs.loadTop("anime", 1, "airing");
-				const animeAiring = animeAiringResponse.top
+				const animeAiring = animeAiringResponse.top;
 				ctx.commit("SET_ANIME_AIRING", animeAiring);
 			} catch (error) {
 				throw new Error(error);
@@ -92,7 +92,7 @@ export default new Vuex.Store({
 		async loadAnimeFavorite(ctx) {
 			try {
 				const favoriteAnimeResponse: AnimeFavoriteResponse = await jikanjs.loadTop("anime", 1, "favorite");
-				const animeFavorite = favoriteAnimeResponse.top.slice(0, 9);
+				const animeFavorite = favoriteAnimeResponse.top;
 				ctx.commit("SET_ANIME_FAVORITE", animeFavorite);
 			} catch (error) {
 				throw new Error(error);
