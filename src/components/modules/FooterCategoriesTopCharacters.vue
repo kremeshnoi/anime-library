@@ -3,8 +3,8 @@
 	.footer-categories-top-characters
 		router-link.footer-categories-top-characters__title( to="/" )
 			| Popular Characters
-
 			.footer-categories-top-characters__icon.material-icons keyboard_arrow_right
+
 		.footer-categories-top-characters__content( v-for="(result, index) in getCharactersFavorite"
 																  :key="index" )
 
