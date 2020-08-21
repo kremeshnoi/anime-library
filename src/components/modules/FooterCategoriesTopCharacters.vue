@@ -1,11 +1,11 @@
 <template lang="pug">
 
 	.footer-categories-top-characters
-		router-link.footer-categories-top-characters__title( to="/" )
+		router-link.footer-categories-top-characters__title( to="/top-characters" )
 			| Popular Characters
 			.footer-categories-top-characters__icon.material-icons keyboard_arrow_right
 
-		.footer-categories-top-characters__content( v-for="(result, index) in getCharactersFavorite"
+		.footer-categories-top-characters__content( v-for="(result, index) in getCharactersFavorite.slice(0, 9)"
 																  :key="index" )
 
 			p.footer-categories-top-characters__digit
