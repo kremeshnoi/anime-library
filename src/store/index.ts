@@ -101,7 +101,7 @@ export default new Vuex.Store({
 		async loadCharactersFavorite(ctx) {
 			try {
 				const favoriteCharactersResponse: CharactersFavoriteResponse = await jikanjs.loadTop("characters");
-				const charactersFavorite = favoriteCharactersResponse.top.slice(0, 9);
+				const charactersFavorite = favoriteCharactersResponse.top;
 				ctx.commit("SET_CHARACTERS_FAVORITE", charactersFavorite);
 			} catch (error) {
 				throw new Error(error);
