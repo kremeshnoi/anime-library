@@ -3,19 +3,19 @@
 	.top-anime
 		.top-anime__container
 			.top-anime__title
-				| Viewers' favorite anime . . .
+				| Viewers' Favorite Anime . . .
 
 			query-content
 				cards( v-for="(result, index) in getAnimeFavorite"
-					:key="index"
-					:query="result" )
+						 :key="index"
+						 :query="result" )
 
 </template>
 
 <script>
 
-	import QueryContent from "@/components/modules/QueryContent";
-	import Cards from "@/components/modules/Cards";
+	import QueryContent from "@/components/modules/QueryContent.vue";
+	import Cards from "@/components/modules/Cards.vue";
 	import { mapActions, mapGetters } from "vuex";
 
 	export default {

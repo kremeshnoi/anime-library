@@ -1,12 +1,12 @@
 <template lang="pug">
 
-	.top-airing
-		.top-airing__container
-			.top-airing__title
-				| Top Airing Anime . . .
+	.top-manga
+		.top-manga__container
+			.top-manga__title
+				| Top Manga . . .
 
 			query-content
-				cards( v-for="(result, index) in getAnimeAiring"
+				cards( v-for="(result, index) in getMangaFavorite"
 						 :key="index"
 						 :query="result" )
 
@@ -19,19 +19,19 @@
 	import { mapActions, mapGetters } from "vuex";
 
 	export default {
-		name: "TopAiring",
+		name: "TopManga",
 		components: {
 			Cards,
 			QueryContent
 		},
 		methods: {
-			...mapActions(["loadAnimeAiring"])
+			...mapActions(["loadMangaFavorite"])
 		},
 		computed: {
-			...mapGetters(["getAnimeAiring"])
+			...mapGetters(["getMangaFavorite"])
 		},
 		created() {
-			this.loadAnimeAiring();
+			this.loadMangaFavorite();
 		}
 	}
 
@@ -44,7 +44,7 @@
 	@import "../../assets/styles/modules/containers.sass"
 
 
-	.top-airing
+	.top-manga
 		&__container
 			@extend .container-default
 
@@ -59,3 +59,4 @@
 				font-size: 20px
 
 </style>
+
