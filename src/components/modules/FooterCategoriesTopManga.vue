@@ -1,11 +1,11 @@
 <template lang="pug">
 
 	.footer-categories-top-manga
-		router-link.footer-categories-top-manga__title( to="/" )
+		router-link.footer-categories-top-manga__title( to="/top-manga" )
 			| Top Manga
 			.footer-categories-top-manga__icon.material-icons keyboard_arrow_right
 
-		.footer-categories-top-manga__content( v-for="(result, index) in getMangaFavorite"
+		.footer-categories-top-manga__content( v-for="(result, index) in getMangaFavorite.slice(0, 9)"
 															:key="index" )
 
 			p.footer-categories-top-manga__digit

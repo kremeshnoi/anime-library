@@ -110,7 +110,7 @@ export default new Vuex.Store({
 		async loadMangaFavorite(ctx) {
 			try {
 				const favoriteMangaResponse: MangaFavoriteResponse = await jikanjs.loadTop("manga", 1, "favorite");
-				const mangaFavorite = favoriteMangaResponse.top.slice(0, 9);
+				const mangaFavorite = favoriteMangaResponse.top;
 				ctx.commit("SET_MANGA_FAVORITE", mangaFavorite);
 			} catch (error) {
 				throw new Error(error);
