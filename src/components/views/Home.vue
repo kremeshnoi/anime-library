@@ -7,7 +7,7 @@
 
 <script>
 
-	import TopAiring from "@/components/blocks/TopAiring.vue";
+	import TopAiring from "@/components/blocks/TopAiringBlock.vue";
 
 	export default {
 		name: "Home",
