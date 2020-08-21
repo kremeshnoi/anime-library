@@ -1,11 +1,11 @@
 <template lang="pug">
 
 	.footer-categories-top-anime
-		router-link.footer-categories-top-anime__title( to="/" )
+		router-link.footer-categories-top-anime__title( to="/top-anime" )
 			| Top Anime
 			.footer-categories-top-anime__icon.material-icons keyboard_arrow_right
 
-		.footer-categories-top-anime__content( v-for="(result, index) in getAnimeFavorite"
+		.footer-categories-top-anime__content( v-for="(result, index) in getAnimeFavorite.slice(0, 9)"
 															:key="index" )
 
 			p.footer-categories-top-anime__digit
