@@ -6,6 +6,9 @@
 				| AIRING ANIME
 				.top-airing-block__icon.material-icons keyboard_arrow_right
 			swiper-carousel
+				cards.swiper-slide( v-for="(result, index) in getAnimeAiring"
+										  :key="index"
+										  :query="result" )
 
 </template>
 
@@ -13,14 +16,19 @@
 
 	import { mapActions, mapGetters } from "vuex";
 	import SwiperCarousel from "@/components/modules/SwiperCarousel.vue";
+	import Cards from "@/components/modules/Cards.vue";
 
 	export default {
 		name: "TopAiring",
 		components: {
-			SwiperCarousel
+			SwiperCarousel,
+			Cards
 		},
 		methods: {
 			...mapActions(["loadAnimeAiring"])
+		},
+		computed: {
+			...mapGetters(["getAnimeAiring"])
 		},
 		created() {
 			this.loadAnimeAiring();
