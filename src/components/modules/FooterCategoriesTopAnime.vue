@@ -3,8 +3,8 @@
 	.footer-categories-top-anime
 		router-link.footer-categories-top-anime__title( to="/" )
 			| Top Anime
-
 			.footer-categories-top-anime__icon.material-icons keyboard_arrow_right
+
 		.footer-categories-top-anime__content( v-for="(result, index) in getAnimeFavorite"
 															:key="index" )
 
