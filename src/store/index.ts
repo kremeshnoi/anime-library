@@ -70,7 +70,7 @@ export default new Vuex.Store({
 		async loadAnimeAiring(ctx) {
 			try {
 				const animeAiringResponse: AnimeAiringResponse = await jikanjs.loadTop("anime", 1, "airing");
-				const animeAiring = animeAiringResponse.top.slice(0, 7);
+				const animeAiring = animeAiringResponse.top
 				ctx.commit("SET_ANIME_AIRING", animeAiring);
 			} catch (error) {
 				throw new Error(error);

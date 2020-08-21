@@ -46,6 +46,30 @@ const routes = [
 		name: "Recovery",
 		meta: {layout: "authentication"},
 		component: () => import("../components/views/Recovery.vue")
+	},
+	{
+		path: "/top-airing",
+		name: "TopAiring",
+		meta: {layout: "authorized"},
+		component: () => import("../components/views/TopAiring.vue")
+	},
+	{
+		path: "/top-anime",
+		name: "TopAnime",
+		meta: {layout: "authorized"},
+		component: () => import("../components/views/TopAnime.vue")
+	},
+	{
+		path: "/top-manga",
+		name: "TopManga",
+		meta: {layout: "authorized"},
+		component: () => import("../components/views/TopManga.vue")
+	},
+	{
+		path: "/top-characters",
+		name: "TopCharacters",
+		meta: {layout: "authorized"},
+		component: () => import("../components/views/TopCharacters.vue")
 	}
 ];
 
