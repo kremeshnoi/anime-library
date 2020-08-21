@@ -3,7 +3,7 @@
 	.top-anime
 		.top-anime__container
 			.top-anime__title
-				| Top Airing Anime . . .
+				| Viewers' favorite anime . . .
 
 			query-content
 				cards( v-for="(result, index) in getAnimeFavorite"
