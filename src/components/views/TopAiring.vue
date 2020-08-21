@@ -39,7 +39,10 @@
 
 <style lang="sass" scoped>
 
+	@import "../../assets/styles/utils/vars.sass"
+	@import "../../assets/styles/utils/mixins.sass"
 	@import "../../assets/styles/modules/containers.sass"
+
 
 	.top-airing
 		&__container
@@ -52,5 +55,7 @@
 			font-weight: 700
 			text-transform: uppercase
 			margin-bottom: 40px
+			+mq(phablet, max)
+				font-size: 20px
 
 </style>
