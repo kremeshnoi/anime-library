@@ -1,10 +1,10 @@
 <template lang="pug">
 
-	.top-airing
-		.top-airing__container
-			router-link.top-airing__title( to="/airing-anime" )
+	.top-airing-block
+		.top-airing-block__container
+			router-link.top-airing-block__title( to="/airing-anime" )
 				| AIRING ANIME
-				.top-airing__icon.material-icons keyboard_arrow_right
+				.top-airing-block__icon.material-icons keyboard_arrow_right
 			swiper-carousel
 
 </template>
@@ -34,7 +34,7 @@
 	@import "../../assets/styles/utils/vars.sass"
 	@import "../../assets/styles/utils/mixins.sass"
 
-	.top-airing
+	.top-airing-block
 		width: 100%
 
 		&__container
