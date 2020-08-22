@@ -4,10 +4,10 @@
 		.anime__container
 			.anime__main-content
 				h1.anime__title
-					| {{ getAnime["title"] }}
+					| {{ getAnimeById["title"] }}
 					.divider_hidden
-					| {{ getAnime["title_japanese"] }}
-				img.anime__cover( :src="getAnime['image_url']" )
+					| {{ getAnimeById["title_japanese"] }}
+				img.anime__cover( :src="getAnimeById['image_url']" )
 
 				.anime__info.anime-info
 					h2.anime-info__title
@@ -18,24 +18,24 @@
 								| Type:
 							| &nbsp;
 							.anime-info__list-value
-								| {{ getAnime["type"] }}
+								| {{ getAnimeById["type"] }}
 						li.anime-info__list-item
 							.anime-info__list-key
 								| Score:
 							| &nbsp;
 							span.anime-info__list-value.anime-info__list-value_decor
-								| {{ getAnime["score"] }}
+								| {{ getAnimeById["score"] }}
 						li.anime-info__list-item
 							.anime-info__list-key
 								| Status:
 							| &nbsp;
 							.anime-info__list-value
-								| {{ getAnime["status"] }}
+								| {{ getAnimeById["status"] }}
 						li.anime-info__list-item
 							.anime-info__list-key
 								| Genres:
 							| &nbsp;
-							.anime-info__list-values( v-for="(result, index_genres) in getAnime['genres']"
+							.anime-info__list-values( v-for="(result, index_genres) in getAnimeById['genres']"
 															  :key="index_genres" )
 								| {{ result["name"] }}
 						li.anime-info__list-item
@@ -43,12 +43,12 @@
 								| Duration:
 							| &nbsp;
 							.anime-info__list-value
-								| {{ getAnime["duration"] }}
+								| {{ getAnimeById["duration"] }}
 						li.anime-info__list-item
 							.anime-info__list-key
 								| Studios:
 							| &nbsp;
-							.anime-info__list-values( v-for="(result, index_studios) in getAnime['studios']"
+							.anime-info__list-values( v-for="(result, index_studios) in getAnimeById['studios']"
 															  :key="index_studios" )
 								| {{ result["name"] }}
 						li.anime-info__list-item
@@ -56,7 +56,7 @@
 								| Rating:
 							| &nbsp;
 							.anime-info__list-value
-								| {{ getAnime["rating"] }}
+								| {{ getAnimeById["rating"] }}
 
 			.anime__sub-content
 
@@ -70,17 +70,17 @@
 		name: "Anime",
 		metaInfo() {
 			return {
-				title: `Anime / ${ this.getAnime["title"] }`
+				title: `Anime / ${ this.getAnimeById["title"] }`
 			}
 		},
 		methods: {
-			...mapActions(["loadAnime"])
+			...mapActions(["loadAnimeById"])
 		},
 		computed: {
-			...mapGetters(["getAnime"])
+			...mapGetters(["getAnimeById"])
 		},
 		async created() {
-			await this.loadAnime();
+			await this.loadAnimeById();
 		}
 	};
 

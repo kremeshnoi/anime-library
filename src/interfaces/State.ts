@@ -1,5 +1,5 @@
 import { UserInfoResponse } from "@/interfaces/UserInfoResponse";
-import { AnimeResponse } from "@/interfaces/AnimeResponse.ts";
+import { AnimeByIdResponse } from "@/interfaces/AnimeByIdResponse.ts";
 import { AnimeAiringResponseTop } from "@/interfaces/AnimeAiringResponse.ts";
 import { AnimeSearchedResponseResults } from "@/interfaces/AnimeSearchedResponse.ts";
 import { AnimeFavoriteResponseTop } from "@/interfaces/AnimeFavoriteResponse.ts";
@@ -8,7 +8,7 @@ import { CharactersFavoriteResponseTop } from "@/interfaces/CharactersFavoriteRe
 
 export interface State {
 	userInfo: [];
-	anime: AnimeResponse[];
+	animeById: AnimeByIdResponse[];
 	animeAiring: AnimeAiringResponseTop[];
 	animeSearched: AnimeSearchedResponseResults[];
 	animeFavorite: AnimeFavoriteResponseTop[];

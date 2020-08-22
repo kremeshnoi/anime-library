@@ -18,6 +18,12 @@ const routes = [
 		component: () => import("../components/views/Anime.vue")
 	},
 	{
+		path: "/manga/:id/:title",
+		name: "Manga",
+		meta: {layout: "authorized"},
+		component: () => import("../components/views/Manga.vue")
+	},
+	{
 		path: "/search",
 		name: "Search",
 		meta: {layout: "authorized"},

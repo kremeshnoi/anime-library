@@ -1,4 +1,4 @@
-interface AnimeResponse {
+interface AnimeByIdResponse {
 	aired: AnimeResponseAired[];
 	airing: boolean;
 	background: string;
@@ -108,4 +108,4 @@ interface AnimeResponseStudios {
 	url: string;
 }
 
-export { AnimeResponse };
+export { AnimeByIdResponse };
