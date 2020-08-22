@@ -9,7 +9,7 @@ import auth from "@/store/auth.ts";
 //Interfaces
 import { State } from "@/interfaces/State.ts";
 import { UserInfoResponse } from "@/interfaces/UserInfoResponse";
-import { AnimeResponse } from "@/interfaces/AnimeResponse.ts";
+import { AnimeByIdResponse } from "@/interfaces/AnimeByIdResponse.ts";
 import { AnimeAiringResponse } from "@/interfaces/AnimeAiringResponse.ts";
 import { AnimeSearchedResponse } from "@/interfaces/AnimeSearchedResponse.ts";
 import { AnimeFavoriteResponse } from "@/interfaces/AnimeFavoriteResponse.ts";
@@ -24,7 +24,7 @@ Vue.use(Vuex);
 
 export const state: State = {
 	userInfo: [],
-	anime: [],
+	animeById: [],
 	animeAiring: [],
 	animeSearched: [],
 	animeFavorite: [],
@@ -38,8 +38,8 @@ export default new Vuex.Store({
 		SET_USER_INFO(state, userInfo) {
 			state.userInfo = userInfo;
 		},
-		SET_ANIME(state, anime) {
-			state.anime = anime;
+		SET_ANIME_BY_ID(state, animeById) {
+			state.animeById = animeById;
 		},
 		SET_ANIME_AIRING(state, animeAiring) {
 			state.animeAiring = animeAiring;
@@ -58,9 +58,18 @@ export default new Vuex.Store({
 		}
 	},
 	actions: {
-		async loadAnime(ctx) {
+		async loadAnimeById(ctx) {
 			try {
-				const animeResponse: AnimeResponse = await jikanjs.loadAnime(router.app.$route.params.id);
+				const animeResponse: AnimeByIdResponse = await jikanjs.loadAnime(router.app.$route.params.id);
+				const animeById = animeResponse;
+				ctx.commit("SET_ANIME_BY_ID", animeById);
+			} catch (error) {
+				throw new Error(error);
+			}
+		},
+		async loadMangaById(ctx) {
+			try {
+				const animeResponse: AnimeByIdResponse = await jikanjs.loadAnime(router.app.$route.params.id);
 				const anime = animeResponse;
 				ctx.commit("SET_ANIME", anime);
 			} catch (error) {
@@ -134,7 +143,7 @@ export default new Vuex.Store({
 	modules: { auth },
 	getters: {
 		getUserInfo: state => state.userInfo,
-		getAnime: state => state.anime,
+		getAnimeById: state => state.animeById,
 		getAnimeAiring: state => state.animeAiring,
 		getAnimeSearched: state => state.animeSearched,
 		getAnimeFavorite: state => state.animeFavorite,
