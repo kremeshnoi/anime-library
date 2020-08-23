@@ -70,7 +70,7 @@
 		name: "Manga",
 		metaInfo() {
 			return {
-				title: `Anime / ${ this.getMangaById["title"] }`
+				title: `Manga / ${ this.getMangaById["title"] }`
 			}
 		},
 		methods: {
