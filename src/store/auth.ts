@@ -1,6 +1,6 @@
 import firebase from "firebase/app";
-import { UserInfoResponse } from "@/interfaces/UserInfoResponse";
 import { email } from "vuelidate/lib/validators";
+import { UserInfoResponse } from "@/interfaces/UserInfoResponse";
 
 export default {
 	actions: {

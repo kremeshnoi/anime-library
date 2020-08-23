@@ -12,16 +12,16 @@
 <script>
 
 	import { mapActions, mapGetters } from "vuex";
-	import SearchBar from "@/components/modules/SearchBar.vue";
-	import QueryContent from "@/components/modules/QueryContent.vue";
-	import Cards from "@/components/modules/Cards.vue";
+	import Cards from "@/components/modules/Cards";
+	import SearchBar from "@/components/modules/SearchBar";
+	import QueryContent from "@/components/modules/QueryContent";
 
 	export default {
 		name: "Search",
 		components: {
+			Cards,
 			SearchBar,
-			QueryContent,
-			Cards
+			QueryContent
 		},
 		metaInfo: {
 			title: "Otaku Library / Search"
@@ -35,7 +35,7 @@
 
 <style lang="sass" scoped>
 
-	@import "../../assets/styles/modules/containers.sass"
+	@import "../../assets/styles/modules/containers"
 
 	.search
 		width: 100%

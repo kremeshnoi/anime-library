@@ -37,8 +37,8 @@
 
 <script>
 
-	import { email, required } from "vuelidate/lib/validators";
 	import VueRecaptcha from "vue-recaptcha";
+	import { email, required } from "vuelidate/lib/validators";
 
 	export default {
 		name: "Recovery",

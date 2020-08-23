@@ -9,16 +9,16 @@
 
 <script>
 
-	import FooterCategories from "@/components/blocks/FooterCategories.vue";
-	import FooterMainInfo from "@/components/blocks/FooterMainInfo.vue";
-	import FooterNote from "@/components/blocks/FooterNote.vue";
+	import FooterNote from "@/components/blocks/FooterNote";
+	import FooterMainInfo from "@/components/blocks/FooterMainInfo";
+	import FooterCategories from "@/components/blocks/FooterCategories";
 
 	export default {
 		name: "MainFooter",
 		components: {
-			FooterCategories,
+			FooterNote,
 			FooterMainInfo,
-			FooterNote
+			FooterCategories
 		}
 	};
 
@@ -26,9 +26,9 @@
 
 <style lang="sass" scoped>
 
-	@import "../../assets/styles/utils/vars.sass"
-	@import "../../assets/styles/utils/mixins.sass"
-	@import "../../assets/styles/modules/buttons.sass"
+	@import "../../assets/styles/utils/vars"
+	@import "../../assets/styles/utils/mixins"
+	@import "../../assets/styles/modules/buttons"
 
 	.main-footer
 		width: 100%
