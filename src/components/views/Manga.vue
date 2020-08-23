@@ -38,13 +38,13 @@
 							.manga-info__list-values( v-for="(result, index_genres) in getMangaById['genres']"
 															  :key="index_genres" )
 								| {{ result["name"] }}
-						li.manga-info__list-item( v-if="getMangaById['volumes']" )
+						li.manga-info__list-item
 							.manga-info__list-key
 								| Volumes:
 							| &nbsp;
 							.manga-info__list-value
 								| {{ getMangaById["volumes"] }}
-						li.manga-info__list-item( v-if="getMangaById['chapters']" )
+						li.manga-info__list-item
 							.manga-info__list-key
 								| Chapters:
 							| &nbsp;
