@@ -1,10 +1,10 @@
 import { UserInfoResponse } from "@/interfaces/UserInfoResponse";
-import { AnimeByIdResponse } from "@/interfaces/AnimeByIdResponse.ts";
-import { AnimeAiringResponseTop } from "@/interfaces/AnimeAiringResponse.ts";
-import { AnimeSearchedResponseResults } from "@/interfaces/AnimeSearchedResponse.ts";
-import { AnimeFavoriteResponseTop } from "@/interfaces/AnimeFavoriteResponse.ts";
-import { MangaFavoriteResponseTop } from "@/interfaces/MangaFavoriteResponse.ts";
-import { CharactersFavoriteResponseTop } from "@/interfaces/CharactersFavoriteResponse.ts";
+import { AnimeByIdResponse } from "@/interfaces/AnimeByIdResponse";
+import { AnimeAiringResponseTop } from "@/interfaces/AnimeAiringResponse";
+import { AnimeSearchedResponseResults } from "@/interfaces/AnimeSearchedResponse";
+import { AnimeFavoriteResponseTop } from "@/interfaces/AnimeFavoriteResponse";
+import { MangaFavoriteResponseTop } from "@/interfaces/MangaFavoriteResponse";
+import { CharactersFavoriteResponseTop } from "@/interfaces/CharactersFavoriteResponse";
 
 export interface State {
 	userInfo: [];
@@ -13,5 +13,6 @@ export interface State {
 	animeSearched: AnimeSearchedResponseResults[];
 	animeFavorite: AnimeFavoriteResponseTop[];
 	charactersFavorite: CharactersFavoriteResponseTop[];
+	mangaById: AnimeByIdResponse[];
 	mangaFavorite: MangaFavoriteResponseTop[];
 }

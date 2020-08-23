@@ -9,8 +9,8 @@
 
 <script>
 
-	import NavBar from "@/components/navigation/NavBar.vue";
-	import MainFooter from "@/components/navigation/MainFooter.vue";
+	import NavBar from "@/components/navigation/NavBar";
+	import MainFooter from "@/components/navigation/MainFooter";
 
 	export default {
 		name: "Unauthorized",

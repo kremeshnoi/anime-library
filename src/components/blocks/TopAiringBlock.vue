@@ -15,14 +15,14 @@
 <script>
 
 	import { mapActions, mapGetters } from "vuex";
-	import SwiperCarousel from "@/components/modules/SwiperCarousel.vue";
-	import Cards from "@/components/modules/Cards.vue";
+	import Cards from "@/components/modules/Cards";
+	import SwiperCarousel from "@/components/modules/SwiperCarousel";
 
 	export default {
 		name: "TopAiring",
 		components: {
-			SwiperCarousel,
-			Cards
+			Cards,
+			SwiperCarousel
 		},
 		methods: {
 			...mapActions(["loadAnimeAiring"])
@@ -39,8 +39,8 @@
 
 <style lang="sass" scoped>
 
-	@import "../../assets/styles/utils/vars.sass"
-	@import "../../assets/styles/utils/mixins.sass"
+	@import "../../assets/styles/utils/vars"
+	@import "../../assets/styles/utils/mixins"
 
 	.top-airing-block
 		width: 100%

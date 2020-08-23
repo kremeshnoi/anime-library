@@ -76,8 +76,8 @@
 
 <script>
 
-	import { email, required, minLength } from "vuelidate/lib/validators";
 	import VueRecaptcha from "vue-recaptcha";
+	import { email, required, minLength } from "vuelidate/lib/validators";
 
 	export default {
 		name: "SignUp",

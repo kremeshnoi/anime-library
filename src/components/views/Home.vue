@@ -1,18 +1,18 @@
 <template lang="pug">
 
 	.home
-		top-airing
+		top-airing-block
 
 </template>
 
 <script>
 
-	import TopAiring from "@/components/blocks/TopAiringBlock.vue";
+	import TopAiringBlock from "@/components/blocks/TopAiringBlock";
 
 	export default {
 		name: "Home",
 		components: {
-			TopAiring
+			TopAiringBlock
 		},
 		metaInfo: {
 			title: "Otaku Library - Organize your own anime / manga list"

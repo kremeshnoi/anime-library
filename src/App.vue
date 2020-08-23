@@ -6,26 +6,24 @@
 
 </template>
 
-<script lang="ts">
+<script>
 
-	import { Component, Vue } from "vue-property-decorator";
-	import Unauthorized from "@/components/layouts/Unauthorized.vue";
-	import Authentication from "@/components/layouts/Authentication.vue";
-	import Authorized from "@/components/layouts/Authorized.vue";
+	import Authorized from "@/components/layouts/Authorized";
+	import Unauthorized from "@/components/layouts/Unauthorized";
+	import Authentication from "@/components/layouts/Authentication";
 
-	@Component({
+	export default {
 		components: {
+			Authorized,
 			Unauthorized,
-			Authentication,
-			Authorized
+			Authentication
 		},
 		computed: {
 			layout() {
 				return this.$route.meta.layout;
 			}
 		}
-	})
-	export default class App extends Vue {}
+	}
 
 </script>
 

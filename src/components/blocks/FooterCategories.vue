@@ -10,9 +10,9 @@
 
 <script>
 
-	import FooterCategoriesTopAnime from "@/components/modules/FooterCategoriesTopAnime.vue";
-	import FooterCategoriesTopManga from "@/components/modules/FooterCategoriesTopManga.vue";
-	import FooterCategoriesTopCharacters from "@/components/modules/FooterCategoriesTopCharacters.vue";
+	import FooterCategoriesTopAnime from "@/components/modules/FooterCategoriesTopAnime";
+	import FooterCategoriesTopManga from "@/components/modules/FooterCategoriesTopManga";
+	import FooterCategoriesTopCharacters from "@/components/modules/FooterCategoriesTopCharacters";
 
 	export default {
 		name: "FooterCategories",
@@ -27,8 +27,8 @@
 
 <style lang="sass" scoped>
 
-	@import "../../assets/styles/utils/vars.sass"
-	@import "../../assets/styles/utils/mixins.sass"
+	@import "../../assets/styles/utils/vars"
+	@import "../../assets/styles/utils/mixins"
 
 	.footer-categories
 		background-color: $color-white-dark

@@ -14,9 +14,9 @@
 
 <script>
 
-	import QueryContent from "@/components/modules/QueryContent.vue";
-	import Cards from "@/components/modules/Cards.vue";
 	import { mapActions, mapGetters } from "vuex";
+	import Cards from "@/components/modules/Cards";
+	import QueryContent from "@/components/modules/QueryContent";
 
 	export default {
 		name: "TopManga",
@@ -39,9 +39,9 @@
 
 <style lang="sass" scoped>
 
-	@import "../../assets/styles/utils/vars.sass"
-	@import "../../assets/styles/utils/mixins.sass"
-	@import "../../assets/styles/modules/containers.sass"
+	@import "../../assets/styles/utils/vars"
+	@import "../../assets/styles/utils/mixins"
+	@import "../../assets/styles/modules/containers"
 
 
 	.top-manga

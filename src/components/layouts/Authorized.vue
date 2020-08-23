@@ -12,9 +12,9 @@
 
 <script>
 
-	import MainNav from "@/components/navigation/NavBar.vue";
-	import SideNav from "@/components/navigation/SideNav.vue";
-	import MainFooter from "@/components/navigation/MainFooter.vue";
+	import MainNav from "@/components/navigation/NavBar";
+	import SideNav from "@/components/navigation/SideNav";
+	import MainFooter from "@/components/navigation/MainFooter";
 
 	export default {
 		name: "Authorized",
