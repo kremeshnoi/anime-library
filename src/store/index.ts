@@ -14,6 +14,7 @@ import { AnimeAiringResponse } from "@/interfaces/AnimeAiringResponse";
 import { AnimeSearchedResponse } from "@/interfaces/AnimeSearchedResponse";
 import { AnimeFavoriteResponse } from "@/interfaces/AnimeFavoriteResponse";
 import { CharactersFavoriteResponse } from "@/interfaces/CharactersFavoriteResponse";
+import { MangaByIdResponse } from "@/interfaces/MangaByIdResponse";
 import { MangaFavoriteResponse } from "@/interfaces/MangaFavoriteResponse";
 
 //API wrappers
@@ -72,7 +73,7 @@ export default new Vuex.Store({
 		},
 		async loadMangaById(ctx) {
 			try {
-				const mangaResponse: AnimeByIdResponse = await jikanjs.loadManga(router.app.$route.params.id);
+				const mangaResponse: MangaByIdResponse = await jikanjs.loadManga(router.app.$route.params.id);
 				const mangaById = mangaResponse;
 				ctx.commit("SET_MANGA_BY_ID", mangaById);
 			} catch (error) {
