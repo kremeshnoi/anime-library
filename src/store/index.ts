@@ -23,42 +23,46 @@ import jikanjs from "../../node_modules/jikanjs/lib/jikan.js";
 Vue.use(Vuex);
 
 export const state: State = {
-	userInfo: [],
-	animeById: [],
 	animeAiring: [],
-	animeSearched: [],
+	animeById: [],
 	animeFavorite: [],
+	animeSearched: [],
+	characterById: [],
 	charactersFavorite: [],
 	mangaById: [],
-	mangaFavorite: []
+	mangaFavorite: [],
+	userInfo: []
 };
 
 export default new Vuex.Store({
 	state,
 	mutations: {
-		SET_USER_INFO(state, userInfo) {
-			state.userInfo = userInfo;
+		SET_ANIME_AIRING(state, animeAiring) {
+			state.animeAiring = animeAiring;
 		},
 		SET_ANIME_BY_ID(state, animeById) {
 			state.animeById = animeById;
 		},
-		SET_MANGA_BY_ID(state, mangaById) {
-			state.mangaById = mangaById;
-		},
-		SET_ANIME_AIRING(state, animeAiring) {
-			state.animeAiring = animeAiring;
+		SET_ANIME_FAVORITE(state, animeFavorite) {
+			state.animeFavorite = animeFavorite;
 		},
 		SET_ANIME_SEARCHED(state, animeSearched) {
 			state.animeSearched = animeSearched;
 		},
-		SET_ANIME_FAVORITE(state, animeFavorite) {
-			state.animeFavorite = animeFavorite;
+		SET_CHARACTER_BY_ID(state, characterById) {
+			state.characterById = characterById;
+		},
+		SET_CHARACTERS_FAVORITE(state, charactersFavorite) {
+			state.charactersFavorite = charactersFavorite;
+		},
+		SET_MANGA_BY_ID(state, mangaById) {
+			state.mangaById = mangaById;
 		},
 		SET_MANGA_FAVORITE(state, mangaFavorite) {
 			state.mangaFavorite = mangaFavorite;
 		},
-		SET_CHARACTERS_FAVORITE(state, charactersFavorite) {
-			state.charactersFavorite = charactersFavorite;
+		SET_USER_INFO(state, userInfo) {
+			state.userInfo = userInfo;
 		}
 	},
 	actions: {
@@ -67,6 +71,15 @@ export default new Vuex.Store({
 				const animeResponse: AnimeByIdResponse = await jikanjs.loadAnime(router.app.$route.params.id);
 				const animeById = animeResponse;
 				ctx.commit("SET_ANIME_BY_ID", animeById);
+			} catch (error) {
+				throw new Error(error);
+			}
+		},
+		async loadCharacterById(ctx) {
+			try {
+				const characterResponse: MangaByIdResponse = await jikanjs.loadCharacter(router.app.$route.params.id);
+				const characterById = characterResponse;
+				ctx.commit("SET_CHARACTER_BY_ID", characterById);
 			} catch (error) {
 				throw new Error(error);
 			}
@@ -132,7 +145,9 @@ export default new Vuex.Store({
 		async computeRoute(ctx, result) {
 			try {
 				let type = result.type;
-				if (type !== "Anime" && type !== "Manga" && type !== "Characters") {
+				if (type === undefined) {
+					type = "Character";
+				} else if (type !== "Manga") {
 					type = "Anime";
 				};
 				const id = result.mal_id;
@@ -155,6 +170,7 @@ export default new Vuex.Store({
 		getAnimeAiring: state => state.animeAiring,
 		getAnimeSearched: state => state.animeSearched,
 		getAnimeFavorite: state => state.animeFavorite,
+		getCharacterById: state => state.characterById,
 		getCharactersFavorite: state => state.charactersFavorite,
 		getMangaById: state => state.mangaById,
 		getMangaFavorite: state => state.mangaFavorite
