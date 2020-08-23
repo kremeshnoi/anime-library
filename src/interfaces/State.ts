@@ -8,12 +8,13 @@ import { MangaByIdResponse } from "@/interfaces/MangaByIdResponse";
 import { UserInfoResponse } from "@/interfaces/UserInfoResponse";
 
 export interface State {
-	userInfo: [];
-	animeById: AnimeByIdResponse[];
 	animeAiring: AnimeAiringResponseTop[];
-	animeSearched: AnimeSearchedResponseResults[];
+	animeById: AnimeByIdResponse[];
 	animeFavorite: AnimeFavoriteResponseTop[];
+	animeSearched: AnimeSearchedResponseResults[];
+	characterById: CharactersFavoriteResponseTop[];
 	charactersFavorite: CharactersFavoriteResponseTop[];
 	mangaById: MangaByIdResponse[];
 	mangaFavorite: MangaFavoriteResponseTop[];
+	userInfo: UserInfoResponse[];
 }
