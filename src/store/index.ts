@@ -131,6 +131,10 @@ export default new Vuex.Store({
 		},
 		async computeRoute(ctx, result) {
 			try {
+				let type = result.type;
+				if (type !== "Anime" && type !== "Manga" && type !== "Characters") {
+					type = "Anime";
+				};
 				const id = result.mal_id;
 				const title = result.url
 					.split("/")
@@ -138,7 +142,7 @@ export default new Vuex.Store({
 					.toLowerCase()
 					.split("_")
 					.join("-");
-				router.push({ name: "Manga", params: { id, title } });
+				router.push({ name: `${ type }`, params: { id, title } });
 			} catch (error) {
 				throw new Error(error);
 			}
