@@ -24,11 +24,6 @@ interface CharactersFavoriteResponseTopAnimeography {
 	url: string;
 }
 
-interface CharactersFavoriteResponseTopMangaography {
-	mal_id: number;
-	name: string;
-	type: string;
-	url: string;
-}
+interface CharactersFavoriteResponseTopMangaography extends CharactersFavoriteResponseTopAnimeography {}
 
 export { CharactersFavoriteResponse, CharactersFavoriteResponseTop };

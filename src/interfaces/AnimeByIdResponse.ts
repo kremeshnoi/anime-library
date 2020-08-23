@@ -55,11 +55,7 @@ interface AnimeByIdResponseAiredPropFrom {
 	year: number;
 }
 
-interface AnimeByIdResponseAiredPropTo {
-	day: number;
-	month: number;
-	year: number;
-}
+interface AnimeByIdResponseAiredPropTo extends  AnimeByIdResponseAiredPropFrom {}
 
 interface AnimeByIdResponseGenres {
 	mal_id: number;
@@ -68,44 +64,19 @@ interface AnimeByIdResponseGenres {
 	url: string;
 }
 
-interface AnimeByIdResponseLicensors {
-	mal_id: number;
-	name: string;
-	type: string;
-	url: string;
-}
+interface AnimeByIdResponseLicensors extends AnimeByIdResponseGenres {}
 
-interface AnimeByIdResponseProducers {
-	mal_id: number;
-	name: string;
-	type: string;
-	url: string;
-}
+interface AnimeByIdResponseProducers extends AnimeByIdResponseGenres {}
 
 interface AnimeByIdResponseRelated {
 	Adaptation: AnimeByIdResponseRelatedAdaptation[];
 	Prequel: AnimeByIdResponseRelatedPrequel;
 }
 
-interface AnimeByIdResponseRelatedAdaptation {
-	mal_id: number;
-	name: string;
-	type: string;
-	url: string;
-}
+interface AnimeByIdResponseRelatedAdaptation extends AnimeByIdResponseGenres {}
 
-interface AnimeByIdResponseRelatedPrequel {
-	mal_id: number;
-	name: string;
-	type: string;
-	url: string;
-}
+interface AnimeByIdResponseRelatedPrequel extends AnimeByIdResponseGenres {}
 
-interface AnimeByIdResponseStudios {
-	mal_id: number;
-	name: string;
-	type: string;
-	url: string;
-}
+interface AnimeByIdResponseStudios extends AnimeByIdResponseGenres {}
 
 export { AnimeByIdResponse };
