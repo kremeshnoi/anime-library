@@ -18,6 +18,12 @@ const routes = [
 		component: () => import("../components/views/Anime.vue")
 	},
 	{
+		path: "/character/:id/:title",
+		name: "Character",
+		meta: { layout: "authorized" },
+		component: () => import("../components/views/Character.vue")
+	},
+	{
 		path: "/manga/:id/:title",
 		name: "Manga",
 		meta: { layout: "authorized" },
@@ -66,16 +72,16 @@ const routes = [
 		component: () => import("../components/views/TopAnime.vue")
 	},
 	{
-		path: "/top-manga",
-		name: "TopManga",
-		meta: { layout: "authorized" },
-		component: () => import("../components/views/TopManga.vue")
-	},
-	{
 		path: "/top-characters",
 		name: "TopCharacters",
 		meta: { layout: "authorized" },
 		component: () => import("../components/views/TopCharacters.vue")
+	},
+	{
+		path: "/top-manga",
+		name: "TopManga",
+		meta: { layout: "authorized" },
+		component: () => import("../components/views/TopManga.vue")
 	}
 ];
 
