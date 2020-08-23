@@ -1,5 +1,5 @@
 interface AnimeByIdResponse {
-	aired: AnimeResponseAired[];
+	aired: AnimeByIdResponseAired[];
 	airing: boolean;
 	background: string;
 	broadcast: string;
@@ -7,18 +7,18 @@ interface AnimeByIdResponse {
 	ending_themes: string[];
 	episodes: number;
 	favorites: number;
-	genres: AnimeResponseGenres[];
+	genres: AnimeByIdResponseGenres[];
 	image_url: string;
-	licensors: AnimeResponseLicensors[];
+	licensors: AnimeByIdResponseLicensors[];
 	mal_id: number;
 	members: number;
 	opening_themes: string[];
 	popularity: number;
 	premiered: string;
-	producers: AnimeResponseProducers[];
+	producers: AnimeByIdResponseProducers[];
 	rank: number;
 	rating: string;
-	related: AnimeResponseRelated[];
+	related: AnimeByIdResponseRelated[];
 	request_cache_expiry: number;
 	request_cached: boolean;
 	request_hash: string;
@@ -26,7 +26,7 @@ interface AnimeByIdResponse {
 	scored_by: number;
 	source: string;
 	status: string;
-	studios: AnimeResponseStudios[];
+	studios: AnimeByIdResponseStudios[];
 	synopsis: string;
 	title: string;
 	title_english: string;
@@ -37,71 +37,71 @@ interface AnimeByIdResponse {
 	url: string;
 }
 
-interface AnimeResponseAired {
+interface AnimeByIdResponseAired {
 	from: string;
-	prop: AnimeResponseAiredProp[]
+	prop: AnimeByIdResponseAiredProp[]
 	string: string;
 	to: string;
 }
 
-interface AnimeResponseAiredProp {
-	from: AnimeResponseAiredPropFrom[];
-	to: AnimeResponseAiredPropTo[];
+interface AnimeByIdResponseAiredProp {
+	from: AnimeByIdResponseAiredPropFrom[];
+	to: AnimeByIdResponseAiredPropTo[];
 }
 
-interface AnimeResponseAiredPropFrom {
+interface AnimeByIdResponseAiredPropFrom {
 	day: number;
 	month: number;
 	year: number;
 }
 
-interface AnimeResponseAiredPropTo {
+interface AnimeByIdResponseAiredPropTo {
 	day: number;
 	month: number;
 	year: number;
 }
 
-interface AnimeResponseGenres {
+interface AnimeByIdResponseGenres {
 	mal_id: number;
 	name: string;
 	type: string;
 	url: string;
 }
 
-interface AnimeResponseLicensors {
+interface AnimeByIdResponseLicensors {
 	mal_id: number;
 	name: string;
 	type: string;
 	url: string;
 }
 
-interface AnimeResponseProducers {
+interface AnimeByIdResponseProducers {
 	mal_id: number;
 	name: string;
 	type: string;
 	url: string;
 }
 
-interface AnimeResponseRelated {
-	Adaptation: AnimeResponseRelatedAdaptation[];
-	Prequel: AnimeResponseRelatedPrequel;
+interface AnimeByIdResponseRelated {
+	Adaptation: AnimeByIdResponseRelatedAdaptation[];
+	Prequel: AnimeByIdResponseRelatedPrequel;
 }
 
-interface AnimeResponseRelatedAdaptation {
+interface AnimeByIdResponseRelatedAdaptation {
 	mal_id: number;
 	name: string;
 	type: string;
 	url: string;
 }
 
-interface AnimeResponseRelatedPrequel {
+interface AnimeByIdResponseRelatedPrequel {
 	mal_id: number;
 	name: string;
 	type: string;
 	url: string;
 }
 
-interface AnimeResponseStudios {
+interface AnimeByIdResponseStudios {
 	mal_id: number;
 	name: string;
 	type: string;
