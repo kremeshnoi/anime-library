@@ -55,6 +55,7 @@
 			font-weight: 700
 			text-transform: uppercase
 			margin-bottom: 40px
+			text-align: start
 			+mq(phablet-small, max)
 				font-size: 20px
 				max-width: 235px
