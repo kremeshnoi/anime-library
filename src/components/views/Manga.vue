@@ -8,6 +8,8 @@
 					.divider_hidden
 					| {{ getMangaById["title_japanese"] }}
 				img.manga__cover( :src="getMangaById['image_url']" )
+				select-collection.manga__input-field( v-if="getMangaById['type']"
+																  :query="getMangaById['type']" )
 
 				.manga__info.manga-info
 					h2.manga-info__title
@@ -65,9 +67,13 @@
 <script>
 
 	import { mapActions, mapGetters } from "vuex";
+	import SelectCollection from "@/components/modules/SelectCollection";
 
 	export default {
 		name: "Manga",
+		components: {
+			SelectCollection
+		},
 		metaInfo() {
 			return {
 				title: `Manga / ${ this.getMangaById["title"] }`
@@ -107,6 +113,9 @@
 			justify-content: start
 			grid-template-areas: "title title" "cover info"
 			grid-gap: 20px
+
+		&__input-field
+			margin: 0
 
 		&__sub-content
 
