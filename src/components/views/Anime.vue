@@ -8,6 +8,8 @@
 					.divider_hidden
 					| {{ getAnimeById["title_japanese"] }}
 				img.anime__cover( :src="getAnimeById['image_url']" )
+				select-collection.anime__input-field( v-if="getAnimeById['type']"
+																  :query="getAnimeById['type']" )
 
 				.anime__info.anime-info
 					h2.anime-info__title
@@ -65,9 +67,13 @@
 <script>
 
 	import { mapActions, mapGetters } from "vuex";
+	import SelectCollection from "@/components/modules/SelectCollection";
 
 	export default {
 		name: "Anime",
+		components: {
+			SelectCollection
+		},
 		metaInfo() {
 			return {
 				title: `Anime / ${ this.getAnimeById["title"] }`
@@ -107,6 +113,9 @@
 			justify-content: start
 			grid-template-areas: "title title" "cover info"
 			grid-gap: 20px
+
+		&__input-field
+			margin: 0
 
 		&__sub-content
 
