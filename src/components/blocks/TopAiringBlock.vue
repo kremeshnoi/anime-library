@@ -41,6 +41,7 @@
 
 	@import "../../assets/styles/utils/vars"
 	@import "../../assets/styles/utils/mixins"
+	@import "../../assets/styles/modules/titles"
 
 	.top-airing-block
 		width: 100%
@@ -51,13 +52,7 @@
 			max-width: 1300px
 
 		&__title
-			color: $color-black
-			width: 100%
-			font-size: 16px
-			font-weight: 700
-			text-align: start
-			text-transform: uppercase
-			padding: 14px 0 14px 14px
+			@extend .header-title
 			border-left: 5px solid $color-blue-light
 			+flex(space-between, center, row)
 
