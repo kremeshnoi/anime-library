@@ -10,7 +10,7 @@
 
 			p.footer-categories-top-anime__digit
 				| {{ index + 1 }}.
-			router-link.footer-categories-top-anime__link( to="/" )
+			a.footer-categories-top-anime__link( @click="computeRoute(result)" )
 				| {{ result["title"] }}
 
 </template>
@@ -22,7 +22,7 @@
 	export default {
 		name: "FooterCategoriesTopAnime",
 		methods: {
-			...mapActions(["loadAnimeFavorite"])
+			...mapActions(["loadAnimeFavorite", "computeRoute"])
 		},
 		computed: {
 			...mapGetters(["getAnimeFavorite"])

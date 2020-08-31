@@ -10,7 +10,7 @@
 
 			p.footer-categories-top-manga__digit
 				| {{ index + 1 }}.
-			router-link.footer-categories-top-manga__link( to="/" )
+			a.footer-categories-top-manga__link( @click="computeRoute(result)" )
 				| {{ result["title"] }}
 
 </template>
@@ -22,7 +22,7 @@
 	export default {
 		name: "FooterCategoriesTopManga",
 		methods: {
-			...mapActions(["loadMangaFavorite"]),
+			...mapActions(["loadMangaFavorite", "computeRoute"])
 		},
 		computed: {
 			...mapGetters(["getMangaFavorite"])
