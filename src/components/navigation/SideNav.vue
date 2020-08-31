@@ -119,6 +119,7 @@
 	.side-nav
 		transition: 0.25s
 		margin-top: 54px
+		height: 100%
 		transform: translate(-80%) !important
 		background-color: $color-black
 
@@ -218,7 +219,7 @@
 
 		&__footer
 			width: 100%
-			bottom: 130px
+			bottom: 74px
 			position: absolute
 
 	.prevent-events
