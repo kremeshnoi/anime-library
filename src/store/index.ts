@@ -147,9 +147,11 @@ export default new Vuex.Store({
 				let type = result.type;
 				if (type === undefined) {
 					type = "Character";
-				} else if (type !== "Manga") {
+				} else if (type !== "Manga" && type !== "manga") {
 					type = "Anime";
-				};
+				} else if (type === "manga") {
+					type = "Manga";
+				}
 				const id = result.mal_id;
 				const title = result.url
 					.split("/")
