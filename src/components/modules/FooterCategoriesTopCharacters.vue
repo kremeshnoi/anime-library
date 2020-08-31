@@ -10,7 +10,7 @@
 
 			p.footer-categories-top-characters__digit
 				| {{ index + 1 }}.
-			router-link.footer-categories-top-characters__link( to="/" )
+			a.footer-categories-top-characters__link( @click="computeRoute(result)" )
 				| {{ result["title"] }}
 
 </template>
@@ -22,7 +22,7 @@
 	export default {
 		name: "FooterCategoriesTopCharacters",
 		methods: {
-			...mapActions(["loadCharactersFavorite"]),
+			...mapActions(["loadCharactersFavorite", "computeRoute"])
 		},
 		computed: {
 			...mapGetters(["getCharactersFavorite"])
