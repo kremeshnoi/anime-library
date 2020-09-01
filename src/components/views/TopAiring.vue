@@ -6,9 +6,9 @@
 				| Top Airing Anime . . .
 
 			query-content
-				cards( v-for='(result, index) in getAnimeAiring'
-						 :key='index'
-						 :query='result' )
+				cards(v-for='(result, index) in getAnimeAiring'
+						:key='index'
+						:query='result')
 
 </template>
 

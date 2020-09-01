@@ -2,7 +2,7 @@
 
 	nav.nav-global
 		.nav-wrapper.nav-global-wrapper
-			router-link.nav-global-logo.nav-global-link( to='/' )
+			router-link.nav-global-logo.nav-global-link(to='/')
 				| Otaku Library
 
 </template>

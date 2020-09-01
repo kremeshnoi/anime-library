@@ -1,16 +1,16 @@
 <template lang='pug'>
 
 	.footer-categories-top-anime
-		router-link.footer-categories-top-anime__title( to='/top-anime' )
+		router-link.footer-categories-top-anime__title(to='/top-anime')
 			| Top Anime
 			.footer-categories-top-anime__icon.material-icons keyboard_arrow_right
 
-		.footer-categories-top-anime__content( v-for='(result, index) in getAnimeFavorite.slice(0, 9)'
-															:key='index' )
+		.footer-categories-top-anime__content(v-for='(result, index) in getAnimeFavorite.slice(0, 9)'
+															:key='index')
 
 			p.footer-categories-top-anime__digit
 				| {{ index + 1 }}.
-			a.footer-categories-top-anime__link( @click='computeRoute(result)' )
+			a.footer-categories-top-anime__link(@click='computeRoute(result)')
 				| {{ result.title }}
 
 </template>

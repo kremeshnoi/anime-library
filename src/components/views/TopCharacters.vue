@@ -6,9 +6,9 @@
 				| Top Characters . . .
 
 			query-content
-				cards( v-for='(result, index) in getCharactersFavorite'
-						 :key='index'
-						 :query='result' )
+				cards(v-for='(result, index) in getCharactersFavorite'
+						:key='index'
+						:query='result')
 
 </template>
 

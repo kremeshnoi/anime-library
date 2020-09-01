@@ -1,6 +1,6 @@
 <template lang='pug'>
 
-	.swiper-carousel( v-swiper:mySwiper='swiperOptions' )
+	.swiper-carousel(v-swiper:mySwiper='swiperOptions')
 		.swiper-carousel__container.swiper-wrapper
 			slot
 

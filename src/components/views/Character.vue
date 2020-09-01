@@ -7,7 +7,7 @@
 					| {{ getCharacterById.name }}
 					.divider_hidden
 					| {{ getCharacterById.name_kanji }}
-				img.character__cover( :src='getCharacterById.image_url' )
+				img.character__cover(:src='getCharacterById.image_url')
 
 				.character__info.character-info
 					h2.character-info__title

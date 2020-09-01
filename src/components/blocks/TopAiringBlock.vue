@@ -2,13 +2,13 @@
 
 	.top-airing-block
 		.top-airing-block__container
-			router-link.top-airing-block__title( to='/top-airing' )
+			router-link.top-airing-block__title(to='/top-airing')
 				| AIRING ANIME
 				.top-airing-block__icon.material-icons keyboard_arrow_right
 			swiper-carousel
-				cards.swiper-slide( v-for='(result, index) in getAnimeAiring.slice(0, 7)'
-										  :key='index'
-										  :query='result' )
+				cards.swiper-slide(v-for='(result, index) in getAnimeAiring.slice(0, 7)'
+											:key='index'
+											:query='result')
 
 </template>
 
