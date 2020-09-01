@@ -135,8 +135,6 @@
 			await this.loadAnimeById();
 			const tabs = document.querySelectorAll(".tabs");
 			const instanceTabs = M.Tabs.init(tabs);
-			const tooltips = document.querySelectorAll(".tooltipped");
-			const instanceTooltips = M.Tooltip.init(tooltips);
 			const indicatorTooltip = document.querySelector(".indicator").style.display = "none";
 		}
 	};
