@@ -1,4 +1,4 @@
-<template lang="pug">
+<template lang='pug'>
 
 	.footer-categories
 		.footer-categories__container
@@ -10,12 +10,12 @@
 
 <script>
 
-	import FooterCategoriesTopAnime from "@/components/modules/FooterCategoriesTopAnime";
-	import FooterCategoriesTopManga from "@/components/modules/FooterCategoriesTopManga";
-	import FooterCategoriesTopCharacters from "@/components/modules/FooterCategoriesTopCharacters";
+	import FooterCategoriesTopAnime from '@/components/modules/FooterCategoriesTopAnime';
+	import FooterCategoriesTopManga from '@/components/modules/FooterCategoriesTopManga';
+	import FooterCategoriesTopCharacters from '@/components/modules/FooterCategoriesTopCharacters';
 
 	export default {
-		name: "FooterCategories",
+		name: 'FooterCategories',
 		components: {
 			FooterCategoriesTopAnime,
 			FooterCategoriesTopManga,
@@ -25,10 +25,10 @@
 
 </script>
 
-<style lang="sass" scoped>
+<style lang='sass' scoped>
 
-	@import "../../assets/styles/utils/vars"
-	@import "../../assets/styles/utils/mixins"
+	@import '../../assets/styles/utils/vars'
+	@import '../../assets/styles/utils/mixins'
 
 	.footer-categories
 		background-color: $color-white-dark

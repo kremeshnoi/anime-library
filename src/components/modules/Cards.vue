@@ -1,34 +1,34 @@
-<template lang="pug">
+<template lang='pug'>
 
 	.cards
 		.cards__image-wrapper
-			img.cards__image( @click="computeRoute(query)"
-									:src="query['image_url']" )
+			img.cards__image( @click='computeRoute(query)'
+									:src='query.image_url' )
 
 		.cards__title-wrapper
 			span.cards__title
-				| {{ query["title"] }}
+				| {{ query.title }}
 
 </template>
 
 <script>
 
-	import { mapActions } from "vuex";
+	import { mapActions } from 'vuex';
 
 	export default {
-		name: "Cards",
-		props: ["query"],
+		name: 'Cards',
+		props: ['query'],
 		methods: {
-			...mapActions(["computeRoute"])
+			...mapActions(['computeRoute'])
 		}
 	}
 
 </script>
 
-<style lang="sass" scoped>
+<style lang='sass' scoped>
 
-	@import "../../assets/styles/utils/vars"
-	@import "../../assets/styles/utils/mixins"
+	@import '../../assets/styles/utils/vars'
+	@import '../../assets/styles/utils/mixins'
 
 	.cards
 		width: 100%

@@ -1,31 +1,31 @@
-<template lang="pug">
+<template lang='pug'>
 
 	.footer-categories-top-characters
-		router-link.footer-categories-top-characters__title( to="/top-characters" )
+		router-link.footer-categories-top-characters__title( to='/top-characters' )
 			| Popular Characters
 			.footer-categories-top-characters__icon.material-icons keyboard_arrow_right
 
-		.footer-categories-top-characters__content( v-for="(result, index) in getCharactersFavorite.slice(0, 9)"
-																  :key="index" )
+		.footer-categories-top-characters__content( v-for='(result, index) in getCharactersFavorite.slice(0, 9)'
+																  :key='index' )
 
 			p.footer-categories-top-characters__digit
 				| {{ index + 1 }}.
-			a.footer-categories-top-characters__link( @click="computeRoute(result)" )
-				| {{ result["title"] }}
+			a.footer-categories-top-characters__link( @click='computeRoute(result)' )
+				| {{ result.title }}
 
 </template>
 
 <script>
 
-	import { mapActions, mapGetters } from "vuex";
+	import { mapActions, mapGetters } from 'vuex';
 
 	export default {
-		name: "FooterCategoriesTopCharacters",
+		name: 'FooterCategoriesTopCharacters',
 		methods: {
-			...mapActions(["loadCharactersFavorite", "computeRoute"])
+			...mapActions(['loadCharactersFavorite', 'computeRoute'])
 		},
 		computed: {
-			...mapGetters(["getCharactersFavorite"])
+			...mapGetters(['getCharactersFavorite'])
 		},
 		async created() {
 			await this.loadCharactersFavorite();
@@ -34,10 +34,10 @@
 
 </script>
 
-<style lang="sass" scoped>
+<style lang='sass' scoped>
 
-	@import "../../assets/styles/utils/vars"
-	@import "../../assets/styles/utils/mixins"
+	@import '../../assets/styles/utils/vars'
+	@import '../../assets/styles/utils/mixins'
 
 	.footer-categories-top-characters
 		+flex(flex-start, flex-start, column)

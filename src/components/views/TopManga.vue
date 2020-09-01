@@ -1,4 +1,4 @@
-<template lang="pug">
+<template lang='pug'>
 
 	.top-manga
 		.top-manga__container
@@ -6,29 +6,29 @@
 				| Top Manga . . .
 
 			query-content
-				cards( v-for="(result, index) in getMangaFavorite"
-						 :key="index"
-						 :query="result" )
+				cards( v-for='(result, index) in getMangaFavorite'
+						 :key='index'
+						 :query='result' )
 
 </template>
 
 <script>
 
-	import { mapActions, mapGetters } from "vuex";
-	import Cards from "@/components/modules/Cards";
-	import QueryContent from "@/components/modules/QueryContent";
+	import { mapActions, mapGetters } from 'vuex';
+	import Cards from '@/components/modules/Cards';
+	import QueryContent from '@/components/modules/QueryContent';
 
 	export default {
-		name: "TopManga",
+		name: 'TopManga',
 		components: {
 			Cards,
 			QueryContent
 		},
 		methods: {
-			...mapActions(["loadMangaFavorite"])
+			...mapActions(['loadMangaFavorite'])
 		},
 		computed: {
-			...mapGetters(["getMangaFavorite"])
+			...mapGetters(['getMangaFavorite'])
 		},
 		created() {
 			this.loadMangaFavorite();
@@ -37,11 +37,11 @@
 
 </script>
 
-<style lang="sass" scoped>
+<style lang='sass' scoped>
 
-	@import "../../assets/styles/utils/vars"
-	@import "../../assets/styles/utils/mixins"
-	@import "../../assets/styles/modules/containers"
+	@import '../../assets/styles/utils/vars'
+	@import '../../assets/styles/utils/mixins'
+	@import '../../assets/styles/modules/containers'
 
 
 	.top-manga

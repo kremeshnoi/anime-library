@@ -1,4 +1,4 @@
-<template lang="pug">
+<template lang='pug'>
 
 	.content-wrapper
 		router-view
@@ -8,7 +8,7 @@
 <script>
 
 	export default {
-		name: "Authentication",
+		name: 'Authentication',
 		mounted() {
 			M.AutoInit();
 		}
@@ -16,10 +16,10 @@
 
 </script>
 
-<style lang="sass" scoped>
+<style lang='sass' scoped>
 
-	@import "../../assets/styles/utils/vars"
-	@import "../../assets/styles/utils/mixins"
+	@import '../../assets/styles/utils/vars'
+	@import '../../assets/styles/utils/mixins'
 
 	.content-wrapper
 		height: 100vh

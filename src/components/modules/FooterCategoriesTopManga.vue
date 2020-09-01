@@ -1,31 +1,31 @@
-<template lang="pug">
+<template lang='pug'>
 
 	.footer-categories-top-manga
-		router-link.footer-categories-top-manga__title( to="/top-manga" )
+		router-link.footer-categories-top-manga__title( to='/top-manga' )
 			| Top Manga
 			.footer-categories-top-manga__icon.material-icons keyboard_arrow_right
 
-		.footer-categories-top-manga__content( v-for="(result, index) in getMangaFavorite.slice(0, 9)"
-															:key="index" )
+		.footer-categories-top-manga__content( v-for='(result, index) in getMangaFavorite.slice(0, 9)'
+															:key='index' )
 
 			p.footer-categories-top-manga__digit
 				| {{ index + 1 }}.
-			a.footer-categories-top-manga__link( @click="computeRoute(result)" )
-				| {{ result["title"] }}
+			a.footer-categories-top-manga__link( @click='computeRoute(result)' )
+				| {{ result.title }}
 
 </template>
 
 <script>
 
-	import { mapActions, mapGetters } from "vuex";
+	import { mapActions, mapGetters } from 'vuex';
 
 	export default {
-		name: "FooterCategoriesTopManga",
+		name: 'FooterCategoriesTopManga',
 		methods: {
-			...mapActions(["loadMangaFavorite", "computeRoute"])
+			...mapActions(['loadMangaFavorite', 'computeRoute'])
 		},
 		computed: {
-			...mapGetters(["getMangaFavorite"])
+			...mapGetters(['getMangaFavorite'])
 		},
 		async created() {
 			await this.loadMangaFavorite();
@@ -34,10 +34,10 @@
 
 </script>
 
-<style lang="sass" scoped>
+<style lang='sass' scoped>
 
-	@import "../../assets/styles/utils/vars"
-	@import "../../assets/styles/utils/mixins"
+	@import '../../assets/styles/utils/vars'
+	@import '../../assets/styles/utils/mixins'
 
 	.footer-categories-top-manga
 		+flex(flex-start, flex-start, column)

@@ -1,4 +1,4 @@
-<template lang="pug">
+<template lang='pug'>
 
 	.home
 		top-airing-block
@@ -7,24 +7,24 @@
 
 <script>
 
-	import TopAiringBlock from "@/components/blocks/TopAiringBlock";
+	import TopAiringBlock from '@/components/blocks/TopAiringBlock';
 
 	export default {
-		name: "Home",
+		name: 'Home',
 		components: {
 			TopAiringBlock
 		},
 		metaInfo: {
-			title: "Otaku Library - Organize your own anime / manga list"
+			title: 'Otaku Library - Organize your own anime / manga list'
 		}
 	};
 
 </script>
 
-<style lang="sass" scoped>
+<style lang='sass' scoped>
 
-	@import "../../assets/styles/utils/vars"
-	@import "../../assets/styles/utils/mixins"
+	@import '../../assets/styles/utils/vars'
+	@import '../../assets/styles/utils/mixins'
 
 	.home
 		width: 100%

@@ -1,8 +1,8 @@
-<template lang="pug">
+<template lang='pug'>
 
 	nav.nav-global
 		.nav-wrapper.nav-global-wrapper
-			router-link.nav-global-logo.nav-global-link( to="/" )
+			router-link.nav-global-logo.nav-global-link( to='/' )
 				| Otaku Library
 
 </template>
@@ -10,15 +10,15 @@
 <script>
 
 	export default {
-		name: "NavBar"
+		name: 'NavBar'
 	};
 
 </script>
 
-<style lang="sass" scoped>
+<style lang='sass' scoped>
 
-	@import "../../assets/styles/utils/vars"
-	@import "../../assets/styles/utils/mixins"
+	@import '../../assets/styles/utils/vars'
+	@import '../../assets/styles/utils/mixins'
 
 	.nav
 		&-global
@@ -36,6 +36,6 @@
 			&-logo
 				font-size: 24px
 				color: $color-white
-				font-family: "Days One", sans-serif
+				font-family: 'Days One', sans-serif
 
 </style>

@@ -1,4 +1,4 @@
-<template lang="pug">
+<template lang='pug'>
 
 	.top-anime
 		.top-anime__container
@@ -6,29 +6,29 @@
 				| Viewers' Favorite Anime . . .
 
 			query-content
-				cards( v-for="(result, index) in getAnimeFavorite"
-						 :key="index"
-						 :query="result" )
+				cards( v-for='(result, index) in getAnimeFavorite'
+						 :key='index'
+						 :query='result' )
 
 </template>
 
 <script>
 
-	import { mapActions, mapGetters } from "vuex";
-	import Cards from "@/components/modules/Cards";
-	import QueryContent from "@/components/modules/QueryContent";
+	import { mapActions, mapGetters } from 'vuex';
+	import Cards from '@/components/modules/Cards';
+	import QueryContent from '@/components/modules/QueryContent';
 
 	export default {
-		name: "TopAnime",
+		name: 'TopAnime',
 		components: {
 			Cards,
 			QueryContent
 		},
 		methods: {
-			...mapActions(["loadAnimeFavorite"])
+			...mapActions(['loadAnimeFavorite'])
 		},
 		computed: {
-			...mapGetters(["getAnimeFavorite"])
+			...mapGetters(['getAnimeFavorite'])
 		},
 		created() {
 			this.loadAnimeFavorite();
@@ -37,11 +37,11 @@
 
 </script>
 
-<style lang="sass" scoped>
+<style lang='sass' scoped>
 
-	@import "../../assets/styles/utils/vars"
-	@import "../../assets/styles/utils/mixins"
-	@import "../../assets/styles/modules/containers"
+	@import '../../assets/styles/utils/vars'
+	@import '../../assets/styles/utils/mixins'
+	@import '../../assets/styles/modules/containers'
 
 
 	.top-anime

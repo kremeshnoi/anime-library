@@ -1,13 +1,13 @@
-<template lang="pug">
+<template lang='pug'>
 
 	.character
 		.character__container
 			.character__main-content
 				h1.character__title
-					| {{ getCharacterById["name"] }}
+					| {{ getCharacterById.name }}
 					.divider_hidden
-					| {{ getCharacterById["name_kanji"] }}
-				img.character__cover( :src="getCharacterById['image_url']" )
+					| {{ getCharacterById.name_kanji }}
+				img.character__cover( :src='getCharacterById.image_url' )
 
 				.character__info.character-info
 					h2.character-info__title
@@ -22,10 +22,10 @@
 
 <script>
 
-	import { mapActions, mapGetters } from "vuex";
+	import { mapActions, mapGetters } from 'vuex';
 
 	export default {
-		name: "Character",
+		name: 'Character',
 		data:()=>{
 			return {
 				aboutCharacterData: []
@@ -33,19 +33,19 @@
 		},
 		metaInfo() {
 			return {
-				title: `Character / ${ this.getCharacterById["name"] }`
+				title: `Character / ${ this.getCharacterById.name }`
 			}
 		},
 		methods: {
-			...mapActions(["loadCharacterById"]),
+			...mapActions(['loadCharacterById']),
 			async replaceData() {
-				const data = this.getCharacterById["about"];
-				const result = data.replace(/\\n/g, "");
+				const data = this.getCharacterById.about;
+				const result = data.replace(/\\n/g, '');
 				this.aboutCharacterData.push(result);
 			}
 		},
 		computed: {
-			...mapGetters(["getCharacterById"])
+			...mapGetters(['getCharacterById'])
 		},
 		async created() {
 			await this.loadCharacterById();
@@ -55,12 +55,12 @@
 
 </script>
 
-<style lang="sass" scoped>
+<style lang='sass' scoped>
 
-	@import "../../assets/styles/utils/vars"
-	@import "../../assets/styles/utils/mixins"
-	@import "../../assets/styles/modules/dividers"
-	@import "../../assets/styles/modules/containers"
+	@import '../../assets/styles/utils/vars'
+	@import '../../assets/styles/utils/mixins'
+	@import '../../assets/styles/modules/dividers'
+	@import '../../assets/styles/modules/containers'
 
 	.character
 		width: 100%
@@ -74,7 +74,7 @@
 		&__main-content
 			display: grid
 			justify-content: start
-			grid-template-areas: "title title" "cover info"
+			grid-template-areas: 'title title' 'cover info'
 			grid-gap: 20px
 
 		&__title

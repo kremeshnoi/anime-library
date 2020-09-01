@@ -1,9 +1,9 @@
-<template lang="pug">
+<template lang='pug'>
 
 		ul.side-nav.sidenav
 			li.side-nav__item
 				.side-nav__user.user-view
-					button.side-nav__btn.side-nav__btn( @click="collapse" )
+					button.side-nav__btn.side-nav__btn( @click='collapse' )
 						i.side-nav__icon.side-nav__icon-arrow.material-icons.grey-text file_upload
 
 					button.side-nav__btn.side-nav__btn
@@ -12,7 +12,7 @@
 					.side-nav__background.background
 						img.side-nav__background-image
 					.side-nav__avatar-wrapper
-						img.side-nav__avatar.circle( src="@/assets/images/user.jpg" )
+						img.side-nav__avatar.circle( src='@/assets/images/user.jpg' )
 
 			li.side-nav__item
 				.side-nav__divider.divider
@@ -25,17 +25,17 @@
 				.side-nav__divider.divider
 
 			li.side-nav__item
-				router-link.side-nav__link( to="/" )
+				router-link.side-nav__link( to='/' )
 					| Home
 					i.side-nav__icon.side-nav__icon-route.material-icons.grey-text home
 
 			li.side-nav__item
-				router-link.side-nav__link( to="/search" )
+				router-link.side-nav__link( to='/search' )
 					| Search
 					i.side-nav__icon.side-nav__icon-route.material-icons.grey-text search
 
 			li.side-nav__item
-				router-link.side-nav__link( to="/library" )
+				router-link.side-nav__link( to='/library' )
 					| My Library
 					i.side-nav__icon.side-nav__icon-route.material-icons.grey-text view_module
 
@@ -45,11 +45,11 @@
 			ul.side-nav__footer
 				li.side-nav__item
 					.side-nav__logout
-						a.side-nav__link-logout( @click="signOut" )
+						a.side-nav__link-logout( @click='signOut' )
 							| Sign out
 							i.material-icons.side-nav__icon-logout.grey-text exit_to_app
 
-						a.side-nav__link-logout( @click="signOut" )
+						a.side-nav__link-logout( @click='signOut' )
 							i.material-icons.side-nav__icon-route.side-nav__icon-route-logout.grey-text exit_to_app
 
 				li.side-nav__item
@@ -61,30 +61,30 @@
 
 <script>
 
-	import { mapActions, mapGetters } from "vuex";
+	import { mapActions, mapGetters } from 'vuex';
 
 	export default {
-		name: "SideNav",
+		name: 'SideNav',
 		methods: {
-			...mapActions(["loadUserInfo"]),
+			...mapActions(['loadUserInfo']),
 			collapse() {
-				const sidenav = document.querySelector(".sidenav");
-				const sidenav_overlay = document.querySelector(".sidenav-overlay");
-				const icon_arrow = document.querySelector(".side-nav__icon-arrow");
-				const icons_route = document.querySelectorAll(".side-nav__icon-route");
+				const sidenav = document.querySelector('.sidenav');
+				const sidenav_overlay = document.querySelector('.sidenav-overlay');
+				const icon_arrow = document.querySelector('.side-nav__icon-arrow');
+				const icons_route = document.querySelectorAll('.side-nav__icon-route');
 				const sidenav_instance = M.Sidenav.init(sidenav, { preventScrolling: false, inDuration: 0, outDuration: 0, draggable: false });
 
-				sidenav_instance._overlay.addEventListener("click", toogleElems, false)
+				sidenav_instance._overlay.addEventListener('click', toogleElems, false)
 
 				function toogleElems() {
-					sidenav.classList.toggle("side-nav_release");
-					icon_arrow.classList.toggle("side-nav__icon_rotate");
+					sidenav.classList.toggle('side-nav_release');
+					icon_arrow.classList.toggle('side-nav__icon_rotate');
 					icons_route.forEach((el) => {
-						el.classList.toggle("side-nav__icon_hide");
+						el.classList.toggle('side-nav__icon_hide');
 					});
 				}
 
-				if (sidenav_overlay.style.display === "block") {
+				if (sidenav_overlay.style.display === 'block') {
 					sidenav_instance.close();
 				} else {
 					sidenav_instance.open();
@@ -94,15 +94,15 @@
 			},
 			signOut() {
 				try {
-					this.$store.dispatch("signOut");
-					M.toast({ html: "Signed Out successfully", classes: "green" });
+					this.$store.dispatch('signOut');
+					M.toast({ html: 'Signed Out successfully', classes: 'green' });
 				} catch (error) {
 					throw new Error(error);
 				}
 			}
 		},
 		computed: {
-			...mapGetters(["getUserInfo"])
+			...mapGetters(['getUserInfo'])
 		},
 		async created() {
 			await this.loadUserInfo();
@@ -111,10 +111,10 @@
 
 </script>
 
-<style lang="sass" scoped>
+<style lang='sass' scoped>
 
-	@import "../../assets/styles/utils/vars"
-	@import "../../assets/styles/utils/mixins"
+	@import '../../assets/styles/utils/vars'
+	@import '../../assets/styles/utils/mixins'
 
 	.side-nav
 		transition: 0.25s
@@ -141,7 +141,7 @@
 
 		&__username
 			color: $color-white
-			font-family: "Cairo", sans-serif
+			font-family: 'Cairo', sans-serif
 
 		&__btn
 			border: none

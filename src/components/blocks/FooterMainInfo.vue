@@ -1,4 +1,4 @@
-<template lang="pug">
+<template lang='pug'>
 
 	.footer-main-info.page-footer
 		.footer-main-info__container
@@ -7,26 +7,26 @@
 					| Discord channel
 				p.footer-main-info__description
 					| We will also be happy to meet you on our channel, where you can always find like-minded people. Feel free to come in.
-				a.footer-main-info__link_decor.btn( href="https://discord.com/invite/Ku72D5/"
-																target="_blank" )
+				a.footer-main-info__link_decor.btn( href='https://discord.com/invite/Ku72D5/'
+																target='_blank' )
 					| Chat
 
 			.footer-main-info__item
 				h5.footer-main-info__title.footer-main-info__subtitle
 					| Sign in required
-				router-link.footer-main-info__link( to="/search" )
+				router-link.footer-main-info__link( to='/search' )
 					| Search page
-				router-link.footer-main-info__link( to="/library" )
+				router-link.footer-main-info__link( to='/library' )
 					| Your library
 
 			.footer-main-info__item
 				h5.footer-main-info__title
 					| Help
-				router-link.footer-main-info__link( to="/about" )
+				router-link.footer-main-info__link( to='/about' )
 					| Q/A
-				router-link.footer-main-info__link( to="/register" )
+				router-link.footer-main-info__link( to='/register' )
 					| Registration
-				router-link.footer-main-info__link( to="/recovery" )
+				router-link.footer-main-info__link( to='/recovery' )
 					| Forgot Password?
 
 </template>
@@ -34,16 +34,16 @@
 <script>
 
 	export default {
-		name: "FooterMainInfo"
+		name: 'FooterMainInfo'
 	};
 
 </script>
 
-<style lang="sass" scoped>
+<style lang='sass' scoped>
 
-	@import "../../assets/styles/utils/vars"
-	@import "../../assets/styles/utils/mixins"
-	@import "../../assets/styles/modules/buttons"
+	@import '../../assets/styles/utils/vars'
+	@import '../../assets/styles/utils/mixins'
+	@import '../../assets/styles/modules/buttons'
 
 	.footer-main-info
 		text-align: start

@@ -1,4 +1,4 @@
-<template lang="pug">
+<template lang='pug'>
 
 	.query-content
 		slot
@@ -8,15 +8,15 @@
 <script>
 
 	export default {
-		name: "QueryContent"
+		name: 'QueryContent'
 	}
 
 </script>
 
-<style lang="sass" scoped>
+<style lang='sass' scoped>
 
-	@import "../../assets/styles/utils/vars"
-	@import "../../assets/styles/utils/mixins"
+	@import '../../assets/styles/utils/vars'
+	@import '../../assets/styles/utils/mixins'
 
 	.query-content
 		display: grid
