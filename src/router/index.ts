@@ -45,19 +45,19 @@ const routes = [
 	{
 		path: "/register",
 		name: "SignUp",
-		meta: { layout: "authentication" },
+		meta: { layout: "" },
 		component: () => import("../components/views/SignUp.vue")
 	},
 	{
 		path: "/login",
 		name: "SignIn",
-		meta: { layout: "authentication" },
+		meta: { layout: "" },
 		component: () => import("../components/views/SignIn.vue")
 	},
 	{
 		path: "/recovery",
 		name: "Recovery",
-		meta: { layout: "authentication" },
+		meta: { layout: "" },
 		component: () => import("../components/views/Recovery.vue")
 	},
 	{
@@ -95,7 +95,6 @@ const router = new VueRouter({
 router.beforeEach((to,from, next) => {
 	const currentUser = firebase.auth().currentUser;
 	const requireAuth = to.matched.some(record => record.meta.auth);
-	const layout = to.matched.some(record => record.meta.layout);
 
 	if(requireAuth && !currentUser ) {
 		next("/login")
@@ -105,7 +104,9 @@ router.beforeEach((to,from, next) => {
 
 	if(!currentUser) {
 		to.meta.layout = "unauthorized";
-	} else {
+	} if(to.path === "/register" || to.path === "/login" || to.path === "/recovery") {
+		to.meta.layout = "authentication";
+	} else if(currentUser){
 		to.meta.layout = "authorized";
 	}
 
