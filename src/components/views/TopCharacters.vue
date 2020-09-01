@@ -7,8 +7,8 @@
 
 			query-content
 				cards(v-for='(result, index) in getCharactersFavorite'
-						:key='index'
-						:query='result')
+					:key='index'
+					:query='result')
 
 </template>
 

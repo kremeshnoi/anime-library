@@ -6,7 +6,7 @@
 			.footer-categories-top-anime__icon.material-icons keyboard_arrow_right
 
 		.footer-categories-top-anime__content(v-for='(result, index) in getAnimeFavorite.slice(0, 9)'
-															:key='index')
+			:key='index')
 
 			p.footer-categories-top-anime__digit
 				| {{ index + 1 }}.

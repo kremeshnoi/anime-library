@@ -5,7 +5,7 @@
 			search-bar
 			query-content
 				cards(:query='result'
-						v-for='result in getAnimeSearched')
+					v-for='result in getAnimeSearched')
 
 </template>
 
