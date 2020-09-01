@@ -9,7 +9,7 @@
 					| {{ getMangaById.title_japanese }}
 				img.manga__cover(:src='getMangaById.image_url')
 				select-collection.manga__input-field(v-if='getMangaById.type'
-																:query='getMangaById.type')
+					:query='getMangaById.type')
 
 				.manga__info.manga-info
 					h2.manga-info__title
@@ -38,7 +38,7 @@
 								| Genres:
 							| &nbsp;
 							.manga-info__list-values(v-for='(result, index_genres) in getMangaById.genres'
-															:key='index_genres')
+								:key='index_genres')
 								| {{ result.name }}
 						li.manga-info__list-item
 							.manga-info__list-key
@@ -61,7 +61,7 @@
 								| Publication:
 							| &nbsp;
 							.manga-info__list-values(v-for='(result, index_serializations) in getMangaById.serializations'
-															:key='index_serializations')
+								:key='index_serializations')
 								| {{ result.name }}
 
 			.manga__sub-content
@@ -71,16 +71,16 @@
 					.manga-related__content
 						ul.manga-related__tabs.tabs(v-if='getMangaById.related')
 							li.manga-related__tab.tab(v-for='(value, name, counter) in getMangaById.related'
-																:key='name')
+								:key='name')
 								a.manga-related__tab-item(:href=`'#' + counter`)
 									| {{ name }}
 						.manga-related__item(:id='counter'
-													v-for='(value, name, counter) in getMangaById.related'
-													:key='name')
+							v-for='(value, name, counter) in getMangaById.related'
+							:key='name')
 							table.manga-related__table.striped
 								tbody.manga-related__tbody
 									tr.manga-related__tr(v-for='(result, index) in value'
-																:key='index')
+										:key='index')
 										td.manga-related__td
 											a.manga-related__link(@click='computeRoute(result)')
 												| {{ result.name }}

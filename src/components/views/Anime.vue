@@ -9,7 +9,7 @@
 					| {{ getAnimeById.title_japanese }}
 				img.anime__cover(:src='getAnimeById.image_url')
 				select-collection.anime__input-field(v-if='getAnimeById.type'
-																:query='getAnimeById.type')
+					:query='getAnimeById.type')
 
 				.anime__info.anime-info
 					h2.anime-info__title
@@ -38,7 +38,7 @@
 								| Genres:
 							| &nbsp;
 							.anime-info__list-values(v-for='(result, index_genres) in getAnimeById.genres'
-															:key='index_genres')
+								:key='index_genres')
 								| {{ result.name }}
 						li.anime-info__list-item
 							.anime-info__list-key
@@ -51,7 +51,7 @@
 								| Studios:
 							| &nbsp;
 							.anime-info__list-values(v-for='(result, index_studios) in getAnimeById.studios'
-															:key='index_studios')
+								:key='index_studios')
 								| {{ result.name }}
 						li.anime-info__list-item
 							.anime-info__list-key
@@ -66,10 +66,10 @@
 						| Watch Trailer
 					.anime-trailer__content
 						iframe.anime-trailer__iframe(v-if='getAnimeById.trailer_url'
-																:src='getAnimeById.trailer_url'
-																frameborder='0'
-																allowfullscreen='true'
-																autoplay='false')
+							:src='getAnimeById.trailer_url'
+							frameborder='0'
+							allowfullscreen='true'
+							autoplay='false')
 						h2.anime-trailer__info(v-else) Trailer not found -_-
 
 				.anime__related.anime-related
@@ -78,16 +78,16 @@
 					.anime-related__content
 						ul.anime-related__tabs.tabs(v-if='getAnimeById.related')
 							li.anime-related__tab.tab(v-for='(value, name, counter) in getAnimeById.related'
-															:key='name')
+								:key='name')
 								a.anime-related__tab-item(:href=`'#' + counter`)
 									| {{ name }}
 						.anime-related__item(:id='counter'
-													v-for='(value, name, counter) in getAnimeById.related'
-													:key='name')
+							v-for='(value, name, counter) in getAnimeById.related'
+							:key='name')
 							table.anime-related__table.striped
 								tbody.anime-related__tbody
 									tr.anime-related__tr(v-for='(result, index) in value'
-																:key='index')
+										:key='index')
 										td.anime-related__td
 											a.anime-related__link(@click='computeRoute(result)')
 												| {{ result.name }}

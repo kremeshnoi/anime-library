@@ -3,8 +3,8 @@
 	.input-field(v-if='getUserInfo.length')
 		select
 			option(v-for='option in options'
-					:key='option.id')
-					| {{ option.title }}
+				:key='option.id')
+				| {{ option.title }}
 
 		.btn-small
 			| Add

@@ -6,7 +6,7 @@
 			.footer-categories-top-manga__icon.material-icons keyboard_arrow_right
 
 		.footer-categories-top-manga__content(v-for='(result, index) in getMangaFavorite.slice(0, 9)'
-															:key='index')
+			:key='index')
 
 			p.footer-categories-top-manga__digit
 				| {{ index + 1 }}.

@@ -6,7 +6,7 @@
 			.footer-categories-top-characters__icon.material-icons keyboard_arrow_right
 
 		.footer-categories-top-characters__content(v-for='(result, index) in getCharactersFavorite.slice(0, 9)'
-																:key='index')
+			:key='index')
 
 			p.footer-categories-top-characters__digit
 				| {{ index + 1 }}.
