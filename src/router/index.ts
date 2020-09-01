@@ -1,6 +1,7 @@
 //Libraries
 import Vue from "vue";
 import VueRouter from "vue-router";
+import firebase from "firebase/app";
 
 Vue.use(VueRouter);
 
@@ -8,37 +9,37 @@ const routes = [
 	{
 		path: "/",
 		name: "Home",
-		meta: { layout: "authorized" },
+		meta: { layout: "" },
 		component: () => import("../components/views/Home.vue")
 	},
 	{
 		path: "/anime/:id/:title",
 		name: "Anime",
-		meta: { layout: "authorized" },
+		meta: { layout: "" },
 		component: () => import("../components/views/Anime.vue")
 	},
 	{
 		path: "/character/:id/:title",
 		name: "Character",
-		meta: { layout: "authorized" },
+		meta: { layout: "" },
 		component: () => import("../components/views/Character.vue")
 	},
 	{
 		path: "/manga/:id/:title",
 		name: "Manga",
-		meta: { layout: "authorized" },
+		meta: { layout: "" },
 		component: () => import("../components/views/Manga.vue")
 	},
 	{
 		path: "/search",
 		name: "Search",
-		meta: { layout: "authorized" },
+		meta: { layout: "", auth: true },
 		component: () => import("../components/views/Search.vue")
 	},
 	{
 		path: "/library",
 		name: "Library",
-		meta: { layout: "authorized" },
+		meta: { layout: "", auth: true },
 		component: () => import("../components/views/Library.vue")
 	},
 	{
@@ -62,25 +63,25 @@ const routes = [
 	{
 		path: "/top-airing",
 		name: "TopAiring",
-		meta: { layout: "authorized" },
+		meta: { layout: "" },
 		component: () => import("../components/views/TopAiring.vue")
 	},
 	{
 		path: "/top-anime",
 		name: "TopAnime",
-		meta: { layout: "authorized" },
+		meta: { layout: "" },
 		component: () => import("../components/views/TopAnime.vue")
 	},
 	{
 		path: "/top-characters",
 		name: "TopCharacters",
-		meta: { layout: "authorized" },
+		meta: { layout: "" },
 		component: () => import("../components/views/TopCharacters.vue")
 	},
 	{
 		path: "/top-manga",
 		name: "TopManga",
-		meta: { layout: "authorized" },
+		meta: { layout: "" },
 		component: () => import("../components/views/TopManga.vue")
 	}
 ];
@@ -89,6 +90,25 @@ const router = new VueRouter({
 	mode: "history",
 	base: process.env.BASE_URL,
 	routes
+});
+
+router.beforeEach((to,from, next) => {
+	const currentUser = firebase.auth().currentUser;
+	const requireAuth = to.matched.some(record => record.meta.auth);
+	const layout = to.matched.some(record => record.meta.layout);
+
+	if(requireAuth && !currentUser ) {
+		next("/login")
+	} else {
+		next()
+	}
+
+	if(!currentUser) {
+		to.meta.layout = "unauthorized";
+	} else {
+		to.meta.layout = "authorized";
+	}
+
 });
 
 export default router;

@@ -1,6 +1,6 @@
 <template lang="pug">
 
-	.input-field
+	.input-field( v-if="getUserInfo.length" )
 		select
 			option( v-for="option in options"
 					  :key="option.id" )
@@ -13,7 +13,7 @@
 
 <script>
 
-	import { mapGetters } from "vuex";
+import { mapGetters } from "vuex";
 
 	export default {
 		name: "Select",
@@ -34,6 +34,9 @@
 						value: "dropped" }
 				]
 			}
+		},
+		computed: {
+			...mapGetters(["getUserInfo"])
 		},
 		methods: {
 			changeTitle() {
