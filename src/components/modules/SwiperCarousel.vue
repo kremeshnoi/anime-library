@@ -1,6 +1,6 @@
-<template lang="pug">
+<template lang='pug'>
 
-	.swiper-carousel( v-swiper:mySwiper="swiperOptions" )
+	.swiper-carousel( v-swiper:mySwiper='swiperOptions' )
 		.swiper-carousel__container.swiper-wrapper
 			slot
 
@@ -11,16 +11,16 @@
 
 <script>
 
-	import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper";
+	import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
 
 	export default {
-		name: "SwiperCarousel",
+		name: 'SwiperCarousel',
 		data: () => {
 			return {
 				swiperOptions: {
 					navigation: {
-						nextEl: ".swiper-button-next",
-						prevEl: ".swiper-button-prev"
+						nextEl: '.swiper-button-next',
+						prevEl: '.swiper-button-prev'
 					},
 					spaceBetween: 10,
 					breakpoints: {
@@ -60,10 +60,10 @@
 
 </script>
 
-<style lang="sass" scoped>
+<style lang='sass' scoped>
 
-	@import "../../assets/styles/utils/vars"
-	@import "../../assets/styles/utils/mixins"
+	@import '../../assets/styles/utils/vars'
+	@import '../../assets/styles/utils/mixins'
 
 	.swiper-carousel
 		width: 100%

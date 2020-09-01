@@ -1,24 +1,24 @@
 //Libraries
-import Vue from "vue";
-import Vuex from "vuex";
-import router from "../router";
+import Vue from 'vue';
+import Vuex from 'vuex';
+import router from '../router';
 
 //Store modules
-import auth from "@/store/auth";
+import auth from '@/store/auth';
 
 //Interfaces
-import { State } from "@/interfaces/State";
-import { UserInfoResponse } from "@/interfaces/UserInfoResponse";
-import { AnimeByIdResponse } from "@/interfaces/AnimeByIdResponse";
-import { AnimeAiringResponse } from "@/interfaces/AnimeAiringResponse";
-import { AnimeSearchedResponse } from "@/interfaces/AnimeSearchedResponse";
-import { AnimeFavoriteResponse } from "@/interfaces/AnimeFavoriteResponse";
-import { CharactersFavoriteResponse } from "@/interfaces/CharactersFavoriteResponse";
-import { MangaByIdResponse } from "@/interfaces/MangaByIdResponse";
-import { MangaFavoriteResponse } from "@/interfaces/MangaFavoriteResponse";
+import { State } from '@/interfaces/State';
+import { UserInfoResponse } from '@/interfaces/UserInfoResponse';
+import { AnimeByIdResponse } from '@/interfaces/AnimeByIdResponse';
+import { AnimeAiringResponse } from '@/interfaces/AnimeAiringResponse';
+import { AnimeSearchedResponse } from '@/interfaces/AnimeSearchedResponse';
+import { AnimeFavoriteResponse } from '@/interfaces/AnimeFavoriteResponse';
+import { CharactersFavoriteResponse } from '@/interfaces/CharactersFavoriteResponse';
+import { MangaByIdResponse } from '@/interfaces/MangaByIdResponse';
+import { MangaFavoriteResponse } from '@/interfaces/MangaFavoriteResponse';
 
 //API wrappers
-import jikanjs from "../../node_modules/jikanjs/lib/jikan.js";
+import jikanjs from '../../node_modules/jikanjs/lib/jikan.js';
 
 Vue.use(Vuex);
 
@@ -70,7 +70,7 @@ export default new Vuex.Store({
 			try {
 				const animeResponse: AnimeByIdResponse = await jikanjs.loadAnime(router.app.$route.params.id);
 				const animeById = animeResponse;
-				ctx.commit("SET_ANIME_BY_ID", animeById);
+				ctx.commit('SET_ANIME_BY_ID', animeById);
 			} catch (error) {
 				throw new Error(error);
 			}
@@ -79,7 +79,7 @@ export default new Vuex.Store({
 			try {
 				const characterResponse: MangaByIdResponse = await jikanjs.loadCharacter(router.app.$route.params.id);
 				const characterById = characterResponse;
-				ctx.commit("SET_CHARACTER_BY_ID", characterById);
+				ctx.commit('SET_CHARACTER_BY_ID', characterById);
 			} catch (error) {
 				throw new Error(error);
 			}
@@ -88,28 +88,28 @@ export default new Vuex.Store({
 			try {
 				const mangaResponse: MangaByIdResponse = await jikanjs.loadManga(router.app.$route.params.id);
 				const mangaById = mangaResponse;
-				ctx.commit("SET_MANGA_BY_ID", mangaById);
+				ctx.commit('SET_MANGA_BY_ID', mangaById);
 			} catch (error) {
 				throw new Error(error);
 			}
 		},
 		async loadAnimeAiring(ctx) {
 			try {
-				const animeAiringResponse: AnimeAiringResponse = await jikanjs.loadTop("anime", 1, "airing");
+				const animeAiringResponse: AnimeAiringResponse = await jikanjs.loadTop('anime', 1, 'airing');
 				const animeAiring = animeAiringResponse.top;
-				ctx.commit("SET_ANIME_AIRING", animeAiring);
+				ctx.commit('SET_ANIME_AIRING', animeAiring);
 			} catch (error) {
 				throw new Error(error);
 			}
 		},
 		async loadAnimeSearched(ctx, query) {
 			try {
-				const animeSearchedResponse: AnimeSearchedResponse = await jikanjs.search("anime", query);
+				const animeSearchedResponse: AnimeSearchedResponse = await jikanjs.search('anime', query);
 				const animeSearched = animeSearchedResponse.results;
 				if (Array.isArray(animeSearched) && animeSearched.length > 0) {
-					ctx.commit("SET_ANIME_SEARCHED", animeSearched);
+					ctx.commit('SET_ANIME_SEARCHED', animeSearched);
 				} else {
-					M.toast({ html: "Not found", classes: "red" });
+					M.toast({ html: 'Not found', classes: 'red' });
 				}
 			} catch (error) {
 				throw new Error(error);
@@ -117,27 +117,27 @@ export default new Vuex.Store({
 		},
 		async loadAnimeFavorite(ctx) {
 			try {
-				const favoriteAnimeResponse: AnimeFavoriteResponse = await jikanjs.loadTop("anime", 1, "favorite");
+				const favoriteAnimeResponse: AnimeFavoriteResponse = await jikanjs.loadTop('anime', 1, 'favorite');
 				const animeFavorite = favoriteAnimeResponse.top;
-				ctx.commit("SET_ANIME_FAVORITE", animeFavorite);
+				ctx.commit('SET_ANIME_FAVORITE', animeFavorite);
 			} catch (error) {
 				throw new Error(error);
 			}
 		},
 		async loadCharactersFavorite(ctx) {
 			try {
-				const favoriteCharactersResponse: CharactersFavoriteResponse = await jikanjs.loadTop("characters");
+				const favoriteCharactersResponse: CharactersFavoriteResponse = await jikanjs.loadTop('characters');
 				const charactersFavorite = favoriteCharactersResponse.top;
-				ctx.commit("SET_CHARACTERS_FAVORITE", charactersFavorite);
+				ctx.commit('SET_CHARACTERS_FAVORITE', charactersFavorite);
 			} catch (error) {
 				throw new Error(error);
 			}
 		},
 		async loadMangaFavorite(ctx) {
 			try {
-				const favoriteMangaResponse: MangaFavoriteResponse = await jikanjs.loadTop("manga", 1, "favorite");
+				const favoriteMangaResponse: MangaFavoriteResponse = await jikanjs.loadTop('manga', 1, 'favorite');
 				const mangaFavorite = favoriteMangaResponse.top;
-				ctx.commit("SET_MANGA_FAVORITE", mangaFavorite);
+				ctx.commit('SET_MANGA_FAVORITE', mangaFavorite);
 			} catch (error) {
 				throw new Error(error);
 			}
@@ -146,19 +146,19 @@ export default new Vuex.Store({
 			try {
 				let type = result.type;
 				if (type === undefined) {
-					type = "Character";
-				} else if (type !== "Manga" && type !== "manga") {
-					type = "Anime";
-				} else if (type === "manga") {
-					type = "Manga";
+					type = 'Character';
+				} else if (type !== 'Manga' && type !== 'manga') {
+					type = 'Anime';
+				} else if (type === 'manga') {
+					type = 'Manga';
 				}
 				const id = result.mal_id;
 				const title = result.url
-					.split("/")
+					.split('/')
 					.splice(-1, 1)[0]
 					.toLowerCase()
-					.split("_")
-					.join("-");
+					.split('_')
+					.join('-');
 				router.push({ name: `${ type }`, params: { id, title } });
 			} catch (error) {
 				throw new Error(error);

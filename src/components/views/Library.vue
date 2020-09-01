@@ -1,4 +1,4 @@
-<template lang="pug">
+<template lang='pug'>
 
 	.library
 
@@ -7,17 +7,17 @@
 <script>
 
 	export default {
-		name: "Library",
+		name: 'Library',
 		metaInfo: {
-			title: "Otaku Library / Library"
+			title: 'Otaku Library / Library'
 		}
 	};
 
 </script>
 
-<style lang="sass" scoped>
+<style lang='sass' scoped>
 
-	@import "../../assets/styles/utils/vars"
-	@import "../../assets/styles/utils/mixins"
+	@import '../../assets/styles/utils/vars'
+	@import '../../assets/styles/utils/mixins'
 
 </style>

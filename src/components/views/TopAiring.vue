@@ -1,4 +1,4 @@
-<template lang="pug">
+<template lang='pug'>
 
 	.top-airing
 		.top-airing__container
@@ -6,29 +6,29 @@
 				| Top Airing Anime . . .
 
 			query-content
-				cards( v-for="(result, index) in getAnimeAiring"
-						 :key="index"
-						 :query="result" )
+				cards( v-for='(result, index) in getAnimeAiring'
+						 :key='index'
+						 :query='result' )
 
 </template>
 
 <script>
 
-	import { mapActions, mapGetters } from "vuex";
-	import Cards from "@/components/modules/Cards";
-	import QueryContent from "@/components/modules/QueryContent";
+	import { mapActions, mapGetters } from 'vuex';
+	import Cards from '@/components/modules/Cards';
+	import QueryContent from '@/components/modules/QueryContent';
 
 	export default {
-		name: "TopAiring",
+		name: 'TopAiring',
 		components: {
 			Cards,
 			QueryContent
 		},
 		methods: {
-			...mapActions(["loadAnimeAiring"])
+			...mapActions(['loadAnimeAiring'])
 		},
 		computed: {
-			...mapGetters(["getAnimeAiring"])
+			...mapGetters(['getAnimeAiring'])
 		},
 		created() {
 			this.loadAnimeAiring();
@@ -37,11 +37,11 @@
 
 </script>
 
-<style lang="sass" scoped>
+<style lang='sass' scoped>
 
-	@import "../../assets/styles/utils/vars"
-	@import "../../assets/styles/utils/mixins"
-	@import "../../assets/styles/modules/containers"
+	@import '../../assets/styles/utils/vars'
+	@import '../../assets/styles/utils/mixins'
+	@import '../../assets/styles/modules/containers'
 
 
 	.top-airing

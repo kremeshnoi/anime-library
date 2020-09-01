@@ -1,6 +1,6 @@
-import firebase from "firebase/app";
-import { email } from "vuelidate/lib/validators";
-import { UserInfoResponse } from "@/interfaces/UserInfoResponse";
+import firebase from 'firebase/app';
+import { email } from 'vuelidate/lib/validators';
+import { UserInfoResponse } from '@/interfaces/UserInfoResponse';
 
 export default {
 	actions: {
@@ -18,7 +18,7 @@ export default {
 		async signUp({ dispatch }, { email, password, username }) {
 			try {
 				await firebase.auth().createUserWithEmailAndPassword(email, password);
-				const uid = await dispatch("getUid");
+				const uid = await dispatch('getUid');
 				await firebase.database().ref(`/users/${uid}/info`).set({
 					username
 				});
@@ -49,10 +49,10 @@ export default {
 		},
 		async loadUserInfo({ dispatch, commit }) {
 			try {
-				const uid = await dispatch("getUid");
+				const uid = await dispatch('getUid');
 				const userInfoResponse = await firebase.database().ref(`/users/${uid}/info/username`)
-					.on("value", (data) => {
-						commit("SET_USER_INFO", data.val());
+					.on('value', (data) => {
+						commit('SET_USER_INFO', data.val());
 					});
 			} catch (error) {
 				throw new Error(error);

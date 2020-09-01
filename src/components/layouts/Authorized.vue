@@ -1,23 +1,23 @@
-<template lang="pug">
+<template lang='pug'>
 
 	.global-wrapper
 		main-nav
 		side-nav
 
 		.content-wrapper
-			router-view( :key="this.$route.path" )
+			router-view( :key='this.$route.path' )
 			main-footer
 
 </template>
 
 <script>
 
-	import MainNav from "@/components/navigation/NavBar";
-	import SideNav from "@/components/navigation/SideNav";
-	import MainFooter from "@/components/navigation/MainFooter";
+	import MainNav from '@/components/navigation/NavBar';
+	import SideNav from '@/components/navigation/SideNav';
+	import MainFooter from '@/components/navigation/MainFooter';
 
 	export default {
-		name: "Authorized",
+		name: 'Authorized',
 		components: {
 			MainNav,
 			SideNav,
@@ -30,10 +30,10 @@
 
 </script>
 
-<style lang="sass" scoped>
+<style lang='sass' scoped>
 
-	@import "../../assets/styles/utils/vars"
-	@import "../../assets/styles/utils/mixins"
+	@import '../../assets/styles/utils/vars'
+	@import '../../assets/styles/utils/mixins'
 
 	.content-wrapper
 		margin: 0 0 0 auto

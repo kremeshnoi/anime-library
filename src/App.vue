@@ -1,16 +1,16 @@
-<template lang="pug">
+<template lang='pug'>
 
 	#app
-		component( :is="layout" )
+		component( :is='layout' )
 			router-view
 
 </template>
 
 <script>
 
-	import Authorized from "@/components/layouts/Authorized";
-	import Unauthorized from "@/components/layouts/Unauthorized";
-	import Authentication from "@/components/layouts/Authentication";
+	import Authorized from '@/components/layouts/Authorized';
+	import Unauthorized from '@/components/layouts/Unauthorized';
+	import Authentication from '@/components/layouts/Authentication';
 
 	export default {
 		components: {
@@ -27,7 +27,7 @@
 
 </script>
 
-<style lang="sass">
+<style lang='sass'>
 
 	#app
 		font-family: Avenir, Helvetica, Arial, sans-serif
