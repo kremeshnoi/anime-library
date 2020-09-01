@@ -4,8 +4,8 @@
 		.search__container
 			search-bar
 			query-content
-				cards( :query='result'
-						 v-for='result in getAnimeSearched' )
+				cards(:query='result'
+						v-for='result in getAnimeSearched')
 
 </template>
 

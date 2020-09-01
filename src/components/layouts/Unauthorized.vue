@@ -2,7 +2,7 @@
 
 	.content-wrapper
 		nav-bar
-		router-view( :key='this.$route.path' )
+		router-view(:key='this.$route.path')
 		main-footer
 
 </template>

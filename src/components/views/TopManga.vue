@@ -6,9 +6,9 @@
 				| Top Manga . . .
 
 			query-content
-				cards( v-for='(result, index) in getMangaFavorite'
-						 :key='index'
-						 :query='result' )
+				cards(v-for='(result, index) in getMangaFavorite'
+						:key='index'
+						:query='result')
 
 </template>
 

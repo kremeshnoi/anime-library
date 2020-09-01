@@ -1,9 +1,9 @@
 <template lang='pug'>
 
-	.input-field( v-if='getUserInfo.length' )
+	.input-field(v-if='getUserInfo.length')
 		select
-			option( v-for='option in options'
-					  :key='option.id' )
+			option(v-for='option in options'
+					:key='option.id')
 					| {{ option.title }}
 
 		.btn-small

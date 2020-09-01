@@ -33,7 +33,7 @@ export default {
 				throw new Error(error);
 			}
 		},
-		async recoverPassword( { dispatch }, { email } ) {
+		async recoverPassword({ dispatch }, { email }) {
 			try {
 				await firebase.auth().sendPasswordResetEmail(email);
 			} catch (error) {

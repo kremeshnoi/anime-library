@@ -6,9 +6,9 @@
 				| Viewers' Favorite Anime . . .
 
 			query-content
-				cards( v-for='(result, index) in getAnimeFavorite'
-						 :key='index'
-						 :query='result' )
+				cards(v-for='(result, index) in getAnimeFavorite'
+						:key='index'
+						:query='result')
 
 </template>
 

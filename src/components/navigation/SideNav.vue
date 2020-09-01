@@ -3,7 +3,7 @@
 		ul.side-nav.sidenav
 			li.side-nav__item
 				.side-nav__user.user-view
-					button.side-nav__btn.side-nav__btn( @click='collapse' )
+					button.side-nav__btn.side-nav__btn(@click='collapse')
 						i.side-nav__icon.side-nav__icon-arrow.material-icons.grey-text file_upload
 
 					button.side-nav__btn.side-nav__btn
@@ -12,7 +12,7 @@
 					.side-nav__background.background
 						img.side-nav__background-image
 					.side-nav__avatar-wrapper
-						img.side-nav__avatar.circle( src='@/assets/images/user.jpg' )
+						img.side-nav__avatar.circle(src='@/assets/images/user.jpg')
 
 			li.side-nav__item
 				.side-nav__divider.divider
@@ -25,17 +25,17 @@
 				.side-nav__divider.divider
 
 			li.side-nav__item
-				router-link.side-nav__link( to='/' )
+				router-link.side-nav__link(to='/')
 					| Home
 					i.side-nav__icon.side-nav__icon-route.material-icons.grey-text home
 
 			li.side-nav__item
-				router-link.side-nav__link( to='/search' )
+				router-link.side-nav__link(to='/search')
 					| Search
 					i.side-nav__icon.side-nav__icon-route.material-icons.grey-text search
 
 			li.side-nav__item
-				router-link.side-nav__link( to='/library' )
+				router-link.side-nav__link(to='/library')
 					| My Library
 					i.side-nav__icon.side-nav__icon-route.material-icons.grey-text view_module
 
@@ -45,11 +45,11 @@
 			ul.side-nav__footer
 				li.side-nav__item
 					.side-nav__logout
-						a.side-nav__link-logout( @click='signOut' )
+						a.side-nav__link-logout(@click='signOut')
 							| Sign out
 							i.material-icons.side-nav__icon-logout.grey-text exit_to_app
 
-						a.side-nav__link-logout( @click='signOut' )
+						a.side-nav__link-logout(@click='signOut')
 							i.material-icons.side-nav__icon-route.side-nav__icon-route-logout.grey-text exit_to_app
 
 				li.side-nav__item

@@ -7,9 +7,9 @@
 					| {{ getMangaById.title }}
 					.divider_hidden
 					| {{ getMangaById.title_japanese }}
-				img.manga__cover( :src='getMangaById.image_url' )
-				select-collection.manga__input-field( v-if='getMangaById.type'
-																  :query='getMangaById.type' )
+				img.manga__cover(:src='getMangaById.image_url')
+				select-collection.manga__input-field(v-if='getMangaById.type'
+																:query='getMangaById.type')
 
 				.manga__info.manga-info
 					h2.manga-info__title
@@ -37,31 +37,31 @@
 							.manga-info__list-key
 								| Genres:
 							| &nbsp;
-							.manga-info__list-values( v-for='(result, index_genres) in getMangaById.genres'
-															  :key='index_genres' )
+							.manga-info__list-values(v-for='(result, index_genres) in getMangaById.genres'
+															:key='index_genres')
 								| {{ result.name }}
 						li.manga-info__list-item
 							.manga-info__list-key
 								| Volumes:
 							| &nbsp;
-							.manga-info__list-value( v-if='getMangaById.volumes === null' )
+							.manga-info__list-value(v-if='getMangaById.volumes === null')
 								| Unknown
-							.manga-info__list-value( v-else )
+							.manga-info__list-value(v-else)
 								| {{ getMangaById.volumes }}
 						li.manga-info__list-item
 							.manga-info__list-key
 								| Chapters:
 							| &nbsp;
-							.manga-info__list-value( v-if='getMangaById.chapters === null' )
+							.manga-info__list-value(v-if='getMangaById.chapters === null')
 								| Unknown
-							.manga-info__list-value( v-else )
+							.manga-info__list-value(v-else)
 								| {{ getMangaById.chapters }}
 						li.manga-info__list-item
 							.manga-info__list-key
 								| Publication:
 							| &nbsp;
-							.manga-info__list-values( v-for='(result, index_serializations) in getMangaById.serializations'
-															  :key='index_serializations' )
+							.manga-info__list-values(v-for='(result, index_serializations) in getMangaById.serializations'
+															:key='index_serializations')
 								| {{ result.name }}
 
 			.manga__sub-content
@@ -69,20 +69,20 @@
 					.manga-related__title
 						| Related
 					.manga-related__content
-						ul.manga-related__tabs.tabs( v-if='getMangaById.related' )
-							li.manga-related__tab.tab( v-for='(value, name, counter) in getMangaById.related'
-																:key='name' )
-								a.manga-related__tab-item( :href=`'#' + counter` )
+						ul.manga-related__tabs.tabs(v-if='getMangaById.related')
+							li.manga-related__tab.tab(v-for='(value, name, counter) in getMangaById.related'
+																:key='name')
+								a.manga-related__tab-item(:href=`'#' + counter`)
 									| {{ name }}
-						.manga-related__item( :id='counter'
-													 v-for='(value, name, counter) in getMangaById.related'
-													 :key='name' )
+						.manga-related__item(:id='counter'
+													v-for='(value, name, counter) in getMangaById.related'
+													:key='name')
 							table.manga-related__table.striped
 								tbody.manga-related__tbody
-									tr.manga-related__tr( v-for='(result, index) in value'
-																 :key='index' )
+									tr.manga-related__tr(v-for='(result, index) in value'
+																:key='index')
 										td.manga-related__td
-											a.manga-related__link( @click='computeRoute(result)')
+											a.manga-related__link(@click='computeRoute(result)')
 												| {{ result.name }}
 
 			.manga__description.manga-description

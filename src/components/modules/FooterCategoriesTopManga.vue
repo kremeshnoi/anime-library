@@ -1,16 +1,16 @@
 <template lang='pug'>
 
 	.footer-categories-top-manga
-		router-link.footer-categories-top-manga__title( to='/top-manga' )
+		router-link.footer-categories-top-manga__title(to='/top-manga')
 			| Top Manga
 			.footer-categories-top-manga__icon.material-icons keyboard_arrow_right
 
-		.footer-categories-top-manga__content( v-for='(result, index) in getMangaFavorite.slice(0, 9)'
-															:key='index' )
+		.footer-categories-top-manga__content(v-for='(result, index) in getMangaFavorite.slice(0, 9)'
+															:key='index')
 
 			p.footer-categories-top-manga__digit
 				| {{ index + 1 }}.
-			a.footer-categories-top-manga__link( @click='computeRoute(result)' )
+			a.footer-categories-top-manga__link(@click='computeRoute(result)')
 				| {{ result.title }}
 
 </template>
