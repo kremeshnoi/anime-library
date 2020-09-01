@@ -181,7 +181,7 @@
 			display: grid
 			grid-gap: 20px
 			justify-content: flex-start
-			grid-template-rows: min-content
+			justify-content: center
 			grid-template-columns: minmax(auto, 360px)
 
 		&__description
