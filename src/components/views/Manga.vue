@@ -7,9 +7,10 @@
 					| {{ getMangaById.title }}
 					.divider_hidden
 					| {{ getMangaById.title_japanese }}
-				img.manga__cover(:src='getMangaById.image_url')
-				select-collection.manga__input-field(v-if='getMangaById.type'
-					:query='getMangaById.type')
+				.manga__cover-container
+					img.manga__cover(:src='getMangaById.image_url')
+					select-collection.manga__input-field(v-if='getMangaById.type'
+						:query='getMangaById.type')
 
 				.manga__info.manga-info
 					h2.manga-info__title
@@ -157,7 +158,9 @@
 			grid-template-areas: 'title title' 'cover info'
 			grid-gap: 20px
 			align-content: start
+			grid-template-rows: 70px auto
 			+mq(phablet, max)
+				grid-template-rows: auto
 				grid-template-areas: 'title' 'cover' 'info'
 
 		&__sub-content
@@ -167,9 +170,18 @@
 			justify-content: flex-start
 			justify-content: center
 			grid-template-columns: minmax(auto, 360px)
+			+mq(tablet-mid, max)
+				justify-content: flex-start
 
 		&__description
 			grid-area: description
+
+		&__cover-container
+			grid-area: cover
+			display: grid
+			justify-content: flex-start
+			row-gap: 20px
+			grid-area: cover
 
 		&__info
 			grid-area: info
@@ -181,95 +193,98 @@
 			grid-area: title
 
 		&__cover
-			grid-area: cover
+			max-width: 220px
 
 		&__input-field
 			margin: 0
+			max-width: 220px
 
-		// MANGA RELATED
+	// MANGA RELATED
 
-		.manga-related
-			&__title
-				@extend .header-title
+	.manga-related
+		&__title
+			height: 70px
+			display: flex
+			align-items: center
+			@extend .header-title
 
-			&__tabs
-				display: flex
-				flex-wrap: wrap
-				overflow-x: initial
-				overflow-y: initial
-				height: 100%
+		&__tabs
+			display: flex
+			flex-wrap: wrap
+			overflow-x: initial
+			overflow-y: initial
+			height: 100%
 
-			&__tab-item
-				padding: 0 !important
-				margin: 0 24px 0 0
-				text-align: start
-				color: $color-blue-light !important
-				&.active
-					background-color: initial !important
-					color: $color-orange !important
-
-			&__link
-				color: $color-grey-dark
-				&:hover
-					text-decoration: underline
-
-		// MANGA DESCRIPTION
-
-		.manga-description
+		&__tab-item
+			padding: 0 !important
+			margin: 0 24px 0 0
 			text-align: start
+			color: $color-blue-light !important
+			&.active
+				background-color: initial !important
+				color: $color-orange !important
 
-			&__title
-				@extend .header-title
-				margin: 0 0 16px 0
+		&__link
+			color: $color-grey-dark
+			&:hover
+				text-decoration: underline
 
-		// MANGA INFO
+	// MANGA DESCRIPTION
 
-		.manga-info
+	.manga-description
+		text-align: start
+
+		&__title
+			@extend .header-title
+			margin: 0 0 16px 0
+
+	// MANGA INFO
+
+	.manga-info
+		text-align: start
+		+flex(initial, initial, column)
+
+		&__title
+			color: $color-black
+			width: 100%
+			font-size: 16px
+			font-weight: 700
 			text-align: start
-			grid-area: info
-			+flex(initial, initial, column)
+			text-transform: uppercase
+			padding: 14px 0 14px 14px
+			border-left: 5px solid $color-blue-light
 
-			&__title
-				color: $color-black
-				width: 100%
-				font-size: 16px
-				font-weight: 700
-				text-align: start
-				text-transform: uppercase
-				padding: 14px 0 14px 14px
-				border-left: 5px solid $color-blue-light
+		&__list
+			margin: 20px 0 0 5px
+			height: 100%
+			max-width: 300px
+			width: 100%
+			+flex(flex-start, initial, column)
 
-			&__list
-				margin: 20px 0 0 5px
-				height: 100%
-				max-width: 300px
-				width: 100%
-				+flex(space-between, initial, column)
+		&__list-item
+			margin: 6px 0
+			&:last-of-type
+				margin: 0
 
-			&__list-item
-				margin: 6px 0
-				&:last-of-type
-					margin: 0
+		&__list-key
+			display: inline-block
 
-			&__list-key
-				display: inline-block
+		&__list-value
+			display: inline-block
+			&_decor
+				padding: 0 6px
+				border-radius: 4px
+				color: $color-white-pure
+				background-color: $color-yellow
 
-			&__list-value
-				display: inline-block
-				&_decor
-					padding: 0 6px
-					border-radius: 4px
-					color: $color-white-pure
-					background-color: $color-yellow
-
-			&__list-values
-				margin: 0 10px 0 0
-				height: auto
-				transition: 0.5s
-				display: inline-block
-				border-bottom: 1px dashed $color-grey-light
-				&:hover
-					cursor: pointer
-					border-bottom: 1px dashed $color-blue
+		&__list-values
+			margin: 0 10px 0 0
+			height: auto
+			transition: 0.5s
+			display: inline-block
+			border-bottom: 1px dashed $color-grey-light
+			&:hover
+				cursor: pointer
+				border-bottom: 1px dashed $color-blue
 
 </style>
