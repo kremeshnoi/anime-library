@@ -7,9 +7,10 @@
 					| {{ getAnimeById.title }}
 					.divider_hidden
 					| {{ getAnimeById.title_japanese }}
-				img.anime__cover(:src='getAnimeById.image_url')
-				select-collection.anime__input-field(v-if='getAnimeById.type'
-					:query='getAnimeById.type')
+				.anime__cover-container
+					img.anime__cover(:src='getAnimeById.image_url')
+					select-collection.anime__input-field(v-if='getAnimeById.type'
+						:query='getAnimeById.type')
 
 				.anime__info.anime-info
 					h2.anime-info__title
@@ -173,19 +174,33 @@
 			grid-template-areas: 'title title' 'cover info'
 			grid-gap: 20px
 			align-content: start
+			grid-template-rows: 70px auto
 			+mq(phablet, max)
+				grid-template-rows: auto
 				grid-template-areas: 'title' 'cover' 'info'
 
 		&__sub-content
 			grid-area: sub
 			display: grid
 			grid-gap: 20px
-			justify-content: flex-start
 			justify-content: center
+			align-content: flex-start
 			grid-template-columns: minmax(auto, 360px)
+			+mq(tablet-mid, max)
+				justify-content: flex-start
 
 		&__description
 			grid-area: description
+
+		&__cover-container
+			grid-area: cover
+			display: grid
+			justify-content: flex-start
+			row-gap: 20px
+			grid-area: cover
+
+		&__cover
+			max-width: 220px
 
 		&__info
 			grid-area: info
@@ -196,12 +211,9 @@
 			max-width: 460px
 			grid-area: title
 
-		&__cover
-			grid-area: cover
-			width: 100%
-
 		&__input-field
 			margin: 0
+			max-width: 220px
 
 	// ANIME TRAILER
 
@@ -209,21 +221,24 @@
 		display: grid
 		justify-content: start
 		grid-gap: 20px
+		grid-template-rows: 70px 200px
 
 		&__title
+			display: flex
+			align-items: center
 			@extend .header-title
 
 		&__iframe
+			height: 100%
 			height: 200px
 			width: 360px
-			+mq(phone-wide, max)
-				height: 124px
-				width: 220px
 
 	// ANIME RELATED
 
 	.anime-related
 		&__title
+			display: flex
+			align-items: center
 			@extend .header-title
 
 		&__tabs
@@ -259,8 +274,11 @@
 	// ANIME INFO
 
 	.anime-info
+		max-height: 330px
 		text-align: start
 		+flex(initial, initial, column)
+		+mq(phablet, max)
+			margin-top: 30px
 
 		&__title
 			color: $color-black
