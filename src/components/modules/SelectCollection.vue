@@ -73,7 +73,7 @@ import { mapGetters } from 'vuex';
 	@import '../../assets/styles/utils/mixins'
 
 	.input-field
-		+flex(center, space-between,column)
+		+flex(center, initial, column)
 		width: 100%
 		margin: 0 20px
 
