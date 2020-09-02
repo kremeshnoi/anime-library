@@ -221,7 +221,16 @@
 		display: grid
 		justify-content: start
 		grid-gap: 20px
-		grid-template-rows: 70px 200px
+		grid-template-rows: 70px auto
+
+		&__content
+			+flex(center, flex-start, initial)
+
+		&__info
+			text-align: start
+			padding: 0 20px 0 20px
+			+mq(phone-wide, max)
+				font-size: 40px
 
 		&__title
 			display: flex
@@ -274,11 +283,8 @@
 	// ANIME INFO
 
 	.anime-info
-		max-height: 330px
 		text-align: start
 		+flex(initial, initial, column)
-		+mq(phablet, max)
-			margin-top: 30px
 
 		&__title
 			color: $color-black
@@ -295,7 +301,7 @@
 			height: 100%
 			max-width: 300px
 			width: 100%
-			+flex(space-between, initial, column)
+			+flex(flex-start, initial, column)
 
 		&__list-item
 			margin: 6px 0
