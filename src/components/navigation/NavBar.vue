@@ -4,10 +4,10 @@
 		.nav-wrapper.nav-global-wrapper
 			router-link.nav-global-logo.nav-global-link(to='/')
 				| Otaku Library
-			.nav-global-logout(v-if='!getUserInfo.length')
-				router-link.nav-global-logout-link(to='/login')
+			.nav-global-login
+				router-link.nav-global-login-link(to='/login')
 					| Login
-					i.material-icons.nav-global-logout-icon exit_to_app
+					i.material-icons.nav-global-login-icon exit_to_app
 
 </template>
 
@@ -16,10 +16,7 @@
 	import { mapGetters } from "vuex";
 
 	export default {
-		name: 'NavBar',
-		computed: {
-			...mapGetters(['getUserInfo'])
-		}
+		name: 'NavBar'
 	};
 
 </script>
@@ -48,7 +45,7 @@
 				color: $color-white
 				font-family: 'Days One', sans-serif
 
-			&-logout
+			&-login
 				position: absolute
 				right: 0
 				top: 0

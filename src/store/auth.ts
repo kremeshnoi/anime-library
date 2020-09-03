@@ -1,6 +1,7 @@
 import firebase from 'firebase/app';
 import { email } from 'vuelidate/lib/validators';
 import { UserInfoResponse } from '@/interfaces/UserInfoResponse';
+import router from "@/router";
 
 export default {
 	actions: {
@@ -29,6 +30,7 @@ export default {
 		async signOut() {
 			try {
 				await firebase.auth().signOut();
+				router.go(0);
 			} catch (error) {
 				throw new Error(error);
 			}
