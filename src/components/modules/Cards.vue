@@ -7,7 +7,7 @@
 
 		.cards__title-wrapper
 			span.cards__title
-				| {{ query.title }}
+				| {{ query.title || query.name }}
 
 </template>
 
@@ -32,7 +32,7 @@
 
 	.cards
 		width: 100%
-		margin: 10px 10px 10px 0
+		margin: 0 10px 10px 0
 		height: fit-content
 		box-shadow: none
 		&:hover
