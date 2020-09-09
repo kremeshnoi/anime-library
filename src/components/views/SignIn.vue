@@ -52,7 +52,8 @@
 
 			center
 				.sign-in-form__row
-					vue-recaptcha(sitekey='6Lc-DaUZAAAAABeSVHxIZhS9Wk2xqSo53V4UeX-H')
+					vue-recaptcha(sitekey='6Lc-DaUZAAAAABeSVHxIZhS9Wk2xqSo53V4UeX-H'
+						@verify='onVerify')
 
 				.sign-in-form__row
 					button.sign-in__button.btn-large(type='submit'
@@ -74,7 +75,8 @@
 		name: 'SignIn',
 		data: () => ({
 			email: '',
-			password: ''
+			password: '',
+			recaptcha: null
 		}),
 		validations: {
 			email: { email, required },
@@ -87,6 +89,9 @@
 			title: 'Otaku Library - Sign In'
 		},
 		methods: {
+			onVerify: function (response) {
+				this.recaptcha = response
+			},
 			async submitHandler() {
 				if (this.$v.$invalid) {
 					this.$v.$touch()
@@ -99,9 +104,13 @@
 				};
 
 				try {
-					await this.$store.dispatch('signIn', signInData);
-					this.$router.push('/');
-					M.toast({ html: 'Signed In successfully', classes: 'green' });
+					if (this.recaptcha) {
+						await this.$store.dispatch('signIn', signInData);
+						this.$router.push('/');
+						M.toast({ html: 'Signed In successfully', classes: 'green' });
+					} else {
+						M.toast({ html: 'Complete the captcha!', classes: 'red' });
+					}
 				} catch (error) {
 					throw new Error(error);
 				}
