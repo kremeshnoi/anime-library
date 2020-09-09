@@ -75,7 +75,6 @@ import { mapGetters } from 'vuex';
 	.input-field
 		+flex(center, initial, column)
 		width: 100%
-		margin: 0 20px
 
 	.btn-small
 		text-transform: lowercase
