@@ -191,6 +191,11 @@
 			font-size: 20px
 			max-width: 460px
 			grid-area: title
+			text-overflow: ellipsis
+			overflow: hidden
+			display: -webkit-box
+			-webkit-line-clamp: 3
+			-webkit-box-orient: vertical
 
 		&__cover
 			max-width: 220px
