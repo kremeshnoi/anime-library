@@ -4,7 +4,7 @@
 		.nav-wrapper.nav-global-wrapper
 			router-link.nav-global-logo.nav-global-link(to='/')
 				| Otaku Library
-			.nav-global-login
+			.nav-global-login(v-if='this.user[0] === null')
 				router-link.nav-global-login-link(to='/login')
 					| Login
 					i.material-icons.nav-global-login-icon exit_to_app
@@ -13,10 +13,21 @@
 
 <script>
 
-	import { mapGetters } from "vuex";
+	import { mapActions } from "vuex";
 
 	export default {
-		name: 'NavBar'
+		name: 'NavBar',
+		data:()=> {
+			return {
+				user: []
+			}
+		},
+		methods: {
+			...mapActions(['getUid'])
+		},
+		async created() {
+			await this.getUid().then(result => this.user.push(result));
+		}
 	};
 
 </script>
