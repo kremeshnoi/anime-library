@@ -54,6 +54,7 @@
 		&__title
 			@extend .header-title
 			border-left: 5px solid $color-blue-light
+			margin: 0 0 10px 0
 			+flex(space-between, center, row)
 
 			&:hover
