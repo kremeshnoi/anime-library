@@ -135,7 +135,7 @@
 			grid-area: sub
 			display: grid
 			grid-gap: 20px
-			justify-content: center
+			justify-content: flex-start
 			align-content: flex-start
 			grid-template-columns: minmax(auto, 360px)
 			+mq(tablet-mid, max)
