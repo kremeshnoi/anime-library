@@ -8,6 +8,8 @@
 				router-link.navbar__login-link(to='/login')
 					| Login
 					i.navbar__icon.material-icons exit_to_app
+				router-link.navbar__login-link_mobile(to='/login')
+					i.navbar__icon.material-icons exit_to_app
 
 </template>
 
@@ -51,9 +53,11 @@
 			+flex(center, center, row)
 
 		&__logo
-			font-size: 24px
+			font-size: 26px
 			color: $color-white
 			font-family: 'Days One', sans-serif
+			+mq(phablet, max)
+				font-size: 22px
 
 		&__login
 			position: absolute
@@ -62,9 +66,15 @@
 
 		&__login-link
 			+flex(center, center, row)
+			+mq(phablet, max)
+				display: none
 			&:hover
 				.navbar__icon
 					transform: translateX(4px)
+			&_mobile
+				display: none
+				+mq(phablet, max)
+					display: block
 
 		&__icon
 			margin: 0 0 0 6px
