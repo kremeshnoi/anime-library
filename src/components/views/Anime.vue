@@ -41,6 +41,18 @@
 							.anime-info__list-values(v-for='(result, index_genres) in getAnimeById.genres'
 								:key='index_genres')
 								| {{ result.name }}
+						li.anime-info__list-item(v-if='getAnimeById.episodes')
+							.anime-info__list-key
+								| Episodes:
+							| &nbsp;
+							.anime-info__list-value
+								| {{ getAnimeById.episodes }}
+						li.anime-info__list-item(v-else)
+							.anime-info__list-key
+								| Episodes:
+							| &nbsp;
+							.anime-info__list-value
+								| Unknown
 						li.anime-info__list-item
 							.anime-info__list-key
 								| Duration:
@@ -210,6 +222,11 @@
 			font-size: 20px
 			max-width: 460px
 			grid-area: title
+			text-overflow: ellipsis
+			overflow: hidden
+			display: -webkit-box
+			-webkit-line-clamp: 3
+			-webkit-box-orient: vertical
 
 		&__input-field
 			margin: 0
