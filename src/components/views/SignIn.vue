@@ -51,8 +51,8 @@
 					| Still don't have an account?
 
 			center
-				.sign-in-form__row
-					vue-recaptcha(sitekey='6Lc-DaUZAAAAABeSVHxIZhS9Wk2xqSo53V4UeX-H'
+				.sign-in-form__row.sign-in-form__row_center
+					vue-recaptcha.recaptcha(sitekey='6Lc-DaUZAAAAABeSVHxIZhS9Wk2xqSo53V4UeX-H'
 						@verify='onVerify')
 
 				.sign-in-form__row
@@ -139,17 +139,26 @@
 		padding: 20px 20px 20px 20px
 		background-color: $color-white-pure
 		box-shadow: 10px 10px 5px 0 rgba(0, 0, 0, 0.75)
+		+flex(center, center, column)
+		+mq(phablet, max)
+			max-width: 100%
+			max-height: 100%
 
 		&__title
 			padding: 20px 0 0 0
 			font-size: 22px
+			margin: 0 0 10px 0
 
 	.sign-in-form
+		width: 100%
 		&__row
 			margin: 20px auto 20px auto
 			max-width: 304px
+			&_center
+				+flex(center, center, column)
 
 		&__field
+			text-align: center
 			+flex(center, flex-start, column)
 
 		&__helper
