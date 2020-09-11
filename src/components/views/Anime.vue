@@ -84,10 +84,9 @@
 						| Watch Trailer
 					.anime-trailer__content
 						iframe.anime-trailer__iframe(v-if='getAnimeById.trailer_url'
-							:src='getAnimeById.trailer_url'
+							:src=`this.trailer`
 							frameborder='0'
-							allowfullscreen='true'
-							autoplay='false')
+							allowfullscreen='true')
 						h2.anime-trailer__info(v-else) Trailer not found -_-
 
 				.anime__related.anime-related
@@ -138,7 +137,8 @@
 		name: 'Anime',
 		data() {
 			return {
-				relatedData: []
+				relatedData: [],
+				trailer: ''
 			}
 		},
 		components: {
@@ -152,13 +152,18 @@
 			}
 		},
 		methods: {
-			...mapActions(['loadAnimeById', 'loadAnimeRecommendationsById', 'computeRoute'])
+			...mapActions(['loadAnimeById', 'loadAnimeRecommendationsById', 'computeRoute']),
+			async disableAutoplay() {
+				let trailer = await this.getAnimeById.trailer_url;
+				this.trailer = trailer.substring(0, trailer.length - 1) + '0';
+			}
 		},
 		computed: {
 			...mapGetters(['getAnimeById', 'getAnimeRecommendationsById'])
 		},
 		async created() {
 			await this.loadAnimeById();
+			await this.disableAutoplay();
 			await this.loadAnimeRecommendationsById();
 			const tabs = document.querySelectorAll('.tabs');
 			const instanceTabs = M.Tabs.init(tabs);
