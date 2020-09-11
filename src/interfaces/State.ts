@@ -12,6 +12,7 @@ export interface State {
 	animeById: AnimeByIdResponse[];
 	animeFavorite: AnimeFavoriteResponseTop[];
 	animeSearched: AnimeSearchedResponseResults[];
+	animeRecommendationsById: AnimeByIdResponse[];
 	characterById: CharactersFavoriteResponseTop[];
 	charactersFavorite: CharactersFavoriteResponseTop[];
 	mangaById: MangaByIdResponse[];
