@@ -33,15 +33,20 @@
 	.cards
 		width: 100%
 		margin: 0 10px 10px 0
-		height: fit-content
 		box-shadow: none
+		position: relative
+
 		&:hover
 			opacity: 0.9
 
 		&__image
 			width: 100%
+			height: 100%
+			min-height: 220px
+			display: block
+			background-color: $color-blue-light
 			object-fit: cover
-			transform: scale(1.02)
+			transform: scale(1.01)
 
 		&__image-wrapper
 			overflow: hidden
