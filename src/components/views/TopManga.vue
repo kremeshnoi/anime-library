@@ -55,13 +55,12 @@
 			font-size: 16px
 			font-weight: 700
 			text-transform: uppercase
-			margin-bottom: 40px
+			margin: 0 0 20px 0
 			text-align: start
 			@extend .title-bordered
 			+mq(phablet-small, max)
 				font-size: 20px
 				max-width: 235px
-				margin: 0 auto 40px
 
 </style>
 
