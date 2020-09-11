@@ -34,6 +34,12 @@
 							| &nbsp;
 							.manga-info__list-value
 								| {{ getMangaById.status }}
+						li.anime-info__list-item
+							.anime-info__list-key
+								| Published:
+							| &nbsp;
+							.anime-info__list-value
+								| {{ getMangaById.published.string }}
 						li.manga-info__list-item
 							.manga-info__list-key
 								| Genres:
@@ -66,7 +72,7 @@
 								| {{ result.name }}
 
 			.manga__sub-content
-				.manga__related.anime-related
+				.manga__related.manga-related
 					.manga-related__title
 						| Related
 					.manga-related__content
@@ -143,7 +149,8 @@
 
 		&__container
 			display: grid
-			grid-gap: 20px
+			column-gap: 20px
+			row-gap: 40px
 			grid-template-columns: 1fr 1fr
 			grid-template-areas: 'main sub' 'description description'
 			@extend .container-default
@@ -158,7 +165,7 @@
 			grid-template-areas: 'title title' 'cover info'
 			grid-gap: 20px
 			align-content: start
-			grid-template-rows: 70px auto
+			grid-template-rows: 50 auto
 			+mq(phablet, max)
 				grid-template-rows: auto
 				grid-template-areas: 'title' 'cover' 'info'
@@ -173,8 +180,8 @@
 			+mq(tablet-mid, max)
 				justify-content: flex-start
 
-		&__description
-			grid-area: description
+		&__cover
+			max-width: 220px
 
 		&__cover-container
 			grid-area: cover
@@ -182,9 +189,6 @@
 			justify-content: flex-start
 			row-gap: 20px
 			grid-area: cover
-
-		&__info
-			grid-area: info
 
 		&__title
 			text-align: start
@@ -197,55 +201,14 @@
 			-webkit-line-clamp: 3
 			-webkit-box-orient: vertical
 
-		&__cover
-			max-width: 220px
-
 		&__input-field
 			margin: 0
 			max-width: 220px
 
-	// MANGA RELATED
-
-	.manga-related
-		&__title
-			height: 70px
-			display: flex
-			align-items: center
-			@extend .header-title
-
-		&__tabs
-			display: flex
-			flex-wrap: wrap
-			overflow-x: initial
-			overflow-y: initial
-			height: 100%
-
-		&__tab-item
-			padding: 0 !important
-			margin: 0 24px 0 0
-			text-align: start
-			color: $color-blue-light !important
-			&.active
-				background-color: initial !important
-				color: $color-orange !important
-
-		&__link
-			color: $color-grey-dark
-			&:hover
-				text-decoration: underline
-
-	// MANGA DESCRIPTION
-
-	.manga-description
-		text-align: start
-
-		&__title
-			@extend .header-title
-			margin: 0 0 16px 0
-
 	// MANGA INFO
 
 	.manga-info
+		grid-area: info
 		text-align: start
 		+flex(initial, initial, column)
 
@@ -260,11 +223,11 @@
 			border-left: 5px solid $color-blue-light
 
 		&__list
-			margin: 20px 0 0 5px
+			margin: 10px 0 0 0
 			height: 100%
 			max-width: 300px
 			width: 100%
-			+flex(flex-start, initial, column)
+			+flex(space-around, initial, column)
 
 		&__list-item
 			margin: 6px 0
@@ -291,5 +254,53 @@
 			&:hover
 				cursor: pointer
 				border-bottom: 1px dashed $color-blue
+
+	// MANGA RELATED
+
+	.manga-related
+		display: grid
+		justify-content: start
+		grid-gap: 20px
+		grid-template-rows: 50px auto
+
+		&__title
+			display: flex
+			align-items: flex-end
+			@extend .title
+
+		&__tabs
+			display: flex
+			flex-wrap: wrap
+			overflow-x: initial
+			overflow-y: initial
+			height: 100%
+
+		&__tab
+			height: initial !important
+
+		&__tab-item
+			padding: 0 !important
+			margin: 0 24px 14px 0
+			text-align: start
+			line-height: initial
+			color: $color-blue-light !important
+			&.active
+				background-color: initial !important
+				color: $color-orange !important
+
+		&__link
+			color: $color-grey-dark
+			&:hover
+				text-decoration: underline
+
+	// MANGA DESCRIPTION
+
+	.manga-description
+		grid-area: description
+		text-align: start
+
+		&__title
+			@extend .title
+			margin: 0 0 16px 0
 
 </style>
