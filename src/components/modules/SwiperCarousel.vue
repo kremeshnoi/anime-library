@@ -24,10 +24,10 @@
 					},
 					spaceBetween: 10,
 					breakpoints: {
-						480: {
+						320: {
 							slidesPerView: 1
 						},
-						560: {
+						400: {
 							slidesPerView: 2
 						},
 						640: {
