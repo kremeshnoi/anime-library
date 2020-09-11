@@ -38,8 +38,11 @@
 							.anime-info__list-key
 								| Aired:
 							| &nbsp;
+						.anime-info__list-value(v-if='getAnimeById.aired')
+							| {{ getAnimeById.aired.string }}
+						.anime-info__list-value(v-else)
 							.anime-info__list-value
-								| {{ getAnimeById.aired.string }}
+							| Unknown
 						li.anime-info__list-item
 							.anime-info__list-key
 								| Genres:
@@ -47,17 +50,13 @@
 							.anime-info__list-values(v-for='(result, index_genres) in getAnimeById.genres'
 								:key='index_genres')
 								| {{ result.name }}
-						li.anime-info__list-item(v-if='getAnimeById.episodes')
+						li.anime-info__list-item
 							.anime-info__list-key
 								| Episodes:
 							| &nbsp;
-							.anime-info__list-value
+							.anime-info__list-value(v-if='getAnimeById.episodes')
 								| {{ getAnimeById.episodes }}
-						li.anime-info__list-item(v-else)
-							.anime-info__list-key
-								| Episodes:
-							| &nbsp;
-							.anime-info__list-value
+							.anime-info__list-value(v-else)
 								| Unknown
 						li.anime-info__list-item
 							.anime-info__list-key
