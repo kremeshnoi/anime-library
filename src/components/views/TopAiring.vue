@@ -3,7 +3,7 @@
 	.top-airing
 		.top-airing__container
 			.top-airing__title
-				| Top Airing Anime . . .
+				| Top Airing Anime
 
 			query-content
 				cards(v-for='(result, index) in getAnimeAiring'

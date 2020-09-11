@@ -3,7 +3,7 @@
 	.top-manga
 		.top-manga__container
 			.top-manga__title
-				| Top Manga . . .
+				| Top Manga
 
 			query-content
 				cards(v-for='(result, index) in getMangaFavorite'

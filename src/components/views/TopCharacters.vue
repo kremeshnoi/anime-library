@@ -3,7 +3,7 @@
 	.top-characters
 		.top-characters__container
 			.top-characters__title
-				| Top Characters . . .
+				| Top Characters
 
 			query-content
 				cards(v-for='(result, index) in getCharactersFavorite'
