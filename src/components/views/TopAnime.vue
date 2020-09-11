@@ -41,6 +41,7 @@
 
 	@import '../../assets/styles/utils/vars'
 	@import '../../assets/styles/utils/mixins'
+	@import '../../assets/styles/modules/titles'
 	@import '../../assets/styles/modules/containers'
 
 
@@ -56,6 +57,7 @@
 			text-transform: uppercase
 			margin-bottom: 40px
 			text-align: start
+			@extend .title-bordered
 			+mq(phablet-small, max)
 				font-size: 20px
 				max-width: 235px
