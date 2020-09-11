@@ -181,7 +181,7 @@
 				justify-content: flex-start
 
 		&__cover
-			max-width: 220px
+			max-width: 200px
 
 		&__cover-container
 			grid-area: cover
@@ -198,7 +198,7 @@
 			text-overflow: ellipsis
 			overflow: hidden
 			display: -webkit-box
-			-webkit-line-clamp: 3
+			-webkit-line-clamp: 2
 			-webkit-box-orient: vertical
 
 		&__input-field

@@ -7,7 +7,8 @@
 					| {{ getCharacterById.name }}
 					.divider_hidden
 					| {{ getCharacterById.name_kanji }}
-				img.character__cover(:src='getCharacterById.image_url')
+				.character__cover-container
+					img.character__cover(:src='getCharacterById.image_url')
 
 				.character__info.character-info
 					h2.character-info__title
@@ -111,7 +112,8 @@
 
 		&__container
 			display: grid
-			grid-gap: 20px
+			column-gap: 20px
+			row-gap: 40px
 			grid-template-columns: 1fr 1fr
 			grid-template-areas: 'main sub'
 			@extend .container-default
@@ -126,7 +128,7 @@
 			grid-template-areas: 'title title' 'cover info'
 			grid-gap: 20px
 			align-content: start
-			grid-template-rows: 70px auto
+			grid-template-rows: 50px auto
 			+mq(phablet, max)
 				grid-template-rows: auto
 				grid-template-areas: 'title' 'cover' 'info'
@@ -142,58 +144,30 @@
 				justify-content: flex-start
 
 		&__cover
-			grid-area: cover
-			max-width: 220px
+			max-width: 200px
 
-		&__info
-			grid-area: info
+		&__cover-container
+			grid-area: cover
+			display: grid
+			justify-content: flex-start
+			row-gap: 20px
+			grid-area: cover
 
 		&__title
 			text-align: start
 			font-size: 20px
 			max-width: 460px
 			grid-area: title
-
-	// CHARACTER VOICE ACTORS
-
-	.character-voice-actors
-		&__title
-			height: 70px
-			display: flex
-			align-items: center
-			@extend .header-title
-
-		&__photo
-			width: 100%
-			max-width: 140px
-
-		&__tabs
-			display: flex
-			flex-wrap: wrap
-			overflow-x: initial
-			overflow-y: initial
-			height: 100%
-
-		&__tr
-			border-bottom: none
-
-		&__td
-			display: grid
-			grid-template-columns: 1fr 1fr
-			grid-gap: 10px
-
-		&__tab-item
-			padding: 0 !important
-			margin: 0 24px 0 0
-			text-align: start
-			color: $color-blue-light !important
-			&.active
-				background-color: initial !important
-				color: $color-orange !important
+			text-overflow: ellipsis
+			overflow: hidden
+			display: -webkit-box
+			-webkit-line-clamp: 2
+			-webkit-box-orient: vertical
 
 	// CHARACTER INFO
 
 	.character-info
+		grid-area: info
 		text-align: start
 		+flex(initial, initial, column)
 
@@ -242,6 +216,52 @@
 			&:hover
 				cursor: pointer
 				border-bottom: 1px dashed $color-blue
+
+	// CHARACTER VOICE ACTORS
+
+	.character-voice-actors
+		display: grid
+		justify-content: start
+		grid-gap: 20px
+		grid-template-rows: 50px auto
+
+		&__title
+			height: 70px
+			display: flex
+			align-items: center
+			@extend .title
+
+		&__photo
+			width: 100%
+			max-width: 140px
+
+		&__tabs
+			display: flex
+			flex-wrap: wrap
+			overflow-x: initial
+			overflow-y: initial
+			height: 100%
+
+		&__tab
+			height: initial !important
+
+		&__tab-item
+			padding: 0 !important
+			margin: 0 24px 14px 0
+			text-align: start
+			line-height: initial
+			color: $color-blue-light !important
+			&.active
+				background-color: initial !important
+				color: $color-orange !important
+
+		&__tr
+			border-bottom: none
+
+		&__td
+			display: grid
+			grid-template-columns: 1fr 1fr
+			grid-gap: 10px
 
 	// CHARACTER MODAL
 
