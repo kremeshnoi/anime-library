@@ -52,15 +52,11 @@
 			max-width: 1300px
 
 		&__title
-			@extend .header-title
-			border-left: 5px solid $color-blue-light
-			margin: 0 0 10px 0
+			@extend .title-bordered
 			+flex(space-between, center, row)
-
 			&:hover
 				color: orange
-
-				.Top-airing-icon
+				.top-airing-block__icon
 					color: inherit
 
 		&__icon
