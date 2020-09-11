@@ -227,10 +227,6 @@
 			row-gap: 20px
 			grid-area: cover
 
-		&__input-field
-			margin: 0
-			max-width: 220px
-
 		&__title
 			text-align: start
 			font-size: 20px
@@ -241,6 +237,10 @@
 			display: -webkit-box
 			-webkit-line-clamp: 2
 			-webkit-box-orient: vertical
+
+		&__input-field
+			margin: 0
+			max-width: 220px
 
 	// ANIME INFO
 
