@@ -27,6 +27,7 @@ export const state: State = {
 	animeById: [],
 	animeFavorite: [],
 	animeSearched: [],
+	animeRecommendationsById: [],
 	characterById: [],
 	charactersFavorite: [],
 	mangaById: [],
@@ -48,6 +49,9 @@ export default new Vuex.Store({
 		},
 		SET_ANIME_SEARCHED(state, animeSearched) {
 			state.animeSearched = animeSearched;
+		},
+		SET_ANIME_RECOMMENDATIONS_BY_ID(state, animeRecommendationsById) {
+			state.animeRecommendationsById = animeRecommendationsById;
 		},
 		SET_CHARACTER_BY_ID(state, characterById) {
 			state.characterById = characterById;
@@ -71,6 +75,15 @@ export default new Vuex.Store({
 				const animeResponse: AnimeByIdResponse = await jikanjs.loadAnime(router.app.$route.params.id);
 				const animeById = animeResponse;
 				ctx.commit('SET_ANIME_BY_ID', animeById);
+			} catch (error) {
+				throw new Error(error);
+			}
+		},
+		async loadAnimeRecommendationsById(ctx) {
+			try {
+				const animeRecommendationsResponse: AnimeByIdResponse = await jikanjs.loadAnime(router.app.$route.params.id, 'recommendations');
+				const animeRecommendationsById = animeRecommendationsResponse;
+				ctx.commit('SET_ANIME_RECOMMENDATIONS_BY_ID', animeRecommendationsById);
 			} catch (error) {
 				throw new Error(error);
 			}
@@ -172,6 +185,7 @@ export default new Vuex.Store({
 		getAnimeAiring: state => state.animeAiring,
 		getAnimeSearched: state => state.animeSearched,
 		getAnimeFavorite: state => state.animeFavorite,
+		getAnimeRecommendationsById: state => state.animeRecommendationsById,
 		getCharacterById: state => state.characterById,
 		getCharactersFavorite: state => state.charactersFavorite,
 		getMangaById: state => state.mangaById,
