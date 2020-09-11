@@ -3,7 +3,7 @@
 	.top-anime
 		.top-anime__container
 			.top-anime__title
-				| Viewers' Favorite Anime . . .
+				| Viewers' Favorite Anime
 
 			query-content
 				cards(v-for='(result, index) in getAnimeFavorite'
