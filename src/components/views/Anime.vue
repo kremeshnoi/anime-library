@@ -36,6 +36,12 @@
 								| {{ getAnimeById.status }}
 						li.anime-info__list-item
 							.anime-info__list-key
+								| Aired:
+							| &nbsp;
+							.anime-info__list-value
+								| {{ getAnimeById.aired.string }}
+						li.anime-info__list-item
+							.anime-info__list-key
 								| Genres:
 							| &nbsp;
 							.anime-info__list-values(v-for='(result, index_genres) in getAnimeById.genres'
@@ -112,6 +118,14 @@
 				.anime-description__synopsis
 					| {{ getAnimeById.synopsis }}
 
+			.anime__recommendations.anime-recommendations
+				.anime-recommendations__title
+					| RECOMMENDATIONS
+				swiper-carousel
+					cards.swiper-slide(v-for='(result, index) in getAnimeRecommendationsById.recommendations'
+						:key='index'
+						:query='result')
+
 </template>
 
 <script>
@@ -139,13 +153,14 @@
 			}
 		},
 		methods: {
-			...mapActions(['loadAnimeById', 'computeRoute'])
+			...mapActions(['loadAnimeById', 'loadAnimeRecommendationsById', 'computeRoute'])
 		},
 		computed: {
-			...mapGetters(['getAnimeById'])
+			...mapGetters(['getAnimeById', 'getAnimeRecommendationsById'])
 		},
 		async created() {
 			await this.loadAnimeById();
+			await this.loadAnimeRecommendationsById();
 			const tabs = document.querySelectorAll('.tabs');
 			const instanceTabs = M.Tabs.init(tabs);
 			const indicatorTooltip = document.querySelector('.indicator').style.display = 'none';
@@ -171,13 +186,14 @@
 
 		&__container
 			display: grid
-			grid-gap: 20px
+			column-gap: 20px
+			row-gap: 40px
 			grid-template-columns: 1fr 1fr
-			grid-template-areas: 'main sub' 'description description'
+			grid-template-areas: 'main sub' 'description description' 'recommendations recommendations'
 			@extend .container-default
 			+mq(tablet-mid, max)
 				grid-template-columns: 1fr
-				grid-template-areas: 'main' 'sub' 'description'
+				grid-template-areas: 'main' 'sub' 'description' 'recommendations'
 
 		&__main-content
 			grid-area: main
@@ -186,7 +202,7 @@
 			grid-template-areas: 'title title' 'cover info'
 			grid-gap: 20px
 			align-content: start
-			grid-template-rows: 70px auto
+			grid-template-rows: 50 auto
 			+mq(phablet, max)
 				grid-template-rows: auto
 				grid-template-areas: 'title' 'cover' 'info'
@@ -201,8 +217,8 @@
 			+mq(tablet-mid, max)
 				justify-content: flex-start
 
-		&__description
-			grid-area: description
+		&__cover
+			max-width: 200px
 
 		&__cover-container
 			grid-area: cover
@@ -211,11 +227,9 @@
 			row-gap: 20px
 			grid-area: cover
 
-		&__cover
+		&__input-field
+			margin: 0
 			max-width: 220px
-
-		&__info
-			grid-area: info
 
 		&__title
 			text-align: start
@@ -225,81 +239,13 @@
 			text-overflow: ellipsis
 			overflow: hidden
 			display: -webkit-box
-			-webkit-line-clamp: 3
+			-webkit-line-clamp: 2
 			-webkit-box-orient: vertical
-
-		&__input-field
-			margin: 0
-			max-width: 220px
-
-	// ANIME TRAILER
-
-	.anime-trailer
-		display: grid
-		justify-content: start
-		grid-gap: 20px
-		grid-template-rows: 70px auto
-
-		&__content
-			+flex(center, flex-start, initial)
-
-		&__info
-			text-align: start
-			padding: 0 20px 0 20px
-			+mq(phone-wide, max)
-				font-size: 40px
-
-		&__title
-			display: flex
-			align-items: center
-			@extend .header-title
-
-		&__iframe
-			height: 100%
-			height: 200px
-			width: 360px
-
-	// ANIME RELATED
-
-	.anime-related
-		&__title
-			display: flex
-			align-items: center
-			@extend .header-title
-
-		&__tabs
-			display: flex
-			flex-wrap: wrap
-			overflow-x: initial
-			overflow-y: initial
-			height: 100%
-
-		&__tab-item
-			padding: 0 !important
-			margin: 0 24px 0 0
-			text-align: start
-			color: $color-blue-light !important
-			&.active
-				background-color: initial !important
-				color: $color-orange !important
-
-		&__link
-			color: $color-grey-dark
-			&:hover
-				text-decoration: underline
-
-	// ANIME DESCRIPTION
-
-	.anime-description
-		text-align: start
-
-		&__title
-			@extend .header-title
-			margin: 0 0 16px 0
 
 	// ANIME INFO
 
 	.anime-info
+		grid-area: info
 		text-align: start
 		+flex(initial, initial, column)
 
@@ -314,11 +260,11 @@
 			border-left: 5px solid $color-blue-light
 
 		&__list
-			margin: 20px 0 0 5px
+			margin: 10px 0 0 0
 			height: 100%
 			max-width: 300px
 			width: 100%
-			+flex(flex-start, initial, column)
+			+flex(space-around, initial, column)
 
 		&__list-item
 			margin: 6px 0
@@ -346,5 +292,91 @@
 			&:hover
 				cursor: pointer
 				border-bottom: 1px dashed $color-blue
+
+	// ANIME TRAILER
+
+	.anime-trailer
+		display: grid
+		justify-content: start
+		grid-gap: 20px
+		grid-template-rows: 50px auto
+
+		&__content
+			+flex(center, flex-start, initial)
+
+		&__info
+			text-align: start
+			padding: 0 20px 0 20px
+			+mq(phone-wide, max)
+				font-size: 40px
+
+		&__title
+			display: flex
+			align-items: flex-end
+			@extend .title
+
+		&__iframe
+			height: 100%
+			height: 200px
+			width: 360px
+
+	// ANIME RELATED
+
+	.anime-related
+		display: grid
+		grid-gap: 20px
+
+		&__title
+			display: flex
+			align-items: center
+			@extend .title
+
+		&__tabs
+			display: flex
+			flex-wrap: wrap
+			overflow-x: initial
+			overflow-y: initial
+			height: 100%
+
+		&__tab
+			height: initial !important
+
+		&__tab-item
+			padding: 0 !important
+			margin: 0 24px 14px 0
+			text-align: start
+			height: initial !important
+			line-height: initial
+			color: $color-blue-light !important
+			&.active
+				background-color: initial !important
+				color: $color-orange !important
+
+		&__link
+			color: $color-grey-dark
+			&:hover
+				text-decoration: underline
+
+	// ANIME DESCRIPTION
+
+	.anime-description
+		grid-area: description
+		text-align: start
+		display: grid
+		grid-gap: 20px
+
+		&__title
+			@extend .title
+
+	// ANIME RECOMMENDATIONS
+
+	.anime-recommendations
+		grid-area: recommendations
+		display: grid
+		grid-gap: 20px
+
+		&__title
+			@extend .title
+
 
 </style>
