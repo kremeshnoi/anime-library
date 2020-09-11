@@ -34,12 +34,14 @@
 							| &nbsp;
 							.manga-info__list-value
 								| {{ getMangaById.status }}
-						li.anime-info__list-item
-							.anime-info__list-key
+						li.manga-info__list-item
+							.manga-info__list-key
 								| Published:
 							| &nbsp;
-							.anime-info__list-value
+							.manga-info__list-value(v-if='getMangaById.published')
 								| {{ getMangaById.published.string }}
+							.manga-info__list-value(v-else)
+								| Unknown
 						li.manga-info__list-item
 							.manga-info__list-key
 								| Genres:
@@ -122,7 +124,7 @@
 		computed: {
 			...mapGetters(['getMangaById'])
 		},
-		async created() {
+		async mounted() {
 			await this.loadMangaById();
 			const tabs = document.querySelectorAll('.tabs');
 			const instanceTabs = M.Tabs.init(tabs);

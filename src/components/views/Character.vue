@@ -16,8 +16,9 @@
 					ul.character-info__list
 						li.character-info__list-item
 							| &nbsp;
-							.character-info__list-value.modal-trigger(href='#character-info-modal')
+							.character-info__list-value
 								| {{ aboutCharacterData[0] }}
+							.character-info__list-icon.material-icons.modal-trigger(href='#character-info-modal') more_horiz
 
 			.character__sub-content
 				.character__voice-actors.character-voice-actors
@@ -182,16 +183,26 @@
 			border-left: 5px solid $color-blue-light
 
 		&__list
-			margin: 20px 0 0 5px
+			margin: 10px 0 0 0
 			height: 100%
 			max-width: 300px
 			width: 100%
 			+flex(flex-start, initial, column)
 
+		&__list-icon
+			cursor: pointer
+			line-height: 10px
+			+mq(phablet, max)
+				margin-top: 10px
+			&:hover
+				color: $color-orange
+
 		&__list-item
 			margin: 6px 0
 			&:last-of-type
 				margin: 0
+				height: 100%
+				+flex(space-between, initial, column)
 
 		&__list-value
 			white-space: pre-wrap
@@ -199,7 +210,7 @@
 			max-height: 300px
 			overflow: hidden
 			display: -webkit-box
-			-webkit-line-clamp: 12
+			-webkit-line-clamp: 10
 			-webkit-box-orient: vertical
 			&_decor
 				padding: 0 6px
@@ -235,6 +246,14 @@
 			width: 100%
 			max-width: 140px
 
+		&__tr
+			border-bottom: none
+
+		&__td
+			display: grid
+			grid-template-columns: 1fr 1fr
+			grid-gap: 10px
+
 		&__tabs
 			display: flex
 			flex-wrap: wrap
@@ -254,14 +273,6 @@
 			&.active
 				background-color: initial !important
 				color: $color-orange !important
-
-		&__tr
-			border-bottom: none
-
-		&__td
-			display: grid
-			grid-template-columns: 1fr 1fr
-			grid-gap: 10px
 
 	// CHARACTER MODAL
 
