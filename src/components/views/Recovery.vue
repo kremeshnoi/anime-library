@@ -54,7 +54,7 @@
 			VueRecaptcha
 		},
 		metaInfo: {
-			title: 'Otaku Library - Password Recovery'
+			title: 'Otaku Library / Password Recovery'
 		},
 		methods: {
 			onVerify: function (response) {

@@ -24,6 +24,9 @@
 			Cards,
 			QueryContent
 		},
+		metaInfo: {
+			title: 'Otaku Library / Top raited anime'
+		},
 		methods: {
 			...mapActions(['loadAnimeFavorite'])
 		},
