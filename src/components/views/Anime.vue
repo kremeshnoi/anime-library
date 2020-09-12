@@ -38,11 +38,10 @@
 							.anime-info__list-key
 								| Aired:
 							| &nbsp;
-						.anime-info__list-value(v-if='getAnimeById.aired')
-							| {{ getAnimeById.aired.string }}
-						.anime-info__list-value(v-else)
-							.anime-info__list-value
-							| Unknown
+							.anime-info__list-value(v-if='getAnimeById.aired')
+								| {{ getAnimeById.aired.string }}
+							.anime-info__list-value(v-else)
+								| Unknown
 						li.anime-info__list-item
 							.anime-info__list-key
 								| Genres:
