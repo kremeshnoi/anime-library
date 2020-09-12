@@ -24,6 +24,9 @@
 			Cards,
 			QueryContent
 		},
+		metaInfo: {
+			title: 'Otaku Library / Most popular characters'
+		},
 		methods: {
 			...mapActions(['loadCharactersFavorite'])
 		},

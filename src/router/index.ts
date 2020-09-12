@@ -73,10 +73,10 @@ const routes = [
 		component: () => import('../components/views/TopAnime.vue')
 	},
 	{
-		path: '/top-characters',
+		path: '/popular-characters',
 		name: 'TopCharacters',
 		meta: { layout: '' },
-		component: () => import('../components/views/TopCharacters.vue')
+		component: () => import('../components/views/PopularCharacters.vue')
 	},
 	{
 		path: '/top-manga',
