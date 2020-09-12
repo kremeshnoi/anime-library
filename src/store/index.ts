@@ -8,14 +8,15 @@ import auth from '@/store/auth';
 
 //Interfaces
 import { State } from '@/interfaces/State';
-import { UserInfoResponse } from '@/interfaces/UserInfoResponse';
 import { AnimeByIdResponse } from '@/interfaces/AnimeByIdResponse';
 import { AnimeAiringResponse } from '@/interfaces/AnimeAiringResponse';
 import { AnimeSearchedResponse } from '@/interfaces/AnimeSearchedResponse';
 import { AnimeFavoriteResponse } from '@/interfaces/AnimeFavoriteResponse';
+import { AnimeRecommendationsByIdResponse } from "@/interfaces/AnimeRecommendationsById";
 import { CharactersFavoriteResponse } from '@/interfaces/CharactersFavoriteResponse';
 import { MangaByIdResponse } from '@/interfaces/MangaByIdResponse';
 import { MangaFavoriteResponse } from '@/interfaces/MangaFavoriteResponse';
+import { UserInfoResponse } from '@/interfaces/UserInfoResponse';
 
 //API wrappers
 import jikanjs from '../../node_modules/jikanjs/lib/jikan.js';
@@ -85,7 +86,7 @@ export default new Vuex.Store({
 		},
 		async loadAnimeRecommendationsById(ctx) {
 			try {
-				const animeRecommendationsResponse: AnimeByIdResponse = await jikanjs.loadAnime(router.app.$route.params.id, 'recommendations');
+				const animeRecommendationsResponse: AnimeRecommendationsByIdResponse = await jikanjs.loadAnime(router.app.$route.params.id, 'recommendations');
 				const animeRecommendationsById = animeRecommendationsResponse;
 				ctx.commit('SET_ANIME_RECOMMENDATIONS_BY_ID', animeRecommendationsById);
 			} catch (error) {
