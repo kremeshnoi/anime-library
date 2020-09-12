@@ -46,19 +46,43 @@ const routes = [
 		path: '/register',
 		name: 'SignUp',
 		meta: { layout: '' },
-		component: () => import('../components/views/SignUp.vue')
+		component: () => import('../components/views/SignUp.vue'),
+		beforeEnter(to, from, next) {
+			const currentUser = firebase.auth().currentUser;
+			if(currentUser) {
+				next('/');
+			} else {
+				next();
+			}
+		}
 	},
 	{
 		path: '/login',
 		name: 'SignIn',
 		meta: { layout: '' },
-		component: () => import('../components/views/SignIn.vue')
+		component: () => import('../components/views/SignIn.vue'),
+		beforeEnter(to, from, next) {
+			const currentUser = firebase.auth().currentUser;
+			if(currentUser) {
+				next('/');
+			} else {
+				next();
+			}
+		}
 	},
 	{
 		path: '/recovery',
 		name: 'Recovery',
 		meta: { layout: '' },
-		component: () => import('../components/views/Recovery.vue')
+		component: () => import('../components/views/Recovery.vue'),
+		beforeEnter(to, from, next) {
+			const currentUser = firebase.auth().currentUser;
+			if(currentUser) {
+				next('/');
+			} else {
+				next();
+			}
+		}
 	},
 	{
 		path: '/top-airing',
@@ -100,9 +124,9 @@ router.beforeEach((to,from, next) => {
 	const requireAuth = to.matched.some(record => record.meta.auth);
 
 	if(requireAuth && !currentUser) {
-		next('/login')
+		next('/login');
 	} else {
-		next()
+		next();
 	}
 
 	if(!currentUser) {
