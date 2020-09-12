@@ -24,6 +24,9 @@
 			Cards,
 			QueryContent
 		},
+		metaInfo: {
+			title: 'Otaku Library / Top raited airing anime'
+		},
 		methods: {
 			...mapActions(['loadAnimeAiring'])
 		},

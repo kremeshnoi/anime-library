@@ -86,7 +86,7 @@
 			VueRecaptcha
 		},
 		metaInfo: {
-			title: 'Otaku Library - Sign In'
+			title: 'Otaku Library / Sign In'
 		},
 		methods: {
 			onVerify: function (response) {
