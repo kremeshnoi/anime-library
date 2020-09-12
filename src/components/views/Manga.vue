@@ -101,16 +101,28 @@
 				.manga-description__synopsis
 					| {{ getMangaById.synopsis }}
 
+			.manga__recommendations.manga-recommendations(v-if='getMangaRecommendationsById.recommendations.length >= 7')
+				.manga-recommendations__title
+					| RECOMMENDATIONS
+				swiper-carousel
+					cards.swiper-slide(v-for='(result, index) in getMangaRecommendationsById.recommendations'
+						:key='index'
+						:query='result')
+
 </template>
 
 <script>
 
 	import { mapActions, mapGetters } from 'vuex';
+	import Cards from '@/components/modules/Cards';
+	import SwiperCarousel from '@/components/modules/SwiperCarousel';
 	import SelectCollection from '@/components/modules/SelectCollection';
 
 	export default {
 		name: 'Manga',
 		components: {
+			Cards,
+			SwiperCarousel,
 			SelectCollection
 		},
 		metaInfo() {
@@ -119,13 +131,14 @@
 			}
 		},
 		methods: {
-			...mapActions(['loadMangaById', 'computeRoute'])
+			...mapActions(['loadMangaById', 'loadMangaRecommendationsById', 'computeRoute'])
 		},
 		computed: {
-			...mapGetters(['getMangaById'])
+			...mapGetters(['getMangaById', 'getMangaRecommendationsById'])
 		},
 		async mounted() {
 			await this.loadMangaById();
+			await this.loadMangaRecommendationsById();
 			const tabs = document.querySelectorAll('.tabs');
 			const instanceTabs = M.Tabs.init(tabs);
 			const indicatorTooltip = document.querySelector('.indicator').style.display = 'none';
@@ -154,11 +167,11 @@
 			column-gap: 20px
 			row-gap: 40px
 			grid-template-columns: 1fr 1fr
-			grid-template-areas: 'main sub' 'description description'
+			grid-template-areas: 'main sub' 'description description' 'recommendations recommendations'
 			@extend .container-default
 			+mq(tablet-mid, max)
 				grid-template-columns: 1fr
-				grid-template-areas: 'main' 'sub' 'description'
+				grid-template-areas: 'main' 'sub' 'description' 'recommendations'
 
 		&__main-content
 			grid-area: main
@@ -304,5 +317,15 @@
 		&__title
 			@extend .title
 			margin: 0 0 16px 0
+
+	// ANIME RECOMMENDATIONS
+
+	.manga-recommendations
+		grid-area: recommendations
+		display: grid
+		grid-gap: 20px
+
+		&__title
+			@extend .title
 
 </style>

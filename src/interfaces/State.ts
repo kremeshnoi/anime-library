@@ -17,5 +17,6 @@ export interface State {
 	charactersFavorite: CharactersFavoriteResponseTop[];
 	mangaById: MangaByIdResponse[];
 	mangaFavorite: MangaFavoriteResponseTop[];
+	mangaRecommendationsById: MangaFavoriteResponseTop[];
 	userInfo: UserInfoResponse[];
 }

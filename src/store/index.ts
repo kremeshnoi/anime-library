@@ -32,6 +32,7 @@ export const state: State = {
 	charactersFavorite: [],
 	mangaById: [],
 	mangaFavorite: [],
+	mangaRecommendationsById: [],
 	userInfo: []
 };
 
@@ -64,6 +65,9 @@ export default new Vuex.Store({
 		},
 		SET_MANGA_FAVORITE(state, mangaFavorite) {
 			state.mangaFavorite = mangaFavorite;
+		},
+		SET_MANGA_RECOMMENDATIONS_BY_ID(state, mangaRecommendationsById) {
+			state.mangaRecommendationsById = mangaRecommendationsById;
 		},
 		SET_USER_INFO(state, userInfo) {
 			state.userInfo = userInfo;
@@ -102,6 +106,15 @@ export default new Vuex.Store({
 				const mangaResponse: MangaByIdResponse = await jikanjs.loadManga(router.app.$route.params.id);
 				const mangaById = mangaResponse;
 				ctx.commit('SET_MANGA_BY_ID', mangaById);
+			} catch (error) {
+				throw new Error(error);
+			}
+		},
+		async loadMangaRecommendationsById(ctx) {
+			try {
+				const mangaRecommendationsResponse: MangaByIdResponse = await jikanjs.loadManga(router.app.$route.params.id, 'recommendations');
+				const mangaRecommendationsById = mangaRecommendationsResponse;
+				ctx.commit('SET_MANGA_RECOMMENDATIONS_BY_ID', mangaRecommendationsById);
 			} catch (error) {
 				throw new Error(error);
 			}
@@ -161,8 +174,10 @@ export default new Vuex.Store({
 				if (type === undefined) {
 					if(result.name_kanji) {
 						type = 'Character';
-					} else {
+					} else if(router.app.$route.name === 'Anime') {
 						type = 'Anime';
+					} else if(router.app.$route.name === 'Manga') {
+						type = 'Manga';
 					}
 				} else if (type !== 'Manga' && type !== 'manga') {
 					type = 'Anime';
@@ -193,6 +208,7 @@ export default new Vuex.Store({
 		getCharacterById: state => state.characterById,
 		getCharactersFavorite: state => state.charactersFavorite,
 		getMangaById: state => state.mangaById,
-		getMangaFavorite: state => state.mangaFavorite
+		getMangaFavorite: state => state.mangaFavorite,
+		getMangaRecommendationsById: state => state.mangaRecommendationsById
 	}
 });
