@@ -1,6 +1,7 @@
 import { AnimeByIdResponse } from '@/interfaces/AnimeByIdResponse';
 import { AnimeAiringResponseTop } from '@/interfaces/AnimeAiringResponse';
 import { AnimeSearchedResponseResults } from '@/interfaces/AnimeSearchedResponse';
+import { AnimeRecommendationsByIdResponseRecommendations } from "@/interfaces/AnimeRecommendationsById";
 import { AnimeFavoriteResponseTop } from '@/interfaces/AnimeFavoriteResponse';
 import { CharactersFavoriteResponseTop } from '@/interfaces/CharactersFavoriteResponse';
 import { MangaFavoriteResponseTop } from '@/interfaces/MangaFavoriteResponse';
@@ -12,7 +13,7 @@ export interface State {
 	animeById: AnimeByIdResponse[];
 	animeFavorite: AnimeFavoriteResponseTop[];
 	animeSearched: AnimeSearchedResponseResults[];
-	animeRecommendationsById: AnimeByIdResponse[];
+	animeRecommendationsById: AnimeRecommendationsByIdResponseRecommendations[];
 	characterById: CharactersFavoriteResponseTop[];
 	charactersFavorite: CharactersFavoriteResponseTop[];
 	mangaById: MangaByIdResponse[];
