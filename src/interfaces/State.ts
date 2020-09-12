@@ -6,6 +6,7 @@ import { AnimeFavoriteResponseTop } from '@/interfaces/AnimeFavoriteResponse';
 import { CharactersFavoriteResponseTop } from '@/interfaces/CharactersFavoriteResponse';
 import { MangaFavoriteResponseTop } from '@/interfaces/MangaFavoriteResponse';
 import { MangaByIdResponse } from '@/interfaces/MangaByIdResponse';
+import { MangaRecommendationsByIdResponseRecommendations } from "@/interfaces/MangaRecommendationsById";
 import { UserInfoResponse } from '@/interfaces/UserInfoResponse';
 
 export interface State {
@@ -18,6 +19,6 @@ export interface State {
 	charactersFavorite: CharactersFavoriteResponseTop[];
 	mangaById: MangaByIdResponse[];
 	mangaFavorite: MangaFavoriteResponseTop[];
-	mangaRecommendationsById: MangaFavoriteResponseTop[];
+	mangaRecommendationsById: MangaRecommendationsByIdResponseRecommendations[];
 	userInfo: UserInfoResponse[];
 }
