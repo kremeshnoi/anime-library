@@ -159,7 +159,11 @@ export default new Vuex.Store({
 			try {
 				let type = result.type;
 				if (type === undefined) {
-					type = 'Character';
+					if(result.name_kanji) {
+						type = 'Character';
+					} else {
+						type = 'Anime';
+					}
 				} else if (type !== 'Manga' && type !== 'manga') {
 					type = 'Anime';
 				} else if (type === 'manga') {
