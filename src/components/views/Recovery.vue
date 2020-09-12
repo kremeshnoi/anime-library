@@ -22,6 +22,14 @@
 						data-error='Incorrect email')
 
 			center.recovery__center
+				.preloader-wrapper.big.active
+					.spinner-layer.spinner-blue-only
+						.circle-clipper.left
+							.circle
+						.gap-patch
+							.circle
+						.circle-clipper.right
+							.circle
 				.recovery-form__row.sign-in-form__row_center
 					vue-recaptcha.recaptcha(sitekey='6Lc-DaUZAAAAABeSVHxIZhS9Wk2xqSo53V4UeX-H'
 						@verify='onVerify')
@@ -72,6 +80,11 @@
 
 				try {
 					if (this.recaptcha) {
+						if (window.screen.width <= 560) {
+							document.querySelector('.preloader-wrapper').style.display = 'block';
+						} else {
+							document.querySelector('.auth-progress').style.display = 'block';
+						}
 						await this.$store.dispatch('recoverPassword', RecoveryData);
 						this.$router.push('/');
 						M.toast({ html: 'Signed In successfully', classes: 'green' });
