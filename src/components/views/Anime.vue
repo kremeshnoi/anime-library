@@ -116,7 +116,7 @@
 				.anime-description__synopsis
 					| {{ getAnimeById.synopsis }}
 
-			.anime__recommendations.anime-recommendations
+			.anime__recommendations.anime-recommendations(v-if='getAnimeRecommendationsById.recommendations.length >= 7' )
 				.anime-recommendations__title
 					| RECOMMENDATIONS
 				swiper-carousel
