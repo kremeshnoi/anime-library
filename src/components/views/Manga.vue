@@ -20,20 +20,26 @@
 							.manga-info__list-key
 								| Type:
 							| &nbsp;
-							.manga-info__list-value
+							.manga-info__list-value(v-if='getMangaById.type')
 								| {{ getMangaById.type }}
+							.manga-info__list-value(v-else)
+								| Unknown
 						li.manga-info__list-item
 							.manga-info__list-key
 								| Score:
 							| &nbsp;
-							span.manga-info__list-value.manga-info__list-value_decor
+							span.manga-info__list-value.manga-info__list-value_decor(v-if='getMangaById.score')
 								| {{ getMangaById.score }}
+							.manga-info__list-value(v-else)
+								| Unknown
 						li.manga-info__list-item
 							.manga-info__list-key
 								| Status:
 							| &nbsp;
-							.manga-info__list-value
+							.manga-info__list-value(v-if='getMangaById.status')
 								| {{ getMangaById.status }}
+							.manga-info__list-value(v-else)
+								| Unknown
 						li.manga-info__list-item
 							.manga-info__list-key
 								| Published:
@@ -53,18 +59,18 @@
 							.manga-info__list-key
 								| Volumes:
 							| &nbsp;
-							.manga-info__list-value(v-if='getMangaById.volumes === null')
-								| Unknown
-							.manga-info__list-value(v-else)
+							.manga-info__list-value(v-if='getMangaById.volumes')
 								| {{ getMangaById.volumes }}
+							.manga-info__list-value(v-else)
+								| Unknown
 						li.manga-info__list-item
 							.manga-info__list-key
 								| Chapters:
 							| &nbsp;
-							.manga-info__list-value(v-if='getMangaById.chapters === null')
-								| Unknown
-							.manga-info__list-value(v-else)
+							.manga-info__list-value(v-if='getMangaById.chapters')
 								| {{ getMangaById.chapters }}
+							.manga-info__list-value(v-else)
+								| Unknown
 						li.manga-info__list-item
 							.manga-info__list-key
 								| Publication:
@@ -83,6 +89,7 @@
 								:key='name')
 								a.manga-related__tab-item(:href=`'#' + counter`)
 									| {{ name }}
+
 						.manga-related__item(:id='counter'
 							v-for='(value, name, counter) in getMangaById.related'
 							:key='name')
@@ -94,20 +101,31 @@
 											a.manga-related__link(@click='computeRoute(result)')
 												| {{ result.name }}
 
+						h4.manga-related__disaster(v-if='this.related === 0')
+							| Not found (￣︿￣)
+
 			.manga__description.manga-description
 				.manga-description__title
 					| DESCRIPTION
 
-				.manga-description__synopsis
+				.manga-description__synopsis(v-if='getMangaById.synopsis')
 					| {{ getMangaById.synopsis }}
 
-			.manga__recommendations.manga-recommendations(v-if='getMangaRecommendationsById.recommendations.length >= 7')
-				.manga-recommendations__title
-					| RECOMMENDATIONS
-				swiper-carousel
-					cards.swiper-slide(v-for='(result, index) in getMangaRecommendationsById.recommendations'
-						:key='index'
-						:query='result')
+				h4.manga-recommendations__disaster(v-else)
+					| Not found (︶︹︺)
+
+			.manga__recommendations.manga-recommendations(v-if='getMangaRecommendationsById.recommendations')
+				.manga-recommendations__wrapper
+					.manga-recommendations__title
+						| RECOMMENDATIONS
+
+					swiper-carousel(v-if='getMangaRecommendationsById.recommendations.length >= 7')
+						cards.swiper-slide(v-for='(result, index) in getMangaRecommendationsById.recommendations'
+							:key='index'
+							:query='result')
+
+					h4.manga-recommendations__disaster(v-else)
+						| Not found (」°ロ°)」
 
 </template>
 
@@ -120,6 +138,11 @@
 
 	export default {
 		name: 'Manga',
+		data:() => {
+			return {
+				related: []
+			}
+		},
 		components: {
 			Cards,
 			SwiperCarousel,
@@ -131,17 +154,23 @@
 			}
 		},
 		methods: {
-			...mapActions(['loadMangaById', 'loadMangaRecommendationsById', 'computeRoute'])
+			...mapActions(['loadMangaById', 'loadMangaRecommendationsById', 'computeRoute']),
+			checkRelatedLength() {
+				this.related = Object.keys(this.getMangaById.related).length
+			}
 		},
 		computed: {
 			...mapGetters(['getMangaById', 'getMangaRecommendationsById'])
 		},
-		async mounted() {
+		async created() {
 			await this.loadMangaById();
 			await this.loadMangaRecommendationsById();
-			const tabs = document.querySelectorAll('.tabs');
-			const instanceTabs = M.Tabs.init(tabs);
-			const indicatorTooltip = document.querySelector('.indicator').style.display = 'none';
+			if(Object.keys(this.getMangaById.related).length) {
+				const tabs = document.querySelectorAll('.tabs');
+				const instanceTabs = M.Tabs.init(tabs);
+				const indicatorTooltip = document.querySelector('.indicator').style.display = 'none';
+			}
+			this.checkRelatedLength();
 		}
 	};
 
@@ -277,6 +306,9 @@
 		justify-content: start
 		grid-gap: 20px
 		grid-template-rows: 50px auto
+		grid-template-columns: 100%
+		text-align: start
+
 
 		&__title
 			display: flex
@@ -322,8 +354,12 @@
 
 	.manga-recommendations
 		grid-area: recommendations
-		display: grid
-		grid-gap: 20px
+
+		&__wrapper
+			display: grid
+			grid-gap: 20px
+			justify-content: start
+			grid-template-rows: 50px auto
 
 		&__title
 			@extend .title
