@@ -10,6 +10,7 @@ import auth from '@/store/auth';
 import { State } from '@/interfaces/State';
 import { AnimeByIdResponse } from '@/interfaces/AnimeByIdResponse';
 import { AnimeAiringResponse } from '@/interfaces/AnimeAiringResponse';
+import { AnimeByPopularityResponse } from "@/interfaces/AnimeByPopularityResponse";
 import { AnimeSearchedResponse } from '@/interfaces/AnimeSearchedResponse';
 import { AnimeFavoriteResponse } from '@/interfaces/AnimeFavoriteResponse';
 import { AnimeRecommendationsByIdResponse } from "@/interfaces/AnimeRecommendationsById";
@@ -26,6 +27,7 @@ Vue.use(Vuex);
 
 export const state: State = {
 	animeAiring: [],
+	animeByPopularity: [],
 	animeById: [],
 	animeFavorite: [],
 	animeSearched: [],
@@ -43,6 +45,9 @@ export default new Vuex.Store({
 	mutations: {
 		SET_ANIME_AIRING(state, animeAiring) {
 			state.animeAiring = animeAiring;
+		},
+		SET_ANIME_BY_POPULARITY(state, animeByPopularity) {
+			state.animeByPopularity = animeByPopularity;
 		},
 		SET_ANIME_BY_ID(state, animeById) {
 			state.animeById = animeById;
@@ -130,6 +135,15 @@ export default new Vuex.Store({
 				throw new Error(error);
 			}
 		},
+		async loadAnimeByPopularity(ctx) {
+			try {
+				const animeByPopularityResponse: AnimeByPopularityResponse = await jikanjs.loadTop('anime', 1, 'bypopularity');
+				const animeByPopularity = animeByPopularityResponse.top;
+				ctx.commit('SET_ANIME_BY_POPULARITY', animeByPopularity);
+			} catch (error) {
+				throw new Error(error);
+			}
+		},
 		async loadAnimeSearched(ctx, query) {
 			try {
 				const animeSearchedResponse: AnimeSearchedResponse = await jikanjs.search('anime', query);
@@ -204,6 +218,7 @@ export default new Vuex.Store({
 		getUserInfo: state => state.userInfo,
 		getAnimeById: state => state.animeById,
 		getAnimeAiring: state => state.animeAiring,
+		getAnimeByPopularity: state => state.animeByPopularity,
 		getAnimeSearched: state => state.animeSearched,
 		getAnimeFavorite: state => state.animeFavorite,
 		getAnimeRecommendationsById: state => state.animeRecommendationsById,

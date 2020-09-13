@@ -91,6 +91,12 @@ const routes = [
 		component: () => import('../components/views/TopAiring.vue')
 	},
 	{
+		path: '/popular-anime',
+		name: 'AnimeByPopularity',
+		meta: { layout: '' },
+		component: () => import('../components/views/AnimeByPopularity.vue')
+	},
+	{
 		path: '/top-anime',
 		name: 'TopAnime',
 		meta: { layout: '' },
