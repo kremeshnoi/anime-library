@@ -1,18 +1,18 @@
 <template lang='pug'>
 
 	.home
-		top-airing-block
+		top-airing-anime-block
 
 </template>
 
 <script>
 
-	import TopAiringBlock from '@/components/blocks/TopAiringBlock';
+	import TopAiringAnimeBlock from '@/components/blocks/TopAiringAnimeBlock';
 
 	export default {
 		name: 'Home',
 		components: {
-			TopAiringBlock
+			TopAiringAnimeBlock
 		},
 		metaInfo: {
 			title: 'Otaku Library - Organize your own anime / manga list'

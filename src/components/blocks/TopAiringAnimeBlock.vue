@@ -1,10 +1,10 @@
 <template lang='pug'>
 
-	.top-airing-block
-		.top-airing-block__container
-			router-link.top-airing-block__title(to='/top-airing')
+	.top-airing-anime-block
+		.top-airing-anime-block__container
+			router-link.top-airing-anime-block__title(to='/top-airing')
 				| AIRING ANIME
-				.top-airing-block__icon.material-icons keyboard_arrow_right
+				.top-airing-anime-block__icon.material-icons keyboard_arrow_right
 			swiper-carousel
 				cards.swiper-slide(v-for='(result, index) in getAnimeAiring.slice(0, 7)'
 					:key='index'
@@ -43,7 +43,7 @@
 	@import '../../assets/styles/utils/mixins'
 	@import '../../assets/styles/modules/titles'
 
-	.top-airing-block
+	.top-airing-anime-block
 		width: 100%
 
 		&__container
