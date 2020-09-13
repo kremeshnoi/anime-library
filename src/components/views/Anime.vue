@@ -20,20 +20,26 @@
 							.anime-info__list-key
 								| Type:
 							| &nbsp;
-							.anime-info__list-value
+							.anime-info__list-value(v-if='getAnimeById.type')
 								| {{ getAnimeById.type }}
+							.anime-info__list-value(v-else)
+								| Unknown
 						li.anime-info__list-item
 							.anime-info__list-key
 								| Score:
 							| &nbsp;
-							span.anime-info__list-value.anime-info__list-value_decor
+							span.anime-info__list-value.anime-info__list-value_decor(v-if='getAnimeById.score')
 								| {{ getAnimeById.score }}
+							.anime-info__list-value(v-else)
+								| Unknown
 						li.anime-info__list-item
 							.anime-info__list-key
 								| Status:
 							| &nbsp;
-							.anime-info__list-value
+							.anime-info__list-value(v-if='getAnimeById.status')
 								| {{ getAnimeById.status }}
+							.anime-info__list-value(v-else)
+								| Unknown
 						li.anime-info__list-item
 							.anime-info__list-key
 								| Aired:
@@ -61,8 +67,10 @@
 							.anime-info__list-key
 								| Duration:
 							| &nbsp;
-							.anime-info__list-value
+							.anime-info__list-value(v-if='getAnimeById.duration')
 								| {{ getAnimeById.duration }}
+							.anime-info__list-value(v-else)
+								| Unknown
 						li.anime-info__list-item
 							.anime-info__list-key
 								| Studios:
@@ -74,8 +82,10 @@
 							.anime-info__list-key
 								| Rating:
 							| &nbsp;
-							.anime-info__list-value
+							.anime-info__list-value(v-if='getAnimeById.rating')
 								| {{ getAnimeById.rating }}
+							.anime-info__list-value(v-else)
+								| Unknown
 
 			.anime__sub-content
 				.anime__trailer.anime-trailer
@@ -86,7 +96,8 @@
 							:src=`this.trailer`
 							frameborder='0'
 							allowfullscreen='true')
-						h2.anime-trailer__info(v-else) Trailer not found -_-
+						h4.anime-trailer__disaster(v-else)
+							| Not found (＃￣ω￣)
 
 				.anime__related.anime-related
 					.anime-related__title
@@ -108,20 +119,32 @@
 											a.anime-related__link(@click='computeRoute(result)')
 												| {{ result.name }}
 
+						h4.manga-related__disaster(v-if='this.related === 0')
+							| Not found (￣︿￣)
+
 			.anime__description.anime-description
 				.anime-description__title
 					| DESCRIPTION
 
-				.anime-description__synopsis
+				.anime-description__synopsis(v-if='getAnimeById.synopsis')
 					| {{ getAnimeById.synopsis }}
 
-			.anime__recommendations.anime-recommendations(v-if='getAnimeRecommendationsById.recommendations.length >= 7')
-				.anime-recommendations__title
-					| RECOMMENDATIONS
-				swiper-carousel
-					cards.swiper-slide(v-for='(result, index) in getAnimeRecommendationsById.recommendations'
-						:key='index'
-						:query='result')
+				h4.anime-description__disaster(v-else)
+					| Not found (︶︹︺)
+
+			.anime__recommendations.anime-recommendations(v-if='getAnimeRecommendationsById.recommendations')
+				.anime-recommendations__wrapper
+					.anime-recommendations__title
+						| RECOMMENDATIONS
+
+					swiper-carousel(v-if='getAnimeRecommendationsById.recommendations.length >= 7')
+						cards.swiper-slide(v-for='(result, index) in getAnimeRecommendationsById.recommendations'
+							:key='index'
+							:query='result')
+
+					h4.anime-recommendations__disaster(v-else)
+						| Not found (」°ロ°)」
+
 
 </template>
 
@@ -134,9 +157,9 @@
 
 	export default {
 		name: 'Anime',
-		data() {
+		data:() => {
 			return {
-				relatedData: [],
+				related: [],
 				trailer: ''
 			}
 		},
@@ -152,9 +175,14 @@
 		},
 		methods: {
 			...mapActions(['loadAnimeById', 'loadAnimeRecommendationsById', 'computeRoute']),
+			checkRelatedLength() {
+				this.related = Object.keys(this.getAnimeById.related).length
+			},
 			async disableAutoplay() {
 				let trailer = await this.getAnimeById.trailer_url;
-				this.trailer = trailer.substring(0, trailer.length - 1) + '0';
+				if(trailer) {
+					this.trailer = trailer.substring(0, trailer.length - 1) + '0';
+				}
 			}
 		},
 		computed: {
@@ -164,9 +192,12 @@
 			await this.loadAnimeById();
 			await this.disableAutoplay();
 			await this.loadAnimeRecommendationsById();
-			const tabs = document.querySelectorAll('.tabs');
-			const instanceTabs = M.Tabs.init(tabs);
-			const indicatorTooltip = document.querySelector('.indicator').style.display = 'none';
+			if(Object.keys(this.getAnimeById.related).length) {
+				const tabs = document.querySelectorAll('.tabs');
+				const instanceTabs = M.Tabs.init(tabs);
+				const indicatorTooltip = document.querySelector('.indicator').style.display = 'none';
+			}
+			this.checkRelatedLength();
 		}
 	};
 
@@ -303,15 +334,10 @@
 		justify-content: start
 		grid-gap: 20px
 		grid-template-rows: 50px auto
+		text-align: start
 
 		&__content
 			+flex(center, flex-start, initial)
-
-		&__info
-			text-align: start
-			padding: 0 20px 0 20px
-			+mq(phone-wide, max)
-				font-size: 40px
 
 		&__title
 			display: flex
@@ -327,7 +353,11 @@
 
 	.anime-related
 		display: grid
+		justify-content: start
 		grid-gap: 20px
+		grid-template-rows: 50px auto
+		grid-template-columns: 100%
+		text-align: start
 
 		&__title
 			display: flex
@@ -375,8 +405,12 @@
 
 	.anime-recommendations
 		grid-area: recommendations
-		display: grid
-		grid-gap: 20px
+
+		&__wrapper
+			display: grid
+			grid-gap: 20px
+			justify-content: start
+			grid-template-rows: 50px auto
 
 		&__title
 			@extend .title
