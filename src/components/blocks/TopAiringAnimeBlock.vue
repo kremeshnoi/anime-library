@@ -56,7 +56,7 @@
 			+flex(space-between, center, row)
 			&:hover
 				color: orange
-				.top-airing-block__icon
+				.top-airing-anime-block__icon
 					color: inherit
 
 		&__icon
