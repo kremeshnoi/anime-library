@@ -137,7 +137,8 @@
 		&__sub-content
 			grid-area: sub
 			display: grid
-			grid-gap: 20px
+			column-gap: 20px
+			row-gap: 40px
 			justify-content: flex-start
 			align-content: flex-start
 			grid-template-columns: minmax(auto, 360px)
