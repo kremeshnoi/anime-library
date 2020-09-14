@@ -2,7 +2,7 @@
 
 	.sign-up
 		h1.sign-up__title
-			| Start using Otaku Library
+			| Join Otaku Library!
 
 		form.sign-up__form.sign-up-form(v-on:submit.prevent='submitHandler')
 			.sign-up-form__row
@@ -56,7 +56,7 @@
 						data-error='Password is too short')
 
 			.sign-up-form__row
-				router-link(to='/login')
+				router-link(to='/sign-in')
 					| Already have an account?
 
 			center.sign-up__center

@@ -2,7 +2,7 @@
 
 	.sign-in
 		h1.sign-in__title
-			| Login to account
+			| Start using your account
 
 		form.sign-in__form.sign-in-form(v-on:submit.prevent='submitHandler')
 			.sign-in-form__row

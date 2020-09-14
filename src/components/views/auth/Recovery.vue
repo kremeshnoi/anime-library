@@ -2,7 +2,7 @@
 
 	.recovery
 		h1.recovery__title
-			| Send password recovery email
+			| Send email to reset your password
 
 		form.recovery__form.recovery-form(v-on:submit.prevent='submitHandler')
 			.recovery-form__row

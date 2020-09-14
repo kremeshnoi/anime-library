@@ -4,11 +4,11 @@
 		.navbar__wrapper.nav-wrapper
 			router-link.navbar__logo(to='/')
 				| Otaku Library
-			.navbar__login(v-if='this.user[0] === null')
-				router-link.navbar__login-link(to='/login')
-					| Login
+			.navbar__sign-in(v-if='this.user[0] === null')
+				router-link.navbar__sign-in-link(to='/sign-in')
+					| Sing in
 					i.navbar__icon.material-icons exit_to_app
-				router-link.navbar__login-link_mobile(to='/login')
+				router-link.navbar__sign-in-link_mobile(to='/sign-in')
 					i.navbar__icon.material-icons exit_to_app
 
 </template>
@@ -59,12 +59,12 @@
 			+mq(phablet, max)
 				font-size: 22px
 
-		&__login
+		&__sign-in
 			position: absolute
 			right: 0
 			top: 0
 
-		&__login-link
+		&__sign-in-link
 			+flex(center, center, row)
 			+mq(phablet, max)
 				display: none
