@@ -19,7 +19,7 @@
 				router-link.footer-main-info__link(to='/library')
 					| Your library
 
-			.footer-main-info__item
+			.footer-main-info__item(v-if='this.user[0] === null')
 				h5.footer-main-info__title
 					| Help
 				router-link.footer-main-info__link(to='/about')
@@ -29,12 +29,33 @@
 				router-link.footer-main-info__link(to='/recovery')
 					| Forgot Password?
 
+			.footer-main-info__item(v-else)
+				h5.footer-main-info__title
+					| Help
+				router-link.footer-main-info__link(to='/about')
+					| Q/A
+				router-link.footer-main-info__link(to='/settings')
+					| Forgot Password?
+
 </template>
 
 <script>
 
+	import {mapActions} from "vuex";
+
 	export default {
-		name: 'FooterMainInfo'
+		name: 'FooterMainInfo',
+		data:()=> {
+			return {
+				user: []
+			}
+		},
+		methods: {
+			...mapActions(['getUid'])
+		},
+		async created() {
+			await this.getUid().then(result => this.user.push(result));
+		}
 	};
 
 </script>
