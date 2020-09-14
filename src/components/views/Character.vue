@@ -5,7 +5,7 @@
 			.character__main-content
 				h1.character__title
 					| {{ getcharactersById.name }}
-					.divider_hidden
+					.divider-hidden
 					| {{ getcharactersById.name_kanji }}
 				.character__cover-container
 					img.character__cover(:src='getcharactersById.image_url')
