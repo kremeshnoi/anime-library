@@ -5,7 +5,7 @@
 			.manga__main-content
 				h1.manga__title
 					| {{ getMangaById.title }}
-					.divider_hidden
+					.divider-hidden
 					| {{ getMangaById.title_japanese }}
 				.manga__cover-container
 					img.manga__cover(:src='getMangaById.image_url')
