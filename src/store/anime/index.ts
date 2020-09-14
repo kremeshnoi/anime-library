@@ -3,14 +3,14 @@ import router from '../../router';
 import jikanjs from 'jikanjs/lib/jikan.js';
 
 //Interfaces
-import { StateAnime } from '@/interfaces/State';
-import { AnimeByIdResponse } from '@/interfaces/AnimeByIdResponse';
-import { AnimeGenreResponse } from "@/interfaces/AnimeGenreResponse";
-import { AnimeAiringResponse } from '@/interfaces/AnimeAiringResponse';
-import { AnimeSearchedResponse } from '@/interfaces/AnimeSearchedResponse';
-import { AnimeFavoriteResponse } from '@/interfaces/AnimeFavoriteResponse';
-import { AnimeByPopularityResponse } from '@/interfaces/AnimeByPopularityResponse';
-import { AnimeRecommendationsByIdResponse } from '@/interfaces/AnimeRecommendationsById';
+import { StateAnime } from '@/interfaces/state/State';
+import { AnimeByIdResponse } from '@/interfaces/anime/AnimeByIdResponse';
+import { AnimeGenreResponse } from "@/interfaces/anime/AnimeGenreResponse";
+import { AnimeAiringResponse } from '@/interfaces/anime/AnimeAiringResponse';
+import { AnimeSearchedResponse } from '@/interfaces/anime/AnimeSearchedResponse';
+import { AnimeFavoriteResponse } from '@/interfaces/anime/AnimeFavoriteResponse';
+import { AnimeByPopularityResponse } from '@/interfaces/anime/AnimeByPopularityResponse';
+import { AnimeRecommendationsByIdResponse } from '@/interfaces/anime/AnimeRecommendationsById';
 
 export const state: StateAnime = {
 	animeById: [],
