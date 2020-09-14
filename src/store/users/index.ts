@@ -2,10 +2,10 @@
 import firebase from 'firebase';
 
 //Interfaces
-import { StateUser } from '@/interfaces/State';
-import { UserInfoResponse } from '@/interfaces/UserInfoResponse';
+import { StateUsers } from '@/interfaces/State';
+import { UsersInfoResponse } from '@/interfaces/UsersInfoResponse';
 
-export const state: StateUser = {
+export const state: StateUsers = {
 	userInfo: []
 };
 
