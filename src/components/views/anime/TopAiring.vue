@@ -1,12 +1,12 @@
 <template lang='pug'>
 
-	.anime-by-popularity
-		.anime-by-popularity__container
-			.anime-by-popularity__title
+	.top-airing
+		.top-airing__container
+			.top-airing__title
 				| Top Airing Anime
 
 			query-content
-				cards(v-for='(result, index) in getAnimeByPopularity'
+				cards(v-for='(result, index) in getAnimeAiring'
 					:key='index'
 					:query='result')
 
@@ -19,7 +19,7 @@
 	import QueryContent from '@/components/modules/QueryContent';
 
 	export default {
-		name: 'AnimeByPopularity',
+		name: 'TopAiring',
 		components: {
 			Cards,
 			QueryContent
@@ -28,13 +28,13 @@
 			title: 'Otaku Library / Top raited airing anime'
 		},
 		methods: {
-			...mapActions(['loadAnimeByPopularity'])
+			...mapActions(['loadAnimeAiring'])
 		},
 		computed: {
-			...mapGetters(['getAnimeByPopularity'])
+			...mapGetters(['getAnimeAiring'])
 		},
 		created() {
-			this.loadAnimeByPopularity();
+			this.loadAnimeAiring();
 		}
 	}
 
@@ -42,13 +42,13 @@
 
 <style lang='sass' scoped>
 
-	@import '../../assets/styles/utils/vars'
-	@import '../../assets/styles/utils/mixins'
-	@import '../../assets/styles/modules/titles'
-	@import '../../assets/styles/modules/containers'
+	@import '../../../assets/styles/utils/vars'
+	@import '../../../assets/styles/utils/mixins'
+	@import '../../../assets/styles/modules/titles'
+	@import '../../../assets/styles/modules/containers'
 
 
-	.anime-by-popularity
+	.top-airing
 		&__container
 			@extend .container-default
 

@@ -29,8 +29,8 @@
 
 <style lang='sass' scoped>
 
-	@import '../../assets/styles/utils/vars'
-	@import '../../assets/styles/utils/mixins'
+	@import '../../../assets/styles/utils/vars'
+	@import '../../../assets/styles/utils/mixins'
 
 	.home
 		width: 100%

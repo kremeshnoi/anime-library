@@ -207,11 +207,11 @@
 
 	// IMPORTS
 
-	@import '../../assets/styles/utils/vars'
-	@import '../../assets/styles/utils/mixins'
-	@import '../../assets/styles/modules/titles'
-	@import '../../assets/styles/modules/dividers'
-	@import '../../assets/styles/modules/containers'
+	@import '../../../assets/styles/utils/vars'
+	@import '../../../assets/styles/utils/mixins'
+	@import '../../../assets/styles/modules/titles'
+	@import '../../../assets/styles/modules/dividers'
+	@import '../../../assets/styles/modules/containers'
 
 	// ANIME
 

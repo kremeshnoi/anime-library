@@ -1,12 +1,12 @@
 <template lang='pug'>
 
-	.top-manga
-		.top-manga__container
-			.top-manga__title
-				| Top Manga
+	.anime-by-popularity
+		.anime-by-popularity__container
+			.anime-by-popularity__title
+				| Top Airing Anime
 
 			query-content
-				cards(v-for='(result, index) in getMangaFavorite'
+				cards(v-for='(result, index) in getAnimeByPopularity'
 					:key='index'
 					:query='result')
 
@@ -19,22 +19,22 @@
 	import QueryContent from '@/components/modules/QueryContent';
 
 	export default {
-		name: 'TopManga',
+		name: 'AnimeByPopularity',
 		components: {
 			Cards,
 			QueryContent
 		},
 		metaInfo: {
-			title: 'Otaku Library / Top raited manga'
+			title: 'Otaku Library / Top raited airing anime'
 		},
 		methods: {
-			...mapActions(['loadMangaFavorite'])
+			...mapActions(['loadAnimeByPopularity'])
 		},
 		computed: {
-			...mapGetters(['getMangaFavorite'])
+			...mapGetters(['getAnimeByPopularity'])
 		},
 		created() {
-			this.loadMangaFavorite();
+			this.loadAnimeByPopularity();
 		}
 	}
 
@@ -42,13 +42,13 @@
 
 <style lang='sass' scoped>
 
-	@import '../../assets/styles/utils/vars'
-	@import '../../assets/styles/utils/mixins'
-	@import '../../assets/styles/modules/titles'
-	@import '../../assets/styles/modules/containers'
+	@import '../../../assets/styles/utils/vars'
+	@import '../../../assets/styles/utils/mixins'
+	@import '../../../assets/styles/modules/titles'
+	@import '../../../assets/styles/modules/containers'
 
 
-	.top-manga
+	.anime-by-popularity
 		&__container
 			@extend .container-default
 
@@ -66,4 +66,3 @@
 				max-width: 235px
 
 </style>
-
