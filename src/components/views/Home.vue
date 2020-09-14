@@ -2,8 +2,8 @@
 
 	.home
 		top-airing-anime-block
+		genres-block
 		by-popularity-anime-block
-
 
 </template>
 
@@ -11,10 +11,12 @@
 
 	import TopAiringAnimeBlock from '@/components/blocks/TopAiringAnimeBlock';
 	import ByPopularityAnimeBlock from "@/components/blocks/ByPopularityAnimeBlock";
+	import GenresBlock from "@/components/blocks/GenresBlock";
 
 	export default {
 		name: 'Home',
 		components: {
+			GenresBlock,
 			TopAiringAnimeBlock,
 			ByPopularityAnimeBlock
 		},

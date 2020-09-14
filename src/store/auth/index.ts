@@ -1,9 +1,12 @@
+//Libraries
+import router from '@/router';
 import firebase from 'firebase/app';
 import { email } from 'vuelidate/lib/validators';
-import { UserInfoResponse } from '@/interfaces/UserInfoResponse';
-import router from "@/router";
 
-export default {
+//Interfaces
+import { UserInfoResponse } from '@/interfaces/UserInfoResponse';
+
+export const auth =  {
 	actions: {
 		getUid() {
 			const user = firebase.auth().currentUser;
@@ -48,17 +51,6 @@ export default {
 			} catch (error) {
 				throw new Error(error);
 			}
-		},
-		async loadUserInfo({ dispatch, commit }) {
-			try {
-				const uid = await dispatch('getUid');
-				const userInfoResponse = await firebase.database().ref(`/users/${uid}/info/username`)
-					.on('value', (data) => {
-						commit('SET_USER_INFO', data.val());
-					});
-			} catch (error) {
-				throw new Error(error);
-			}
-		},
+		}
 	}
 };
