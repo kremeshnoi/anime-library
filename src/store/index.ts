@@ -60,7 +60,6 @@ export default new Vuex.Store({
 					.split('_')
 					.join('-');
 				router.push({ name: `${ type }`, params: { id, title } });
-				console.log(result)
 			} catch (error) {
 				throw new Error(error);
 			}
