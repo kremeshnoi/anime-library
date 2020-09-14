@@ -1,4 +1,4 @@
-<template lang="pug">
+<template lang='pug'>
 
 	.genres-block
 		h4.genres-block__title
@@ -45,7 +45,7 @@
 
 </script>
 
-<style scoped lang="sass">
+<style lang='sass' scoped>
 
 	@import '../../assets/styles/utils/vars'
 	@import '../../assets/styles/utils/mixins'
