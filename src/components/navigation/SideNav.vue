@@ -174,9 +174,6 @@
 		&__icon
 			&:hover
 				opacity: 0.7
-			&_hide
-				display: none !important
-				opacity: 0
 			&_rotate
 				transform: rotate(-90deg) !important
 
@@ -187,6 +184,7 @@
 			padding: 0
 			display: block
 			opacity: 1
+			transition: 0.2s
 			&-logout
 				display: block
 				position: absolute
@@ -200,6 +198,9 @@
 
 		&__icon-arrow
 			transform: rotate(90deg)
+
+		&__icon_hide
+			opacity: 0
 
 		&__icon-logout
 			position: static
