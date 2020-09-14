@@ -95,7 +95,6 @@
 			signOut() {
 				try {
 					this.$store.dispatch('signOut');
-					M.toast({ html: 'Signed Out successfully', classes: 'green' });
 				} catch (error) {
 					throw new Error(error);
 				}
