@@ -16,7 +16,7 @@ import { MangaByIdResponse } from '@/interfaces/MangaByIdResponse';
 import { MangaRecommendationsByIdResponseRecommendations } from '@/interfaces/MangaRecommendationsById';
 
 //User
-import { UserInfoResponse } from '@/interfaces/UserInfoResponse';
+import { UsersInfoResponse } from '@/interfaces/UsersInfoResponse';
 
 export interface StateAnime {
 	animeById: AnimeByIdResponse[];
@@ -39,7 +39,7 @@ export interface StateManga {
 	mangaRecommendationsById: MangaRecommendationsByIdResponseRecommendations[];
 }
 
-export interface StateUser {
-	userInfo: UserInfoResponse[];
+export interface StateUsers {
+	userInfo: UsersInfoResponse[];
 }
 
