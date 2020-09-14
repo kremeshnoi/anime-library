@@ -103,9 +103,9 @@
 
 <style lang='sass' scoped>
 
-	@import '../../assets/styles/utils/vars'
-	@import '../../assets/styles/utils/mixins'
-	@import '../../assets/styles/modules/buttons'
+	@import '../../../assets/styles/utils/vars'
+	@import '../../../assets/styles/utils/mixins'
+	@import '../../../assets/styles/modules/buttons'
 
 	.recovery
 		position: fixed

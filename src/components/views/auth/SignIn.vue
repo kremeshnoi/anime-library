@@ -1,12 +1,12 @@
 <template lang='pug'>
 
-	.sign-up
-		h1.sign-up__title
-			| Start using Otaku Library
+	.sign-in
+		h1.sign-in__title
+			| Login to account
 
-		form.sign-up__form.sign-up-form(v-on:submit.prevent='submitHandler')
-			.sign-up-form__row
-				.sign-up-form__field.input-field
+		form.sign-in__form.sign-in-form(v-on:submit.prevent='submitHandler')
+			.sign-in-form__row
+				.sign-in-form__field.input-field
 					input#email(type='email'
 						name='username'
 						v-model.trim='email'
@@ -16,30 +16,14 @@
 					label(for='email')
 						| Email
 
-					span.sign-up-form__helper.helper-text(v-if='$v.email.$dirty && !$v.email.required'
+					span.sign-in-form__helper.helper-text(v-if='$v.email.$dirty && !$v.email.required'
 						data-error='The field is empty')
 
-					span.sign-up-form__helper.helper-text(v-else-if='$v.email.$dirty && !$v.email.email'
+					span.sign-in-form__helper.helper-text(v-else-if='$v.email.$dirty && !$v.email.email'
 						data-error='Incorrect email')
 
-			.sign-up-form__row
-				.sign-up-form__field.input-field
-					input#username(type='text'
-						v-model.trim='username'
-						autocomplete='off'
-						:class='{ invalid: ($v.username.$dirty && !$v.username.required) || ($v.username.$dirty && !$v.username.minLength) }')
-
-					label(for='username')
-						| Username
-
-					span.sign-up-form__helper.helper-text(v-if='$v.username.$dirty && !$v.username.required'
-						data-error='The field is empty')
-
-					span.sign-up-form__helper.helper-text(v-else-if='$v.username.$dirty && !$v.username.minLength'
-						data-error='Username is too short')
-
-			.sign-up-form__row
-				.sign-up-form__field.input-field
+			.sign-in-form__row
+				.sign-in-form__helper.input-field
 					input#password(type='password'
 						name='password'
 						v-model.trim='password'
@@ -49,17 +33,24 @@
 					label(for='password')
 						| Password
 
-					span.sign-up-form__field.helper-text(v-if='$v.password.$dirty && !$v.password.required'
+					span.sign-in-form__helper.helper-text(v-if='$v.password.$dirty && !$v.password.required'
 						data-error='The field is empty')
 
-					span.sign-up-form__field.helper-text(v-else-if='$v.password.$dirty && !$v.password.minLength'
+					span.sign-in-form__helper.helper-text(v-else-if='$v.password.$dirty && !$v.password.minLength'
 						data-error='Password is too short')
 
-			.sign-up-form__row
-				router-link(to='/login')
-					| Already have an account?
+			.sign-in-form__row
+				router-link(to='/recovery')
+					| Forgot password?
 
-			center.sign-up__center
+			.sign-in-form__row
+				| - or -
+
+			.sign-in-form__row
+				router-link(to='/register')
+					| Still don't have an account?
+
+			center.sign-in__center
 				.preloader-wrapper.big.active
 					.spinner-layer.spinner-blue-only
 						.circle-clipper.left
@@ -68,16 +59,16 @@
 							.circle
 						.circle-clipper.right
 							.circle
-				.sign-up-form__row.sign-up-form__row_center
+				.sign-in-form__row.sign-in-form__row_center
 					vue-recaptcha.recaptcha(sitekey='6Lc-DaUZAAAAABeSVHxIZhS9Wk2xqSo53V4UeX-H'
 						@verify='onVerify')
 
-				.sign-up-form__row
-					button.SignUp-button.btn-large(type='submit'
-						name='submitSignUp')
-						| Create Account
+				.sign-in-form__row
+					button.sign-in__button.btn-large(type='submit'
+						name='submitSignIn')
+						| Sign In
 
-		.sign-up__link-back
+		.sign-in__link-back
 			router-link(to='/')
 				| Back to Homepage?
 
@@ -89,23 +80,21 @@
 	import { email, required, minLength } from 'vuelidate/lib/validators';
 
 	export default {
-		name: 'SignUp',
+		name: 'SignIn',
 		data: () => ({
 			email: '',
-			username: '',
 			password: '',
 			recaptcha: null
 		}),
 		validations: {
 			email: { email, required },
-			username: { required, minLength: minLength(5) },
 			password: { required, minLength: minLength(5) }
 		},
 		components: {
 			VueRecaptcha
 		},
 		metaInfo: {
-			title: 'Otaku Library / Sign Up'
+			title: 'Otaku Library / Sign In'
 		},
 		methods: {
 			onVerify: function (response) {
@@ -113,14 +102,13 @@
 			},
 			async submitHandler() {
 				if (this.$v.$invalid) {
-					this.$v.$touch();
-					return;
+					this.$v.$touch()
+					return
 				};
 
-				const signUpData = {
+				const signInData = {
 					email: this.email,
-					password: this.password,
-					username: this.username
+					password: this.password
 				};
 
 				try {
@@ -130,7 +118,7 @@
 						} else {
 							document.querySelector('.auth-progress').style.display = 'block';
 						}
-						await this.$store.dispatch('signUp', signUpData);
+						await this.$store.dispatch('signIn', signInData);
 						this.$router.push('/');
 						M.toast({ html: 'Signed In successfully', classes: 'green' });
 					} else {
@@ -147,11 +135,11 @@
 
 <style lang='sass' scoped>
 
-	@import '../../assets/styles/utils/vars'
-	@import '../../assets/styles/utils/mixins'
-	@import '../../assets/styles/modules/buttons'
+	@import '../../../assets/styles/utils/vars'
+	@import '../../../assets/styles/utils/mixins'
+	@import '../../../assets/styles/modules/buttons'
 
-	.sign-up
+	.sign-in
 		position: fixed
 		top: 0
 		left: 0
@@ -174,7 +162,7 @@
 			font-size: 22px
 			margin: 0 0 10px 0
 
-	.sign-up-form
+	.sign-in-form
 		width: 100%
 		&__row
 			margin: 20px auto 20px auto
@@ -183,6 +171,7 @@
 				+flex(center, center, column)
 
 		&__field
+			text-align: center
 			+flex(center, flex-start, column)
 
 		&__helper
