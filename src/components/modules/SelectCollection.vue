@@ -67,7 +67,7 @@ import { mapGetters } from 'vuex';
 
 </script>
 
-<style lang='sass' scoped>
+<style lang='sass'>
 
 	@import '../../assets/styles/utils/vars'
 	@import '../../assets/styles/utils/mixins'
@@ -80,5 +80,14 @@ import { mapGetters } from 'vuex';
 		text-transform: lowercase
 		align-self: flex-start
 		background-color: $color-blue-light
+
+	.dropdown-content li>a, .dropdown-content li>span
+		font-size: 15px
+		color: rgba(0,0,0,0.87)
+
+	.select-wrapper input.select-dropdown
+		border-bottom: 1px solid rgba(0,0,0,0.87)
+		&:focus
+			border-bottom: 1px solid rgba(0,0,0,0.87)
 
 </style>
