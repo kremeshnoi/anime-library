@@ -48,10 +48,10 @@ export const anime = {
 		}
 	},
 	actions: {
-		async loadAnimeGenre(ctx, id) {
+		async loadAnimeGenre(ctx) {
 			try {
-				const animeGenreResponse: AnimeGenreResponse = await jikanjs.loadGenre('anime', id);
-				const animeGenre = animeGenreResponse.mal_url;
+				const animeGenreResponse: AnimeGenreResponse = await jikanjs.loadGenre('anime', router.app.$route.params.id);
+				const animeGenre = animeGenreResponse;
 				ctx.commit('SET_ANIME_GENRE', animeGenre);
 			} catch (error) {
 				throw new Error(error);

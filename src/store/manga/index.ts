@@ -7,8 +7,10 @@ import { StateManga } from '@/interfaces/state/State';
 import { MangaByIdResponse } from '@/interfaces/manga/MangaByIdResponse';
 import { MangaFavoriteResponse } from '@/interfaces/manga/MangaFavoriteResponse';
 import { MangaRecommendationsByIdResponse } from '@/interfaces/manga/MangaRecommendationsById';
+import {AnimeGenreResponse} from "@/interfaces/anime/AnimeGenreResponse";
 
 export const state: StateManga = {
+	mangaGenre: [],
 	mangaById: [],
 	mangaFavorite: [],
 	mangaRecommendationsById: []
@@ -17,6 +19,9 @@ export const state: StateManga = {
 export const manga = {
 	state,
 	mutations: {
+		SET_MANGA_GENRE(state, mangaGenre) {
+			state.mangaGenre = mangaGenre;
+		},
 		SET_MANGA_BY_ID(state, mangaById) {
 			state.mangaById = mangaById;
 		},
@@ -28,6 +33,15 @@ export const manga = {
 		}
 	},
 	actions: {
+		async loadMangaGenre(ctx) {
+			try {
+				const mangaGenreResponse: AnimeGenreResponse = await jikanjs.loadGenre('manga', router.app.$route.params.id);
+				const mangaGenre = mangaGenreResponse;
+				ctx.commit('SET_MANGA_GENRE', mangaGenre);
+			} catch (error) {
+				throw new Error(error);
+			}
+		},
 		async loadMangaById(ctx) {
 			try {
 				const mangaResponse: MangaByIdResponse = await jikanjs.loadManga(router.app.$route.params.id);
@@ -57,6 +71,7 @@ export const manga = {
 		}
 	},
 	getters: {
+		getMangaGenre: state => state.mangaGenre,
 		getMangaById: state => state.mangaById,
 		getMangaFavorite: state => state.mangaFavorite,
 		getMangaRecommendationsById: state => state.mangaRecommendationsById

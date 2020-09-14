@@ -16,7 +16,7 @@ export default new Vuex.Store({
 	state: {},
 	mutations: {},
 	actions: {
-		async computeRoute(ctx, result) {
+		computeRoute(ctx, result) {
 			try {
 				let type = result.type;
 				if (type === undefined) {
@@ -40,6 +40,27 @@ export default new Vuex.Store({
 					.split('_')
 					.join('-');
 				router.push({ name: `${ type }`, params: { id, title } });
+			} catch (error) {
+				throw new Error(error);
+			}
+		},
+		computeRouteByGenre(ctx, result) {
+			try {
+				let type = result.type;
+				if (type === 'anime') {
+					type = 'anime-genre'
+				} else if(type === 'manga') {
+					type = 'manga-genre'
+				}
+				const id = result.id;
+				const title = result.title
+					.split('/')
+					.splice(-1, 1)[0]
+					.toLowerCase()
+					.split('_')
+					.join('-');
+				router.push({ name: `${ type }`, params: { id, title } });
+				console.log(result)
 			} catch (error) {
 				throw new Error(error);
 			}
