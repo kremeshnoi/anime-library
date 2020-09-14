@@ -4,7 +4,7 @@ import firebase from 'firebase/app';
 import { email } from 'vuelidate/lib/validators';
 
 //Interfaces
-import { UsersInfoResponse } from '@/interfaces/UsersInfoResponse';
+import { UsersInfoResponse } from '@/interfaces/users/UsersInfoResponse';
 
 export const auth =  {
 	actions: {

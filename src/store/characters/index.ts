@@ -3,10 +3,10 @@ import router from '../../router';
 import jikanjs from 'jikanjs/lib/jikan.js';
 
 //Interfaces
-import { StateCharacter } from '@/interfaces/State';
-import { CharacterFavoriteResponse } from '@/interfaces/CharacterFavoriteResponse';
+import { StateCharacters } from '@/interfaces/state/State';
+import { CharacterFavoriteResponse } from '@/interfaces/characters/CharacterFavoriteResponse';
 
-export const state: StateCharacter = {
+export const state: StateCharacters = {
 	characterById: [],
 	characterFavorite: []
 };

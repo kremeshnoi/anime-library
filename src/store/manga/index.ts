@@ -3,10 +3,10 @@ import router from '../../router';
 import jikanjs from 'jikanjs/lib/jikan.js';
 
 //Interfaces
-import { StateManga } from '@/interfaces/State';
-import { MangaByIdResponse } from '@/interfaces/MangaByIdResponse';
-import { MangaFavoriteResponse } from '@/interfaces/MangaFavoriteResponse';
-import { MangaRecommendationsByIdResponse } from '@/interfaces/MangaRecommendationsById';
+import { StateManga } from '@/interfaces/state/State';
+import { MangaByIdResponse } from '@/interfaces/manga/MangaByIdResponse';
+import { MangaFavoriteResponse } from '@/interfaces/manga/MangaFavoriteResponse';
+import { MangaRecommendationsByIdResponse } from '@/interfaces/manga/MangaRecommendationsById';
 
 export const state: StateManga = {
 	mangaById: [],
