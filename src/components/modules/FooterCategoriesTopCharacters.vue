@@ -5,7 +5,7 @@
 			| Most Popular Characters
 			.footer-categories-top-characters__icon.material-icons keyboard_arrow_right
 
-		.footer-categories-top-characters__content(v-for='(result, index) in getCharacterFavorite.slice(0, 9)'
+		.footer-categories-top-characters__content(v-for='(result, index) in getcharactersFavorite.slice(0, 9)'
 			:key='index')
 
 			p.footer-categories-top-characters__digit
@@ -22,13 +22,13 @@
 	export default {
 		name: 'FooterCategoriesTopCharacters',
 		methods: {
-			...mapActions(['loadCharacterFavorite', 'computeRoute'])
+			...mapActions(['loadcharactersFavorite', 'computeRoute'])
 		},
 		computed: {
-			...mapGetters(['getCharacterFavorite'])
+			...mapGetters(['getcharactersFavorite'])
 		},
 		async created() {
-			await this.loadCharacterFavorite();
+			await this.loadcharactersFavorite();
 		}
 	};
 

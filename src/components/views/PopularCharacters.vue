@@ -6,7 +6,7 @@
 				| Most Popular Characters
 
 			query-content
-				cards(v-for='(result, index) in getCharacterFavorite'
+				cards(v-for='(result, index) in getcharactersFavorite'
 					:key='index'
 					:query='result')
 
@@ -28,13 +28,13 @@
 			title: 'Otaku Library / Most popular characters'
 		},
 		methods: {
-			...mapActions(['loadCharacterFavorite'])
+			...mapActions(['loadcharactersFavorite'])
 		},
 		computed: {
-			...mapGetters(['getCharacterFavorite'])
+			...mapGetters(['getcharactersFavorite'])
 		},
 		created() {
-			this.loadCharacterFavorite();
+			this.loadcharactersFavorite();
 		}
 	}
 
