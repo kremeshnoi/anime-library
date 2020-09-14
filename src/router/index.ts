@@ -43,7 +43,7 @@ const routes = [
 		component: () => import('../components/views/main/Library.vue')
 	},
 	{
-		path: '/register',
+		path: '/sign-up',
 		name: 'SignUp',
 		meta: { layout: '' },
 		component: () => import('../components/views/auth/SignUp.vue'),
@@ -137,7 +137,7 @@ router.beforeEach((to,from, next) => {
 
 	if(!currentUser) {
 		to.meta.layout = 'unauthorized';
-	} if(to.path === '/register' || to.path === '/sign-in' || to.path === '/recovery') {
+	} if(to.path === '/sign-up' || to.path === '/sign-in' || to.path === '/recovery') {
 		to.meta.layout = 'authentication';
 	} else if(currentUser){
 		to.meta.layout = 'authorized';
