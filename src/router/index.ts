@@ -57,7 +57,7 @@ const routes = [
 		}
 	},
 	{
-		path: '/login',
+		path: '/sign-in',
 		name: 'SignIn',
 		meta: { layout: '' },
 		component: () => import('../components/views/auth/SignIn.vue'),
@@ -130,14 +130,14 @@ router.beforeEach((to,from, next) => {
 	const requireAuth = to.matched.some(record => record.meta.auth);
 
 	if(requireAuth && !currentUser) {
-		next('/login');
+		next('/sign-in');
 	} else {
 		next();
 	}
 
 	if(!currentUser) {
 		to.meta.layout = 'unauthorized';
-	} if(to.path === '/register' || to.path === '/login' || to.path === '/recovery') {
+	} if(to.path === '/register' || to.path === '/sign-in' || to.path === '/recovery') {
 		to.meta.layout = 'authentication';
 	} else if(currentUser){
 		to.meta.layout = 'authorized';
