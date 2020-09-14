@@ -47,7 +47,7 @@
 				| - or -
 
 			.sign-in-form__row
-				router-link(to='/register')
+				router-link(to='/sign-up')
 					| Still don't have an account?
 
 			center.sign-in__center

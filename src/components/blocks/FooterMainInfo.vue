@@ -24,7 +24,7 @@
 					| Help
 				router-link.footer-main-info__link(to='/about')
 					| Q/A
-				router-link.footer-main-info__link(to='/register')
+				router-link.footer-main-info__link(to='/sign-up')
 					| Registration
 				router-link.footer-main-info__link(to='/recovery')
 					| Forgot Password?
