@@ -1,7 +1,7 @@
 //Anime
 import { AnimeByIdResponse } from '@/interfaces/anime/AnimeByIdResponse';
 import { AnimeAiringResponseTop } from '@/interfaces/anime/AnimeAiringResponse';
-import { AnimeGenreResponseMalUrl } from '@/interfaces/anime/AnimeGenreResponse';
+import { AnimeGenreResponse } from '@/interfaces/anime/AnimeGenreResponse';
 import { AnimeFavoriteResponseTop } from '@/interfaces/anime/AnimeFavoriteResponse';
 import { AnimeSearchedResponseResults } from '@/interfaces/anime/AnimeSearchedResponse';
 import { AnimeByPopularityResponseTop } from '@/interfaces/anime/AnimeByPopularityResponse';
@@ -21,7 +21,7 @@ import { UsersInfoResponse } from '@/interfaces/users/UsersInfoResponse';
 export interface StateAnime {
 	animeById: AnimeByIdResponse[];
 	animeAiring: AnimeAiringResponseTop[];
-	animeGenre: AnimeGenreResponseMalUrl[];
+	animeGenre: AnimeGenreResponse[];
 	animeFavorite: AnimeFavoriteResponseTop[];
 	animeSearched: AnimeSearchedResponseResults[];
 	animeByPopularity: AnimeByPopularityResponseTop[];
@@ -34,6 +34,7 @@ export interface StateCharacters {
 }
 
 export interface StateManga {
+	mangaGenre: MangaByIdResponse[];
 	mangaById: MangaByIdResponse[];
 	mangaFavorite: MangaFavoriteResponseTop[];
 	mangaRecommendationsById: MangaRecommendationsByIdResponseRecommendations[];

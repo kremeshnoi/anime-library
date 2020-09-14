@@ -25,6 +25,18 @@ const routes = [
 		component: () => import('../components/views/characters/Character.vue')
 	},
 	{
+		path: '/genre/anime/:id/:title',
+		name: 'anime-genre',
+		meta: { layout: '' },
+		component: () => import('../components/views/anime/AnimeGenre.vue')
+	},
+	{
+		path: '/genre/manga/:id/:title',
+		name: 'manga-genre',
+		meta: { layout: '' },
+		component: () => import('../components/views/manga/MangaGenre.vue')
+	},
+	{
 		path: '/manga/:id/:title',
 		name: 'Manga',
 		meta: { layout: '' },
