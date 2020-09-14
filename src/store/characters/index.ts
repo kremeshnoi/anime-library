@@ -4,45 +4,45 @@ import jikanjs from 'jikanjs/lib/jikan.js';
 
 //Interfaces
 import { StateCharacters } from '@/interfaces/state/State';
-import { CharacterFavoriteResponse } from '@/interfaces/characters/CharacterFavoriteResponse';
+import { CharactersFavoriteResponse } from '@/interfaces/characters/CharactersFavoriteResponse';
 
 export const state: StateCharacters = {
-	characterById: [],
-	characterFavorite: []
+	charactersById: [],
+	charactersFavorite: []
 };
 
 export const characters =  {
 	state,
 	mutations: {
-		SET_CHARACTER_BY_ID(state, characterById) {
-			state.characterById = characterById;
+		SET_CHARACTERS_BY_ID(state, charactersById) {
+			state.charactersById = charactersById;
 		},
-		SET_CHARACTER_FAVORITE(state, characterFavorite) {
-			state.characterFavorite = characterFavorite;
+		SET_CHARACTERS_FAVORITE(state, charactersFavorite) {
+			state.charactersFavorite = charactersFavorite;
 		}
 	},
 	actions: {
-		async loadCharacterById(ctx) {
+		async loadcharactersById(ctx) {
 			try {
 				const characterResponse = await jikanjs.loadCharacter(router.app.$route.params.id);
-				const characterById = characterResponse;
-				ctx.commit('SET_CHARACTER_BY_ID', characterById);
+				const charactersById = characterResponse;
+				ctx.commit('SET_CHARACTERS_BY_ID', charactersById);
 			} catch (error) {
 				throw new Error(error);
 			}
 		},
-		async loadCharacterFavorite(ctx) {
+		async loadcharactersFavorite(ctx) {
 			try {
-				const favoriteCharactersResponse: CharacterFavoriteResponse = await jikanjs.loadTop('characters');
-				const characterFavorite = favoriteCharactersResponse.top;
-				ctx.commit('SET_CHARACTER_FAVORITE', characterFavorite);
+				const favoriteCharactersResponse: CharactersFavoriteResponse = await jikanjs.loadTop('characters');
+				const charactersFavorite = favoriteCharactersResponse.top;
+				ctx.commit('SET_CHARACTERS_FAVORITE', charactersFavorite);
 			} catch (error) {
 				throw new Error(error);
 			}
 		},
 	},
 	getters: {
-		getCharacterById: state => state.characterById,
-		getCharacterFavorite: state => state.characterFavorite
+		getcharactersById: state => state.charactersById,
+		getcharactersFavorite: state => state.charactersFavorite
 	}
 };
