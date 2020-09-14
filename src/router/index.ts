@@ -46,7 +46,7 @@ const routes = [
 		path: '/register',
 		name: 'SignUp',
 		meta: { layout: '' },
-		component: () => import('../components/views/SignUp.vue'),
+		component: () => import('../components/views/auth/SignUp.vue'),
 		beforeEnter(to, from, next) {
 			const currentUser = firebase.auth().currentUser;
 			if(currentUser) {
@@ -60,7 +60,7 @@ const routes = [
 		path: '/login',
 		name: 'SignIn',
 		meta: { layout: '' },
-		component: () => import('../components/views/SignIn.vue'),
+		component: () => import('../components/views/auth/SignIn.vue'),
 		beforeEnter(to, from, next) {
 			const currentUser = firebase.auth().currentUser;
 			if(currentUser) {
@@ -74,7 +74,7 @@ const routes = [
 		path: '/recovery',
 		name: 'Recovery',
 		meta: { layout: '' },
-		component: () => import('../components/views/Recovery.vue'),
+		component: () => import('../components/views/auth/Recovery.vue'),
 		beforeEnter(to, from, next) {
 			const currentUser = firebase.auth().currentUser;
 			if(currentUser) {
