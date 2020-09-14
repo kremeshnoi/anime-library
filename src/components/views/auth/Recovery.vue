@@ -107,6 +107,8 @@
 	@import '../../../assets/styles/utils/mixins'
 	@import '../../../assets/styles/modules/buttons'
 
+	//Recovery
+
 	.recovery
 		position: fixed
 		top: 0
@@ -148,5 +150,18 @@
 			@extend .hover-btn
 			@extend .shadow-btn
 			@extend .focus-btn
+
+	//Recaptcha
+	.recaptcha
+		transform: scale(0.92) !important
+
+	//Preloader
+	.preloader-wrapper
+		position: absolute !important
+		bottom: 20px !important
+		right: 20px !important
+		width: 30px !important
+		height: 30px !important
+		display: none
 
 </style>
