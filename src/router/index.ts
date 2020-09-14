@@ -10,37 +10,37 @@ const routes = [
 		path: '/',
 		name: 'Home',
 		meta: { layout: '' },
-		component: () => import('../components/views/Home.vue')
+		component: () => import('../components/views/main/Home.vue')
 	},
 	{
 		path: '/anime/:id/:title',
 		name: 'Anime',
 		meta: { layout: '' },
-		component: () => import('../components/views/Anime.vue')
+		component: () => import('../components/views/anime/Anime.vue')
 	},
 	{
 		path: '/character/:id/:title',
 		name: 'Character',
 		meta: { layout: '' },
-		component: () => import('../components/views/Character.vue')
+		component: () => import('../components/views/characters/Character.vue')
 	},
 	{
 		path: '/manga/:id/:title',
 		name: 'Manga',
 		meta: { layout: '' },
-		component: () => import('../components/views/Manga.vue')
+		component: () => import('../components/views/manga/Manga.vue')
 	},
 	{
 		path: '/search',
 		name: 'Search',
 		meta: { layout: '', auth: true },
-		component: () => import('../components/views/Search.vue')
+		component: () => import('../components/views/main/Search.vue')
 	},
 	{
 		path: '/library',
 		name: 'Library',
 		meta: { layout: '', auth: true },
-		component: () => import('../components/views/Library.vue')
+		component: () => import('../components/views/main/Library.vue')
 	},
 	{
 		path: '/register',
@@ -88,31 +88,31 @@ const routes = [
 		path: '/top-airing',
 		name: 'TopAiring',
 		meta: { layout: '' },
-		component: () => import('../components/views/TopAiring.vue')
+		component: () => import('../components/views/anime/TopAiring.vue')
 	},
 	{
 		path: '/popular-anime',
 		name: 'AnimeByPopularity',
 		meta: { layout: '' },
-		component: () => import('../components/views/AnimeByPopularity.vue')
+		component: () => import('../components/views/anime/AnimeByPopularity.vue')
 	},
 	{
 		path: '/top-anime',
 		name: 'TopAnime',
 		meta: { layout: '' },
-		component: () => import('../components/views/TopAnime.vue')
+		component: () => import('../components/views/anime/TopAnime.vue')
 	},
 	{
 		path: '/popular-characters',
 		name: 'TopCharacters',
 		meta: { layout: '' },
-		component: () => import('../components/views/PopularCharacters.vue')
+		component: () => import('../components/views/characters/PopularCharacters.vue')
 	},
 	{
 		path: '/top-manga',
 		name: 'TopManga',
 		meta: { layout: '' },
-		component: () => import('../components/views/TopManga.vue')
+		component: () => import('../components/views/manga/TopManga.vue')
 	}
 ];
 
