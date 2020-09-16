@@ -169,6 +169,7 @@
 
 		&__title
 			@extend .title-bordered
+			border-left: 4px solid $color-orange
 			text-align: start
 
 		&__content
