@@ -19,7 +19,7 @@
 	import SwiperCarousel from '@/components/modules/SwiperCarousel';
 
 	export default {
-		name: 'ByPopularityAnimeBlock',
+		name: 'AnimeBlockUpcoming',
 		components: {
 			Cards,
 			SwiperCarousel

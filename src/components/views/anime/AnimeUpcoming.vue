@@ -19,7 +19,7 @@
 	import QueryContent from '@/components/modules/QueryContent';
 
 	export default {
-		name: 'AnimeByPopularity',
+		name: 'AnimeUpcoming',
 		components: {
 			Cards,
 			QueryContent

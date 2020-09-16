@@ -104,9 +104,9 @@ const routes = [
 	},
 	{
 		path: '/popular-anime',
-		name: 'AnimeByPopularity',
+		name: 'AnimeUpcoming',
 		meta: { layout: '' },
-		component: () => import('../components/views/anime/AnimeByPopularity.vue')
+		component: () => import('../components/views/anime/AnimeUpcoming.vue')
 	},
 	{
 		path: '/top-anime',
