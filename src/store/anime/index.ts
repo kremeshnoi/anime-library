@@ -9,7 +9,7 @@ import { AnimeGenreResponse } from "@/interfaces/anime/AnimeGenreResponse";
 import { AnimeAiringResponse } from '@/interfaces/anime/AnimeAiringResponse';
 import { AnimeSearchedResponse } from '@/interfaces/anime/AnimeSearchedResponse';
 import { AnimeFavoriteResponse } from '@/interfaces/anime/AnimeFavoriteResponse';
-import { AnimeByPopularityResponse } from '@/interfaces/anime/AnimeByPopularityResponse';
+import { AnimeUpcomingResponse } from "@/interfaces/anime/AnimeUpcomingResponse";
 import { AnimeRecommendationsByIdResponse } from '@/interfaces/anime/AnimeRecommendationsById';
 
 export const state: StateAnime = {
@@ -18,7 +18,7 @@ export const state: StateAnime = {
 	animeAiring: [],
 	animeFavorite: [],
 	animeSearched: [],
-	animeByPopularity: [],
+	animeUpcoming: [],
 	animeRecommendationsById: []
 };
 
@@ -40,8 +40,8 @@ export const anime = {
 		SET_ANIME_FAVORITE(state, animeFavorite) {
 			state.animeFavorite = animeFavorite;
 		},
-		SET_ANIME_BY_POPULARITY(state, animeByPopularity) {
-			state.animeByPopularity = animeByPopularity;
+		SET_ANIME_UPCOMING(state, animeUpcoming) {
+			state.animeUpcoming = animeUpcoming;
 		},
 		SET_ANIME_RECOMMENDATIONS_BY_ID(state, animeRecommendationsById) {
 			state.animeRecommendationsById = animeRecommendationsById;
@@ -97,11 +97,11 @@ export const anime = {
 				throw new Error(error);
 			}
 		},
-		async loadAnimeByPopularity(ctx) {
+		async loadAnimeUpcoming(ctx) {
 			try {
-				const animeByPopularityResponse: AnimeByPopularityResponse = await jikanjs.loadTop('anime', 1, 'bypopularity');
-				const animeByPopularity = animeByPopularityResponse.top;
-				ctx.commit('SET_ANIME_BY_POPULARITY', animeByPopularity);
+				const animeUpcomingResponse: AnimeUpcomingResponse = await jikanjs.loadTop('anime', 1, 'upcoming');
+				const animeUpcoming = animeUpcomingResponse.top;
+				ctx.commit('SET_ANIME_UPCOMING', animeUpcoming);
 			} catch (error) {
 				throw new Error(error);
 			}
@@ -122,7 +122,7 @@ export const anime = {
 		getAnimeAiring: state => state.animeAiring,
 		getAnimeSearched: state => state.animeSearched,
 		getAnimeFavorite: state => state.animeFavorite,
-		getAnimeByPopularity: state => state.animeByPopularity,
+		getAnimeUpcoming: state => state.animeUpcoming,
 		getAnimeRecommendationsById: state => state.animeRecommendationsById,
 	}
 };

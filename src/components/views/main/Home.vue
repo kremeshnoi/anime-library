@@ -3,14 +3,14 @@
 	.home
 		top-airing-anime-block
 		genres-block
-		by-popularity-anime-block
+		anime-block-upcoming
 
 </template>
 
 <script>
 
 	import TopAiringAnimeBlock from '@/components/blocks/TopAiringAnimeBlock';
-	import ByPopularityAnimeBlock from "@/components/blocks/ByPopularityAnimeBlock";
+	import AnimeBlockUpcoming from "@/components/blocks/AnimeBlockUpcoming";
 	import GenresBlock from "@/components/blocks/GenresBlock";
 
 	export default {
@@ -18,7 +18,7 @@
 		components: {
 			GenresBlock,
 			TopAiringAnimeBlock,
-			ByPopularityAnimeBlock
+			AnimeBlockUpcoming
 		},
 		metaInfo: {
 			title: 'Otaku Library - Organize your own anime / manga list'

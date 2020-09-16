@@ -4,7 +4,7 @@ import { AnimeAiringResponseTop } from '@/interfaces/anime/AnimeAiringResponse';
 import { AnimeGenreResponse } from '@/interfaces/anime/AnimeGenreResponse';
 import { AnimeFavoriteResponseTop } from '@/interfaces/anime/AnimeFavoriteResponse';
 import { AnimeSearchedResponseResults } from '@/interfaces/anime/AnimeSearchedResponse';
-import { AnimeByPopularityResponseTop } from '@/interfaces/anime/AnimeByPopularityResponse';
+import { AnimeUpcomingResponseTop } from '@/interfaces/anime/AnimeUpcomingResponse';
 import { AnimeRecommendationsByIdResponseRecommendations } from '@/interfaces/anime/AnimeRecommendationsById';
 
 //Character
@@ -20,11 +20,11 @@ import { UsersInfoResponse } from '@/interfaces/users/UsersInfoResponse';
 
 export interface StateAnime {
 	animeById: AnimeByIdResponse[];
-	animeAiring: AnimeAiringResponseTop[];
 	animeGenre: AnimeGenreResponse[];
+	animeAiring: AnimeAiringResponseTop[];
+	animeUpcoming: AnimeUpcomingResponseTop[];
 	animeFavorite: AnimeFavoriteResponseTop[];
 	animeSearched: AnimeSearchedResponseResults[];
-	animeByPopularity: AnimeByPopularityResponseTop[];
 	animeRecommendationsById: AnimeRecommendationsByIdResponseRecommendations[];
 }
 

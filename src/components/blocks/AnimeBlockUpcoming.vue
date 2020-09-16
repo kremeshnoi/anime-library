@@ -1,12 +1,12 @@
 <template lang='pug'>
 
-	.by-popularity-anime-block
-		.by-popularity-anime-block__container
-			router-link.by-popularity-anime-block__title(to='/popular-anime')
-				| Popular Anime
-				.by-popularity-anime-block__icon.material-icons keyboard_arrow_right
+	.anime-block-upcoming
+		.anime-block-upcoming__container
+			router-link.anime-block-upcoming__title(to='/popular-anime')
+				| Upcoming Anime
+				.anime-block-upcoming__icon.material-icons keyboard_arrow_right
 			swiper-carousel
-				cards.swiper-slide(v-for='(result, index) in getAnimeByPopularity.slice(0, 7)'
+				cards.swiper-slide(v-for='(result, index) in getAnimeUpcoming.slice(0, 7)'
 					:key='index'
 					:query='result')
 
@@ -25,13 +25,13 @@
 			SwiperCarousel
 		},
 		methods: {
-			...mapActions(['loadAnimeByPopularity'])
+			...mapActions(['loadAnimeUpcoming'])
 		},
 		computed: {
-			...mapGetters(['getAnimeByPopularity'])
+			...mapGetters(['getAnimeUpcoming'])
 		},
 		created() {
-			this.loadAnimeByPopularity();
+			this.loadAnimeUpcoming();
 		}
 	};
 
@@ -44,7 +44,7 @@
 	@import '../../assets/styles/modules/titles'
 	@import '../../assets/styles/modules/containers'
 
-	.by-popularity-anime-block
+	.anime-block-upcoming
 		width: 100%
 
 		&__container
@@ -55,7 +55,7 @@
 			+flex(space-between, center, row)
 			&:hover
 				color: orange
-				.by-popularity-anime-block__icon
+				.anime-block-upcoming__icon
 					color: inherit
 
 		&__icon
