@@ -61,8 +61,7 @@
 			margin: 0 0 20px 0
 			text-align: start
 			@extend .title-bordered
-			+mq(phablet-small, max)
-				font-size: 20px
-				max-width: 235px
+
+
 
 </style>
