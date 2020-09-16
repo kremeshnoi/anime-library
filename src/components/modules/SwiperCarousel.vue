@@ -19,6 +19,7 @@
 			return {
 				swiperOptions: {
 					watchOverflow: true,
+					centeredSlidesBounds: true,
 					navigation: {
 						nextEl: '.swiper-button-next',
 						prevEl: '.swiper-button-prev'
@@ -26,24 +27,21 @@
 					spaceBetween: 10,
 					breakpoints: {
 						320: {
-							slidesPerView: 1
-						},
-						400: {
 							slidesPerView: 2
 						},
-						640: {
+						560: {
 							slidesPerView: 3
 						},
 						768: {
 							slidesPerView: 4
 						},
-						1024: {
+						930: {
 							slidesPerView: 5
 						},
-						1248: {
+						1100: {
 							slidesPerView: 6
 						},
-						1440: {
+						1248: {
 							slidesPerView: 7
 						}
 					}

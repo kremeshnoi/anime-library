@@ -5,9 +5,9 @@
 			img.cards__image(@click='computeRoute(query)'
 				:src='query.image_url')
 
-		.cards__title-wrapper
-			span.cards__title
-				| {{ query.title || query.name }}
+			.cards__title-wrapper
+				span.cards__title
+					| {{ query.title || query.name }}
 
 </template>
 
@@ -32,7 +32,7 @@
 
 	.cards
 		width: 100%
-		margin: 0 10px 10px 0
+		margin: 0 0 10px 0
 		box-shadow: none
 		position: relative
 
@@ -41,28 +41,41 @@
 
 		&__image
 			width: 100%
-			height: 100%
-			min-height: 220px
+			height: 250px
 			display: block
 			background-color: $color-blue-light
 			object-fit: cover
 			transform: scale(1.01)
+			+mq(phablet, max)
+				height: 280px
+			+mq(phone-wide, max)
+				height: 250px
+			+mq(phone, max)
+				height: 175px
 
 		&__image-wrapper
 			overflow: hidden
 			cursor: pointer
+			position: relative
 
 		&__title
 			margin: 0
-			width: 160px
-			font-size: 16px
+			padding: 0 10px 0 10px
+			font-size: 14px
 			display: block
+			color: $color-white
 			overflow: hidden
 			white-space: nowrap
 			text-overflow: ellipsis
+			text-shadow: rgba(0,0,0,.8) 1px 1px 0
 
 		&__title-wrapper
-			padding: 10px
+			width: 100%
+			padding: 4px 0 4px 0
+			position: absolute
+			bottom: 0
+			background: rgb(0,0,0)
+			background: linear-gradient(0deg, rgba(0,0,0,0.6) 50%, rgba(0, 0, 0, 0.0) 100%)
 			box-shadow: 0 8px 7px -7px rgba(0, 0, 0, 1)
 			+flex(center,center, initial)
 
