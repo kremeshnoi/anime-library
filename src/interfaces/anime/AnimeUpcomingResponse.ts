@@ -1,11 +1,11 @@
-interface AnimeByPopularityResponse {
+interface AnimeUpcomingResponse {
 	request_cache_expiry: number;
 	request_cached: boolean;
 	request_hash: string;
-	top: AnimeByPopularityResponseTop[];
+	top: AnimeUpcomingResponseTop[];
 }
 
-interface AnimeByPopularityResponseTop {
+interface AnimeUpcomingResponseTop {
 	end_date: string;
 	episodes: number;
 	image_url: string;
@@ -19,4 +19,4 @@ interface AnimeByPopularityResponseTop {
 	url: string;
 }
 
-export { AnimeByPopularityResponse, AnimeByPopularityResponseTop };
+export { AnimeUpcomingResponse, AnimeUpcomingResponseTop };

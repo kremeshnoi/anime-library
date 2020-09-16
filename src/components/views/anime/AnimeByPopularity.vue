@@ -6,7 +6,7 @@
 				| Top Airing Anime
 
 			query-content
-				cards(v-for='(result, index) in getAnimeByPopularity'
+				cards(v-for='(result, index) in getAnimeUpcoming'
 					:key='index'
 					:query='result')
 
@@ -28,13 +28,13 @@
 			title: 'Otaku Library / Top raited airing anime'
 		},
 		methods: {
-			...mapActions(['loadAnimeByPopularity'])
+			...mapActions(['loadAnimeUpcoming'])
 		},
 		computed: {
-			...mapGetters(['getAnimeByPopularity'])
+			...mapGetters(['getAnimeUpcoming'])
 		},
 		created() {
-			this.loadAnimeByPopularity();
+			this.loadAnimeUpcoming();
 		}
 	}
 
