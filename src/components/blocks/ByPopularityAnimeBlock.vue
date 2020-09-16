@@ -42,14 +42,13 @@
 	@import '../../assets/styles/utils/vars'
 	@import '../../assets/styles/utils/mixins'
 	@import '../../assets/styles/modules/titles'
+	@import '../../assets/styles/modules/containers'
 
 	.by-popularity-anime-block
 		width: 100%
 
 		&__container
-			margin: 0 auto
-			padding: 40px 40px 40px 40px
-			max-width: 1300px
+			@extend .container-default
 
 		&__title
 			@extend .title-bordered

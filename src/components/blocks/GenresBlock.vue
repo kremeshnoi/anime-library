@@ -1,25 +1,24 @@
 <template lang='pug'>
 
 	.genres-block
-		h4.genres-block__title
-			| Genres
-
 		.genres-block__content
-			h4.genres-block__anime-title
-				| Anime
-			h4.genres-block__manga-title
-				| Manga
-			.genres-block__anime
-				a.genres-block__item.genres-block__item_anime(v-for='(result, index) in sortedAnime[0]'
-					@click='computeRouteByGenre(result)')
-					| {{ result.title }}
+			.genres-block__anime-wrapper
+				h4.genres-block__title
+					| Anime
 
-			.genres-block__manga
+				.genres-block__anime
+					a.genres-block__item.genres-block__item_anime(v-for='(result, index) in sortedAnime[0]'
+						@click='computeRouteByGenre(result)')
+						| {{ result.title }}
+			.genres-block__manga-wrapper
+				h4.genres-block__title
+					| Manga
+				.genres-block__manga
 
 
-				a.genres-block__item.genres-block__item_manga(v-for='(result, index) in sortedManga[0]'
-					@click='computeRouteByGenre(result)')
-					| {{ result.title }}
+					a.genres-block__item.genres-block__item_manga(v-for='(result, index) in sortedManga[0]'
+						@click='computeRouteByGenre(result)')
+						| {{ result.title }}
 
 </template>
 
@@ -48,7 +47,7 @@
 					{ "id": 12, "title": "Hentai","type": "anime" },
 					{ "id": 13, "title": "Historical","type": "anime" },
 					{ "id": 14, "title": "Horror","type": "anime" },
-					// { "id": 15, "title": "Kids","type: "anime" },
+					{ "id": 15, "title": "Kids","type": "anime" },
 					{ "id": 16, "title": "Magic","type": "anime" },
 					{ "id": 17, "title": "Martial Arts","type": "anime" },
 					{ "id": 18, "title": "Mecha","type": "anime" },
@@ -93,7 +92,7 @@
 					{ "id": 12, "title": "Hentai","type": "manga" },
 					{ "id": 13, "title": "Historical","type": "manga" },
 					{ "id": 14, "title": "Horror","type": "manga" },
-					// { "id": 15, "title": "Kids","type}: "manga" },
+					{ "id": 15, "title": "Kids","type": "manga" },
 					{ "id": 16, "title": "Magic","type": "manga" },
 					{ "id": 17, "title": "Martial Arts","type": "manga" },
 					{ "id": 18, "title": "Mecha","type": "manga" },
@@ -170,24 +169,24 @@
 
 		&__title
 			@extend .title-bordered
-
-		&__anime-title, &__manga-title
-			@extend .title
 			text-align: start
 
 		&__content
-			padding: 40px 0 0 0
 			display: grid
 			grid-gap: 20px
 			grid-template-columns: repeat(2, 1fr)
+			+mq(tablet, max)
+				grid-template-columns: 1fr
 
 		&__anime, &__manga
 			display: grid
 			grid-gap: 20px
 			grid-template-columns: repeat(3, 1fr)
+			+mq(phone-wide, max)
+				grid-template-columns: 1fr 1fr
 
 		&__item
-			font-size: 18px
+			font-size: 16px
 			padding: 10px
 			border-radius: 3px
 
