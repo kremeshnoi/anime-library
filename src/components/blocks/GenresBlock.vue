@@ -142,9 +142,9 @@
 				}
 
 				if(array[0].type === 'anime') {
-					this.sortedAnime.push(array.slice(0, 6));
+					this.sortedAnime.push(array.slice(0, 22));
 				} else if(array[0].type === 'manga') {
-					this.sortedManga.push(array.slice(0, 6));
+					this.sortedManga.push(array.slice(0, 22));
 				}
 
 			}
@@ -180,25 +180,28 @@
 				grid-template-columns: 1fr
 
 		&__anime, &__manga
-			display: grid
-			grid-gap: 20px
-			grid-template-columns: repeat(3, 1fr)
+			display: flex
+			flex-wrap: wrap
 			+mq(phone-wide, max)
 				grid-template-columns: 1fr 1fr
 
 		&__item
 			font-size: 16px
 			padding: 10px
+			margin: 10px 10px 10px 0
+			width: max-content
 			border-radius: 3px
 
-			&_anime
-				color: #fc555d
-				background-color: #feedeb
-				border: 1px solid #fee4e1
+			&_anime, &_manga
+				$colors: $color-blue, $color-blue-light, $color-blue-dark
+				$repeat: 20
+				@for $i from 1 through $repeat
+					&:nth-child(#{length($colors)}n+#{$i})
+						background: lighten(nth($colors, random(length($colors))), 20%)
 
-			&_manga
-				color: #7955fc
-				background-color: #eeebfe
-				border: 1px solid #e6e1fe
+				color: $color-white-pure
+				&:hover
+					opacity: 0.9
+
 
 </style>

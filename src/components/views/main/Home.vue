@@ -2,8 +2,9 @@
 
 	.home
 		top-airing-anime-block
-		genres-block
 		anime-block-upcoming
+		genres-block
+
 
 </template>
 
