@@ -35,13 +35,13 @@
 						768: {
 							slidesPerView: 4
 						},
-						930: {
+						992: {
 							slidesPerView: 5
 						},
-						1100: {
+						1248: {
 							slidesPerView: 6
 						},
-						1248: {
+						1440: {
 							slidesPerView: 7
 						}
 					}
