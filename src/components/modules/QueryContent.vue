@@ -24,17 +24,15 @@
 		justify-content: center
 		grid-gap: 20px
 		height: 100%
-		+mq(desktop, max)
+		+mq(desktop-wide, max)
 			grid-template-columns: repeat(6, 1fr)
-		+mq(tablet-wide, max)
+		+mq(desktop, max)
 			grid-template-columns: repeat(5, 1fr)
-		+mq(tablet, max)
+		+mq(tablet-mid, max)
 			grid-template-columns: repeat(4, 1fr)
-		+mq(tablet-small, max)
+		+mq(tablet, max)
 			grid-template-columns: repeat(3, 1fr)
 		+mq(phablet, max)
-			grid-template-columns: repeat(2, 1fr)
-		+mq(phablet-small, max)
 			grid-template-columns: repeat(2, 1fr)
 
 </style>

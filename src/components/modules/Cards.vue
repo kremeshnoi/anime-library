@@ -41,19 +41,11 @@
 
 		&__image
 			width: 100%
-			height: 250px
+			height: 100%
 			display: block
 			background-color: $color-blue-light
 			object-fit: cover
 			transform: scale(1.01)
-			+mq(phablet, max)
-				height: 320px
-			+mq(phone-wide, max)
-				height: 250px
-			+mq(phone, max)
-				height: 200px
-			+mq(phone-small, max)
-				height: 170px
 
 		&__image-wrapper
 			overflow: hidden
