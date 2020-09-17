@@ -47,11 +47,13 @@
 			object-fit: cover
 			transform: scale(1.01)
 			+mq(phablet, max)
-				height: 280px
+				height: 320px
 			+mq(phone-wide, max)
 				height: 250px
 			+mq(phone, max)
-				height: 175px
+				height: 200px
+			+mq(phone-small, max)
+				height: 170px
 
 		&__image-wrapper
 			overflow: hidden
