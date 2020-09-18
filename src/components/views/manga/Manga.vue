@@ -311,6 +311,7 @@
 		text-align: start
 
 		&__disaster
+			text-align: start
 			font-size: 30px
 
 		&__title
@@ -350,6 +351,7 @@
 		text-align: start
 
 		&__disaster
+			text-align: start
 			font-size: 30px
 
 		&__title
@@ -362,6 +364,7 @@
 		grid-area: recommendations
 
 		&__disaster
+			text-align: start
 			font-size: 30px
 
 		&__wrapper
