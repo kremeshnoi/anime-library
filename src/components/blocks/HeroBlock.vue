@@ -40,7 +40,7 @@
 			+mq(tablet-small, max)
 				grid-template-columns: 1fr
 				grid-template-rows: 1fr
-				background-image: url('../../assets/images/hero.png')
+				background-image: url('../../assets/images/hero-min.png')
 				background-position: bottom right
 				background-size: 100px 100px
 				background-repeat: no-repeat
