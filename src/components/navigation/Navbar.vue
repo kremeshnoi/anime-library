@@ -10,6 +10,12 @@
 					i.navbar__icon.material-icons exit_to_app
 				router-link.navbar__sign-in-link_mobile(to='/sign-in')
 					i.navbar__icon.material-icons exit_to_app
+			.navbar__sign-out(v-else)
+				a.navbar__sign-in-link(@click='signOut')
+					| Sing Out
+					i.navbar__icon.material-icons exit_to_app
+				a.navbar__sign-in-link_mobile(@click='signOut')
+					i.navbar__icon.material-icons exit_to_app
 
 </template>
 
@@ -25,7 +31,14 @@
 			}
 		},
 		methods: {
-			...mapActions(['getUid'])
+			...mapActions(['getUid']),
+			signOut() {
+				try {
+					this.$store.dispatch('signOut');
+				} catch (error) {
+					throw new Error(error);
+				}
+			}
 		},
 		async created() {
 			await this.getUid().then(result => this.user.push(result));
@@ -60,7 +73,8 @@
 			+mq(phablet, max)
 				font-size: 22px
 
-		&__sign-in
+		&__sign-in,
+		&__sign-out
 			position: absolute
 			right: 0
 			top: 0
