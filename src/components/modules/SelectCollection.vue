@@ -1,6 +1,6 @@
 <template lang='pug'>
 
-	.input-field(v-if='getUserInfo.length')
+	.input-field(v-if='this.user[0] !== null')
 		select
 			option(v-for='option in options'
 				:key='option.id')
@@ -13,13 +13,14 @@
 
 <script>
 
-import { mapGetters } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 	export default {
 		name: 'Select',
 		props: ['query'],
 		data() {
 			return {
+				user: [],
 				verb: '',
 				options: [
 					{ title: `Plan to`,
@@ -39,6 +40,7 @@ import { mapGetters } from 'vuex';
 			...mapGetters(['getUserInfo'])
 		},
 		methods: {
+			...mapActions(['getUid']),
 			changeTitle() {
 				let type = this.query;
 				if (type === 'Manga') {
@@ -58,10 +60,11 @@ import { mapGetters } from 'vuex';
 		},
 		created() {
 			this.changeTitle();
+			this.getUid().then(result => this.user.push(result));
 		},
 		mounted() {
-			const elems = document.querySelectorAll('select');
-			const instances = M.FormSelect.init(elems);
+			const select = document.querySelectorAll('select');
+			const select_instance = M.FormSelect.init(select);
 		}
 	}
 
