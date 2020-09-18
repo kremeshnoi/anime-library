@@ -31,7 +31,6 @@
 			const tap = document.querySelectorAll('.tap-target')
 			const tap_init = M.TapTarget.init(tap)
 			const tap_instance = M.TapTarget.getInstance(tap);
-			tap_instance.open();
 
 			const action_btn = document.querySelectorAll('.fixed-action-btn');
 			const action_btn_instance = M.FloatingActionButton.init(action_btn);
