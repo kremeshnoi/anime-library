@@ -2,7 +2,7 @@
 
 	.anime-block-upcoming
 		.anime-block-upcoming__container
-			router-link.anime-block-upcoming__title(to='/popular-anime')
+			router-link.anime-block-upcoming__title(to='/anime/upcoming')
 				| Upcoming Anime
 				.anime-block-upcoming__icon.material-icons keyboard_arrow_right
 			swiper-carousel

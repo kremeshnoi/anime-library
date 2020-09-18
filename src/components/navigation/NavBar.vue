@@ -44,7 +44,7 @@
 		line-height: 54px
 		background-color: $color-blue
 		top: 0
-		position: fixed
+		position: absolute
 		z-index: 99
 		padding: 0 40px 0 40px
 

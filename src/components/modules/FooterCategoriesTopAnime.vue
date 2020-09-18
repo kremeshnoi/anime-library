@@ -1,7 +1,7 @@
 <template lang='pug'>
 
 	.footer-categories-top-anime
-		router-link.footer-categories-top-anime__title(to='/top-anime')
+		router-link.footer-categories-top-anime__title(to='/anime/top')
 			| Top Anime
 			.footer-categories-top-anime__icon.material-icons keyboard_arrow_right
 
