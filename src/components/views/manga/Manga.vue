@@ -111,7 +111,7 @@
 				.manga-description__synopsis(v-if='getMangaById.synopsis')
 					| {{ getMangaById.synopsis }}
 
-				h4.manga-recommendations__disaster(v-else)
+				h4.manga-description__disaster(v-else)
 					| Not found (︶︹︺)
 
 			.manga__recommendations.manga-recommendations(v-if='getMangaRecommendationsById.recommendations')
@@ -310,6 +310,8 @@
 		grid-template-columns: 100%
 		text-align: start
 
+		&__disaster
+			font-size: 30px
 
 		&__title
 			display: flex
@@ -347,6 +349,9 @@
 		grid-area: description
 		text-align: start
 
+		&__disaster
+			font-size: 30px
+
 		&__title
 			@extend .title
 			margin: 0 0 16px 0
@@ -355,6 +360,9 @@
 
 	.manga-recommendations
 		grid-area: recommendations
+
+		&__disaster
+			font-size: 30px
 
 		&__wrapper
 			display: grid

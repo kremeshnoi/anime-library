@@ -337,6 +337,9 @@
 		grid-template-rows: 50px auto
 		text-align: start
 
+		&__disaster
+			font-size: 30px
+
 		&__content
 			+flex(center, flex-start, initial)
 
@@ -359,6 +362,9 @@
 		grid-template-rows: 50px auto
 		grid-template-columns: 100%
 		text-align: start
+
+		&__disaster
+			font-size: 30px
 
 		&__title
 			display: flex
@@ -399,6 +405,9 @@
 		display: grid
 		grid-gap: 20px
 
+		&__disaster
+			font-size: 30px
+
 		&__title
 			@extend .title
 
@@ -406,6 +415,9 @@
 
 	.anime-recommendations
 		grid-area: recommendations
+
+		&__disaster
+			font-size: 30px
 
 		&__wrapper
 			display: grid
