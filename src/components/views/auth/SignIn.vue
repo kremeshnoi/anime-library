@@ -139,7 +139,7 @@
 	@import '../../../assets/styles/utils/mixins'
 	@import '../../../assets/styles/modules/buttons'
 
-	//Sing-in
+	//Sign-in
 	.sign-in
 		position: fixed
 		top: 0

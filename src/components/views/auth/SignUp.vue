@@ -152,7 +152,7 @@
 	@import '../../../assets/styles/modules/buttons'
 
 
-	//Sing-up
+	//Sign-up
 	.sign-up
 		position: fixed
 		top: 0
