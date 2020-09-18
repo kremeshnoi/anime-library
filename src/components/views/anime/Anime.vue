@@ -338,6 +338,7 @@
 		text-align: start
 
 		&__disaster
+			text-align: start
 			font-size: 30px
 
 		&__content
@@ -364,6 +365,7 @@
 		text-align: start
 
 		&__disaster
+			text-align: start
 			font-size: 30px
 
 		&__title
@@ -406,6 +408,7 @@
 		grid-gap: 20px
 
 		&__disaster
+			text-align: start
 			font-size: 30px
 
 		&__title
@@ -417,6 +420,7 @@
 		grid-area: recommendations
 
 		&__disaster
+			text-align: start
 			font-size: 30px
 
 		&__wrapper
