@@ -6,13 +6,13 @@
 				| Otaku Library
 			.navbar__sign-in(v-if='this.user[0] === null')
 				router-link.navbar__sign-in-link(to='/sign-in')
-					| Sing in
+					| Sign in
 					i.navbar__icon.material-icons exit_to_app
 				router-link.navbar__sign-in-link_mobile(to='/sign-in')
 					i.navbar__icon.material-icons exit_to_app
 			.navbar__sign-out(v-else)
 				a.navbar__sign-in-link(@click='signOut')
-					| Sing Out
+					| Sign out
 					i.navbar__icon.material-icons exit_to_app
 				a.navbar__sign-in-link_mobile(@click='signOut')
 					i.navbar__icon.material-icons exit_to_app
