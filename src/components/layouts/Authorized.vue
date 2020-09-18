@@ -11,7 +11,7 @@
 				h5.tap-target__title
 					| I am here ٩(◕‿◕｡)۶
 				p.tap-target__description
-					| I am your navigation menu. Use me to go to the key pages of the site. I will always be with you.
+					| I am your navigation menu. Use me to navigate the key pages of the site. I will always be with you.
 
 </template>
 
