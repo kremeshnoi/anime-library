@@ -1,7 +1,7 @@
 <template lang='pug'>
 
 	.footer-categories-top-manga
-		router-link.footer-categories-top-manga__title(to='/top-manga')
+		router-link.footer-categories-top-manga__title(to='/manga/top')
 			| Top Manga
 			.footer-categories-top-manga__icon.material-icons keyboard_arrow_right
 

@@ -19,19 +19,19 @@ const routes = [
 		component: () => import('../components/views/anime/Anime.vue')
 	},
 	{
-		path: '/character/:id/:title',
+		path: '/characters/:id/:title',
 		name: 'Character',
 		meta: { layout: '' },
 		component: () => import('../components/views/characters/Character.vue')
 	},
 	{
-		path: '/genre/anime/:id/:title',
+		path: '/anime/genres/:id/:title',
 		name: 'anime-genre',
 		meta: { layout: '' },
 		component: () => import('../components/views/anime/AnimeGenre.vue')
 	},
 	{
-		path: '/genre/manga/:id/:title',
+		path: '/manga/genres/:id/:title',
 		name: 'manga-genre',
 		meta: { layout: '' },
 		component: () => import('../components/views/manga/MangaGenre.vue')
@@ -53,6 +53,36 @@ const routes = [
 		name: 'Library',
 		meta: { layout: '', auth: true },
 		component: () => import('../components/views/main/Library.vue')
+	},
+	{
+		path: '/anime/top-airing',
+		name: 'TopAiring',
+		meta: { layout: '' },
+		component: () => import('../components/views/anime/TopAiring.vue')
+	},
+	{
+		path: '/anime/upcoming',
+		name: 'AnimeUpcoming',
+		meta: { layout: '' },
+		component: () => import('../components/views/anime/AnimeUpcoming.vue')
+	},
+	{
+		path: '/anime/top',
+		name: 'TopAnime',
+		meta: { layout: '' },
+		component: () => import('../components/views/anime/TopAnime.vue')
+	},
+	{
+		path: '/characters/popular',
+		name: 'TopCharacters',
+		meta: { layout: '' },
+		component: () => import('../components/views/characters/PopularCharacters.vue')
+	},
+	{
+		path: '/manga/top',
+		name: 'TopManga',
+		meta: { layout: '' },
+		component: () => import('../components/views/manga/TopManga.vue')
 	},
 	{
 		path: '/sign-up',
@@ -95,36 +125,6 @@ const routes = [
 				next();
 			}
 		}
-	},
-	{
-		path: '/top-airing',
-		name: 'TopAiring',
-		meta: { layout: '' },
-		component: () => import('../components/views/anime/TopAiring.vue')
-	},
-	{
-		path: '/popular-anime',
-		name: 'AnimeUpcoming',
-		meta: { layout: '' },
-		component: () => import('../components/views/anime/AnimeUpcoming.vue')
-	},
-	{
-		path: '/top-anime',
-		name: 'TopAnime',
-		meta: { layout: '' },
-		component: () => import('../components/views/anime/TopAnime.vue')
-	},
-	{
-		path: '/popular-characters',
-		name: 'TopCharacters',
-		meta: { layout: '' },
-		component: () => import('../components/views/characters/PopularCharacters.vue')
-	},
-	{
-		path: '/top-manga',
-		name: 'TopManga',
-		meta: { layout: '' },
-		component: () => import('../components/views/manga/TopManga.vue')
 	}
 ];
 

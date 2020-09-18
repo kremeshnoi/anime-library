@@ -2,7 +2,7 @@
 
 	.top-airing-anime-block
 		.top-airing-anime-block__container
-			router-link.top-airing-anime-block__title(to='/top-airing')
+			router-link.top-airing-anime-block__title(to='/anime/top-airing')
 				| AIRING ANIME
 				.top-airing-anime-block__icon.material-icons keyboard_arrow_right
 			swiper-carousel

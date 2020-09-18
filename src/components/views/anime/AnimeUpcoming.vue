@@ -3,7 +3,7 @@
 	.anime-by-popularity
 		.anime-by-popularity__container
 			.anime-by-popularity__title
-				| Top Airing Anime
+				| Upcoming Anime
 
 			query-content
 				cards(v-for='(result, index) in getAnimeUpcoming'

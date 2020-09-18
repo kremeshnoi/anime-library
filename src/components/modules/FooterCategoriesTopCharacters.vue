@@ -1,7 +1,7 @@
 <template lang='pug'>
 
 	.footer-categories-top-characters
-		router-link.footer-categories-top-characters__title(to='/popular-characters')
+		router-link.footer-categories-top-characters__title(to='/characters/popular')
 			| Most Popular Characters
 			.footer-categories-top-characters__icon.material-icons keyboard_arrow_right
 
