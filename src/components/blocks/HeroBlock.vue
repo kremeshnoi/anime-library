@@ -93,4 +93,8 @@
 			+mq(tablet-small, max)
 				display: none
 
+	@media (max-height: 800px)
+		.hero-block
+			height: 50vh
+
 </style>
