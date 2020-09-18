@@ -367,8 +367,6 @@
 		&__wrapper
 			display: grid
 			grid-gap: 20px
-			justify-content: start
-			grid-template-rows: 50px auto
 
 		&__title
 			@extend .title
