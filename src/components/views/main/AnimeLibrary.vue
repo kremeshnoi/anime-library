@@ -16,7 +16,6 @@
 						li.tab.col.s3
 							a(href='#test4') Dropped
 
-
 				#test1.col.s12 Test 1
 				#test2.col.s12 Test 2
 				#test3.col.s12 Test 3
@@ -30,7 +29,7 @@
 	export default {
 		name: 'Library',
 		metaInfo: {
-			title: 'Otaku Library / Library'
+			title: 'Otaku Library / Anime Library'
 		},
 		mounted() {
 			const tabs = document.querySelectorAll('.tabs');
