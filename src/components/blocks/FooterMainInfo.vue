@@ -34,7 +34,7 @@
 					| Help
 				router-link.footer-main-info__link(to='/about')
 					| Q/A
-				router-link.footer-main-info__link(to='/settings')
+				router-link.footer-main-info__link(to='/recovery')
 					| Forgot Password?
 
 </template>
