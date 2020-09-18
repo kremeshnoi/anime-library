@@ -1,7 +1,7 @@
 <template lang='pug'>
 
 	.content-wrapper
-		nav-bar
+		navbar
 		router-view(:key='this.$route.path')
 		main-footer
 
@@ -9,14 +9,16 @@
 
 <script>
 
-	import NavBar from '@/components/navigation/NavBar';
+	import Navbar from '@/components/navigation/Navbar';
 	import MainFooter from '@/components/navigation/MainFooter';
+	import ActionButton from "@/components/navigation/ActionButton";
 
 	export default {
 		name: 'Unauthorized',
 		components: {
-			NavBar,
-			MainFooter
+			Navbar,
+			MainFooter,
+			ActionButton
 		},
 		mounted() {
 			M.AutoInit();
@@ -29,12 +31,6 @@
 
 	@import '../../assets/styles/utils/vars'
 	@import '../../assets/styles/utils/mixins'
-
-	body
-		background-color: $color-white-dark
-
-	.navbar
-		max-width: 1300px
 
 	.content-wrapper
 		padding: 54px 0 0 0

@@ -18,7 +18,7 @@
 	import { mapActions } from "vuex";
 
 	export default {
-		name: 'NavBar',
+		name: 'Navbar',
 		data:()=> {
 			return {
 				user: []
@@ -47,6 +47,7 @@
 		position: absolute
 		z-index: 99
 		padding: 0 40px 0 40px
+		max-width: 1300px
 
 		&__wrapper
 			width: 100%
