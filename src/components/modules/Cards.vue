@@ -41,11 +41,13 @@
 
 		&__image
 			width: 100%
-			height: 100%
+			height: 260px
 			display: block
 			background-color: $color-blue-light
 			object-fit: cover
 			transform: scale(1.01)
+			+mq(tablet-small, max)
+				height: 240px
 
 		&__image-wrapper
 			overflow: hidden
