@@ -14,11 +14,8 @@
 				router-link.side-nav__link.btn-floating(to='/search')
 					i.action-button__icon.material-icons search
 			li.action-button__list-item
-				router-link.side-nav__link.btn-floating(to='/library/manga')
-					i.action-button__icon.material-icons book
-			li.action-button__list-item
-				router-link.side-nav__link.btn-floating(to='/library/anime')
-					i.action-button__icon.material-icons video_library
+				router-link.side-nav__link.btn-floating(to='/library')
+					i.action-button__icon.material-icons view_list
 
 </template>
 

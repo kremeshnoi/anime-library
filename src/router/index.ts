@@ -49,10 +49,10 @@ const routes = [
 		component: () => import('../components/views/main/Search.vue')
 	},
 	{
-		path: '/library/anime',
-		name: 'AnimeLibrary',
+		path: '/library',
+		name: 'Library',
 		meta: { layout: '', auth: true },
-		component: () => import('../components/views/main/AnimeLibrary.vue')
+		component: () => import('../components/views/main/Library.vue')
 	},
 	{
 		path: '/anime/top-airing',
