@@ -132,7 +132,6 @@
 						}
 						await this.$store.dispatch('signUp', signUpData);
 						this.$router.push('/');
-						M.toast({ html: 'Signed In successfully', classes: 'green' });
 					} else {
 						M.toast({ html: 'Complete the captcha!', classes: 'red' });
 					}
