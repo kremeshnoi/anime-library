@@ -20,6 +20,7 @@ import './registerServiceWorker';
 //Styles
 import './assets/styles/base/base.sass';
 import './assets/styles/base/reset.sass';
+import './assets/styles/state/tabs.sass';
 import './assets/styles/state/toast.sass';
 import './assets/styles/theme/scrollbar.sass';
 import './assets/styles/state/selectCollection.sass';
