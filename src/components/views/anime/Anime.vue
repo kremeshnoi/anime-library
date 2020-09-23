@@ -10,7 +10,8 @@
 				.anime__cover-container
 					img.anime__cover(:src='getAnimeById.image_url')
 					select-collection.anime__input-field(v-if='getAnimeById.type'
-						:query='getAnimeById.type')
+						:type='getAnimeById.type'
+						:wholeResult='getAnimeById')
 
 				.anime__info.anime-info
 					h2.anime-info__title
@@ -195,7 +196,6 @@
 			if(Object.keys(this.getAnimeById.related).length) {
 				const tabs = document.querySelectorAll('.tabs');
 				const instanceTabs = M.Tabs.init(tabs);
-				const indicatorTooltip = document.querySelector('.indicator').style.display = 'none';
 			}
 			this.checkRelatedLength();
 		}
@@ -390,6 +390,8 @@
 			height: initial !important
 			line-height: initial
 			color: $color-blue-light !important
+			&:focus
+				background-color: initial !important
 			&.active
 				background-color: initial !important
 				color: $color-orange !important
