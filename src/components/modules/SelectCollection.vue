@@ -1,36 +1,38 @@
 <template lang='pug'>
 
 	.input-field(v-if='this.user[0] !== null')
-		select
-			option(v-for='option in options'
-				:key='option.id')
-				| {{ option.title }}
+		select(v-model='status')
+			option(v-for='(option, index) in options'
+				:key='option.index'
+				:value='option.value')
+				span {{ option.title }}
 
-		.btn-small
+		.btn-small(@click='submit()')
 			| Add
 
 </template>
 
 <script>
 
-import { mapActions, mapGetters } from 'vuex';
+	import { mapActions, mapGetters } from 'vuex';
 
 	export default {
 		name: 'Select',
-		props: ['query'],
+		props: ['type', 'wholeResult'],
 		data() {
 			return {
 				user: [],
 				verb: '',
+				status: 'planned',
 				options: [
 					{ title: `Plan to`,
 						value: 'planned' },
 					{ title: 'Completed',
 						value: 'completed' },
 					{ title: `Currently`,
-						value: 'in-process' },
+						value: 'process' },
 					{ title: 'On Hold',
-						value: 'on-hold' },
+						value: 'hold' },
 					{ title: 'Dropped',
 						value: 'dropped' }
 				]
@@ -41,8 +43,16 @@ import { mapActions, mapGetters } from 'vuex';
 		},
 		methods: {
 			...mapActions(['getUid']),
+			submit(){
+				this.$store.dispatch('addToLibrary', {
+					type: this.type,
+					status: this.status,
+					id: this.wholeResult.mal_id,
+					result: this.wholeResult
+				})
+			},
 			changeTitle() {
-				let type = this.query;
+				let type = this.type;
 				if (type === 'Manga') {
 					this.verb = 'Read';
 				} else {

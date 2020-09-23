@@ -9,6 +9,7 @@ import { auth } from '@/store/auth/index';
 import { manga } from '@/store/manga/index';
 import { anime } from '@/store/anime/index';
 import { characters } from '@/store/characters/index'
+import firebase from "firebase";
 
 Vue.use(Vuex);
 
@@ -16,6 +17,24 @@ export default new Vuex.Store({
 	state: {},
 	mutations: {},
 	actions: {
+		async addToLibrary({ dispatch }, { type, status,id }) {
+			try {
+				if (type === 'Manga') {
+					type = 'manga';
+				} else {
+					type = 'anime';
+				}
+
+				const uid = await dispatch('getUid');
+				await firebase.database().ref(`/${type}/${status}/${id}`).set({
+					uid
+				});
+
+				M.toast({ html: '(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ Сhanges applied!', classes: 'green' });
+			} catch (error) {
+				throw new Error(error);
+			}
+		},
 		computeRoute(ctx, result) {
 			try {
 				let type = result.type;
