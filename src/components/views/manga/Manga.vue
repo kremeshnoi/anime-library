@@ -10,7 +10,8 @@
 				.manga__cover-container
 					img.manga__cover(:src='getMangaById.image_url')
 					select-collection.manga__input-field(v-if='getMangaById.type'
-						:query='getMangaById.type')
+						:type='getMangaById.type'
+						:wholeResult='getMangaById')
 
 				.manga__info.manga-info
 					h2.manga-info__title
@@ -78,6 +79,8 @@
 							.manga-info__list-values(v-for='(result, index_serializations) in getMangaById.serializations'
 								:key='index_serializations')
 								| {{ result.name }}
+							.manga-info__list-value(v-if='getMangaById.serializations.length === 0')
+								| Unknown
 
 			.manga__sub-content
 				.manga__related.manga-related
@@ -168,7 +171,6 @@
 			if(Object.keys(this.getMangaById.related).length) {
 				const tabs = document.querySelectorAll('.tabs');
 				const instanceTabs = M.Tabs.init(tabs);
-				const indicatorTooltip = document.querySelector('.indicator').style.display = 'none';
 			}
 			this.checkRelatedLength();
 		}
@@ -335,6 +337,8 @@
 			text-align: start
 			line-height: initial
 			color: $color-blue-light !important
+			&:focus
+				background-color: initial !important
 			&.active
 				background-color: initial !important
 				color: $color-orange !important

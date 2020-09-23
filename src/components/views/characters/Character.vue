@@ -271,6 +271,8 @@
 			text-align: start
 			line-height: initial
 			color: $color-blue-light !important
+			&:focus
+				background-color: initial !important
 			&.active
 				background-color: initial !important
 				color: $color-orange !important
