@@ -100,7 +100,9 @@
 								tbody.manga-related__tbody
 									tr.manga-related__tr(v-for='(result, index) in value.slice(0, 1)'
 										:key='index')
-										a.manga-related__link.manga-related__link_more.modal-trigger(href='#related' v-if='value.length >= 2')
+										a.manga-related__link.manga-related__link_more.modal-trigger(href='#related'
+											@click='transferData()'
+											v-if='value.length >= 2')
 											| More
 										td.manga-related__td
 											a.manga-related__link(@click='computeRoute(result)')
@@ -175,20 +177,20 @@
 			...mapActions(['loadMangaById', 'loadMangaRecommendationsById', 'computeRoute']),
 			transferData() {
 				this.buffer = []
-				let related_item = document.querySelectorAll('.anime-related__tab-item')
+				let related_item = document.querySelectorAll('.manga-related__tab-item')
 				related_item.forEach(function(item) {
 					if(item.classList.contains('active')) {
 						related_item = item
 					}
 				});
 
-				let obj = Object.values(this.getAnimeById.related)
+				let obj = Object.values(this.getMangaById.related)
 
 				var size = 0, key;
-				for (key in this.getAnimeById.related) {
-					if(this.getAnimeById.related.hasOwnProperty(key)) size++;
+				for (key in this.getMangaById.related) {
+					if(this.getMangaById.related.hasOwnProperty(key)) size++;
 					if(key === related_item.text) {
-						this.buffer.push(this.getAnimeById.related[key])
+						this.buffer.push(this.getMangaById.related[key])
 					}
 				}
 			},
