@@ -97,8 +97,7 @@
 							:src=`this.trailer`
 							frameborder='0'
 							allowfullscreen='true')
-						h4.anime-trailer__disaster(v-else)
-							| Not found (＃￣ω￣)
+						img.anime-trailer__disaster(v-else src='@/assets/images/not_found.jpg')
 
 				.anime__related.anime-related
 					.anime-related__title
@@ -114,8 +113,12 @@
 							:key='name')
 							table.anime-related__table.striped
 								tbody.anime-related__tbody
-									tr.anime-related__tr(v-for='(result, index) in value'
+									tr.anime-related__tr(v-for='(result, index) in value.slice(0, 1)'
 										:key='index')
+										a.anime-related__link.anime-related__link_more.modal-trigger(href='#related'
+											@click='transferData()'
+											v-if='value.length >= 2')
+											| More
 										td.anime-related__td
 											a.anime-related__link(@click='computeRoute(result)')
 												| {{ result.name }}
@@ -146,6 +149,17 @@
 					h4.anime-recommendations__disaster(v-else)
 						| Not found (」°ロ°)」
 
+		#related.related-modal.modal
+			.related-modal__content.modal-content
+				.manga-related__item(v-for='(value, name) in buffer'
+					:key='name')
+					table.manga-related__table.striped
+						tbody.manga-related__tbody
+							tr.manga-related__tr(v-for='(result, index) in value'
+								:key='index')
+								td.manga-related__td
+									a.manga-related__link(@click='computeRoute(result)')
+										| {{ result.name }}
 
 </template>
 
@@ -160,6 +174,7 @@
 		name: 'Anime',
 		data:() => {
 			return {
+				buffer: [],
 				related: [],
 				trailer: ''
 			}
@@ -176,6 +191,25 @@
 		},
 		methods: {
 			...mapActions(['loadAnimeById', 'loadAnimeRecommendationsById', 'computeRoute']),
+			transferData() {
+				this.buffer = []
+				let related_item = document.querySelectorAll('.anime-related__tab-item')
+				related_item.forEach(function(item) {
+					if(item.classList.contains('active')) {
+						related_item = item
+					}
+				});
+
+				let obj = Object.values(this.getAnimeById.related)
+
+				var size = 0, key;
+				for (key in this.getAnimeById.related) {
+					if(this.getAnimeById.related.hasOwnProperty(key)) size++;
+					if(key === related_item.text) {
+						this.buffer.push(this.getAnimeById.related[key])
+					}
+				}
+			},
 			checkRelatedLength() {
 				this.related = Object.keys(this.getAnimeById.related).length
 			},
@@ -193,6 +227,8 @@
 			await this.loadAnimeById();
 			await this.disableAutoplay();
 			await this.loadAnimeRecommendationsById();
+			const modal = document.querySelectorAll('.modal');
+			const modal_instance = M.Modal.init(modal);
 			if(Object.keys(this.getAnimeById.related).length) {
 				const tabs = document.querySelectorAll('.tabs');
 				const instanceTabs = M.Tabs.init(tabs);
@@ -263,15 +299,12 @@
 			grid-area: cover
 
 		&__title
-			text-align: start
 			font-size: 20px
 			max-width: 460px
 			grid-area: title
-			text-overflow: ellipsis
-			overflow: hidden
-			display: -webkit-box
+			text-align: start
 			-webkit-line-clamp: 2
-			-webkit-box-orient: vertical
+			@extend .title-vertical-cut
 
 		&__input-field
 			margin: 0
@@ -338,10 +371,10 @@
 		text-align: start
 
 		&__disaster
-			text-align: start
-			font-size: 30px
+			width: 100%
 
 		&__content
+			border-left: 5px solid $color-blue-light
 			+flex(center, flex-start, initial)
 
 		&__title
@@ -373,6 +406,10 @@
 			align-items: center
 			@extend .title
 
+		&__tr
+			display: block
+			position: relative
+
 		&__tabs
 			display: flex
 			flex-wrap: wrap
@@ -397,9 +434,18 @@
 				color: $color-orange !important
 
 		&__link
+			@extend .title-cut
 			color: $color-grey-dark
+			+mq(phone-wide, max)
+				max-width: 250px
 			&:hover
 				text-decoration: underline
+			&_more
+				position: absolute
+				color: $color-blue-light
+				right: 0
+				width: auto
+				bottom: -30px
 
 	// ANIME DESCRIPTION
 

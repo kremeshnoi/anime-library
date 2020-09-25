@@ -29,11 +29,12 @@
 
 	@import '../../assets/styles/utils/vars'
 	@import '../../assets/styles/utils/mixins'
+	@import '../../assets/styles/modules/titles'
 
 	.cards
 		width: 100%
-		margin: 0 0 10px 0
 		box-shadow: none
+		margin: 0 0 10px 0
 		position: relative
 
 		&:hover
@@ -44,25 +45,21 @@
 			height: 260px
 			display: block
 			background-color: $color-blue-light
-			object-fit: cover
 			transform: scale(1.01)
 			+mq(tablet-small, max)
 				height: 240px
 
 		&__image-wrapper
-			overflow: hidden
 			cursor: pointer
+			overflow: hidden
 			position: relative
 
 		&__title
 			margin: 0
-			padding: 0 10px 0 10px
 			font-size: 14px
-			display: block
+			@extend .title-cut
 			color: $color-white
-			overflow: hidden
-			white-space: nowrap
-			text-overflow: ellipsis
+			padding: 0 10px 0 10px
 			text-shadow: rgba(0,0,0,.8) 1px 1px 0
 
 		&__title-wrapper

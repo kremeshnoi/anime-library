@@ -11,6 +11,20 @@
 	text-transform: uppercase
 	padding: 14px 0 0 0
 
+.title-cut
+	display: block
+	max-width: 300px
+	width: 100%
+	overflow: hidden
+	white-space: nowrap
+	text-overflow: ellipsis
+
+.title-vertical-cut
+	overflow: hidden
+	display: -webkit-box
+	text-overflow: ellipsis
+	-webkit-box-orient: vertical
+
 //Title Decor
 .title-bordered
 	@extend .title
@@ -18,3 +32,4 @@
 	margin: 0 0 20px 0
 	border-left: 5px solid $color-blue-light
 	background-color: $color-white-dark
+
