@@ -156,15 +156,12 @@
 			grid-area: cover
 
 		&__title
-			text-align: start
 			font-size: 20px
 			max-width: 460px
 			grid-area: title
-			text-overflow: ellipsis
-			overflow: hidden
-			display: -webkit-box
+			text-align: start
 			-webkit-line-clamp: 2
-			-webkit-box-orient: vertical
+			@extend .title-vertical-cut
 
 	// CHARACTER INFO
 
@@ -206,13 +203,11 @@
 				+flex(space-between, initial, column)
 
 		&__list-value
-			white-space: pre-wrap
-			text-overflow: ellipsis
 			max-height: 300px
-			overflow: hidden
-			display: -webkit-box
+			white-space: pre-wrap
 			-webkit-line-clamp: 10
-			-webkit-box-orient: vertical
+			@extend .title-vertical-cut
+
 			&_decor
 				padding: 0 6px
 				border-radius: 4px

@@ -84,7 +84,7 @@
 				max-width: 330px
 
 		&__image
-			background-image: url('../../assets/images/hero.png')
+			background-image: url('../../assets/images/hero-min.png')
 			background-position: center
 			background-size: cover
 			width: 100%
