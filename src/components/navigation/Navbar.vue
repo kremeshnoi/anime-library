@@ -60,7 +60,8 @@
 		position: absolute
 		z-index: 99
 		padding: 0 40px 0 40px
-		max-width: 1300px
+		+mq(desktop-wide, min)
+			max-width: 1300px
 
 		&__wrapper
 			width: 100%

@@ -49,9 +49,10 @@
 		padding: 54px 0 0 0
 		background-color: $color-white-pure
 		box-shadow: 0px 0px 12px 6px rgba(0,0,0,0.4)
-		max-width: 1300px
 		margin: 0 auto
 		+flex(initial, center, column)
+		+mq(desktop-wide, min)
+			max-width: 1300px
 
 	.tap-target
 		background-color: $color-blue-light
