@@ -24,7 +24,12 @@
 				.character__voice-actors.character-voice-actors
 					.character-voice-actors__title
 						| Voice Actors
-					.character-voice-actors__content
+
+					.character-voice-actors__content(v-if='getcharactersById.voice_actors')
+
+						h4.manga-related__disaster(v-if='getcharactersById.voice_actors.length === 0')
+							| Not found (￣︿￣)
+
 						ul.character-voice-actors__tabs.tabs(v-if='getcharactersById.voice_actors')
 							li.character-voice-actors__tab.tab(v-for='(value, name) in getcharactersById.voice_actors'
 								:key='name')
@@ -88,9 +93,10 @@
 			await this.replaceData();
 			const modal = document.querySelectorAll('.modal');
 			const modal_instance = M.Modal.init(modal);
-			const tabs = document.querySelectorAll('.tabs');
-			const instanceTabs = M.Tabs.init(tabs);
-			const indicatorTooltip = document.querySelector('.indicator').style.display = 'none';
+			if(Object.keys(this.getcharactersById.voice_actors).length) {
+				const tabs = document.querySelectorAll('.tabs');
+				const instanceTabs = M.Tabs.init(tabs);
+			}
 		}
 	};
 
