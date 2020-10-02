@@ -72,7 +72,7 @@
 								| {{ getMangaById.chapters }}
 							.manga-info__list-value(v-else)
 								| Unknown
-						li.manga-info__list-item
+						li.manga-info__list-item(v-if='getMangaById.serializations')
 							.manga-info__list-key
 								| Publication:
 							| &nbsp;
@@ -83,6 +83,20 @@
 								| Unknown
 
 			.manga__sub-content
+
+				.manga__characters.manga-characters(v-if='getMangaCharacters.characters')
+					.manga-recommendations__wrapper
+						.manga-recommendations__title
+							| CHARACTERS
+
+						swiper-carousel(v-if='getMangaCharacters.characters' :opt='`characters`')
+							cards.swiper-slide(v-for='(result, index) in getMangaCharacters.characters.slice(0, 20)'
+								:key='index'
+								:query='result')
+
+						h4.manga-related__disaster(v-if='getMangaCharacters.characters.length === 0')
+							| Not found (￣︿￣)
+
 				.manga__related.manga-related
 					.manga-related__title
 						| Related
@@ -143,7 +157,7 @@
 							tr.manga-related__tr(v-for='(result, index) in value'
 								:key='index')
 								td.manga-related__td
-									a.manga-related__link(@click='computeRoute(result)')
+									a.manga-related__link.manga-related__link_modal.modal-close(@click='computeRoute(result)')
 										| {{ result.name }}
 
 </template>
@@ -154,6 +168,7 @@
 	import Cards from '@/components/modules/Cards';
 	import SwiperCarousel from '@/components/modules/SwiperCarousel';
 	import SelectCollection from '@/components/modules/SelectCollection';
+	import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
 
 	export default {
 		name: 'Manga',
@@ -166,7 +181,9 @@
 		components: {
 			Cards,
 			SwiperCarousel,
-			SelectCollection
+			SelectCollection,
+			Swiper,
+			SwiperSlide
 		},
 		metaInfo() {
 			return {
@@ -174,7 +191,12 @@
 			}
 		},
 		methods: {
-			...mapActions(['loadMangaById', 'loadMangaRecommendationsById', 'computeRoute']),
+			...mapActions(['loadMangaById', 'loadMangaCharacters', 'loadMangaRecommendationsById', 'computeRoute']),
+			destroyModal() {
+				const modal = document.querySelectorAll('.modal');
+				const modal_instance = M.Modal.init(modal);
+				modal_instance.destroy()
+			},
 			transferData() {
 				this.buffer = []
 				let related_item = document.querySelectorAll('.manga-related__tab-item')
@@ -199,10 +221,14 @@
 			}
 		},
 		computed: {
-			...mapGetters(['getMangaById', 'getMangaRecommendationsById'])
+			...mapGetters(['getMangaById', 'getMangaCharacters', 'getMangaRecommendationsById'])
+		},
+		directives: {
+			swiper: directive
 		},
 		async created() {
 			await this.loadMangaById();
+			await this.loadMangaCharacters();
 			await this.loadMangaRecommendationsById();
 			const modal = document.querySelectorAll('.modal');
 			const modal_instance = M.Modal.init(modal);
@@ -211,9 +237,6 @@
 				const instanceTabs = M.Tabs.init(tabs);
 			}
 			this.checkRelatedLength();
-		},
-		mounted() {
-
 		}
 	};
 
@@ -398,6 +421,9 @@
 				right: 0
 				width: auto
 				bottom: -30px
+			&_modal
+				max-width: initial
+				text-overflow: initial
 
 	// MANGA DESCRIPTION
 

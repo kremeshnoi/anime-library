@@ -13,6 +13,7 @@ import { CharactersFavoriteResponseTop } from '@/interfaces/characters/Character
 //Manga
 import { MangaFavoriteResponseTop } from '@/interfaces/manga/MangaFavoriteResponse';
 import { MangaByIdResponse } from '@/interfaces/manga/MangaByIdResponse';
+import { MangaCharactersResponseCharacters } from "@/interfaces/manga/MangaCharactersResponse";
 import { MangaRecommendationsByIdResponseRecommendations } from '@/interfaces/manga/MangaRecommendationsById';
 
 //User
@@ -35,6 +36,7 @@ export interface StateCharacters {
 
 export interface StateManga {
 	mangaGenre: MangaByIdResponse[];
+	mangaCharacters: MangaCharactersResponseCharacters[];
 	mangaById: MangaByIdResponse[];
 	mangaFavorite: MangaFavoriteResponseTop[];
 	mangaRecommendationsById: MangaRecommendationsByIdResponseRecommendations[];

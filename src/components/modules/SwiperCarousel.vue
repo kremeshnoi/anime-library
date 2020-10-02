@@ -1,6 +1,13 @@
 <template lang='pug'>
 
-	.swiper-carousel(v-swiper:mySwiper='swiperOptions')
+	.swiper-carousel(v-if='opt === `characters`' v-swiper='charactersSwiperOptions')
+		.swiper-carousel__container.swiper-wrapper
+			slot
+
+		.swiper-button-prev
+		.swiper-button-next
+
+	.swiper-carousel(v-else v-swiper='swiperOptions')
 		.swiper-carousel__container.swiper-wrapper
 			slot
 
@@ -15,6 +22,7 @@
 
 	export default {
 		name: 'SwiperCarousel',
+		props: ['opt'],
 		data: () => {
 			return {
 				swiperOptions: {
@@ -45,6 +53,16 @@
 							slidesPerView: 7
 						}
 					}
+				},
+				charactersSwiperOptions: {
+					watchOverflow: true,
+					centeredSlidesBounds: true,
+					navigation: {
+						nextEl: '.swiper-button-next',
+						prevEl: '.swiper-button-prev'
+					},
+					slidesPerView: 2,
+					spaceBetween: 10
 				}
 			};
 		},
