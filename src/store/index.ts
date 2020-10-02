@@ -39,7 +39,7 @@ export default new Vuex.Store({
 			try {
 				let type = result.type;
 				if (type === undefined) {
-					if(result.name_kanji) {
+					if(result.role) {
 						type = 'Character';
 					} else if(router.app.$route.name === 'Anime') {
 						type = 'Anime';
