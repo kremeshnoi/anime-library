@@ -16,10 +16,11 @@ export const auth =  {
 			try {
 				await firebase.auth().signInWithEmailAndPassword(email, password);
 			} catch (error) {
+				commit('SET_ERROR', error);
 				throw new Error(error);
 			}
 		},
-		async signUp({ dispatch }, { email, password, username }) {
+		async signUp({ dispatch, commit }, { email, password, username }) {
 			try {
 				await firebase.auth().createUserWithEmailAndPassword(email, password);
 				const uid = await dispatch('getUid');
@@ -27,6 +28,7 @@ export const auth =  {
 					username
 				});
 			} catch (error) {
+				commit('SET_ERROR', error);
 				throw new Error(error);
 			}
 		},
@@ -38,10 +40,11 @@ export const auth =  {
 				throw new Error(error);
 			}
 		},
-		async recoverPassword({ dispatch }, { email }) {
+		async recoverPassword({ dispatch, commit }, { email }) {
 			try {
 				await firebase.auth().sendPasswordResetEmail(email);
 			} catch (error) {
+				commit('SET_ERROR', error);
 				throw new Error(error);
 			}
 		},

@@ -9,8 +9,21 @@
 
 <script>
 
+	import messages from "@/utils/messages";
+
 	export default {
 		name: 'Authentication',
+		computed: {
+			error() {
+				return this.$store.getters.error
+			}
+		},
+		watch: {
+			error(fbError) {
+				console.log(fbError)
+				this.$error(messages[fbError.code] || 'Something went wrong')
+			}
+		},
 		mounted() {
 			M.AutoInit();
 		}

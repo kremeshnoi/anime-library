@@ -14,8 +14,17 @@ import firebase from "firebase";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-	state: {},
-	mutations: {},
+	state: {
+		error: null
+	},
+	mutations: {
+		SET_ERROR(state, error) {
+			state.error = error
+		},
+		CLEAR_ERROR(state) {
+			state.error = null
+		}
+	},
 	actions: {
 		async addToLibrary({ dispatch }, { type, status,id }) {
 			try {
@@ -85,5 +94,7 @@ export default new Vuex.Store({
 		}
 	},
 	modules: { auth, anime, characters, manga, users },
-	getters: {}
+	getters: {
+		error: state => state.error
+	}
 });
