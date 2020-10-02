@@ -2,7 +2,7 @@
 
 	.anime-genre
 		.anime-genre__container
-			.anime-genre__title
+			.anime-genre__title(v-if='getAnimeGenre.mal_url')
 				| {{ getAnimeGenre.mal_url.name }}
 
 			query-content
