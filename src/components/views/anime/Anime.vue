@@ -123,7 +123,7 @@
 											a.anime-related__link(@click='computeRoute(result)')
 												| {{ result.name }}
 
-						h4.manga-related__disaster(v-if='this.related === 0')
+						h4.anime-related__disaster(v-if='this.related === 0')
 							| Not found (￣︿￣)
 
 			.anime__description.anime-description
@@ -151,14 +151,14 @@
 
 		#related.related-modal.modal
 			.related-modal__content.modal-content
-				.manga-related__item(v-for='(value, name) in buffer'
+				.anime-related__item(v-for='(value, name) in buffer'
 					:key='name')
-					table.manga-related__table.striped
-						tbody.manga-related__tbody
-							tr.manga-related__tr(v-for='(result, index) in value'
+					table.anime-related__table.striped
+						tbody.anime-related__tbody
+							tr.anime-related__tr(v-for='(result, index) in value'
 								:key='index')
-								td.manga-related__td
-									a.manga-related__link(@click='computeRoute(result)')
+								td.anime-related__td
+									a.anime-related__link.anime-related__link_modal.modal-close(@click='computeRoute(result)')
 										| {{ result.name }}
 
 </template>
@@ -446,6 +446,9 @@
 				right: 0
 				width: auto
 				bottom: -30px
+			&_modal
+				max-width: initial
+				text-overflow: initial
 
 	// ANIME DESCRIPTION
 
