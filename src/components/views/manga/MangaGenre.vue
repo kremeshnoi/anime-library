@@ -2,7 +2,7 @@
 
 	.manga-genre
 		.manga-genre__container
-			.manga-genre__title
+			.manga-genre__title(v-if='getMangaGenre.mal_url')
 				| {{ getMangaGenre.mal_url.name }}
 
 			query-content
