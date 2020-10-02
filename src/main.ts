@@ -27,7 +27,11 @@ import './assets/styles/state/selectCollection.sass';
 import './assets/styles/theme/fonts/material-icons.sass';
 import './assets/styles/theme/fonts/days-one-regular.sass';
 
+//Plugins
+import Message from "@/utils/message.plugin";
+
 Vue.config.productionTip = false;
+Vue.use(Message)
 Vue.use(VueMeta);
 Vue.use(Vuelidate);
 Vue.use(VueAwesomeSwiper);
