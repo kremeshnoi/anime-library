@@ -24,19 +24,19 @@
 			TopAiringAnimeBlock,
 			AnimeBlockUpcoming
 		},
-		metaInfo: {
-			title: 'Otaku Library - Organize your own anime / manga list'
-		},
 		data:()=> {
 			return {
 				user: []
 			}
 		},
+		async created() {
+			await this.getUid().then(result => this.user.push(result));
+		},
 		methods: {
 			...mapActions(['getUid'])
 		},
-		async created() {
-			await this.getUid().then(result => this.user.push(result));
+		metaInfo: {
+			title: 'Otaku Library - Organize your own anime / manga list'
 		}
 	};
 

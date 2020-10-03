@@ -65,6 +65,12 @@
 
 	export default {
 		name: 'SideNav',
+		computed: {
+			...mapGetters(['getUserInfo'])
+		},
+		async created() {
+			await this.loadUserInfo();
+		},
 		methods: {
 			...mapActions(['loadUserInfo']),
 			collapse() {
@@ -74,7 +80,7 @@
 				const icons_route = document.querySelectorAll('.side-nav__icon-route');
 				const sidenav_instance = M.Sidenav.init(sidenav, { preventScrolling: false, inDuration: 0, outDuration: 0, draggable: false });
 
-				sidenav_instance._overlay.addEventListener('click', toogleElems, false)
+				sidenav_instance._overlay.addEventListener('click', toogleElems, false);
 
 				function toogleElems() {
 					sidenav.classList.toggle('side-nav_release');
@@ -99,12 +105,6 @@
 					throw new Error(error);
 				}
 			}
-		},
-		computed: {
-			...mapGetters(['getUserInfo'])
-		},
-		async created() {
-			await this.loadUserInfo();
 		}
 	};
 

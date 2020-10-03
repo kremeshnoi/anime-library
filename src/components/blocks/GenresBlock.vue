@@ -27,7 +27,7 @@
 	import { mapActions, mapGetters } from 'vuex';
 
 	export default {
-		title: 'GenresBlock',
+		name: 'GenresBlock',
 		data: () => {
 			return {
 				//Hardcode part :c
@@ -126,6 +126,10 @@
 				sortedManga: []
 			}
 		},
+		async created() {
+			await this.randomizeGenres(this.animeGenres);
+			await this.randomizeGenres(this.mangaGenres);
+		},
 		methods: {
 			...mapActions(['computeRouteByGenre']),
 			randomizeGenres(array) {
@@ -146,12 +150,7 @@
 				} else if(array[0].type === 'manga') {
 					this.sortedManga.push(array.slice(0, 22));
 				}
-
 			}
-		},
-		async created() {
-			await this.randomizeGenres(this.animeGenres);
-			await this.randomizeGenres(this.mangaGenres);
 		}
 	}
 
@@ -202,6 +201,5 @@
 				color: $color-white-pure
 				&:hover
 					opacity: 0.9
-
 
 </style>

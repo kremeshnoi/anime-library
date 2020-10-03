@@ -132,8 +132,12 @@
 				]
 			}
 		},
-		metaInfo: {
-			title: 'Otaku Library / Anime Library'
+		async created() {
+			await this.fetchData('planned', 'anime');
+		},
+		mounted() {
+			const tabs = document.querySelectorAll('.tabs');
+			const instanceTabs = M.Tabs.init(tabs);
 		},
 		methods: {
 			toogleTab(status, type) {
@@ -164,12 +168,8 @@
 				}
 			}
 		},
-		async created() {
-			await this.fetchData('planned', 'anime');
-		},
-		mounted() {
-			const tabs = document.querySelectorAll('.tabs');
-			const instanceTabs = M.Tabs.init(tabs);
+		metaInfo: {
+			title: 'Otaku Library / Anime Library'
 		}
 	};
 

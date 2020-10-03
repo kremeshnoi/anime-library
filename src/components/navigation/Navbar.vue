@@ -30,6 +30,9 @@
 				user: []
 			}
 		},
+		async created() {
+			await this.getUid().then(result => this.user.push(result));
+		},
 		methods: {
 			...mapActions(['getUid']),
 			signOut() {
@@ -39,9 +42,6 @@
 					throw new Error(error);
 				}
 			}
-		},
-		async created() {
-			await this.getUid().then(result => this.user.push(result));
 		}
 	};
 

@@ -23,11 +23,11 @@
 			SearchBar,
 			QueryContent
 		},
-		metaInfo: {
-			title: 'Otaku Library / Search'
-		},
 		computed: {
 			...mapGetters(['getAnimeSearched'])
+		},
+		metaInfo: {
+			title: 'Otaku Library / Search'
 		}
 	};
 

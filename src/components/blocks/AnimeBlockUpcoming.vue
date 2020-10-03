@@ -24,14 +24,14 @@
 			Cards,
 			SwiperCarousel
 		},
-		methods: {
-			...mapActions(['loadAnimeUpcoming'])
-		},
 		computed: {
 			...mapGetters(['getAnimeUpcoming'])
 		},
-		created() {
-			this.loadAnimeUpcoming();
+		async created() {
+			await this.loadAnimeUpcoming();
+		},
+		methods: {
+			...mapActions(['loadAnimeUpcoming'])
 		}
 	};
 

@@ -22,6 +22,13 @@
 
 	export default {
 		name: 'SwiperCarousel',
+		components: {
+			Swiper,
+			SwiperSlide
+		},
+		directives: {
+			swiper: directive
+		},
 		props: ['opt'],
 		data: () => {
 			return {
@@ -65,13 +72,6 @@
 					spaceBetween: 10
 				}
 			};
-		},
-		components: {
-			Swiper,
-			SwiperSlide
-		},
-		directives: {
-			swiper: directive
 		}
 	};
 
