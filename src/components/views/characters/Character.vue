@@ -63,26 +63,13 @@
 
 	export default {
 		name: 'Character',
-		data:() => {
-			return {
-				aboutCharacterData: []
-			}
-		},
-		metaInfo() {
-			return {
-				title: `Character / ${ this.getcharactersById.name }`
-			}
-		},
 		components: {
 			Cards,
 			SwiperCarousel
 		},
-		methods: {
-			...mapActions(['loadcharactersById']),
-			async replaceData() {
-				const data = this.getcharactersById.about;
-				const result = data.replace(/\\n/g, '');
-				this.aboutCharacterData.push(result);
+		data:() => {
+			return {
+				aboutCharacterData: []
 			}
 		},
 		computed: {
@@ -96,6 +83,19 @@
 			if(Object.keys(this.getcharactersById.voice_actors).length) {
 				const tabs = document.querySelectorAll('.tabs');
 				const instanceTabs = M.Tabs.init(tabs);
+			}
+		},
+		methods: {
+			...mapActions(['loadcharactersById']),
+			async replaceData() {
+				const data = this.getcharactersById.about;
+				const result = data.replace(/\\n/g, '');
+				this.aboutCharacterData.push(result);
+			}
+		},
+		metaInfo() {
+			return {
+				title: `Character / ${ this.getcharactersById.name }`
 			}
 		}
 	};

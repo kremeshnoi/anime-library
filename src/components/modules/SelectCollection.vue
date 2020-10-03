@@ -41,6 +41,14 @@
 		computed: {
 			...mapGetters(['getUserInfo'])
 		},
+		async created() {
+			this.changeTitle();
+			await this.getUid().then(result => this.user.push(result));
+		},
+		mounted() {
+			const select = document.querySelectorAll('select');
+			const select_instance = M.FormSelect.init(select);
+		},
 		methods: {
 			...mapActions(['getUid']),
 			submit(){
@@ -67,14 +75,6 @@
 					}
 				}
 			}
-		},
-		created() {
-			this.changeTitle();
-			this.getUid().then(result => this.user.push(result));
-		},
-		mounted() {
-			const select = document.querySelectorAll('select');
-			const select_instance = M.FormSelect.init(select);
 		}
 	}
 

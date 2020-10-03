@@ -24,17 +24,17 @@
 			Cards,
 			QueryContent
 		},
-		metaInfo: {
-			title: 'Otaku Library / Most popular characters'
-		},
-		methods: {
-			...mapActions(['loadcharactersFavorite'])
-		},
 		computed: {
 			...mapGetters(['getcharactersFavorite'])
 		},
 		created() {
 			this.loadcharactersFavorite();
+		},
+		methods: {
+			...mapActions(['loadcharactersFavorite'])
+		},
+		metaInfo: {
+			title: 'Otaku Library / Most popular characters'
 		}
 	}
 

@@ -4,7 +4,7 @@
 		h1.sign-up__title
 			| Join Otaku Library!
 
-		form.sign-up__form.sign-up-form(v-on:submit.prevent='submitHandler')
+		form.sign-up__form.sign-up-form(@submit.prevent='submitHandler')
 			.sign-up-form__row
 				.sign-up-form__field.input-field
 					input#email(type='email'
@@ -90,23 +90,15 @@
 
 	export default {
 		name: 'SignUp',
+		components: {
+			VueRecaptcha
+		},
 		data: () => ({
 			email: '',
 			username: '',
 			password: '',
 			recaptcha: null
 		}),
-		validations: {
-			email: { email, required },
-			username: { required, minLength: minLength(5) },
-			password: { required, minLength: minLength(5) }
-		},
-		components: {
-			VueRecaptcha
-		},
-		metaInfo: {
-			title: 'Otaku Library / Sign Up'
-		},
 		methods: {
 			onVerify: function (response) {
 				this.recaptcha = response
@@ -139,6 +131,14 @@
 					throw new Error(error);
 				}
 			}
+		},
+		validations: {
+			email: { email, required },
+			username: { required, minLength: minLength(5) },
+			password: { required, minLength: minLength(5) }
+		},
+		metaInfo: {
+			title: 'Otaku Library / Sign Up'
 		}
 	};
 
@@ -146,12 +146,14 @@
 
 <style lang='sass' scoped>
 
+	// IMPORTS
+
 	@import '../../../assets/styles/utils/vars'
 	@import '../../../assets/styles/utils/mixins'
 	@import '../../../assets/styles/modules/buttons'
 
+	// SIGN-UP
 
-	//Sign-up
 	.sign-up
 		position: fixed
 		top: 0
@@ -194,11 +196,13 @@
 			@extend .shadow-btn
 			@extend .focus-btn
 
-	//Recaptcha
+	// RECAPTCHA
+
 	.recaptcha
 		transform: scale(0.92) !important
 
-	//Preloader
+	// PRELOADER
+
 	.preloader-wrapper
 		position: absolute !important
 		bottom: 20px !important

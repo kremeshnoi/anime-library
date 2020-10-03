@@ -24,17 +24,17 @@
 			Cards,
 			QueryContent
 		},
-		metaInfo: {
-			title: 'Otaku Library / Top raited airing anime'
-		},
 		computed: {
 			...mapGetters(['getAnimeGenre'])
+		},
+		async created() {
+			await this.loadAnimeGenre();
 		},
 		methods: {
 			...mapActions(['loadAnimeGenre'])
 		},
-		async created() {
-			await this.loadAnimeGenre();
+		metaInfo: {
+			title: 'Otaku Library / Top raited airing anime'
 		}
 }
 

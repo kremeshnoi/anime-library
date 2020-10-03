@@ -172,12 +172,6 @@
 
 	export default {
 		name: 'Manga',
-		data:() => {
-			return {
-				buffer: [],
-				related: []
-			}
-		},
 		components: {
 			Cards,
 			SwiperCarousel,
@@ -185,10 +179,29 @@
 			Swiper,
 			SwiperSlide
 		},
-		metaInfo() {
+		directives: {
+			swiper: directive
+		},
+		data:() => {
 			return {
-				title: `Manga / ${ this.getMangaById.title }`
+				buffer: [],
+				related: []
 			}
+		},
+		computed: {
+			...mapGetters(['getMangaById', 'getMangaCharacters', 'getMangaRecommendationsById'])
+		},
+		async created() {
+			await this.loadMangaById();
+			await this.loadMangaCharacters();
+			await this.loadMangaRecommendationsById();
+			const modal = document.querySelectorAll('.modal');
+			const modal_instance = M.Modal.init(modal);
+			if(Object.keys(this.getMangaById.related).length) {
+				const tabs = document.querySelectorAll('.tabs');
+				const instanceTabs = M.Tabs.init(tabs);
+			}
+			this.checkRelatedLength();
 		},
 		methods: {
 			...mapActions(['loadMangaById', 'loadMangaCharacters', 'loadMangaRecommendationsById', 'computeRoute']),
@@ -220,24 +233,11 @@
 				this.related = Object.keys(this.getMangaById.related).length
 			}
 		},
-		computed: {
-			...mapGetters(['getMangaById', 'getMangaCharacters', 'getMangaRecommendationsById'])
-		},
-		directives: {
-			swiper: directive
-		},
-		async created() {
-			await this.loadMangaById();
-			await this.loadMangaCharacters();
-			await this.loadMangaRecommendationsById();
-			const modal = document.querySelectorAll('.modal');
-			const modal_instance = M.Modal.init(modal);
-			if(Object.keys(this.getMangaById.related).length) {
-				const tabs = document.querySelectorAll('.tabs');
-				const instanceTabs = M.Tabs.init(tabs);
+		metaInfo() {
+			return {
+				title: `Manga / ${ this.getMangaById.title }`
 			}
-			this.checkRelatedLength();
-		}
+		},
 	};
 
 </script>

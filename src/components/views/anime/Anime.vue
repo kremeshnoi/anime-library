@@ -172,6 +172,11 @@
 
 	export default {
 		name: 'Anime',
+		components: {
+			Cards,
+			SwiperCarousel,
+			SelectCollection
+		},
 		data:() => {
 			return {
 				buffer: [],
@@ -179,15 +184,20 @@
 				trailer: ''
 			}
 		},
-		components: {
-			Cards,
-			SwiperCarousel,
-			SelectCollection
+		computed: {
+			...mapGetters(['getAnimeById', 'getAnimeRecommendationsById'])
 		},
-		metaInfo() {
-			return {
-				title: `Anime / ${ this.getAnimeById.title }`
+		async created() {
+			await this.loadAnimeById();
+			await this.disableAutoplay();
+			await this.loadAnimeRecommendationsById();
+			const modal = document.querySelectorAll('.modal');
+			const modal_instance = M.Modal.init(modal);
+			if(Object.keys(this.getAnimeById.related).length) {
+				const tabs = document.querySelectorAll('.tabs');
+				const instanceTabs = M.Tabs.init(tabs);
 			}
+			this.checkRelatedLength();
 		},
 		methods: {
 			...mapActions(['loadAnimeById', 'loadAnimeRecommendationsById', 'computeRoute']),
@@ -220,20 +230,10 @@
 				}
 			}
 		},
-		computed: {
-			...mapGetters(['getAnimeById', 'getAnimeRecommendationsById'])
-		},
-		async created() {
-			await this.loadAnimeById();
-			await this.disableAutoplay();
-			await this.loadAnimeRecommendationsById();
-			const modal = document.querySelectorAll('.modal');
-			const modal_instance = M.Modal.init(modal);
-			if(Object.keys(this.getAnimeById.related).length) {
-				const tabs = document.querySelectorAll('.tabs');
-				const instanceTabs = M.Tabs.init(tabs);
+		metaInfo() {
+			return {
+				title: `Anime / ${ this.getAnimeById.title }`
 			}
-			this.checkRelatedLength();
 		}
 	};
 
@@ -480,6 +480,5 @@
 
 		&__title
 			@extend .title
-
 
 </style>

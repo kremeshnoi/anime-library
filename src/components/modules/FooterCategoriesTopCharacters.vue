@@ -21,14 +21,14 @@
 
 	export default {
 		name: 'FooterCategoriesTopCharacters',
-		methods: {
-			...mapActions(['loadcharactersFavorite', 'computeRoute'])
-		},
 		computed: {
 			...mapGetters(['getcharactersFavorite'])
 		},
 		async created() {
 			await this.loadcharactersFavorite();
+		},
+		methods: {
+			...mapActions(['loadcharactersFavorite', 'computeRoute'])
 		}
 	};
 

@@ -30,9 +30,8 @@
 		},
 		mounted() {
 			M.AutoInit();
-
-			const tap = document.querySelector('.tap-target')
-			const tap_init = M.TapTarget.init(tap)
+			const tap = document.querySelector('.tap-target');
+			const tap_init = M.TapTarget.init(tap);
 			const tap_instance = M.TapTarget.getInstance(tap);
 			tap_instance.open();
 		}

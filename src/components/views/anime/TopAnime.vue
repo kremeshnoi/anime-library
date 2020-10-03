@@ -24,17 +24,17 @@
 			Cards,
 			QueryContent
 		},
-		metaInfo: {
-			title: 'Otaku Library / Top raited anime'
+		computed: {
+			...mapGetters(['getAnimeFavorite'])
+		},
+		async created() {
+			await this.loadAnimeFavorite();
 		},
 		methods: {
 			...mapActions(['loadAnimeFavorite'])
 		},
-		computed: {
-			...mapGetters(['getAnimeFavorite'])
-		},
-		created() {
-			this.loadAnimeFavorite();
+		metaInfo: {
+			title: 'Otaku Library / Top raited anime'
 		}
 	}
 

@@ -24,17 +24,17 @@
 			Cards,
 			QueryContent
 		},
-		metaInfo: {
-			title: 'Otaku Library / Top raited manga'
-		},
-		methods: {
-			...mapActions(['loadMangaFavorite'])
-		},
 		computed: {
 			...mapGetters(['getMangaFavorite'])
 		},
 		created() {
 			this.loadMangaFavorite();
+		},
+		methods: {
+			...mapActions(['loadMangaFavorite'])
+		},
+		metaInfo: {
+			title: 'Otaku Library / Top raited manga'
 		}
 	}
 

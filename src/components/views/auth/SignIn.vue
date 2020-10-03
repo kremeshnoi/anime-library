@@ -81,21 +81,14 @@
 
 	export default {
 		name: 'SignIn',
+		components: {
+			VueRecaptcha
+		},
 		data: () => ({
 			email: '',
 			password: '',
 			recaptcha: null
 		}),
-		validations: {
-			email: { email, required },
-			password: { required, minLength: minLength(5) }
-		},
-		components: {
-			VueRecaptcha
-		},
-		metaInfo: {
-			title: 'Otaku Library / Sign In'
-		},
 		methods: {
 			onVerify: function (response) {
 				this.recaptcha = response
@@ -127,6 +120,13 @@
 					throw new Error(error);
 				}
 			}
+		},
+		validations: {
+			email: { email, required },
+			password: { required, minLength: minLength(5) }
+		},
+		metaInfo: {
+			title: 'Otaku Library / Sign In'
 		}
 	};
 
@@ -134,11 +134,14 @@
 
 <style lang='sass' scoped>
 
+	// IMPORTS
+
 	@import '../../../assets/styles/utils/vars'
 	@import '../../../assets/styles/utils/mixins'
 	@import '../../../assets/styles/modules/buttons'
 
-	//Sign-in
+	// SING-IN
+
 	.sign-in
 		position: fixed
 		top: 0
@@ -182,11 +185,13 @@
 			@extend .shadow-btn
 			@extend .focus-btn
 
-	//Recaptcha
+	// RECAPTCHA
+
 	.recaptcha
 		transform: scale(0.92) !important
 
-	//Preloader
+	// PRELOADER
+
 	.preloader-wrapper
 		position: absolute !important
 		bottom: 20px !important

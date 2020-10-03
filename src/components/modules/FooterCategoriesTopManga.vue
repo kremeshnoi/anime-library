@@ -21,14 +21,14 @@
 
 	export default {
 		name: 'FooterCategoriesTopManga',
-		methods: {
-			...mapActions(['loadMangaFavorite', 'computeRoute'])
-		},
 		computed: {
 			...mapGetters(['getMangaFavorite'])
 		},
 		async created() {
 			await this.loadMangaFavorite();
+		},
+		methods: {
+			...mapActions(['loadMangaFavorite', 'computeRoute'])
 		}
 	};
 

@@ -21,14 +21,14 @@
 
 	export default {
 		name: 'FooterCategoriesTopAnime',
-		methods: {
-			...mapActions(['loadAnimeFavorite', 'computeRoute'])
-		},
 		computed: {
 			...mapGetters(['getAnimeFavorite'])
 		},
 		async created() {
 			await this.loadAnimeFavorite();
+		},
+		methods: {
+			...mapActions(['loadAnimeFavorite', 'computeRoute'])
 		}
 	};
 
