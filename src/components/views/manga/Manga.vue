@@ -384,7 +384,7 @@
 		&__title
 			display: flex
 			align-items: flex-end
-			@extend .title
+			@extend .title-default
 
 		&__tabs
 			display: flex
@@ -436,7 +436,7 @@
 			font-size: 30px
 
 		&__title
-			@extend .title
+			@extend .title-default
 			margin: 0 0 16px 0
 
 	// ANIME RECOMMENDATIONS
@@ -453,6 +453,6 @@
 			grid-gap: 20px
 
 		&__title
-			@extend .title
+			@extend .title-default
 
 </style>

@@ -242,7 +242,7 @@
 			height: 70px
 			display: flex
 			align-items: center
-			@extend .title
+			@extend .title-default
 
 		&__photo
 			width: 100%

@@ -195,7 +195,7 @@
 		&__title
 			display: flex
 			align-items: center
-			@extend .title
+			@extend .title-default
 
 		&__icon
 			cursor: pointer
