@@ -232,7 +232,7 @@
 		},
 		metaInfo() {
 			return {
-				title: `Anime / ${ this.getAnimeById.title }`
+				title: `Anime - ${ this.getAnimeById.title }`
 			}
 		}
 	};

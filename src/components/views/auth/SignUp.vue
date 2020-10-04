@@ -138,7 +138,7 @@
 			password: { required, minLength: minLength(5) }
 		},
 		metaInfo: {
-			title: 'Otaku Library / Sign Up'
+			title: 'Otaku Library - Sign Up'
 		}
 	};
 

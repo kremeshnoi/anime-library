@@ -34,7 +34,7 @@
 			...mapActions(['loadAnimeGenre'])
 		},
 		metaInfo: {
-			title: 'Otaku Library / Top raited airing anime'
+			title: 'Otaku Library - Explore anime genres'
 		}
 }
 

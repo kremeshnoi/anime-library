@@ -34,7 +34,7 @@
 			...mapActions(['loadcharactersFavorite'])
 		},
 		metaInfo: {
-			title: 'Otaku Library / Most popular characters'
+			title: 'Otaku Library - Most popular characters'
 		}
 	}
 

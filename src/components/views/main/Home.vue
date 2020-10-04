@@ -36,7 +36,7 @@
 			...mapActions(['getUid'])
 		},
 		metaInfo: {
-			title: 'Otaku Library - Organize your own anime / manga list'
+			title: 'Otaku Library - Organize your own anime and manga list'
 		}
 	};
 
