@@ -34,7 +34,7 @@
 			...mapActions(['loadMangaFavorite'])
 		},
 		metaInfo: {
-			title: 'Otaku Library / Top raited manga'
+			title: 'Otaku Library – Top raited manga'
 		}
 	}
 

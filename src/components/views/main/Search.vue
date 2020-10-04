@@ -27,7 +27,7 @@
 			...mapGetters(['getAnimeSearched'])
 		},
 		metaInfo: {
-			title: 'Otaku Library / Search'
+			title: 'Otaku Library - Search page'
 		}
 	};
 

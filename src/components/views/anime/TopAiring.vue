@@ -34,7 +34,7 @@
 			...mapActions(['loadAnimeAiring'])
 		},
 		metaInfo: {
-			title: 'Otaku Library / Top raited airing anime'
+			title: 'Otaku Library - Top airing anime'
 		}
 	}
 

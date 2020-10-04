@@ -169,7 +169,7 @@
 			}
 		},
 		metaInfo: {
-			title: 'Otaku Library / Anime Library'
+			title: 'Otaku Library - Library'
 		}
 	};
 

@@ -235,7 +235,7 @@
 		},
 		metaInfo() {
 			return {
-				title: `Manga / ${ this.getMangaById.title }`
+				title: `Manga - ${ this.getMangaById.title }`
 			}
 		},
 	};

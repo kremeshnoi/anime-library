@@ -34,7 +34,7 @@
 			...mapActions(['loadAnimeFavorite'])
 		},
 		metaInfo: {
-			title: 'Otaku Library / Top raited anime'
+			title: 'Otaku Library - Top raited anime'
 		}
 	}
 

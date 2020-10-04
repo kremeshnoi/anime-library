@@ -95,7 +95,7 @@
 		},
 		metaInfo() {
 			return {
-				title: `Character / ${ this.getcharactersById.name }`
+				title: `Character - ${ this.getcharactersById.name }`
 			}
 		}
 	};

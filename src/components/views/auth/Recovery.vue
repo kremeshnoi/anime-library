@@ -94,7 +94,7 @@
 			email: { email, required }
 		},
 		metaInfo: {
-			title: 'Otaku Library / Password Recovery'
+			title: 'Otaku Library - Password recovery'
 		}
 	};
 
