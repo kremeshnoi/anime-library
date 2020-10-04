@@ -47,7 +47,7 @@
 
 		&__text-side
 			text-align: start
-			+flex(center, start, column)
+			+flex(center, flex-start, column)
 			+mq(tablet-small, max)
 				align-items: center
 				text-align: center

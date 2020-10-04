@@ -380,7 +380,7 @@
 		&__title
 			display: flex
 			align-items: flex-end
-			@extend .title
+			@extend .title-default
 
 		&__iframe
 			height: 100%
@@ -404,7 +404,7 @@
 		&__title
 			display: flex
 			align-items: center
-			@extend .title
+			@extend .title-default
 
 		&__tr
 			display: block
@@ -463,7 +463,7 @@
 			font-size: 30px
 
 		&__title
-			@extend .title
+			@extend .title-default
 
 	// ANIME RECOMMENDATIONS
 
@@ -479,6 +479,6 @@
 			grid-gap: 20px
 
 		&__title
-			@extend .title
+			@extend .title-default
 
 </style>

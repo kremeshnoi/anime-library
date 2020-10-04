@@ -1,16 +1,21 @@
+// IMPORTS
+
 @import '../utils/vars'
 
-//Button Decor
-.shadow-btn
-	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.75)
+// BUTTON DECOR
 
-//Button States
-.hover-btn
-	&:hover
-		@extend .shadow-btn
-		filter: brightness(100%)
+.btn
+	&.shadow-btn
+		box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.75)
 
-.focus-btn
-	&:focus
-		background: $color-aquamarine
-		box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.75)
+// BUTTON STATE
+
+.btn
+	&.hover-btn
+		&:hover
+			filter: brightness(100%)
+
+	&.focus-btn
+		&:focus
+			background: $color-aquamarine
+			box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.75)

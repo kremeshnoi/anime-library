@@ -23,7 +23,7 @@ import './assets/styles/base/reset.sass';
 import './assets/styles/state/tabs.sass';
 import './assets/styles/state/toast.sass';
 import './assets/styles/theme/scrollbar.sass';
-import './assets/styles/state/selectCollection.sass';
+import './assets/styles/state/select.sass';
 import './assets/styles/theme/fonts/material-icons.sass';
 import './assets/styles/theme/fonts/days-one-regular.sass';
 
