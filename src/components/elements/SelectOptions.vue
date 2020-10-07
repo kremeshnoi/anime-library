@@ -7,7 +7,7 @@
 				:value='option.value')
 				span {{ option.title }}
 
-		.btn-small(@click='submit()')
+		.btn-small(@click='addToLibrary(payload)')
 			| Add
 
 </template>
@@ -26,9 +26,19 @@
 		data() {
 			return {
 				user: [],
-				verb: '',
 				status: 'planned',
-				options: [
+				payload: {
+					type: this.type,
+					status: this.status,
+					id: this.wholeResult.mal_id,
+					result: this.wholeResult
+				}
+			}
+		},
+		computed: {
+			...mapGetters(['getUserInfo']),
+			options() {
+				let options = [
 					{ title: `Plan to`,
 						value: 'planned' },
 					{ title: 'Completed',
@@ -39,14 +49,27 @@
 						value: 'hold' },
 					{ title: 'Dropped',
 						value: 'dropped' }
-				]
+				];
+				let verb = '';
+				let type = this.type;
+				if (type === 'Manga') {
+					verb = 'Read';
+				} else {
+					verb = 'Watch';
+				}
+
+				for(let i = 0;options.length > i; i++) {
+					if(options[i].value === 'planned') {
+						options[i].title += ` ${ verb }`
+					} if(options[i].value === 'process') {
+						options[i].title += ` ${ verb + 'ing'}`
+					}
+				}
+
+				return options
 			}
 		},
-		computed: {
-			...mapGetters(['getUserInfo'])
-		},
 		async created() {
-			this.changeTitle();
 			await this.getUid().then(result => this.user.push(result));
 		},
 		mounted() {
@@ -54,31 +77,7 @@
 			const select_instance = M.FormSelect.init(select);
 		},
 		methods: {
-			...mapActions(['getUid']),
-			submit(){
-				this.$store.dispatch('addToLibrary', {
-					type: this.type,
-					status: this.status,
-					id: this.wholeResult.mal_id,
-					result: this.wholeResult
-				})
-			},
-			changeTitle() {
-				let type = this.type;
-				if (type === 'Manga') {
-					this.verb = 'Read';
-				} else {
-					this.verb = 'Watch';
-				}
-
-				for(let i = 0; this.options.length > i; i++) {
-					if(this.options[i].value === 'planned') {
-						this.options[i].title += ` ${ this.verb }`
-					} if(this.options[i].value === 'process') {
-						this.options[i].title += ` ${ this.verb + 'ing'}`
-					}
-				}
-			}
+			...mapActions(['getUid', 'addToLibrary'])
 		}
 	}
 

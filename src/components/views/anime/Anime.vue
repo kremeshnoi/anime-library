@@ -9,7 +9,7 @@
 					| {{ getAnimeById.title_japanese }}
 				.anime__cover-container
 					img.anime__cover(:src='getAnimeById.image_url')
-					select-collection.anime__input-field(v-if='getAnimeById.type'
+					select-options.anime__input-field(v-if='getAnimeById.type'
 						:type='getAnimeById.type'
 						:wholeResult='getAnimeById')
 
@@ -170,7 +170,7 @@
 	import { mapActions, mapGetters } from 'vuex';
 	import Cards from '@/components/elements/Cards';
 	import SwiperCarousel from '@/components/elements/SwiperCarousel';
-	import Select from '@/components/elements/Select';
+	import SelectOptions from '@/components/elements/SelectOptions';
 
 	// COMPONENT OPTIONS
 
@@ -179,7 +179,7 @@
 		components: {
 			Cards,
 			SwiperCarousel,
-			Select
+			SelectOptions
 		},
 		data:() => {
 			return {

@@ -9,7 +9,7 @@
 					| {{ getMangaById.title_japanese }}
 				.manga__cover-container
 					img.manga__cover(:src='getMangaById.image_url')
-					select-collection.manga__input-field(v-if='getMangaById.type'
+					select-options.manga__input-field(v-if='getMangaById.type'
 						:type='getMangaById.type'
 						:wholeResult='getMangaById')
 
@@ -170,7 +170,7 @@
 	import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
 	import Cards from '@/components/elements/Cards';
 	import SwiperCarousel from '@/components/elements/SwiperCarousel';
-	import Select from '@/components/elements/Select';
+	import SelectOptions from '@/components/elements/SelectOptions';
 
 
 	// COMPONENT OPTIONS
@@ -180,7 +180,7 @@
 		components: {
 			Cards,
 			SwiperCarousel,
-			Select,
+			SelectOptions,
 			Swiper,
 			SwiperSlide
 		},
