@@ -17,7 +17,11 @@
 
 <script>
 
+	// IMPORTS
+
 	import { mapActions, mapGetters } from 'vuex';
+
+	// COMPONENT OPTIONS
 
 	export default {
 		name: 'FooterCategoriesTopManga',
@@ -36,8 +40,12 @@
 
 <style lang='sass' scoped>
 
+	// IMPORTS
+
 	@import '../../assets/styles/utils/vars'
 	@import '../../assets/styles/utils/mixins'
+
+	// FOOTER CATEGORIES TOP MANGA STYLES
 
 	.footer-categories-top-manga
 		+flex(flex-start, flex-start, column)

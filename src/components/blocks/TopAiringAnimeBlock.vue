@@ -14,9 +14,13 @@
 
 <script>
 
+	// IMPORTS
+
 	import { mapActions, mapGetters } from 'vuex';
 	import Cards from '@/components/modules/Cards';
 	import SwiperCarousel from '@/components/modules/SwiperCarousel';
+
+	// COMPONENT OPTIONS
 
 	export default {
 		name: 'TopAiring',
@@ -39,10 +43,14 @@
 
 <style lang='sass' scoped>
 
+	// IMPORTS
+
 	@import '../../assets/styles/utils/vars'
 	@import '../../assets/styles/utils/mixins'
 	@import '../../assets/styles/modules/titles'
 	@import '../../assets/styles/modules/containers'
+
+	// TOP AIRING ANIME BLOCK STYLES
 
 	.top-airing-anime-block
 		width: 100%

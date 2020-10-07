@@ -6,7 +6,7 @@
 				form.search-bar__form(v-on:submit.prevent='loadAnimeSearched(query)')
 					.search-bar__field.input-field
 						input#search.search-bar__input(type='search'
-							v-model='query')
+							v-model='query' placeholder='Search...')
 
 						label.search-bar__label.label-icon(for='search')
 							i.search-bar__icon.material-icons.black-text search
@@ -15,7 +15,11 @@
 
 <script>
 
+	// IMPORTS
+
 	import { mapActions, mapGetters } from 'vuex';
+
+	// COMPONENT OPTIONS
 
 	export default {
 		name: 'SearchBar',
@@ -31,16 +35,19 @@
 
 <style lang='sass' scoped>
 
+	// IMPORTS
+
 	@import '../../assets/styles/utils/vars'
 	@import '../../assets/styles/utils/mixins'
+
+	// SEARCH BAR
 
 	.search-bar
 		width: 100%
 
 		&__nav
 			width: 100%
-			height: 50px
-			margin: 0 0 54px
+			height: 34px
 			border-radius: 3px
 
 		&__wrapper
@@ -52,9 +59,16 @@
 
 		&__input
 			border-radius: 3px
+			padding-left: 50px !important
+			width: calc(100% - 50px) !important
+			&::placeholder
+				color: $color-grey-dark !important
+
+		&__label
+			left: 14px !important
 
 		&__icon
-			height: 50px
-			line-height: 50px
+			height: 34px
+			line-height: 34px
 
 </style>

@@ -14,7 +14,11 @@
 
 <script>
 
+	// IMPORTS
+
 	import { mapActions, mapGetters } from 'vuex';
+
+	// COMPONENT OPTIONS
 
 	export default {
 		name: 'Select',
@@ -70,7 +74,7 @@
 				for(let i = 0; this.options.length > i; i++) {
 					if(this.options[i].value === 'planned') {
 						this.options[i].title += ` ${ this.verb }`
-					} if(this.options[i].value === 'in-process') {
+					} if(this.options[i].value === 'process') {
 						this.options[i].title += ` ${ this.verb + 'ing'}`
 					}
 				}
@@ -82,8 +86,12 @@
 
 <style lang='sass' scoped>
 
+	// IMPORTS
+
 	@import '../../assets/styles/utils/vars'
 	@import '../../assets/styles/utils/mixins'
+
+	// SELECT STYLES
 
 	.input-field
 		+flex(center, initial, column)

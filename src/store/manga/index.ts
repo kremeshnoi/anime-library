@@ -1,14 +1,18 @@
-//Libraries
+// LIBRARIES
+
 import router from '../../router';
 import jikanjs from 'jikanjs/lib/jikan.js';
 
-//Interfaces
+// INTERFACES
+
 import { StateManga } from '@/interfaces/state/State';
 import { MangaByIdResponse } from '@/interfaces/manga/MangaByIdResponse';
 import { MangaFavoriteResponse } from '@/interfaces/manga/MangaFavoriteResponse';
 import { MangaRecommendationsByIdResponse } from '@/interfaces/manga/MangaRecommendationsById';
 import { AnimeGenreResponse } from '@/interfaces/anime/AnimeGenreResponse';
 import { MangaCharactersResponse } from '@/interfaces/manga/MangaCharactersResponse';
+
+// STATE CONSTANT
 
 export const state: StateManga = {
 	mangaGenre: [],
@@ -17,6 +21,8 @@ export const state: StateManga = {
 	mangaFavorite: [],
 	mangaRecommendationsById: []
 };
+
+// VUEX.STORE OPTIONS
 
 export const manga = {
 	state,

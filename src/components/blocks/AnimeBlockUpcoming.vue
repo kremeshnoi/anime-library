@@ -14,9 +14,13 @@
 
 <script>
 
+	// IMPORTS
+
 	import { mapActions, mapGetters } from 'vuex';
 	import Cards from '@/components/modules/Cards';
 	import SwiperCarousel from '@/components/modules/SwiperCarousel';
+
+	// COMPONENT OPTIONS
 
 	export default {
 		name: 'AnimeBlockUpcoming',
@@ -39,10 +43,14 @@
 
 <style lang='sass' scoped>
 
+	// IMPORTS
+
 	@import '../../assets/styles/utils/vars'
 	@import '../../assets/styles/utils/mixins'
 	@import '../../assets/styles/modules/titles'
 	@import '../../assets/styles/modules/containers'
+
+	// ANIME BLOCK UPCOMING STYLES
 
 	.anime-block-upcoming
 		width: 100%

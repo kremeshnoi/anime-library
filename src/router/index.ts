@@ -1,7 +1,10 @@
-//Libraries
+// LIBRARIES
+
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import firebase from 'firebase/app';
+
+// ROUTER CONFIG
 
 Vue.use(VueRouter);
 
@@ -41,12 +44,6 @@ const routes = [
 		name: 'Manga',
 		meta: { layout: '' },
 		component: () => import('../components/views/manga/Manga.vue')
-	},
-	{
-		path: '/search',
-		name: 'Search',
-		meta: { layout: '', auth: true },
-		component: () => import('../components/views/main/Search.vue')
 	},
 	{
 		path: '/library',

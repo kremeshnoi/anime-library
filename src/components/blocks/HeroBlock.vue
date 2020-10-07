@@ -13,6 +13,8 @@
 
 <script>
 
+	// COMPONENT OPTIONS
+
 	export default {
 		name: 'HeroBlock'
 	}
@@ -21,10 +23,14 @@
 
 <style lang='sass' scoped>
 
+	// IMPORTS
+
 	@import '../../assets/styles/utils/vars'
 	@import '../../assets/styles/utils/mixins'
 	@import '../../assets/styles/modules/buttons'
 	@import '../../assets/styles/modules/containers'
+
+	// HERO BLOCK STYLES
 
 	.hero-block
 		height: 40vh
@@ -84,9 +90,10 @@
 				max-width: 330px
 
 		&__image
-			background-image: url('../../assets/images/hero-min.png')
+			background-image: url('../../assets/images/hero-min.png'), url('../../assets/images/clouds.png')
+			background-size: contain
 			background-position: center
-			background-size: cover
+			background-repeat: no-repeat
 			width: 100%
 			height: 100%
 			margin: 0 auto

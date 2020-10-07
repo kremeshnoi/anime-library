@@ -4,6 +4,7 @@
 		.navbar__wrapper.nav-wrapper
 			router-link.navbar__logo(to='/')
 				| Otaku Library
+			search-bar.navbar__search-bar
 			.navbar__sign-in(v-if='this.user[0] === null')
 				router-link.navbar__sign-in-link(to='/sign-in')
 					| Sign in
@@ -21,10 +22,16 @@
 
 <script>
 
+	// IMPORTS
+
 	import { mapActions } from "vuex";
+	import SearchBar from "@/components/modules/SearchBar";
+
+	// COMPONENT OPTIONS
 
 	export default {
 		name: 'Navbar',
+		components: {SearchBar},
 		data:()=> {
 			return {
 				user: []
@@ -49,23 +56,28 @@
 
 <style lang='sass' scoped>
 
+	// IMPORTS
+
 	@import '../../assets/styles/utils/vars'
 	@import '../../assets/styles/utils/mixins'
 
+	// NAVBAR STYLES
+
 	.navbar
-		height: 54px
-		line-height: 54px
+		height: 58px
+		line-height: 58px
 		background-color: $color-blue
 		top: 0
 		position: absolute
 		z-index: 99
 		padding: 0 40px 0 40px
-		+mq(desktop-wide, min)
-			max-width: 1300px
 
 		&__wrapper
 			width: 100%
-			+flex(center, center, row)
+			display: grid
+			grid-template-columns: 200px minmax(auto, 1220px) 200px
+			align-items: center
+			justify-content: space-between
 
 		&__logo
 			font-size: 26px
@@ -74,14 +86,8 @@
 			+mq(phablet, max)
 				font-size: 22px
 
-		&__sign-in,
-		&__sign-out
-			position: absolute
-			right: 0
-			top: 0
-
 		&__sign-in-link
-			+flex(center, center, row)
+			+flex(flex-end, center, row)
 			+mq(phablet, max)
 				display: none
 			&:hover

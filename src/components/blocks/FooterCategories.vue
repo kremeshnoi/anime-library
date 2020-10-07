@@ -10,9 +10,13 @@
 
 <script>
 
+	// IMPORTS
+
 	import FooterCategoriesTopAnime from '@/components/modules/FooterCategoriesTopAnime';
 	import FooterCategoriesTopManga from '@/components/modules/FooterCategoriesTopManga';
 	import FooterCategoriesTopCharacters from '@/components/modules/FooterCategoriesTopCharacters';
+
+	// COMPONENT OPTIONS
 
 	export default {
 		name: 'FooterCategories',
@@ -27,8 +31,12 @@
 
 <style lang='sass' scoped>
 
+	// IMPORTS
+
 	@import '../../assets/styles/utils/vars'
 	@import '../../assets/styles/utils/mixins'
+
+	// FOOTER CATEGORIES STYLES
 
 	.footer-categories
 		background-color: $color-white-dark

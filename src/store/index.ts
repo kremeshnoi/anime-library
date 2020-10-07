@@ -1,15 +1,19 @@
-//Libraries
+// LIBRARIES
+
 import Vue from 'vue';
 import Vuex from 'vuex';
 import router from '../router';
-
-//Store modules
-import { users } from '@/store/users/index';
-import { auth } from '@/store/auth/index';
-import { manga } from '@/store/manga/index';
-import { anime } from '@/store/anime/index';
-import { characters } from '@/store/characters/index'
 import firebase from "firebase";
+
+// STORE MODULES
+
+import { auth } from '@/store/auth/index';
+import { users } from '@/store/users/index';
+import { anime } from '@/store/anime/index';
+import { manga } from '@/store/manga/index';
+import { characters } from '@/store/characters/index'
+
+// VUEX.STORE OPTIONS
 
 Vue.use(Vuex);
 

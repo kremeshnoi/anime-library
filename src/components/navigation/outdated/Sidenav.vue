@@ -61,7 +61,11 @@
 
 <script>
 
+	// IMPORTS
+
 	import { mapActions, mapGetters } from 'vuex';
+
+	// COMPONENT OPTIONS
 
 	export default {
 		name: 'SideNav',
@@ -112,8 +116,12 @@
 
 <style lang='sass' scoped>
 
+	// IMPORTS
+
 	@import '../../../assets/styles/utils/vars'
 	@import '../../../assets/styles/utils/mixins'
+
+	// SIDE NAV STYLES
 
 	.side-nav
 		transition: 0.25s
@@ -221,8 +229,5 @@
 			width: 100%
 			bottom: 74px
 			position: absolute
-
-	.prevent-events
-		pointer-events: none !important
 
 </style>

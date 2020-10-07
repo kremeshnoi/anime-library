@@ -8,9 +8,13 @@
 
 <script>
 
+	// IMPORTS
+
 	import Authorized from '@/components/layouts/Authorized';
 	import Unauthorized from '@/components/layouts/Unauthorized';
 	import Authentication from '@/components/layouts/Authentication';
+
+	// COMPONENT OPTIONS
 
 	export default {
 		components: {
@@ -28,6 +32,8 @@
 </script>
 
 <style lang='sass'>
+
+	// APP STYLES
 
 	#app
 		font-family: Avenir, Helvetica, Arial, sans-serif

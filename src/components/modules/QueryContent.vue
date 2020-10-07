@@ -7,6 +7,8 @@
 
 <script>
 
+	// COMPONENT OPTIONS
+
 	export default {
 		name: 'QueryContent'
 	}
@@ -15,8 +17,12 @@
 
 <style lang='sass' scoped>
 
+	// IMPORTS
+
 	@import '../../assets/styles/utils/vars'
 	@import '../../assets/styles/utils/mixins'
+
+	// QUERY CONTENT STYLES
 
 	.query-content
 		display: grid
