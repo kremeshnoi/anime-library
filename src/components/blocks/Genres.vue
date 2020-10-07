@@ -1,22 +1,22 @@
 <template lang='pug'>
 
-	.genres-block
-		.genres-block__content
-			.genres-block__anime-wrapper
-				h4.genres-block__title
+	.genres
+		.genres__content
+			.genres__anime-wrapper
+				h4.genres__title
 					| Anime
 
-				.genres-block__anime
-					a.genres-block__item.genres-block__item_anime(v-for='(result, index) in sortedAnime[0]'
+				.genres__anime
+					a.genres__item.genres__item_anime(v-for='(result, index) in sortedAnime[0]'
 						@click='computeRouteByGenre(result)')
 						| {{ result.title }}
-			.genres-block__manga-wrapper
-				h4.genres-block__title
+			.genres__manga-wrapper
+				h4.genres__title
 					| Manga
-				.genres-block__manga
+				.genres__manga
 
 
-					a.genres-block__item.genres-block__item_manga(v-for='(result, index) in sortedManga[0]'
+					a.genres__item.genres__item_manga(v-for='(result, index) in sortedManga[0]'
 						@click='computeRouteByGenre(result)')
 						| {{ result.title }}
 
@@ -171,7 +171,7 @@
 
 	// GENRES BLOCK STYLES
 
-	.genres-block
+	.genres
 		@extend .container-default
 
 		&__title

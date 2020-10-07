@@ -66,9 +66,9 @@
 
 	// IMPORTS
 
-	@import '../../assets/styles/utils/vars'
-	@import '../../assets/styles/utils/mixins'
-	@import '../../assets/styles/modules/buttons'
+	@import '../../../assets/styles/utils/vars'
+	@import '../../../assets/styles/utils/mixins'
+	@import '../../../assets/styles/modules/buttons'
 
 	// FOOTER MAIN INFO STYLES
 

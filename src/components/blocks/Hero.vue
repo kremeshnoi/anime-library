@@ -1,13 +1,13 @@
 <template lang='pug'>
 
-	.hero-block
-		.hero-block__container
-			.hero-block__text-side
-				h1.hero-block__title Organize your library. Find, add, modify, communicate
-				p.hero-block__description Join us to get full access of the site functionality
-				router-link.hero-block__button.btn(to='/sign-up') JOIN US
-			.hero-block__image-side
-				.hero-block__image
+	.hero
+		.hero__container
+			.hero__text-side
+				h1.hero__title Organize your library. Find, add, modify, communicate
+				p.hero__description Join us to get full access of the site functionality
+				router-link.hero__button.btn(to='/sign-up') JOIN US
+			.hero__image-side
+				.hero__image
 
 </template>
 
@@ -16,7 +16,7 @@
 	// COMPONENT OPTIONS
 
 	export default {
-		name: 'HeroBlock'
+		name: 'Hero'
 	}
 
 </script>
@@ -32,7 +32,7 @@
 
 	// HERO BLOCK STYLES
 
-	.hero-block
+	.hero
 		height: 40vh
 		+mq(tablet-small, max)
 			height: 30vh
@@ -101,7 +101,7 @@
 				display: none
 
 	@media (max-height: 800px) and (min-width: 600px)
-		.hero-block
+		.hero
 			height: 50vh
 
 </style>

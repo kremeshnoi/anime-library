@@ -1,10 +1,10 @@
 <template lang='pug'>
 
-	.top-airing-anime-block
-		.top-airing-anime-block__container
-			router-link.top-airing-anime-block__title(to='/anime/top-airing')
+	.top-airing-anime
+		.top-airing-anime__container
+			router-link.top-airing-anime__title(to='/anime/top-airing')
 				| AIRING ANIME
-				.top-airing-anime-block__icon.material-icons keyboard_arrow_right
+				.top-airing-anime__icon.material-icons keyboard_arrow_right
 			swiper-carousel
 				cards.swiper-slide(v-for='(result, index) in getAnimeAiring.slice(0, 7)'
 					:key='index'
@@ -45,14 +45,14 @@
 
 	// IMPORTS
 
-	@import '../../assets/styles/utils/vars'
-	@import '../../assets/styles/utils/mixins'
-	@import '../../assets/styles/modules/titles'
-	@import '../../assets/styles/modules/containers'
+	@import '../../../assets/styles/utils/vars'
+	@import '../../../assets/styles/utils/mixins'
+	@import '../../../assets/styles/modules/titles'
+	@import '../../../assets/styles/modules/containers'
 
 	// TOP AIRING ANIME BLOCK STYLES
 
-	.top-airing-anime-block
+	.top-airing-anime
 		width: 100%
 
 		&__container
@@ -63,7 +63,7 @@
 			+flex(space-between, center, row)
 			&:hover
 				color: orange
-				.top-airing-anime-block__icon
+				.top-airing-anime__icon
 					color: inherit
 
 		&__icon
