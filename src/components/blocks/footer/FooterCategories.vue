@@ -31,9 +31,6 @@
 		computed: {
 			...mapGetters(['getAnimeFavorite',  'getMangaFavorite', 'getCharactersFavorite']),
 			getCategories() {
-				const anime = this.getAnimeFavorite;
-				const manga = this.getMangaFavorite;
-				const characters = this.getCharactersFavorite;
 				const categories = {
 					anime: {
 						title: 'Top Anime',
@@ -92,6 +89,8 @@
 				grid-template-columns: 1fr 1fr
 			+mq(tablet-small, max)
 				grid-template-columns: 1fr
+
+	// FOOTER CATEGORIES ITEM
 
 	.footer-categories-item
 		+flex(flex-start, flex-start, column)
