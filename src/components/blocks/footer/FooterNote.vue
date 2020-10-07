@@ -29,8 +29,8 @@
 
 	// IMPORTS
 
-	@import '../../assets/styles/utils/vars'
-	@import '../../assets/styles/utils/mixins'
+	@import '../../../assets/styles/utils/vars'
+	@import '../../../assets/styles/utils/mixins'
 
 	// FOOTER NOTE STYLES
 

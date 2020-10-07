@@ -13,7 +13,7 @@ const routes = [
 		path: '/',
 		name: 'Home',
 		meta: { layout: '' },
-		component: () => import('../components/views/main/Home.vue')
+		component: () => import('../components/views/Home.vue')
 	},
 	{
 		path: '/anime/:id/:title',
@@ -49,7 +49,7 @@ const routes = [
 		path: '/library',
 		name: 'Library',
 		meta: { layout: '', auth: true },
-		component: () => import('../components/views/main/Library.vue')
+		component: () => import('../components/views/Library.vue')
 	},
 	{
 		path: '/anime/top-airing',

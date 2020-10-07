@@ -13,10 +13,10 @@
 	// IMPORTS
 
 	import { mapActions } from "vuex";
-	import HeroBlock from "@/components/blocks/HeroBlock";
-	import GenresBlock from "@/components/blocks/GenresBlock";
-	import AnimeBlockUpcoming from "@/components/blocks/AnimeBlockUpcoming";
-	import TopAiringAnimeBlock from '@/components/blocks/TopAiringAnimeBlock';
+	import HeroBlock from "@/components/blocks/Hero";
+	import GenresBlock from "@/components/blocks/Genres";
+	import AnimeBlockUpcoming from "@/components/blocks/anime/AnimeUpcoming";
+	import TopAiringAnimeBlock from '@/components/blocks/anime/AnimeAiring';
 
 	// COMPONENT OPTIONS
 

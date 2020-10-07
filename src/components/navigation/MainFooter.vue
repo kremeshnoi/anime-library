@@ -11,9 +11,9 @@
 
 	// IMPORTS
 
-	import FooterNote from '@/components/blocks/FooterNote';
-	import FooterMainInfo from '@/components/blocks/FooterMainInfo';
-	import FooterCategories from '@/components/blocks/FooterCategories';
+	import FooterNote from '@/components/blocks/footer/FooterNote';
+	import FooterMainInfo from '@/components/blocks/footer/FooterMainInfo';
+	import FooterCategories from '@/components/blocks/footer/FooterCategories';
 
 	// COMPONENT OPTIONS
 

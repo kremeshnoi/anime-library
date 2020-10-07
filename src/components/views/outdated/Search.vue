@@ -41,7 +41,7 @@
 
 	// IMPORTS
 
-	@import '../../../../assets/styles/modules/containers'
+	@import '../../../assets/styles/modules/containers'
 
 	// SEARCH STYLES
 

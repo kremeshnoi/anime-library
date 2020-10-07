@@ -1,10 +1,10 @@
 <template lang='pug'>
 
-	.anime-block-upcoming
-		.anime-block-upcoming__container
-			router-link.anime-block-upcoming__title(to='/anime/upcoming')
+	.anime-upcoming
+		.anime-upcoming__container
+			router-link.anime-upcoming__title(to='/anime/upcoming')
 				| Upcoming Anime
-				.anime-block-upcoming__icon.material-icons keyboard_arrow_right
+				.anime-upcoming__icon.material-icons keyboard_arrow_right
 			swiper-carousel
 				cards.swiper-slide(v-for='(result, index) in getAnimeUpcoming.slice(0, 7)'
 					:key='index'
@@ -45,14 +45,14 @@
 
 	// IMPORTS
 
-	@import '../../assets/styles/utils/vars'
-	@import '../../assets/styles/utils/mixins'
-	@import '../../assets/styles/modules/titles'
-	@import '../../assets/styles/modules/containers'
+	@import '../../../assets/styles/utils/vars'
+	@import '../../../assets/styles/utils/mixins'
+	@import '../../../assets/styles/modules/titles'
+	@import '../../../assets/styles/modules/containers'
 
 	// ANIME BLOCK UPCOMING STYLES
 
-	.anime-block-upcoming
+	.anime-upcoming
 		width: 100%
 
 		&__container
@@ -63,7 +63,7 @@
 			+flex(space-between, center, row)
 			&:hover
 				color: orange
-				.anime-block-upcoming__icon
+				.anime-upcoming__icon
 					color: inherit
 
 		&__icon
