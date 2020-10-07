@@ -2,9 +2,19 @@
 
 	.footer-categories
 		.footer-categories__container
-			footer-categories-top-anime
-			footer-categories-top-manga
-			footer-categories-top-characters
+			.footer-categories__item.footer-categories-item(v-for='(result, index) in getCategories'
+				:key='index')
+				router-link.footer-categories-item__title(:to=`result.link`)
+					| {{ result.title }}
+					.footer-categories-item__icon.material-icons keyboard_arrow_right
+
+				.footer-categories-item__content(v-for='(data, counter) in result.data'
+					:key='counter')
+
+					p.footer-categories-item__digit
+						| {{ counter + 1 }}
+					a.footer-categories-item__link(@click='computeRoute(data)')
+						| {{ data.title }}
 
 </template>
 
@@ -12,18 +22,45 @@
 
 	// IMPORTS
 
-	import FooterCategoriesTopAnime from '@/components/elements/FooterCategoriesTopAnime';
-	import FooterCategoriesTopManga from '@/components/elements/FooterCategoriesTopManga';
-	import FooterCategoriesTopCharacters from '@/components/elements/FooterCategoriesTopCharacters';
+	import { mapActions, mapGetters } from 'vuex';
 
 	// COMPONENT OPTIONS
 
 	export default {
 		name: 'FooterCategories',
-		components: {
-			FooterCategoriesTopAnime,
-			FooterCategoriesTopManga,
-			FooterCategoriesTopCharacters
+		computed: {
+			...mapGetters(['getAnimeFavorite',  'getMangaFavorite', 'getCharactersFavorite']),
+			getCategories() {
+				const anime = this.getAnimeFavorite;
+				const manga = this.getMangaFavorite;
+				const characters = this.getCharactersFavorite;
+				const categories = {
+					anime: {
+						title: 'Top Anime',
+						link: '/anime/top',
+						data: this.getAnimeFavorite.splice(0, 9)
+					},
+					manga: {
+						title: 'Top Manga',
+						link: '/manga/top',
+						data: this.getMangaFavorite.splice(0, 9)
+					},
+					characters: {
+						title: 'Most Popular Characters',
+						link: '/characters/popular',
+						data: this.getCharactersFavorite.splice(0, 9)
+					}
+				};
+				return categories
+			}
+		},
+		async created() {
+			await this.loadAnimeFavorite();
+			await this.loadMangaFavorite();
+			await this.loadCharactersFavorite();
+		},
+		methods: {
+			...mapActions(['loadAnimeFavorite', 'loadCharactersFavorite', 'loadMangaFavorite', 'computeRoute'])
 		}
 	};
 
@@ -55,5 +92,34 @@
 				grid-template-columns: 1fr 1fr
 			+mq(tablet-small, max)
 				grid-template-columns: 1fr
+
+	.footer-categories-item
+		+flex(flex-start, flex-start, column)
+
+		&__title
+			color: $color-black
+			font-size: 16px
+			text-align: start
+			padding: 0 0 8px 0
+			width: 100%
+			border-bottom: 1px solid rgba($color-black, 0.2)
+			+flex(space-between, center, row)
+			&:hover
+				color: $color-orange
+
+				.pre-footer-top-anime__icon
+					color: inherit
+
+		&__content
+			margin: 8px 0 0 0
+			+flex(center, flex-start, row)
+
+		&__digit
+			margin: 0 8px 0 0
+
+		&__link
+			color: $color-blue
+			&:hover
+				text-decoration: underline $color-blue
 
 </style>

@@ -28,7 +28,7 @@ export const characters =  {
 		}
 	},
 	actions: {
-		async loadcharactersById(ctx) {
+		async loadCharactersById(ctx) {
 			try {
 				const characterResponse = await jikanjs.loadCharacter(router.app.$route.params.id);
 				const charactersById = characterResponse;
@@ -37,7 +37,7 @@ export const characters =  {
 				throw new Error(error);
 			}
 		},
-		async loadcharactersFavorite(ctx) {
+		async loadCharactersFavorite(ctx) {
 			try {
 				const favoriteCharactersResponse: CharactersFavoriteResponse = await jikanjs.loadTop('characters');
 				const charactersFavorite = favoriteCharactersResponse.top;
@@ -48,7 +48,7 @@ export const characters =  {
 		},
 	},
 	getters: {
-		getcharactersById: state => state.charactersById,
-		getcharactersFavorite: state => state.charactersFavorite
+		getCharactersById: state => state.charactersById,
+		getCharactersFavorite: state => state.charactersFavorite
 	}
 };
