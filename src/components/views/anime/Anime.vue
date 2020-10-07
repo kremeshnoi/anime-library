@@ -168,9 +168,9 @@
 	// IMPORTS
 
 	import { mapActions, mapGetters } from 'vuex';
-	import Cards from '@/components/modules/Cards';
-	import SwiperCarousel from '@/components/modules/SwiperCarousel';
-	import Select from '@/components/modules/Select';
+	import Cards from '@/components/elements/Cards';
+	import SwiperCarousel from '@/components/elements/SwiperCarousel';
+	import Select from '@/components/elements/Select';
 
 	// COMPONENT OPTIONS
 

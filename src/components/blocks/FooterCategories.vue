@@ -12,9 +12,9 @@
 
 	// IMPORTS
 
-	import FooterCategoriesTopAnime from '@/components/modules/FooterCategoriesTopAnime';
-	import FooterCategoriesTopManga from '@/components/modules/FooterCategoriesTopManga';
-	import FooterCategoriesTopCharacters from '@/components/modules/FooterCategoriesTopCharacters';
+	import FooterCategoriesTopAnime from '@/components/elements/FooterCategoriesTopAnime';
+	import FooterCategoriesTopManga from '@/components/elements/FooterCategoriesTopManga';
+	import FooterCategoriesTopCharacters from '@/components/elements/FooterCategoriesTopCharacters';
 
 	// COMPONENT OPTIONS
 

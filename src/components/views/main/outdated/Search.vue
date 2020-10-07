@@ -14,9 +14,9 @@
 	// IMPORTS
 
 	import { mapActions, mapGetters } from 'vuex';
-	import Cards from '@/components/modules/Cards';
-	import SearchBar from '@/components/modules/SearchBar';
-	import QueryContent from '@/components/modules/QueryContent';
+	import Cards from '@/components/elements/Cards';
+	import SearchBar from '@/components/elements/SearchBar';
+	import QueryContent from '@/components/elements/QueryContent';
 
 	// COMPONENT OPTIONS
 
