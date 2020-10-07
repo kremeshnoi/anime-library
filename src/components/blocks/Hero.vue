@@ -3,8 +3,10 @@
 	.hero
 		.hero__container
 			.hero__text-side
-				h1.hero__title Organize your library. Find, add, modify, communicate
-				p.hero__description Join us to get full access of the site functionality
+				h1.hero__title
+					| Organize your library. Find, add, modify, communicate
+				p.hero__description
+					| Join us to get full access of the site functionality
 				router-link.hero__button.btn(to='/sign-up') JOIN US
 			.hero__image-side
 				.hero__image
