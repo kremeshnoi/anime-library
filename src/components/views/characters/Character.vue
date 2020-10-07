@@ -4,11 +4,11 @@
 		.character__container
 			.character__main-content
 				h1.character__title
-					| {{ getcharactersById.name }}
+					| {{ getCharactersById.name }}
 					.divider-hidden
-					| {{ getcharactersById.name_kanji }}
+					| {{ getCharactersById.name_kanji }}
 				.character__cover-container
-					img.character__cover(:src='getcharactersById.image_url')
+					img.character__cover(:src='getCharactersById.image_url')
 
 				.character__info.character-info
 					h2.character-info__title
@@ -25,19 +25,19 @@
 					.character-voice-actors__title
 						| Voice Actors
 
-					.character-voice-actors__content(v-if='getcharactersById.voice_actors')
+					.character-voice-actors__content(v-if='getCharactersById.voice_actors')
 
-						h4.manga-related__disaster(v-if='getcharactersById.voice_actors.length === 0')
+						h4.manga-related__disaster(v-if='getCharactersById.voice_actors.length === 0')
 							| Not found (￣︿￣)
 
-						ul.character-voice-actors__tabs.tabs(v-if='getcharactersById.voice_actors')
-							li.character-voice-actors__tab.tab(v-for='(value, name) in getcharactersById.voice_actors'
+						ul.character-voice-actors__tabs.tabs(v-if='getCharactersById.voice_actors')
+							li.character-voice-actors__tab.tab(v-for='(value, name) in getCharactersById.voice_actors'
 								:key='name')
 								a.character-voice-actors__tab-item(:href=`'#' + name`
 									v-if=`value.language === 'English' || value.language === 'Japanese'`)
 									| {{ value.name }}
 						.character-voice-actors__item(:id='name'
-							v-for='(value, name) in getcharactersById.voice_actors'
+							v-for='(value, name) in getCharactersById.voice_actors'
 							:key='name')
 							table.character-voice-actors__table(v-if=`value.language === 'English' || value.language === 'Japanese'`)
 								tbody.character-voice-actors__tbody
@@ -77,29 +77,29 @@
 			}
 		},
 		computed: {
-			...mapGetters(['getcharactersById'])
+			...mapGetters(['getCharactersById'])
 		},
 		async created() {
-			await this.loadcharactersById();
+			await this.loadCharactersById();
 			await this.replaceData();
 			const modal = document.querySelectorAll('.modal');
 			const modal_instance = M.Modal.init(modal);
-			if(Object.keys(this.getcharactersById.voice_actors).length) {
+			if(Object.keys(this.getCharactersById.voice_actors).length) {
 				const tabs = document.querySelectorAll('.tabs');
 				const instanceTabs = M.Tabs.init(tabs);
 			}
 		},
 		methods: {
-			...mapActions(['loadcharactersById']),
+			...mapActions(['loadCharactersById']),
 			async replaceData() {
-				const data = this.getcharactersById.about;
+				const data = this.getCharactersById.about;
 				const result = data.replace(/\\n/g, '');
 				this.aboutCharacterData.push(result);
 			}
 		},
 		metaInfo() {
 			return {
-				title: `Character - ${ this.getcharactersById.name }`
+				title: `Character - ${ this.getCharactersById.name }`
 			}
 		}
 	};
