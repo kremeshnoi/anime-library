@@ -84,14 +84,13 @@
 
 <script>
 
+	// IMPORTS
+
 	import firebase from "firebase";
 	import jikanjs from 'jikanjs/lib/jikan.js';
 	import router from "@/router";
 
-	function getUid() {
-		const user = firebase.auth().currentUser;
-		return user ? user.uid : null;
-	}
+	// COMPONENT OPTIONS
 
 	export default {
 		name: 'Library',
@@ -140,6 +139,10 @@
 			const instanceTabs = M.Tabs.init(tabs);
 		},
 		methods: {
+			getUid() {
+				const user = firebase.auth().currentUser;
+				return user ? user.uid : null;
+			},
 			toogleTab(status, type) {
 				this.fetchData(status, type)
 
@@ -156,7 +159,7 @@
 							let obj = Object.entries(data.val()[`${status}`]).map((d)=> ({
 								data_id: d[0],
 								uid: d[1].uid
-							})).filter(d => d.uid === getUid()).map(d => (type === 'anime') ? jikanjs.loadAnime(d.data_id) : jikanjs.loadManga(d.data_id))
+							})).filter(d => d.uid === this.getUid()).map(d => (type === 'anime') ? jikanjs.loadAnime(d.data_id) : jikanjs.loadManga(d.data_id))
 
 							Promise.all(obj).then(values => {
 								this.buffer = values
@@ -177,10 +180,14 @@
 
 <style lang='sass' scoped>
 
+	// IMPORTS
+
 	@import '../../../assets/styles/utils/vars'
 	@import '../../../assets/styles/utils/mixins'
 	@import '../../../assets/styles/modules/titles'
 	@import '../../../assets/styles/modules/containers'
+
+	// LIBRARY STYLES
 
 	.library
 		width: 100%

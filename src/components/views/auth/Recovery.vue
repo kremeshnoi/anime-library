@@ -46,8 +46,12 @@
 
 <script>
 
-	import VueRecaptcha from 'vue-recaptcha';
+	// IMPORTS
+
 	import { email, required } from 'vuelidate/lib/validators';
+	import VueRecaptcha from 'vue-recaptcha';
+
+	// COMPONENT OPTIONS
 
 	export default {
 		name: 'Recovery',
@@ -102,11 +106,13 @@
 
 <style lang='sass' scoped>
 
+	// IMPORTS
+
 	@import '../../../assets/styles/utils/vars'
 	@import '../../../assets/styles/utils/mixins'
 	@import '../../../assets/styles/modules/buttons'
 
-	//Recovery
+	// RECOVERY STYLES
 
 	.recovery
 		position: fixed
@@ -150,11 +156,13 @@
 			@extend .shadow-btn
 			@extend .focus-btn
 
-	//Recaptcha
+	// RECAPTCHA
+
 	.recaptcha
 		transform: scale(0.92) !important
 
-	//Preloader
+	// PRELOADER
+
 	.preloader-wrapper
 		position: absolute !important
 		bottom: 20px !important

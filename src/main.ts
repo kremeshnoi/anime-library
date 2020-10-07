@@ -1,4 +1,5 @@
-//Libraries
+// LIBRARIES
+
 import Vue from 'vue';
 import App from './App.vue';
 import VueMeta from 'vue-meta';
@@ -12,12 +13,14 @@ import 'vue-recaptcha';
 import 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
 
-//Libraries through configurations
+// LIBRARIES THROUGH CONFIGS
+
 import router from './router';
 import store from './store';
 import './registerServiceWorker';
 
-//Styles
+// STYLES
+
 import './assets/styles/base/base.sass';
 import './assets/styles/base/reset.sass';
 import './assets/styles/state/tabs.sass';
@@ -27,14 +30,19 @@ import './assets/styles/state/select.sass';
 import './assets/styles/theme/fonts/material-icons.sass';
 import './assets/styles/theme/fonts/days-one-regular.sass';
 
-//Plugins
-import Message from "@/utils/message.plugin";
+// PLUGINS
+
+import Message from "@/utils/message.plugin.ts";
+
+// VUE CONFIG
 
 Vue.config.productionTip = false;
 Vue.use(Message)
 Vue.use(VueMeta);
 Vue.use(Vuelidate);
 Vue.use(VueAwesomeSwiper);
+
+// FIREBASE CONFIG
 
 firebase.initializeApp({
 	apiKey: 'AIzaSyCIPI4pf_bCw6vyUB7sg8ZWvU2MpCmR288',

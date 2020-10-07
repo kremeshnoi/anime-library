@@ -14,9 +14,13 @@
 
 <script>
 
+	// IMPORTS
+
 	import { mapActions, mapGetters } from 'vuex';
 	import Cards from '@/components/modules/Cards';
 	import QueryContent from '@/components/modules/QueryContent';
+
+	// COMPONENT OPTIONS
 
 	export default {
 		name: 'MangaGenre',
@@ -42,11 +46,14 @@
 
 <style lang='sass' scoped>
 
+	// IMPORTS
+
 	@import '../../../assets/styles/utils/vars'
 	@import '../../../assets/styles/utils/mixins'
 	@import '../../../assets/styles/modules/titles'
 	@import '../../../assets/styles/modules/containers'
 
+	// MANGA GENRES STYLES
 
 	.manga-genre
 		&__container

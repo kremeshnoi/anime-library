@@ -11,10 +11,14 @@
 
 <script>
 
+	// IMPORTS
+
 	import { mapActions, mapGetters } from 'vuex';
 	import Cards from '@/components/modules/Cards';
 	import SearchBar from '@/components/modules/SearchBar';
 	import QueryContent from '@/components/modules/QueryContent';
+
+	// COMPONENT OPTIONS
 
 	export default {
 		name: 'Search',
@@ -35,7 +39,11 @@
 
 <style lang='sass' scoped>
 
-	@import '../../../assets/styles/modules/containers'
+	// IMPORTS
+
+	@import '../../../../assets/styles/modules/containers'
+
+	// SEARCH STYLES
 
 	.search
 		width: 100%

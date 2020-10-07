@@ -1,15 +1,21 @@
-//Libraries
+// LIBRARIES
+
 import router from '../../router';
 import jikanjs from 'jikanjs/lib/jikan.js';
 
-//Interfaces
+// INTERFACES
+
 import { StateCharacters } from '@/interfaces/state/State';
 import { CharactersFavoriteResponse } from '@/interfaces/characters/CharactersFavoriteResponse';
+
+// STATE CONSTANT
 
 export const state: StateCharacters = {
 	charactersById: [],
 	charactersFavorite: []
 };
+
+// VUEX.STORE OPTIONS
 
 export const characters =  {
 	state,

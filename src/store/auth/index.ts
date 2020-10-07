@@ -1,10 +1,14 @@
-//Libraries
+// LIBRARIES
+
 import router from '@/router';
 import firebase from 'firebase/app';
 import { email } from 'vuelidate/lib/validators';
 
-//Interfaces
+// INTERFACES
+
 import { UsersInfoResponse } from '@/interfaces/users/UsersInfoResponse';
+
+// VUEX.STORE OPTIONS
 
 export const auth =  {
 	actions: {

@@ -18,7 +18,11 @@
 
 <script>
 
+	// IMPORTS
+
 	import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
+
+	// COMPONENT OPTIONS
 
 	export default {
 		name: 'SwiperCarousel',
@@ -79,8 +83,12 @@
 
 <style lang='sass' scoped>
 
+	// IMPORTS
+
 	@import '../../assets/styles/utils/vars'
 	@import '../../assets/styles/utils/mixins'
+
+	// SWIPER CAROUSEL STYLES
 
 	.swiper-carousel
 		width: 100%

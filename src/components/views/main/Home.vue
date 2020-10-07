@@ -10,11 +10,15 @@
 
 <script>
 
-	import TopAiringAnimeBlock from '@/components/blocks/TopAiringAnimeBlock';
-	import AnimeBlockUpcoming from "@/components/blocks/AnimeBlockUpcoming";
-	import GenresBlock from "@/components/blocks/GenresBlock";
-	import HeroBlock from "@/components/blocks/HeroBlock";
+	// IMPORTS
+
 	import { mapActions } from "vuex";
+	import HeroBlock from "@/components/blocks/HeroBlock";
+	import GenresBlock from "@/components/blocks/GenresBlock";
+	import AnimeBlockUpcoming from "@/components/blocks/AnimeBlockUpcoming";
+	import TopAiringAnimeBlock from '@/components/blocks/TopAiringAnimeBlock';
+
+	// COMPONENT OPTIONS
 
 	export default {
 		name: 'Home',
@@ -43,6 +47,8 @@
 </script>
 
 <style lang='sass' scoped>
+
+	// HOME STYLES
 
 	.home
 		width: 100%

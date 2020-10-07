@@ -9,7 +9,11 @@
 
 <script>
 
-	import messages from "@/utils/messages";
+	// IMPORTS
+
+	import Messages from "@/utils/messages";
+
+	// COMPONENT OPTIONS
 
 	export default {
 		name: 'Authentication',
@@ -33,8 +37,12 @@
 
 <style lang='sass' scoped>
 
+	// IMPORTS
+
 	@import '../../assets/styles/utils/vars'
 	@import '../../assets/styles/utils/mixins'
+
+	// AUTH STYLES
 
 	.content-wrapper
 		height: 100vh

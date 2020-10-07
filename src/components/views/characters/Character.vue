@@ -57,9 +57,13 @@
 
 <script>
 
+	// IMPORTS
+
 	import { mapActions, mapGetters } from 'vuex';
 	import Cards from '@/components/modules/Cards';
 	import SwiperCarousel from '@/components/modules/SwiperCarousel';
+
+	// COMPONENT OPTIONS
 
 	export default {
 		name: 'Character',
@@ -112,7 +116,7 @@
 	@import '../../../assets/styles/modules/dividers'
 	@import '../../../assets/styles/modules/containers'
 
-	// CHARACTER
+	// CHARACTER STYLES
 
 	.character
 		width: 100%

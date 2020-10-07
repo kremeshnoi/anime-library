@@ -17,6 +17,8 @@
 
 <script>
 
+	// COMPONENT OPTIONS
+
 	export default {
 		name: 'FooterNote'
 	};
@@ -25,8 +27,12 @@
 
 <style lang='sass' scoped>
 
+	// IMPORTS
+
 	@import '../../assets/styles/utils/vars'
 	@import '../../assets/styles/utils/mixins'
+
+	// FOOTER NOTE STYLES
 
 	.footer-note
 		padding: 14px 20px 14px 20px

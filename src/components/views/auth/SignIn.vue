@@ -76,8 +76,12 @@
 
 <script>
 
-	import VueRecaptcha from 'vue-recaptcha';
+	// IMPORTS
+
 	import { email, required, minLength } from 'vuelidate/lib/validators';
+	import VueRecaptcha from 'vue-recaptcha';
+
+	// COMPONENT OPTIONS
 
 	export default {
 		name: 'SignIn',
@@ -140,7 +144,7 @@
 	@import '../../../assets/styles/utils/mixins'
 	@import '../../../assets/styles/modules/buttons'
 
-	// SING-IN
+	// SING-IN STYLES
 
 	.sign-in
 		position: fixed

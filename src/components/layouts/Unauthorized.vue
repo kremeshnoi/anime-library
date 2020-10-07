@@ -9,9 +9,13 @@
 
 <script>
 
+	// IMPORTS
+
 	import Navbar from '@/components/navigation/Navbar';
 	import MainFooter from '@/components/navigation/MainFooter';
 	import ActionButton from "@/components/navigation/ActionButton";
+
+	// COMPONENT OPTIONS
 
 	export default {
 		name: 'Unauthorized',
@@ -29,16 +33,17 @@
 
 <style lang='sass' scoped>
 
+	// IMPORTS
+
 	@import '../../assets/styles/utils/vars'
 	@import '../../assets/styles/utils/mixins'
+
+	// UNAUTHORIZED STYLES
 
 	.content-wrapper
 		padding: 54px 0 0 0
 		background-color: $color-white-pure
-		box-shadow: 0px 0px 12px 6px rgba(0,0,0,0.4)
 		margin: 0 auto
 		+flex(initial, center, column)
-		+mq(desktop-wide, min)
-			max-width: 1300px
 
 </style>

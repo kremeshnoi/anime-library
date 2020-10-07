@@ -24,7 +24,11 @@
 
 <script>
 
+	// IMPORTS
+
 	import { mapActions, mapGetters } from 'vuex';
+
+	// COMPONENT OPTIONS
 
 	export default {
 		name: 'GenresBlock',
@@ -158,10 +162,14 @@
 
 <style lang='sass' scoped>
 
+	// IMPORTS
+
 	@import '../../assets/styles/utils/vars'
 	@import '../../assets/styles/utils/mixins'
 	@import '../../assets/styles/modules/titles'
 	@import '../../assets/styles/modules/containers'
+
+	// GENRES BLOCK STYLES
 
 	.genres-block
 		@extend .container-default

@@ -11,9 +11,6 @@
 				router-link.side-nav__link.action-button__link_disabled.btn-floating(to='/profile')
 					i.action-button__icon.material-icons account_circle
 			li.action-button__list-item
-				router-link.side-nav__link.btn-floating(to='/search')
-					i.action-button__icon.material-icons search
-			li.action-button__list-item
 				router-link.side-nav__link.btn-floating(to='/library')
 					i.action-button__icon.material-icons view_list
 
@@ -21,16 +18,19 @@
 
 <script>
 
-	export default {
+	// COMPONENT OPTIONS
 
+	export default {
 		name: 'ActionButton',
 		mounted() {
-			// Tap targer
+			// TAP TARGER
+
 			const tap = document.querySelectorAll('.tap-target')
 			const tap_init = M.TapTarget.init(tap)
 			const tap_instance = M.TapTarget.getInstance(tap);
 
-			// Action button
+			// ACTION BUTTON
+
 			const action_btn = document.querySelectorAll('.fixed-action-btn');
 			const action_btn_instance = M.FloatingActionButton.init(action_btn);
 		}
@@ -41,8 +41,12 @@
 
 <style lang='sass' scoped>
 
+	// IMPORTS
+
 	@import '../../assets/styles/utils/vars'
 	@import '../../assets/styles/utils/mixins'
+
+	// ACTION BUTTON STYLES
 
 	.action-button
 		&__link

@@ -1,13 +1,19 @@
-//Libraries
+// LIBRARIES
+
 import firebase from 'firebase';
 
-//Interfaces
+// INTERFACES
+
 import { StateUsers } from '@/interfaces/state/State';
 import { UsersInfoResponse } from '@/interfaces/users/UsersInfoResponse';
+
+// STATE CONSTANT
 
 export const state: StateUsers = {
 	userInfo: []
 };
+
+// VUEX.STORE OPTIONS
 
 export const users =  {
 	state,

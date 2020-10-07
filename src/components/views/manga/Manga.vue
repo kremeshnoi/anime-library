@@ -164,18 +164,23 @@
 
 <script>
 
+	// IMPORTS
+
 	import { mapActions, mapGetters } from 'vuex';
+	import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
 	import Cards from '@/components/modules/Cards';
 	import SwiperCarousel from '@/components/modules/SwiperCarousel';
-	import SelectCollection from '@/components/modules/SelectCollection';
-	import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
+	import Select from '@/components/modules/Select';
+
+
+	// COMPONENT OPTIONS
 
 	export default {
 		name: 'Manga',
 		components: {
 			Cards,
 			SwiperCarousel,
-			SelectCollection,
+			Select,
 			Swiper,
 			SwiperSlide
 		},
@@ -252,7 +257,7 @@
 	@import '../../../assets/styles/modules/dividers'
 	@import '../../../assets/styles/modules/containers'
 
-	// MANGA
+	// MANGA STYLES
 
 	.manga
 		width: 100%
@@ -439,7 +444,7 @@
 			@extend .title-default
 			margin: 0 0 16px 0
 
-	// ANIME RECOMMENDATIONS
+	// MANGA RECOMMENDATIONS
 
 	.manga-recommendations
 		grid-area: recommendations

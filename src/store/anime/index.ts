@@ -1,8 +1,10 @@
-//Libraries
+// LIBRARIES
+
 import router from '../../router';
 import jikanjs from 'jikanjs/lib/jikan.js';
 
-//Interfaces
+// INTERFACES
+
 import { StateAnime } from '@/interfaces/state/State';
 import { AnimeByIdResponse } from '@/interfaces/anime/AnimeByIdResponse';
 import { AnimeGenreResponse } from "@/interfaces/anime/AnimeGenreResponse";
@@ -11,6 +13,8 @@ import { AnimeSearchedResponse } from '@/interfaces/anime/AnimeSearchedResponse'
 import { AnimeFavoriteResponse } from '@/interfaces/anime/AnimeFavoriteResponse';
 import { AnimeUpcomingResponse } from "@/interfaces/anime/AnimeUpcomingResponse";
 import { AnimeRecommendationsByIdResponse } from '@/interfaces/anime/AnimeRecommendationsById';
+
+// STATE CONSTANT
 
 export const state: StateAnime = {
 	animeById: [],
@@ -21,6 +25,8 @@ export const state: StateAnime = {
 	animeUpcoming: [],
 	animeRecommendationsById: []
 };
+
+// VUEX.STORE OPTIONS
 
 export const anime = {
 	state,

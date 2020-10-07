@@ -13,7 +13,11 @@
 
 <script>
 
+	// IMPORTS
+
 	import { mapActions } from 'vuex';
+
+	// COMPONENT OPTIONS
 
 	export default {
 		name: 'Cards',
@@ -27,9 +31,13 @@
 
 <style lang='sass' scoped>
 
+	// IMPORTS
+
 	@import '../../assets/styles/utils/vars'
 	@import '../../assets/styles/utils/mixins'
 	@import '../../assets/styles/modules/titles'
+
+	// CARDS STYLES
 
 	.cards
 		width: 100%

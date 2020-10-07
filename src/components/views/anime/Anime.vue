@@ -165,17 +165,21 @@
 
 <script>
 
+	// IMPORTS
+
 	import { mapActions, mapGetters } from 'vuex';
 	import Cards from '@/components/modules/Cards';
 	import SwiperCarousel from '@/components/modules/SwiperCarousel';
-	import SelectCollection from '@/components/modules/SelectCollection';
+	import Select from '@/components/modules/Select';
+
+	// COMPONENT OPTIONS
 
 	export default {
 		name: 'Anime',
 		components: {
 			Cards,
 			SwiperCarousel,
-			SelectCollection
+			Select
 		},
 		data:() => {
 			return {
@@ -249,7 +253,7 @@
 	@import '../../../assets/styles/modules/dividers'
 	@import '../../../assets/styles/modules/containers'
 
-	// ANIME
+	// ANIME STYLES
 
 	.anime
 		width: 100%
