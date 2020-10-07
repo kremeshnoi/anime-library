@@ -50,7 +50,7 @@
 	@import '../../../assets/styles/modules/titles'
 	@import '../../../assets/styles/modules/containers'
 
-	// TOP AIRING ANIME BLOCK STYLES
+	// TOP AIRING ANIME STYLES
 
 	.top-airing-anime
 		width: 100%

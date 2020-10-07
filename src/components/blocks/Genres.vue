@@ -2,23 +2,15 @@
 
 	.genres
 		.genres__content
-			.genres__anime-wrapper
+			.genres__wrapper(v-for='(result, index) in genres'
+			:key='index')
 				h4.genres__title
-					| Anime
+					| {{ result.title }}
 
 				.genres__anime
-					a.genres__item.genres__item_anime(v-for='(result, index) in sortedAnime[0]'
-						@click='computeRouteByGenre(result)')
-						| {{ result.title }}
-			.genres__manga-wrapper
-				h4.genres__title
-					| Manga
-				.genres__manga
-
-
-					a.genres__item.genres__item_manga(v-for='(result, index) in sortedManga[0]'
-						@click='computeRouteByGenre(result)')
-						| {{ result.title }}
+					a.genres__item.genres__item_anime(v-for='(genre, genre_index) in result.data'
+						:key='genre_index' @click='computeRouteByGenre(genre)')
+						| {{ genre.title }}
 
 </template>
 
@@ -31,7 +23,7 @@
 	// COMPONENT OPTIONS
 
 	export default {
-		name: 'GenresBlock',
+		name: 'Genres',
 		data: () => {
 			return {
 				//Hardcode part :c
@@ -125,36 +117,27 @@
 					{ "id": 41, "title": "Thriller","type": "manga" },
 					{ "id": 42, "title": "Seinen","type": "manga" },
 					{ "id": 43, "title": "Josei","type": "manga" }
-				],
-				sortedAnime: [],
-				sortedManga: []
+				]
 			}
 		},
-		async created() {
-			await this.randomizeGenres(this.animeGenres);
-			await this.randomizeGenres(this.mangaGenres);
+		computed: {
+			genres() {
+				const genres = {
+					anime_genres: {
+						title: 'Anime',
+						data: this.animeGenres
+					},
+					manga_genres: {
+						title: 'Manga',
+						data: this.mangaGenres
+					}
+				};
+
+				return genres
+			}
 		},
 		methods: {
-			...mapActions(['computeRouteByGenre']),
-			randomizeGenres(array) {
-				let currentIndex = array.length, temporaryValue, randomIndex;
-
-				while (0 !== currentIndex) {
-
-					randomIndex = Math.floor(Math.random() * currentIndex);
-					currentIndex -= 1;
-
-					temporaryValue = array[currentIndex];
-					array[currentIndex] = array[randomIndex];
-					array[randomIndex] = temporaryValue;
-				}
-
-				if(array[0].type === 'anime') {
-					this.sortedAnime.push(array.slice(0, 22));
-				} else if(array[0].type === 'manga') {
-					this.sortedManga.push(array.slice(0, 22));
-				}
-			}
+			...mapActions(['computeRouteByGenre'])
 		}
 	}
 

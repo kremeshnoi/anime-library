@@ -50,7 +50,7 @@
 	@import '../../../assets/styles/modules/titles'
 	@import '../../../assets/styles/modules/containers'
 
-	// ANIME BLOCK UPCOMING STYLES
+	// ANIME UPCOMING STYLES
 
 	.anime-upcoming
 		width: 100%
