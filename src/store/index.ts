@@ -76,7 +76,7 @@ export default new Vuex.Store({
 				throw new Error(error);
 			}
 		},
-		computeRouteByGenre(ctx, result) {
+		computeRouteByGenre(ctx, {result, genre}) {
 			try {
 				let type = result.type;
 				if (type === 'anime') {
@@ -84,8 +84,8 @@ export default new Vuex.Store({
 				} else if(type === 'manga') {
 					type = 'manga-genre'
 				}
-				const id = result.id;
-				const title = result.title
+				const id = genre.id;
+				const title = genre.title
 					.split('/')
 					.splice(-1, 1)[0]
 					.toLowerCase()
