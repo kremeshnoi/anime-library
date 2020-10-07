@@ -1,10 +1,12 @@
 <template lang='pug'>
 
 	.home
-		hero-block(v-if='this.user[0] === null')
-		top-airing-anime-block
-		anime-block-upcoming
-		genres-block
+		hero(v-if='this.user[0] === null')
+		cards-block(v-if='getAnimeAiring'
+			:query='animeAiring')
+		cards-block(v-if='getAnimeUpcoming'
+			:query='animeUpcoming')
+		genres
 
 </template>
 
@@ -12,32 +14,53 @@
 
 	// IMPORTS
 
-	import { mapActions } from "vuex";
-	import HeroBlock from "@/components/blocks/Hero";
-	import GenresBlock from "@/components/blocks/Genres";
-	import AnimeBlockUpcoming from "@/components/blocks/anime/AnimeUpcoming";
-	import TopAiringAnimeBlock from '@/components/blocks/anime/AnimeAiring';
+	import { mapActions, mapGetters } from "vuex";
+	import Hero from "@/components/blocks/Hero";
+	import Genres from "@/components/blocks/Genres";
+	import CardsBlock from '@/components/blocks/CardsBlock';
 
 	// COMPONENT OPTIONS
 
 	export default {
 		name: 'Home',
 		components: {
-			HeroBlock,
-			GenresBlock,
-			TopAiringAnimeBlock,
-			AnimeBlockUpcoming
+			Hero,
+			Genres,
+			CardsBlock
 		},
 		data:()=> {
 			return {
 				user: []
 			}
 		},
+		computed: {
+			...mapGetters(['getAnimeAiring', 'getAnimeUpcoming']),
+			animeAiring() {
+				const animeAiring = {
+					title: 'AIRING ANIME',
+					link: '/anime/top-airing',
+					data: this.getAnimeAiring
+				}
+
+				return animeAiring
+			},
+			animeUpcoming() {
+				const animeUpcoming = {
+					title: 'UPCOMING ANIME',
+					link: '/anime/upcoming',
+					data: this.getAnimeUpcoming
+				}
+
+				return animeUpcoming
+			}
+		},
 		async created() {
 			await this.getUid().then(result => this.user.push(result));
+			await this.loadAnimeAiring();
+			await this.loadAnimeUpcoming();
 		},
 		methods: {
-			...mapActions(['getUid'])
+			...mapActions(['getUid', 'loadAnimeAiring', 'loadAnimeUpcoming'])
 		},
 		metaInfo: {
 			title: 'Otaku Library - Organize your own anime and manga list'

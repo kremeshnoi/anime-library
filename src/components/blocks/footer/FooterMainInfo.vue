@@ -11,13 +11,13 @@
 					target='_blank')
 					| Chat
 
-			.footer-main-info__item
-				h5.footer-main-info__title.footer-main-info__subtitle
-					| Sign in required
-				router-link.footer-main-info__link(to='/search')
-					| Search page
-				router-link.footer-main-info__link(to='/library')
-					| Your library
+			//.footer-main-info__item
+			//	h5.footer-main-info__title.footer-main-info__subtitle
+			//		|
+			//	router-link.footer-main-info__link
+			//		|
+			//	router-link.footer-main-info__link
+			//		|
 
 			.footer-main-info__item(v-if='this.user[0] === null')
 				h5.footer-main-info__title
