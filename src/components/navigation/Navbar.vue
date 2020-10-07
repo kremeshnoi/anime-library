@@ -25,7 +25,7 @@
 	// IMPORTS
 
 	import { mapActions } from "vuex";
-	import SearchBar from "@/components/modules/SearchBar";
+	import SearchBar from "@/components/elements/SearchBar";
 
 	// COMPONENT OPTIONS
 
