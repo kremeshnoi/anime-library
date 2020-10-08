@@ -8,7 +8,7 @@
 			query-content
 				cards(v-for='(result, index) in getAnimeGenre.anime'
 					:key='index'
-					:query='result')
+					:cardsData='result')
 
 </template>
 

@@ -2,12 +2,12 @@
 
 	.cards
 		.cards__image-wrapper
-			img.cards__image(@click='computeRoute(query)'
-				:src='query.image_url')
+			img.cards__image(@click='computeRoute(cardsData)'
+				:src='cardsData.image_url')
 
 			.cards__title-wrapper
 				span.cards__title
-					| {{ query.title || query.name }}
+					| {{ cardsData.title || cardsData.name }}
 
 </template>
 
@@ -21,7 +21,7 @@
 
 	export default {
 		name: 'Cards',
-		props: ['query'],
+		props: ['cardsData'],
 		methods: {
 			...mapActions(['computeRoute'])
 		}

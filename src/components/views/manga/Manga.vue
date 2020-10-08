@@ -24,7 +24,7 @@
 						swiper-carousel(v-if='getMangaCharacters.characters' :type='`characters`')
 							cards.swiper-slide(v-for='(result, index) in getMangaCharacters.characters.slice(0, 20)'
 								:key='index'
-								:query='result')
+								:cardsData='result')
 
 						h4.manga-related__disaster(v-if='getMangaCharacters.characters.length === 0')
 							| Not found (￣︿￣)
