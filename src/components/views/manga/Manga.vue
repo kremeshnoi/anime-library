@@ -98,15 +98,7 @@
 
 				related.manga__related(:relatedData='this.getMangaById.related')
 
-			.manga__description.manga-description
-				.manga-description__title
-					| DESCRIPTION
-
-				.manga-description__synopsis(v-if='getMangaById.synopsis')
-					| {{ getMangaById.synopsis }}
-
-				h4.manga-description__disaster(v-else)
-					| Not found (︶︹︺)
+			description.manga__description(:descriptionData='this.getMangaById.synopsis')
 
 			.manga__recommendations.manga-recommendations(v-if='getMangaRecommendationsById.recommendations')
 				.manga-recommendations__wrapper
@@ -133,6 +125,7 @@
 	import SwiperCarousel from '@/components/elements/SwiperCarousel';
 	import SelectOptions from '@/components/elements/SelectOptions';
 	import Related from '@/components/elements/Related';
+	import Description from "@/components/elements/Description";
 
 
 	// COMPONENT OPTIONS
@@ -140,6 +133,7 @@
 	export default {
 		name: 'Manga',
 		components: {
+			Description,
 			Cards,
 			SwiperCarousel,
 			SelectOptions,
@@ -362,20 +356,6 @@
 			&_modal
 				max-width: initial
 				text-overflow: initial
-
-	// MANGA DESCRIPTION
-
-	.manga-description
-		grid-area: description
-		text-align: start
-
-		&__disaster
-			text-align: start
-			font-size: 30px
-
-		&__title
-			@extend .title-default
-			margin: 0 0 16px 0
 
 	// MANGA RECOMMENDATIONS
 
