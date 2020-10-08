@@ -99,32 +99,7 @@
 							allowfullscreen='true')
 						img.anime-trailer__disaster(v-else src='@/assets/images/not_found.jpg')
 
-				.anime__related.anime-related
-					.anime-related__title
-						| Related
-					.anime-related__content
-						ul.anime-related__tabs.tabs(v-if='getAnimeById.related')
-							li.anime-related__tab.tab(v-for='(value, name, counter) in getAnimeById.related'
-								:key='name')
-								a.anime-related__tab-item(:href=`'#' + counter`)
-									| {{ name }}
-						.anime-related__item(:id='counter'
-							v-for='(value, name, counter) in getAnimeById.related'
-							:key='name')
-							table.anime-related__table.striped
-								tbody.anime-related__tbody
-									tr.anime-related__tr(v-for='(result, index) in value.slice(0, 1)'
-										:key='index')
-										a.anime-related__link.anime-related__link_more.modal-trigger(href='#related'
-											@click='transferData()'
-											v-if='value.length >= 2')
-											| More
-										td.anime-related__td
-											a.anime-related__link(@click='computeRoute(result)')
-												| {{ result.name }}
-
-						h4.anime-related__disaster(v-if='this.related === 0')
-							| Not found (￣︿￣)
+				related.anime__related(:relatedData='this.getAnimeById.related')
 
 			.anime__description.anime-description
 				.anime-description__title
@@ -149,17 +124,7 @@
 					h4.anime-recommendations__disaster(v-else)
 						| Not found (」°ロ°)」
 
-		#related.related-modal.modal
-			.related-modal__content.modal-content
-				.anime-related__item(v-for='(value, name) in buffer'
-					:key='name')
-					table.anime-related__table.striped
-						tbody.anime-related__tbody
-							tr.anime-related__tr(v-for='(result, index) in value'
-								:key='index')
-								td.anime-related__td
-									a.anime-related__link.anime-related__link_modal.modal-close(@click='computeRoute(result)')
-										| {{ result.name }}
+
 
 </template>
 
@@ -171,20 +136,20 @@
 	import Cards from '@/components/elements/Cards';
 	import SwiperCarousel from '@/components/elements/SwiperCarousel';
 	import SelectOptions from '@/components/elements/SelectOptions';
+	import Related from '@/components/elements/Related';
 
 	// COMPONENT OPTIONS
 
 	export default {
 		name: 'Anime',
 		components: {
+			Related,
 			Cards,
 			SwiperCarousel,
 			SelectOptions
 		},
 		data:() => {
 			return {
-				buffer: [],
-				related: [],
 				trailer: ''
 			}
 		},
@@ -195,38 +160,19 @@
 			await this.loadAnimeById();
 			await this.disableAutoplay();
 			await this.loadAnimeRecommendationsById();
+
+			// MODAL
+
 			const modal = document.querySelectorAll('.modal');
 			const modal_instance = M.Modal.init(modal);
-			if(Object.keys(this.getAnimeById.related).length) {
-				const tabs = document.querySelectorAll('.tabs');
-				const instanceTabs = M.Tabs.init(tabs);
-			}
-			this.checkRelatedLength();
+
+			// TABS
+
+			const tabs = document.querySelectorAll('.tabs');
+			const instanceTabs = M.Tabs.init(tabs);
 		},
 		methods: {
 			...mapActions(['loadAnimeById', 'loadAnimeRecommendationsById', 'computeRoute']),
-			transferData() {
-				this.buffer = []
-				let related_item = document.querySelectorAll('.anime-related__tab-item')
-				related_item.forEach(function(item) {
-					if(item.classList.contains('active')) {
-						related_item = item
-					}
-				});
-
-				let obj = Object.values(this.getAnimeById.related)
-
-				var size = 0, key;
-				for (key in this.getAnimeById.related) {
-					if(this.getAnimeById.related.hasOwnProperty(key)) size++;
-					if(key === related_item.text) {
-						this.buffer.push(this.getAnimeById.related[key])
-					}
-				}
-			},
-			checkRelatedLength() {
-				this.related = Object.keys(this.getAnimeById.related).length
-			},
 			async disableAutoplay() {
 				let trailer = await this.getAnimeById.trailer_url;
 				if(trailer) {
@@ -390,69 +336,6 @@
 			height: 100%
 			height: 200px
 			width: 360px
-
-	// ANIME RELATED
-
-	.anime-related
-		display: grid
-		justify-content: start
-		grid-gap: 20px
-		grid-template-rows: 50px auto
-		grid-template-columns: 100%
-		text-align: start
-
-		&__disaster
-			text-align: start
-			font-size: 30px
-
-		&__title
-			display: flex
-			align-items: center
-			@extend .title-default
-
-		&__tr
-			display: block
-			position: relative
-
-		&__tabs
-			display: flex
-			flex-wrap: wrap
-			overflow-x: initial
-			overflow-y: initial
-			height: 100%
-
-		&__tab
-			height: initial !important
-
-		&__tab-item
-			padding: 0 !important
-			margin: 0 24px 14px 0
-			text-align: start
-			height: initial !important
-			line-height: initial
-			color: $color-blue-light !important
-			&:focus
-				background-color: initial !important
-			&.active
-				background-color: initial !important
-				color: $color-orange !important
-
-		&__link
-			@extend .title-cut
-			color: $color-grey-dark
-			+mq(phone-wide, max)
-				max-width: 250px
-			&:hover
-				text-decoration: underline
-			&_more
-				position: absolute
-				color: $color-blue-light
-				right: 0
-				width: auto
-				bottom: -30px
-			&_modal
-				max-width: initial
-				text-overflow: initial
 
 	// ANIME DESCRIPTION
 

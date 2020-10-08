@@ -2,7 +2,7 @@
 
 	.footer-categories
 		.footer-categories__container
-			.footer-categories__item.footer-categories-item(v-for='(result, index) in getCategories'
+			.footer-categories__item.footer-categories-item(v-for='(result, index) in categories'
 				:key='index')
 				router-link.footer-categories-item__title(:to=`result.link`)
 					| {{ result.title }}
@@ -30,7 +30,7 @@
 		name: 'FooterCategories',
 		computed: {
 			...mapGetters(['getAnimeFavorite',  'getMangaFavorite', 'getCharactersFavorite']),
-			getCategories() {
+			categories() {
 				const categories = {
 					anime: {
 						title: 'Top Anime',

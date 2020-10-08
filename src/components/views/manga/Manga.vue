@@ -83,7 +83,6 @@
 								| Unknown
 
 			.manga__sub-content
-
 				.manga__characters.manga-characters(v-if='getMangaCharacters.characters')
 					.manga-recommendations__wrapper
 						.manga-recommendations__title
@@ -97,33 +96,7 @@
 						h4.manga-related__disaster(v-if='getMangaCharacters.characters.length === 0')
 							| Not found (￣︿￣)
 
-				.manga__related.manga-related
-					.manga-related__title
-						| Related
-					.manga-related__content
-						ul.manga-related__tabs.tabs(v-if='getMangaById.related')
-							li.manga-related__tab.tab(v-for='(value, name, counter) in getMangaById.related'
-								:key='name')
-								a.manga-related__tab-item(:href=`'#' + counter`)
-									| {{ name }}
-
-						.manga-related__item(:id='counter'
-							v-for='(value, name, counter) in getMangaById.related'
-							:key='name')
-							table.manga-related__table.striped
-								tbody.manga-related__tbody
-									tr.manga-related__tr(v-for='(result, index) in value.slice(0, 1)'
-										:key='index')
-										a.manga-related__link.manga-related__link_more.modal-trigger(href='#related'
-											@click='transferData()'
-											v-if='value.length >= 2')
-											| More
-										td.manga-related__td
-											a.manga-related__link(@click='computeRoute(result)')
-												| {{ result.name }}
-
-						h4.manga-related__disaster(v-if='this.related === 0')
-							| Not found (￣︿￣)
+				related.manga__related(:relatedData='this.getMangaById.related')
 
 			.manga__description.manga-description
 				.manga-description__title
@@ -148,18 +121,6 @@
 					h4.manga-recommendations__disaster(v-else)
 						| Not found (」°ロ°)」
 
-		#related.related-modal.modal
-			.related-modal__content.modal-content
-				.manga-related__item(v-for='(value, name) in buffer'
-					:key='name')
-					table.manga-related__table.striped
-						tbody.manga-related__tbody
-							tr.manga-related__tr(v-for='(result, index) in value'
-								:key='index')
-								td.manga-related__td
-									a.manga-related__link.manga-related__link_modal.modal-close(@click='computeRoute(result)')
-										| {{ result.name }}
-
 </template>
 
 <script>
@@ -171,6 +132,7 @@
 	import Cards from '@/components/elements/Cards';
 	import SwiperCarousel from '@/components/elements/SwiperCarousel';
 	import SelectOptions from '@/components/elements/SelectOptions';
+	import Related from '@/components/elements/Related';
 
 
 	// COMPONENT OPTIONS
@@ -181,17 +143,12 @@
 			Cards,
 			SwiperCarousel,
 			SelectOptions,
+			Related,
 			Swiper,
 			SwiperSlide
 		},
 		directives: {
 			swiper: directive
-		},
-		data:() => {
-			return {
-				buffer: [],
-				related: []
-			}
 		},
 		computed: {
 			...mapGetters(['getMangaById', 'getMangaCharacters', 'getMangaRecommendationsById'])
@@ -200,43 +157,19 @@
 			await this.loadMangaById();
 			await this.loadMangaCharacters();
 			await this.loadMangaRecommendationsById();
+
+			// MODAL
+
 			const modal = document.querySelectorAll('.modal');
 			const modal_instance = M.Modal.init(modal);
-			if(Object.keys(this.getMangaById.related).length) {
-				const tabs = document.querySelectorAll('.tabs');
-				const instanceTabs = M.Tabs.init(tabs);
-			}
-			this.checkRelatedLength();
+
+			// TABS
+
+			const tabs = document.querySelectorAll('.tabs');
+			const instanceTabs = M.Tabs.init(tabs);
 		},
 		methods: {
-			...mapActions(['loadMangaById', 'loadMangaCharacters', 'loadMangaRecommendationsById', 'computeRoute']),
-			destroyModal() {
-				const modal = document.querySelectorAll('.modal');
-				const modal_instance = M.Modal.init(modal);
-				modal_instance.destroy()
-			},
-			transferData() {
-				this.buffer = []
-				let related_item = document.querySelectorAll('.manga-related__tab-item')
-				related_item.forEach(function(item) {
-					if(item.classList.contains('active')) {
-						related_item = item
-					}
-				});
-
-				let obj = Object.values(this.getMangaById.related)
-
-				var size = 0, key;
-				for (key in this.getMangaById.related) {
-					if(this.getMangaById.related.hasOwnProperty(key)) size++;
-					if(key === related_item.text) {
-						this.buffer.push(this.getMangaById.related[key])
-					}
-				}
-			},
-			checkRelatedLength() {
-				this.related = Object.keys(this.getMangaById.related).length
-			}
+			...mapActions(['loadMangaById', 'loadMangaCharacters', 'loadMangaRecommendationsById', 'computeRoute'])
 		},
 		metaInfo() {
 			return {
