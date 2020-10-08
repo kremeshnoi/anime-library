@@ -21,7 +21,7 @@
 						.manga-recommendations__title
 							| CHARACTERS
 
-						swiper-carousel(v-if='getMangaCharacters.characters' :opt='`characters`')
+						swiper-carousel(v-if='getMangaCharacters.characters' :type='`characters`')
 							cards.swiper-slide(v-for='(result, index) in getMangaCharacters.characters.slice(0, 20)'
 								:key='index'
 								:query='result')
@@ -90,8 +90,10 @@
 
 			// TABS
 
-			const tabs = document.querySelectorAll('.tabs');
-			const instanceTabs = M.Tabs.init(tabs);
+			if(Object.keys(this.getMangaById.related).length > 0) {
+				const tabs = document.querySelectorAll('.tabs');
+				const instanceTabs = M.Tabs.init(tabs);
+			}
 		},
 		methods: {
 			...mapActions(['loadMangaById', 'loadMangaCharacters', 'loadMangaRecommendationsById', 'computeRoute'])
