@@ -114,6 +114,8 @@
 
 <script>
 
+	// COMPONENT OPTIONS
+
 	export default {
 		name: 'Info',
 		props: ['infoData']

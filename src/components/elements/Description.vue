@@ -14,6 +14,8 @@
 
 <script>
 
+	// COMPONENT OPTIONS
+
 	export default {
 		name: 'Description',
 		props: ['descriptionData']

@@ -15,6 +15,8 @@
 
 <script>
 
+	// COMPONENT OPTIONS
+
 	export default {
 		name: 'Trailer',
 		props: ['trailerData'],

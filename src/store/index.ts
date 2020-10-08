@@ -30,7 +30,7 @@ export default new Vuex.Store({
 		}
 	},
 	actions: {
-		async addToLibrary({ dispatch }, { type, status,id }) {
+		async addToLibrary({ dispatch }, { type, status, id }) {
 			try {
 				if (type === 'Manga') {
 					type = 'manga';

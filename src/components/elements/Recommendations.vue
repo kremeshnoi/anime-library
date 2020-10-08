@@ -17,8 +17,12 @@
 
 <script>
 
+	// IMPORTS
+
 	import Cards from '@/components/elements/Cards';
 	import SwiperCarousel from '@/components/elements/SwiperCarousel';
+
+	// COMPONENT OPTIONS
 
 	export default {
 		name: 'Recommendations',
