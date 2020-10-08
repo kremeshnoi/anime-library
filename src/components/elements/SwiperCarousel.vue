@@ -1,6 +1,6 @@
 <template lang='pug'>
 
-	.swiper-carousel(v-if='opt === `characters`' v-swiper='charactersSwiperOptions')
+	.swiper-carousel(v-if='type === `characters`' v-swiper='charactersSwiperOptions')
 		.swiper-carousel__container.swiper-wrapper
 			slot
 
@@ -33,7 +33,7 @@
 		directives: {
 			swiper: directive
 		},
-		props: ['opt'],
+		props: ['type'],
 		data: () => {
 			return {
 				swiperOptions: {

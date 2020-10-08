@@ -69,8 +69,10 @@
 
 			// TABS
 
-			const tabs = document.querySelectorAll('.tabs');
-			const instanceTabs = M.Tabs.init(tabs);
+			if(Object.keys(this.getAnimeById.related).length > 0) {
+				const tabs = document.querySelectorAll('.tabs');
+				const instanceTabs = M.Tabs.init(tabs);
+			}
 		},
 		methods: {
 			...mapActions(['loadAnimeById', 'loadAnimeRecommendationsById']),
