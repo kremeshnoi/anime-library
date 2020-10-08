@@ -93,15 +93,7 @@
 
 				related.anime__related(:relatedData='this.getAnimeById.related')
 
-			.anime__description.anime-description
-				.anime-description__title
-					| DESCRIPTION
-
-				.anime-description__synopsis(v-if='getAnimeById.synopsis')
-					| {{ getAnimeById.synopsis }}
-
-				h4.anime-description__disaster(v-else)
-					| Not found (︶︹︺)
+			description.anime__description(:descriptionData='this.getAnimeById.synopsis')
 
 			.anime__recommendations.anime-recommendations(v-if='getAnimeRecommendationsById.recommendations')
 				.anime-recommendations__wrapper
@@ -130,12 +122,14 @@
 	import SelectOptions from '@/components/elements/SelectOptions';
 	import Related from '@/components/elements/Related';
 	import Trailer from '@/components/elements/Trailer';
+	import Description from "@/components/elements/Description";
 
 	// COMPONENT OPTIONS
 
 	export default {
 		name: 'Anime',
 		components: {
+			Description,
 			Related,
 			Trailer,
 			Cards,
@@ -292,21 +286,6 @@
 			&:hover
 				cursor: pointer
 				border-bottom: 1px dashed $color-blue
-
-	// ANIME DESCRIPTION
-
-	.anime-description
-		grid-area: description
-		text-align: start
-		display: grid
-		grid-gap: 20px
-
-		&__disaster
-			text-align: start
-			font-size: 30px
-
-		&__title
-			@extend .title-default
 
 	// ANIME RECOMMENDATIONS
 
