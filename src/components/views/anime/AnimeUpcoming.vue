@@ -24,6 +24,9 @@
 
 	export default {
 		name: 'AnimeUpcoming',
+		metaInfo: {
+			title: 'Otaku Library - Upcoming anime'
+		},
 		components: {
 			Cards,
 			QueryContent
@@ -36,9 +39,6 @@
 		},
 		methods: {
 			...mapActions(['loadAnimeUpcoming'])
-		},
-		metaInfo: {
-			title: 'Otaku Library - Upcoming anime'
 		}
 	}
 

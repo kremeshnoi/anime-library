@@ -24,6 +24,9 @@
 
 	export default {
 		name: 'TopAnime',
+		metaInfo: {
+			title: 'Otaku Library - Top raited anime'
+		},
 		components: {
 			Cards,
 			QueryContent
@@ -36,9 +39,6 @@
 		},
 		methods: {
 			...mapActions(['loadAnimeFavorite'])
-		},
-		metaInfo: {
-			title: 'Otaku Library - Top raited anime'
 		}
 	}
 

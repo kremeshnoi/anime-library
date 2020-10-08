@@ -94,6 +94,9 @@
 
 	export default {
 		name: 'Library',
+		metaInfo: {
+			title: 'Otaku Library - Library'
+		},
 		data() {
 			return {
 				buffer: [],
@@ -170,9 +173,6 @@
 					throw new Error(error);
 				}
 			}
-		},
-		metaInfo: {
-			title: 'Otaku Library - Library'
 		}
 	};
 

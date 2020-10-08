@@ -24,6 +24,9 @@
 
 	export default {
 		name: 'TopManga',
+		metaInfo: {
+			title: 'Otaku Library – Top raited manga'
+		},
 		components: {
 			Cards,
 			QueryContent
@@ -36,9 +39,6 @@
 		},
 		methods: {
 			...mapActions(['loadMangaFavorite'])
-		},
-		metaInfo: {
-			title: 'Otaku Library – Top raited manga'
 		}
 	}
 

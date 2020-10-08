@@ -132,6 +132,11 @@
 
 	export default {
 		name: 'Manga',
+		metaInfo() {
+			return {
+				title: `Manga - ${ this.getMangaById.title }`
+			}
+		},
 		components: {
 			Description,
 			Cards,
@@ -164,12 +169,7 @@
 		},
 		methods: {
 			...mapActions(['loadMangaById', 'loadMangaCharacters', 'loadMangaRecommendationsById', 'computeRoute'])
-		},
-		metaInfo() {
-			return {
-				title: `Manga - ${ this.getMangaById.title }`
-			}
-		},
+		}
 	};
 
 </script>

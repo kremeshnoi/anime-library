@@ -24,6 +24,9 @@
 
 	export default {
 		name: 'TopAiring',
+		metaInfo: {
+			title: 'Otaku Library - Top airing anime'
+		},
 		components: {
 			Cards,
 			QueryContent
@@ -36,9 +39,6 @@
 		},
 		methods: {
 			...mapActions(['loadAnimeAiring'])
-		},
-		metaInfo: {
-			title: 'Otaku Library - Top airing anime'
 		}
 	}
 
