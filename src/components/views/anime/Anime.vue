@@ -13,89 +13,16 @@
 						:type='getAnimeById.type'
 						:wholeResult='getAnimeById')
 
-				.anime__info.anime-info
-					h2.anime-info__title
-						| Info
-					ul.anime-info__list
-						li.anime-info__list-item
-							.anime-info__list-key
-								| Type:
-							| &nbsp;
-							.anime-info__list-value(v-if='getAnimeById.type')
-								| {{ getAnimeById.type }}
-							.anime-info__list-value(v-else)
-								| Unknown
-						li.anime-info__list-item
-							.anime-info__list-key
-								| Score:
-							| &nbsp;
-							span.anime-info__list-value.anime-info__list-value_decor(v-if='getAnimeById.score')
-								| {{ getAnimeById.score }}
-							.anime-info__list-value(v-else)
-								| Unknown
-						li.anime-info__list-item
-							.anime-info__list-key
-								| Status:
-							| &nbsp;
-							.anime-info__list-value(v-if='getAnimeById.status')
-								| {{ getAnimeById.status }}
-							.anime-info__list-value(v-else)
-								| Unknown
-						li.anime-info__list-item
-							.anime-info__list-key
-								| Aired:
-							| &nbsp;
-							.anime-info__list-value(v-if='getAnimeById.aired')
-								| {{ getAnimeById.aired.string }}
-							.anime-info__list-value(v-else)
-								| Unknown
-						li.anime-info__list-item
-							.anime-info__list-key
-								| Genres:
-							| &nbsp;
-							.anime-info__list-values(v-for='(result, index_genres) in getAnimeById.genres'
-								:key='index_genres')
-								| {{ result.name }}
-						li.anime-info__list-item
-							.anime-info__list-key
-								| Episodes:
-							| &nbsp;
-							.anime-info__list-value(v-if='getAnimeById.episodes')
-								| {{ getAnimeById.episodes }}
-							.anime-info__list-value(v-else)
-								| Unknown
-						li.anime-info__list-item
-							.anime-info__list-key
-								| Duration:
-							| &nbsp;
-							.anime-info__list-value(v-if='getAnimeById.duration')
-								| {{ getAnimeById.duration }}
-							.anime-info__list-value(v-else)
-								| Unknown
-						li.anime-info__list-item
-							.anime-info__list-key
-								| Studios:
-							| &nbsp;
-							.anime-info__list-values(v-for='(result, index_studios) in getAnimeById.studios'
-								:key='index_studios')
-								| {{ result.name }}
-						li.anime-info__list-item
-							.anime-info__list-key
-								| Rating:
-							| &nbsp;
-							.anime-info__list-value(v-if='getAnimeById.rating')
-								| {{ getAnimeById.rating }}
-							.anime-info__list-value(v-else)
-								| Unknown
+				info.anime__info(:infoData='getAnimeById')
 
 			.anime__sub-content
-				trailer.anime__trailer(:trailerData='this.getAnimeById.trailer_url')
+				trailer.anime__trailer(:trailerData='getAnimeById.trailer_url')
 
-				related.anime__related(:relatedData='this.getAnimeById.related')
+				related.anime__related(:relatedData='getAnimeById.related')
 
-			description.anime__description(:descriptionData='this.getAnimeById.synopsis')
+			description.anime__description(:descriptionData='getAnimeById.synopsis')
 
-			recommendations.anime__recommendations(:recommendationsData='this.getAnimeRecommendationsById.recommendations')
+			recommendations.anime__recommendations(:recommendationsData='getAnimeRecommendationsById.recommendations')
 
 </template>
 
@@ -109,6 +36,7 @@
 	import Trailer from '@/components/elements/Trailer';
 	import Description from "@/components/elements/Description";
 	import Recommendations from "@/components/elements/Recommendations";
+	import Info from "@/components/elements/Info";
 
 	// COMPONENT OPTIONS
 
@@ -120,6 +48,7 @@
 			}
 		},
 		components: {
+			Info,
 			Recommendations,
 			Description,
 			Related,
@@ -220,56 +149,5 @@
 		&__input-field
 			margin: 0
 			max-width: 220px
-
-	// ANIME INFO
-
-	.anime-info
-		grid-area: info
-		text-align: start
-		+flex(initial, initial, column)
-
-		&__title
-			color: $color-black
-			width: 100%
-			font-size: 16px
-			font-weight: 700
-			text-align: start
-			text-transform: uppercase
-			padding: 14px 0 14px 14px
-			border-left: 5px solid $color-blue-light
-
-		&__list
-			margin: 10px 0 0 0
-			height: 100%
-			max-width: 300px
-			width: 100%
-			+flex(space-around, initial, column)
-
-		&__list-item
-			margin: 6px 0
-			&:last-of-type
-				margin: 0
-
-		&__list-key
-			display: inline-block
-
-		&__list-value
-			display: inline-block
-
-			&_decor
-				padding: 0 6px
-				border-radius: 4px
-				color: $color-white-pure
-				background-color: $color-yellow
-
-		&__list-values
-			margin: 0 10px 0 0
-			height: auto
-			transition: 0.5s
-			display: inline-block
-			border-bottom: 1px dashed $color-grey-light
-			&:hover
-				cursor: pointer
-				border-bottom: 1px dashed $color-blue
 
 </style>
