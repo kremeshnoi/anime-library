@@ -43,7 +43,11 @@
 
 <script>
 
+	// IMPORTS
+
 	import { mapActions } from "vuex";
+
+	// COMPONENT OPTIONS
 
 	export default {
 		name: 'Related',
