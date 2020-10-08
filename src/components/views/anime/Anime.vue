@@ -89,15 +89,7 @@
 								| Unknown
 
 			.anime__sub-content
-				.anime__trailer.anime-trailer
-					.anime-trailer__title
-						| Watch Trailer
-					.anime-trailer__content
-						iframe.anime-trailer__iframe(v-if='getAnimeById.trailer_url'
-							:src=`this.trailer`
-							frameborder='0'
-							allowfullscreen='true')
-						img.anime-trailer__disaster(v-else src='@/assets/images/not_found.jpg')
+				trailer.anime__trailer(:trailerData='this.getAnimeById.trailer_url')
 
 				related.anime__related(:relatedData='this.getAnimeById.related')
 
@@ -137,6 +129,7 @@
 	import SwiperCarousel from '@/components/elements/SwiperCarousel';
 	import SelectOptions from '@/components/elements/SelectOptions';
 	import Related from '@/components/elements/Related';
+	import Trailer from '@/components/elements/Trailer';
 
 	// COMPONENT OPTIONS
 
@@ -144,21 +137,16 @@
 		name: 'Anime',
 		components: {
 			Related,
+			Trailer,
 			Cards,
 			SwiperCarousel,
 			SelectOptions
-		},
-		data:() => {
-			return {
-				trailer: ''
-			}
 		},
 		computed: {
 			...mapGetters(['getAnimeById', 'getAnimeRecommendationsById'])
 		},
 		async created() {
 			await this.loadAnimeById();
-			await this.disableAutoplay();
 			await this.loadAnimeRecommendationsById();
 
 			// MODAL
@@ -173,12 +161,6 @@
 		},
 		methods: {
 			...mapActions(['loadAnimeById', 'loadAnimeRecommendationsById', 'computeRoute']),
-			async disableAutoplay() {
-				let trailer = await this.getAnimeById.trailer_url;
-				if(trailer) {
-					this.trailer = trailer.substring(0, trailer.length - 1) + '0';
-				}
-			}
 		},
 		metaInfo() {
 			return {
@@ -310,32 +292,6 @@
 			&:hover
 				cursor: pointer
 				border-bottom: 1px dashed $color-blue
-
-	// ANIME TRAILER
-
-	.anime-trailer
-		display: grid
-		justify-content: start
-		grid-gap: 20px
-		grid-template-rows: 50px auto
-		text-align: start
-
-		&__disaster
-			width: 100%
-
-		&__content
-			border-left: 5px solid $color-blue-light
-			+flex(center, flex-start, initial)
-
-		&__title
-			display: flex
-			align-items: flex-end
-			@extend .title-default
-
-		&__iframe
-			height: 100%
-			height: 200px
-			width: 360px
 
 	// ANIME DESCRIPTION
 
