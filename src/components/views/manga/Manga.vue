@@ -100,18 +100,7 @@
 
 			description.manga__description(:descriptionData='this.getMangaById.synopsis')
 
-			.manga__recommendations.manga-recommendations(v-if='getMangaRecommendationsById.recommendations')
-				.manga-recommendations__wrapper
-					.manga-recommendations__title
-						| RECOMMENDATIONS
-
-					swiper-carousel(v-if='getMangaRecommendationsById.recommendations.length >= 7')
-						cards.swiper-slide(v-for='(result, index) in getMangaRecommendationsById.recommendations'
-							:key='index'
-							:query='result')
-
-					h4.manga-recommendations__disaster(v-else)
-						| Not found (」°ロ°)」
+			recommendations.manga__recommendations(:recommendationsData='this.getMangaRecommendationsById.recommendations')
 
 </template>
 
@@ -125,7 +114,8 @@
 	import SwiperCarousel from '@/components/elements/SwiperCarousel';
 	import SelectOptions from '@/components/elements/SelectOptions';
 	import Related from '@/components/elements/Related';
-	import Description from "@/components/elements/Description";
+	import Description from '@/components/elements/Description';
+	import Recommendations from '@/components/elements/Recommendations';
 
 
 	// COMPONENT OPTIONS
@@ -138,6 +128,7 @@
 			}
 		},
 		components: {
+			Recommendations,
 			Description,
 			Cards,
 			SwiperCarousel,
@@ -294,68 +285,6 @@
 			&:hover
 				cursor: pointer
 				border-bottom: 1px dashed $color-blue
-
-	// MANGA RELATED
-
-	.manga-related
-		display: grid
-		justify-content: start
-		grid-gap: 20px
-		grid-template-rows: 50px auto
-		grid-template-columns: 100%
-		text-align: start
-
-		&__disaster
-			text-align: start
-			font-size: 30px
-
-		&__tr
-			display: block
-			position: relative
-
-		&__title
-			display: flex
-			align-items: flex-end
-			@extend .title-default
-
-		&__tabs
-			display: flex
-			flex-wrap: wrap
-			overflow-x: initial
-			overflow-y: initial
-			height: 100%
-
-		&__tab
-			height: initial !important
-
-		&__tab-item
-			padding: 0 !important
-			margin: 0 24px 14px 0
-			text-align: start
-			line-height: initial
-			color: $color-blue-light !important
-			&:focus
-				background-color: initial !important
-			&.active
-				background-color: initial !important
-				color: $color-orange !important
-
-		&__link
-			@extend .title-cut
-			color: $color-grey-dark
-			+mq(phone-wide, max)
-				max-width: 250px
-			&:hover
-				text-decoration: underline
-			&_more
-				position: absolute
-				color: $color-blue-light
-				right: 0
-				width: auto
-				bottom: -30px
-			&_modal
-				max-width: initial
-				text-overflow: initial
 
 	// MANGA RECOMMENDATIONS
 
