@@ -24,6 +24,9 @@
 
 	export default {
 		name: 'TopCharacters',
+		metaInfo: {
+			title: 'Otaku Library - Most popular characters'
+		},
 		components: {
 			Cards,
 			QueryContent
@@ -36,9 +39,6 @@
 		},
 		methods: {
 			...mapActions(['loadCharactersFavorite'])
-		},
-		metaInfo: {
-			title: 'Otaku Library - Most popular characters'
 		}
 	}
 

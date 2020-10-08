@@ -24,6 +24,9 @@
 
 	export default {
 		name: 'MangaGenre',
+		metaInfo: {
+			title: 'Otaku Library - Explore manga genres'
+		},
 		components: {
 			Cards,
 			QueryContent
@@ -36,9 +39,6 @@
 		},
 		methods: {
 			...mapActions(['loadMangaGenre']),
-		},
-		metaInfo: {
-			title: 'Otaku Library - Explore manga genres'
 		}
 	}
 

@@ -85,6 +85,9 @@
 
 	export default {
 		name: 'SignIn',
+		metaInfo: {
+			title: 'Otaku Library - Sign In'
+		},
 		components: {
 			VueRecaptcha
 		},
@@ -93,6 +96,10 @@
 			password: '',
 			recaptcha: null
 		}),
+		validations: {
+			email: { email, required },
+			password: { required, minLength: minLength(5) }
+		},
 		methods: {
 			onVerify: function (response) {
 				this.recaptcha = response
@@ -124,13 +131,6 @@
 					throw new Error(error);
 				}
 			}
-		},
-		validations: {
-			email: { email, required },
-			password: { required, minLength: minLength(5) }
-		},
-		metaInfo: {
-			title: 'Otaku Library - Sign In'
 		}
 	};
 

@@ -22,6 +22,9 @@
 
 	export default {
 		name: 'Search',
+		metaInfo: {
+			title: 'Otaku Library - Search page'
+		},
 		components: {
 			Cards,
 			SearchBar,
@@ -29,9 +32,6 @@
 		},
 		computed: {
 			...mapGetters(['getAnimeSearched'])
-		},
-		metaInfo: {
-			title: 'Otaku Library - Search page'
 		}
 	};
 

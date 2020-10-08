@@ -55,6 +55,9 @@
 
 	export default {
 		name: 'Recovery',
+		metaInfo: {
+			title: 'Otaku Library - Password recovery'
+		},
 		components: {
 			VueRecaptcha
 		},
@@ -62,6 +65,9 @@
 			email: '',
 			recaptcha: null
 		}),
+		validations: {
+			email: { email, required }
+		},
 		methods: {
 			onVerify: function (response) {
 				this.recaptcha = response
@@ -93,12 +99,6 @@
 				}
 
 			}
-		},
-		validations: {
-			email: { email, required }
-		},
-		metaInfo: {
-			title: 'Otaku Library - Password recovery'
 		}
 	};
 

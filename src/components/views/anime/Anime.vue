@@ -128,6 +128,11 @@
 
 	export default {
 		name: 'Anime',
+		metaInfo() {
+			return {
+				title: `Anime - ${ this.getAnimeById.title }`
+			}
+		},
 		components: {
 			Description,
 			Related,
@@ -155,11 +160,6 @@
 		},
 		methods: {
 			...mapActions(['loadAnimeById', 'loadAnimeRecommendationsById', 'computeRoute']),
-		},
-		metaInfo() {
-			return {
-				title: `Anime - ${ this.getAnimeById.title }`
-			}
 		}
 	};
 

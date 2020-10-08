@@ -23,6 +23,9 @@
 
 	export default {
 		name: 'Home',
+		metaInfo: {
+			title: 'Otaku Library - Organize your own anime and manga list'
+		},
 		components: {
 			Hero,
 			Genres,
@@ -61,9 +64,6 @@
 		},
 		methods: {
 			...mapActions(['getUid', 'loadAnimeAiring', 'loadAnimeUpcoming'])
-		},
-		metaInfo: {
-			title: 'Otaku Library - Organize your own anime and manga list'
 		}
 	};
 

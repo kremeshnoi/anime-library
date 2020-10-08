@@ -67,6 +67,11 @@
 
 	export default {
 		name: 'Character',
+		metaInfo() {
+			return {
+				title: `Character - ${ this.getCharactersById.name }`
+			}
+		},
 		components: {
 			Cards,
 			SwiperCarousel
@@ -95,11 +100,6 @@
 				const data = this.getCharactersById.about;
 				const result = data.replace(/\\n/g, '');
 				this.aboutCharacterData.push(result);
-			}
-		},
-		metaInfo() {
-			return {
-				title: `Character - ${ this.getCharactersById.name }`
 			}
 		}
 	};
