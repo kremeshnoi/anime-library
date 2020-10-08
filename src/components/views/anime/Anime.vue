@@ -95,20 +95,7 @@
 
 			description.anime__description(:descriptionData='this.getAnimeById.synopsis')
 
-			.anime__recommendations.anime-recommendations(v-if='getAnimeRecommendationsById.recommendations')
-				.anime-recommendations__wrapper
-					.anime-recommendations__title
-						| RECOMMENDATIONS
-
-					swiper-carousel(v-if='getAnimeRecommendationsById.recommendations.length >= 7')
-						cards.swiper-slide(v-for='(result, index) in getAnimeRecommendationsById.recommendations'
-							:key='index'
-							:query='result')
-
-					h4.anime-recommendations__disaster(v-else)
-						| Not found (」°ロ°)」
-
-
+			recommendations.anime__recommendations(:recommendationsData='this.getAnimeRecommendationsById.recommendations')
 
 </template>
 
@@ -117,12 +104,11 @@
 	// IMPORTS
 
 	import { mapActions, mapGetters } from 'vuex';
-	import Cards from '@/components/elements/Cards';
-	import SwiperCarousel from '@/components/elements/SwiperCarousel';
 	import SelectOptions from '@/components/elements/SelectOptions';
 	import Related from '@/components/elements/Related';
 	import Trailer from '@/components/elements/Trailer';
 	import Description from "@/components/elements/Description";
+	import Recommendations from "@/components/elements/Recommendations";
 
 	// COMPONENT OPTIONS
 
@@ -134,11 +120,10 @@
 			}
 		},
 		components: {
+			Recommendations,
 			Description,
 			Related,
 			Trailer,
-			Cards,
-			SwiperCarousel,
 			SelectOptions
 		},
 		computed: {
@@ -159,7 +144,7 @@
 			const instanceTabs = M.Tabs.init(tabs);
 		},
 		methods: {
-			...mapActions(['loadAnimeById', 'loadAnimeRecommendationsById', 'computeRoute']),
+			...mapActions(['loadAnimeById', 'loadAnimeRecommendationsById']),
 		}
 	};
 
@@ -286,21 +271,5 @@
 			&:hover
 				cursor: pointer
 				border-bottom: 1px dashed $color-blue
-
-	// ANIME RECOMMENDATIONS
-
-	.anime-recommendations
-		grid-area: recommendations
-
-		&__disaster
-			text-align: start
-			font-size: 30px
-
-		&__wrapper
-			display: grid
-			grid-gap: 20px
-
-		&__title
-			@extend .title-default
 
 </style>
