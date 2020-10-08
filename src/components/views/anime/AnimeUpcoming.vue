@@ -8,7 +8,7 @@
 			query-content
 				cards(v-for='(result, index) in getAnimeUpcoming'
 					:key='index'
-					:query='result')
+					:cardsData='result')
 
 </template>
 

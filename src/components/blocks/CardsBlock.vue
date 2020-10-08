@@ -2,13 +2,13 @@
 
 	.top-airing-anime
 		.top-airing-anime__container
-			router-link.top-airing-anime__title(:to='query.link')
-				| {{ query.title }}
+			router-link.top-airing-anime__title(:to='cardsBlockData.link')
+				| {{ cardsBlockData.title }}
 				.top-airing-anime__icon.material-icons keyboard_arrow_right
 			swiper-carousel
-				cards.swiper-slide(v-for='(result, index) in query.data.slice(0, 7)'
+				cards.swiper-slide(v-for='(result, index) in cardsBlockData.data.slice(0, 7)'
 					:key='index'
-					:query='result')
+					:cardsData='result')
 
 </template>
 
@@ -24,7 +24,7 @@
 
 	export default {
 		name: 'TopAiring',
-		props: ['query'],
+		props: ['cardsBlockData'],
 		components: {
 			Cards,
 			SwiperCarousel

@@ -3,9 +3,9 @@
 	.home
 		hero(v-if='this.user[0] === null')
 		cards-block(v-if='getAnimeAiring'
-			:query='animeAiring')
+			:cardsBlockData='animeAiring')
 		cards-block(v-if='getAnimeUpcoming'
-			:query='animeUpcoming')
+			:cardsBlockData='animeUpcoming')
 		genres
 
 </template>
