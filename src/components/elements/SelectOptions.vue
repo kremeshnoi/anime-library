@@ -1,7 +1,7 @@
 <template lang='pug'>
 
 	.input-field(v-if='this.user[0] !== null')
-		select(v-model='status')
+		select(v-model='payload.status')
 			option(v-for='(option, index) in options'
 				:key='option.index'
 				:value='option.value')
@@ -26,10 +26,9 @@
 		data() {
 			return {
 				user: [],
-				status: 'planned',
 				payload: {
 					type: this.type,
-					status: this.status,
+					status: 'planned',
 					id: this.wholeResult.mal_id,
 					result: this.wholeResult
 				}

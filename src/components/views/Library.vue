@@ -159,15 +159,19 @@
 				try {
 					const res = await firebase.database().ref(`/${type}/`)
 						.on('value', (data) => {
-							let obj = Object.entries(data.val()[`${status}`]).map((d)=> ({
-								data_id: d[0],
-								uid: d[1].uid
-							})).filter(d => d.uid === this.getUid()).map(d => (type === 'anime') ? jikanjs.loadAnime(d.data_id) : jikanjs.loadManga(d.data_id))
+							console.log(data.val()[`${status}`])
+							if(data.val()[`${status}`] === undefined) {
+								return this.buffer = []
+							} else {
+								let obj = Object.entries(data.val()[`${status}`]).map((d)=> ({
+									data_id: d[0],
+									uid: d[1].uid
+								})).filter(d => d.uid === this.getUid()).map(d => (type === 'anime') ? jikanjs.loadAnime(d.data_id) : jikanjs.loadManga(d.data_id))
 
-							Promise.all(obj).then(values => {
-								this.buffer = values
-							});
-
+								Promise.all(obj).then(values => {
+									this.buffer = values
+								});
+							}
 						});
 				} catch (error) {
 					throw new Error(error);
