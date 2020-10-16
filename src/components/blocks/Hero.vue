@@ -36,6 +36,7 @@
 
 	.hero
 		height: 40vh
+		user-select: none
 		+mq(tablet-small, max)
 			height: 30vh
 		+mq(tablet-small, max)

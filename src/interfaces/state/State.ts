@@ -52,6 +52,7 @@ export interface StateManga {
 	mangaGenre: MangaByIdResponse[];
 	mangaCharacters: MangaCharactersResponseCharacters[];
 	mangaById: MangaByIdResponse[];
+	mangaSearched: [];
 	mangaFavorite: MangaFavoriteResponseTop[];
 	mangaRecommendationsById: MangaRecommendationsByIdResponseRecommendations[];
 }

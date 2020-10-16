@@ -64,11 +64,12 @@
 	// NAVBAR STYLES
 
 	.navbar
+		user-select: none
 		height: 58px
 		line-height: 58px
 		background-color: $color-blue
 		top: 0
-		position: absolute
+		position: fixed
 		z-index: 99
 		padding: 0 40px 0 40px
 
