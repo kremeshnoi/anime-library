@@ -52,18 +52,15 @@ export default new Vuex.Store({
 			try {
 				let type = result.type;
 				if (type === undefined) {
-					if(result.role || result.name_kanji) {
-						type = 'Character';
-					} else if(router.app.$route.name === 'Anime') {
-						type = 'Anime';
-					} else if(router.app.$route.name === 'Manga') {
-						type = 'Manga';
-					}
-				} else if (type !== 'Manga' && type !== 'manga') {
-					type = 'Anime';
-				} else if (type === 'manga') {
-					type = 'Manga';
+					if(result.role || result.name_kanji) type = 'Character';
+					else if(router.app.$route.name === 'Anime') type = 'Anime';
+					else if(router.app.$route.name === 'Manga') type = 'Manga';
 				}
+				else if (type === 'manga') type = 'Manga';
+				else if (type === 'Novel') type = 'Manga';
+				else if (type === 'One-shot') type = 'Manga';
+				else if (type === 'Doujinshi') type = 'Manga';
+				else if (type !== 'Manga' && type !== 'manga') type = 'Anime';
 				const id = result.mal_id;
 				const title = result.url
 					.split('/')
