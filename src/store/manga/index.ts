@@ -11,14 +11,16 @@ import { MangaFavoriteResponse } from '@/interfaces/manga/MangaFavoriteResponse'
 import { MangaRecommendationsByIdResponse } from '@/interfaces/manga/MangaRecommendationsById';
 import { AnimeGenreResponse } from '@/interfaces/anime/AnimeGenreResponse';
 import { MangaCharactersResponse } from '@/interfaces/manga/MangaCharactersResponse';
+import { AnimeSearchedResponse } from "@/interfaces/anime/AnimeSearchedResponse";
 
 // STATE CONSTANT
 
 export const state: StateManga = {
-	mangaGenre: [],
-	mangaCharacters: [],
 	mangaById: [],
+	mangaGenre: [],
+	mangaSearched: [],
 	mangaFavorite: [],
+	mangaCharacters: [],
 	mangaRecommendationsById: []
 };
 
@@ -33,6 +35,9 @@ export const manga = {
 		SET_MANGA_CHARACTERS(state, mangaCharacters) {
 			state.mangaCharacters = mangaCharacters;
 		},
+		SET_MANGA_SEARCHED(state, mangaSearched) {
+			state.mangaSearched = mangaSearched;
+		},
 		SET_MANGA_BY_ID(state, mangaById) {
 			state.mangaById = mangaById;
 		},
@@ -44,6 +49,19 @@ export const manga = {
 		}
 	},
 	actions: {
+		async loadMangaSearched(ctx, query) {
+			try {
+				const mangaSearchedResponse: AnimeSearchedResponse = await jikanjs.search('manga', query);
+				const mangaSearched = mangaSearchedResponse.results;
+				if (Array.isArray(mangaSearched) && mangaSearched.length > 0) {
+					ctx.commit('SET_MANGA_SEARCHED', mangaSearched);
+				} else {
+					M.toast({ html: 'Not found ヽ( `д´*)ノ', classes: 'red' });
+				}
+			} catch (error) {
+				throw new Error(error);
+			}
+		},
 		async loadMangaGenre(ctx) {
 			try {
 				const mangaGenreResponse: AnimeGenreResponse = await jikanjs.loadGenre('manga', router.app.$route.params.id);
@@ -92,6 +110,7 @@ export const manga = {
 	},
 	getters: {
 		getMangaGenre: state => state.mangaGenre,
+		getMangaSearched: state => state.mangaSearched,
 		getMangaCharacters: state => state.mangaCharacters,
 		getMangaById: state => state.mangaById,
 		getMangaFavorite: state => state.mangaFavorite,
