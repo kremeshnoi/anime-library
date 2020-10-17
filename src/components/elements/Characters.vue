@@ -1,11 +1,11 @@
 <template lang='pug'>
 
-	.manga-characters(v-if='charactersData')
+	.manga-characters
 		.manga-characters__wrapper
 			.manga-characters__title
 				| CHARACTERS
 
-			swiper-carousel(v-if='charactersData' :type='`characters`')
+			swiper-carousel(v-if='charactersData.length' :type='`characters`')
 				cards.swiper-slide(v-for='(result, index) in charactersData.slice(0, 20)'
 					:key='index'
 					:cardsData='result')
