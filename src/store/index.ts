@@ -32,11 +32,8 @@ export default new Vuex.Store({
 	actions: {
 		async addToLibrary({ dispatch }, { type, status, id }) {
 			try {
-				if (type === 'Manga') {
-					type = 'manga';
-				} else {
-					type = 'anime';
-				}
+				if (type === 'Manga') type = 'manga';
+			    else type = 'anime';
 
 				const uid = await dispatch('getUid');
 				await firebase.database().ref(`/${type}/${status}/${id}`).set({
@@ -73,7 +70,7 @@ export default new Vuex.Store({
 				throw new Error(error);
 			}
 		},
-		computeRouteByGenre(ctx, {result, genre}) {
+		computeRouteByGenre(ctx, { result, genre }) {
 			try {
 				let type = result.type;
 				if (type === 'anime') {
