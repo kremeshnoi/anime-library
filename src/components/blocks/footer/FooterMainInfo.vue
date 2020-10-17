@@ -11,19 +11,18 @@
 					target='_blank')
 					| Chat
 
-			//.footer-main-info__item
-			//	h5.footer-main-info__title.footer-main-info__subtitle
-			//		|
-			//	router-link.footer-main-info__link
-			//		|
-			//	router-link.footer-main-info__link
-			//		|
+			.footer-main-info__item
+				h5.footer-main-info__title.footer-main-info__subtitle
+					| Sign in required
+				router-link.footer-main-info__link(to='/library')
+					| Your Library
+
 
 			.footer-main-info__item(v-if='this.user[0] === null')
 				h5.footer-main-info__title
 					| Help
-				router-link.footer-main-info__link(to='/about')
-					| Q/A
+				router-link.footer-main-info__link(to='/faq')
+					| FAQ
 				router-link.footer-main-info__link(to='/sign-up')
 					| Registration
 				router-link.footer-main-info__link(to='/recovery')
@@ -32,8 +31,8 @@
 			.footer-main-info__item(v-else)
 				h5.footer-main-info__title
 					| Help
-				router-link.footer-main-info__link(to='/about')
-					| Q/A
+				router-link.footer-main-info__link(to='/faq')
+					| FAQ
 
 </template>
 
