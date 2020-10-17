@@ -17,7 +17,6 @@
 				router-link.footer-main-info__link(to='/library')
 					| Your Library
 
-
 			.footer-main-info__item(v-if='this.user[0] === null')
 				h5.footer-main-info__title
 					| Help
