@@ -86,7 +86,7 @@
 
 	// IMPORTS
 
-	import firebase from "firebase";
+	import firebase from 'firebase/app';
 	import jikanjs from 'jikanjs/lib/jikan.js';
 	import router from "@/router";
 
