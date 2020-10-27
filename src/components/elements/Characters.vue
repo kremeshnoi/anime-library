@@ -5,14 +5,14 @@
 			.manga-characters__title
 				| CHARACTERS
 
-			swiper-carousel(v-if='charactersData.length'
+			swiper-carousel(v-if='charactersData && charactersData.length'
 			:type='`characters`')
 
 				cards.swiper-slide(v-for='(result, index) in charactersData.slice(0, 20)'
 				:key='index'
 				:cardsData='result')
 
-			h4.manga-characters__disaster(v-if='charactersData.length === 0')
+			h4.manga-characters__disaster(v-else)
 				| Not found
 
 </template>
@@ -48,10 +48,7 @@
 	// IMPORTS
 
 	@import '../../assets/styles/utils/vars'
-	@import '../../assets/styles/utils/mixins'
 	@import '../../assets/styles/modules/titles'
-	@import '../../assets/styles/modules/dividers'
-	@import '../../assets/styles/modules/containers'
 
 	// MANGA CHARACTERS STYLES
 
