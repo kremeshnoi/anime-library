@@ -16,22 +16,20 @@
 					| Sign in required
 				router-link.footer-main-info__link(to='/library')
 					| Your Library
+				router-link.footer-main-info__link.footer-main-info__link_disabled(to='/settings')
+					| Settings
 
-			.footer-main-info__item(v-if='this.user[0] === null')
+			.footer-main-info__item
 				h5.footer-main-info__title
 					| Help
-				router-link.footer-main-info__link(to='/faq')
+				router-link.footer-main-info__link.footer-main-info__link_disabled(to='/faq')
 					| FAQ
-				router-link.footer-main-info__link(to='/sign-up')
+				router-link.footer-main-info__link(to='/sign-up'
+				:class=`{ 'footer-main-info__link_disabled' : this.user[0] !== null }`)
 					| Registration
-				router-link.footer-main-info__link(to='/recovery')
+				router-link.footer-main-info__link(to='/recovery'
+				:class=`{ 'footer-main-info__link_disabled' : this.user[0] !== null }`)
 					| Forgot Password?
-
-			.footer-main-info__item(v-else)
-				h5.footer-main-info__title
-					| Help
-				router-link.footer-main-info__link(to='/faq')
-					| FAQ
 
 </template>
 
@@ -103,6 +101,12 @@
 			color: $color-white
 			&:hover
 				opacity: 0.6
+
+			&_disabled
+				pointer-events: none
+				cursor: pointer
+				opacity: .8
+
 			&_decor
 				margin: 16px 0 0 0
 				@extend .shadow-btn
