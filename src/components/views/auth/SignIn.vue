@@ -189,11 +189,6 @@
 			@extend .shadow-btn
 			@extend .focus-btn
 
-	// RECAPTCHA
-
-	.recaptcha
-		transform: scale(0.92) !important
-
 	// PRELOADER
 
 	.preloader-wrapper
