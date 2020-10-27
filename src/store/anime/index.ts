@@ -70,7 +70,7 @@ export const anime = {
 				if (Array.isArray(animeSearched) && animeSearched.length > 0) {
 					ctx.commit('SET_ANIME_SEARCHED', animeSearched);
 				} else {
-					M.toast({ html: 'Not found ヽ( `д´*)ノ', classes: 'red' });
+					M.toast({ html: 'Not found', classes: 'red' });
 				}
 			} catch (error) {
 				throw new Error(error);

@@ -13,7 +13,7 @@
 				:cardsData='result')
 
 			h4.manga-characters__disaster(v-if='charactersData.length === 0')
-				| Not found (」＞＜)」
+				| Not found
 
 </template>
 
