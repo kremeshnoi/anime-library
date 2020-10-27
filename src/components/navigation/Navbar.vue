@@ -90,10 +90,10 @@
 			align-items: center
 			justify-content: space-between
 			+mq(temp-wide, max)
-				grid-template-columns: 200px minmax(auto, 1220px) 78px
+				grid-template-columns: 200px minmax(auto, 1220px) 87px
 			+mq(tablet, max)
 				grid-gap: 20px
-				grid-template-columns: minmax(auto, 1220px) 78px
+				grid-template-columns: minmax(auto, 1220px) 87px
 			+mq(phablet, max)
 				grid-template-columns: minmax(auto, 1220px) 40px
 
@@ -105,6 +105,8 @@
 				display: none
 
 		&__sign-in-link
+			width: max-content
+			margin-left: auto
 			+flex(flex-end, center, row)
 			+mq(phablet, max)
 				display: none
