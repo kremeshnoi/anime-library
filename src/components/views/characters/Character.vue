@@ -28,7 +28,7 @@
 					.character-voice-actors__content(v-if='getCharactersById.voice_actors')
 
 						h4.manga-related__disaster(v-if='getCharactersById.voice_actors.length === 0')
-							| Not found (￣︿￣)
+							| Not found
 
 						ul.character-voice-actors__tabs.tabs(v-if='getCharactersById.voice_actors')
 							li.character-voice-actors__tab.tab(v-for='(value, name) in getCharactersById.voice_actors'

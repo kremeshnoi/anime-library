@@ -30,7 +30,7 @@
 									| {{ result.name }}
 
 			h4.related__disaster(v-if='relatedLength === 0')
-				| Not found (￣︿￣)
+				| Not found
 
 		#related.related-modal.modal
 			.related-modal__content.modal-content

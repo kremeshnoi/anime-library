@@ -11,7 +11,7 @@
 				:cardsData='result')
 
 			h4.recommendations__disaster(v-else)
-				| Not found (」°ロ°)」
+				| Not found
 
 </template>
 

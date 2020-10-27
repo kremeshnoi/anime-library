@@ -56,7 +56,7 @@ export const manga = {
 				if (Array.isArray(mangaSearched) && mangaSearched.length > 0) {
 					ctx.commit('SET_MANGA_SEARCHED', mangaSearched);
 				} else {
-					M.toast({ html: 'Not found ヽ( `д´*)ノ', classes: 'red' });
+					M.toast({ html: 'Not found', classes: 'red' });
 				}
 			} catch (error) {
 				throw new Error(error);
