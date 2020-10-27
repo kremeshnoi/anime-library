@@ -3,19 +3,9 @@
 import router from '../../router';
 import jikanjs from 'jikanjs/lib/jikan.js';
 
-// INTERFACES
-
-import { StateManga } from '@/interfaces/state/State';
-import { MangaByIdResponse } from '@/interfaces/manga/MangaByIdResponse';
-import { MangaFavoriteResponse } from '@/interfaces/manga/MangaFavoriteResponse';
-import { MangaRecommendationsByIdResponse } from '@/interfaces/manga/MangaRecommendationsById';
-import { AnimeGenreResponse } from '@/interfaces/anime/AnimeGenreResponse';
-import { MangaCharactersResponse } from '@/interfaces/manga/MangaCharactersResponse';
-import { AnimeSearchedResponse } from "@/interfaces/anime/AnimeSearchedResponse";
-
 // STATE CONSTANT
 
-export const state: StateManga = {
+export const state = {
 	mangaById: [],
 	mangaGenre: [],
 	mangaSearched: [],
@@ -51,7 +41,7 @@ export const manga = {
 	actions: {
 		async loadMangaSearched(ctx, query) {
 			try {
-				const mangaSearchedResponse: AnimeSearchedResponse = await jikanjs.search('manga', query);
+				const mangaSearchedResponse = await jikanjs.search('manga', query);
 				const mangaSearched = mangaSearchedResponse.results;
 				if (Array.isArray(mangaSearched) && mangaSearched.length > 0) {
 					ctx.commit('SET_MANGA_SEARCHED', mangaSearched);
@@ -64,7 +54,7 @@ export const manga = {
 		},
 		async loadMangaGenre(ctx) {
 			try {
-				const mangaGenreResponse: AnimeGenreResponse = await jikanjs.loadGenre('manga', router.app.$route.params.id);
+				const mangaGenreResponse = await jikanjs.loadGenre('manga', router.app.$route.params.id);
 				const mangaGenre = mangaGenreResponse;
 				ctx.commit('SET_MANGA_GENRE', mangaGenre);
 			} catch (error) {
@@ -73,7 +63,7 @@ export const manga = {
 		},
 		async loadMangaCharacters(ctx) {
 			try {
-				const mangaCharactersResponse: MangaCharactersResponse = await jikanjs.loadManga(router.app.$route.params.id, 'characters');
+				const mangaCharactersResponse = await jikanjs.loadManga(router.app.$route.params.id, 'characters');
 				const mangaCharacters = mangaCharactersResponse;
 				ctx.commit('SET_MANGA_CHARACTERS', mangaCharacters);
 			} catch (error) {
@@ -82,7 +72,7 @@ export const manga = {
 		},
 		async loadMangaById(ctx) {
 			try {
-				const mangaResponse: MangaByIdResponse = await jikanjs.loadManga(router.app.$route.params.id);
+				const mangaResponse = await jikanjs.loadManga(router.app.$route.params.id);
 				const mangaById = mangaResponse;
 				ctx.commit('SET_MANGA_BY_ID', mangaById);
 			} catch (error) {
@@ -91,7 +81,7 @@ export const manga = {
 		},
 		async loadMangaFavorite(ctx) {
 			try {
-				const favoriteMangaResponse: MangaFavoriteResponse = await jikanjs.loadTop('manga', 1, 'favorite');
+				const favoriteMangaResponse = await jikanjs.loadTop('manga', 1, 'favorite');
 				const mangaFavorite = favoriteMangaResponse.top;
 				ctx.commit('SET_MANGA_FAVORITE', mangaFavorite);
 			} catch (error) {
@@ -100,7 +90,7 @@ export const manga = {
 		},
 		async loadMangaRecommendationsById(ctx) {
 			try {
-				const mangaRecommendationsResponse: MangaRecommendationsByIdResponse = await jikanjs.loadManga(router.app.$route.params.id, 'recommendations');
+				const mangaRecommendationsResponse = await jikanjs.loadManga(router.app.$route.params.id, 'recommendations');
 				const mangaRecommendationsById = mangaRecommendationsResponse;
 				ctx.commit('SET_MANGA_RECOMMENDATIONS_BY_ID', mangaRecommendationsById);
 			} catch (error) {

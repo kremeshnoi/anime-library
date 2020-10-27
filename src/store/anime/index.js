@@ -3,20 +3,9 @@
 import router from '../../router';
 import jikanjs from 'jikanjs/lib/jikan.js';
 
-// INTERFACES
-
-import { StateAnime } from '@/interfaces/state/State';
-import { AnimeByIdResponse } from '@/interfaces/anime/AnimeByIdResponse';
-import { AnimeGenreResponse } from "@/interfaces/anime/AnimeGenreResponse";
-import { AnimeAiringResponse } from '@/interfaces/anime/AnimeAiringResponse';
-import { AnimeSearchedResponse } from '@/interfaces/anime/AnimeSearchedResponse';
-import { AnimeFavoriteResponse } from '@/interfaces/anime/AnimeFavoriteResponse';
-import { AnimeUpcomingResponse } from "@/interfaces/anime/AnimeUpcomingResponse";
-import { AnimeRecommendationsByIdResponse } from '@/interfaces/anime/AnimeRecommendationsById';
-
 // STATE CONSTANT
 
-export const state: StateAnime = {
+export const state = {
 	animeById: [],
 	animeGenre: [],
 	animeAiring: [],
@@ -56,7 +45,7 @@ export const anime = {
 	actions: {
 		async loadAnimeGenre(ctx) {
 			try {
-				const animeGenreResponse: AnimeGenreResponse = await jikanjs.loadGenre('anime', router.app.$route.params.id);
+				const animeGenreResponse = await jikanjs.loadGenre('anime', router.app.$route.params.id);
 				const animeGenre = animeGenreResponse;
 				ctx.commit('SET_ANIME_GENRE', animeGenre);
 			} catch (error) {
@@ -65,7 +54,7 @@ export const anime = {
 		},
 		async loadAnimeSearched(ctx, query) {
 			try {
-				const animeSearchedResponse: AnimeSearchedResponse = await jikanjs.search('anime', query);
+				const animeSearchedResponse = await jikanjs.search('anime', query);
 				const animeSearched = animeSearchedResponse.results;
 				if (Array.isArray(animeSearched) && animeSearched.length > 0) {
 					ctx.commit('SET_ANIME_SEARCHED', animeSearched);
@@ -78,7 +67,7 @@ export const anime = {
 		},
 		async loadAnimeById(ctx) {
 			try {
-				const animeResponse: AnimeByIdResponse = await jikanjs.loadAnime(router.app.$route.params.id);
+				const animeResponse = await jikanjs.loadAnime(router.app.$route.params.id);
 				const animeById = animeResponse;
 				ctx.commit('SET_ANIME_BY_ID', animeById);
 			} catch (error) {
@@ -87,7 +76,7 @@ export const anime = {
 		},
 		async loadAnimeAiring(ctx) {
 			try {
-				const animeAiringResponse: AnimeAiringResponse = await jikanjs.loadTop('anime', 1, 'airing');
+				const animeAiringResponse = await jikanjs.loadTop('anime', 1, 'airing');
 				const animeAiring = animeAiringResponse.top;
 				ctx.commit('SET_ANIME_AIRING', animeAiring);
 			} catch (error) {
@@ -96,7 +85,7 @@ export const anime = {
 		},
 		async loadAnimeFavorite(ctx) {
 			try {
-				const favoriteAnimeResponse: AnimeFavoriteResponse = await jikanjs.loadTop('anime', 1, 'favorite');
+				const favoriteAnimeResponse = await jikanjs.loadTop('anime', 1, 'favorite');
 				const animeFavorite = favoriteAnimeResponse.top;
 				ctx.commit('SET_ANIME_FAVORITE', animeFavorite);
 			} catch (error) {
@@ -105,7 +94,7 @@ export const anime = {
 		},
 		async loadAnimeUpcoming(ctx) {
 			try {
-				const animeUpcomingResponse: AnimeUpcomingResponse = await jikanjs.loadTop('anime', 1, 'upcoming');
+				const animeUpcomingResponse = await jikanjs.loadTop('anime', 1, 'upcoming');
 				const animeUpcoming = animeUpcomingResponse.top;
 				ctx.commit('SET_ANIME_UPCOMING', animeUpcoming);
 			} catch (error) {
@@ -114,7 +103,7 @@ export const anime = {
 		},
 		async loadAnimeRecommendationsById(ctx) {
 			try {
-				const animeRecommendationsResponse: AnimeRecommendationsByIdResponse = await jikanjs.loadAnime(router.app.$route.params.id, 'recommendations');
+				const animeRecommendationsResponse = await jikanjs.loadAnime(router.app.$route.params.id, 'recommendations');
 				const animeRecommendationsById = animeRecommendationsResponse;
 				ctx.commit('SET_ANIME_RECOMMENDATIONS_BY_ID', animeRecommendationsById);
 			} catch (error) {

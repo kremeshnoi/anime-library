@@ -2,14 +2,9 @@
 
 import firebase from 'firebase/app';
 
-// INTERFACES
-
-import { StateUsers } from '@/interfaces/state/State';
-import { UsersInfoResponse } from '@/interfaces/users/UsersInfoResponse';
-
 // STATE CONSTANT
 
-export const state: StateUsers = {
+export const state = {
 	userInfo: []
 };
 

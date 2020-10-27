@@ -7,11 +7,11 @@ import firebase from 'firebase/app';
 
 // STORE MODULES
 
-import { auth } from '@/store/auth/index';
-import { users } from '@/store/users/index';
-import { anime } from '@/store/anime/index';
-import { manga } from '@/store/manga/index';
-import { characters } from '@/store/characters/index'
+import { auth } from '@/store/auth';
+import { users } from '@/store/users';
+import { anime } from '@/store/anime';
+import { manga } from '@/store/manga';
+import { characters } from '@/store/characters'
 
 // VUEX.STORE OPTIONS
 
