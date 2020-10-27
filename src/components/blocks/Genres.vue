@@ -9,7 +9,7 @@
 
 				.genres__anime
 					a.genres__item.genres__item_anime(v-for='(genre, genre_index) in result.data'
-						:key='genre_index' @click='computeRouteByGenre({result, genre})')
+					:key='genre_index' @click='computeRouteByGenre({ result, genre })')
 						| {{ genre.title }}
 
 </template>

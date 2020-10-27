@@ -7,8 +7,8 @@
 
 			query-content
 				cards(v-for='(result, index) in getMangaGenre.manga'
-					:key='index'
-					:cardsData='result')
+				:key='index'
+				:cardsData='result')
 
 </template>
 

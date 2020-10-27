@@ -7,8 +7,8 @@
 
 			swiper-carousel(v-if='this.recommendationsData.length >= 7')
 				cards.swiper-slide(v-for='(result, index) in this.recommendationsData'
-					:key='index'
-					:cardsData='result')
+				:key='index'
+				:cardsData='result')
 
 			h4.recommendations__disaster(v-else)
 				| Not found (」°ロ°)」

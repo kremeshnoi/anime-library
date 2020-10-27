@@ -3,8 +3,8 @@
 	.input-field(v-if='this.user[0] !== null')
 		select(v-model='payload.status')
 			option(v-for='(option, index) in options'
-				:key='option.index'
-				:value='option.value')
+			:key='option.index'
+			:value='option.value')
 				span {{ option.title }}
 
 		.btn-small(@click='addToLibrary(payload)')

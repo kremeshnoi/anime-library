@@ -1,13 +1,15 @@
 <template lang='pug'>
 
-	.swiper-carousel(v-if='type === `characters`' v-swiper='charactersSwiperOptions')
+	.swiper-carousel(v-if='type === `characters`'
+	v-swiper='charactersSwiperOptions')
 		.swiper-carousel__container.swiper-wrapper
 			slot
 
 		.swiper-button-prev
 		.swiper-button-next
 
-	.swiper-carousel(v-else v-swiper='swiperOptions')
+	.swiper-carousel(v-else
+	v-swiper='swiperOptions')
 		.swiper-carousel__container.swiper-wrapper
 			slot
 
