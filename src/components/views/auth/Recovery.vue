@@ -8,18 +8,18 @@
 			.recovery-form__row
 				.recovery-form__field.input-field
 					input#email.recovery-form__input(type='text'
-						name='email'
-						v-model.trim='email'
-						:class='{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }')
+					name='email'
+					v-model.trim='email'
+					:class='{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }')
 
 					label.recovery-form__label(for='email')
 						| Email
 
 					span.recovery-form__helper.helper-text(v-if='$v.email.$dirty && !$v.email.required'
-						data-error='The field is empty')
+					data-error='The field is empty')
 
 					span.recovery-form__helper.helper-text(v-else-if='$v.email.$dirty && !$v.email.email'
-						data-error='Incorrect email')
+					data-error='Incorrect email')
 
 			center.recovery__center
 				.preloader-wrapper.big.active
@@ -32,10 +32,11 @@
 							.circle
 				.recovery-form__row.sign-in-form__row_center
 					vue-recaptcha.recaptcha(sitekey='6Lc-DaUZAAAAABeSVHxIZhS9Wk2xqSo53V4UeX-H'
-						@verify='onVerify')
+					@verify='onVerify')
 
 				.recovery-form__row
-					button.recovery-form_button.btn-large(type='submit' name='submitRecover')
+					button.recovery-form_button.btn-large(type='submit'
+					name='submitRecover')
 						| Submit
 
 		.recovery__link-back

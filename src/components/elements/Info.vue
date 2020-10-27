@@ -49,7 +49,7 @@
 					| Genres:
 				| &nbsp;
 				.info__list-values(v-for='(result, index_genres) in infoData.genres'
-					:key='index_genres')
+				:key='index_genres')
 					| {{ result.name }}
 			li.info__list-item(v-if='infoData.volumes')
 				.info__list-key
@@ -88,7 +88,7 @@
 					| Studios:
 				| &nbsp;
 				.info__list-values(v-for='(result, index_studios) in infoData.studios'
-					:key='index_studios')
+				:key='index_studios')
 					| {{ result.name }}
 				.info__list-value(v-if='infoData.studios.length === 0')
 					| Unknown
@@ -97,7 +97,7 @@
 					| Publication:
 				| &nbsp;
 				.info__list-values(v-for='(result, index_serializations) in infoData.serializations'
-					:key='index_serializations')
+				:key='index_serializations')
 					| {{ result.name }}
 				.info__list-value(v-if='infoData.serializations.length === 0')
 					| Unknown

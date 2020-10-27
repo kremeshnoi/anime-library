@@ -32,13 +32,16 @@
 
 						ul.character-voice-actors__tabs.tabs(v-if='getCharactersById.voice_actors')
 							li.character-voice-actors__tab.tab(v-for='(value, name) in getCharactersById.voice_actors'
-								:key='name')
-								a.character-voice-actors__tab-item(:href=`'#' + name`
-									v-if=`value.language === 'English' || value.language === 'Japanese'`)
-									| {{ value.name }}
-						.character-voice-actors__item(:id='name'
-							v-for='(value, name) in getCharactersById.voice_actors'
 							:key='name')
+
+								a.character-voice-actors__tab-item(:href=`'#' + name`
+								v-if=`value.language === 'English' || value.language === 'Japanese'`)
+									| {{ value.name }}
+
+						.character-voice-actors__item(:id='name'
+						v-for='(value, name) in getCharactersById.voice_actors'
+						:key='name')
+
 							table.character-voice-actors__table(v-if=`value.language === 'English' || value.language === 'Japanese'`)
 								tbody.character-voice-actors__tbody
 									tr.character-voice-actors__tr

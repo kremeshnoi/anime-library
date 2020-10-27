@@ -9,9 +9,10 @@
 					| {{ getAnimeById.title_japanese }}
 				.anime__cover-container
 					img.anime__cover(:src='getAnimeById.image_url')
+
 					select-options.anime__input-field(v-if='getAnimeById.type'
-						:type='getAnimeById.type'
-						:wholeResult='getAnimeById')
+					:type='getAnimeById.type'
+					:wholeResult='getAnimeById')
 
 				info.anime__info(:infoData='getAnimeById')
 

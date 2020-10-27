@@ -3,14 +3,16 @@
 	.library
 		.library__container
 			ul.library__tabs.library__tabs_main.tabs
-				li.library__tab.tab(v-for='tab in mainTabs')
+				li.library__tab.tab(v-for='(tab, index) in mainTabs'
+				:key='index')
 					a.library__tab-item.library__tab-item_main(:href=`'#' + tab.value`
-						@click='toogleTab((tab.value === `anime`) ? animeTabBuffer : mangaTabBuffer, tab.value)')
+					@click='toogleTab((tab.value === `anime`) ? animeTabBuffer : mangaTabBuffer, tab.value)')
 						| {{ tab.title }}
 
 			.library__anime(id='anime')
 				ul.library__tabs.tabs
-					li.library__tab.tab(v-for='tab in animeTabs')
+					li.library__tab.tab(v-for='(tab, index) in animeTabs'
+					:key='index')
 						a.library__tab-item(:href='tab.value'
 						@click='toogleTab(tab.value, `anime`)')
 							| {{ tab.title }}
@@ -31,7 +33,7 @@
 
 					tbody.library__tbody
 						tr.library__tr(v-for='(value, index) in buffer'
-							:key='index')
+						:key='index')
 							td.library__td
 								| {{ index + 1 }}
 							td.library__td
@@ -46,9 +48,10 @@
 
 			.library__manga(id='manga')
 				ul.library__tabs.tabs
-					li.library__tab.tab(v-for='tab in mangaTabs')
+					li.library__tab.tab(v-for='(tab, index) in mangaTabs'
+					:key='index')
 						a.library__tab-item(:href='tab.value'
-							@click='toogleTab(tab.value, `manga`)')
+						@click='toogleTab(tab.value, `manga`)')
 							| {{ tab.title }}
 
 				table.library__table
@@ -67,7 +70,7 @@
 
 					tbody.library__tbody
 						tr.library__tr(v-for='(value, index) in buffer'
-							:key='index')
+						:key='index')
 							td.library__td
 								| {{ index + 1 }}
 							td.library__td

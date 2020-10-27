@@ -4,13 +4,13 @@
 		.dropdown__search-type(v-if='!searchedData.length && !loaderData')
 			ul.dropdown__list
 				button.dropdown__list-item(@click='changeType(`anime`)'
-					:class=`{ active : activeEl == 'anime' }`)
+				:class=`{ active : activeEl == 'anime' }`)
 
 					.dropdown__icon.material-icons video_library
 					| Anime
 
 				button.dropdown__list-item(@click='changeType(`manga`)'
-					:class=`{ active : activeEl == 'manga' }`)
+				:class=`{ active : activeEl == 'manga' }`)
 
 					.dropdown__icon.material-icons collections_bookmark
 					| Manga
@@ -24,8 +24,9 @@
 					.indeterminate
 
 			.cards(v-if='!loaderData'
-				@click='computeRoute(result)'
-				v-for='result in searchedData')
+			@click='computeRoute(result)'
+			v-for='(result, index) in searchedData'
+			:key='index')
 
 					.cards__wrapper
 						img.cards__image(:src='result.image_url')

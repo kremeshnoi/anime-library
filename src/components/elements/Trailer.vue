@@ -6,9 +6,10 @@
 
 		.trailer__content
 			iframe.trailer__iframe(v-if='trailerData'
-				:src=`trailer`
-				frameborder='0'
-				allowfullscreen='true')
+			:src=`trailer`
+			frameborder='0'
+			allowfullscreen='true')
+
 			img.trailer__disaster(v-else src='@/assets/images/not_found.jpg')
 	
 </template>

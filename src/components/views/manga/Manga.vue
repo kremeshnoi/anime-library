@@ -9,9 +9,10 @@
 					| {{ getMangaById.title_japanese }}
 				.manga__cover-container
 					img.manga__cover(:src='getMangaById.image_url')
+
 					select-options.manga__input-field(v-if='getMangaById.type'
-						:type='getMangaById.type'
-						:wholeResult='getMangaById')
+					:type='getMangaById.type'
+					:wholeResult='getMangaById')
 
 				info.manga__info(:infoData='getMangaById')
 

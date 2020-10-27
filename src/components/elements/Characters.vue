@@ -5,10 +5,12 @@
 			.manga-characters__title
 				| CHARACTERS
 
-			swiper-carousel(v-if='charactersData.length' :type='`characters`')
+			swiper-carousel(v-if='charactersData.length'
+			:type='`characters`')
+
 				cards.swiper-slide(v-for='(result, index) in charactersData.slice(0, 20)'
-					:key='index'
-					:cardsData='result')
+				:key='index'
+				:cardsData='result')
 
 			h4.manga-characters__disaster(v-if='charactersData.length === 0')
 				| Not found (」＞＜)」

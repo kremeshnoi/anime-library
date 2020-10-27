@@ -8,36 +8,36 @@
 			.sign-in-form__row
 				.sign-in-form__field.input-field
 					input#email(type='email'
-						name='username'
-						v-model.trim='email'
-						autocomplete='username'
-						:class='{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }')
+					name='username'
+					v-model.trim='email'
+					autocomplete='username'
+					:class='{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }')
 
 					label(for='email')
 						| Email
 
 					span.sign-in-form__helper.helper-text(v-if='$v.email.$dirty && !$v.email.required'
-						data-error='The field is empty')
+					data-error='The field is empty')
 
 					span.sign-in-form__helper.helper-text(v-else-if='$v.email.$dirty && !$v.email.email'
-						data-error='Incorrect email')
+					data-error='Incorrect email')
 
 			.sign-in-form__row
 				.sign-in-form__helper.input-field
 					input#password(type='password'
-						name='password'
-						v-model.trim='password'
-						autocomplete='current-password'
-						:class='{ invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength) }')
+					name='password'
+					v-model.trim='password'
+					autocomplete='current-password'
+					:class='{ invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength) }')
 
 					label(for='password')
 						| Password
 
 					span.sign-in-form__helper.helper-text(v-if='$v.password.$dirty && !$v.password.required'
-						data-error='The field is empty')
+					data-error='The field is empty')
 
 					span.sign-in-form__helper.helper-text(v-else-if='$v.password.$dirty && !$v.password.minLength'
-						data-error='Password is too short')
+					data-error='Password is too short')
 
 			.sign-in-form__row
 				router-link(to='/recovery')
@@ -61,11 +61,11 @@
 							.circle
 				.sign-in-form__row.sign-in-form__row_center
 					vue-recaptcha.recaptcha(sitekey='6Lc-DaUZAAAAABeSVHxIZhS9Wk2xqSo53V4UeX-H'
-						@verify='onVerify')
+					@verify='onVerify')
 
 				.sign-in-form__row
 					button.sign-in__button.btn-large(type='submit'
-						name='submitSignIn')
+					name='submitSignIn')
 						| Sign In
 
 		.sign-in__link-back

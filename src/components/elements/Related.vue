@@ -6,20 +6,25 @@
 		.related__content
 			ul.related__tabs.tabs(v-if='relatedData')
 				li.related__tab.tab(v-for='(value, name, counter) in relatedData'
-					:key='name')
+				:key='name')
+
 					a.related__tab-item(:href=`'#' + counter`)
 						| {{ name }}
+
 			.related__item(:id='counter'
-				v-for='(value, name, counter) in relatedData'
-				:key='name')
+			v-for='(value, name, counter) in relatedData'
+			:key='name')
+
 				table.related__table.striped
 					tbody.related__tbody
 						tr.related__tr(v-for='(result, index) in value.slice(0, 1)'
-							:key='index')
+						:key='index')
+
 							a.related__link.related__link_more.modal-trigger(href='#related'
-								@click='transferData()'
-								v-if='value.length >= 2')
+							@click='transferData()'
+							v-if='value.length >= 2')
 								| More
+
 							td.related__td
 								a.related__link(@click='computeRoute(result)')
 									| {{ result.name }}
@@ -30,11 +35,13 @@
 		#related.related-modal.modal
 			.related-modal__content.modal-content
 				.related__item(v-for='(value, name) in buffer'
-					:key='name')
+				:key='name')
+
 					table.related__table.striped
 						tbody.related__tbody
 							tr.related__tr(v-for='(result, index) in value'
-								:key='index')
+							:key='index')
+
 								td.related__td
 									a.related__link.related__link_modal.modal-close(@click='computeRoute(result)')
 										| {{ result.name }}

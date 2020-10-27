@@ -1,26 +1,29 @@
 <template lang='pug'>
 
 	.search-bar(@click='showDropdown($event)'
-		data-target='dropdown')
+	data-target='dropdown')
+
 		nav.search-bar__nav
 			.search-bar__wrapper.white.nav-wrapper
+
 				form.search-bar__form(v-model='type'
-					@submit.prevent='search(query)')
+				@submit.prevent='search(query)')
+
 					.search-bar__field.input-field
 						input#search.search-bar__input(type='search'
-							v-model='query'
-							placeholder='Search...')
+						v-model='query'
+						placeholder='Search...')
 
 						label.search-bar__label.label-icon(for='search')
 							i.search-bar__icon.material-icons.black-text search
 
 		drop-down(v-if='isActive'
-			:type = 'type'
-			@changeType='updateType'
-			@click='isActive = false'
-			:loaderData = 'isLoading'
-			:class=`'dropdown_is-shown'`
-			:searchedData='query && searchedData.length ? searchedData : []')
+		@changeType='updateType'
+		@click='isActive = false'
+		:type = 'type'
+		:loaderData = 'isLoading'
+		:class=`'dropdown_is-shown'`
+		:searchedData='query && searchedData.length ? searchedData : []')
 
 </template>
 

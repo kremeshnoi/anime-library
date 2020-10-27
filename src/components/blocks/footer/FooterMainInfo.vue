@@ -8,7 +8,7 @@
 				p.footer-main-info__description
 					| We will also be happy to meet you on our channel, where you can always find like-minded people. Feel free to come in.
 				a.footer-main-info__link_decor.btn(href='https://discord.com/invite/Ku72D5/'
-					target='_blank')
+				target='_blank')
 					| Chat
 
 			.footer-main-info__item

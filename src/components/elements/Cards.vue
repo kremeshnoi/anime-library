@@ -3,7 +3,7 @@
 	.cards
 		.cards__image-wrapper
 			img.cards__image(@click='computeRoute(cardsData)'
-				:src='cardsData.image_url')
+			:src='cardsData.image_url')
 
 			.cards__title-wrapper
 				span.cards__title

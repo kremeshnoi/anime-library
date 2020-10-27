@@ -5,10 +5,11 @@
 			router-link.top-airing-anime__title(:to='cardsBlockData.link')
 				| {{ cardsBlockData.title }}
 				.top-airing-anime__icon.material-icons keyboard_arrow_right
+
 			swiper-carousel
 				cards.swiper-slide(v-for='(result, index) in cardsBlockData.data.slice(0, 7)'
-					:key='index'
-					:cardsData='result')
+				:key='index'
+				:cardsData='result')
 
 </template>
 

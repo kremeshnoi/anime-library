@@ -3,16 +3,18 @@
 	.footer-categories
 		.footer-categories__container
 			.footer-categories__item.footer-categories-item(v-for='(result, index) in categories'
-				:key='index')
+			:key='index')
+
 				router-link.footer-categories-item__title(:to=`result.link`)
 					| {{ result.title }}
-					.footer-categories-item__icon.material-icons keyboard_arrow_right
 
+					.footer-categories-item__icon.material-icons keyboard_arrow_right
 				.footer-categories-item__content(v-for='(data, counter) in result.data'
-					:key='counter')
+				:key='counter')
 
 					p.footer-categories-item__digit
 						| {{ counter + 1 }}
+
 					a.footer-categories-item__link(@click='computeRoute(data)')
 						| {{ data.title }}
 
