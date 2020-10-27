@@ -24,7 +24,6 @@
 		},
 		watch: {
 			error(fbError) {
-				console.log(fbError)
 				this.$error(messages[fbError.code] || 'Something went wrong')
 			}
 		},

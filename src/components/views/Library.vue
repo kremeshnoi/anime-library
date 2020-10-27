@@ -162,7 +162,6 @@
 				try {
 					const res = await firebase.database().ref(`/${type}/`)
 						.on('value', (data) => {
-							console.log(data.val()[`${status}`])
 							if(data.val()[`${status}`] === undefined) {
 								return this.buffer = []
 							} else {
