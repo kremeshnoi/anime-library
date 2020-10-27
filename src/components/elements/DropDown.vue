@@ -4,13 +4,13 @@
 		.dropdown__search-type(v-if='!searchedData.length && !loaderData')
 			ul.dropdown__list
 				button.dropdown__list-item(@click='changeType(`anime`)'
-				:class=`{ active : activeEl == 'anime' }`)
+				:class=`{ active : activeEl === 'anime' }`)
 
 					.dropdown__icon.material-icons video_library
 					| Anime
 
 				button.dropdown__list-item(@click='changeType(`manga`)'
-				:class=`{ active : activeEl == 'manga' }`)
+				:class=`{ active : activeEl === 'manga' }`)
 
 					.dropdown__icon.material-icons collections_bookmark
 					| Manga
@@ -42,12 +42,21 @@
 								.info__list-value(v-if='result.type && result.start_date')
 									| {{ result.type }} / {{ result.start_date.substring(0, 4) }}
 
+								.info__list-value(v-else-if='result.type')
+									| {{ result.type }}
+
+								.info__list-value(v-else)
+									| {{ result.type }}
+
 							li.cards__value
 								.info__list-key
 									| Score:
 								| &nbsp;
 								.info__list-value(v-if='result.score')
 									| {{ result.score }}
+
+								.info__list-value(v-else)
+									| Uknown
 
 		.overlay
 
@@ -63,10 +72,15 @@
 
 	export default {
 		name: 'DropDown',
-		props: ['searchedData', 'loaderData'],
-		data: () => ({
-			activeEl: 'anime'
-		}),
+		props: ['searchedData', 'loaderData', 'type'],
+		computed: {
+			activeEl: {
+				set() {},
+				get() {
+					return this.type === 'anime' ? 'anime' : 'manga';
+				}
+			}
+		},
 		methods: {
 			...mapActions(['computeRoute']),
 			changeType(el) {
