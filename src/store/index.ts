@@ -55,6 +55,7 @@ export default new Vuex.Store({
 				}
 				else if (type === 'manga') type = 'Manga';
 				else if (type === 'Novel') type = 'Manga';
+				else if (type === 'Manhwa') type = 'Manga';
 				else if (type === 'One-shot') type = 'Manga';
 				else if (type === 'Doujinshi') type = 'Manga';
 				else if (type !== 'Manga' && type !== 'manga') type = 'Anime';
