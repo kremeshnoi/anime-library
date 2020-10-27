@@ -3,14 +3,9 @@
 import router from '../../router';
 import jikanjs from 'jikanjs/lib/jikan.js';
 
-// INTERFACES
-
-import { StateCharacters } from '@/interfaces/state/State';
-import { CharactersFavoriteResponse } from '@/interfaces/characters/CharactersFavoriteResponse';
-
 // STATE CONSTANT
 
-export const state: StateCharacters = {
+export const state = {
 	charactersById: [],
 	charactersFavorite: []
 };
@@ -39,7 +34,7 @@ export const characters =  {
 		},
 		async loadCharactersFavorite(ctx) {
 			try {
-				const favoriteCharactersResponse: CharactersFavoriteResponse = await jikanjs.loadTop('characters');
+				const favoriteCharactersResponse = await jikanjs.loadTop('characters');
 				const charactersFavorite = favoriteCharactersResponse.top;
 				ctx.commit('SET_CHARACTERS_FAVORITE', charactersFavorite);
 			} catch (error) {

@@ -32,7 +32,7 @@ import './assets/styles/theme/fonts/days-one-regular.sass';
 
 // PLUGINS
 
-import Message from "@/utils/message.plugin.ts";
+import Message from "@/utils/message.plugin.js";
 
 // VUE CONFIG
 
