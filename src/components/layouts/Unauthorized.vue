@@ -20,8 +20,7 @@
 		name: 'Unauthorized',
 		components: {
 			Navbar,
-			MainFooter,
-			ActionButton
+			MainFooter
 		},
 		mounted() {
 			M.AutoInit();
