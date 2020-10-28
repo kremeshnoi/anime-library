@@ -152,7 +152,7 @@
 			margin: 0 14px 0 0
 
 		.cards
-			padding: 10px 0 10px 20px
+			padding: 10px 0 10px 10px
 			width: 100%
 			cursor: pointer
 			transition: 0.4s ease
@@ -162,28 +162,35 @@
 				border-bottom: 1px solid $color-blue
 
 			&__wrapper
-				display: flex
-				align-items: center
+				+flex(flex-start, initial, row)
+				+mq(phone, max)
+					flex-direction: column
 
 			&__image
 				margin: 0 20px 0 0
 				height: auto
 				width: 84px
+				+mq(phone, max)
+					margin: 0 0 10px 0
 
 			&__value
 				line-height: 30px
+				text-align: start
 
 			&__title
 				color: $color-blue
 				text-align: start
 				font-weight: 700
-				font-size: 18px
+				font-size: 16px
+				line-height: 30px
 
 			&__description
 				color: $color-black
 				display: flex
 				flex-direction: column
 				align-items: start
+				+mq(phone, max)
+					max-width: 90%
 
 	// OVERLAY
 
