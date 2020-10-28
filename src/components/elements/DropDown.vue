@@ -36,26 +36,26 @@
 								| {{ result.title }}
 
 							li.cards__value
-								.info__list-key
+								span.info__list-key
 									| Type:
 								| &nbsp;
-								.info__list-value(v-if='result.type && result.start_date')
+								span.info__list-value(v-if='result.type && result.start_date')
 									| {{ result.type }} / {{ result.start_date.substring(0, 4) }}
 
-								.info__list-value(v-else-if='result.type')
-									| {{ result.type }}
+								span.info__list-value(v-else-if='result.type')
+									| {{ result.type }} / Unknown
 
-								.info__list-value(v-else)
+								span.info__list-value(v-else)
 									| {{ result.type }}
 
 							li.cards__value
-								.info__list-key
+								span.info__list-key
 									| Score:
 								| &nbsp;
-								.info__list-value(v-if='result.score')
+								span.info__list-value(v-if='result.score')
 									| {{ result.score }}
 
-								.info__list-value(v-else)
+								span.info__list-value(v-else)
 									| Uknown
 
 		.overlay
@@ -172,7 +172,6 @@
 
 			&__value
 				line-height: 30px
-				display: flex
 
 			&__title
 				color: $color-blue
@@ -184,6 +183,7 @@
 				color: $color-black
 				display: flex
 				flex-direction: column
+				align-items: start
 
 	// OVERLAY
 
