@@ -40,7 +40,7 @@ export default new Vuex.Store({
 					uid
 				});
 
-				M.toast({ html: '(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ Сhanges applied!', classes: 'green' });
+				M.toast({ html: 'Added to the library', classes: 'green' });
 			} catch (error) {
 				throw new Error(error);
 			}

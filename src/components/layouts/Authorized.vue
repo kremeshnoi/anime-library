@@ -20,8 +20,7 @@
 		name: 'Authorized',
 		components: {
 			Navbar,
-			MainFooter,
-			ActionButton
+			MainFooter
 		},
 		mounted() {
 			M.AutoInit();

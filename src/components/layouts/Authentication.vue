@@ -23,8 +23,8 @@
 			}
 		},
 		watch: {
-			error(fbError) {
-				this.$error(messages[fbError.code] || 'Something went wrong')
+			error(fireBaseError) {
+				this.$error(Messages[fireBaseError.code] || 'Something went wrong')
 			}
 		},
 		mounted() {
