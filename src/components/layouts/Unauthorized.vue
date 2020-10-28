@@ -13,7 +13,6 @@
 
 	import Navbar from '@/components/navigation/Navbar';
 	import MainFooter from '@/components/navigation/MainFooter';
-	import ActionButton from "@/components/navigation/ActionButton";
 
 	// COMPONENT OPTIONS
 
