@@ -153,22 +153,24 @@
 			max-width: 300px
 			width: 100%
 			+flex(space-around, initial, column)
-		
+
+		&__list-value
+			&_decor
+				padding: 4px 6px 4px 6px
+				border-radius: 4px
+				color: $color-white-pure
+				background-color: $color-yellow
+
 		&__list-item
 			margin: 6px 0
 			&:last-of-type
 				margin: 0
 		
-			&_decor
-				padding: 0 6px
-				border-radius: 4px
-				color: $color-white-pure
-				background-color: $color-yellow
-		
 		&__list-values
 			margin: 0 10px 0 0
 			height: auto
 			transition: 0.5s
+			display: inline-block
 			border-bottom: 1px dashed $color-grey-light
 			&:hover
 				cursor: pointer
