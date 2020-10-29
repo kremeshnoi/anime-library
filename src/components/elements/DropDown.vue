@@ -188,7 +188,7 @@
 				color: $color-black
 				display: flex
 				flex-direction: column
-				align-items: start
+				align-items: flex-start
 				+mq(phone, max)
 					max-width: 90%
 
