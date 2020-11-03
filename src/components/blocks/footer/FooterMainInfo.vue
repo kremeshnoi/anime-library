@@ -14,7 +14,7 @@
 			.footer-main-info__item
 				h5.footer-main-info__title.footer-main-info__subtitle
 					| Sign in required
-				router-link.footer-main-info__link(to='/library')
+				router-link.footer-main-info__link(to='/library/anime/planned')
 					| Your Library
 				router-link.footer-main-info__link.footer-main-info__link_disabled(to='/settings')
 					| Settings

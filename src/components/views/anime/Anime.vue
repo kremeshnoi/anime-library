@@ -7,6 +7,7 @@
 					| {{ getAnimeById.title }}
 					.divider-hidden
 					| {{ getAnimeById.title_japanese }}
+
 				.anime__cover-container
 					img.anime__cover(:src='getAnimeById.image_url')
 
