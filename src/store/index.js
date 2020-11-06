@@ -36,8 +36,8 @@ export default new Vuex.Store({
 			    else type = 'anime';
 
 				const uid = await dispatch('getUid');
-				await firebase.database().ref(`/${type}/${status}/${id}`).set({
-					uid
+				await firebase.database().ref(`/users/${ uid }/${ type }/${ id }/`).set({
+					status
 				});
 
 				M.toast({ html: 'Added to the library', classes: 'green' });

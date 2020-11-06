@@ -5,7 +5,7 @@
 			ul.library__tabs.library__tabs_main
 				li.library__tab.tab(v-for='(tab, index) in typeTabs'
 				:key='index')
-					a.library__tab-item.library__tab-item_main(@click='toogleTab(`planned`, tab.title)'
+					a.library__tab-item.library__tab-item_main(@click='toogleTab(tab.title, `planned`)'
 					:class=`{ active : $route.params.type === tab.title }`)
 						| {{ tab.title }}
 
@@ -13,8 +13,8 @@
 				ul.library__tabs
 					li.library__tab.tab(v-for='(tab, index) in tabs'
 					:key='index')
-						a.library__tab-item(@click='toogleTab(tab.value, tab.type)'
-						:class=`{ active : $route.params.value === tab.value }`)
+						a.library__tab-item(@click='toogleTab(tab.type, tab.status)'
+						:class=`{ active : $route.params.status === tab.status }`)
 							| {{ tab.title }}
 
 				table.library__table
@@ -32,19 +32,19 @@
 								| Delete
 
 					tbody.library__tbody
-						tr.library__tr(v-for='(value, index) in buffer'
+						tr.library__tr(v-for='(data, index) in buffer'
 						:key='index')
 							td.library__td
 								| {{ index + 1 }}
 							td.library__td
-								img.library__image(:src=`value.image_url`)
+								img.library__image(:src=`data.image_url`)
 							td.library__td
 								a.library__link.library__link_title
-									| {{ value.title }}
+									| {{ data.title }}
 							td.library__td
-								| {{ value.type }}
+								| {{ data.type }}
 							td.library__td
-								i.library__icon.material-icons clear
+								i.library__icon.material-icons(@click='removeValue($route.params.type, data.mal_id)') clear
 
 </template>
 
@@ -73,43 +73,42 @@
 				],
 				animeTabs: [
 					{ title: 'Plan to Watch',
-						value: 'planned',
+						status: 'planned',
 						type: 'anime' },
 					{ title: 'Completed',
-						value: 'completed',
+						status: 'completed',
 						type: 'anime' },
 					{ title: 'Currently Watching',
-						value: 'process',
+						status: 'process',
 						type: 'anime' },
 					{ title: 'On Hold',
-						value: 'hold',
+						status: 'hold',
 						type: 'anime' },
 					{ title: 'Dropped',
-						value: 'dropped',
+						status: 'dropped',
 						type: 'anime' },
 				],
 				mangaTabs: [
 					{ title: 'Plan to Read',
-						value: 'planned',
+						status: 'planned',
 						type: 'manga' },
 					{ title: 'Completed',
-						value: 'completed',
+						status: 'completed',
 						type: 'manga' },
 					{ title: 'Currently Reading',
-						value: 'process',
+						status: 'process',
 						type: 'manga' },
 					{ title: 'On Hold',
-						value: 'hold',
+						status: 'hold',
 						type: 'manga'},
 					{ title: 'Dropped',
-						value: 'dropped',
+						status: 'dropped',
 						type: 'manga'},
 				]
 			}
 		},
 		async created() {
-			this.fetchData(this.$route.params.value, this.$route.params.type);
-
+			this.fetchData(this.$route.params.type, this.$route.params.status);
 			if (this.$route.params.type === 'anime') this.tabs = this.animeTabs;
 			else if (this.$route.params.type === 'manga') this.tabs = this.mangaTabs;
 		},
@@ -118,26 +117,33 @@
 				const user = firebase.auth().currentUser;
 				return user ? user.uid : null;
 			},
-			toogleTab(status, type, event) {
+			toogleTab(type, status, event) {
 				this.$router.push(`/library/${ type }/${ status }`);
-
 				if (type === 'anime') this.animeTabBuffer = status;
 				else if (type === 'manga') this.mangaTabBuffer = status;
 			},
-			async fetchData(status, type) {
+			async fetchData(type, status) {
 				try {
-					const res = await firebase.database().ref(`/${type}/`)
-						.on('value', (data) => {
-							if (data.val()[`${status}`] === undefined) return this.buffer = [];
-							else {
-								let obj = Object.entries(data.val()[`${status}`])
-									.map((d) => ({ data_id: d[0], uid: d[1].uid}))
-										.filter(d => d.uid === this.getUid())
-											.map(d => (type === 'anime') ? jikanjs.loadAnime(d.data_id) : jikanjs.loadManga(d.data_id));
+					const uid = this.getUid();
+					const res = await firebase.database().ref(`/users/${ uid }/`)
 
-								Promise.all(obj).then(values => this.buffer = values);
-							}
+						.on('value', (data) => {
+							const obj = Object.entries(data.val()[`${ type }`])
+								.filter(d => d[1].status === status)
+								.map(d => (type === 'anime') ? jikanjs.loadAnime(d[0]) : jikanjs.loadManga(d[0]));
+
+							Promise.all(obj).then(values => this.buffer = values);
 						});
+				} catch (error) {
+					throw new Error(error);
+				}
+			},
+			async removeValue(type, id) {
+				try {
+					const uid = this.getUid();
+					await firebase.database().ref(`/users/${ uid }/${ type }/${ id }/`).set({
+						status: false
+					});
 				} catch (error) {
 					throw new Error(error);
 				}

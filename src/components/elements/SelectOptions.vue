@@ -29,15 +29,15 @@
 				payload: {
 					type: this.type,
 					status: 'planned',
-					id: this.wholeResult.mal_id,
-					result: this.wholeResult
+					id: null,
+					result: null
 				}
 			}
 		},
 		computed: {
 			...mapGetters(['getUserInfo']),
 			options() {
-				let options = [
+				const options = [
 					{ title: `Plan to`,
 						value: 'planned' },
 					{ title: 'Completed',
@@ -68,8 +68,20 @@
 				return options
 			}
 		},
+		watch: {
+			type (newVal, oldVal) {
+				this.payload.type = newVal;
+			},
+			wholeResult (newVal, oldVal) {
+				this.payload.id = newVal.mal_id;
+				this.payload.result = newVal
+			}
+		},
 		async created() {
 			await this.getUid().then(result => this.user.push(result));
+			this.payload.type = this.type,
+			this.payload.id = this.wholeResult.mal_id,
+			this.payload.result = this.wholeResult
 		},
 		mounted() {
 			const select = document.querySelectorAll('select');
