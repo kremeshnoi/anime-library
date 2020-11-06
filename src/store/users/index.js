@@ -21,7 +21,7 @@ export const users =  {
 		async loadUserInfo({ dispatch, commit }) {
 			try {
 				const uid = await dispatch('getUid');
-				const userInfoResponse = await firebase.database().ref(`/users/${uid}/info/username`)
+				const userInfoResponse = await firebase.database().ref(`/users/${ uid }/info/username`)
 					.on('value', (data) => {
 						commit('SET_USER_INFO', data.val());
 					});

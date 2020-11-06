@@ -46,7 +46,7 @@ const routes = [
 		component: () => import('../components/views/manga/Manga.vue')
 	},
 	{
-		path: '/library/:type/:value',
+		path: '/library/:type/:status',
 		name: 'Library',
 		meta: { layout: '', auth: true },
 		component: () => import('../components/views/Library.vue')
