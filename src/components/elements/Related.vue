@@ -133,7 +133,7 @@
 			flex-wrap: wrap
 			overflow-x: initial
 			overflow-y: initial
-			height: 100%
+			height: min-content
 
 		&__tab
 			height: initial !important
@@ -142,7 +142,6 @@
 			padding: 0 !important
 			margin: 0 24px 14px 0
 			text-align: start
-			height: initial !important
 			line-height: initial
 			color: $color-blue-light !important
 			&:focus
