@@ -268,7 +268,7 @@
 			flex-wrap: wrap
 			overflow-x: initial
 			overflow-y: initial
-			height: 100%
+			height: min-content
 
 		&__tab
 			height: initial !important
