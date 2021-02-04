@@ -5,7 +5,7 @@
       .top-anime__title
         | Viewers' Favorite Anime
 
-      query-content
+      query-content(v-if='topAnime')
         cards(
           v-for='(anime, animeIndex) in topAnime',
           :key='animeIndex',
