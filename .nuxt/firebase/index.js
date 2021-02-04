@@ -47,7 +47,8 @@ function forceInject (ctx, inject, key, value) {
   inject(key, value)
   const injectKey = '$' + key
   ctx[injectKey] = value
-  if (typeof window !== "undefined") {
+  if (typeof window !== "undefined" && window.$nuxt) {
+  // If clause makes sure it's only run when ready() is called in a component, not in a plugin.
     window.$nuxt.$options[injectKey] = value
   }
 }
