@@ -1,0 +1,107 @@
+[
+  {
+    "name": "recovery",
+    "path": "/recovery",
+    "component": "/home/kremeshnoi/WebStormProjects/otaku-library/pages/recovery/index.vue",
+    "chunkName": "pages/recovery/index",
+    "_name": "_cd44ed4a"
+  },
+  {
+    "name": "sign-in",
+    "path": "/sign-in",
+    "component": "/home/kremeshnoi/WebStormProjects/otaku-library/pages/sign-in/index.vue",
+    "chunkName": "pages/sign-in/index",
+    "_name": "_1c98a9c5"
+  },
+  {
+    "name": "sign-up",
+    "path": "/sign-up",
+    "component": "/home/kremeshnoi/WebStormProjects/otaku-library/pages/sign-up/index.vue",
+    "chunkName": "pages/sign-up/index",
+    "_name": "_ba94608a"
+  },
+  {
+    "name": "anime-airing",
+    "path": "/anime/airing",
+    "component": "/home/kremeshnoi/WebStormProjects/otaku-library/pages/anime/airing/index.vue",
+    "chunkName": "pages/anime/airing/index",
+    "_name": "_b0b1c1ce"
+  },
+  {
+    "name": "anime-top",
+    "path": "/anime/top",
+    "component": "/home/kremeshnoi/WebStormProjects/otaku-library/pages/anime/top/index.vue",
+    "chunkName": "pages/anime/top/index",
+    "_name": "_3539b04a"
+  },
+  {
+    "name": "anime-upcoming",
+    "path": "/anime/upcoming",
+    "component": "/home/kremeshnoi/WebStormProjects/otaku-library/pages/anime/upcoming/index.vue",
+    "chunkName": "pages/anime/upcoming/index",
+    "_name": "_2e1d8f5d"
+  },
+  {
+    "name": "characters-popular",
+    "path": "/characters/popular",
+    "component": "/home/kremeshnoi/WebStormProjects/otaku-library/pages/characters/popular/index.vue",
+    "chunkName": "pages/characters/popular/index",
+    "_name": "_f2e8150c"
+  },
+  {
+    "name": "manga-top",
+    "path": "/manga/top",
+    "component": "/home/kremeshnoi/WebStormProjects/otaku-library/pages/manga/top/index.vue",
+    "chunkName": "pages/manga/top/index",
+    "_name": "_7f7378ec"
+  },
+  {
+    "name": "anime-genres-id-title",
+    "path": "/anime/genres/:id?/:title",
+    "component": "/home/kremeshnoi/WebStormProjects/otaku-library/pages/anime/genres/_id/_title/index.vue",
+    "chunkName": "pages/anime/genres/_id/_title/index",
+    "_name": "_ceea3a3c"
+  },
+  {
+    "name": "manga-genres-id-title",
+    "path": "/manga/genres/:id?/:title",
+    "component": "/home/kremeshnoi/WebStormProjects/otaku-library/pages/manga/genres/_id/_title/index.vue",
+    "chunkName": "pages/manga/genres/_id/_title/index",
+    "_name": "_5374c622"
+  },
+  {
+    "name": "anime-id-title",
+    "path": "/anime/:id?/:title",
+    "component": "/home/kremeshnoi/WebStormProjects/otaku-library/pages/anime/_id/_title/index.vue",
+    "chunkName": "pages/anime/_id/_title/index",
+    "_name": "_d5e024e2"
+  },
+  {
+    "name": "characters-id-title",
+    "path": "/characters/:id?/:title",
+    "component": "/home/kremeshnoi/WebStormProjects/otaku-library/pages/characters/_id/_title/index.vue",
+    "chunkName": "pages/characters/_id/_title/index",
+    "_name": "_05473863"
+  },
+  {
+    "name": "library-type-status",
+    "path": "/library/:type?/:status",
+    "component": "/home/kremeshnoi/WebStormProjects/otaku-library/pages/library/_type/_status/index.vue",
+    "chunkName": "pages/library/_type/_status/index",
+    "_name": "_a064f3d2"
+  },
+  {
+    "name": "manga-id-title",
+    "path": "/manga/:id?/:title",
+    "component": "/home/kremeshnoi/WebStormProjects/otaku-library/pages/manga/_id/_title/index.vue",
+    "chunkName": "pages/manga/_id/_title/index",
+    "_name": "_0993324f"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/home/kremeshnoi/WebStormProjects/otaku-library/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_b548f5c2"
+  }
+]

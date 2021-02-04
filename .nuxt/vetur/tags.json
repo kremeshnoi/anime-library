@@ -1,0 +1,122 @@
+{
+  "CardsBlock": {
+    "description": "Auto imported from /components/blocks/CardsBlock.vue"
+  },
+  "LazyCardsBlock": {
+    "description": "Auto imported from /components/blocks/CardsBlock.vue"
+  },
+  "Genres": {
+    "description": "Auto imported from /components/blocks/Genres.vue"
+  },
+  "LazyGenres": {
+    "description": "Auto imported from /components/blocks/Genres.vue"
+  },
+  "Hero": {
+    "description": "Auto imported from /components/blocks/Hero.vue"
+  },
+  "LazyHero": {
+    "description": "Auto imported from /components/blocks/Hero.vue"
+  },
+  "Cards": {
+    "description": "Auto imported from /components/elements/Cards.vue"
+  },
+  "LazyCards": {
+    "description": "Auto imported from /components/elements/Cards.vue"
+  },
+  "Characters": {
+    "description": "Auto imported from /components/elements/Characters.vue"
+  },
+  "LazyCharacters": {
+    "description": "Auto imported from /components/elements/Characters.vue"
+  },
+  "Description": {
+    "description": "Auto imported from /components/elements/Description.vue"
+  },
+  "LazyDescription": {
+    "description": "Auto imported from /components/elements/Description.vue"
+  },
+  "DropDown": {
+    "description": "Auto imported from /components/elements/DropDown.vue"
+  },
+  "LazyDropDown": {
+    "description": "Auto imported from /components/elements/DropDown.vue"
+  },
+  "Info": {
+    "description": "Auto imported from /components/elements/Info.vue"
+  },
+  "LazyInfo": {
+    "description": "Auto imported from /components/elements/Info.vue"
+  },
+  "QueryContent": {
+    "description": "Auto imported from /components/elements/QueryContent.vue"
+  },
+  "LazyQueryContent": {
+    "description": "Auto imported from /components/elements/QueryContent.vue"
+  },
+  "Recommendations": {
+    "description": "Auto imported from /components/elements/Recommendations.vue"
+  },
+  "LazyRecommendations": {
+    "description": "Auto imported from /components/elements/Recommendations.vue"
+  },
+  "Related": {
+    "description": "Auto imported from /components/elements/Related.vue"
+  },
+  "LazyRelated": {
+    "description": "Auto imported from /components/elements/Related.vue"
+  },
+  "SearchBar": {
+    "description": "Auto imported from /components/elements/SearchBar.vue"
+  },
+  "LazySearchBar": {
+    "description": "Auto imported from /components/elements/SearchBar.vue"
+  },
+  "SelectOptions": {
+    "description": "Auto imported from /components/elements/SelectOptions.vue"
+  },
+  "LazySelectOptions": {
+    "description": "Auto imported from /components/elements/SelectOptions.vue"
+  },
+  "SwiperCarousel": {
+    "description": "Auto imported from /components/elements/SwiperCarousel.vue"
+  },
+  "LazySwiperCarousel": {
+    "description": "Auto imported from /components/elements/SwiperCarousel.vue"
+  },
+  "Trailer": {
+    "description": "Auto imported from /components/elements/Trailer.vue"
+  },
+  "LazyTrailer": {
+    "description": "Auto imported from /components/elements/Trailer.vue"
+  },
+  "MainFooter": {
+    "description": "Auto imported from /components/navigation/MainFooter.vue"
+  },
+  "LazyMainFooter": {
+    "description": "Auto imported from /components/navigation/MainFooter.vue"
+  },
+  "Navbar": {
+    "description": "Auto imported from /components/navigation/Navbar.vue"
+  },
+  "LazyNavbar": {
+    "description": "Auto imported from /components/navigation/Navbar.vue"
+  },
+  "FooterCategories": {
+    "description": "Auto imported from /components/blocks/footer/FooterCategories.vue"
+  },
+  "LazyFooterCategories": {
+    "description": "Auto imported from /components/blocks/footer/FooterCategories.vue"
+  },
+  "FooterMainInfo": {
+    "description": "Auto imported from /components/blocks/footer/FooterMainInfo.vue"
+  },
+  "LazyFooterMainInfo": {
+    "description": "Auto imported from /components/blocks/footer/FooterMainInfo.vue"
+  },
+  "FooterNote": {
+    "description": "Auto imported from /components/blocks/footer/FooterNote.vue"
+  },
+  "LazyFooterNote": {
+    "description": "Auto imported from /components/blocks/footer/FooterNote.vue"
+  }
+}
