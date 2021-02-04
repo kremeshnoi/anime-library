@@ -1,7 +1,7 @@
 
 
 export default async function (session, firebase, ctx, inject) {
-  await import('firebase/auth')
+  await import(/* webpackChunkName: 'firebase-auth' */'firebase/auth')
 
   const authService = session.auth()
 
