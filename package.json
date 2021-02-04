@@ -14,10 +14,10 @@
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^2.0.0",
-    "@nuxtjs/firebase": "^7.3.2",
+    "@nuxtjs/firebase": "^7.4.1",
     "@nuxtjs/recaptcha": "^0.6.2",
     "cookie-universal-nuxt": "^2.1.4",
-    "core-js": "^3.6.5",
+    "core-js": "^3.8.3",
     "firebase": "^7.15.1",
     "jikanjs": "^0.7.0",
     "materialize-css": "^1.0.0",
@@ -38,9 +38,9 @@
     "jest": "^26.5.0",
     "pug": "^3.0.0",
     "pug-plain-loader": "^1.1.0",
-    "sass": "^1.32.4",
+    "sass": "^1.32.6",
     "sass-loader": "^10.1.1",
-    "ts-jest": "^26.4.1",
+    "ts-jest": "^26.5.0",
     "vue-jest": "^3.0.4"
   }
 }
