@@ -1,0 +1,32 @@
+.title-default
+	color: $color-black
+	width: 100%
+	height: 48px
+	font-size: 16px
+	font-weight: 700
+	text-align: start
+	display: flex
+	align-items: center
+	text-transform: uppercase
+	padding: 14px 0 0 0
+
+.title-cut
+	display: block
+	max-width: 300px
+	width: 100%
+	overflow: hidden
+	white-space: nowrap
+	text-overflow: ellipsis
+
+.title-vertical-cut
+	overflow: hidden
+	display: -webkit-box
+	text-overflow: ellipsis
+	-webkit-box-orient: vertical
+
+.title-bordered
+	@extend .title-default
+	padding: 14px 14px 14px 14px
+	margin: 0 0 20px 0
+	border-left: 5px solid $color-blue-light
+	background-color: $color-white-dark

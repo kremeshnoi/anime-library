@@ -33,8 +33,8 @@
 
 	// IMPORTS
 
-	@import '../../assets/styles/utils/vars'
-	@import '../../assets/styles/utils/mixins'
+	@import '../../src/assets/styles/utils/vars'
+	@import '../../src/assets/styles/utils/mixins'
 
 	// UNAUTHORIZED STYLES
 

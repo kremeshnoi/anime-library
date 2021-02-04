@@ -1,0 +1,13 @@
+@import '~/assets/styles/utils/vars'
+
+=mq($width, $type)
+  @if map_has_key($breakpoints, $width)
+    $width: map_get($breakpoints, $width)
+    @media only screen and (#{ $type }-width: $width)
+      @content
+
+=flex($justify, $align, $direction)
+  display: flex
+  justify-content: $justify
+  align-items: $align
+  flex-direction: $direction
