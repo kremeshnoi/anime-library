@@ -10,6 +10,7 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  target: 'static',
   css: [
     { src: 'node_modules/swiper/css/swiper.min.css' },
     { src: 'node_modules/materialize-css/dist/css/materialize.min.css' },
