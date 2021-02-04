@@ -76,7 +76,7 @@
           .sign-in-form__row.sign-in-form__social
             button.sign-in-form__google(@click='googleAuth')
               .sign-in-form__google-wrapper
-                img.sign-in-form__google-logo(src='~/assets/images/g-logo.svg')
+                img.sign-in-form__google-logo(src='~/assets/images/g-logo.png')
                 .sign-in-form__google-title
                   | Google
 
