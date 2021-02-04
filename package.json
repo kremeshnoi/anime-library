@@ -1,38 +1,45 @@
 {
-	"name": "otaku-library",
-	"version": "0.1.0",
-	"private": true,
-	"scripts": {
-		"serve": "vue-cli-service serve",
-		"build": "vue-cli-service build"
-	},
-	"dependencies": {
-		"core-js": "^3.6.4",
-		"firebase": "^7.15.1",
-		"jikanjs": "^0.7.0",
-		"materialize-css": "^1.0.0-rc.2",
-		"register-service-worker": "^1.7.1",
-		"swiper": "^5.4.5",
-		"vue": "^2.6.11",
-		"vue-awesome-swiper": "^4.1.1",
-		"vue-class-component": "^7.2.3",
-		"vue-meta": "^2.3.3",
-		"vue-property-decorator": "^8.4.2",
-		"vue-recaptcha": "^1.3.0",
-		"vue-router": "^3.1.6",
-		"vuelidate": "^0.7.5",
-		"vuex": "^3.1.3"
-	},
-	"devDependencies": {
-		"@vue/cli-plugin-babel": "~4.3.0",
-		"@vue/cli-plugin-pwa": "~4.3.0",
-		"@vue/cli-plugin-router": "~4.3.0",
-		"@vue/cli-plugin-vuex": "~4.3.0",
-		"@vue/cli-service": "~4.3.0",
-		"node-sass": "^4.12.0",
-		"prettier": "^1.19.1",
-		"sass-loader": "^8.0.2",
-		"vue-cli-plugin-pug": "^1.0.7",
-		"vue-template-compiler": "^2.6.11"
-	}
+  "name": "nuxt",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt-ts",
+    "build": "nuxt-ts build",
+    "start": "nuxt-ts start",
+    "generate": "nuxt-ts generate",
+    "lint:style": "stylelint **/*.{vue,css} --ignore-path .gitignore",
+    "lint": "npm run lint:style",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@nuxt/typescript-runtime": "^2.0.0",
+    "@nuxtjs/firebase": "^7.3.2",
+    "@nuxtjs/recaptcha": "^0.6.2",
+    "cookie-universal-nuxt": "^2.1.4",
+    "core-js": "^3.6.5",
+    "firebase": "^7.15.1",
+    "jikanjs": "^0.7.0",
+    "materialize-css": "^1.0.0",
+    "nuxt": "^2.14.6",
+    "swiper": "^5.4.5",
+    "vssue": "^1.4.7",
+    "vue-awesome-swiper": "^4.1.1",
+    "vue-meta": "^2.4.0",
+    "vue-recaptcha": "^1.3.0",
+    "vuelidate": "^0.7.6"
+  },
+  "devDependencies": {
+    "@nuxt/types": "^2.14.6",
+    "@nuxt/typescript-build": "^2.0.3",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^26.5.0",
+    "fibers": "^5.0.0",
+    "jest": "^26.5.0",
+    "pug": "^3.0.0",
+    "pug-plain-loader": "^1.1.0",
+    "sass": "^1.32.4",
+    "sass-loader": "^10.1.1",
+    "ts-jest": "^26.4.1",
+    "vue-jest": "^3.0.4"
+  }
 }
