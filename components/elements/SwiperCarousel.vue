@@ -1,34 +1,25 @@
 <template lang='pug'>
 
-  .swiper-carousel(v-if='type === "characters"' v-swiper='charactersSwiperOptions')
-    .swiper-carousel__container.swiper-wrapper
-      slot
+    .swiper-carousel(v-if='type === "characters"' v-swiper='charactersSwiperOptions')
+      .swiper-carousel__container.swiper-wrapper
+        slot
 
-    .swiper-button-prev
-    .swiper-button-next
+      .swiper-button-prev
+      .swiper-button-next
 
-  .swiper-carousel(v-else v-swiper='swiperOptions')
-    .swiper-carousel__container.swiper-wrapper
-      slot
+    .swiper-carousel(v-else v-swiper='swiperOptions')
+      .swiper-carousel__container.swiper-wrapper
+        slot
 
-    .swiper-button-prev
-    .swiper-button-next
+      .swiper-button-prev
+      .swiper-button-next
 
 </template>
 
 <script>
 
-  import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
-
   export default {
     name: 'SwiperCarousel',
-    components: {
-      Swiper,
-      SwiperSlide
-    },
-    directives: {
-      swiper: directive
-    },
     props: ['type'],
     data() {
       return {
