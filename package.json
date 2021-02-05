@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "nuxt-ts",
     "build": "nuxt generate",
-    "build-local": "nuxt-ts build",
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate",
     "lint:style": "stylelint **/*.{vue,css} --ignore-path .gitignore",
