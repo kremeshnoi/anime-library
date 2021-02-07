@@ -38,7 +38,7 @@
 		margin: 0 0 10px 0
 		position: relative
 		&:hover
-			opacity: 0.9
+			opacity: 0.8
 		&__image
 			width: 100%
 			height: 260px

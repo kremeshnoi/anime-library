@@ -1,7 +1,7 @@
 <template lang='pug'>
 
   .home
-    hero(v-if='user[0] === null')
+    hero
 
     cards-block(
       v-if='animeAiring',
@@ -17,8 +17,7 @@
 
 <script>
 
-  import jikanjs from 'jikanjs'
-  import { mapActions } from 'vuex';
+  import jikanjs from 'jikanjs';
   import Hero from '@/components/blocks/Hero';
   import Genres from '@/components/blocks/Genres';
   import CardsBlock from '@/components/blocks/CardsBlock';
@@ -35,11 +34,6 @@
       Genres,
       CardsBlock
     },
-    data() {
-      return {
-        user: []
-      };
-    },
     async asyncData() {
       const animeAiringResponse = await jikanjs.loadTop('anime', 1, 'airing');
       const animeUpcomingResponse = await jikanjs.loadTop('anime', 1, 'upcoming');
@@ -55,14 +49,6 @@
           data: animeUpcomingResponse.top
         }
       };
-    },
-    async created() {
-      await this.getUid().then((result) => this.user.push(result));
-    },
-    methods: {
-      ...mapActions({
-        getUid: 'auth/getUid'
-      })
     }
   };
 
