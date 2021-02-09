@@ -23,7 +23,6 @@
     "materialize-css": "^1.0.0",
     "nuxt": "^2.14.6",
     "swiper": "^5.4.5",
-    "vssue": "^1.4.7",
     "vue-awesome-swiper": "^4.1.1",
     "vue-infinite-loading": "^2.4.5",
     "vue-meta": "^2.4.0",

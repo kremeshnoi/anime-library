@@ -57,7 +57,7 @@
     name: 'Anime',
     metaInfo() {
       return {
-        title: `Anime - ${this.animeById.title}`,
+        title: `Anime - ${ this.animeById.title }`,
       };
     },
     layout: layoutMiddleware,
@@ -94,68 +94,65 @@
 
 <style lang='sass' scoped>
 
-	@import '~/assets/styles/utils/vars'
-	@import '~/assets/styles/utils/mixins'
-	@import '~/assets/styles/modules/titles'
-	@import '~/assets/styles/modules/dividers'
-	@import '~/assets/styles/modules/containers'
+  @import '~/assets/styles/utils/vars'
+  @import '~/assets/styles/utils/mixins'
+  @import '~/assets/styles/modules/titles'
+  @import '~/assets/styles/modules/dividers'
+  @import '~/assets/styles/modules/containers'
 
-	.anime
-		width: 100%
+  .anime
+    width: 100%
 
-		&__container
-			display: grid
-			column-gap: 20px
-			row-gap: 40px
-			grid-template-columns: 1fr 1fr
-			grid-template-areas: 'main sub' 'description description' 'recommendations recommendations'
-			@extend .container-default
-			+mq(tablet-mid, max)
-				grid-template-columns: 1fr
-				grid-template-areas: 'main' 'sub' 'description' 'recommendations'
+    &__container
+      display: grid
+      column-gap: 20px
+      row-gap: 40px
+      grid-template-columns: 1fr 1fr
+      grid-template-areas: 'main sub' 'description description' 'recommendations recommendations'
+      @extend .container-default
+      +mq(tablet-mid, max)
+        grid-template-columns: 1fr
+        grid-template-areas: 'main' 'sub' 'description' 'recommendations'
 
-		&__main-content
-			grid-area: main
-			display: grid
-			justify-content: start
-			grid-template-areas: 'title title' 'cover info'
-			grid-gap: 20px
-			align-content: start
-			grid-template-rows: 50 auto
-			+mq(phablet, max)
-				grid-template-rows: auto
-				grid-template-areas: 'title' 'cover' 'info'
+    &__main-content
+      grid-area: main
+      display: grid
+      justify-content: start
+      grid-template-areas: 'title title' 'cover info'
+      grid-gap: 20px
+      align-content: start
+      grid-template-rows: 50 auto
+      +mq(phablet, max)
+        grid-template-rows: auto
+        grid-template-areas: 'title' 'cover' 'info'
 
-		&__sub-content
-			grid-area: sub
-			display: grid
-			column-gap: 20px
-			row-gap: 40px
-			justify-content: flex-start
-			align-content: flex-start
-			grid-template-columns: minmax(auto, 360px)
-			+mq(tablet-mid, max)
-				justify-content: flex-start
+    &__sub-content
+      grid-area: sub
+      display: grid
+      column-gap: 20px
+      row-gap: 40px
+      justify-content: flex-start
+      align-content: flex-start
+      grid-template-columns: minmax(auto, 360px)
+      +mq(tablet-mid, max)
+        justify-content: flex-start
 
-		&__cover
+    &__cover-container
+      grid-area: cover
+      display: grid
+      justify-content: flex-start
+      row-gap: 20px
 
-		&__cover-container
-			grid-area: cover
-			display: grid
-			justify-content: flex-start
-			row-gap: 20px
-			grid-area: cover
+    &__title
+      font-size: 20px
+      max-width: 460px
+      grid-area: title
+      text-align: start
+      -webkit-line-clamp: 2
+      @extend .title-vertical-cut
 
-		&__title
-			font-size: 20px
-			max-width: 460px
-			grid-area: title
-			text-align: start
-			-webkit-line-clamp: 2
-			@extend .title-vertical-cut
-
-		&__input-field
-			margin: 0
-			max-width: 220px
+    &__input-field
+      margin: 0
+      max-width: 220px
 
 </style>

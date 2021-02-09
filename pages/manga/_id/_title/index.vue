@@ -128,7 +128,6 @@
 			grid-template-columns: minmax(auto, 360px)
 			+mq(tablet-mid, max)
 				justify-content: flex-start
-		&__cover
 		&__cover-container
 			grid-area: cover
 			display: grid

@@ -77,10 +77,10 @@
     width: 100%
   .swiper-button-prev, .swiper-button-next
     top: 0
-    height: 50%
+    height: 40%
     width: 40px
     color: rgba(17, 34, 51, 0.75)
-    transform: translateY(60%)
+    transform: translateY(70%)
     outline: none
     &:after
       font-size: 24px
