@@ -7,16 +7,25 @@
 
       query-content
         cards(
-          v-for='(anime, animeIndex) in animeGenre.anime',
-          :key='animeIndex',
+          v-for='(anime) in animeGenre.anime',
+          :key='anime.mal_id',
           :cardsData='anime')
+
+        cards(
+          v-for='(anime) in list',
+          :key='anime.mal_id',
+          :cardsData='anime')
+
+        infinite-loading(@infinite='infiniteHandler')
 
 </template>
 
 <script>
 
+  import axios from 'axios';
   import jikanjs from 'jikanjs/lib/jikan';
   import Cards from '@/components/elements/Cards';
+  import InfiniteLoading from 'vue-infinite-loading';
   import QueryContent from '@/components/elements/QueryContent';
   import layoutMiddleware from '@/middleware/layoutMiddleware';
 
@@ -28,13 +37,34 @@
     layout: layoutMiddleware,
     components: {
       Cards,
-      QueryContent
+      QueryContent,
+      InfiniteLoading
+    },
+    data() {
+      return {
+        page: 2,
+        list: []
+      };
     },
     async asyncData({ params }) {
       const animeGenreResponse = await jikanjs.loadGenre('anime', params.id);
       return {
-        animeGenre: animeGenreResponse,
+        animeGenre: animeGenreResponse
       };
+    },
+    methods: {
+      infiniteHandler($state) {
+        axios.get(`https://api.jikan.moe/v3/genre/anime/${ $nuxt.$route.params.id }/${ this.page }`)
+        .then(({data}) => {
+          if (data.anime.length) {
+            this.page += 1;
+            this.list.push(...data.anime);
+            $state.loaded();
+          } else {
+            $state.complete();
+          }
+        });
+      }
     }
   };
 

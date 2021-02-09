@@ -3,23 +3,30 @@
   .manga-genre
     .manga-genre__container
       .manga-genre__title(
-        v-if='mangaGenre.mal_url'
-        )
+        v-if='mangaGenre.mal_url')
         | {{ mangaGenre.mal_url.name }}
 
       query-content
         cards(
-          v-for='(result, resultIndex) in mangaGenre.manga',
-          :key='resultIndex',
-          :cardsData='result'
-          )
+          v-for='(manga) in mangaGenre.manga',
+          :key='manga.mal_id',
+          :cardsData='manga')
+
+        cards(
+          v-for='(manga) in list',
+          :key='manga.mal_id',
+          :cardsData='manga')
+
+        infinite-loading(@infinite='infiniteHandler')
 
 </template>
 
 <script>
 
+  import axios from 'axios';
   import jikanjs from 'jikanjs/lib/jikan';
   import Cards from '@/components/elements/Cards';
+  import InfiniteLoading from 'vue-infinite-loading';
   import layoutMiddleware from '@/middleware/layoutMiddleware';
   import QueryContent from '@/components/elements/QueryContent';
 
@@ -32,12 +39,33 @@
     components: {
       Cards,
       QueryContent,
+      InfiniteLoading
+    },
+    data() {
+      return {
+        page: 2,
+        list: []
+      };
     },
     async asyncData({ params }) {
       const mangaGenreResponse = await jikanjs.loadGenre('manga', params.id);
       return {
         mangaGenre: mangaGenreResponse,
       };
+    },
+    methods: {
+      infiniteHandler($state) {
+        axios.get(`https://api.jikan.moe/v3/genre/manga/${ $nuxt.$route.params.id }/${ this.page }`)
+        .then(({data}) => {
+          if (data.manga.length) {
+            this.page += 1;
+            this.list.push(...data.manga);
+            $state.loaded();
+          } else {
+            $state.complete();
+          }
+        });
+      }
     }
   };
 

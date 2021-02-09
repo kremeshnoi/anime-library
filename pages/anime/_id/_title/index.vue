@@ -138,7 +138,6 @@
 				justify-content: flex-start
 
 		&__cover
-			max-width: 200px
 
 		&__cover-container
 			grid-area: cover

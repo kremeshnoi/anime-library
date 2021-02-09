@@ -80,7 +80,7 @@
     height: 50%
     width: 40px
     color: rgba(17, 34, 51, 0.75)
-    transform: translateY(50%)
+    transform: translateY(60%)
     outline: none
     &:after
       font-size: 24px

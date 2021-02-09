@@ -7,16 +7,25 @@
 
       query-content
         cards(
-          v-for='(manga, mangaIndex) in topManga',
-          :key='mangaIndex',
+          v-for='(manga) in topManga',
+          :key='manga.mal_id',
           :cardsData='manga')
+
+        cards(
+          v-for='(manga) in list',
+          :key='manga.mal_id',
+          :cardsData='manga')
+
+        infinite-loading(@infinite='infiniteHandler')
 
 </template>
 
 <script>
 
+  import axios from 'axios';
   import jikanjs from 'jikanjs/lib/jikan';
   import Cards from '@/components/elements/Cards';
+  import InfiniteLoading from 'vue-infinite-loading';
   import layoutMiddleware from '@/middleware/layoutMiddleware';
   import QueryContent from '@/components/elements/QueryContent';
 
@@ -29,12 +38,33 @@
     components: {
       Cards,
       QueryContent,
+      InfiniteLoading
+    },
+    data() {
+      return {
+        page: 2,
+        list: []
+      };
     },
     async asyncData() {
       const topMangaResponse = await jikanjs.loadTop('manga', 1, 'favorite');
       return {
         topManga: topMangaResponse.top,
       };
+    },
+    methods: {
+      infiniteHandler($state) {
+        axios.get(`https://api.jikan.moe/v3/top/manga/${ this.page }/favorite`)
+        .then(({data}) => {
+          if (data.top.length) {
+            this.page += 1;
+            this.list.push(...data.top);
+            $state.loaded();
+          } else {
+            $state.complete();
+          }
+        });
+      }
     }
   };
 

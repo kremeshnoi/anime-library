@@ -7,16 +7,25 @@
 
       query-content
         cards(
-          v-for='(character, characterIndex) in favoriteCharacters',
-          :key='characterIndex',
+          v-for='(character) in favoriteCharacters',
+          :key='character.name',
           :cardsData='character')
+
+        cards(
+          v-for='(character) in list',
+          :key='character.name',
+          :cardsData='character')
+
+        infinite-loading(@infinite='infiniteHandler')
 
 </template>
 
 <script>
 
+  import axios from 'axios';
   import jikanjs from 'jikanjs/lib/jikan';
   import Cards from '@/components/elements/Cards';
+  import InfiniteLoading from 'vue-infinite-loading';
   import QueryContent from '@/components/elements/QueryContent';
   import layoutMiddleware from '@/middleware/layoutMiddleware';
 
@@ -28,13 +37,34 @@
     layout: layoutMiddleware,
     components: {
       Cards,
-      QueryContent
+      QueryContent,
+      InfiniteLoading
+    },
+    data() {
+      return {
+        page: 2,
+        list: []
+      };
     },
     async asyncData() {
       const favoriteCharactersResponse = await jikanjs.loadTop('characters');
       return {
         favoriteCharacters: favoriteCharactersResponse.top,
       };
+    },
+    methods: {
+      infiniteHandler($state) {
+        axios.get(`https://api.jikan.moe/v3/top/characters/${ this.page }`)
+        .then(({data}) => {
+          if (data.top.length) {
+            this.page += 1;
+            this.list.push(...data.top);
+            $state.loaded();
+          } else {
+            $state.complete();
+          }
+        });
+      }
     }
   };
 

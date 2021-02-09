@@ -6,18 +6,27 @@
 
     query-content
       cards(
-        v-for='(result, resultIndex) in animeAiring',
-        :key='resultIndex',
-        :cardsData='result'
-      )
+        v-for='(anime) in animeAiring',
+        :key='anime.mal_id',
+        :cardsData='anime')
+
+      cards(
+        v-for='(anime) in list',
+        :key='anime.mal_id',
+        :cardsData='anime')
+
+      infinite-loading(@infinite='infiniteHandler')
+
 </template>
 
 <script>
 
-import jikanjs from 'jikanjs/lib/jikan';
-import Cards from '@/components/elements/Cards';
-import QueryContent from '@/components/elements/QueryContent';
-import layoutMiddleware from '@/middleware/layoutMiddleware';
+  import axios from 'axios';
+  import jikanjs from 'jikanjs/lib/jikan';
+  import Cards from '@/components/elements/Cards';
+  import InfiniteLoading from 'vue-infinite-loading';
+  import layoutMiddleware from '@/middleware/layoutMiddleware';
+  import QueryContent from '@/components/elements/QueryContent';
 
 export default {
   name: 'TopAiring',
@@ -28,6 +37,13 @@ export default {
   components: {
     Cards,
     QueryContent,
+    InfiniteLoading
+  },
+  data() {
+    return {
+      page: 2,
+      list: []
+    };
   },
   async asyncData() {
     const animeAiringResponse = await jikanjs.loadTop('anime', 1, 'airing');
@@ -35,6 +51,20 @@ export default {
       animeAiring: animeAiringResponse.top,
     };
   },
+  methods: {
+    infiniteHandler($state) {
+      axios.get(`https://api.jikan.moe/v3/top/anime/${ this.page }/airing`)
+      .then(({data}) => {
+        if (data.top.length) {
+          this.page += 1;
+          this.list.push(...data.top);
+          $state.loaded();
+        } else {
+          $state.complete();
+        }
+      });
+    }
+  }
 };
 </script>
 

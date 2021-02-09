@@ -9,8 +9,8 @@
           | {{ result.title }} Genres
 
         .genres__anime
-          a.genres__item.genres__item_anime(
-            v-for='(genre, genreIndex) in result.data.slice(0, 9)',
+          a.genres__item(
+            v-for='(genre, genreIndex) in result.data',
             :key='genreIndex',
             @click='computeRouteByGenre({ result, genre })')
             img.genres__item-image(:src='genre.img')
@@ -18,9 +18,6 @@
             .genres__title-wrapper
               span.genres__item-title
                 | {{ genre.title }}
-
-          .genres__anime
-            | more
 
 </template>
 

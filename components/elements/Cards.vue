@@ -41,12 +41,9 @@
 			opacity: 0.8
 		&__image
 			width: 100%
-			height: 260px
 			display: block
 			background-color: $color-blue-light
 			transform: scale(1.01)
-			+mq(tablet-small, max)
-				height: 240px
 		&__image-wrapper
 			cursor: pointer
 			overflow: hidden
@@ -63,6 +60,7 @@
 			padding: 4px 0 4px 0
 			position: absolute
 			bottom: 0
+			text-align: center
 			background: rgb(0,0,0)
 			background: linear-gradient(0deg, rgba(0,0,0,0.6) 50%, rgba(0, 0, 0, 0.0) 100%)
 			box-shadow: 0 8px 7px -7px rgba(0, 0, 0, 1)

@@ -130,6 +130,10 @@
         signUp: 'auth/signUp'
       }),
       async submit() {
+        if (this.$v.$invalid) {
+          return this.$v.$touch();
+        }
+
         const signUpData = {
           email: this.email,
           password: this.password,
@@ -144,9 +148,6 @@
         await this.signUp(signUpData);
       },
       validate () {
-        if (this.$v.$invalid) {
-          return this.$v.$touch();
-        }
         this.$refs.recaptcha.execute();
       },
       onCaptchaExpired () {

@@ -79,6 +79,10 @@
     },
     methods: {
       async submit() {
+        if (this.$v.$invalid) {
+          return this.$v.$touch();
+        }
+
         const RecoveryData = {
           email: this.email
         };
@@ -91,9 +95,6 @@
         await this.$store.dispatch('auth/recoverPassword', RecoveryData);
       },
       validate () {
-        if (this.$v.$invalid) {
-          return this.$v.$touch();
-        }
         this.$refs.recaptcha.execute();
       },
       onCaptchaExpired () {

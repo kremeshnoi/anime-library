@@ -137,10 +137,15 @@
         signIn: 'auth/signIn'
       }),
       async submit() {
+        if (this.$v.$invalid) {
+          return this.$v.$touch();
+        }
+
         const signInData = {
           email: this.email,
           password: this.password
         };
+
         if (window.screen.width <= 560) {
           document.querySelector('.preloader-wrapper').style.display = 'block';
         } else {
@@ -149,9 +154,6 @@
         await this.signIn(signInData);
       },
       validate () {
-        if (this.$v.$invalid) {
-          return this.$v.$touch();
-        }
         this.$refs.recaptcha.execute();
       },
       onCaptchaExpired () {

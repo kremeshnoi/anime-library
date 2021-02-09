@@ -7,18 +7,27 @@
 
       query-content
         cards(
-          v-for='(anime, animeIndex) in topAnime',
-          :key='animeIndex',
+          v-for='(anime) in topAnime',
+          :key='anime.mal_id',
           :cardsData='anime')
+
+        cards(
+          v-for='(anime) in list',
+          :key='anime.mal_id',
+          :cardsData='anime')
+
+        infinite-loading(@infinite='infiniteHandler')
 
 </template>
 
 <script>
 
+  import axios from 'axios';
   import jikanjs from 'jikanjs/lib/jikan';
   import Cards from '@/components/elements/Cards';
-  import QueryContent from '@/components/elements/QueryContent';
+  import InfiniteLoading from 'vue-infinite-loading';
   import layoutMiddleware from '@/middleware/layoutMiddleware';
+  import QueryContent from '@/components/elements/QueryContent';
 
   export default {
     name: 'TopAnime',
@@ -28,13 +37,34 @@
     layout: layoutMiddleware,
     components: {
       Cards,
-      QueryContent
+      QueryContent,
+      InfiniteLoading
+    },
+    data() {
+      return {
+        page: 2,
+        list: []
+      };
     },
     async asyncData() {
       const topAnimeResponse = await jikanjs.loadTop('anime', 1, 'favorite');
       return {
         topAnime: topAnimeResponse.top,
       };
+    },
+    methods: {
+      infiniteHandler($state) {
+        axios.get(`https://api.jikan.moe/v3/top/anime/${ this.page }/favorite`)
+        .then(({data}) => {
+          if (data.top.length) {
+            this.page += 1;
+            this.list.push(...data.top);
+            $state.loaded();
+          } else {
+            $state.complete();
+          }
+        });
+      }
     }
   };
 
