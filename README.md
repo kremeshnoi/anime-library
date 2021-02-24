@@ -2,27 +2,27 @@
 ![Vercel](https://vercelbadge.vercel.app/api/kremeshnoi/otaku-library?label=vercel)
 ![Discord](https://img.shields.io/discord/718432544030195792?label=dicrord)
 
-Organize your own anime and manga list with Otaku Library
+Organize your own anime and manga list with Otaku Library.
 
 ## About
-This is a non-commercial project that plans to develop as a social network for anime and manga lovers
+This is a non-commercial project that plans to develop as a social network for anime and manga lovers.
 
 ## To-do List
-- [x] Registration
-- [x] Personal user library
-- [ ] Public profiles
-  - Avatar
-  - Library activity
-  - What user have been posting
-  - Recently added anime, manga
-  - Favorite anime, manga, characters
-  - Friends section
-  - Commentary section
-- [ ] Commentary sections
-- [ ] Allow users read manga
-- [ ] Allow users watch anime
-- [x] Live search for manga and anime titles
-- [x] Google and Twitter authentication methods
+- [x] Registration;
+- [x] Personal user library;
+- [ ] Public profiles:
+  - Avatar;
+  - Library activity;
+  - What user have been posting;
+  - Recently added anime, manga;
+  - Favorite anime, manga, characters;
+  - Friends section;
+  - Commentary section;
+- [ ] Commentary sections;
+- [ ] Allow users read manga;
+- [ ] Allow users watch anime;
+- [x] Live search for manga and anime titles;
+- [x] Google and Twitter authentication methods.
 
 ## Requirements
  * Node.js https://nodejs.org/en/download
