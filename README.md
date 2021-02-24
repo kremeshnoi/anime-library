@@ -37,4 +37,6 @@ This is a non-commercial project that plans to develop as a social network for a
 
 ## Support the project
 
-<a href="https://www.patreon.com/otakulibrary">![otaku library patreon](https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Patreon_logo_with_wordmark.svg/1280px-Patreon_logo_with_wordmark.svg.png)</a> 
+<a href="https://www.patreon.com/otakulibrary">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Patreon_logo_with_wordmark.svg/1280px-Patreon_logo_with_wordmark.svg.png" width="400px">
+</a> 
