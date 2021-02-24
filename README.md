@@ -8,8 +8,6 @@ Organize your own anime and manga list with Otaku Library
 ## About
 This is a non-commercial project that plans to develop as a social network for anime and manga lovers
 
-![otaku library](https://kremeshnoi.github.io/img/otaku-library.jpg)
-
 ## To-do List
 - [x] Registration
 - [x] Personal user library
