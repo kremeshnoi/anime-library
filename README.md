@@ -1,10 +1,12 @@
 # Otaku Library
-Organize your own anime and manga list with Otaku Library
-
-![otaku library](https://kremeshnoi.github.io/img/otaku-library.jpg)
+![Vercel](https://vercelbadge.vercel.app/api/kremeshnoi/otaku-library?label=vercel)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/kremeshnoi/otaku-library)
+![Discord](https://img.shields.io/discord/718432544030195792?label=dicrord)
 
 ## About
 This is a non-commercial project that plans to develop as a social network for anime and manga lovers
+
+![otaku library](https://kremeshnoi.github.io/img/otaku-library.jpg)
 
 ## To-do List
 - [x] Registration
