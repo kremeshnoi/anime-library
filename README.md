@@ -1,6 +1,5 @@
 # Otaku Library
 ![Vercel](https://vercelbadge.vercel.app/api/kremeshnoi/otaku-library?label=vercel)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/kremeshnoi/otaku-library)
 ![Discord](https://img.shields.io/discord/718432544030195792?label=dicrord)
 
 Organize your own anime and manga list with Otaku Library
@@ -38,5 +37,5 @@ This is a non-commercial project that plans to develop as a social network for a
 ## Support the project
 
 <a href="https://www.patreon.com/otakulibrary">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Patreon_logo_with_wordmark.svg/1280px-Patreon_logo_with_wordmark.svg.png" width="400px">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Patreon_logo_with_wordmark.svg/1280px-Patreon_logo_with_wordmark.svg.png" width="300px">
 </a> 
