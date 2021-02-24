@@ -37,4 +37,4 @@ This is a non-commercial project that plans to develop as a social network for a
 
 ## Support the project
 
-<img align="center" src="https://digital.hbs.edu/platform-rctom/wp-content/uploads/sites/4/2018/11/patreon-banner-519x200.png" width="300px"> 
+<a href="https://www.patreon.com/otakulibrary">![otaku library patreon](https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Patreon_logo_with_wordmark.svg/1280px-Patreon_logo_with_wordmark.svg.png)</a> 
