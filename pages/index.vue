@@ -7,11 +7,11 @@
       v-if='animeAiring',
       :cardsBlockData='animeAiring')
 
+    //- genres
+
     cards-block(
       v-if='animeUpcoming',
       :cardsBlockData='animeUpcoming')
-
-    genres
 
 </template>
 

@@ -42,6 +42,7 @@
 		&__image
 			width: 100%
 			display: block
+			height: 240px
 			background-color: $color-blue-light
 			transform: scale(1.01)
 		&__image-wrapper

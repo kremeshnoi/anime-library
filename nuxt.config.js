@@ -30,7 +30,7 @@ export default {
     { src: '@/plugins/vue-meta' },
     { src: '@/plugins/vuelidate' },
     { src: '@/plugins/vue-recaptcha' },
-    { src: '@/plugins/vue-awesome-swiper' },
+    { src: '@/plugins/vue-awesome-swiper'},
     { src: '@/plugins/materialize', mode: 'client' }
   ],
   components: true,

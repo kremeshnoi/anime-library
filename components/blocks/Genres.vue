@@ -8,8 +8,8 @@
         h4.genres__title
           | {{ result.title }} Genres
 
-        .genres__anime
-          a.genres__item(
+        swiper-carousel-genres.genres__anime
+          a.swiper-slide.genres__item(
             v-for='(genre, genreIndex) in result.data',
             :key='genreIndex',
             @click='computeRouteByGenre({ result, genre })')
@@ -25,9 +25,13 @@
 
   import { mapActions } from 'vuex';
   import { anime, manga } from '@/utils/genres';
+  import SwiperCarouselGenres from '@/components/elements/SwiperCarouselGenres';
 
   export default {
     name: 'Genres',
+    components: {
+      SwiperCarouselGenres
+    },
     computed: {
       genres() {
         return {
@@ -66,17 +70,7 @@
       @extend .title-bordered
       text-align: start
     &__content
-      display: grid
-      grid-gap: 20px
-      grid-template-columns: repeat(2, 1fr)
-      +mq(tablet, max)
-        grid-template-columns: 1fr
-    &__anime, &__manga
-      display: grid
-      grid-template-columns: 1fr 1fr
-      grid-gap: 10px
-      +mq(phone-wide, max)
-        grid-template-columns: 1fr 1fr
+      column-count: 2
     &__item
       font-size: 16px
       width: 100%

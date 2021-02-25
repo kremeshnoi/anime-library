@@ -2,9 +2,9 @@
 
     .swiper-carousel(
       @ready='show()'
-      ref='Swiper'
+      ref='SwiperGenres'
       style='visibility: hidden'
-      v-swiper='swiperOptions')
+      v-swiper='genresSwiperOptions')
       .swiper-carousel__container.swiper-wrapper
         slot
 
@@ -16,44 +16,24 @@
 <script>
 
   export default {
-    name: 'SwiperCarousel',
-    props: ['type'],
+    name: 'SwiperCarouselGenres',
     data() {
       return {
-        swiperOptions: {
+        genresSwiperOptions: {
           watchOverflow: true,
           centeredSlidesBounds: true,
           navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev'
           },
-          spaceBetween: 10,
-          breakpoints: {
-            320: {
-              slidesPerView: 2
-            },
-            560: {
-              slidesPerView: 3
-            },
-            768: {
-              slidesPerView: 4
-            },
-            992: {
-              slidesPerView: 5
-            },
-            1248: {
-              slidesPerView: 6
-            },
-            1440: {
-              slidesPerView: 7
-            }
-          }
+          slidesPerView: 2,
+          spaceBetween: 10
         }
       };
     },
     methods: {
       show() {
-        this.$refs.Swiper.style.visibility = 'initial';
+        this.$refs.SwiperGenres.style.visibility = 'initial';
       }
     }
   };
@@ -72,7 +52,6 @@
     height: 40%
     width: 40px
     color: rgba(17, 34, 51, 0.75)
-    transform: translateY(70%)
     outline: none
     &:after
       font-size: 24px

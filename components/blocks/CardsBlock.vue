@@ -24,6 +24,84 @@
     components: {
       Cards,
       SwiperCarousel
+    },
+    data() {
+      return {
+        list: [
+          { end_date: "Jul 2010",
+            episodes: 64,
+            image_url: "https://cdn.myanimelist.net/images/anime/1223/96541.jpg?s=faffcb677a5eacd17bf761edd78bfb3f",
+            mal_id: 5114,
+            members: 181935,
+            rank: 1,
+            score: 9.2,
+            start_date: "Apr 2009",
+            title: "Fullmetal Alchemist: Brotherhood",
+            type: "TV",
+            url: "https://myanimelist.net/anime/5114/Fullmetal_Alchemist__Brotherhood"
+          },
+                    { end_date: "Jul 2010",
+            episodes: 64,
+            image_url: "https://cdn.myanimelist.net/images/anime/1223/96541.jpg?s=faffcb677a5eacd17bf761edd78bfb3f",
+            mal_id: 5114,
+            members: 181935,
+            rank: 1,
+            score: 9.2,
+            start_date: "Apr 2009",
+            title: "Fullmetal Alchemist: Brotherhood",
+            type: "TV",
+            url: "https://myanimelist.net/anime/5114/Fullmetal_Alchemist__Brotherhood"
+          },
+                    { end_date: "Jul 2010",
+            episodes: 64,
+            image_url: "https://cdn.myanimelist.net/images/anime/1223/96541.jpg?s=faffcb677a5eacd17bf761edd78bfb3f",
+            mal_id: 5114,
+            members: 181935,
+            rank: 1,
+            score: 9.2,
+            start_date: "Apr 2009",
+            title: "Fullmetal Alchemist: Brotherhood",
+            type: "TV",
+            url: "https://myanimelist.net/anime/5114/Fullmetal_Alchemist__Brotherhood"
+          },
+                    { end_date: "Jul 2010",
+            episodes: 64,
+            image_url: "https://cdn.myanimelist.net/images/anime/1223/96541.jpg?s=faffcb677a5eacd17bf761edd78bfb3f",
+            mal_id: 5114,
+            members: 181935,
+            rank: 1,
+            score: 9.2,
+            start_date: "Apr 2009",
+            title: "Fullmetal Alchemist: Brotherhood",
+            type: "TV",
+            url: "https://myanimelist.net/anime/5114/Fullmetal_Alchemist__Brotherhood"
+          },
+                    { end_date: "Jul 2010",
+            episodes: 64,
+            image_url: "https://cdn.myanimelist.net/images/anime/1223/96541.jpg?s=faffcb677a5eacd17bf761edd78bfb3f",
+            mal_id: 5114,
+            members: 181935,
+            rank: 1,
+            score: 9.2,
+            start_date: "Apr 2009",
+            title: "Fullmetal Alchemist: Brotherhood",
+            type: "TV",
+            url: "https://myanimelist.net/anime/5114/Fullmetal_Alchemist__Brotherhood"
+          },
+                    { end_date: "Jul 2010",
+            episodes: 64,
+            image_url: "https://cdn.myanimelist.net/images/anime/1223/96541.jpg?s=faffcb677a5eacd17bf761edd78bfb3f",
+            mal_id: 5114,
+            members: 181935,
+            rank: 1,
+            score: 9.2,
+            start_date: "Apr 2009",
+            title: "Fullmetal Alchemist: Brotherhood",
+            type: "TV",
+            url: "https://myanimelist.net/anime/5114/Fullmetal_Alchemist__Brotherhood"
+          },
+        ]
+      }
     }
   };
 
