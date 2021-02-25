@@ -1,5 +1,6 @@
 # Otaku Library
 ![Vercel](https://vercelbadge.vercel.app/api/kremeshnoi/otaku-library?label=vercel)
+[![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=shield)](https://circleci.com/gh/kremeshnoi/otaku-library)
 ![Discord](https://img.shields.io/discord/718432544030195792?label=dicrord)
 
 Organize your own anime and manga list with Otaku Library.
