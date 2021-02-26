@@ -3,6 +3,8 @@
 [![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=shield)](https://circleci.com/gh/kremeshnoi/otaku-library)
 ![Discord](https://img.shields.io/discord/718432544030195792?label=dicrord)
 
+<a href="https://otaku-library.one/" taget="_blank"><img src="https://i.imgur.com/Ant7wSz.png" alt="otaku library"></a>
+
 Organize your own anime and manga list with Otaku Library
 
 ## About
