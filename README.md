@@ -3,9 +3,7 @@
 [![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=shield)](https://circleci.com/gh/kremeshnoi/otaku-library)
 ![Discord](https://img.shields.io/discord/718432544030195792?label=dicrord)
 
-<a href="https://otaku-library.one/" taget="_blank"><img src="https://i.imgur.com/LGQQVlh.png" alt="otaku library"></a>
-
-Organize your own anime and manga list with Otaku Library
+<a href="https://otaku-library.one/" taget="_blank"><img src="https://i.imgur.com/FWsF1Ag.png" alt="otaku library"></a>
 
 ## About
 This is a non-commercial project that plans to develop as a social network for anime and manga lovers
@@ -39,6 +37,6 @@ This is a non-commercial project that plans to develop as a social network for a
 
 ## Support the project
 
-<a href="https://www.patreon.com/otakulibrary">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Patreon_logo_with_wordmark.svg/1280px-Patreon_logo_with_wordmark.svg.png" width="300px">
-</a> 
+<a href="https://www.patreon.com/otakulibrary" taget="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Patreon_logo_with_wordmark.svg/1280px-Patreon_logo_with_wordmark.svg.png" width="200px">
+</a>
