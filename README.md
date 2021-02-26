@@ -34,9 +34,3 @@ This is a non-commercial project that plans to develop as a social network for a
 `npm run dev` - compiles and hot-reloads for development
 
 `npm run generate` - compiles and minifies for production
-
-## Support the project
-
-<a href="https://www.patreon.com/otakulibrary" taget="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Patreon_logo_with_wordmark.svg/1280px-Patreon_logo_with_wordmark.svg.png" width="200px">
-</a>
