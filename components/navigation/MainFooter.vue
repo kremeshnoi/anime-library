@@ -3,7 +3,7 @@
   footer.main-footer
     footer-categories
     footer-main-info
-    footer-note
+    //- footer-note
 
 </template>
 

@@ -18,8 +18,8 @@
         info.manga__info(:infoData='mangaById')
 
       .manga__sub-content
-        //- characters.manga__characters(
-        //-   :charactersData='mangaCharactersById.characters')
+        characters.manga__characters(
+          :charactersData='mangaCharactersById.characters')
 
         related.manga__related(:relatedData='mangaById.related')
 
