@@ -1,15 +1,9 @@
 <template lang='pug'>
 
     .swiper-carousel(
-      @ready='show()'
-      ref='Swiper'
-      style='visibility: hidden'
       v-swiper='swiperOptions')
       .swiper-carousel__container.swiper-wrapper
         slot
-
-      .swiper-button-prev
-      .swiper-button-next
 
 </template>
 
@@ -23,11 +17,7 @@
         swiperOptions: {
           watchOverflow: true,
           centeredSlidesBounds: true,
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
-          },
-          spaceBetween: 10,
+          spaceBetween: 20,
           breakpoints: {
             320: {
               slidesPerView: 2
@@ -50,11 +40,6 @@
           }
         }
       };
-    },
-    methods: {
-      show() {
-        this.$refs.Swiper.style.visibility = 'initial';
-      }
     }
   };
 

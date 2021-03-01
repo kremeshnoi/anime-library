@@ -62,6 +62,7 @@ export const actions = {
   },
   computeRouteByGenre(ctx, { result, genre }) {
     try {
+      console.log(result)
       let type = result.type;
       const id = genre.id;
       const title = genre.title

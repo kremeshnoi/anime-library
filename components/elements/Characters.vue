@@ -1,11 +1,11 @@
 <template lang='pug'>
 
 	.manga-Characters
-		.manga-characters__wrapper(v-if='charactersData && charactersData.length')
+		.manga-characters__wrapper
 			.manga-characters__title
 				| Characters
 
-			.manga-characters__cards-container
+			.manga-characters__cards-container(v-if='charactersData && charactersData.length')
 				cards.manga-characters__card(
 					:key='dataIndex'
 					:cardsData="data"
@@ -15,8 +15,8 @@
 				a.manga-characters__link()
 					| More
 
-		h4.manga-characters__disaster(v-else)
-			| Not found
+			h4.manga-characters__disaster(v-else)
+				| Not found
 
 </template>
 
@@ -62,8 +62,8 @@
 
 		&__cards-container
 			display: grid
-			grid-gap: 10px
-			grid-template-columns: 150px 150px
+			grid-gap: 20px
+			grid-template-columns: 1fr 1fr
 			position: relative
 
 		&__link

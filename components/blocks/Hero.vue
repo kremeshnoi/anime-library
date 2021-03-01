@@ -30,12 +30,8 @@
 	@import '~/assets/styles/modules/containers'
 
 	.hero
-		height: 40vh
+		height: 34vh
 		user-select: none
-		+mq(tablet-small, max)
-			height: 30vh
-		+mq(tablet-small, max)
-			height: 40vh
 		&__container
 			@extend .container-default
 			height: 100%

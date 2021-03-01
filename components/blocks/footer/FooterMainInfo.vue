@@ -15,9 +15,9 @@
 
 			.footer-main-info__item
 				h5.footer-main-info__title.footer-main-info__subtitle
-					| Support the project
+					| Donation
 				a.footer-main-info__link.footer-main-info__link_support(href="https://www.patreon.com/otaku_library" target="_blank")
-					img.footer-main-info__support(src="@/assets/images/patreon.png")
+					img.footer-main-info__support(draggable="false" src="@/assets/images/patreon.png")
 
 			.footer-main-info__item
 				h5.footer-main-info__title
@@ -75,7 +75,6 @@
 
 		&__support
 			width: 100%
-			max-width: 200px
 
 		&__container
 			width: 100%
@@ -98,6 +97,8 @@
 			padding: 0 0 8px 0
 
 		&__subtitle
+			width: 100%
+			max-width: 218px
 			border-bottom: 1px solid rgba($color-orange, 0.6)
 
 		&__link
@@ -111,24 +112,24 @@
 				pointer-events: none
 			&_decor
 				margin: 16px 0 0 0
-				@extend .shadow-btn
 				@extend .hover-btn
 				@extend .focus-btn
+				@extend .shadow-btn
 
 		&__item
 			height: 100%
 			padding: 0 24px 0 0
+			+flex(center, flex-start, column)
 			justify-content: flex-start !important
 			border-right: 1px solid rgba(225, 225, 225, 0.2)
-			+flex(center, flex-start, column)
 			&:last-of-type
 				border: none
 			+mq(tablet, max)
-				border: none
 				padding: 0
+				border: none
 
 		&__description
-			margin: 8px 0 0 0
 			max-width: 300px
+			margin: 8px 0 0 0
 
 </style>

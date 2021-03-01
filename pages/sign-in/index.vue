@@ -76,13 +76,13 @@
           .sign-in-form__row.sign-in-form__social
             button.sign-in-form__google(@click='googleAuth')
               .sign-in-form__google-wrapper
-                img.sign-in-form__google-logo(src='~/assets/images/g-logo.png')
+                img.sign-in-form__google-logo(draggable="false" src='~/assets/images/g-logo.png')
                 .sign-in-form__google-title
                   | Google
 
             button.sign-in-form__twitter(@click='twitterAuth')
               .sign-in-form__twitter-wrapper
-                img.sign-in-form__twitter-logo(src='~/assets/images/t-logo.png')
+                img.sign-in-form__twitter-logo(draggable="false" src='~/assets/images/t-logo.png')
                 .sign-in-form__twitter-title
                   | Twitter
 

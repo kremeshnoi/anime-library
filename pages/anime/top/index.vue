@@ -49,7 +49,7 @@
     async asyncData() {
       const topAnimeResponse = await jikanjs.loadTop('anime', 1, 'favorite');
       return {
-        topAnime: topAnimeResponse.top,
+        topAnime: topAnimeResponse.top
       };
     },
     methods: {
@@ -65,7 +65,8 @@
           }
         });
       }
-    }
+    },
+    fetchDelay: 10000
   };
 
 </script>

@@ -1,0 +1,17 @@
+export const studios = [
+  { 'img': require('~/assets/images/studios/bones.png') },
+  { 'img': require('~/assets/images/studios/j-s-staff.png') },
+  { 'img': require('~/assets/images/studios/madhouse.png') },
+  { 'img': require('~/assets/images/studios/bones.png') },
+  { 'img': require('~/assets/images/studios/j-s-staff.png') },
+  { 'img': require('~/assets/images/studios/madhouse.png') },
+  { 'img': require('~/assets/images/studios/bones.png') },
+  { 'img': require('~/assets/images/studios/j-s-staff.png') },
+  { 'img': require('~/assets/images/studios/madhouse.png') },
+  { 'img': require('~/assets/images/studios/bones.png') },
+  { 'img': require('~/assets/images/studios/j-s-staff.png') },
+  { 'img': require('~/assets/images/studios/madhouse.png') },
+  { 'img': require('~/assets/images/studios/bones.png') },
+  { 'img': require('~/assets/images/studios/j-s-staff.png') },
+  { 'img': require('~/assets/images/studios/madhouse.png') },
+];

@@ -38,7 +38,7 @@
               td.library__td
                 | {{ index + 1 }}
               td.library__td
-                img.library__image(:src='data.image_url')
+                img.library__image(:draggable="false" src='data.image_url')
               td.library__td
                 a.library__link.library__link_title
                   | {{ data.title }}

@@ -8,7 +8,7 @@
           .divider-hidden
           | {{ characterById.name_kanji }}
         .character__cover-container
-          img.character__cover(:src='characterById.image_url')
+          img.character__cover(draggable="false" :src='characterById.image_url')
 
         .character__info.character-info
           h2.character-info__title
@@ -57,7 +57,7 @@
                 tbody.character-voice-actors__tbody
                   tr.character-voice-actors__tr
                     td.character-voice-actors__td
-                      img.character-voice-actors__photo(:src='value.image_url')
+                      img.character-voice-actors__photo(draggable="false" :src='value.image_url')
                       .character-voice-actors__info
                         .character-voice-actors__lang
                           | Language: {{ value.language }}
@@ -246,7 +246,7 @@
 		&__td
 			display: grid
 			grid-template-columns: 1fr 1fr
-			grid-gap: 10px
+			grid-gap: 20px
 		&__tabs
 			display: flex
 			flex-wrap: wrap

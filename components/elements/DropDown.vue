@@ -31,7 +31,7 @@
         @click='computeRoute(result)'
       )
         .cards__wrapper
-          img.cards__image(:src='result.image_url')
+          img.cards__image(draggable="false" :src='result.image_url')
 
           ul.cards__description
             li.cards__title

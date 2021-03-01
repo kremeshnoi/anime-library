@@ -1,0 +1,8 @@
+@import "../utils/vars"
+
+@keyframes scroll
+	0%
+		transform: translateX(0)
+
+	100%
+		transform: translateX(calc((var(--item-width) * -1) * (var(--item-count) / 2)))

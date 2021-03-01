@@ -8,7 +8,7 @@
           .divider-hidden
           | {{ mangaById.title_japanese }}
         .manga__cover-container
-          img.manga__cover(:src='mangaById.image_url')
+          img.manga__cover(draggable="false" :src='mangaById.image_url')
 
           select-options.manga__input-field(
             v-if='mangaById.type',

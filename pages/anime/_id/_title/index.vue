@@ -10,6 +10,7 @@
 
         .anime__cover-container
           img.anime__cover(
+            draggable="false"
             :src='animeById.image_url'
             )
 

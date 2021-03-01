@@ -11,7 +11,7 @@
         frameborder='0',
         allowfullscreen='true')
 
-      img.trailer__disaster(v-else, src='@/assets/images/not-found.jpg')
+      img.trailer__disaster(draggable="false" v-else, src='@/assets/images/not-found.jpg')
 
 </template>
 

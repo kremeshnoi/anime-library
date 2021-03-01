@@ -2,7 +2,7 @@
 
   .cards
     .cards__image-wrapper(@click='computeRoute(cardsData)')
-      img.cards__image(:src='cardsData.image_url')
+      img.cards__image(draggable="false" :src='cardsData.image_url')
 
       .cards__title-wrapper
         span.cards__title
@@ -35,7 +35,6 @@
 	.cards
 		width: 100%
 		box-shadow: none
-		margin: 0 0 10px 0
 		position: relative
 		&:hover
 			opacity: 0.8
@@ -64,7 +63,6 @@
 			text-align: center
 			background: rgb(0,0,0)
 			background: linear-gradient(0deg, rgba(0,0,0,0.6) 50%, rgba(0, 0, 0, 0.0) 100%)
-			box-shadow: 0 8px 7px -7px rgba(0, 0, 0, 1)
 			+flex(center,center, initial)
 
 </style>
