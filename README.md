@@ -3,7 +3,7 @@
 [![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=shield)](https://circleci.com/gh/kremeshnoi/otaku-library)
 ![Discord](https://img.shields.io/discord/718432544030195792?label=dicrord)
 
-<a href="https://otaku-library.one/" taget="_blank"><img src="https://i.imgur.com/FWsF1Ag.png" alt="otaku library"></a>
+<a href="https://otaku-library.one/" taget="_blank"><img src="https://i.imgur.com/TOCOAUh.png" alt="otaku library"></a>
 
 ## About
 This is a non-commercial project that plans to develop as a social network for anime and manga lovers
