@@ -10,72 +10,62 @@
 
         .anime__cover-container
           img.anime__cover(
-            draggable="false"
-            :src='animeById.image_url'
-            )
+            :src='animeById.image_url')
 
           select-options.anime__input-field(
             v-if='animeById.type',
             :type='animeById.type',
-            :wholeResult='animeById'
-          )
+            :wholeResult='animeById')
 
         info.anime__info(
-          :infoData='animeById'
-          )
+          :infoData='animeById')
 
       .anime__sub-content
         trailer.anime__trailer(
-          :trailerData='animeById.trailer_url'
-          )
+          :trailerData='animeById.trailer_url')
 
         related.anime__related(
-          :relatedData='animeById.related'
-          )
+          :wholeData='animeById'
+          :relatedData='animeById.related')
 
       description.anime__description(
-        :descriptionData='animeById.synopsis'
-        )
+        :descriptionData='animeById.synopsis')
 
       recommendations.anime__recommendations(
-        :recommendationsData='animeRecommendationsById.recommendations'
-        )
+        :recommendationsData='animeRecommendationsById.recommendations')
 
 </template>
 
 <script>
 
   import jikanjs from 'jikanjs/lib/jikan';
-  import SelectOptions from '@/components/elements/SelectOptions';
+  import Info from '@/components/elements/Info';
   import Related from '@/components/elements/Related';
   import Trailer from '@/components/elements/Trailer';
   import Description from '@/components/elements/Description';
-  import Info from '@/components/elements/Info';
-  import Recommendations from '@/components/elements/Recommendations';
   import layoutMiddleware from '@/middleware/layoutMiddleware';
+  import SelectOptions from '@/components/elements/SelectOptions';
+  import Recommendations from '@/components/elements/Recommendations';
 
   export default {
     name: 'Anime',
     metaInfo() {
       return {
-        title: `Anime - ${ this.animeById.title }`,
-      };
+        title: `Anime - ${ this.animeById.title }`
+      }
     },
     layout: layoutMiddleware,
     components: {
       Info,
-      Description,
       Related,
       Trailer,
+      Description,
       SelectOptions,
-      Recommendations,
+      Recommendations
     },
     async asyncData({ params }) {
       const animeByIdResponse = await jikanjs.loadAnime(params.id);
-      const animeRecommendationsByIdResponse = await jikanjs.loadAnime(
-        params.id,
-        'recommendations'
-      );
+      const animeRecommendationsByIdResponse = await jikanjs.loadAnime(params.id, 'recommendations');
       return {
         animeById: animeByIdResponse,
         animeRecommendationsById: animeRecommendationsByIdResponse,
@@ -143,6 +133,7 @@
       display: grid
       justify-content: flex-start
       row-gap: 20px
+      grid-template-rows: min-content
 
     &__title
       font-size: 20px

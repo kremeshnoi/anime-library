@@ -1,138 +1,138 @@
 <template lang='pug'>
 
-  .library
-    .library__container
-      ul.library__tabs.library__tabs_main
-        li.library__tab.tab(v-for='(tab, index) in typeTabs', :key='index')
-          a.library__tab-item.library__tab-item_main(
-            @click='toogleTab(tab.title, "planned")',
-            :class='{ active: $route.params.type === tab.title }'
-          )
-            | {{ tab.title }}
+	.library
+		.library__container
+			ul.library__tabs.library__tabs_main
+				li.library__tab.tab(v-for='(tab, index) in typeTabs', :key='index')
+					a.library__tab-item.library__tab-item_main(
+						@click='toogleTab(tab.title, "planned")',
+						:class='{ active: $route.params.type === tab.title }'
+					)
+						| {{ tab.title }}
 
-      .library__anime
-        ul.library__tabs
-          li.library__tab.tab(v-for='(tab, index) in tabs', :key='index')
-            a.library__tab-item(
-              @click='toogleTab(tab.type, tab.status)',
-              :class='{ active: $route.params.status === tab.status }'
-            )
-              | {{ tab.title }}
+			.library__anime
+				ul.library__tabs
+					li.library__tab.tab(v-for='(tab, index) in tabs', :key='index')
+						a.library__tab-item(
+							@click='toogleTab(tab.type, tab.status)',
+							:class='{ active: $route.params.status === tab.status }'
+						)
+							| {{ tab.title }}
 
-        table.library__table
-          thead.library__thead
-            tr.library__tr
-              th.library__th
-                | #
-              th.library__th
-                | Image
-              th.library__th
-                | Title
-              th.library__th
-                | Type
-              th.library__th
-                | Delete
+				table.library__table
+					thead.library__thead
+						tr.library__tr
+							th.library__th
+								| #
+							th.library__th
+								| Image
+							th.library__th
+								| Title
+							th.library__th
+								| Type
+							th.library__th
+								| Delete
 
-          tbody.library__tbody
-            tr.library__tr(v-for='(data, index) in buffer', :key='index')
-              td.library__td
-                | {{ index + 1 }}
-              td.library__td
-                img.library__image(:draggable="false" src='data.image_url')
-              td.library__td
-                a.library__link.library__link_title
-                  | {{ data.title }}
-              td.library__td
-                | {{ data.type }}
-              td.library__td
-                i.library__icon.material-icons(
-                  @click='removeValue($route.params.type, data.mal_id)'
-                ) clear
+					tbody.library__tbody
+						tr.library__tr(v-for='(data, index) in buffer', :key='index')
+							td.library__td
+								| {{ index + 1 }}
+							td.library__td
+								img.library__image(:draggable="false" src='data.image_url')
+							td.library__td
+								a.library__link.library__link_title
+									| {{ data.title }}
+							td.library__td
+								| {{ data.type }}
+							td.library__td
+								i.library__icon.material-icons(
+									@click='removeValue($route.params.type, data.mal_id)'
+								) clear
 
 </template>
 
 <script>
 
-  import firebase from 'firebase/app';
-  import jikanjs from 'jikanjs/lib/jikan.js';
-  import layoutMiddleware from '@/middleware/layoutMiddleware';
+	import firebase from 'firebase/app';
+	import jikanjs from 'jikanjs/lib/jikan.js';
+	import layoutMiddleware from '@/middleware/layoutMiddleware';
 
-  export default {
-    name: 'Library',
-    metaInfo: {
-      title: 'Otaku Library - Library',
-    },
-    layout: layoutMiddleware,
-    data() {
-      return {
-        buffer: [],
-        tabs: [],
-        typeTabs: [{ title: 'anime' }, { title: 'manga' }],
-        animeTabs: [
-          { title: 'Plan to Watch', status: 'planned', type: 'anime' },
-          { title: 'Completed', status: 'completed', type: 'anime' },
-          { title: 'Currently Watching', status: 'process', type: 'anime' },
-          { title: 'On Hold', status: 'hold', type: 'anime' },
-          { title: 'Dropped', status: 'dropped', type: 'anime' },
-        ],
-        mangaTabs: [
-          { title: 'Plan to Read', status: 'planned', type: 'manga' },
-          { title: 'Completed', status: 'completed', type: 'manga' },
-          { title: 'Currently Reading', status: 'process', type: 'manga' },
-          { title: 'On Hold', status: 'hold', type: 'manga' },
-          { title: 'Dropped', status: 'dropped', type: 'manga' },
-        ],
-      };
-    },
-    async created() {
-      this.fetchData(this.$route.params.type, this.$route.params.status);
-      if (this.$route.params.type === 'anime') this.tabs = this.animeTabs;
-      else if (this.$route.params.type === 'manga') this.tabs = this.mangaTabs;
-    },
-    methods: {
-      getUid() {
-        const user = firebase.auth().currentUser;
-        return user ? user.uid : null;
-      },
-      toogleTab(type, status) {
-        this.$router.push(`/library/${type}/${status}`);
-        if (type === 'anime') this.animeTabBuffer = status;
-        else if (type === 'manga') this.mangaTabBuffer = status;
-      },
-      async fetchData(type, status) {
-        try {
-          const uid = this.getUid();
-          const res = await firebase
-            .database()
-            .ref(`/users/${uid}/`)
+	export default {
+		name: 'Library',
+		metaInfo: {
+			title: 'Otaku Library - Library',
+		},
+		layout: layoutMiddleware,
+		data() {
+			return {
+				buffer: [],
+				tabs: [],
+				typeTabs: [{ title: 'anime' }, { title: 'manga' }],
+				animeTabs: [
+					{ title: 'Plan to Watch', status: 'planned', type: 'anime' },
+					{ title: 'Completed', status: 'completed', type: 'anime' },
+					{ title: 'Currently Watching', status: 'process', type: 'anime' },
+					{ title: 'On Hold', status: 'hold', type: 'anime' },
+					{ title: 'Dropped', status: 'dropped', type: 'anime' },
+				],
+				mangaTabs: [
+					{ title: 'Plan to Read', status: 'planned', type: 'manga' },
+					{ title: 'Completed', status: 'completed', type: 'manga' },
+					{ title: 'Currently Reading', status: 'process', type: 'manga' },
+					{ title: 'On Hold', status: 'hold', type: 'manga' },
+					{ title: 'Dropped', status: 'dropped', type: 'manga' },
+				],
+			};
+		},
+		async created() {
+			this.fetchData(this.$route.params.type, this.$route.params.status);
+			if (this.$route.params.type === 'anime') this.tabs = this.animeTabs;
+			else if (this.$route.params.type === 'manga') this.tabs = this.mangaTabs;
+		},
+		methods: {
+			getUid() {
+				const user = firebase.auth().currentUser;
+				return user ? user.uid : null;
+			},
+			toogleTab(type, status) {
+				this.$router.push(`/library/${type}/${status}`);
+				if (type === 'anime') this.animeTabBuffer = status;
+				else if (type === 'manga') this.mangaTabBuffer = status;
+			},
+			async fetchData(type, status) {
+				try {
+					const uid = this.getUid();
+					const res = await firebase
+						.database()
+						.ref(`/users/${uid}/`)
 
-            .on('value', (data) => {
-              const obj = Object.entries(data.val()[`${type}`])
-                .filter((d) => d[1].status === status)
-                .map((d) =>
-                  type === 'anime'
-                    ? jikanjs.loadAnime(d[0])
-                    : jikanjs.loadManga(d[0])
-                );
+						.on('value', (data) => {
+							const obj = Object.entries(data.val()[`${type}`])
+								.filter((d) => d[1].status === status)
+								.map((d) =>
+									type === 'anime'
+										? jikanjs.loadAnime(d[0])
+										: jikanjs.loadManga(d[0])
+								);
 
-              Promise.all(obj).then((values) => (this.buffer = values));
-            });
-        } catch (error) {
-          throw error.message;
-        }
-      },
-      async removeValue(type, id) {
-        try {
-          const uid = this.getUid();
-          await firebase.database().ref(`/users/${uid}/${type}/${id}/`).set({
-            status: false,
-          });
-        } catch (error) {
-          throw error.message;
-        }
-      }
-    }
-  };
+							Promise.all(obj).then((values) => (this.buffer = values));
+						});
+				} catch (error) {
+					throw error.message;
+				}
+			},
+			async removeValue(type, id) {
+				try {
+					const uid = this.getUid();
+					await firebase.database().ref(`/users/${uid}/${type}/${id}/`).set({
+						status: false,
+					});
+				} catch (error) {
+					throw error.message;
+				}
+			}
+		}
+	};
 
 </script>
 
@@ -190,15 +190,15 @@
 				margin: 0 0 14px 0
 		&__tab-item
 			display: block
-			text-align: start
-			padding: 0 !important
-			margin: 0 40px 0 0
-			height: initial !important
-			line-height: initial
-			color: $color-blue-light !important
-			text-align: center
 			font-weight: 600
+			text-align: start
 			line-height: 34px
+			margin: 0 40px 0 0
+			text-align: center
+			line-height: initial
+			padding: 0 !important
+			height: initial !important
+			color: $color-blue-light !important
 			+mq(phone-wide, max)
 				margin: 0 0 0 0
 			&:focus

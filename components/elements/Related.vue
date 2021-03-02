@@ -29,8 +29,7 @@
               :key='dataIndex'
             )
               a.related__link.related__link_more.modal-trigger(
-                href='#related',
-                @click='transferData()',
+                @click='computeRouteByRelated({ wholeData, name })',
                 v-if='value.length >= 2'
               )
                 | More
@@ -42,24 +41,6 @@
       h4.related__disaster(v-if='relatedLength === 0')
         | Not found
 
-    #related.related-modal.modal
-      .related-modal__content.modal-content
-        .related__item(
-          v-for='(value, name) in buffer',
-          :key='name'
-          )
-          table.related__table.striped
-            tbody.related__tbody
-              tr.related__tr(
-                v-for='(data, dataIndex) in value',
-                :key='dataIndex'
-                )
-                td.related__td
-                  a.related__link.related__link_modal.modal-close(
-                    @click='computeRoute(data)'
-                  )
-                    | {{ data.name }}
-
 </template>
 
 <script>
@@ -68,12 +49,7 @@
 
   export default {
     name: 'Related',
-    props: ['relatedData'],
-    data() {
-      return {
-        buffer: []
-      };
-    },
+    props: ['wholeData', 'relatedData'],
     computed: {
       relatedLength() {
         if (typeof this.relatedData === 'object') {
@@ -85,27 +61,8 @@
     methods: {
       ...mapActions({
         computeRoute: 'computeRoute',
-      }),
-      transferData() {
-        this.buffer = [];
-        let related_item = document.querySelectorAll('.related__tab-item');
-        related_item.forEach(function (item) {
-          if (item.classList.contains('active')) {
-            related_item = item;
-          }
-        });
-
-        let obj = Object.values(this.relatedData);
-
-        var size = 0,
-          key;
-        for (key in this.relatedData) {
-          if (this.relatedData.hasOwnProperty(key)) size++;
-          if (key === related_item.text) {
-            this.buffer.push(this.relatedData[key]);
-          }
-        }
-      }
+        computeRouteByRelated: 'computeRouteByRelated'
+      })
     }
   };
 
@@ -168,8 +125,5 @@
         right: 0
         width: auto
         bottom: -30px
-      &_modal
-        max-width: initial
-        text-overflow: initial
 
 </style>

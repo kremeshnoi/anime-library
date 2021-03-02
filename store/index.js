@@ -20,7 +20,7 @@ export const actions = {
       else type = 'anime';
 
       await this.$fire.database
-        .ref(`/users/${uid}/${type}/${id}/`)
+        .ref(`/users/${ uid }/${ type }/${ id }/`)
         .set({ status });
 
       M.toast({ html: 'Added to the library', classes: 'green', displayLength: 10000 });
@@ -54,7 +54,7 @@ export const actions = {
       else if (type === 'Doujinshi') type = 'manga';
       else if (type !== 'Manga' && type !== 'manga') type = 'anime';
 
-      $nuxt.$router.push({ name: `${type}` + '-id-title', params: { id, title } });
+      $nuxt.$router.push({ name: `${ type }` + '-id-title', params: { id, title } });
 
     } catch (error) {
       throw error.message;
@@ -62,7 +62,6 @@ export const actions = {
   },
   computeRouteByGenre(ctx, { result, genre }) {
     try {
-      console.log(result)
       let type = result.type;
       const id = genre.id;
       const title = genre.title
@@ -81,8 +80,45 @@ export const actions = {
           break;
       }
 
-      $nuxt.$router.push({ name: `${type}` + '-id-title', params: { id, title } });
+      $nuxt.$router.push({ name: `${ type }` + '-id-title', params: { id, title } });
 
+    } catch (error) {
+      throw error.message;
+    }
+  },
+  computeRouteByRelated(ctx, { wholeData, name }) {
+    try {
+      let type = wholeData.type;
+      const id = wholeData.mal_id;
+      const title = wholeData.url
+        .split('/')
+        .splice(-1, 1)[0]
+        .toLowerCase()
+        .split('_')
+        .join('-');
+
+      const related = name
+      .split('/')
+      .splice(-1, 1)[0]
+      .toLowerCase()
+      .split(' ')
+      .join('-');
+
+      if (type === undefined) {
+        if (wholeData.role || wholeData.name_kanji) type = 'characters';
+        else if ($nuxt.$router.app.$route.name === 'anime-id-title') type = 'anime';
+        else if ($nuxt.$router.app.$route.name === 'manga-id-title') type = 'manga';
+      }
+
+      else if (type === 'manga') type = 'manga';
+      else if (type === 'Manga') type = 'manga';
+      else if (type === 'Novel') type = 'manga';
+      else if (type === 'Manhwa') type = 'manga';
+      else if (type === 'One-shot') type = 'manga';
+      else if (type === 'Doujinshi') type = 'manga';
+      else if (type !== 'Manga' && type !== 'manga') type = 'anime';
+
+      $nuxt.$router.push({ name: `${ type }` + '-id-title-related', params: { id, title, related, name } });
     } catch (error) {
       throw error.message;
     }

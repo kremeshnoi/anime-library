@@ -28,7 +28,7 @@
 	import QueryContent from '@/components/elements/QueryContent';
 
 	export default {
-		name: 'AnimeGenre',
+		name: 'AnimeGenres',
 		metaInfo: {
 			title: 'Otaku Library - Explore anime genres',
 		},
@@ -40,10 +40,10 @@
 		computed: {
 			animeGenres() {
 				return {
-					data: anime,
-					type: 'anime',
-					title: 'Anime',
-					link: "anime/genres"
+						data: anime,
+						type: 'anime',
+						title: 'Anime',
+						link: "anime/genres"
 				}
 			}
 		},
@@ -115,11 +115,5 @@
 				justify-content: center
 				flex-direction: initial
 				background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0) 100%)
-
-			&__anime, &__manga
-				display: grid
-				column-gap: 20px
-				grid-template-columns: 1fr 1fr
-
 
 </style>
