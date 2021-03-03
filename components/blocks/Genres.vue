@@ -3,17 +3,18 @@
 	.genres
 		.genres__content
 			.genres__wrapper(
-				v-for='(result, resultIndex) in genres',
+				v-for='(genresResult, resultIndex) in genres',
 				:key='resultIndex')
-				router-link.genres__title(:to='result.link')
-					| {{ result.title }} Genres
+				router-link.genres__title(:to='genresResult.link')
+					| {{ genresResult.title }} Genres
 					.top-airing-anime__icon.material-icons keyboard_arrow_right
 
 				.genres__anime
 					a.genres__item(
-						v-for='(genre, genreIndex) in result.data',
-						:key='genreIndex',
-						@click='computeRouteByGenre({ result, genre })')
+						:key='genreIndex'
+						v-for='(genre, genreIndex) in genresResult.data'
+						@click='computeRouteByGenre({ genresResult, genre })'
+						@click.middle='computeRouteByGenre({ genresResult, genre, clickType })')
 						img.genres__item-image(draggable="false" :src='genre.img')
 
 						.genres__title-wrapper
@@ -29,6 +30,11 @@
 
 	export default {
 		name: 'Genres',
+		data() {
+			return {
+				clickType: "middle"
+			}
+		},
 		computed: {
 			genres() {
 				return {

@@ -9,12 +9,12 @@
         cards(
           v-for='(character) in favoriteCharacters',
           :key='character.name',
-          :cardsData='character')
+          :resultItem='character')
 
         cards(
           v-for='(character) in list',
           :key='character.name',
-          :cardsData='character')
+          :resultItem='character')
 
         infinite-loading(@infinite='infiniteHandler')
 

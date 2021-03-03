@@ -24,13 +24,16 @@
             table.related__table.striped
               tbody.related__tbody
                 tr.related__tr(
-                  v-for='(data, dataIndex) in mangaById.related[`${ relateName }`]',
+                  v-for='(resultItem, dataIndex) in mangaById.related[`${ relateName }`]',
                   :key='dataIndex'
                 )
 
                   td.related__td
-                    a.related__link(@click='computeRoute(data)')
-                      | {{ data.name }}
+                    a.related__link(
+                      @click='computeRoute({ resultItem })'
+                      @click.middle='computeRoute({ resultItem, clickType })'
+                      )
+                      | {{ resultItem.name }}
 
 </template>
 
@@ -51,6 +54,11 @@
     layout: layoutMiddleware,
     components: {
       Info
+    },
+    data() {
+      return {
+        clickType: "middle"
+      }
     },
     computed: {
       relateName() {

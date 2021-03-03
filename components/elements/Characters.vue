@@ -8,7 +8,7 @@
 			.manga-characters__cards-container(v-if='charactersData && charactersData.length')
 				cards.manga-characters__card(
 					:key='dataIndex'
-					:cardsData="data"
+					:resultItem="data"
 					v-for='(data, dataIndex) in charactersData.slice(0, 2)',
 					)
 

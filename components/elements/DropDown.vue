@@ -26,36 +26,36 @@
 
       .cards(
         v-if='!loaderData',
-        v-for='(result, resultIndex) in searchedData',
         :key='resultIndex',
-        @click='computeRoute(result)'
-      )
+        @click='computeRoute({ resultItem })'
+        v-for='(resultItem, resultIndex) in searchedData',
+        @click.middle='computeRoute({ resultItem, clickType })')
         .cards__wrapper
-          img.cards__image(draggable="false" :src='result.image_url')
+          img.cards__image(draggable="false" :src='resultItem.image_url')
 
           ul.cards__description
             li.cards__title
-              | {{ result.title }}
+              | {{ resultItem.title }}
 
             li.cards__value
               span.info__list-key
                 | Type:
               | &nbsp;
-              span.info__list-value(v-if='result.type && result.start_date')
-                | {{ result.type }} / {{ result.start_date.substring(0, 4) }}
+              span.info__list-value(v-if='resultItem.type && resultItem.start_date')
+                | {{ resultItem.type }} / {{ resultItem.start_date.substring(0, 4) }}
 
-              span.info__list-value(v-else-if='result.type')
-                | {{ result.type }} / Unknown
+              span.info__list-value(v-else-if='resultItem.type')
+                | {{ resultItem.type }} / Unknown
 
               span.info__list-value(v-else)
-                | {{ result.type }}
+                | {{ resultItem.type }}
 
             li.cards__value
               span.info__list-key
                 | Score:
               | &nbsp;
-              span.info__list-value(v-if='result.score')
-                | {{ result.score }}
+              span.info__list-value(v-if='resultItem.score')
+                | {{ resultItem.score }}
 
               span.info__list-value(v-else)
                 | Uknown
@@ -71,6 +71,11 @@
   export default {
     name: 'DropDown',
     props: ['searchedData', 'loaderData', 'type'],
+    data() {
+      return {
+        clickType: "middle"
+      }
+    },
     computed: {
       activeEl: {
         set() {},

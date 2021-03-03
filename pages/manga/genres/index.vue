@@ -7,9 +7,10 @@
 
 			query-content
 				a.genres__item(
-					v-for='(genre, genreIndex) in mangaGenres.data',
+					v-for='(genre, genreIndex) in genresResult.data',
 					:key='genreIndex',
-					@click='computeRouteByGenre({ mangaGenres, genre })')
+					@click='computeRouteByGenre({ genresResult, genre })'
+					@click.middle='computeRouteByGenre({ genresResult, genre, clickType })')
 					img.genres__item-image(
 						draggable="false" :src='genre.img')
 
@@ -37,8 +38,13 @@
 			Cards,
 			QueryContent
 		},
+		data() {
+			return {
+				clickType: "middle"
+			}
+		},
 		computed: {
-			mangaGenres() {
+			genresResult() {
 				return {
 						data: manga,
 						type: 'manga',

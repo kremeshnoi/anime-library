@@ -11,14 +11,16 @@
 
           .footer-categories-item__icon.material-icons keyboard_arrow_right
         .footer-categories-item__content(
-          v-for='(item, itemIndex) in category.data',
+          v-for='(resultItem, itemIndex) in category.data',
           :key='itemIndex'
         )
           p.footer-categories-item__digit
             | {{ itemIndex + 1 }}
 
-          a.footer-categories-item__link(@click='computeRoute(item)')
-            | {{ item.title }}
+          a.footer-categories-item__link(
+            @click='computeRoute({ resultItem })'
+            @click.middle='computeRoute({ resultItem, clickType })')
+            | {{ resultItem.title }}
 
 </template>
 
@@ -28,6 +30,11 @@
 
   export default {
     name: 'FooterCategories',
+    data() {
+      return {
+        clickType: "middle"
+      }
+    },
     computed: {
       ...mapGetters({
         getAnimeFavoriteCategories: 'anime/getAnimeFavoriteCategories',

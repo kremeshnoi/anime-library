@@ -1,28 +1,35 @@
 <template lang='pug'>
 
-  .cards
-    .cards__image-wrapper(@click='computeRoute(cardsData)')
-      img.cards__image(draggable="false" :src='cardsData.image_url')
+	.cards
+		.cards__image-wrapper(
+			@click='computeRoute({ resultItem })'
+			@click.middle='computeRoute({ resultItem, clickType })')
+			img.cards__image(draggable="false" :src='resultItem.image_url')
 
-      .cards__title-wrapper
-        span.cards__title
-          | {{ cardsData.title || cardsData.name }}
+			.cards__title-wrapper
+				span.cards__title
+					| {{ resultItem.title || resultItem.name }}
 
 </template>
 
 <script>
 
-  import { mapActions } from 'vuex';
+	import { mapActions } from 'vuex';
 
-  export default {
-    name: 'Cards',
-    props: ['cardsData'],
-    methods: {
-      ...mapActions({
-        computeRoute: 'computeRoute',
-      })
+	export default {
+		name: 'Cards',
+		props: ['resultItem'],
+		data() {
+			return {
+				clickType: "middle"
+			}
+		},
+		methods: {
+			...mapActions({
+				computeRoute: 'computeRoute',
+			})
 		}
-  };
+	};
 
 </script>
 

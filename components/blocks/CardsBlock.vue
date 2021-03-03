@@ -9,7 +9,7 @@
       swiper-carousel
         cards.swiper-slide(v-for='(data, dataIndex) in cardsBlockData.data.slice(0, 7)',
         :key='dataIndex',
-        :cardsData='data')
+        :resultItem='data')
 
 </template>
 

@@ -25,18 +25,20 @@
         table.related__table.striped
           tbody.related__tbody
             tr.related__tr(
-              v-for='(data, dataIndex) in value.slice(0, 1)',
+              v-for='(resultItem, dataIndex) in value.slice(0, 1)',
               :key='dataIndex'
             )
               a.related__link.related__link_more.modal-trigger(
+                v-if='value.length >= 2',
                 @click='computeRouteByRelated({ wholeData, name })',
-                v-if='value.length >= 2'
-              )
+                @click.middle='computeRouteByRelated({ wholeData, name, clickType })')
                 | More
 
               td.related__td
-                a.related__link(@click='computeRoute(data)')
-                  | {{ data.name }}
+                a.related__link(
+                  @click='computeRoute({ resultItem })'
+                  @click.middle='computeRoute({ resultItem, clickType })')
+                  | {{ resultItem.name }}
 
       h4.related__disaster(v-if='relatedLength === 0')
         | Not found
@@ -50,6 +52,11 @@
   export default {
     name: 'Related',
     props: ['wholeData', 'relatedData'],
+    data() {
+      return {
+        clickType: "middle"
+      }
+    },
     computed: {
       relatedLength() {
         if (typeof this.relatedData === 'object') {

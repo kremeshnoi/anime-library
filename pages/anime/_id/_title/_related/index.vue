@@ -24,13 +24,15 @@
             table.related__table.striped
               tbody.related__tbody
                 tr.related__tr(
-                  v-for='(data, dataIndex) in animeById.related[`${ relateName }`]',
+                  v-for='(resultItem, dataIndex) in animeById.related[`${ relateName }`]',
                   :key='dataIndex'
                 )
 
                   td.related__td
-                    a.related__link(@click='computeRoute(data)')
-                      | {{ data.name }}
+                    a.related__link(
+                      @click='computeRoute({ resultItem })'
+                      @click.middle='computeRoute({ resultItem, clickType })')
+                      | {{ resultItem.name }}
 
 </template>
 
@@ -52,6 +54,11 @@
     components: {
       Info
     },
+    data() {
+      return {
+        clickType: "middle"
+      }
+    },
     computed: {
       relateName() {
         return this.$nuxt.$route.params.name
@@ -69,7 +76,7 @@
       ...mapActions({
         computeRoute: 'computeRoute'
       })
-    },
+    }
   };
 
 </script>

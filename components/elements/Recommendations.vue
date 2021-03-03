@@ -9,7 +9,7 @@
         cards.swiper-slide(
           v-for='(recommendation, recommendationIndex) in recommendationsData',
           :key='recommendationIndex',
-          :cardsData='recommendation'
+          :resultItem='recommendation'
         )
 
       h4.recommendations__disaster(v-else)

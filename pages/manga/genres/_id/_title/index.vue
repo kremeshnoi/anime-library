@@ -10,12 +10,12 @@
         cards(
           v-for='(manga) in mangaGenre.manga',
           :key='manga.mal_id',
-          :cardsData='manga')
+          :resultItem='manga')
 
         cards(
           v-for='(manga) in list',
           :key='manga.mal_id',
-          :cardsData='manga')
+          :resultItem='manga')
 
         infinite-loading(@infinite='infiniteHandler')
 

@@ -9,12 +9,12 @@
         cards(
           v-for='(anime) in topAnime',
           :key='anime.mal_id',
-          :cardsData='anime')
+          :resultItem='anime')
 
         cards(
           v-for='(anime) in list',
           :key='anime.mal_id',
-          :cardsData='anime')
+          :resultItem='anime')
 
         infinite-loading(@infinite='infiniteHandler')
 

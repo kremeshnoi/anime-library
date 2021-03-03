@@ -71,12 +71,14 @@
 							table.mangaography__table
 								tbody.mangaography__tbody
 									tr.mangaography__tr(
-										v-for='(data, dataIndex) in characterById.mangaography.slice(0, 1)',
+										v-for='(resultItem, dataIndex) in characterById.mangaography.slice(0, 1)',
 										:key='dataIndex')
 
 										td.mangaography__td
-											a.mangaography__link(@click='computeRoute(data)')
-												| {{ data.name }}
+											a.mangaography__link(
+												@click='computeRoute({ resultItem })'
+												@click.middle='computeRoute({ resultItem, clickType })')
+												| {{ resultItem.name }}
 
 				.animeography
 					.animeography__title
@@ -86,12 +88,14 @@
 							table.animeography__table
 								tbody.animeography__tbody
 									tr.animeography__tr(
-										v-for='(data, dataIndex) in characterById.animeography.slice(0, 1)',
+										v-for='(resultItem, dataIndex) in characterById.animeography.slice(0, 1)',
 										:key='dataIndex')
 
 										td.animeography__td
-											a.animeography__link(@click='computeRoute(data)')
-												| {{ data.name }}
+											a.animeography__link(
+												@click='computeRoute({ resultItem })'
+												@click.middle='computeRoute({ resultItem, clickType })')
+												| {{ resultItem.name }}
 
 		#character-info-modal.character-modal.modal
 			.character-modal__content.modal-content
@@ -122,7 +126,8 @@
 		},
 		data() {
 			return {
-				aboutCharacterData: [],
+				clickType: "middle",
+				aboutCharacterData: []
 			};
 		},
 		async asyncData({ params }) {

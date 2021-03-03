@@ -29,11 +29,11 @@ export const actions = {
       throw error.message;
     }
   },
-  computeRoute(ctx, result) {
+  computeRoute(ctx, { resultItem, clickType }) {
     try {
-      let type = result.type;
-      const id = result.mal_id;
-      const title = result.url
+      let type = resultItem.type;
+      const id = resultItem.mal_id;
+      const title = resultItem.url
         .split('/')
         .splice(-1, 1)[0]
         .toLowerCase()
@@ -41,7 +41,7 @@ export const actions = {
         .join('-');
 
       if (type === undefined) {
-        if (result.role || result.name_kanji) type = 'characters';
+        if (resultItem.role || resultItem.name_kanji) type = 'characters';
         else if ($nuxt.$router.app.$route.name === 'anime-id-title') type = 'anime';
         else if ($nuxt.$router.app.$route.name === 'manga-id-title') type = 'manga';
       }
@@ -54,15 +54,20 @@ export const actions = {
       else if (type === 'Doujinshi') type = 'manga';
       else if (type !== 'Manga' && type !== 'manga') type = 'anime';
 
-      $nuxt.$router.push({ name: `${ type }` + '-id-title', params: { id, title } });
+      if (clickType) {
+        const routeData = $nuxt.$router.resolve({ name: `${ type }` + '-id-title', params: { id, title } });
+        window.open(routeData.href, '_blank');
+      } else {
+        $nuxt.$router.push({ name: `${ type }` + '-id-title', params: { id, title } });
+      }
 
     } catch (error) {
       throw error.message;
     }
   },
-  computeRouteByGenre(ctx, { result, genre }) {
+  computeRouteByGenre(ctx, { genresResult, genre, clickType }) {
     try {
-      let type = result.type;
+      let type = genresResult.type;
       const id = genre.id;
       const title = genre.title
         .split('/')
@@ -80,13 +85,18 @@ export const actions = {
           break;
       }
 
-      $nuxt.$router.push({ name: `${ type }` + '-id-title', params: { id, title } });
+      if (clickType) {
+        const routeData = $nuxt.$router.resolve({ name: `${ type }` + '-id-title', params: { id, title } });
+        window.open(routeData.href, '_blank');
+      } else {
+        $nuxt.$router.push({ name: `${ type }` + '-id-title', params: { id, title } });
+      }
 
     } catch (error) {
       throw error.message;
     }
   },
-  computeRouteByRelated(ctx, { wholeData, name }) {
+  computeRouteByRelated(ctx, { wholeData, name, clickType }) {
     try {
       let type = wholeData.type;
       const id = wholeData.mal_id;
@@ -118,7 +128,13 @@ export const actions = {
       else if (type === 'Doujinshi') type = 'manga';
       else if (type !== 'Manga' && type !== 'manga') type = 'anime';
 
-      $nuxt.$router.push({ name: `${ type }` + '-id-title-related', params: { id, title, related, name } });
+      if (clickType) {
+        const routeData = $nuxt.$router.resolve({ name: `${ type }` + '-id-title-related', params: { id, title, related, name } });
+        window.open(routeData.href, '_blank');
+      } else {
+        $nuxt.$router.push({ name: `${ type }` + '-id-title-related', params: { id, title, related, name } });
+      }
+
     } catch (error) {
       throw error.message;
     }
