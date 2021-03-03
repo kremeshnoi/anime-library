@@ -1,4 +1,4 @@
-<template lang='pug'>
+<template lang="pug">
 
   .anime-by-popularity
     .anime-by-popularity__container
@@ -7,32 +7,32 @@
 
       query-content
         cards(
-          v-for='(anime) in animeUpcoming',
-          :key='anime.mal_id',
-          :resultItem='anime')
+          v-for="(anime) in animeUpcoming",
+          :key="anime.mal_id",
+          :resultItem="anime")
 
         cards(
-          v-for='(anime) in list',
-          :key='anime.mal_id',
-          :resultItem='anime')
+          v-for="(anime) in list",
+          :key="anime.mal_id",
+          :resultItem="anime")
 
-        infinite-loading(@infinite='infiniteHandler')
+        infinite-loading(@infinite="infiniteHandler")
 
 </template>
 
 <script>
 
-  import axios from 'axios'
-  import jikanjs from 'jikanjs/lib/jikan'
-  import Cards from '@/components/elements/Cards'
-  import InfiniteLoading from 'vue-infinite-loading'
-  import layoutMiddleware from '@/middleware/layoutMiddleware'
-  import QueryContent from '@/components/elements/QueryContent'
+  import axios from "axios"
+  import jikanjs from "jikanjs/lib/jikan"
+  import Cards from "@/components/elements/Cards"
+  import InfiniteLoading from "vue-infinite-loading"
+  import layoutMiddleware from "@/middleware/layoutMiddleware"
+  import QueryContent from "@/components/elements/QueryContent"
 
   export default {
-    name: 'AnimeUpcoming',
+    name: "AnimeUpcoming",
     metaInfo: {
-      title: 'Otaku Library - Upcoming anime',
+      title: "Otaku Library - Upcoming anime",
     },
     layout: layoutMiddleware,
     components: {
@@ -47,7 +47,7 @@
       }
     },
     async asyncData() {
-      const animeUpcomingResponse = await jikanjs.loadTop('anime', 1, 'upcoming')
+      const animeUpcomingResponse = await jikanjs.loadTop("anime", 1, "upcoming")
       return {
         animeUpcoming: animeUpcomingResponse.top
       }
@@ -70,12 +70,12 @@
 
 </script>
 
-<style lang='sass' scoped>
+<style lang="sass" scoped>
 
-	@import '~/assets/styles/utils/vars'
-	@import '~/assets/styles/utils/mixins'
-	@import '~/assets/styles/modules/titles'
-	@import '~/assets/styles/modules/containers'
+	@import "~/assets/styles/utils/vars"
+	@import "~/assets/styles/utils/mixins"
+	@import "~/assets/styles/modules/titles"
+	@import "~/assets/styles/modules/containers"
 
 	.anime-by-popularity
 		&__container

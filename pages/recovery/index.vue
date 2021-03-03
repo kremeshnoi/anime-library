@@ -1,29 +1,29 @@
-<template lang='pug'>
+<template lang="pug">
 
   client-only
     .recovery
       h1.recovery__title
         | Reset your password
 
-      form.recovery__form.recovery-form(@submit.prevent='validate')
+      form.recovery__form.recovery-form(@submit.prevent="validate")
         .recovery-form__row
           .recovery-form__field.input-field
             input#email.recovery-form__input(
-              type='email',
-              name='email',
-              v-model.trim='email',
-              :class='{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }')
+              type="email",
+              name="email",
+              v-model.trim="email",
+              :class="{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }")
 
-            label.recovery-form__label(for='email')
+            label.recovery-form__label(for="email")
               | Email
 
             span.recovery-form__helper.helper-text(
-              v-if='$v.email.$dirty && !$v.email.required',
-              data-error='The field is empty')
+              v-if="$v.email.$dirty && !$v.email.required",
+              data-error="The field is empty")
 
             span.recovery-form__helper.helper-text(
-              v-else-if='$v.email.$dirty && !$v.email.email',
-              data-error='Incorrect email')
+              v-else-if="$v.email.$dirty && !$v.email.email",
+              data-error="Incorrect email")
 
         center.recovery__center
           .preloader-wrapper.big.active
@@ -35,34 +35,34 @@
               .circle-clipper.right
                 .circle
           vue-recaptcha.recaptcha(
-            ref='recaptcha',
-            size='invisible',
-            @verify='submit',
-            @expired='onCaptchaExpired',
-            sitekey='6LeKfEgaAAAAAGqtaoHk9BjYE18zHwoeOmoOCkhq')
+            ref="recaptcha",
+            size="invisible",
+            @verify="submit",
+            @expired="onCaptchaExpired",
+            sitekey="6LeKfEgaAAAAAGqtaoHk9BjYE18zHwoeOmoOCkhq")
 
           .recovery-form__row
             button.recovery-form_button.btn(
-              type='submit',
-              name='submitRecover')
+              type="submit",
+              name="submitRecover")
               | Submit
 
       .recovery__link-back
-        router-link(to='/')
+        router-link(to="/")
           | Back to Homepage
 
 </template>
 
 <script>
 
-  import VueRecaptcha from 'vue-recaptcha'
-  import { email, required } from 'vuelidate/lib/validators'
-  import layoutMiddleware from '@/middleware/layoutMiddleware'
+  import VueRecaptcha from "vue-recaptcha"
+  import { email, required } from "vuelidate/lib/validators"
+  import layoutMiddleware from "@/middleware/layoutMiddleware"
 
   export default {
-    name: 'Recovery',
+    name: "Recovery",
     metaInfo: {
-      title: 'Otaku Library - Password recovery'
+      title: "Otaku Library - Password recovery"
     },
     layout: layoutMiddleware,
     components: {
@@ -70,7 +70,7 @@
     },
     data() {
       return {
-      email: '',
+      email: "",
       recaptcha: null
       }
     },
@@ -88,11 +88,11 @@
         }
 
         if (window.screen.width <= 560) {
-          document.querySelector('.preloader-wrapper').style.display = 'block'
+          document.querySelector(".preloader-wrapper").style.display = "block"
         } else {
-          document.querySelector('.auth-progress').style.display = 'block'
+          document.querySelector(".auth-progress").style.display = "block"
         }
-        await this.$store.dispatch('auth/recoverPassword', RecoveryData)
+        await this.$store.dispatch("auth/recoverPassword", RecoveryData)
       },
       validate () {
         this.$refs.recaptcha.execute()
@@ -105,11 +105,11 @@
 
 </script>
 
-<style lang='sass' scoped>
+<style lang="sass" scoped>
 
-  @import '~/assets/styles/utils/vars'
-  @import '~/assets/styles/utils/mixins'
-  @import '~/assets/styles/modules/buttons'
+  @import "~/assets/styles/utils/vars"
+  @import "~/assets/styles/utils/mixins"
+  @import "~/assets/styles/modules/buttons"
 
   .recovery
     top: 0

@@ -1,35 +1,35 @@
-<template lang='pug'>
+<template lang="pug">
 
   .footer-categories
     .footer-categories__container
       .footer-categories__item.footer-categories-item(
-        v-for='(category, categoryIndex) in categories',
-        :key='categoryIndex'
+        v-for="(category, categoryIndex) in categories",
+        :key="categoryIndex"
       )
-        router-link.footer-categories-item__title(:to='category.link')
+        router-link.footer-categories-item__title(:to="category.link")
           | {{ category.title }}
 
           .footer-categories-item__icon.material-icons keyboard_arrow_right
         .footer-categories-item__content(
-          v-for='(resultItem, itemIndex) in category.data',
-          :key='itemIndex'
+          v-for="(resultItem, itemIndex) in category.data",
+          :key="itemIndex"
         )
           p.footer-categories-item__digit
             | {{ itemIndex + 1 }}
 
           a.footer-categories-item__link(
-            @click='computeRoute({ resultItem })'
-            @click.middle='computeRoute({ resultItem, clickType })')
+            @click="computeRoute({ resultItem })"
+            @click.middle="computeRoute({ resultItem, clickType })")
             | {{ resultItem.title }}
 
 </template>
 
 <script>
 
-  import { mapActions, mapGetters } from 'vuex'
+  import { mapActions, mapGetters } from "vuex"
 
   export default {
-    name: 'FooterCategories',
+    name: "FooterCategories",
     data() {
       return {
         clickType: "middle"
@@ -37,26 +37,26 @@
     },
     computed: {
       ...mapGetters({
-        getAnimeFavoriteCategories: 'anime/getAnimeFavoriteCategories',
-        getMangaFavoriteCategories: 'manga/getMangaFavoriteCategories',
+        getAnimeFavoriteCategories: "anime/getAnimeFavoriteCategories",
+        getMangaFavoriteCategories: "manga/getMangaFavoriteCategories",
         getCharactersFavoriteCategories:
-          'characters/getCharactersFavoriteCategories',
+          "characters/getCharactersFavoriteCategories",
       }),
       categories() {
         const categories = {
           anime: {
-            title: 'Top Anime',
-            link: '/anime/top',
+            title: "Top Anime",
+            link: "/anime/top",
             data: this.getAnimeFavoriteCategories,
           },
           manga: {
-            title: 'Top Manga',
-            link: '/manga/top',
+            title: "Top Manga",
+            link: "/manga/top",
             data: this.getMangaFavoriteCategories,
           },
           characters: {
-            title: 'Most Popular Characters',
-            link: '/characters/popular',
+            title: "Most Popular Characters",
+            link: "/characters/popular",
             data: this.getCharactersFavoriteCategories,
           }
         }
@@ -71,21 +71,21 @@
     },
     methods: {
       ...mapActions({
-        loadAnimeFavoriteCategories: 'anime/loadAnimeFavoriteCategories',
+        loadAnimeFavoriteCategories: "anime/loadAnimeFavoriteCategories",
         loadCharactersFavoriteCategories:
-          'characters/loadCharactersFavoriteCategories',
-        loadMangaFavoriteCategories: 'manga/loadMangaFavoriteCategories',
-        computeRoute: 'computeRoute',
+          "characters/loadCharactersFavoriteCategories",
+        loadMangaFavoriteCategories: "manga/loadMangaFavoriteCategories",
+        computeRoute: "computeRoute",
       })
     }
   }
 
 </script>
 
-<style lang='sass' scoped>
+<style lang="sass" scoped>
 
-	@import '~/assets/styles/utils/vars'
-	@import '~/assets/styles/utils/mixins'
+	@import "~/assets/styles/utils/vars"
+	@import "~/assets/styles/utils/mixins"
 
 	.footer-categories
 		background-color: $color-white-dark

@@ -1,4 +1,4 @@
-<template lang='pug'>
+<template lang="pug">
 
   .content-wrapper
     .progress.auth-progress
@@ -9,10 +9,10 @@
 
 <script>
 
-import Messages from '@/utils/messages'
+import Messages from "@/utils/messages"
 
 export default {
-  name: 'Authentication',
+  name: "Authentication",
   computed: {
     error() {
       return this.$store.getters.error
@@ -29,14 +29,14 @@ export default {
 }
 </script>
 
-<style lang='sass' scoped>
+<style lang="sass" scoped>
 
-  @import '~/assets/styles/utils/vars'
-  @import '~/assets/styles/utils/mixins'
+  @import "~/assets/styles/utils/vars"
+  @import "~/assets/styles/utils/mixins"
 
   .content-wrapper
     height: 100vh
-    background: url('../assets/images/clouds.png'), $color-blue-light
+    background: url("../assets/images/clouds.png"), $color-blue-light
 
   .auth-progress
     position: fixed

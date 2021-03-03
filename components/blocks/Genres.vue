@@ -1,21 +1,21 @@
-<template lang='pug'>
+<template lang="pug">
 
 	.genres
 		.genres__content
 			.genres__wrapper(
-				v-for='(genresResult, resultIndex) in genres',
-				:key='resultIndex')
-				router-link.genres__title(:to='genresResult.link')
+				v-for="(genresResult, resultIndex) in genres",
+				:key="resultIndex")
+				router-link.genres__title(:to="genresResult.link")
 					| {{ genresResult.title }} Genres
 					.top-airing-anime__icon.material-icons keyboard_arrow_right
 
 				.genres__anime
 					a.genres__item(
-						:key='genreIndex'
-						v-for='(genre, genreIndex) in genresResult.data'
-						@click='computeRouteByGenre({ genresResult, genre })'
-						@click.middle='computeRouteByGenre({ genresResult, genre, clickType })')
-						img.genres__item-image(draggable="false" :src='genre.img')
+						:key="genreIndex"
+						v-for="(genre, genreIndex) in genresResult.data"
+						@click="computeRouteByGenre({ genresResult, genre })"
+						@click.middle="computeRouteByGenre({ genresResult, genre, clickType })")
+						img.genres__item-image(draggable="false" :src="genre.img")
 
 						.genres__title-wrapper
 							span.genres__item-title
@@ -25,11 +25,11 @@
 
 <script>
 
-	import { mapActions } from 'vuex'
-	import { anime, manga } from '@/utils/genres'
+	import { mapActions } from "vuex"
+	import { anime, manga } from "@/utils/genres"
 
 	export default {
-		name: 'Genres',
+		name: "Genres",
 		data() {
 			return {
 				clickType: "middle"
@@ -40,14 +40,14 @@
 				return {
 					animeGenres: {
 						data: anime.slice(0, 2),
-						type: 'anime',
-						title: 'Anime',
+						type: "anime",
+						title: "Anime",
 						link: "anime/genres"
 					},
 					mangaGenres: {
 						data: manga.slice(0, 2),
-						type: 'manga',
-						title: 'Manga',
+						type: "manga",
+						title: "Manga",
 						link: "manga/genres"
 					}
 				}
@@ -55,19 +55,19 @@
 		},
 		methods: {
 			...mapActions({
-				computeRouteByGenre: 'computeRouteByGenre'
+				computeRouteByGenre: "computeRouteByGenre"
 			})
 		}
 	}
 
 </script>
 
-<style lang='sass' scoped>
+<style lang="sass" scoped>
 
-	@import '~/assets/styles/utils/vars'
-	@import '~/assets/styles/utils/mixins'
-	@import '~/assets/styles/modules/titles'
-	@import '~/assets/styles/modules/containers'
+	@import "~/assets/styles/utils/vars"
+	@import "~/assets/styles/utils/mixins"
+	@import "~/assets/styles/modules/titles"
+	@import "~/assets/styles/modules/containers"
 
 	.genres
 		@extend .container-default

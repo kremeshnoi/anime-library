@@ -1,4 +1,4 @@
-<template lang='pug'>
+<template lang="pug">
 
   .trailer
     .trailer__title
@@ -6,25 +6,25 @@
 
     .trailer__content
       iframe.trailer__iframe(
-        v-if='trailerData',
-        :src='trailer',
-        frameborder='0',
-        allowfullscreen='true')
+        v-if="trailerData",
+        :src="trailer",
+        frameborder="0",
+        allowfullscreen="true")
 
-      img.trailer__disaster(draggable="false" v-else, src='@/assets/images/not-found.jpg')
+      img.trailer__disaster(draggable="false" v-else, src="@/assets/images/not-found.jpg")
 
 </template>
 
 <script>
 
   export default {
-    name: 'Trailer',
-    props: ['trailerData'],
+    name: "Trailer",
+    props: ["trailerData"],
     computed: {
       trailer() {
         let trailer = this.trailerData
         if (trailer) {
-          return trailer.substring(0, trailer.length - 1) + '0'
+          return trailer.substring(0, trailer.length - 1) + "0"
         }
       }
     }
@@ -32,13 +32,13 @@
 
 </script>
 
-<style lang='sass' scoped>
+<style lang="sass" scoped>
 
-	@import '~/assets/styles/utils/vars'
-	@import '~/assets/styles/utils/mixins'
-	@import '~/assets/styles/modules/titles'
-	@import '~/assets/styles/modules/dividers'
-	@import '~/assets/styles/modules/containers'
+	@import "~/assets/styles/utils/vars"
+	@import "~/assets/styles/utils/mixins"
+	@import "~/assets/styles/modules/titles"
+	@import "~/assets/styles/modules/dividers"
+	@import "~/assets/styles/modules/containers"
 
 	.trailer
 		display: grid

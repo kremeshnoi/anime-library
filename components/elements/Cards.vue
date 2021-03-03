@@ -1,10 +1,10 @@
-<template lang='pug'>
+<template lang="pug">
 
 	.cards
 		.cards__image-wrapper(
-			@click='computeRoute({ resultItem })'
-			@click.middle='computeRoute({ resultItem, clickType })')
-			img.cards__image(draggable="false" :src='resultItem.image_url')
+			@click="computeRoute({ resultItem })"
+			@click.middle="computeRoute({ resultItem, clickType })")
+			img.cards__image(draggable="false" :src="resultItem.image_url")
 
 			.cards__title-wrapper
 				span.cards__title
@@ -14,11 +14,11 @@
 
 <script>
 
-	import { mapActions } from 'vuex'
+	import { mapActions } from "vuex"
 
 	export default {
-		name: 'Cards',
-		props: ['resultItem'],
+		name: "Cards",
+		props: ["resultItem"],
 		data() {
 			return {
 				clickType: "middle"
@@ -26,18 +26,18 @@
 		},
 		methods: {
 			...mapActions({
-				computeRoute: 'computeRoute',
+				computeRoute: "computeRoute",
 			})
 		}
 	}
 
 </script>
 
-<style lang='sass' scoped>
+<style lang="sass" scoped>
 
-	@import '~/assets/styles/utils/vars'
-	@import '~/assets/styles/utils/mixins'
-	@import '~/assets/styles/modules/titles'
+	@import "~/assets/styles/utils/vars"
+	@import "~/assets/styles/utils/mixins"
+	@import "~/assets/styles/modules/titles"
 
 	.cards
 		width: 100%

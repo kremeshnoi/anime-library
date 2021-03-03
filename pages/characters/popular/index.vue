@@ -1,4 +1,4 @@
-<template lang='pug'>
+<template lang="pug">
 
   .top-characters
     .top-characters__container
@@ -7,32 +7,32 @@
 
       query-content
         cards(
-          v-for='(character) in favoriteCharacters',
-          :key='character.name',
-          :resultItem='character')
+          v-for="(character) in favoriteCharacters",
+          :key="character.name",
+          :resultItem="character")
 
         cards(
-          v-for='(character) in list',
-          :key='character.name',
-          :resultItem='character')
+          v-for="(character) in list",
+          :key="character.name",
+          :resultItem="character")
 
-        infinite-loading(@infinite='infiniteHandler')
+        infinite-loading(@infinite="infiniteHandler")
 
 </template>
 
 <script>
 
-  import axios from 'axios'
-  import jikanjs from 'jikanjs/lib/jikan'
-  import Cards from '@/components/elements/Cards'
-  import InfiniteLoading from 'vue-infinite-loading'
-  import QueryContent from '@/components/elements/QueryContent'
-  import layoutMiddleware from '@/middleware/layoutMiddleware'
+  import axios from "axios"
+  import jikanjs from "jikanjs/lib/jikan"
+  import Cards from "@/components/elements/Cards"
+  import InfiniteLoading from "vue-infinite-loading"
+  import QueryContent from "@/components/elements/QueryContent"
+  import layoutMiddleware from "@/middleware/layoutMiddleware"
 
   export default {
-    name: 'TopCharacters',
+    name: "TopCharacters",
     metaInfo: {
-      title: 'Otaku Library - Most popular characters'
+      title: "Otaku Library - Most popular characters"
     },
     layout: layoutMiddleware,
     components: {
@@ -47,7 +47,7 @@
       }
     },
     async asyncData() {
-      const favoriteCharactersResponse = await jikanjs.loadTop('characters')
+      const favoriteCharactersResponse = await jikanjs.loadTop("characters")
       return {
         favoriteCharacters: favoriteCharactersResponse.top,
       }
@@ -70,12 +70,12 @@
 
 </script>
 
-<style lang='sass' scoped>
+<style lang="sass" scoped>
 
-	@import '~/assets/styles/utils/vars'
-	@import '~/assets/styles/utils/mixins'
-	@import '~/assets/styles/modules/titles'
-	@import '~/assets/styles/modules/containers'
+	@import "~/assets/styles/utils/vars"
+	@import "~/assets/styles/utils/mixins"
+	@import "~/assets/styles/modules/titles"
+	@import "~/assets/styles/modules/containers"
 
 	.top-characters
 		&__container

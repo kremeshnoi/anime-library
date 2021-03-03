@@ -1,4 +1,4 @@
-<template lang='pug'>
+<template lang="pug">
 
 	.character
 		.character__container
@@ -7,7 +7,7 @@
 					| {{ characterById.name }}
 
 				.character__cover-container
-					img.character__cover(draggable="false" :src='characterById.image_url')
+					img.character__cover(draggable="false" :src="characterById.image_url")
 
 				.character__info.character-info
 					h2.character-info__title
@@ -19,7 +19,7 @@
 								| {{ aboutCharacterData[0] }}
 
 					.character-info__list-icon.material-icons.modal-trigger(
-							href='#character-info-modal'
+							href="#character-info-modal"
 						) more_horiz
 
 			.character__sub-content
@@ -27,37 +27,37 @@
 					.character-voice-actors__title
 						| Voice Actors
 
-					.character-voice-actors__content(v-if='characterById.voice_actors')
+					.character-voice-actors__content(v-if="characterById.voice_actors")
 						h4.manga-related__disaster(
-							v-if='characterById.voice_actors.length === 0'
+							v-if="characterById.voice_actors.length === 0"
 						)
 							| Not found
 
 						ul.character-voice-actors__tabs.tabs(
-							v-if='characterById.voice_actors'
+							v-if="characterById.voice_actors"
 						)
 							li.character-voice-actors__tab.tab(
-								v-for='(value, name) in characterById.voice_actors',
-								:key='name'
+								v-for="(value, name) in characterById.voice_actors",
+								:key="name"
 							)
 								a.character-voice-actors__tab-item(
-									:href='"#" + name',
-									v-if='value.language === "English" || value.language === "Japanese"'
+									:href="'#' + name",
+									v-if="value.language === 'English' || value.language === 'Japanese'"
 								)
 									| {{ value.name }}
 
 						.character-voice-actors__item(
-							:id='name',
-							v-for='(value, name) in characterById.voice_actors',
-							:key='name'
+							:id="name",
+							v-for="(value, name) in characterById.voice_actors",
+							:key="name"
 						)
 							table.character-voice-actors__table(
-								v-if='value.language === "English" || value.language === "Japanese"'
+								v-if="value.language === 'English' || value.language === 'Japanese'"
 							)
 								tbody.character-voice-actors__tbody
 									tr.character-voice-actors__tr
 										td.character-voice-actors__td
-											img.character-voice-actors__photo(draggable="false" :src='value.image_url')
+											img.character-voice-actors__photo(draggable="false" :src="value.image_url")
 											.character-voice-actors__info
 												.character-voice-actors__lang
 													| Language: {{ value.language }}
@@ -71,13 +71,13 @@
 							table.mangaography__table
 								tbody.mangaography__tbody
 									tr.mangaography__tr(
-										v-for='(resultItem, dataIndex) in characterById.mangaography.slice(0, 1)',
-										:key='dataIndex')
+										v-for="(resultItem, dataIndex) in characterById.mangaography.slice(0, 1)",
+										:key="dataIndex")
 
 										td.mangaography__td
 											a.mangaography__link(
-												@click='computeRoute({ resultItem })'
-												@click.middle='computeRoute({ resultItem, clickType })')
+												@click="computeRoute({ resultItem })"
+												@click.middle="computeRoute({ resultItem, clickType })")
 												| {{ resultItem.name }}
 
 				.animeography
@@ -88,13 +88,13 @@
 							table.animeography__table
 								tbody.animeography__tbody
 									tr.animeography__tr(
-										v-for='(resultItem, dataIndex) in characterById.animeography.slice(0, 1)',
-										:key='dataIndex')
+										v-for="(resultItem, dataIndex) in characterById.animeography.slice(0, 1)",
+										:key="dataIndex")
 
 										td.animeography__td
 											a.animeography__link(
-												@click='computeRoute({ resultItem })'
-												@click.middle='computeRoute({ resultItem, clickType })')
+												@click="computeRoute({ resultItem })"
+												@click.middle="computeRoute({ resultItem, clickType })")
 												| {{ resultItem.name }}
 
 		#character-info-modal.character-modal.modal
@@ -107,13 +107,13 @@
 <script>
 
 	import { mapActions } from "vuex"
-	import jikanjs from 'jikanjs/lib/jikan'
-	import Cards from '@/components/elements/Cards'
-	import layoutMiddleware from '@/middleware/layoutMiddleware'
-	import SwiperCarousel from '@/components/elements/SwiperCarousel'
+	import jikanjs from "jikanjs/lib/jikan"
+	import Cards from "@/components/elements/Cards"
+	import layoutMiddleware from "@/middleware/layoutMiddleware"
+	import SwiperCarousel from "@/components/elements/SwiperCarousel"
 
 	export default {
-		name: 'Character',
+		name: "Character",
 		metaInfo() {
 			return {
 				title: `Character - ${this.characterById.name}`,
@@ -140,20 +140,20 @@
 			await this.replaceData()
 		},
 		mounted() {
-			const modal = document.querySelectorAll('.modal')
+			const modal = document.querySelectorAll(".modal")
 			const modal_instance = M.Modal.init(modal)
 			if (Object.keys(this.characterById.voice_actors).length) {
-				const tabs = document.querySelectorAll('.tabs')
+				const tabs = document.querySelectorAll(".tabs")
 				const instanceTabs = M.Tabs.init(tabs)
 			}
 		},
 		methods: {
 			...mapActions({
-				computeRoute: 'computeRoute',
+				computeRoute: "computeRoute",
 			}),
 			async replaceData() {
 				const data = this.characterById.about
-				const result = data.replace(/\\n/g, '')
+				const result = data.replace(/\\n/g, "")
 				this.aboutCharacterData.push(result)
 			}
 		}
@@ -161,13 +161,13 @@
 
 </script>
 
-<style lang='sass' scoped>
+<style lang="sass" scoped>
 
-	@import '~/assets/styles/utils/vars'
-	@import '~/assets/styles/utils/mixins'
-	@import '~/assets/styles/modules/titles'
-	@import '~/assets/styles/modules/dividers'
-	@import '~/assets/styles/modules/containers'
+	@import "~/assets/styles/utils/vars"
+	@import "~/assets/styles/utils/mixins"
+	@import "~/assets/styles/modules/titles"
+	@import "~/assets/styles/modules/dividers"
+	@import "~/assets/styles/modules/containers"
 
 	.character
 		width: 100%
@@ -176,22 +176,22 @@
 			column-gap: 20px
 			row-gap: 40px
 			grid-template-columns: 1fr 1fr
-			grid-template-areas: 'main sub' 'related related'
+			grid-template-areas: "main sub" "related related"
 			@extend .container-default
 			+mq(tablet-mid, max)
 				grid-template-columns: 1fr
-				grid-template-areas: 'main' 'sub' 'related'
+				grid-template-areas: "main" "sub" "related"
 		&__main-content
 			grid-area: main
 			display: grid
 			justify-content: start
-			grid-template-areas: 'title title' 'cover info'
+			grid-template-areas: "title title" "cover info"
 			grid-gap: 20px
 			align-content: start
 			grid-template-rows: 50px auto
 			+mq(phablet, max)
 				grid-template-rows: auto
-				grid-template-areas: 'title' 'cover' 'info'
+				grid-template-areas: "title" "cover" "info"
 		&__sub-content
 			grid-area: sub
 			display: grid

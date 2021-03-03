@@ -1,37 +1,37 @@
-<template lang='pug'>
+<template lang="pug">
 
   nav.navbar
     .navbar__wrapper.nav-wrapper
-      router-link.navbar__logo(to='/')
+      router-link.navbar__logo(to="/")
         | Otaku Library
 
       search-bar.navbar__search-bar
 
-      .navbar__sign-in(v-if='this.user[0] === null')
-        router-link.navbar__sign-in-link(to='/sign-in')
+      .navbar__sign-in(v-if="this.user[0] === null")
+        router-link.navbar__sign-in-link(to="/sign-in")
           | Sign in
           i.navbar__icon.material-icons exit_to_app
 
-        router-link.navbar__sign-in-link_mobile(to='/sign-in')
+        router-link.navbar__sign-in-link_mobile(to="/sign-in")
           i.navbar__icon.material-icons exit_to_app
 
       .navbar__sign-out(v-else)
-        a.navbar__sign-in-link(@click='signOut')
+        a.navbar__sign-in-link(@click="signOut")
           | Sign out
           i.navbar__icon.material-icons exit_to_app
 
-        a.navbar__sign-in-link_mobile(@click='signOut')
+        a.navbar__sign-in-link_mobile(@click="signOut")
           i.navbar__icon.material-icons exit_to_app
 
 </template>
 
 <script>
 
-  import { mapActions } from 'vuex'
-  import SearchBar from '@/components/elements/SearchBar'
+  import { mapActions } from "vuex"
+  import SearchBar from "@/components/elements/SearchBar"
 
   export default {
-    name: 'Navbar',
+    name: "Navbar",
     components: {
       SearchBar,
     },
@@ -45,11 +45,11 @@
     },
     methods: {
       ...mapActions({
-        getUid: 'auth/getUid',
+        getUid: "auth/getUid",
       }),
       signOut() {
         try {
-					this.$store.dispatch('auth/signOut')
+					this.$store.dispatch("auth/signOut")
         } catch (error) {
           throw error.message
         }
@@ -59,10 +59,10 @@
 
 </script>
 
-<style lang='sass' scoped>
+<style lang="sass" scoped>
 
-	@import '~/assets/styles/utils/vars'
-	@import '~/assets/styles/utils/mixins'
+	@import "~/assets/styles/utils/vars"
+	@import "~/assets/styles/utils/mixins"
 
 	.navbar
 		user-select: none
@@ -92,7 +92,7 @@
 		&__logo
 			font-size: 26px
 			color: $color-white
-			font-family: 'Days One', sans-serif
+			font-family: "Days One", sans-serif
 			+mq(tablet, max)
 				display: none
 		&__sign-in-link

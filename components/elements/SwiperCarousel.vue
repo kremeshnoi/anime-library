@@ -1,7 +1,7 @@
-<template lang='pug'>
+<template lang="pug">
 
     .swiper-carousel(
-      v-swiper='swiperOptions')
+      v-swiper="swiperOptions")
       .swiper-carousel__container.swiper-wrapper
         slot
 
@@ -10,8 +10,8 @@
 <script>
 
   export default {
-    name: 'SwiperCarousel',
-    props: ['type'],
+    name: "SwiperCarousel",
+    props: ["type"],
     data() {
       return {
         swiperOptions: {
@@ -45,10 +45,10 @@
 
 </script>
 
-<style lang='sass' scoped>
+<style lang="sass" scoped>
 
-  @import '~/assets/styles/utils/vars'
-  @import '~/assets/styles/utils/mixins'
+  @import "~/assets/styles/utils/vars"
+  @import "~/assets/styles/utils/mixins"
 
   .swiper-carousel
     width: 100%

@@ -1,57 +1,57 @@
-<template lang='pug'>
+<template lang="pug">
 
   .related
     .related__title
       | Related
     .related__content
       ul.related__tabs.tabs(
-        v-if='relatedData'
+        v-if="relatedData"
         )
         li.related__tab.tab(
-          v-for='(value, name, counter) in relatedData',
-          :key='name'
+          v-for="(value, name, counter) in relatedData",
+          :key="name"
           )
 
           a.related__tab-item(
-            :href='`#` + counter'
+            :href="`#` + counter"
             )
             | {{ name }}
 
       .related__item(
-        :id='counter',
-        v-for='(value, name, counter) in relatedData',
-        :key='name'
+        :id="counter",
+        v-for="(value, name, counter) in relatedData",
+        :key="name"
       )
         table.related__table
           tbody.related__tbody
             tr.related__tr(
-              v-for='(resultItem, dataIndex) in value.slice(0, 1)',
-              :key='dataIndex'
+              v-for="(resultItem, dataIndex) in value.slice(0, 1)",
+              :key="dataIndex"
             )
               a.related__link.related__link_more.modal-trigger(
-                v-if='value.length >= 2',
-                @click='computeRouteByRelated({ wholeData, name })',
-                @click.middle='computeRouteByRelated({ wholeData, name, clickType })')
+                v-if="value.length >= 2",
+                @click="computeRouteByRelated({ wholeData, name })",
+                @click.middle="computeRouteByRelated({ wholeData, name, clickType })")
                 | More
 
               td.related__td
                 a.related__link(
-                  @click='computeRoute({ resultItem })'
-                  @click.middle='computeRoute({ resultItem, clickType })')
+                  @click="computeRoute({ resultItem })"
+                  @click.middle="computeRoute({ resultItem, clickType })")
                   | {{ resultItem.name }}
 
-      h4.related__disaster(v-if='relatedLength === 0')
+      h4.related__disaster(v-if="relatedLength === 0")
         | Not found
 
 </template>
 
 <script>
 
-  import { mapActions } from 'vuex'
+  import { mapActions } from "vuex"
 
   export default {
-    name: 'Related',
-    props: ['wholeData', 'relatedData'],
+    name: "Related",
+    props: ["wholeData", "relatedData"],
     data() {
       return {
         clickType: "middle"
@@ -59,7 +59,7 @@
     },
     computed: {
       relatedLength() {
-        if (typeof this.relatedData === 'object') {
+        if (typeof this.relatedData === "object") {
           const length = Object.keys(this.relatedData).length
           return length
         }
@@ -67,19 +67,19 @@
     },
     methods: {
       ...mapActions({
-        computeRoute: 'computeRoute',
-        computeRouteByRelated: 'computeRouteByRelated'
+        computeRoute: "computeRoute",
+        computeRouteByRelated: "computeRouteByRelated"
       })
     }
   }
 
 </script>
 
-<style lang='sass' scoped>
+<style lang="sass" scoped>
 
-  @import '~/assets/styles/utils/vars'
-  @import '~/assets/styles/utils/mixins'
-  @import '~/assets/styles/modules/titles'
+  @import "~/assets/styles/utils/vars"
+  @import "~/assets/styles/utils/mixins"
+  @import "~/assets/styles/modules/titles"
 
   .related
     display: grid

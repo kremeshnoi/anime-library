@@ -1,16 +1,16 @@
-<template lang='pug'>
+<template lang="pug">
 
 	.input-wrapper
-		.input-field(:class='{ disabled: this.user[0] === null }')
-			select(v-model='payload.status')
+		.input-field(:class="{ disabled: this.user[0] === null }")
+			select(v-model="payload.status")
 				option(
-					v-for='(option, optionIndex) in options',
-					:key='optionIndex',
-					:value='option.value'
+					v-for="(option, optionIndex) in options",
+					:key="optionIndex",
+					:value="option.value"
 				)
 					span {{ option.title }}
 
-			.btn-small(@click='addToLibrary(payload)')
+			.btn-small(@click="addToLibrary(payload)")
 				| Add
 
 		span.coupontooltip
@@ -20,17 +20,17 @@
 
 <script>
 
-	import { mapActions } from 'vuex'
+	import { mapActions } from "vuex"
 
 	export default {
-		name: 'Select',
-		props: ['type', 'wholeResult'],
+		name: "Select",
+		props: ["type", "wholeResult"],
 		data() {
 			return {
 				user: [],
 				payload: {
 					type: this.type,
-					status: 'planned',
+					status: "planned",
 					id: null,
 					result: null,
 				}
@@ -39,26 +39,26 @@
 		computed: {
 			options() {
 				const options = [
-					{ title: 'Plan to', value: 'planned' },
-					{ title: 'Completed', value: 'completed' },
-					{ title: 'Currently', value: 'process' },
-					{ title: 'On Hold', value: 'hold' },
-					{ title: 'Dropped', value: 'dropped' },
+					{ title: "Plan to", value: "planned" },
+					{ title: "Completed", value: "completed" },
+					{ title: "Currently", value: "process" },
+					{ title: "On Hold", value: "hold" },
+					{ title: "Dropped", value: "dropped" },
 				]
-				let verb = ''
+				let verb = ""
 				let type = this.type
-				if (type === 'Manga') {
-					verb = 'Read'
+				if (type === "Manga") {
+					verb = "Read"
 				} else {
-					verb = 'Watch'
+					verb = "Watch"
 				}
 
 				for (let i = 0; options.length > i; i++) {
-					if (options[i].value === 'planned') {
+					if (options[i].value === "planned") {
 						options[i].title += ` ${verb}`
 					}
-					if (options[i].value === 'process') {
-						options[i].title += ` ${verb + 'ing'}`
+					if (options[i].value === "process") {
+						options[i].title += ` ${verb + "ing"}`
 					}
 				}
 
@@ -81,28 +81,28 @@
 			await this.getUid().then((result) => this.user.push(result))
 		},
 		mounted() {
-			const select = document.querySelectorAll('select')
+			const select = document.querySelectorAll("select")
 			const selectInstance = M.FormSelect.init(select)
-			const tooltip = document.querySelectorAll('.coupontooltip')
+			const tooltip = document.querySelectorAll(".coupontooltip")
 
-			document.addEventListener('mousemove', fn, false)
+			document.addEventListener("mousemove", fn, false)
 
 			function fn(e) {
 					for (var i = tooltip.length; i--;) {
-							tooltip[i].style.left = e.pageX + 'px'
-							tooltip[i].style.top = e.pageY + 'px'
+							tooltip[i].style.left = e.pageX + "px"
+							tooltip[i].style.top = e.pageY + "px"
 					}
 			}
 		},
 		methods: {
 			...mapActions({
-				getUid: 'auth/getUid',
-				addToLibrary: 'addToLibrary',
+				getUid: "auth/getUid",
+				addToLibrary: "addToLibrary",
 			}),
 			followCursor() {
 				for (let i = tooltip.length; i--;) {
-					tooltip[i].style.left = e.pageX + 'px'
-					tooltip[i].style.top = e.pageY + 'px'
+					tooltip[i].style.left = e.pageX + "px"
+					tooltip[i].style.top = e.pageY + "px"
 				}
 			}
 		}
@@ -110,10 +110,10 @@
 
 </script>
 
-<style lang='sass' scoped>
+<style lang="sass" scoped>
 
-	@import '~/assets/styles/utils/vars'
-	@import '~/assets/styles/utils/mixins'
+	@import "~/assets/styles/utils/vars"
+	@import "~/assets/styles/utils/mixins"
 
 	.input-wrapper:hover
 		cursor: pointer

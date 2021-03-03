@@ -1,39 +1,39 @@
-<template lang='pug'>
+<template lang="pug">
 
   .manga-genre
     .manga-genre__container
       .manga-genre__title(
-        v-if='mangaGenre.mal_url')
+        v-if="mangaGenre.mal_url")
         | {{ mangaGenre.mal_url.name }}
 
       query-content
         cards(
-          v-for='(manga) in mangaGenre.manga',
-          :key='manga.mal_id',
-          :resultItem='manga')
+          v-for="(manga) in mangaGenre.manga",
+          :key="manga.mal_id",
+          :resultItem="manga")
 
         cards(
-          v-for='(manga) in list',
-          :key='manga.mal_id',
-          :resultItem='manga')
+          v-for="(manga) in list",
+          :key="manga.mal_id",
+          :resultItem="manga")
 
-        infinite-loading(@infinite='infiniteHandler')
+        infinite-loading(@infinite="infiniteHandler")
 
 </template>
 
 <script>
 
-  import axios from 'axios'
-  import jikanjs from 'jikanjs/lib/jikan'
-  import Cards from '@/components/elements/Cards'
-  import InfiniteLoading from 'vue-infinite-loading'
-  import layoutMiddleware from '@/middleware/layoutMiddleware'
-  import QueryContent from '@/components/elements/QueryContent'
+  import axios from "axios"
+  import jikanjs from "jikanjs/lib/jikan"
+  import Cards from "@/components/elements/Cards"
+  import InfiniteLoading from "vue-infinite-loading"
+  import layoutMiddleware from "@/middleware/layoutMiddleware"
+  import QueryContent from "@/components/elements/QueryContent"
 
   export default {
-    name: 'MangaGenre',
+    name: "MangaGenre",
     metaInfo: {
-      title: 'Otaku Library - Explore manga genres'
+      title: "Otaku Library - Explore manga genres"
     },
     layout: layoutMiddleware,
     components: {
@@ -48,7 +48,7 @@
       }
     },
     async asyncData({ params }) {
-      const mangaGenreResponse = await jikanjs.loadGenre('manga', params.id)
+      const mangaGenreResponse = await jikanjs.loadGenre("manga", params.id)
       return {
         mangaGenre: mangaGenreResponse,
       }
@@ -71,12 +71,12 @@
 
 </script>
 
-<style lang='sass' scoped>
+<style lang="sass" scoped>
 
-	@import '~/assets/styles/utils/vars'
-	@import '~/assets/styles/utils/mixins'
-	@import '~/assets/styles/modules/titles'
-	@import '~/assets/styles/modules/containers'
+	@import "~/assets/styles/utils/vars"
+	@import "~/assets/styles/utils/mixins"
+	@import "~/assets/styles/modules/titles"
+	@import "~/assets/styles/modules/containers"
 
 	.manga-genre
 		&__container

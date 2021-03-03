@@ -1,4 +1,4 @@
-<template lang='pug'>
+<template lang="pug">
 
 	.footer-main-info.page-footer
 		.footer-main-info__container
@@ -8,8 +8,8 @@
 				p.footer-main-info__description
 					| We will also be happy to meet you on our channel, where you can always find like-minded people. Feel free to come in.
 				a.footer-main-info__link_decor.btn(
-					href='https://discord.com/invite/Ku72D5/',
-					target='_blank'
+					href="https://discord.com/invite/Ku72D5/",
+					target="_blank"
 				)
 					| Chat
 
@@ -23,17 +23,17 @@
 				h5.footer-main-info__title
 					| Help
 				router-link.footer-main-info__link.footer-main-info__link_disabled(
-					to='/faq'
+					to="/faq"
 				)
 					| FAQ
 				router-link.footer-main-info__link(
-					to='/sign-up',
-					:class='{ "footer-main-info__link_disabled": this.user[0] !== null }'
+					to="/sign-up",
+					:class="{ 'footer-main-info__link_disabled': this.user[0] !== null }"
 				)
 					| Registration
 				router-link.footer-main-info__link(
-					to='/recovery',
-					:class='{ "footer-main-info__link_disabled": this.user[0] !== null }'
+					to="/recovery",
+					:class="{ 'footer-main-info__link_disabled': this.user[0] !== null }"
 				)
 					| Forgot Password?
 
@@ -41,10 +41,10 @@
 
 <script>
 
-	import { mapActions } from 'vuex'
+	import { mapActions } from "vuex"
 
 	export default {
-		name: 'FooterMainInfo',
+		name: "FooterMainInfo",
 		data() {
 			return {
 				user: [],
@@ -55,18 +55,18 @@
 		},
 		methods: {
 			...mapActions({
-				getUid: 'auth/getUid',
+				getUid: "auth/getUid",
 			})
 		}
 	}
 
 </script>
 
-<style lang='sass' scoped>
+<style lang="sass" scoped>
 
-	@import '~/assets/styles/utils/vars'
-	@import '~/assets/styles/utils/mixins'
-	@import '~/assets/styles/modules/buttons'
+	@import "~/assets/styles/utils/vars"
+	@import "~/assets/styles/utils/mixins"
+	@import "~/assets/styles/modules/buttons"
 
 	.footer-main-info
 		padding: 0

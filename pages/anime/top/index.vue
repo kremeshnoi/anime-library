@@ -1,38 +1,38 @@
-<template lang='pug'>
+<template lang="pug">
 
   .top-anime
     .top-anime__container
       .top-anime__title
-        | Viewers' Favorite Anime
+        | Viewers" Favorite Anime
 
       query-content
         cards(
-          v-for='(anime) in topAnime',
-          :key='anime.mal_id',
-          :resultItem='anime')
+          v-for="(anime) in topAnime",
+          :key="anime.mal_id",
+          :resultItem="anime")
 
         cards(
-          v-for='(anime) in list',
-          :key='anime.mal_id',
-          :resultItem='anime')
+          v-for="(anime) in list",
+          :key="anime.mal_id",
+          :resultItem="anime")
 
-        infinite-loading(@infinite='infiniteHandler')
+        infinite-loading(@infinite="infiniteHandler")
 
 </template>
 
 <script>
 
-  import axios from 'axios'
-  import jikanjs from 'jikanjs/lib/jikan'
-  import Cards from '@/components/elements/Cards'
-  import InfiniteLoading from 'vue-infinite-loading'
-  import layoutMiddleware from '@/middleware/layoutMiddleware'
-  import QueryContent from '@/components/elements/QueryContent'
+  import axios from "axios"
+  import jikanjs from "jikanjs/lib/jikan"
+  import Cards from "@/components/elements/Cards"
+  import InfiniteLoading from "vue-infinite-loading"
+  import layoutMiddleware from "@/middleware/layoutMiddleware"
+  import QueryContent from "@/components/elements/QueryContent"
 
   export default {
-    name: 'TopAnime',
+    name: "TopAnime",
     metaInfo: {
-      title: 'Otaku Library - Top rated anime'
+      title: "Otaku Library - Top rated anime"
     },
     layout: layoutMiddleware,
     components: {
@@ -47,7 +47,7 @@
       }
     },
     async asyncData() {
-      const topAnimeResponse = await jikanjs.loadTop('anime', 1, 'favorite')
+      const topAnimeResponse = await jikanjs.loadTop("anime", 1, "favorite")
       return {
         topAnime: topAnimeResponse.top
       }
@@ -71,12 +71,12 @@
 
 </script>
 
-<style lang='sass' scoped>
+<style lang="sass" scoped>
 
-	@import '~/assets/styles/utils/vars'
-	@import '~/assets/styles/utils/mixins'
-	@import '~/assets/styles/modules/titles'
-	@import '~/assets/styles/modules/containers'
+	@import "~/assets/styles/utils/vars"
+	@import "~/assets/styles/utils/mixins"
+	@import "~/assets/styles/modules/titles"
+	@import "~/assets/styles/modules/containers"
 
 	.top-anime
 		&__container

@@ -1,37 +1,37 @@
-<template lang='pug'>
+<template lang="pug">
 
   #dropdown.dropdown
-    .dropdown__search-type(v-if='!searchedData.length && !loaderData')
+    .dropdown__search-type(v-if="!searchedData.length && !loaderData")
       ul.dropdown__list
         button.dropdown__list-item(
-          @click='changeType(`anime`)',
-          :class='{ active: activeEl === `anime` }'
+          @click="changeType(`anime`)",
+          :class="{ active: activeEl === `anime` }"
         )
           .dropdown__icon.material-icons video_library
           | Anime
 
         button.dropdown__list-item(
-          @click='changeType(`manga`)',
-          :class='{ active: activeEl === `manga` }'
+          @click="changeType(`manga`)",
+          :class="{ active: activeEl === `manga` }"
         )
           .dropdown__icon.material-icons collections_bookmark
           | Manga
 
     .dropdown__content(v-else)
-      .loader(v-if='loaderData')
+      .loader(v-if="loaderData")
         | Loading...
 
         .loader__progress.progress
           .indeterminate
 
       .cards(
-        v-if='!loaderData',
-        :key='resultIndex',
-        @click='computeRoute({ resultItem })'
-        v-for='(resultItem, resultIndex) in searchedData',
-        @click.middle='computeRoute({ resultItem, clickType })')
+        v-if="!loaderData",
+        :key="resultIndex",
+        @click="computeRoute({ resultItem })"
+        v-for="(resultItem, resultIndex) in searchedData",
+        @click.middle="computeRoute({ resultItem, clickType })")
         .cards__wrapper
-          img.cards__image(draggable="false" :src='resultItem.image_url')
+          img.cards__image(draggable="false" :src="resultItem.image_url")
 
           ul.cards__description
             li.cards__title
@@ -41,10 +41,10 @@
               span.info__list-key
                 | Type:
               | &nbsp
-              span.info__list-value(v-if='resultItem.type && resultItem.start_date')
+              span.info__list-value(v-if="resultItem.type && resultItem.start_date")
                 | {{ resultItem.type }} / {{ resultItem.start_date.substring(0, 4) }}
 
-              span.info__list-value(v-else-if='resultItem.type')
+              span.info__list-value(v-else-if="resultItem.type")
                 | {{ resultItem.type }} / Unknown
 
               span.info__list-value(v-else)
@@ -54,7 +54,7 @@
               span.info__list-key
                 | Score:
               | &nbsp
-              span.info__list-value(v-if='resultItem.score')
+              span.info__list-value(v-if="resultItem.score")
                 | {{ resultItem.score }}
 
               span.info__list-value(v-else)
@@ -66,11 +66,11 @@
 
 <script>
 
-  import { mapActions } from 'vuex'
+  import { mapActions } from "vuex"
 
   export default {
-    name: 'DropDown',
-    props: ['searchedData', 'loaderData', 'type'],
+    name: "DropDown",
+    props: ["searchedData", "loaderData", "type"],
     data() {
       return {
         clickType: "middle"
@@ -80,27 +80,27 @@
       activeEl: {
         set() {},
         get() {
-          return this.type === 'anime' ? 'anime' : 'manga'
+          return this.type === "anime" ? "anime" : "manga"
         }
       }
     },
     methods: {
       ...mapActions({
-        computeRoute: 'computeRoute',
+        computeRoute: "computeRoute",
       }),
       changeType(el) {
         this.activeEl = el
-        this.$emit('changeType', el)
+        this.$emit("changeType", el)
       }
     }
   }
 
 </script>
 
-<style lang='sass' scoped>
+<style lang="sass" scoped>
 
-    @import '~/assets/styles/utils/vars'
-    @import '~/assets/styles/utils/mixins'
+    @import "~/assets/styles/utils/vars"
+    @import "~/assets/styles/utils/mixins"
 
     .dropdown
       top: 56px

@@ -1,4 +1,4 @@
-<template lang='pug'>
+<template lang="pug">
 
   .hero
     .hero__container
@@ -7,7 +7,7 @@
           | Organize your library. Find, add, modify, communicate
         p.hero__description
           | Join us to get full access of the site functionality
-        router-link.hero__button.btn(to='/sign-up')
+        router-link.hero__button.btn(to="/sign-up")
           | JOIN US
       .hero__image-side
         .hero__image
@@ -17,17 +17,17 @@
 <script>
 
   export default {
-    name: 'Hero'
+    name: "Hero"
   }
 
 </script>
 
-<style lang='sass' scoped>
+<style lang="sass" scoped>
 
-	@import '~/assets/styles/utils/vars'
-	@import '~/assets/styles/utils/mixins'
-	@import '~/assets/styles/modules/buttons'
-	@import '~/assets/styles/modules/containers'
+	@import "~/assets/styles/utils/vars"
+	@import "~/assets/styles/utils/mixins"
+	@import "~/assets/styles/modules/buttons"
+	@import "~/assets/styles/modules/containers"
 
 	.hero
 		height: 34vh
@@ -40,7 +40,7 @@
 			+mq(tablet-small, max)
 				grid-template-columns: 1fr
 				grid-template-rows: 1fr
-				background-image: url('../../assets/images/hero-min.png')
+				background-image: url("../../assets/images/hero-min.png")
 				background-position: bottom right
 				background-size: 100px 100px
 				background-repeat: no-repeat
@@ -79,7 +79,7 @@
 				font-size: 16px
 				max-width: 330px
 		&__image
-			background-image: url('../../assets/images/hero-min.png'), url('../../assets/images/clouds.png')
+			background-image: url("../../assets/images/hero-min.png"), url("../../assets/images/clouds.png")
 			background-size: contain
 			background-position: center
 			background-repeat: no-repeat

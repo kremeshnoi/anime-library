@@ -1,4 +1,4 @@
-<template lang='pug'>
+<template lang="pug">
 
 	section.studios
 		img.studios__item(
@@ -12,10 +12,10 @@
 <script>
 
 	import { studios } from "@/utils/studios"
-	import layoutMiddleware from '@/middleware/layoutMiddleware'
+	import layoutMiddleware from "@/middleware/layoutMiddleware"
 
 	export default {
-		name: 'Studios',
+		name: "Studios",
 		layout: layoutMiddleware,
 		computed: {
 			studios() {
@@ -28,9 +28,9 @@
 
 </script>
 
-<style lang='sass' scoped>
+<style lang="sass" scoped>
 
-	@import '~/assets/styles/modules/containers'
+	@import "~/assets/styles/modules/containers"
 
 	.studios
 		display: grid

@@ -1,48 +1,48 @@
-<template lang='pug'>
+<template lang="pug">
 
-  .search-bar(@click='showDropdown($event)', data-target='dropdown')
+  .search-bar(@click="showDropdown($event)", data-target="dropdown")
     nav.search-bar__nav
       .search-bar__wrapper.white.nav-wrapper
         form.search-bar__form(
-          v-model='type',
-          @input='search(query)')
+          v-model="type",
+          @input="search(query)")
 
           .search-bar__field.input-field
             input#search.search-bar__input(
-              type='search',
-              v-model='query',
-              placeholder='Search...'
+              type="search",
+              v-model="query",
+              placeholder="Search..."
             )
 
-            label.search-bar__label.label-icon(for='search')
+            label.search-bar__label.label-icon(for="search")
               i.search-bar__icon.material-icons.black-text search
 
     drop-down(
-      v-if='isActive',
-      @changeType='updateType',
-      @click='isActive = false',
-      :type='type',
-      :loaderData='isLoading',
-      :class='"dropdown_is-shown"',
-      :searchedData='query.length >= 3 && searchedData.length ? searchedData : []')
+      v-if="isActive",
+      @changeType="updateType",
+      @click="isActive = false",
+      :type="type",
+      :loaderData="isLoading",
+      :class="'dropdown_is-shown'",
+      :searchedData="query.length >= 3 && searchedData.length ? searchedData : []")
 
 </template>
 
 <script>
 
-  import { mapActions, mapGetters } from 'vuex'
-  import DropDown from '@/components/elements/DropDown'
+  import { mapActions, mapGetters } from "vuex"
+  import DropDown from "@/components/elements/DropDown"
 
 
   export default {
-    name: 'SearchBar',
+    name: "SearchBar",
     components: {
       DropDown
     },
     data() {
       return {
-        query: '',
-        type: 'anime',
+        query: "",
+        type: "anime",
         isLoading: false,
         isActive: false,
         searchedData: []
@@ -50,21 +50,21 @@
     },
     computed: {
       ...mapGetters({
-        getAnimeSearched: 'anime/getAnimeSearched',
-        getMangaSearched: 'manga/getMangaSearched',
+        getAnimeSearched: "anime/getAnimeSearched",
+        getMangaSearched: "manga/getMangaSearched",
       }),
     },
     methods: {
       ...mapActions({
-        computeRoute: 'computeRoute',
-        loadAnimeSearched: 'anime/loadAnimeSearched',
-        loadMangaSearched: 'manga/loadMangaSearched'
+        computeRoute: "computeRoute",
+        loadAnimeSearched: "anime/loadAnimeSearched",
+        loadMangaSearched: "manga/loadMangaSearched"
       }),
       showDropdown(event) {
-        const dropDownEl = document.querySelector('.cards__wrapper')
+        const dropDownEl = document.querySelector(".cards__wrapper")
 
-        this.query = ''
-        if (event.target.classList.contains('overlay') || dropDownEl) {
+        this.query = ""
+        if (event.target.classList.contains("overlay") || dropDownEl) {
           this.isActive = false
         } else {
           this.isActive = true
@@ -76,10 +76,10 @@
       async search(query) {
         if (query.length >= 3) {
         this.isLoading = true
-        if (this.type === 'anime') {
+        if (this.type === "anime") {
           await this.loadAnimeSearched(query)
           this.searchedData = this.getAnimeSearched
-        } else if (this.type === 'manga') {
+        } else if (this.type === "manga") {
           await this.loadMangaSearched(query)
           this.searchedData = this.getMangaSearched
         }
@@ -91,10 +91,10 @@
 
 </script>
 
-<style lang='sass' scoped>
+<style lang="sass" scoped>
 
-  @import '~/assets/styles/utils/vars'
-  @import '~/assets/styles/utils/mixins'
+  @import "~/assets/styles/utils/vars"
+  @import "~/assets/styles/utils/mixins"
 
   .search-bar
     width: 100%

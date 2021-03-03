@@ -1,4 +1,4 @@
-<template lang='pug'>
+<template lang="pug">
 
 	.home
 		hero
@@ -8,26 +8,26 @@
 		genres
 
 		cards-block(
-			v-if='animeAiring',
-			:cardsBlockData='animeAiring')
+			v-if="animeAiring",
+			:cardsBlockData="animeAiring")
 
 </template>
 
 <script>
 
 	import { studios } from "@/utils/studios"
-	import Hero from '@/components/blocks/Hero'
+	import Hero from "@/components/blocks/Hero"
 	import { mapActions, mapGetters } from "vuex"
-	import Genres from '@/components/blocks/Genres'
-	import Studios from '@/components/blocks/Studios'
-	import CardsBlock from '@/components/blocks/CardsBlock'
-	import layoutMiddleware from '@/middleware/layoutMiddleware'
+	import Genres from "@/components/blocks/Genres"
+	import Studios from "@/components/blocks/Studios"
+	import CardsBlock from "@/components/blocks/CardsBlock"
+	import layoutMiddleware from "@/middleware/layoutMiddleware"
 
 	export default {
-		name: 'Home',
+		name: "Home",
 		layout: layoutMiddleware,
 		metaInfo: {
-			title: 'Otaku Library - Organize your own anime and manga list'
+			title: "Otaku Library - Organize your own anime and manga list"
 		},
 		components: {
 			Hero,
@@ -37,12 +37,12 @@
 		},
 		computed: {
 			...mapGetters({
-				getAnimeAiring: 'anime/getAnimeAiring',
+				getAnimeAiring: "anime/getAnimeAiring",
 			}),
 			animeAiring() {
 				return {
-					title: 'AIRING ANIME',
-					link: '/anime/airing',
+					title: "AIRING ANIME",
+					link: "/anime/airing",
 					data: this.getAnimeAiring
 				}
 			},
@@ -60,18 +60,18 @@
 		},
 		methods: {
 			...mapActions({
-				loadAnimeAiring: 'anime/loadAnimeAiring'
+				loadAnimeAiring: "anime/loadAnimeAiring"
 			})
 		}
 	}
 
 </script>
 
-<style lang='sass' scoped>
+<style lang="sass" scoped>
 
-	@import '~/assets/styles/utils/vars'
-	@import '~/assets/styles/state/scroll'
-	@import '~/assets/styles/modules/containers'
+	@import "~/assets/styles/utils/vars"
+	@import "~/assets/styles/state/scroll"
+	@import "~/assets/styles/modules/containers"
 
 	.home
 		width: 100%

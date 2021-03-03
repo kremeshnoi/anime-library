@@ -1,60 +1,60 @@
-<template lang='pug'>
+<template lang="pug">
 
   client-only
     .sign-in
       h1.sign-in__title
         | Start using account
 
-      form.sign-in__form.sign-in-form(@submit.prevent='validate')
+      form.sign-in__form.sign-in-form(@submit.prevent="validate")
         .sign-in-form__row
           .sign-in-form__field.input-field
             input#email.sign-in-form__input(
-              type='email',
-              name='username',
-              v-model.trim='email',
-              autocomplete='username',
-              :class='{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }')
+              type="email",
+              name="username",
+              v-model.trim="email",
+              autocomplete="username",
+              :class="{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }")
 
-            label(for='email')
+            label(for="email")
               | Email
 
             span.sign-in-form__helper.helper-text(
-              v-if='$v.email.$dirty && !$v.email.required',
-              data-error='The field is empty')
+              v-if="$v.email.$dirty && !$v.email.required",
+              data-error="The field is empty")
 
             span.sign-in-form__helper.helper-text(
-              v-else-if='$v.email.$dirty && !$v.email.email',
-              data-error='Incorrect email')
+              v-else-if="$v.email.$dirty && !$v.email.email",
+              data-error="Incorrect email")
 
         .sign-in-form__row
           .sign-in-form__field.input-field
             input#password.sign-in-form__input(
-              type='password',
-              name='password',
-              v-model.trim='password',
-              autocomplete='current-password',
-              :class='{ invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength) }')
+              type="password",
+              name="password",
+              v-model.trim="password",
+              autocomplete="current-password",
+              :class="{ invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength) }")
 
-            label(for='password')
+            label(for="password")
               | Password
 
             span.sign-in-form__helper.helper-text(
-              v-if='$v.password.$dirty && !$v.password.required',
-              data-error='The field is empty')
+              v-if="$v.password.$dirty && !$v.password.required",
+              data-error="The field is empty")
 
             span.sign-in-form__helper.helper-text(
-              v-else-if='$v.password.$dirty && !$v.password.minLength',
-              data-error='Password is too short')
+              v-else-if="$v.password.$dirty && !$v.password.minLength",
+              data-error="Password is too short")
 
         .sign-in-form__row
-          router-link(to='/recovery')
+          router-link(to="/recovery")
             | Forgot password?
 
         .sign-in-form__row
           | - or -
 
         .sign-in-form__row
-          router-link(to='/sign-up')
+          router-link(to="/sign-up")
             | Register new account
 
         center.sign-in__center
@@ -67,50 +67,50 @@
               .circle-clipper.right
                 .circle
           vue-recaptcha.recaptcha(
-            ref='recaptcha',
-            size='invisible',
-            @verify='submit',
-            @expired='onCaptchaExpired',
-            sitekey='6LeKfEgaAAAAAGqtaoHk9BjYE18zHwoeOmoOCkhq')
+            ref="recaptcha",
+            size="invisible",
+            @verify="submit",
+            @expired="onCaptchaExpired",
+            sitekey="6LeKfEgaAAAAAGqtaoHk9BjYE18zHwoeOmoOCkhq")
 
           .sign-in-form__row.sign-in-form__social
-            button.sign-in-form__google(@click='googleAuth')
+            button.sign-in-form__google(@click="googleAuth")
               .sign-in-form__google-wrapper
-                img.sign-in-form__google-logo(draggable="false" src='~/assets/images/g-logo.png')
+                img.sign-in-form__google-logo(draggable="false" src="~/assets/images/g-logo.png")
                 .sign-in-form__google-title
                   | Google
 
-            button.sign-in-form__twitter(@click='twitterAuth')
+            button.sign-in-form__twitter(@click="twitterAuth")
               .sign-in-form__twitter-wrapper
-                img.sign-in-form__twitter-logo(draggable="false" src='~/assets/images/t-logo.png')
+                img.sign-in-form__twitter-logo(draggable="false" src="~/assets/images/t-logo.png")
                 .sign-in-form__twitter-title
                   | Twitter
 
 
           .sign-in-form__row
             button.sign-in__button.btn(
-              type='submit',
-              name='submitSignIn')
+              type="submit",
+              name="submitSignIn")
               | Sign In
 
       .sign-in__link-back
-        router-link(to='/')
+        router-link(to="/")
           | Back to Homepage
 
 </template>
 
 <script>
 
-  import firebase from 'firebase/app'
-  import { mapActions } from 'vuex'
-  import VueRecaptcha from 'vue-recaptcha'
-  import layoutMiddleware from '@/middleware/layoutMiddleware'
-  import { email, required, minLength } from 'vuelidate/lib/validators'
+  import firebase from "firebase/app"
+  import { mapActions } from "vuex"
+  import VueRecaptcha from "vue-recaptcha"
+  import layoutMiddleware from "@/middleware/layoutMiddleware"
+  import { email, required, minLength } from "vuelidate/lib/validators"
 
   export default {
-    name: 'SignIn',
+    name: "SignIn",
     metaInfo: {
-      title: 'Otaku Library - Sign In'
+      title: "Otaku Library - Sign In"
     },
     layout: layoutMiddleware,
     components: {
@@ -118,13 +118,13 @@
     },
     data() {
       return {
-        email: '',
-        password: '',
+        email: "",
+        password: "",
         params: {
-          client_id: '75933468300-qeknegfk5qg5cqa1c46fhrkfcu3nses0.apps.googleusercontent.com'
+          client_id: "75933468300-qeknegfk5qg5cqa1c46fhrkfcu3nses0.apps.googleusercontent.com"
         },
         renderParams: {
-          title: 'true'
+          title: "true"
         }
       }
     },
@@ -134,7 +134,7 @@
     },
     methods: {
       ...mapActions({
-        signIn: 'auth/signIn'
+        signIn: "auth/signIn"
       }),
       async submit() {
         if (this.$v.$invalid) {
@@ -147,9 +147,9 @@
         }
 
         if (window.screen.width <= 560) {
-          document.querySelector('.preloader-wrapper').style.display = 'block'
+          document.querySelector(".preloader-wrapper").style.display = "block"
         } else {
-          document.querySelector('.auth-progress').style.display = 'block'
+          document.querySelector(".auth-progress").style.display = "block"
         }
         await this.signIn(signInData)
       },
@@ -163,26 +163,26 @@
         const provider = new firebase.auth.GoogleAuthProvider()
 
         firebase.auth().signInWithPopup(provider)
-        .then((result) => { this.$router.push('/')})
+        .then((result) => { this.$router.push("/")})
         .catch((error) => { throw error.message })
       },
       twitterAuth () {
         const provider = new firebase.auth.TwitterAuthProvider()
 
         firebase.auth().signInWithPopup(provider)
-        .then((result) => { this.$router.push('/')})
-        .catch((error) => { M.toast({ html: `${ error.message }`, classes: 'red', displayLength: 10000 })})
+        .then((result) => { this.$router.push("/")})
+        .catch((error) => { M.toast({ html: `${ error.message }`, classes: "red", displayLength: 10000 })})
       }
     }
   }
 
 </script>
 
-<style lang='sass' scoped>
+<style lang="sass" scoped>
 
-  @import '~/assets/styles/utils/vars'
-  @import '~/assets/styles/utils/mixins'
-  @import '~/assets/styles/modules/buttons'
+  @import "~/assets/styles/utils/vars"
+  @import "~/assets/styles/utils/mixins"
+  @import "~/assets/styles/modules/buttons"
 
   .recaptcha
     position: fixed

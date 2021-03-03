@@ -1,38 +1,38 @@
-<template lang='pug'>
+<template lang="pug">
 
   .anime-genre
     .anime-genre__container
-      .anime-genre__title(v-if='animeGenre.mal_url')
+      .anime-genre__title(v-if="animeGenre.mal_url")
         | {{ animeGenre.mal_url.name }}
 
       query-content
         cards(
-          v-for='(anime) in animeGenre.anime',
-          :key='anime.mal_id',
-          :resultItem='anime')
+          v-for="(anime) in animeGenre.anime",
+          :key="anime.mal_id",
+          :resultItem="anime")
 
         cards(
-          v-for='(anime) in list',
-          :key='anime.mal_id',
-          :resultItem='anime')
+          v-for="(anime) in list",
+          :key="anime.mal_id",
+          :resultItem="anime")
 
-        infinite-loading(@infinite='infiniteHandler')
+        infinite-loading(@infinite="infiniteHandler")
 
 </template>
 
 <script>
 
-  import axios from 'axios'
-  import jikanjs from 'jikanjs/lib/jikan'
-  import Cards from '@/components/elements/Cards'
-  import InfiniteLoading from 'vue-infinite-loading'
-  import QueryContent from '@/components/elements/QueryContent'
-  import layoutMiddleware from '@/middleware/layoutMiddleware'
+  import axios from "axios"
+  import jikanjs from "jikanjs/lib/jikan"
+  import Cards from "@/components/elements/Cards"
+  import InfiniteLoading from "vue-infinite-loading"
+  import QueryContent from "@/components/elements/QueryContent"
+  import layoutMiddleware from "@/middleware/layoutMiddleware"
 
   export default {
-    name: 'AnimeGenre',
+    name: "AnimeGenre",
     metaInfo: {
-      title: 'Otaku Library - Explore anime genres',
+      title: "Otaku Library - Explore anime genres",
     },
     layout: layoutMiddleware,
     components: {
@@ -47,7 +47,7 @@
       }
     },
     async asyncData({ params }) {
-      const animeGenreResponse = await jikanjs.loadGenre('anime', params.id)
+      const animeGenreResponse = await jikanjs.loadGenre("anime", params.id)
       return {
         animeGenre: animeGenreResponse
       }
@@ -70,12 +70,12 @@
 
 </script>
 
-<style lang='sass' scoped>
+<style lang="sass" scoped>
 
-	@import '~/assets/styles/utils/vars'
-	@import '~/assets/styles/utils/mixins'
-	@import '~/assets/styles/modules/titles'
-	@import '~/assets/styles/modules/containers'
+	@import "~/assets/styles/utils/vars"
+	@import "~/assets/styles/utils/mixins"
+	@import "~/assets/styles/modules/titles"
+	@import "~/assets/styles/modules/containers"
 
 	.anime-genre
 		&__container

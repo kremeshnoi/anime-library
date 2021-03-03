@@ -1,4 +1,4 @@
-<template lang='pug'>
+<template lang="pug">
 
   .manga
     .manga__container
@@ -9,26 +9,26 @@
           table.related__table
             tbody.related__tbody
               tr.related__tr(
-                :key='dataIndex'
-                v-for='(resultItem, dataIndex) in mangaById.related[`${ relateName }`]')
+                :key="dataIndex"
+                v-for="(resultItem, dataIndex) in mangaById.related[`${ relateName }`]")
 
                 td.related__td
                   a.related__link(
-                    @click='computeRoute({ resultItem })'
-                    @click.middle='computeRoute({ resultItem, clickType })')
+                    @click="computeRoute({ resultItem })"
+                    @click.middle="computeRoute({ resultItem, clickType })")
                     | {{ resultItem.name }}
 
 </template>
 
 <script>
 
-  import { mapActions } from 'vuex'
-  import jikanjs from 'jikanjs/lib/jikan'
-  import Info from '@/components/elements/Info'
-  import layoutMiddleware from '@/middleware/layoutMiddleware'
+  import { mapActions } from "vuex"
+  import jikanjs from "jikanjs/lib/jikan"
+  import Info from "@/components/elements/Info"
+  import layoutMiddleware from "@/middleware/layoutMiddleware"
 
   export default {
-    name: 'MangaRelated',
+    name: "MangaRelated",
     metaInfo() {
       return {
         title: `Manga - ${ this.mangaById.title }`,
@@ -56,20 +56,20 @@
     },
     methods: {
       ...mapActions({
-        computeRoute: 'computeRoute'
+        computeRoute: "computeRoute"
       })
     },
   }
 
 </script>
 
-<style lang='sass' scoped>
+<style lang="sass" scoped>
 
-  @import '~/assets/styles/utils/vars'
-  @import '~/assets/styles/utils/mixins'
-  @import '~/assets/styles/modules/titles'
-  @import '~/assets/styles/modules/dividers'
-  @import '~/assets/styles/modules/containers'
+  @import "~/assets/styles/utils/vars"
+  @import "~/assets/styles/utils/mixins"
+  @import "~/assets/styles/modules/titles"
+  @import "~/assets/styles/modules/dividers"
+  @import "~/assets/styles/modules/containers"
 
   .manga
     width: 100%
@@ -79,11 +79,11 @@
       row-gap: 40px
       column-gap: 20px
       grid-template-columns: 1fr
-      grid-template-areas: 'main'
+      grid-template-areas: "main"
       @extend .container-default
       +mq(tablet-mid, max)
         grid-template-columns: 1fr
-        grid-template-areas: 'main'
+        grid-template-areas: "main"
     &__main-content
       display: grid
       grid-gap: 20px
@@ -91,10 +91,10 @@
       align-content: start
       justify-content: start
       grid-template-rows: 50 auto
-      grid-template-areas: 'title title' 'cover info'
+      grid-template-areas: "title title" "cover info"
       +mq(phablet, max)
         grid-template-rows: auto
-        grid-template-areas: 'title' 'cover' 'info'
+        grid-template-areas: "title" "cover" "info"
 
     &__sub-content
       display: grid

@@ -1,4 +1,4 @@
-<template lang='pug'>
+<template lang="pug">
 
 	.anime-genres
 		.anime-genres__container
@@ -7,12 +7,12 @@
 
 			query-content
 				a.genres__item(
-					v-for='(genre, genreIndex) in genresResult.data',
-					:key='genreIndex',
-					@click='computeRouteByGenre({ genresResult, genre })'
-					@click.middle='computeRouteByGenre({ genresResult, genre, clickType })')
+					v-for="(genre, genreIndex) in genresResult.data",
+					:key="genreIndex",
+					@click="computeRouteByGenre({ genresResult, genre })"
+					@click.middle="computeRouteByGenre({ genresResult, genre, clickType })")
 					img.genres__item-image(
-						draggable="false" :src='genre.img')
+						draggable="false" :src="genre.img")
 
 					.genres__title-wrapper
 						span.genres__item-title
@@ -22,16 +22,16 @@
 
 <script>
 
-	import { mapActions } from 'vuex'
-	import { anime } from '@/utils/genres'
-	import Cards from '@/components/elements/Cards'
-	import layoutMiddleware from '@/middleware/layoutMiddleware'
-	import QueryContent from '@/components/elements/QueryContent'
+	import { mapActions } from "vuex"
+	import { anime } from "@/utils/genres"
+	import Cards from "@/components/elements/Cards"
+	import layoutMiddleware from "@/middleware/layoutMiddleware"
+	import QueryContent from "@/components/elements/QueryContent"
 
 	export default {
-		name: 'AnimeGenres',
+		name: "AnimeGenres",
 		metaInfo: {
-			title: 'Otaku Library - Explore anime genres',
+			title: "Otaku Library - Explore anime genres",
 		},
 		layout: layoutMiddleware,
 		components: {
@@ -47,27 +47,27 @@
 			genresResult() {
 				return {
 						data: anime,
-						type: 'anime',
-						title: 'Anime',
+						type: "anime",
+						title: "Anime",
 						link: "anime/genres"
 				}
 			}
 		},
 		methods: {
 			...mapActions({
-				computeRouteByGenre: 'computeRouteByGenre'
+				computeRouteByGenre: "computeRouteByGenre"
 			})
 		}
 	}
 
 </script>
 
-<style lang='sass' scoped>
+<style lang="sass" scoped>
 
-	@import '~/assets/styles/utils/vars'
-	@import '~/assets/styles/utils/mixins'
-	@import '~/assets/styles/modules/titles'
-	@import '~/assets/styles/modules/containers'
+	@import "~/assets/styles/utils/vars"
+	@import "~/assets/styles/utils/mixins"
+	@import "~/assets/styles/modules/titles"
+	@import "~/assets/styles/modules/containers"
 
 	.query-content
 		grid-template-columns: repeat(4, 1fr)
