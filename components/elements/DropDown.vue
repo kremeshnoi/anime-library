@@ -40,7 +40,7 @@
             li.cards__value
               span.info__list-key
                 | Type:
-              | &nbsp;
+              | &nbsp
               span.info__list-value(v-if='resultItem.type && resultItem.start_date')
                 | {{ resultItem.type }} / {{ resultItem.start_date.substring(0, 4) }}
 
@@ -53,7 +53,7 @@
             li.cards__value
               span.info__list-key
                 | Score:
-              | &nbsp;
+              | &nbsp
               span.info__list-value(v-if='resultItem.score')
                 | {{ resultItem.score }}
 
@@ -66,7 +66,7 @@
 
 <script>
 
-  import { mapActions } from 'vuex';
+  import { mapActions } from 'vuex'
 
   export default {
     name: 'DropDown',
@@ -80,7 +80,7 @@
       activeEl: {
         set() {},
         get() {
-          return this.type === 'anime' ? 'anime' : 'manga';
+          return this.type === 'anime' ? 'anime' : 'manga'
         }
       }
     },
@@ -89,11 +89,11 @@
         computeRoute: 'computeRoute',
       }),
       changeType(el) {
-        this.activeEl = el;
-        this.$emit('changeType', el);
+        this.activeEl = el
+        this.$emit('changeType', el)
       }
     }
-  };
+  }
 
 </script>
 

@@ -106,18 +106,18 @@
 
 <script>
 
-	import { mapActions } from "vuex";
-	import jikanjs from 'jikanjs/lib/jikan';
-	import Cards from '@/components/elements/Cards';
-	import layoutMiddleware from '@/middleware/layoutMiddleware';
-	import SwiperCarousel from '@/components/elements/SwiperCarousel';
+	import { mapActions } from "vuex"
+	import jikanjs from 'jikanjs/lib/jikan'
+	import Cards from '@/components/elements/Cards'
+	import layoutMiddleware from '@/middleware/layoutMiddleware'
+	import SwiperCarousel from '@/components/elements/SwiperCarousel'
 
 	export default {
 		name: 'Character',
 		metaInfo() {
 			return {
 				title: `Character - ${this.characterById.name}`,
-			};
+			}
 		},
 		layout: layoutMiddleware,
 		components: {
@@ -128,23 +128,23 @@
 			return {
 				clickType: "middle",
 				aboutCharacterData: []
-			};
+			}
 		},
 		async asyncData({ params }) {
-			const characterResponse = await jikanjs.loadCharacter(params.id);
+			const characterResponse = await jikanjs.loadCharacter(params.id)
 			return {
 				characterById: characterResponse,
-			};
+			}
 		},
 		async created() {
-			await this.replaceData();
+			await this.replaceData()
 		},
 		mounted() {
-			const modal = document.querySelectorAll('.modal');
-			const modal_instance = M.Modal.init(modal);
+			const modal = document.querySelectorAll('.modal')
+			const modal_instance = M.Modal.init(modal)
 			if (Object.keys(this.characterById.voice_actors).length) {
-				const tabs = document.querySelectorAll('.tabs');
-				const instanceTabs = M.Tabs.init(tabs);
+				const tabs = document.querySelectorAll('.tabs')
+				const instanceTabs = M.Tabs.init(tabs)
 			}
 		},
 		methods: {
@@ -152,12 +152,12 @@
 				computeRoute: 'computeRoute',
 			}),
 			async replaceData() {
-				const data = this.characterById.about;
-				const result = data.replace(/\\n/g, '');
-				this.aboutCharacterData.push(result);
+				const data = this.characterById.about
+				const result = data.replace(/\\n/g, '')
+				this.aboutCharacterData.push(result)
 			}
 		}
-	};
+	}
 
 </script>
 

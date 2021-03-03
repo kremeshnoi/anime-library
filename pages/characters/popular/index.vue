@@ -22,12 +22,12 @@
 
 <script>
 
-  import axios from 'axios';
-  import jikanjs from 'jikanjs/lib/jikan';
-  import Cards from '@/components/elements/Cards';
-  import InfiniteLoading from 'vue-infinite-loading';
-  import QueryContent from '@/components/elements/QueryContent';
-  import layoutMiddleware from '@/middleware/layoutMiddleware';
+  import axios from 'axios'
+  import jikanjs from 'jikanjs/lib/jikan'
+  import Cards from '@/components/elements/Cards'
+  import InfiniteLoading from 'vue-infinite-loading'
+  import QueryContent from '@/components/elements/QueryContent'
+  import layoutMiddleware from '@/middleware/layoutMiddleware'
 
   export default {
     name: 'TopCharacters',
@@ -44,29 +44,29 @@
       return {
         page: 2,
         list: []
-      };
+      }
     },
     async asyncData() {
-      const favoriteCharactersResponse = await jikanjs.loadTop('characters');
+      const favoriteCharactersResponse = await jikanjs.loadTop('characters')
       return {
         favoriteCharacters: favoriteCharactersResponse.top,
-      };
+      }
     },
     methods: {
       infiniteHandler($state) {
         axios.get(`https://api.jikan.moe/v3/top/characters/${ this.page }`)
         .then(({data}) => {
           if (data.top.length) {
-            this.page += 1;
-            this.list.push(...data.top);
-            $state.loaded();
+            this.page += 1
+            this.list.push(...data.top)
+            $state.loaded()
           } else {
-            $state.complete();
+            $state.complete()
           }
-        });
+        })
       }
     }
-  };
+  }
 
 </script>
 

@@ -9,10 +9,11 @@
 				cards.manga-characters__card(
 					:key='dataIndex'
 					:resultItem="data"
-					v-for='(data, dataIndex) in charactersData.slice(0, 2)',
-					)
+					v-for='(data, dataIndex) in charactersData.slice(0, 2)')
 
-				a.manga-characters__link()
+				a.manga-characters__link(
+					@click='computeRoute({ resultItem })'
+					@click.middle='computeRoute({ resultItem, clickType })')
 					| More
 
 			h4.manga-characters__disaster(v-else)
@@ -22,9 +23,10 @@
 
 <script>
 
-	import Cards from '@/components/elements/Cards';
-	import SwiperCarousel from '@/components/elements/SwiperCarousel';
-	import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
+	import { mapActions } from "vuex"
+	import Cards from '@/components/elements/Cards'
+	import SwiperCarousel from '@/components/elements/SwiperCarousel'
+	import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper'
 
 	export default {
 		name: 'Characters',
@@ -37,8 +39,13 @@
 		},
 		directives: {
 			swiper: directive
+		},
+		methods: {
+			...mapActions({
+				computeRoute: 'computeRoute',
+			})
 		}
-	};
+	}
 
 </script>
 

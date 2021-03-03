@@ -1,4 +1,4 @@
-import Vue from 'vue';
-import M from 'materialize-css';
+import Vue from 'vue'
+import M from 'materialize-css'
 
-Vue.use(M);
+Vue.use(M)

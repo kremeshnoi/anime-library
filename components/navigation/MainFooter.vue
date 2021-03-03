@@ -9,9 +9,9 @@
 
 <script>
 
-  import FooterNote from '@/components/blocks/footer/FooterNote';
-  import FooterMainInfo from '@/components/blocks/footer/FooterMainInfo';
-  import FooterCategories from '@/components/blocks/footer/FooterCategories';
+  import FooterNote from '@/components/blocks/footer/FooterNote'
+  import FooterMainInfo from '@/components/blocks/footer/FooterMainInfo'
+  import FooterCategories from '@/components/blocks/footer/FooterCategories'
 
 
   export default {
@@ -21,7 +21,7 @@
       FooterMainInfo,
       FooterCategories
     }
-  };
+  }
 
 </script>
 

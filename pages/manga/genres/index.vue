@@ -22,11 +22,11 @@
 
 <script>
 
-	import { mapActions } from 'vuex';
-	import { manga } from '@/utils/genres';
-	import Cards from '@/components/elements/Cards';
-	import layoutMiddleware from '@/middleware/layoutMiddleware';
-	import QueryContent from '@/components/elements/QueryContent';
+	import { mapActions } from 'vuex'
+	import { manga } from '@/utils/genres'
+	import Cards from '@/components/elements/Cards'
+	import layoutMiddleware from '@/middleware/layoutMiddleware'
+	import QueryContent from '@/components/elements/QueryContent'
 
 	export default {
 		name: 'MangaGenres',
@@ -58,7 +58,7 @@
 				computeRouteByGenre: 'computeRouteByGenre'
 			})
 		}
-	};
+	}
 
 </script>
 

@@ -41,24 +41,24 @@
 
 <script>
 
-	import { mapActions } from 'vuex';
+	import { mapActions } from 'vuex'
 
 	export default {
 		name: 'FooterMainInfo',
 		data() {
 			return {
 				user: [],
-			};
+			}
 		},
 		async created() {
-			await this.getUid().then((result) => this.user.push(result));
+			await this.getUid().then((result) => this.user.push(result))
 		},
 		methods: {
 			...mapActions({
 				getUid: 'auth/getUid',
 			})
 		}
-	};
+	}
 
 </script>
 

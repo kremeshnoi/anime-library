@@ -14,7 +14,7 @@
 
 <script>
 
-	import { mapActions } from 'vuex';
+	import { mapActions } from 'vuex'
 
 	export default {
 		name: 'Cards',
@@ -29,7 +29,7 @@
 				computeRoute: 'computeRoute',
 			})
 		}
-	};
+	}
 
 </script>
 

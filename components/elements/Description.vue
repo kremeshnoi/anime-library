@@ -17,7 +17,7 @@
   export default {
     name: 'Description',
     props: ['descriptionData']
-  };
+  }
 
 </script>
 

@@ -7,4 +7,4 @@ export const studios = [
   { 'img': require('~/assets/images/studios/production-i-g.png') },
   { 'img': require('~/assets/images/studios/p-a-works.png') },
   { 'img': require('~/assets/images/studios/sunrise-beyond.png') }
-];
+]

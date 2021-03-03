@@ -22,12 +22,12 @@
 
 <script>
 
-  import axios from 'axios';
-  import jikanjs from 'jikanjs/lib/jikan';
-  import Cards from '@/components/elements/Cards';
-  import InfiniteLoading from 'vue-infinite-loading';
-  import layoutMiddleware from '@/middleware/layoutMiddleware';
-  import QueryContent from '@/components/elements/QueryContent';
+  import axios from 'axios'
+  import jikanjs from 'jikanjs/lib/jikan'
+  import Cards from '@/components/elements/Cards'
+  import InfiniteLoading from 'vue-infinite-loading'
+  import layoutMiddleware from '@/middleware/layoutMiddleware'
+  import QueryContent from '@/components/elements/QueryContent'
 
   export default {
     name: 'TopManga',
@@ -44,29 +44,29 @@
       return {
         page: 2,
         list: []
-      };
+      }
     },
     async asyncData() {
-      const topMangaResponse = await jikanjs.loadTop('manga', 1, 'favorite');
+      const topMangaResponse = await jikanjs.loadTop('manga', 1, 'favorite')
       return {
         topManga: topMangaResponse.top,
-      };
+      }
     },
     methods: {
       infiniteHandler($state) {
         axios.get(`https://api.jikan.moe/v3/top/manga/${ this.page }/favorite`)
         .then(({data}) => {
           if (data.top.length) {
-            this.page += 1;
-            this.list.push(...data.top);
-            $state.loaded();
+            this.page += 1
+            this.list.push(...data.top)
+            $state.loaded()
           } else {
-            $state.complete();
+            $state.complete()
           }
-        });
+        })
       }
     }
-  };
+  }
 
 </script>
 

@@ -30,8 +30,8 @@
 
 <script>
 
-  import { mapActions, mapGetters } from 'vuex';
-  import DropDown from '@/components/elements/DropDown';
+  import { mapActions, mapGetters } from 'vuex'
+  import DropDown from '@/components/elements/DropDown'
 
 
   export default {
@@ -61,33 +61,33 @@
         loadMangaSearched: 'manga/loadMangaSearched'
       }),
       showDropdown(event) {
-        const dropDownEl = document.querySelector('.cards__wrapper');
+        const dropDownEl = document.querySelector('.cards__wrapper')
 
-        this.query = '';
+        this.query = ''
         if (event.target.classList.contains('overlay') || dropDownEl) {
-          this.isActive = false;
+          this.isActive = false
         } else {
-          this.isActive = true;
+          this.isActive = true
         }
       },
       updateType(el) {
-        this.type = el;
+        this.type = el
       },
       async search(query) {
         if (query.length >= 3) {
-        this.isLoading = true;
+        this.isLoading = true
         if (this.type === 'anime') {
-          await this.loadAnimeSearched(query);
-          this.searchedData = this.getAnimeSearched;
+          await this.loadAnimeSearched(query)
+          this.searchedData = this.getAnimeSearched
         } else if (this.type === 'manga') {
-          await this.loadMangaSearched(query);
-          this.searchedData = this.getMangaSearched;
+          await this.loadMangaSearched(query)
+          this.searchedData = this.getMangaSearched
         }
-        this.isLoading = false;
+        this.isLoading = false
         }
       }
     }
-  };
+  }
 
 </script>
 

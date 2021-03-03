@@ -20,7 +20,7 @@
 
 <script>
 
-	import { mapActions } from 'vuex';
+	import { mapActions } from 'vuex'
 
 	export default {
 		name: 'Select',
@@ -34,7 +34,7 @@
 					id: null,
 					result: null,
 				}
-			};
+			}
 		},
 		computed: {
 			options() {
@@ -44,53 +44,53 @@
 					{ title: 'Currently', value: 'process' },
 					{ title: 'On Hold', value: 'hold' },
 					{ title: 'Dropped', value: 'dropped' },
-				];
-				let verb = '';
-				let type = this.type;
+				]
+				let verb = ''
+				let type = this.type
 				if (type === 'Manga') {
-					verb = 'Read';
+					verb = 'Read'
 				} else {
-					verb = 'Watch';
+					verb = 'Watch'
 				}
 
 				for (let i = 0; options.length > i; i++) {
 					if (options[i].value === 'planned') {
-						options[i].title += ` ${verb}`;
+						options[i].title += ` ${verb}`
 					}
 					if (options[i].value === 'process') {
-						options[i].title += ` ${verb + 'ing'}`;
+						options[i].title += ` ${verb + 'ing'}`
 					}
 				}
 
-				return options;
+				return options
 			},
 		},
 		watch: {
 			type(newVal) {
-				this.payload.type = newVal;
+				this.payload.type = newVal
 			},
 			wholeResult(newVal) {
-				this.payload.result = newVal;
-				this.payload.id = newVal.mal_id;
+				this.payload.result = newVal
+				this.payload.id = newVal.mal_id
 			},
 		},
 		async created() {
-			this.payload.type = this.type;
-			this.payload.result = this.wholeResult;
-			this.payload.id = this.wholeResult.mal_id;
-			await this.getUid().then((result) => this.user.push(result));
+			this.payload.type = this.type
+			this.payload.result = this.wholeResult
+			this.payload.id = this.wholeResult.mal_id
+			await this.getUid().then((result) => this.user.push(result))
 		},
 		mounted() {
-			const select = document.querySelectorAll('select');
-			const selectInstance = M.FormSelect.init(select);
-			const tooltip = document.querySelectorAll('.coupontooltip');
+			const select = document.querySelectorAll('select')
+			const selectInstance = M.FormSelect.init(select)
+			const tooltip = document.querySelectorAll('.coupontooltip')
 
-			document.addEventListener('mousemove', fn, false);
+			document.addEventListener('mousemove', fn, false)
 
 			function fn(e) {
-					for (var i=tooltip.length; i--;) {
-							tooltip[i].style.left = e.pageX + 'px';
-							tooltip[i].style.top = e.pageY + 'px';
+					for (var i = tooltip.length; i--;) {
+							tooltip[i].style.left = e.pageX + 'px'
+							tooltip[i].style.top = e.pageY + 'px'
 					}
 			}
 		},
@@ -101,12 +101,12 @@
 			}),
 			followCursor() {
 				for (let i = tooltip.length; i--;) {
-					tooltip[i].style.left = e.pageX + 'px';
-					tooltip[i].style.top = e.pageY + 'px';
+					tooltip[i].style.left = e.pageX + 'px'
+					tooltip[i].style.top = e.pageY + 'px'
 				}
 			}
 		}
-	};
+	}
 
 </script>
 

@@ -27,8 +27,8 @@
 
 <script>
 
-  import { mapActions } from 'vuex';
-  import SearchBar from '@/components/elements/SearchBar';
+  import { mapActions } from 'vuex'
+  import SearchBar from '@/components/elements/SearchBar'
 
   export default {
     name: 'Navbar',
@@ -38,10 +38,10 @@
     data() {
       return {
         user: []
-      };
+      }
     },
     async created() {
-      await this.getUid().then((result) => this.user.push(result));
+      await this.getUid().then((result) => this.user.push(result))
     },
     methods: {
       ...mapActions({
@@ -49,13 +49,13 @@
       }),
       signOut() {
         try {
-					this.$store.dispatch('auth/signOut');
+					this.$store.dispatch('auth/signOut')
         } catch (error) {
-          throw error.message;
+          throw error.message
         }
       }
     }
-  };
+  }
 
 </script>
 

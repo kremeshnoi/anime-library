@@ -47,7 +47,7 @@
 
 <script>
 
-  import { mapActions } from 'vuex';
+  import { mapActions } from 'vuex'
 
   export default {
     name: 'Related',
@@ -60,8 +60,8 @@
     computed: {
       relatedLength() {
         if (typeof this.relatedData === 'object') {
-          const length = Object.keys(this.relatedData).length;
-          return length;
+          const length = Object.keys(this.relatedData).length
+          return length
         }
       },
     },
@@ -71,7 +71,7 @@
         computeRouteByRelated: 'computeRouteByRelated'
       })
     }
-  };
+  }
 
 </script>
 

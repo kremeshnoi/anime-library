@@ -21,12 +21,12 @@
 
 <script>
 
-  import axios from 'axios';
-  import jikanjs from 'jikanjs/lib/jikan';
-  import Cards from '@/components/elements/Cards';
-  import InfiniteLoading from 'vue-infinite-loading';
-  import layoutMiddleware from '@/middleware/layoutMiddleware';
-  import QueryContent from '@/components/elements/QueryContent';
+  import axios from 'axios'
+  import jikanjs from 'jikanjs/lib/jikan'
+  import Cards from '@/components/elements/Cards'
+  import InfiniteLoading from 'vue-infinite-loading'
+  import layoutMiddleware from '@/middleware/layoutMiddleware'
+  import QueryContent from '@/components/elements/QueryContent'
 
 export default {
   name: 'TopAiring',
@@ -43,29 +43,29 @@ export default {
     return {
       page: 2,
       list: []
-    };
+    }
   },
   async asyncData() {
-    const animeAiringResponse = await jikanjs.loadTop('anime', 1, 'airing');
+    const animeAiringResponse = await jikanjs.loadTop('anime', 1, 'airing')
     return {
       animeAiring: animeAiringResponse.top,
-    };
+    }
   },
   methods: {
     infiniteHandler($state) {
       axios.get(`https://api.jikan.moe/v3/top/anime/${ this.page }/airing`)
       .then(({data}) => {
         if (data.top.length) {
-          this.page += 1;
-          this.list.push(...data.top);
-          $state.loaded();
+          this.page += 1
+          this.list.push(...data.top)
+          $state.loaded()
         } else {
-          $state.complete();
+          $state.complete()
         }
-      });
+      })
     }
   }
-};
+}
 </script>
 
 <style lang='sass' scoped>

@@ -101,11 +101,11 @@
 
 <script>
 
-  import firebase from 'firebase/app';
-  import { mapActions } from 'vuex';
-  import VueRecaptcha from 'vue-recaptcha';
-  import layoutMiddleware from '@/middleware/layoutMiddleware';
-  import { email, required, minLength } from 'vuelidate/lib/validators';
+  import firebase from 'firebase/app'
+  import { mapActions } from 'vuex'
+  import VueRecaptcha from 'vue-recaptcha'
+  import layoutMiddleware from '@/middleware/layoutMiddleware'
+  import { email, required, minLength } from 'vuelidate/lib/validators'
 
   export default {
     name: 'SignIn',
@@ -138,43 +138,43 @@
       }),
       async submit() {
         if (this.$v.$invalid) {
-          return this.$v.$touch();
+          return this.$v.$touch()
         }
 
         const signInData = {
           email: this.email,
           password: this.password
-        };
+        }
 
         if (window.screen.width <= 560) {
-          document.querySelector('.preloader-wrapper').style.display = 'block';
+          document.querySelector('.preloader-wrapper').style.display = 'block'
         } else {
-          document.querySelector('.auth-progress').style.display = 'block';
+          document.querySelector('.auth-progress').style.display = 'block'
         }
-        await this.signIn(signInData);
+        await this.signIn(signInData)
       },
       validate () {
-        this.$refs.recaptcha.execute();
+        this.$refs.recaptcha.execute()
       },
       onCaptchaExpired () {
         this.$refs.recaptcha.reset()
       },
       googleAuth () {
-        const provider = new firebase.auth.GoogleAuthProvider();
+        const provider = new firebase.auth.GoogleAuthProvider()
 
         firebase.auth().signInWithPopup(provider)
         .then((result) => { this.$router.push('/')})
-        .catch((error) => { throw error.message });
+        .catch((error) => { throw error.message })
       },
       twitterAuth () {
-        const provider = new firebase.auth.TwitterAuthProvider();
+        const provider = new firebase.auth.TwitterAuthProvider()
 
         firebase.auth().signInWithPopup(provider)
         .then((result) => { this.$router.push('/')})
-        .catch((error) => { M.toast({ html: `${ error.message }`, classes: 'red', displayLength: 10000 })});
+        .catch((error) => { M.toast({ html: `${ error.message }`, classes: 'red', displayLength: 10000 })})
       }
     }
-  };
+  }
 
 </script>
 

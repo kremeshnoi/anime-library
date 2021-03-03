@@ -38,14 +38,14 @@
 
 <script>
 
-  import jikanjs from 'jikanjs/lib/jikan';
-  import Info from '@/components/elements/Info';
-  import Related from '@/components/elements/Related';
-  import Trailer from '@/components/elements/Trailer';
-  import Description from '@/components/elements/Description';
-  import layoutMiddleware from '@/middleware/layoutMiddleware';
-  import SelectOptions from '@/components/elements/SelectOptions';
-  import Recommendations from '@/components/elements/Recommendations';
+  import jikanjs from 'jikanjs/lib/jikan'
+  import Info from '@/components/elements/Info'
+  import Related from '@/components/elements/Related'
+  import Trailer from '@/components/elements/Trailer'
+  import Description from '@/components/elements/Description'
+  import layoutMiddleware from '@/middleware/layoutMiddleware'
+  import SelectOptions from '@/components/elements/SelectOptions'
+  import Recommendations from '@/components/elements/Recommendations'
 
   export default {
     name: 'Anime',
@@ -64,22 +64,22 @@
       Recommendations
     },
     async asyncData({ params }) {
-      const animeByIdResponse = await jikanjs.loadAnime(params.id);
-      const animeRecommendationsByIdResponse = await jikanjs.loadAnime(params.id, 'recommendations');
+      const animeByIdResponse = await jikanjs.loadAnime(params.id)
+      const animeRecommendationsByIdResponse = await jikanjs.loadAnime(params.id, 'recommendations')
       return {
         animeById: animeByIdResponse,
         animeRecommendationsById: animeRecommendationsByIdResponse,
-      };
+      }
     },
     mounted() {
-      const modal = document.querySelectorAll('.modal');
-      const modalInstance = M.Modal.init(modal);
+      const modal = document.querySelectorAll('.modal')
+      const modalInstance = M.Modal.init(modal)
       if (Object.keys(this.animeById.related).length > 0) {
-        const tabs = document.querySelectorAll('.tabs');
-        const instanceTabs = M.Tabs.init(tabs);
+        const tabs = document.querySelectorAll('.tabs')
+        const instanceTabs = M.Tabs.init(tabs)
       }
     }
-  };
+  }
 
 </script>
 

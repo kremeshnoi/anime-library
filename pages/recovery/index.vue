@@ -55,9 +55,9 @@
 
 <script>
 
-  import VueRecaptcha from 'vue-recaptcha';
-  import { email, required } from 'vuelidate/lib/validators';
-  import layoutMiddleware from '@/middleware/layoutMiddleware';
+  import VueRecaptcha from 'vue-recaptcha'
+  import { email, required } from 'vuelidate/lib/validators'
+  import layoutMiddleware from '@/middleware/layoutMiddleware'
 
   export default {
     name: 'Recovery',
@@ -80,28 +80,28 @@
     methods: {
       async submit() {
         if (this.$v.$invalid) {
-          return this.$v.$touch();
+          return this.$v.$touch()
         }
 
         const RecoveryData = {
           email: this.email
-        };
+        }
 
         if (window.screen.width <= 560) {
-          document.querySelector('.preloader-wrapper').style.display = 'block';
+          document.querySelector('.preloader-wrapper').style.display = 'block'
         } else {
-          document.querySelector('.auth-progress').style.display = 'block';
+          document.querySelector('.auth-progress').style.display = 'block'
         }
-        await this.$store.dispatch('auth/recoverPassword', RecoveryData);
+        await this.$store.dispatch('auth/recoverPassword', RecoveryData)
       },
       validate () {
-        this.$refs.recaptcha.execute();
+        this.$refs.recaptcha.execute()
       },
       onCaptchaExpired () {
         this.$refs.recaptcha.reset()
       }
     }
-  };
+  }
 
 </script>
 

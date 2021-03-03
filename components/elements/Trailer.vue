@@ -22,13 +22,13 @@
     props: ['trailerData'],
     computed: {
       trailer() {
-        let trailer = this.trailerData;
+        let trailer = this.trailerData
         if (trailer) {
-          return trailer.substring(0, trailer.length - 1) + '0';
+          return trailer.substring(0, trailer.length - 1) + '0'
         }
       }
     }
-  };
+  }
 
 </script>
 

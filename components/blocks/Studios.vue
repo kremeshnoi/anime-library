@@ -11,8 +11,8 @@
 
 <script>
 
-	import { studios } from "@/utils/studios";
-	import layoutMiddleware from '@/middleware/layoutMiddleware';
+	import { studios } from "@/utils/studios"
+	import layoutMiddleware from '@/middleware/layoutMiddleware'
 
 	export default {
 		name: 'Studios',
@@ -24,7 +24,7 @@
 				}
 			}
 		}
-	};
+	}
 
 </script>
 

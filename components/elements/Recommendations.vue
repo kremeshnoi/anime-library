@@ -19,8 +19,8 @@
 
 <script>
 
-  import Cards from '@/components/elements/Cards';
-  import SwiperCarousel from '@/components/elements/SwiperCarousel';
+  import Cards from '@/components/elements/Cards'
+  import SwiperCarousel from '@/components/elements/SwiperCarousel'
 
   export default {
     name: 'Recommendations',
@@ -29,7 +29,7 @@
       Cards,
       SwiperCarousel
     }
-  };
+  }
 
 </script>
 

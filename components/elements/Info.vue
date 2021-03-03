@@ -7,7 +7,7 @@
       li.info__list-item
         span.info__list-key
           | Type:
-        | &nbsp;
+        | &nbsp
         span.info__list-value(v-if='infoData.type')
           | {{ infoData.type }}
         span.info__list-value(v-else)
@@ -15,7 +15,7 @@
       li.info__list-item
         span.info__list-key
           | Score:
-        | &nbsp;
+        | &nbsp
         span.info__list-value.info__list-value_decor(v-if='infoData.score')
           | {{ infoData.score }}
         span.info__list-value(v-else)
@@ -23,7 +23,7 @@
       li.info__list-item
         span.info__list-key
           | Status:
-        | &nbsp;
+        | &nbsp
         span.info__list-value(v-if='infoData.status')
           | {{ infoData.status }}
         span.info__list-value(v-else)
@@ -31,7 +31,7 @@
       li.info__list-item(v-if='infoData.aired')
         span.info__list-key
           | Aired:
-        | &nbsp;
+        | &nbsp
         span.info__list-value(v-if='infoData.aired')
           | {{ infoData.aired.string }}
         span.info__list-value(v-else)
@@ -39,7 +39,7 @@
       li.info__list-item(v-if='infoData.published')
         span.info__list-key
           | Published:
-        | &nbsp;
+        | &nbsp
         span.info__list-value(v-if='infoData.published')
           | {{ infoData.published.string }}
         span.info__list-value(v-else)
@@ -47,7 +47,7 @@
       li.info__list-item
         span.info__list-key
           | Genres:
-        | &nbsp;
+        | &nbsp
         span.info__list-values(
           v-for='(genre, genreIndex) in infoData.genres',
           :key='genreIndex'
@@ -56,7 +56,7 @@
       li.info__list-item(v-if='infoData.volumes')
         span.info__list-key
           | Volumes:
-        | &nbsp;
+        | &nbsp
         span.info__list-value(v-if='infoData.volumes')
           | {{ infoData.volumes }}
         span.info__list-value(v-else)
@@ -64,7 +64,7 @@
       li.info__list-item(v-if='infoData.chapters')
         span.info__list-key
           | Chapters:
-        | &nbsp;
+        | &nbsp
         span.info__list-value(v-if='infoData.chapters')
           | {{ infoData.chapters }}
         span.info__list-value(v-else)
@@ -72,7 +72,7 @@
       li.info__list-item(v-if='infoData.episodes')
         span.info__list-key
           | Episodes:
-        | &nbsp;
+        | &nbsp
         span.info__list-value(v-if='infoData.episodes')
           | {{ infoData.episodes }}
         span.info__list-value(v-else)
@@ -80,7 +80,7 @@
       li.info__list-item(v-if='infoData.duration')
         span.info__list-key
           | Duration:
-        | &nbsp;
+        | &nbsp
         span.info__list-value(v-if='infoData.duration')
           | {{ infoData.duration }}
         span.info__list-value(v-else)
@@ -88,7 +88,7 @@
       li.info__list-item(v-if='infoData.studios')
         span.info__list-key
           | Studios:
-        | &nbsp;
+        | &nbsp
         span.info__list-values(
           v-for='(studio, studioIndex) in infoData.studios',
           :key='studioIndex'
@@ -99,7 +99,7 @@
       li.info__list-item(v-if='infoData.serializations')
         span.info__list-key
           | Publication:
-        | &nbsp;
+        | &nbsp
         span.info__list-values(
           v-for='(serialization, serializationIndex) in infoData.serializations',
           :key='serializationIndex'
@@ -110,7 +110,7 @@
       li.info__list-item(v-if='infoData.rating')
         span.info__list-key
           | Rating:
-        | &nbsp;
+        | &nbsp
         span.info__list-value(v-if='infoData.rating')
           | {{ infoData.rating }}
         span.info__list-value(v-else)
@@ -123,7 +123,7 @@
   export default {
     name: 'Info',
     props: ['infoData'],
-  };
+  }
 
 </script>
 

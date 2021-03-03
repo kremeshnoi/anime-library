@@ -26,7 +26,7 @@
 
 <script>
 
-  import { mapActions, mapGetters } from 'vuex';
+  import { mapActions, mapGetters } from 'vuex'
 
   export default {
     name: 'FooterCategories',
@@ -59,15 +59,15 @@
             link: '/characters/popular',
             data: this.getCharactersFavoriteCategories,
           }
-        };
+        }
 
-        return categories;
+        return categories
       }
     },
     async created() {
-      await this.loadAnimeFavoriteCategories();
-      await this.loadMangaFavoriteCategories();
-      await this.loadCharactersFavoriteCategories();
+      await this.loadAnimeFavoriteCategories()
+      await this.loadMangaFavoriteCategories()
+      await this.loadCharactersFavoriteCategories()
     },
     methods: {
       ...mapActions({
@@ -78,7 +78,7 @@
         computeRoute: 'computeRoute',
       })
     }
-  };
+  }
 
 </script>
 

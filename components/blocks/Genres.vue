@@ -25,8 +25,8 @@
 
 <script>
 
-	import { mapActions } from 'vuex';
-	import { anime, manga } from '@/utils/genres';
+	import { mapActions } from 'vuex'
+	import { anime, manga } from '@/utils/genres'
 
 	export default {
 		name: 'Genres',
@@ -58,7 +58,7 @@
 				computeRouteByGenre: 'computeRouteByGenre'
 			})
 		}
-	};
+	}
 
 </script>
 

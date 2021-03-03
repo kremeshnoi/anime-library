@@ -53,9 +53,9 @@
 
 <script>
 
-	import firebase from 'firebase/app';
-	import jikanjs from 'jikanjs/lib/jikan.js';
-	import layoutMiddleware from '@/middleware/layoutMiddleware';
+	import firebase from 'firebase/app'
+	import jikanjs from 'jikanjs/lib/jikan.js'
+	import layoutMiddleware from '@/middleware/layoutMiddleware'
 
 	export default {
 		name: 'Library',
@@ -82,26 +82,26 @@
 					{ title: 'On Hold', status: 'hold', type: 'manga' },
 					{ title: 'Dropped', status: 'dropped', type: 'manga' },
 				],
-			};
+			}
 		},
 		async created() {
-			this.fetchData(this.$route.params.type, this.$route.params.status);
-			if (this.$route.params.type === 'anime') this.tabs = this.animeTabs;
-			else if (this.$route.params.type === 'manga') this.tabs = this.mangaTabs;
+			this.fetchData(this.$route.params.type, this.$route.params.status)
+			if (this.$route.params.type === 'anime') this.tabs = this.animeTabs
+			else if (this.$route.params.type === 'manga') this.tabs = this.mangaTabs
 		},
 		methods: {
 			getUid() {
-				const user = firebase.auth().currentUser;
-				return user ? user.uid : null;
+				const user = firebase.auth().currentUser
+				return user ? user.uid : null
 			},
 			toogleTab(type, status) {
-				this.$router.push(`/library/${type}/${status}`);
-				if (type === 'anime') this.animeTabBuffer = status;
-				else if (type === 'manga') this.mangaTabBuffer = status;
+				this.$router.push(`/library/${type}/${status}`)
+				if (type === 'anime') this.animeTabBuffer = status
+				else if (type === 'manga') this.mangaTabBuffer = status
 			},
 			async fetchData(type, status) {
 				try {
-					const uid = this.getUid();
+					const uid = this.getUid()
 					const res = await firebase
 						.database()
 						.ref(`/users/${uid}/`)
@@ -113,26 +113,26 @@
 									type === 'anime'
 										? jikanjs.loadAnime(d[0])
 										: jikanjs.loadManga(d[0])
-								);
+								)
 
-							Promise.all(obj).then((values) => (this.buffer = values));
-						});
+							Promise.all(obj).then((values) => (this.buffer = values))
+						})
 				} catch (error) {
-					throw error.message;
+					throw error.message
 				}
 			},
 			async removeValue(type, id) {
 				try {
-					const uid = this.getUid();
+					const uid = this.getUid()
 					await firebase.database().ref(`/users/${uid}/${type}/${id}/`).set({
 						status: false,
-					});
+					})
 				} catch (error) {
-					throw error.message;
+					throw error.message
 				}
 			}
 		}
-	};
+	}
 
 </script>
 

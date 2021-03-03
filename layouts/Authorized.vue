@@ -9,8 +9,8 @@
 
 <script>
 
-  import Navbar from '@/components/navigation/Navbar';
-  import MainFooter from '@/components/navigation/MainFooter';
+  import Navbar from '@/components/navigation/Navbar'
+  import MainFooter from '@/components/navigation/MainFooter'
 
   export default {
     name: 'Authorized',
@@ -19,9 +19,9 @@
       MainFooter,
     },
     mounted() {
-      M.AutoInit();
+      M.AutoInit()
     }
-  };
+  }
 
 </script>
 

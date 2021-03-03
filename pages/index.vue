@@ -15,13 +15,13 @@
 
 <script>
 
-	import { studios } from "@/utils/studios";
-	import Hero from '@/components/blocks/Hero';
-	import { mapActions, mapGetters } from "vuex";
-	import Genres from '@/components/blocks/Genres';
-	import Studios from '@/components/blocks/Studios';
-	import CardsBlock from '@/components/blocks/CardsBlock';
-	import layoutMiddleware from '@/middleware/layoutMiddleware';
+	import { studios } from "@/utils/studios"
+	import Hero from '@/components/blocks/Hero'
+	import { mapActions, mapGetters } from "vuex"
+	import Genres from '@/components/blocks/Genres'
+	import Studios from '@/components/blocks/Studios'
+	import CardsBlock from '@/components/blocks/CardsBlock'
+	import layoutMiddleware from '@/middleware/layoutMiddleware'
 
 	export default {
 		name: 'Home',
@@ -53,17 +53,17 @@
 			}
 		},
 		async created() {
-			await this.loadAnimeAiring();
+			await this.loadAnimeAiring()
 		},
 		mounted() {
-			document.documentElement.style.setProperty("--item-count", studios.length);
+			document.documentElement.style.setProperty("--item-count", studios.length)
 		},
 		methods: {
 			...mapActions({
 				loadAnimeAiring: 'anime/loadAnimeAiring'
 			})
 		}
-	};
+	}
 
 </script>
 

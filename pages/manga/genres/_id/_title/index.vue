@@ -23,12 +23,12 @@
 
 <script>
 
-  import axios from 'axios';
-  import jikanjs from 'jikanjs/lib/jikan';
-  import Cards from '@/components/elements/Cards';
-  import InfiniteLoading from 'vue-infinite-loading';
-  import layoutMiddleware from '@/middleware/layoutMiddleware';
-  import QueryContent from '@/components/elements/QueryContent';
+  import axios from 'axios'
+  import jikanjs from 'jikanjs/lib/jikan'
+  import Cards from '@/components/elements/Cards'
+  import InfiniteLoading from 'vue-infinite-loading'
+  import layoutMiddleware from '@/middleware/layoutMiddleware'
+  import QueryContent from '@/components/elements/QueryContent'
 
   export default {
     name: 'MangaGenre',
@@ -45,29 +45,29 @@
       return {
         page: 2,
         list: []
-      };
+      }
     },
     async asyncData({ params }) {
-      const mangaGenreResponse = await jikanjs.loadGenre('manga', params.id);
+      const mangaGenreResponse = await jikanjs.loadGenre('manga', params.id)
       return {
         mangaGenre: mangaGenreResponse,
-      };
+      }
     },
     methods: {
       infiniteHandler($state) {
         axios.get(`https://api.jikan.moe/v3/genre/manga/${ $nuxt.$route.params.id }/${ this.page }`)
         .then(({data}) => {
           if (data.manga.length) {
-            this.page += 1;
-            this.list.push(...data.manga);
-            $state.loaded();
+            this.page += 1
+            this.list.push(...data.manga)
+            $state.loaded()
           } else {
-            $state.complete();
+            $state.complete()
           }
-        });
+        })
       }
     }
-  };
+  }
 
 </script>
 

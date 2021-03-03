@@ -5,12 +5,12 @@
 			p.footer-note__text
 				| Inspired by
 				a.footer-note__link(href='https://myanimelist.net/', target='_blank')
-					| &nbsp;MAL
+					| &nbspMAL
 
 			p.footer-note__text
 				| and
 				a.footer-note__link(href='https://shikimori.one/', target='_blank')
-					| &nbsp;Shikimori
+					| &nbspShikimori
 
 </template>
 
@@ -18,7 +18,7 @@
 
 	export default {
 		name: 'FooterNote',
-	};
+	}
 
 </script>
 

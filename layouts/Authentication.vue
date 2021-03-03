@@ -9,24 +9,24 @@
 
 <script>
 
-import Messages from '@/utils/messages';
+import Messages from '@/utils/messages'
 
 export default {
   name: 'Authentication',
   computed: {
     error() {
-      return this.$store.getters.error;
+      return this.$store.getters.error
     }
   },
   watch: {
     error(fireBaseError) {
-      this.$error(Messages[fireBaseError.code]);
+      this.$error(Messages[fireBaseError.code])
     }
   },
   mounted() {
-    M.AutoInit();
+    M.AutoInit()
   }
-};
+}
 </script>
 
 <style lang='sass' scoped>

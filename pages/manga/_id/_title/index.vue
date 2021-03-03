@@ -32,22 +32,22 @@
 
 <script>
 
-	import jikanjs from 'jikanjs/lib/jikan';
-	import Cards from '@/components/elements/Cards';
-	import SelectOptions from '@/components/elements/SelectOptions';
-	import Related from '@/components/elements/Related';
-	import Description from '@/components/elements/Description';
-	import Recommendations from '@/components/elements/Recommendations';
-	import Info from '@/components/elements/Info';
-	import Characters from '@/components/elements/Characters';
-	import layoutMiddleware from '@/middleware/layoutMiddleware';
+	import jikanjs from 'jikanjs/lib/jikan'
+	import Cards from '@/components/elements/Cards'
+	import SelectOptions from '@/components/elements/SelectOptions'
+	import Related from '@/components/elements/Related'
+	import Description from '@/components/elements/Description'
+	import Recommendations from '@/components/elements/Recommendations'
+	import Info from '@/components/elements/Info'
+	import Characters from '@/components/elements/Characters'
+	import layoutMiddleware from '@/middleware/layoutMiddleware'
 
 	export default {
 		name: 'Manga',
 		metaInfo() {
 			return {
 				title: `Manga - ${this.mangaById.title}`,
-			};
+			}
 		},
 		components: {
 			Characters,
@@ -60,30 +60,30 @@
 		},
 		layout: layoutMiddleware,
 		async asyncData({ params }) {
-			const mangaByIdResponse = await jikanjs.loadManga(params.id);
+			const mangaByIdResponse = await jikanjs.loadManga(params.id)
 			const mangaCharactersResponse = await jikanjs.loadManga(
 				params.id,
 				'characters'
-			);
+			)
 			const mangaRecommendationsByIdResponse = await jikanjs.loadManga(
 				params.id,
 				'recommendations'
-			);
+			)
 			return {
 				mangaById: mangaByIdResponse,
 				mangaCharactersById: mangaCharactersResponse,
 				mangaRecommendationsById: mangaRecommendationsByIdResponse,
-			};
+			}
 		},
 		async mounted() {
-			const modal = document.querySelectorAll('.modal');
-			const modal_instance = M.Modal.init(modal);
+			const modal = document.querySelectorAll('.modal')
+			const modal_instance = M.Modal.init(modal)
 			if (Object.keys(this.mangaById.related).length > 0) {
-				const tabs = document.querySelectorAll('.tabs');
-				const instanceTabs = M.Tabs.init(tabs);
+				const tabs = document.querySelectorAll('.tabs')
+				const instanceTabs = M.Tabs.init(tabs)
 			}
 		}
-	};
+	}
 
 </script>
 

@@ -22,17 +22,17 @@
 
 <script>
 
-  import { mapActions } from 'vuex';
-  import jikanjs from 'jikanjs/lib/jikan';
-  import Info from '@/components/elements/Info';
-  import layoutMiddleware from '@/middleware/layoutMiddleware';
+  import { mapActions } from 'vuex'
+  import jikanjs from 'jikanjs/lib/jikan'
+  import Info from '@/components/elements/Info'
+  import layoutMiddleware from '@/middleware/layoutMiddleware'
 
   export default {
     name: 'MangaRelated',
     metaInfo() {
       return {
         title: `Manga - ${ this.mangaById.title }`,
-      };
+      }
     },
     layout: layoutMiddleware,
     components: {
@@ -49,17 +49,17 @@
       }
     },
     async asyncData({ params }) {
-      const mangaByIdResponse = await jikanjs.loadManga(params.id);
+      const mangaByIdResponse = await jikanjs.loadManga(params.id)
       return {
         mangaById: mangaByIdResponse
-      };
+      }
     },
     methods: {
       ...mapActions({
         computeRoute: 'computeRoute'
       })
     },
-  };
+  }
 
 </script>
 
