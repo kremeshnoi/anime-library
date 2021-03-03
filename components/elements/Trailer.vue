@@ -6,9 +6,9 @@
 
     .trailer__content
       iframe.trailer__iframe(
-        v-if="trailerData",
-        :src="trailer",
-        frameborder="0",
+        :src="trailer"
+        frameborder="0"
+        v-if="trailerData"
         allowfullscreen="true")
 
       img.trailer__disaster(draggable="false" v-else, src="@/assets/images/not-found.jpg")
@@ -42,22 +42,26 @@
 
 	.trailer
 		display: grid
-		justify-content: start
 		grid-gap: 20px
-		grid-template-rows: 50px auto
 		text-align: start
+		justify-content: start
+		grid-template-rows: 50px auto
+
 		&__disaster
 			width: 100%
+
 		&__content
-			border-left: 5px solid $color-blue-light
 			+flex(center, flex-start, initial)
+			border-left: 5px solid $color-blue-light
+
 		&__title
 			display: flex
 			align-items: flex-end
 			@extend .title-default
+
 		&__iframe
 			height: 100%
-			height: 200px
 			width: 360px
+			height: 200px
 
 </style>

@@ -9,61 +9,61 @@
         .sign-up-form__row
           .sign-up-form__field.input-field
             input#email.sign-up-form__input(
-              type="email",
-              name="username",
-              v-model.trim="email",
-              autocomplete="username",
+              type="email"
+              name="username"
+              v-model.trim="email"
+              autocomplete="username"
               :class="{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }")
 
             label(for="email")
               | Email
 
             span.sign-up-form__helper.helper-text(
-              v-if="$v.email.$dirty && !$v.email.required",
-              data-error="The field is empty")
+              data-error="The field is empty"
+              v-if="$v.email.$dirty && !$v.email.required")
 
             span.sign-up-form__helper.helper-text(
-              v-else-if="$v.email.$dirty && !$v.email.email",
-              data-error="Incorrect email")
+              data-error="Incorrect email"
+              v-else-if="$v.email.$dirty && !$v.email.email")
 
         .sign-up-form__row
           .sign-up-form__field.input-field
             input#username.sign-up-form__input(
-              type="text",
-              v-model.trim="username",
-              autocomplete="off",
+              type="text"
+              autocomplete="off"
+              v-model.trim="username"
               :class="{ invalid: ($v.username.$dirty && !$v.username.required) || ($v.username.$dirty && !$v.username.minLength) }")
 
             label(for="username")
               | Username
 
             span.sign-up-form__helper.helper-text(
-              v-if="$v.username.$dirty && !$v.username.required",
-              data-error="The field is empty")
+              data-error="The field is empty"
+              v-if="$v.username.$dirty && !$v.username.required")
 
             span.sign-up-form__helper.helper-text(
-              v-else-if="$v.username.$dirty && !$v.username.minLength",
-              data-error="Username is too short")
+              data-error="Username is too short"
+              v-else-if="$v.username.$dirty && !$v.username.minLength")
 
         .sign-up-form__row
           .sign-up-form__field.input-field
             input#password.sign-up-form__input(
-              type="password",
-              name="password",
-              v-model.trim="password",
-              autocomplete="current-password",
+              type="password"
+              name="password"
+              v-model.trim="password"
+              autocomplete="current-password"
               :class="{ invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength) }")
 
             label(for="password")
               | Password
 
             span.sign-up-form__field.helper-text(
-              v-if="$v.password.$dirty && !$v.password.required",
-              data-error="The field is empty")
+              data-error="The field is empty"
+              v-if="$v.password.$dirty && !$v.password.required")
 
             span.sign-up-form__field.helper-text(
-              v-else-if="$v.password.$dirty && !$v.password.minLength",
-              data-error="Password is too short")
+              data-error="Password is too short"
+              v-else-if="$v.password.$dirty && !$v.password.minLength")
 
         .sign-up-form__row
           router-link(to="/sign-in")
@@ -79,14 +79,14 @@
               .circle-clipper.right
                 .circle
           vue-recaptcha.recaptcha(
-            ref="recaptcha",
-            size="invisible",
-            @verify="submit",
-            @expired="onCaptchaExpired",
+            ref="recaptcha"
+            size="invisible"
+            @verify="submit"
+            @expired="onCaptchaExpired"
             sitekey="6LeKfEgaAAAAAGqtaoHk9BjYE18zHwoeOmoOCkhq")
           .sign-up-form__row
             button.SignUp-button.btn(
-              type="submit",
+              type="submit"
               name="submitSignUp")
               | Create Account
 

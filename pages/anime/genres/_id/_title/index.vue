@@ -7,14 +7,14 @@
 
       query-content
         cards(
-          v-for="(anime) in animeGenre.anime",
-          :key="anime.mal_id",
-          :resultItem="anime")
+          :key="anime.mal_id"
+          :resultItem="anime"
+          v-for="(anime) in animeGenre.anime")
 
         cards(
-          v-for="(anime) in list",
-          :key="anime.mal_id",
-          :resultItem="anime")
+          :key="anime.mal_id"
+          :resultItem="anime"
+          v-for="(anime) in list")
 
         infinite-loading(@infinite="infiniteHandler")
 
@@ -80,14 +80,15 @@
 	.anime-genre
 		&__container
 			@extend .container-default
+
 		&__title
-			color: $color-black
 			width: 100%
 			font-size: 16px
 			font-weight: 700
-			text-transform: uppercase
-			margin: 0 0 20px 0
 			text-align: start
+			margin: 0 0 20px 0
+			color: $color-black
 			@extend .title-bordered
+			text-transform: uppercase
 
 </style>

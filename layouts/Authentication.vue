@@ -39,9 +39,9 @@ export default {
     background: url("../assets/images/clouds.png"), $color-blue-light
 
   .auth-progress
-    position: fixed
     top: 0
     margin: 0
     display: none
+    position: fixed
 
 </style>

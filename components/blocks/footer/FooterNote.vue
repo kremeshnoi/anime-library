@@ -4,12 +4,16 @@
 		.footer-note__container
 			p.footer-note__text
 				| Inspired by
-				a.footer-note__link(href="https://myanimelist.net/", target="_blank")
+				a.footer-note__link(
+					target="_blank"
+					href="https://myanimelist.net/")
 					| &nbspMAL
 
 			p.footer-note__text
 				| and
-				a.footer-note__link(href="https://shikimori.one/", target="_blank")
+				a.footer-note__link(
+					target="_blank"
+					href="https://shikimori.one/")
 					| &nbspShikimori
 
 </template>
@@ -17,7 +21,7 @@
 <script>
 
 	export default {
-		name: "FooterNote",
+		name: "FooterNote"
 	}
 
 </script>
@@ -30,11 +34,14 @@
 	.footer-note
 		padding: 14px 20px 14px 20px
 		background-color: $color-blue-dark
+
 		&__container
 			+flex(center, center, row)
+
 		&__text
 			margin: 0 4px 0 0
 			color: $color-white
+
 		&__link
 			color: $color-white
 			&:hover

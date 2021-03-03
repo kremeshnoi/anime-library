@@ -7,12 +7,13 @@
 
 			query-content
 				a.genres__item(
-					v-for="(genre, genreIndex) in genresResult.data",
-					:key="genreIndex",
+					:key="genreIndex"
+					v-for="(genre, genreIndex) in genresResult.data"
 					@click="computeRouteByGenre({ genresResult, genre })"
 					@click.middle="computeRouteByGenre({ genresResult, genre, clickType })")
 					img.genres__item-image(
-						draggable="false" :src="genre.img")
+						draggable="false"
+						:src="genre.img")
 
 					.genres__title-wrapper
 						span.genres__item-title
@@ -31,7 +32,7 @@
 	export default {
 		name: "MangaGenres",
 		metaInfo: {
-			title: "Otaku Library - Explore manga genres",
+			title: "Otaku Library - Explore manga genres"
 		},
 		layout: layoutMiddleware,
 		components: {
@@ -75,19 +76,20 @@
 	.manga-genres
 		&__container
 			@extend .container-default
+
 		&__title
-			color: $color-black
 			width: 100%
 			font-size: 16px
 			font-weight: 700
-			text-transform: uppercase
-			margin: 0 0 20px 0
 			text-align: start
+			margin: 0 0 20px 0
+			color: $color-black
 			@extend .title-bordered
-
+			text-transform: uppercase
 
 		.genres
 			@extend .container-default
+
 			&__title
 				@extend .title-bordered
 				+flex(space-between, center, row)
@@ -95,6 +97,7 @@
 					color: orange
 					.top-airing-manga__icon
 						color: inherit
+
 			&__item
 				width: 100%
 				height: 120px

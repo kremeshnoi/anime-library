@@ -4,16 +4,14 @@
     .dropdown__search-type(v-if="!searchedData.length && !loaderData")
       ul.dropdown__list
         button.dropdown__list-item(
-          @click="changeType(`anime`)",
-          :class="{ active: activeEl === `anime` }"
-        )
+          @click="changeType(`anime`)"
+          :class="{ active: activeEl === `anime` }")
           .dropdown__icon.material-icons video_library
           | Anime
 
         button.dropdown__list-item(
-          @click="changeType(`manga`)",
-          :class="{ active: activeEl === `manga` }"
-        )
+          @click="changeType(`manga`)"
+          :class="{ active: activeEl === `manga` }")
           .dropdown__icon.material-icons collections_bookmark
           | Manga
 
@@ -25,10 +23,10 @@
           .indeterminate
 
       .cards(
-        v-if="!loaderData",
-        :key="resultIndex",
+        v-if="!loaderData"
+        :key="resultIndex"
         @click="computeRoute({ resultItem })"
-        v-for="(resultItem, resultIndex) in searchedData",
+        v-for="(resultItem, resultIndex) in searchedData"
         @click.middle="computeRoute({ resultItem, clickType })")
         .cards__wrapper
           img.cards__image(draggable="false" :src="resultItem.image_url")
@@ -78,7 +76,6 @@
     },
     computed: {
       activeEl: {
-        set() {},
         get() {
           return this.type === "anime" ? "anime" : "manga"
         }
@@ -86,7 +83,7 @@
     },
     methods: {
       ...mapActions({
-        computeRoute: "computeRoute",
+        computeRoute: "computeRoute"
       }),
       changeType(el) {
         this.activeEl = el
@@ -116,96 +113,109 @@
       border-bottom-right-radius: 3px
       &_is-shown
         display: flex
+
       &__content
-        background-size: cover
         z-index: 99
         width: 100%
         height: 61vh
         overflow-y: scroll
+        background-size: cover
+
       &__search-type
         z-index: 99
-        background-color: white
         width: 100%
+        background-color: white
+
       &__list
         width: 100%
         height: 100%
         +flex(flex-start, flex-start, column)
+
       &__list-item
-        text-align: start
-        color: $color-black
         width: 100%
         padding: 20px
         transition: 0s
         cursor: pointer
+        text-align: start
+        color: $color-black
         transition: 0.4s ease
-        border-bottom: 1px solid $color-grey-light
-        background-color: $color-white-pure
         +flex(flex-start, center, row)
+        background-color: $color-white-pure
+        border-bottom: 1px solid $color-grey-light
         &:hover
           .dropdown__icon
             color: $color-orange
+
       &__icon
         margin: 0 14px 0 0
+
       .cards
-        padding: 10px 0 10px 10px
         width: 100%
         cursor: pointer
         transition: 0.4s ease
-        border-bottom: 1px solid $color-grey-light
+        padding: 10px 0 10px 10px
         background-color: $color-white-pure
+        border-bottom: 1px solid $color-grey-light
         &:hover
           border-bottom: 1px solid $color-blue
+
         &__wrapper
           +flex(flex-start, initial, row)
           +mq(phone, max)
             flex-direction: column
+
         &__image
-          margin: 0 20px 0 0
-          height: 125px
           width: 84px
+          height: 125px
           display: block
+          margin: 0 20px 0 0
           background-color: $color-blue-light
           +mq(phone, max)
             margin: 0 0 10px 0
+
         &__value
           line-height: 30px
           text-align: start
+
         &__title
-          color: $color-blue
-          text-align: start
-          font-weight: 700
           font-size: 16px
+          font-weight: 700
+          text-align: start
           line-height: 30px
+          color: $color-blue
+
         &__description
-          color: $color-black
           display: flex
+          color: $color-black
           flex-direction: column
           align-items: flex-start
           +mq(phone, max)
             max-width: 90%
 
     .overlay
-      z-index: 1
-      top: 58px
       left: 0
-      position: fixed
+      top: 58px
+      z-index: 1
       width: 100%
       height: 100%
+      position: fixed
       background-color: rgba(0, 0, 0, 0.6)
 
     .loader
-      color: $color-black
       z-index: 99
-      background-color: white
       width: 100%
       height: 100%
       font-size: 20px
+      color: $color-black
+      background-color: white
       +flex(center, center, column)
+
       &__progress
-        position: absolute
         top: 0
         left: 0
         margin: 0
+        position: absolute
+
     .active
       .dropdown__icon
         color: $color-orange

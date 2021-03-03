@@ -7,9 +7,10 @@
         .top-airing-anime__icon.material-icons keyboard_arrow_right
 
       swiper-carousel
-        cards.swiper-slide(v-for="(data, dataIndex) in cardsBlockData.data.slice(0, 7)",
-        :key="dataIndex",
-        :resultItem="data")
+        cards.swiper-slide(
+        :key="dataIndex"
+        :resultItem="data"
+        v-for="(data, dataIndex) in cardsBlockData.data.slice(0, 7)")
 
 </template>
 
@@ -38,8 +39,10 @@
 
 	.top-airing-anime
 		width: 100%
+
 		&__container
 			@extend .container-default
+
 		&__title
 			@extend .title-bordered
 			+flex(space-between, center, row)
@@ -47,6 +50,7 @@
 				color: orange
 				.top-airing-anime__icon
 					color: inherit
+
 		&__icon
 			color: $color-black
 

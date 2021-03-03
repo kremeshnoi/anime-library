@@ -7,14 +7,14 @@
 
       query-content
         cards(
-          v-for="(manga) in topManga",
-          :key="manga.mal_id",
-          :resultItem="manga")
+          :key="manga.mal_id"
+          :resultItem="manga"
+          v-for="(manga) in topManga")
 
         cards(
-          v-for="(manga) in list",
-          :key="manga.mal_id",
-          :resultItem="manga")
+          :key="manga.mal_id"
+          :resultItem="manga"
+          v-for="(manga) in list")
 
         infinite-loading(@infinite="infiniteHandler")
 

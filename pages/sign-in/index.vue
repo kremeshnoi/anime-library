@@ -9,42 +9,42 @@
         .sign-in-form__row
           .sign-in-form__field.input-field
             input#email.sign-in-form__input(
-              type="email",
-              name="username",
-              v-model.trim="email",
-              autocomplete="username",
+              type="email"
+              name="username"
+              v-model.trim="email"
+              autocomplete="username"
               :class="{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }")
 
             label(for="email")
               | Email
 
             span.sign-in-form__helper.helper-text(
-              v-if="$v.email.$dirty && !$v.email.required",
-              data-error="The field is empty")
+              data-error="The field is empty"
+              v-if="$v.email.$dirty && !$v.email.required")
 
             span.sign-in-form__helper.helper-text(
-              v-else-if="$v.email.$dirty && !$v.email.email",
-              data-error="Incorrect email")
+              data-error="Incorrect email"
+              v-else-if="$v.email.$dirty && !$v.email.email")
 
         .sign-in-form__row
           .sign-in-form__field.input-field
             input#password.sign-in-form__input(
-              type="password",
-              name="password",
-              v-model.trim="password",
-              autocomplete="current-password",
+              type="password"
+              name="password"
+              v-model.trim="password"
+              autocomplete="current-password"
               :class="{ invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength) }")
 
             label(for="password")
               | Password
 
             span.sign-in-form__helper.helper-text(
-              v-if="$v.password.$dirty && !$v.password.required",
-              data-error="The field is empty")
+              data-error="The field is empty"
+              v-if="$v.password.$dirty && !$v.password.required")
 
             span.sign-in-form__helper.helper-text(
-              v-else-if="$v.password.$dirty && !$v.password.minLength",
-              data-error="Password is too short")
+              data-error="Password is too short"
+              v-else-if="$v.password.$dirty && !$v.password.minLength")
 
         .sign-in-form__row
           router-link(to="/recovery")
@@ -67,29 +67,33 @@
               .circle-clipper.right
                 .circle
           vue-recaptcha.recaptcha(
-            ref="recaptcha",
-            size="invisible",
-            @verify="submit",
-            @expired="onCaptchaExpired",
+            ref="recaptcha"
+            size="invisible"
+            @verify="submit"
+            @expired="onCaptchaExpired"
             sitekey="6LeKfEgaAAAAAGqtaoHk9BjYE18zHwoeOmoOCkhq")
 
           .sign-in-form__row.sign-in-form__social
             button.sign-in-form__google(@click="googleAuth")
               .sign-in-form__google-wrapper
-                img.sign-in-form__google-logo(draggable="false" src="~/assets/images/g-logo.png")
+                img.sign-in-form__google-logo(
+                  draggable="false"
+                  src="~/assets/images/g-logo.png")
                 .sign-in-form__google-title
                   | Google
 
             button.sign-in-form__twitter(@click="twitterAuth")
               .sign-in-form__twitter-wrapper
-                img.sign-in-form__twitter-logo(draggable="false" src="~/assets/images/t-logo.png")
+                img.sign-in-form__twitter-logo(
+                  draggable="false"
+                  src="~/assets/images/t-logo.png")
                 .sign-in-form__twitter-title
                   | Twitter
 
 
           .sign-in-form__row
             button.sign-in__button.btn(
-              type="submit",
+              type="submit"
               name="submitSignIn")
               | Sign In
 
@@ -220,22 +224,22 @@
     text-align: center
 
     &__google, &__twitter
-        cursor: pointer
         height: 36px
         width: 120px
-        background-color: #FFFFFF
-        color: #757575
-        border-radius: 2px
-        box-shadow: 0 2px 4px 0 rgb(0 0 0 / 25%)
-        box-sizing: border-box
-        transition: background-color .218s,border-color .218s,box-shadow .218s
-        background-image: none
         outline: none
+        color: #757575
+        cursor: pointer
         overflow: hidden
+        border-radius: 2px
         position: relative
         text-align: center
-        vertical-align: middle
         white-space: nowrap
+        box-sizing: border-box
+        background-image: none
+        vertical-align: middle
+        background-color: #FFFFFF
+        box-shadow: 0 2px 4px 0 rgb(0 0 0 / 25%)
+        transition: background-color .218s,border-color .218s,box-shadow .218s
         &:hover
           background-color: #EEEEEE
 
@@ -243,29 +247,29 @@
       display: flex
 
     &__google-title, &__twitter-title
-      font-family: Roboto,arial,sans-serif
+      width: 100%
       font-size: 13px
-      line-height: 34px
       font-weight: 400
-      letter-spacing: .21px
+      line-height: 34px
       margin-right: 12px
       vertical-align: top
-      width: 100%
+      letter-spacing: .21px
+      font-family: Roboto,arial,sans-serif
 
     &__google-logo, &__twitter-logo
-      padding: 8px
       width: 36px
+      padding: 8px
 
     &__social
-      padding: 10px 0 10px 0
       display: grid
-      grid-auto-flow: column
       column-gap: 20px
+      padding: 10px 0 10px 0
+      grid-auto-flow: column
       justify-content: center
 
     &__row
-      margin: 20px auto 20px auto
       max-width: 304px
+      margin: 20px auto 20px auto
       &_center
         +flex(center, center, column)
 
@@ -282,8 +286,8 @@
 
     &__button
       @extend .hover-btn
-      @extend .shadow-btn
       @extend .focus-btn
+      @extend .shadow-btn
 
   .preloader-wrapper
     display: none

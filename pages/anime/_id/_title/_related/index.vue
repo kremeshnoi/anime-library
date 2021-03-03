@@ -11,7 +11,6 @@
               tr.related__tr(
                 :key="dataIndex"
                 v-for="(resultItem, dataIndex) in animeById.related[`${ relateName }`]")
-
                 td.related__td
                   a.related__link(
                     @click="computeRoute({ resultItem })"
@@ -31,7 +30,7 @@
     name: "Anime",
     metaInfo() {
       return {
-        title: `Anime - ${ this.animeById.title }`,
+        title: `Anime - ${ this.animeById.title }`
       }
     },
     layout: layoutMiddleware,
@@ -51,7 +50,7 @@
     async asyncData({ params }) {
       const animeByIdResponse = await jikanjs.loadAnime(params.id)
       return {
-        animeById: animeByIdResponse,
+        animeById: animeByIdResponse
       }
     },
     methods: {
@@ -126,51 +125,58 @@
 
   .related
     display: grid
-    justify-content: start
     grid-gap: 10px
-    grid-template-rows: auto auto
-    grid-template-columns: 100%
     text-align: start
+    justify-content: start
+    grid-template-columns: 100%
+    grid-template-rows: auto auto
+
     &__disaster
       text-align: start
       font-size: 30px
+
     &__title
       padding: 0
-      font-weight: 400
-      display: flex
       height: auto
+      display: flex
       font-size: 20px
+      font-weight: 400
       text-transform: none
       flex-direction: column
-      align-items: flex-start
       @extend .title-default
+      align-items: flex-start
+
     &__tr
       display: block
       position: relative
+
     &__tabs
       display: flex
       flex-wrap: wrap
       overflow-x: initial
       overflow-y: initial
       height: min-content
+
     &__tab
-      height: initial !important
       flex-grow: 0
+      height: initial !important
+
     &__tab-item
-      width: auto !important
-      padding: 0 !important
-      margin: 0 24px 14px 0
       text-align: start
       line-height: initial
+      padding: 0 !important
+      margin: 0 24px 14px 0
+      width: auto !important
       color: $color-blue-light !important
       &:focus
         background-color: initial !important
       &.active
-        background-color: initial !important
         color: $color-orange !important
+        background-color: initial !important
+
     &__link
-      @extend .title-cut
       max-width: 100%
+      @extend .title-cut
       color: $color-grey-dark
       +mq(phone-wide, max)
         max-width: 250px

@@ -4,10 +4,9 @@
 		.input-field(:class="{ disabled: this.user[0] === null }")
 			select(v-model="payload.status")
 				option(
-					v-for="(option, optionIndex) in options",
-					:key="optionIndex",
+					:key="optionIndex"
 					:value="option.value"
-				)
+					v-for="(option, optionIndex) in options")
 					span {{ option.title }}
 
 			.btn-small(@click="addToLibrary(payload)")
@@ -32,7 +31,7 @@
 					type: this.type,
 					status: "planned",
 					id: null,
-					result: null,
+					result: null
 				}
 			}
 		},
@@ -43,7 +42,7 @@
 					{ title: "Completed", value: "completed" },
 					{ title: "Currently", value: "process" },
 					{ title: "On Hold", value: "hold" },
-					{ title: "Dropped", value: "dropped" },
+					{ title: "Dropped", value: "dropped" }
 				]
 				let verb = ""
 				let type = this.type

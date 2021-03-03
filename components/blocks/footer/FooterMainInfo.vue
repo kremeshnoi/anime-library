@@ -8,33 +8,32 @@
 				p.footer-main-info__description
 					| We will also be happy to meet you on our channel, where you can always find like-minded people. Feel free to come in.
 				a.footer-main-info__link_decor.btn(
-					href="https://discord.com/invite/Ku72D5/",
 					target="_blank"
-				)
+					href="https://discord.com/invite/Ku72D5/")
 					| Chat
 
 			.footer-main-info__item
 				h5.footer-main-info__title.footer-main-info__subtitle
 					| Donation
-				a.footer-main-info__link.footer-main-info__link_support(href="https://www.patreon.com/otaku_library" target="_blank")
-					img.footer-main-info__support(draggable="false" src="@/assets/images/patreon.png")
+				a.footer-main-info__link.footer-main-info__link_support(
+					target="_blank"
+					href="https://www.patreon.com/otaku_library")
+					img.footer-main-info__support(
+						draggable="false"
+						src="@/assets/images/patreon.png")
 
 			.footer-main-info__item
 				h5.footer-main-info__title
 					| Help
-				router-link.footer-main-info__link.footer-main-info__link_disabled(
-					to="/faq"
-				)
+				router-link.footer-main-info__link.footer-main-info__link_disabled(to="/faq")
 					| FAQ
 				router-link.footer-main-info__link(
-					to="/sign-up",
-					:class="{ 'footer-main-info__link_disabled': this.user[0] !== null }"
-				)
+					to="/sign-up"
+					:class="{ 'footer-main-info__link_disabled': this.user[0] !== null }")
 					| Registration
 				router-link.footer-main-info__link(
-					to="/recovery",
-					:class="{ 'footer-main-info__link_disabled': this.user[0] !== null }"
-				)
+					to="/recovery"
+					:class="{ 'footer-main-info__link_disabled': this.user[0] !== null }")
 					| Forgot Password?
 
 </template>
@@ -47,7 +46,7 @@
 		name: "FooterMainInfo",
 		data() {
 			return {
-				user: [],
+				user: []
 			}
 		},
 		async created() {
@@ -55,7 +54,7 @@
 		},
 		methods: {
 			...mapActions({
-				getUid: "auth/getUid",
+				getUid: "auth/getUid"
 			})
 		}
 	}

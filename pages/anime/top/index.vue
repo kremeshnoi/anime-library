@@ -7,14 +7,14 @@
 
       query-content
         cards(
-          v-for="(anime) in topAnime",
-          :key="anime.mal_id",
-          :resultItem="anime")
+          :key="anime.mal_id"
+          :resultItem="anime"
+          v-for="(anime) in topAnime")
 
         cards(
-          v-for="(anime) in list",
-          :key="anime.mal_id",
-          :resultItem="anime")
+          :key="anime.mal_id"
+          :resultItem="anime"
+          v-for="(anime) in list")
 
         infinite-loading(@infinite="infiniteHandler")
 

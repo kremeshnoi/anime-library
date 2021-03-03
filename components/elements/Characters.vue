@@ -42,7 +42,7 @@
 		},
 		methods: {
 			...mapActions({
-				computeRoute: "computeRoute",
+				computeRoute: "computeRoute"
 			})
 		}
 	}
@@ -64,22 +64,22 @@
 			grid-gap: 20px
 
 		&__disaster
-			text-align: start
 			font-size: 30px
+			text-align: start
 
 		&__cards-container
 			display: grid
 			grid-gap: 20px
-			grid-template-columns: 1fr 1fr
 			position: relative
+			grid-template-columns: 1fr 1fr
 
 		&__link
-			@extend .title-cut
-			position: absolute
-			color: $color-blue-light
 			right: 0
 			width: auto
 			bottom: -30px
+			@extend .title-cut
+			position: absolute
+			color: $color-blue-light
 			+mq(phone-wide, max)
 				max-width: 250px
 			&:hover

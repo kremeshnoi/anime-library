@@ -4,7 +4,7 @@
     .description__title
       | Description
 
-    .description__synopsis(v-if="this.descriptionData")
+    .description__synopsis(v-if="descriptionData")
       | {{ descriptionData }}
 
     h4.description__disaster(v-else)
@@ -27,13 +27,15 @@
 	@import "~/assets/styles/modules/titles"
 
 	.description
-		grid-area: description
-		text-align: start
 		display: grid
 		grid-gap: 20px
+		text-align: start
+		grid-area: description
+
 		&__disaster
-			text-align: start
 			font-size: 30px
+			text-align: start
+
 		&__title
 			@extend .title-default
 

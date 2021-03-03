@@ -7,10 +7,9 @@
 
       swiper-carousel(v-if="recommendationsData.length >= 7")
         cards.swiper-slide(
-          v-for="(recommendation, recommendationIndex) in recommendationsData",
-          :key="recommendationIndex",
+          :key="recommendationIndex"
           :resultItem="recommendation"
-        )
+          v-for="(recommendation, recommendationIndex) in recommendationsData")
 
       h4.recommendations__disaster(v-else)
         | Not found
@@ -40,12 +39,15 @@
 
 	.recommendations
 		grid-area: recommendations
+
 		&__disaster
-			text-align: start
 			font-size: 30px
+			text-align: start
+
 		&__wrapper
 			display: grid
 			grid-gap: 20px
+
 		&__title
 			@extend .title-default
 

@@ -8,7 +8,7 @@
 		genres
 
 		cards-block(
-			v-if="animeAiring",
+			v-if="animeAiring"
 			:cardsBlockData="animeAiring")
 
 </template>
@@ -37,7 +37,7 @@
 		},
 		computed: {
 			...mapGetters({
-				getAnimeAiring: "anime/getAnimeAiring",
+				getAnimeAiring: "anime/getAnimeAiring"
 			}),
 			animeAiring() {
 				return {
@@ -81,6 +81,7 @@
 		@extend .container-default
 		grid-auto-flow: column
 		justify-content: space-between
+
 		.studio
 			object-fit: contain
 			width: 100px

@@ -122,7 +122,7 @@
 
   export default {
     name: "Info",
-    props: ["infoData"],
+    props: ["infoData"]
   }
 
 </script>
@@ -138,36 +138,38 @@
 		+flex(initial, initial, column)
 
 		&__title
-			color: $color-black
 			width: 100%
 			font-size: 16px
 			font-weight: 700
 			text-align: start
+			color: $color-black
 			text-transform: uppercase
 			padding: 14px 0 14px 14px
 			border-left: 5px solid $color-blue-light
 
 		&__list
-			margin: 10px 0 0 0
+			width: 100%
 			height: 100%
 			max-width: 300px
-			width: 100%
+			margin: 10px 0 0 0
 			+flex(flex-start, initial, column)
+
 		&__list-value
 			&_decor
-				padding: 4px 6px 4px 6px
 				border-radius: 4px
+				padding: 4px 6px 4px 6px
 				color: $color-white-pure
 				background-color: $color-yellow
+
 		&__list-item
 			margin: 8px 0
 			&:last-of-type
 				margin: 8px 0 0 0
 
 		&__list-values
-			margin: 0 10px 0 0
 			height: auto
 			transition: 0.5s
+			margin: 0 10px 0 0
 			display: inline-block
 			border-bottom: 1px dashed $color-grey-light
 			&:hover

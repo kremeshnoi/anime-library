@@ -4,33 +4,26 @@
     .related__title
       | Related
     .related__content
-      ul.related__tabs.tabs(
-        v-if="relatedData"
-        )
+      ul.related__tabs.tabs(v-if="relatedData")
         li.related__tab.tab(
-          v-for="(value, name, counter) in relatedData",
           :key="name"
-          )
+          v-for="(value, name, counter) in relatedData")
 
-          a.related__tab-item(
-            :href="`#` + counter"
-            )
+          a.related__tab-item(:href="`#` + counter")
             | {{ name }}
 
       .related__item(
-        :id="counter",
-        v-for="(value, name, counter) in relatedData",
         :key="name"
-      )
+        :id="counter"
+        v-for="(value, name, counter) in relatedData")
         table.related__table
           tbody.related__tbody
             tr.related__tr(
-              v-for="(resultItem, dataIndex) in value.slice(0, 1)",
               :key="dataIndex"
-            )
+              v-for="(resultItem, dataIndex) in value.slice(0, 1)")
               a.related__link.related__link_more.modal-trigger(
-                v-if="value.length >= 2",
-                @click="computeRouteByRelated({ wholeData, name })",
+                v-if="value.length >= 2"
+                @click="computeRouteByRelated({ wholeData, name })"
                 @click.middle="computeRouteByRelated({ wholeData, name, clickType })")
                 | More
 
@@ -83,42 +76,49 @@
 
   .related
     display: grid
-    justify-content: start
     grid-gap: 20px
-    grid-template-rows: 50px auto
-    grid-template-columns: 100%
     text-align: start
+    justify-content: start
+    grid-template-columns: 100%
+    grid-template-rows: 50px auto
+
     &__disaster
-      text-align: start
       font-size: 30px
+      text-align: start
+
     &__title
       display: flex
       align-items: center
       @extend .title-default
+
     &__tr
       display: block
       position: relative
+
     &__tabs
       display: flex
       flex-wrap: wrap
       overflow-x: initial
       overflow-y: initial
       height: min-content
+
     &__tab
-      height: initial !important
       flex-grow: 0
+      height: initial !important
+
     &__tab-item
-      width: auto !important
-      padding: 0 !important
-      margin: 0 24px 14px 0
       text-align: start
       line-height: initial
+      padding: 0 !important
+      margin: 0 24px 14px 0
+      width: auto !important
       color: $color-blue-light !important
       &:focus
         background-color: initial !important
       &.active
-        background-color: initial !important
         color: $color-orange !important
+        background-color: initial !important
+
     &__link
       @extend .title-cut
       color: $color-grey-dark

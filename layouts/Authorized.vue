@@ -16,7 +16,7 @@
     name: "Authorized",
     components: {
       Navbar,
-      MainFooter,
+      MainFooter
     },
     mounted() {
       M.AutoInit()
@@ -31,9 +31,9 @@
 	@import "~/assets/styles/utils/mixins"
 
 	.content-wrapper
-		padding: 54px 0 0 0
-		background-color: $color-white-pure
 		margin: 0 auto
+		padding: 54px 0 0 0
 		+flex(initial, center, column)
+		background-color: $color-white-pure
 
 </style>

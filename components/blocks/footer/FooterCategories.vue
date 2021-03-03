@@ -3,17 +3,15 @@
   .footer-categories
     .footer-categories__container
       .footer-categories__item.footer-categories-item(
-        v-for="(category, categoryIndex) in categories",
         :key="categoryIndex"
-      )
+        v-for="(category, categoryIndex) in categories")
         router-link.footer-categories-item__title(:to="category.link")
           | {{ category.title }}
 
           .footer-categories-item__icon.material-icons keyboard_arrow_right
         .footer-categories-item__content(
-          v-for="(resultItem, itemIndex) in category.data",
           :key="itemIndex"
-        )
+          v-for="(resultItem, itemIndex) in category.data")
           p.footer-categories-item__digit
             | {{ itemIndex + 1 }}
 
@@ -39,8 +37,7 @@
       ...mapGetters({
         getAnimeFavoriteCategories: "anime/getAnimeFavoriteCategories",
         getMangaFavoriteCategories: "manga/getMangaFavoriteCategories",
-        getCharactersFavoriteCategories:
-          "characters/getCharactersFavoriteCategories",
+        getCharactersFavoriteCategories: "characters/getCharactersFavoriteCategories"
       }),
       categories() {
         const categories = {
@@ -71,11 +68,10 @@
     },
     methods: {
       ...mapActions({
-        loadAnimeFavoriteCategories: "anime/loadAnimeFavoriteCategories",
-        loadCharactersFavoriteCategories:
-          "characters/loadCharactersFavoriteCategories",
-        loadMangaFavoriteCategories: "manga/loadMangaFavoriteCategories",
         computeRoute: "computeRoute",
+        loadAnimeFavoriteCategories: "anime/loadAnimeFavoriteCategories",
+        loadMangaFavoriteCategories: "manga/loadMangaFavoriteCategories",
+        loadCharactersFavoriteCategories: "characters/loadCharactersFavoriteCategories"
       })
     }
   }
@@ -89,16 +85,17 @@
 
 	.footer-categories
 		background-color: $color-white-dark
+
 		&__container
-			display: grid
 			width: 100%
-			justify-content: space-between
+			display: grid
 			grid-gap: 40px
-			grid-template-columns: repeat(3, 1fr)
-			max-width: 1300px
 			margin: 0 auto
-			padding: 40px 40px 40px 40px
+			max-width: 1300px
 			text-align: start
+			padding: 40px 40px 40px 40px
+			justify-content: space-between
+			grid-template-columns: repeat(3, 1fr)
 			+mq(tablet, max)
 				grid-template-columns: 1fr 1fr
 			+mq(tablet-small, max)
@@ -106,23 +103,27 @@
 
 	.footer-categories-item
 		+flex(flex-start, flex-start, column)
+
 		&__title
-			color: $color-black
+			width: 100%
 			font-size: 16px
 			text-align: start
 			padding: 0 0 8px 0
-			width: 100%
+			color: $color-black
 			border-bottom: 1px solid rgba($color-black, 0.2)
 			+flex(space-between, center, row)
 			&:hover
 				color: $color-orange
 				.pre-footer-top-anime__icon
 					color: inherit
+
 		&__content
 			margin: 8px 0 0 0
 			+flex(center, flex-start, row)
+
 		&__digit
 			margin: 0 8px 0 0
+
 		&__link
 			color: $color-blue
 			&:hover

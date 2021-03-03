@@ -1,21 +1,22 @@
 <template lang="pug">
-.top-airing
-  .top-airing__container
-    .top-airing__title
-      | Airing Anime
 
-    query-content
-      cards(
-        v-for="(anime) in animeAiring",
-        :key="anime.mal_id",
-        :resultItem="anime")
+  .top-airing
+    .top-airing__container
+      .top-airing__title
+        | Airing Anime
 
-      cards(
-        v-for="(anime) in list",
-        :key="anime.mal_id",
-        :resultItem="anime")
+      query-content
+        cards(
+          :key="anime.mal_id"
+          :resultItem="anime"
+          v-for="(anime) in animeAiring")
 
-      infinite-loading(@infinite="infiniteHandler")
+        cards(
+          :key="anime.mal_id"
+          :resultItem="anime"
+          v-for="(anime) in list")
+
+        infinite-loading(@infinite="infiniteHandler")
 
 </template>
 
@@ -31,7 +32,7 @@
 export default {
   name: "TopAiring",
   metaInfo: {
-    title: "Otaku Library - Top airing anime",
+    title: "Otaku Library - Top airing anime"
   },
   layout: layoutMiddleware,
   components: {
@@ -48,7 +49,7 @@ export default {
   async asyncData() {
     const animeAiringResponse = await jikanjs.loadTop("anime", 1, "airing")
     return {
-      animeAiring: animeAiringResponse.top,
+      animeAiring: animeAiringResponse.top
     }
   },
   methods: {
@@ -80,12 +81,13 @@ export default {
     @extend .container-default
 
   &__title
-    color: $color-black
     width: 100%
     font-size: 16px
     font-weight: 700
-    text-transform: uppercase
-    margin: 0 0 20px 0
     text-align: start
+    margin: 0 0 20px 0
+    color: $color-black
     @extend .title-bordered
+    text-transform: uppercase
+
 </style>

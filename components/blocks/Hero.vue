@@ -32,24 +32,27 @@
 	.hero
 		height: 34vh
 		user-select: none
+
 		&__container
-			@extend .container-default
 			height: 100%
 			display: grid
+			@extend .container-default
 			grid-template-columns: 1fr 1fr
 			+mq(tablet-small, max)
-				grid-template-columns: 1fr
 				grid-template-rows: 1fr
-				background-image: url("../../assets/images/hero-min.png")
-				background-position: bottom right
+				grid-template-columns: 1fr
 				background-size: 100px 100px
 				background-repeat: no-repeat
+				background-position: bottom right
+				background-image: url("../../assets/images/hero-min.png")
+
 		&__text-side
 			text-align: start
 			+flex(center, flex-start, column)
 			+mq(tablet-small, max)
 				align-items: center
 				text-align: center
+
 		&__button
 			margin: 20px 0 0 0
 			@extend .hover-btn
@@ -57,10 +60,11 @@
 			@extend .focus-btn
 			+mq(tablet-small, max)
 				margin: 0 0 0 0
+
 		&__title
-			font-weight: 800
 			font-size: 42px
 			max-width: 100%
+			font-weight: 800
 			+mq(tablet, max)
 				font-size: 36px
 			+mq(tablet-small, max)
@@ -69,23 +73,25 @@
 				font-size: 26px
 			+mq(phone, max)
 				font-size: 22px
+
 		&__description
 			margin: 14px 0
-			font-weight: 300
 			font-size: 20px
+			font-weight: 300
 			max-width: 560px
 			color: $color-grey-dark
 			+mq(phablet-small, max)
 				font-size: 16px
 				max-width: 330px
+
 		&__image
-			background-image: url("../../assets/images/hero-min.png"), url("../../assets/images/clouds.png")
-			background-size: contain
-			background-position: center
-			background-repeat: no-repeat
 			width: 100%
 			height: 100%
 			margin: 0 auto
+			background-size: contain
+			background-position: center
+			background-repeat: no-repeat
+			background-image: url("../../assets/images/hero-min.png"), url("../../assets/images/clouds.png")
 			+mq(tablet-small, max)
 				display: none
 	@media (max-height: 800px) and (min-width: 600px)

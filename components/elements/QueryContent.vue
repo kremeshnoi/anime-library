@@ -8,7 +8,7 @@
 <script>
 
   export default {
-    name: "QueryContent",
+    name: "QueryContent"
   }
 
 </script>
@@ -19,11 +19,11 @@
 	@import "~/assets/styles/utils/mixins"
 
 	.query-content
-		display: grid
-		grid-template-columns: repeat(7, 1fr)
-		justify-content: center
-		grid-gap: 20px
 		height: 100%
+		display: grid
+		grid-gap: 20px
+		justify-content: center
+		grid-template-columns: repeat(7, 1fr)
 		+mq(desktop-wide, max)
 			grid-template-columns: repeat(6, 1fr)
 		+mq(desktop, max)

@@ -45,7 +45,7 @@
     },
     methods: {
       ...mapActions({
-        getUid: "auth/getUid",
+        getUid: "auth/getUid"
       }),
       signOut() {
         try {
@@ -65,23 +65,24 @@
 	@import "~/assets/styles/utils/mixins"
 
 	.navbar
-		user-select: none
-		height: 58px
-		line-height: 58px
-		background-color: $color-blue
 		top: 0
-		position: fixed
 		z-index: 99
+		height: 58px
+		position: fixed
+		user-select: none
+		line-height: 58px
 		padding: 0 40px 0 40px
+		background-color: $color-blue
 		+mq(tablet-small, max)
 			padding: 0 20px 0 20px
+
 		&__wrapper
 			width: 100%
 			display: grid
-			grid-template-columns: 200px minmax(auto, 1220px) 200px
 			grid-gap: 40px
 			align-items: center
 			justify-content: space-between
+			grid-template-columns: 200px minmax(auto, 1220px) 200px
 			+mq(temp-wide, max)
 				grid-template-columns: 200px minmax(auto, 1220px) 87px
 			+mq(tablet, max)
@@ -89,15 +90,17 @@
 				grid-template-columns: minmax(auto, 1220px) 87px
 			+mq(phablet, max)
 				grid-template-columns: minmax(auto, 1220px) 40px
+
 		&__logo
 			font-size: 26px
 			color: $color-white
 			font-family: "Days One", sans-serif
 			+mq(tablet, max)
 				display: none
+
 		&__sign-in-link
-			width: max-content
 			margin-left: auto
+			width: max-content
 			+flex(flex-end, center, row)
 			+mq(phablet, max)
 				display: none
@@ -108,9 +111,10 @@
 				display: none
 				+mq(phablet, max)
 					display: block
+
 		&__icon
-			margin: 0 0 0 6px
 			height: 54px
+			margin: 0 0 0 6px
 			line-height: 54px
 
 </style>

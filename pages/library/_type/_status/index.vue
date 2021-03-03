@@ -3,20 +3,20 @@
 	.library
 		.library__container
 			ul.library__tabs.library__tabs_main
-				li.library__tab.tab(v-for="(tab, index) in typeTabs", :key="index")
+				li.library__tab.tab(
+					:key="index"
+					v-for="(tab, index) in typeTabs")
 					a.library__tab-item.library__tab-item_main(
-						@click="toogleTab(tab.title, 'planned')",
-						:class="{ active: $route.params.type === tab.title }"
-					)
+						@click="toogleTab(tab.title, 'planned')"
+						:class="{ active: $route.params.type === tab.title }")
 						| {{ tab.title }}
 
 			.library__anime
 				ul.library__tabs
 					li.library__tab.tab(v-for="(tab, index) in tabs", :key="index")
 						a.library__tab-item(
-							@click="toogleTab(tab.type, tab.status)",
-							:class="{ active: $route.params.status === tab.status }"
-						)
+							@click="toogleTab(tab.type, tab.status)"
+							:class="{ active: $route.params.status === tab.status }")
 							| {{ tab.title }}
 
 				table.library__table
@@ -34,11 +34,15 @@
 								| Delete
 
 					tbody.library__tbody
-						tr.library__tr(v-for="(data, index) in buffer", :key="index")
+						tr.library__tr(
+							:key="index"
+							v-for="(data, index) in buffer")
 							td.library__td
 								| {{ index + 1 }}
 							td.library__td
-								img.library__image(:draggable="false" src="data.image_url")
+								img.library__image(
+									draggable="false"
+									src="data.image_url")
 							td.library__td
 								a.library__link.library__link_title
 									| {{ data.title }}
@@ -46,8 +50,7 @@
 								| {{ data.type }}
 							td.library__td
 								i.library__icon.material-icons(
-									@click="removeValue($route.params.type, data.mal_id)"
-								) clear
+									@click="removeValue($route.params.type, data.mal_id)") clear
 
 </template>
 
@@ -60,7 +63,7 @@
 	export default {
 		name: "Library",
 		metaInfo: {
-			title: "Otaku Library - Library",
+			title: "Otaku Library - Library"
 		},
 		layout: layoutMiddleware,
 		data() {
@@ -145,41 +148,50 @@
 
 	.library
 		width: 100%
+
 		&__container
 			@extend .container-default
+
 		&__disaster
-			text-align: start
 			font-size: 30px
+			text-align: start
+
 		&__title
 			display: flex
 			align-items: center
 			@extend .title-default
+
 		&__icon
 			cursor: pointer
 			&:hover
 				color: $color-red
+
 		&__tabs
+			height: 100%
 			display: flex
 			flex-wrap: wrap
+			margin: 40px auto
 			overflow-x: initial
 			overflow-y: initial
-			justify-content: center
-			height: 100%
 			align-items: center
-			margin: 40px auto
+			justify-content: center
+
 		&__image
 			width: 80px
 			height: 120px
 			margin-right: 20px
+
 		&__th
 			&:nth-of-type(4),
 			&:nth-of-type(5)
 				text-align: center
+
 		&__td
 			padding: 8px 0 8px 0
 			&:nth-of-type(4),
 			&:nth-of-type(5)
 				text-align: center
+
 		&__tab
 			height: initial !important
 			text-transform: uppercase
@@ -188,6 +200,7 @@
 			+mq(phone-wide, max)
 				width: 100%
 				margin: 0 0 14px 0
+
 		&__tab-item
 			display: block
 			font-weight: 600
@@ -209,21 +222,22 @@
 			&_main
 				line-height: initial
 				&.active
-					color: $color-orange !important
 					font-size: 26px
 					font-weight: 800
 					border-bottom: none
+					color: $color-orange !important
+
 		&__link
 			color: $color-grey-dark
 			&:hover
 				text-decoration: underline
 			&_title
-				font-weight: 600
 				font-size: 16px
+				font-weight: 600
 				color: $color-blue-light
 				&:hover
-					text-decoration: initial
 					color: $color-orange
+					text-decoration: initial
 				+mq(phone-wide, max)
 					font-size: 13px
 

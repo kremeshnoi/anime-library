@@ -38,6 +38,7 @@
 		grid-auto-flow: column
 		@extend .container-default
 		justify-content: space-between
+
 		&__item
 			width: 100px
 			height: 50px
