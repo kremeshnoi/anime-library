@@ -7,7 +7,7 @@ export const anime = [
   { 'id': 6, 'title': 'Demons', 'img': require('~/assets/images/anime-genres/anime-demons.jpg') },
   { 'id': 7, 'title': 'Mystery', 'img': require('~/assets/images/anime-genres/anime-mystery.jpg') },
   { 'id': 8, 'title': 'Drama', 'img': require('~/assets/images/anime-genres/anime-drama.jpg') },
-  { 'id': 9, 'title': 'Ecchi', 'img': '' },
+  { 'id': 9, 'title': 'Ecchi', 'img': require('~/assets/images/anime-genres/anime-ecchi.jpg') },
   { 'id': 10, 'title': 'Fantasy', 'img': '' },
   { 'id': 11, 'title': 'Game', 'img': '' },
   { 'id': 12, 'title': 'Hentai', 'img': '' },

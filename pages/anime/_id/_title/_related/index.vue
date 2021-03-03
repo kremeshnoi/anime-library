@@ -2,37 +2,21 @@
 
   .anime
     .anime__container
-      .anime__main-content
-        h1.anime__title
-          | {{ animeById.title }}
-          .divider-hidden
-          | {{ animeById.title_japanese }}
+      .related
+        .related__title
+          | {{ relateName }}
+        .related__item
+          table.related__table
+            tbody.related__tbody
+              tr.related__tr(
+                :key='dataIndex'
+                v-for='(resultItem, dataIndex) in animeById.related[`${ relateName }`]')
 
-        .anime__cover-container
-          img.anime__cover(
-            draggable="false"
-            :src='animeById.image_url')
-
-        info.anime__info(
-          :infoData='animeById')
-
-      .anime__sub-content
-        .related
-          .related__title
-            | {{ relateName }}
-          .related__item
-            table.related__table.striped
-              tbody.related__tbody
-                tr.related__tr(
-                  v-for='(resultItem, dataIndex) in animeById.related[`${ relateName }`]',
-                  :key='dataIndex'
-                )
-
-                  td.related__td
-                    a.related__link(
-                      @click='computeRoute({ resultItem })'
-                      @click.middle='computeRoute({ resultItem, clickType })')
-                      | {{ resultItem.name }}
+                td.related__td
+                  a.related__link(
+                    @click='computeRoute({ resultItem })'
+                    @click.middle='computeRoute({ resultItem, clickType })')
+                    | {{ resultItem.name }}
 
 </template>
 
@@ -66,10 +50,8 @@
     },
     async asyncData({ params }) {
       const animeByIdResponse = await jikanjs.loadAnime(params.id);
-      const animeRecommendationsByIdResponse = await jikanjs.loadAnime(params.id, 'recommendations');
       return {
         animeById: animeByIdResponse,
-        animeRecommendationsById: animeRecommendationsByIdResponse,
       };
     },
     methods: {
@@ -96,12 +78,10 @@
       display: grid
       row-gap: 40px
       column-gap: 20px
-      grid-template-columns: 1fr 1fr
-      grid-template-areas: 'main sub'
+      grid-template-columns: 1fr
       @extend .container-default
       +mq(tablet-mid, max)
         grid-template-columns: 1fr
-        grid-template-areas: 'main' 'sub'
 
     &__main-content
       display: grid
@@ -147,16 +127,22 @@
   .related
     display: grid
     justify-content: start
-    grid-gap: 20px
-    grid-template-rows: 50px auto
+    grid-gap: 10px
+    grid-template-rows: auto auto
     grid-template-columns: 100%
     text-align: start
     &__disaster
       text-align: start
       font-size: 30px
     &__title
+      padding: 0
+      font-weight: 400
       display: flex
-      align-items: center
+      height: auto
+      font-size: 20px
+      text-transform: none
+      flex-direction: column
+      align-items: flex-start
       @extend .title-default
     &__tr
       display: block

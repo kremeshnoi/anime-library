@@ -2,38 +2,21 @@
 
   .manga
     .manga__container
-      .manga__main-content
-        h1.manga__title
-          | {{ mangaById.title }}
-          .divider-hidden
-          | {{ mangaById.title_japanese }}
+      .related
+        .related__title
+          | {{ relateName }}
+        .related__item
+          table.related__table
+            tbody.related__tbody
+              tr.related__tr(
+                :key='dataIndex'
+                v-for='(resultItem, dataIndex) in mangaById.related[`${ relateName }`]')
 
-        .manga__cover-container
-          img.manga__cover(
-            draggable="false"
-            :src='mangaById.image_url')
-
-        info.manga__info(
-          :infoData='mangaById')
-
-      .manga__sub-content
-        .related
-          .related__title
-            | {{ relateName }}
-          .related__item
-            table.related__table.striped
-              tbody.related__tbody
-                tr.related__tr(
-                  v-for='(resultItem, dataIndex) in mangaById.related[`${ relateName }`]',
-                  :key='dataIndex'
-                )
-
-                  td.related__td
-                    a.related__link(
-                      @click='computeRoute({ resultItem })'
-                      @click.middle='computeRoute({ resultItem, clickType })'
-                      )
-                      | {{ resultItem.name }}
+                td.related__td
+                  a.related__link(
+                    @click='computeRoute({ resultItem })'
+                    @click.middle='computeRoute({ resultItem, clickType })')
+                    | {{ resultItem.name }}
 
 </template>
 
@@ -95,12 +78,12 @@
       display: grid
       row-gap: 40px
       column-gap: 20px
-      grid-template-columns: 1fr 1fr
-      grid-template-areas: 'main sub'
+      grid-template-columns: 1fr
+      grid-template-areas: 'main'
       @extend .container-default
       +mq(tablet-mid, max)
         grid-template-columns: 1fr
-        grid-template-areas: 'main' 'sub'
+        grid-template-areas: 'main'
     &__main-content
       display: grid
       grid-gap: 20px
@@ -145,16 +128,22 @@
   .related
     display: grid
     justify-content: start
-    grid-gap: 20px
-    grid-template-rows: 50px auto
+    grid-gap: 10px
+    grid-template-rows: auto auto
     grid-template-columns: 100%
     text-align: start
     &__disaster
       text-align: start
       font-size: 30px
     &__title
+      padding: 0
+      font-weight: 400
       display: flex
-      align-items: center
+      height: auto
+      font-size: 20px
+      text-transform: none
+      flex-direction: column
+      align-items: flex-start
       @extend .title-default
     &__tr
       display: block

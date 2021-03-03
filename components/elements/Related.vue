@@ -22,7 +22,7 @@
         v-for='(value, name, counter) in relatedData',
         :key='name'
       )
-        table.related__table.striped
+        table.related__table
           tbody.related__tbody
             tr.related__tr(
               v-for='(resultItem, dataIndex) in value.slice(0, 1)',
