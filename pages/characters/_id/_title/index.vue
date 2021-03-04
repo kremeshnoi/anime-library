@@ -1,6 +1,6 @@
 <template lang="pug">
 
-	.character
+	main.character
 		.character__container
 			.character__main-content
 				h1.character__title
@@ -167,7 +167,7 @@
 
 		&__container
 			display: grid
-			row-gap: 40px
+			row-gap: 20px
 			column-gap: 20px
 			@extend .container-default
 			grid-template-columns: 1fr 1fr
@@ -190,7 +190,7 @@
 
 		&__sub-content
 			display: grid
-			row-gap: 40px
+			row-gap: 20px
 			grid-area: sub
 			column-gap: 20px
 			align-content: flex-start
@@ -201,7 +201,6 @@
 
 		&__cover-container
 			display: grid
-			row-gap: 20px
 			grid-area: cover
 			grid-area: cover
 			justify-content: flex-start

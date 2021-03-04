@@ -1,7 +1,7 @@
 <template lang="pug">
 
   client-only
-    .recovery
+    main.recovery
       h1.recovery__title
         | Reset your password
 

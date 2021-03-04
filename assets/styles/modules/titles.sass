@@ -1,19 +1,19 @@
 .title-default
-	color: $color-black
 	width: 100%
-	height: 48px
+	height: 40px
+	display: flex
 	font-size: 16px
 	font-weight: 700
 	text-align: start
-	display: flex
+	color: $color-black
 	align-items: center
-	text-transform: uppercase
 	padding: 14px 0 0 0
+	text-transform: uppercase
 
 .title-cut
+	width: 100%
 	display: block
 	max-width: 300px
-	width: 100%
 	overflow: hidden
 	white-space: nowrap
 	text-overflow: ellipsis
@@ -25,8 +25,8 @@
 	-webkit-box-orient: vertical
 
 .title-bordered
+	margin: 0 0 20px 0
 	@extend .title-default
 	padding: 14px 14px 14px 14px
-	margin: 0 0 20px 0
-	border-left: 5px solid $color-blue-light
 	background-color: $color-white-dark
+	border-left: 5px solid $color-blue-light

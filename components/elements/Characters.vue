@@ -1,6 +1,6 @@
 <template lang="pug">
 
-	.manga-Characters
+	.manga-characters
 		.manga-characters__wrapper
 			.manga-characters__title
 				| Characters
@@ -69,7 +69,7 @@
 
 		&__cards-container
 			display: grid
-			grid-gap: 20px
+			grid-gap: 10px
 			position: relative
 			grid-template-columns: 1fr 1fr
 

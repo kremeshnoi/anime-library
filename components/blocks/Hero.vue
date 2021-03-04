@@ -1,6 +1,6 @@
 <template lang="pug">
 
-  .hero
+  section.hero
     .hero__container
       .hero__text-side
         h1.hero__title

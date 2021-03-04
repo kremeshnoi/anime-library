@@ -1,6 +1,6 @@
 <template lang="pug">
 
-  .anime-genre
+  main.anime-genre
     .anime-genre__container
       .anime-genre__title(v-if="animeGenre.mal_url")
         | {{ animeGenre.mal_url.name }}
@@ -16,7 +16,8 @@
           :resultItem="anime"
           v-for="(anime) in list")
 
-        infinite-loading(@infinite="infiniteHandler")
+        client-only
+          infinite-loading(@infinite="infiniteHandler")
 
 </template>
 

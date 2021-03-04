@@ -1,6 +1,6 @@
 <template lang="pug">
 
-  .manga
+  main.manga
     .manga__container
       .related
         .related__title
@@ -75,7 +75,7 @@
 
     &__container
       display: grid
-      row-gap: 40px
+      row-gap: 20px
       column-gap: 20px
       grid-template-columns: 1fr
       grid-template-areas: "main"
@@ -98,7 +98,7 @@
 
     &__sub-content
       display: grid
-      row-gap: 40px
+      row-gap: 20px
       grid-area: sub
       column-gap: 20px
       align-content: flex-start

@@ -92,7 +92,7 @@
     &__container
       display: grid
       column-gap: 20px
-      row-gap: 40px
+      row-gap: 20px
       grid-template-columns: 1fr 1fr
       grid-template-areas: 'main sub' 'description description' 'recommendations recommendations'
       @extend .container-default
@@ -113,21 +113,20 @@
         grid-template-areas: 'title' 'cover' 'info'
 
     &__sub-content
-      grid-area: sub
       display: grid
+      row-gap: 20px
+      grid-area: sub
       column-gap: 20px
-      row-gap: 40px
-      justify-content: flex-start
       align-content: flex-start
+      justify-content: flex-start
       grid-template-columns: minmax(auto, 360px)
       +mq(tablet-mid, max)
         justify-content: flex-start
 
     &__cover-container
-      grid-area: cover
       display: grid
+      grid-area: cover
       justify-content: flex-start
-      row-gap: 20px
       grid-template-rows: min-content
 
     &__title

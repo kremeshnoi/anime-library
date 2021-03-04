@@ -42,22 +42,22 @@
 	@import "~/assets/styles/modules/titles"
 
 	.cards
-		width: 100%
+		width: 160px
 		box-shadow: none
 		position: relative
 		&:hover
 			opacity: 0.8
 
 		&__image
-			width: 100%
+			width: 160px
 			height: 240px
 			display: block
 			transform: scale(1.01)
-			background-color: $color-blue-light
 
 		&__image-wrapper
 			cursor: pointer
 			overflow: hidden
+			width: min-content
 			position: relative
 
 		&__title

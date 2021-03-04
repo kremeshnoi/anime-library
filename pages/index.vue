@@ -1,6 +1,6 @@
 <template lang="pug">
 
-	.home
+	main.home
 		hero
 
 		studios
@@ -10,6 +10,10 @@
 		cards-block(
 			v-if="animeAiring"
 			:cardsBlockData="animeAiring")
+
+		cards-block(
+			v-if="animeUpcoming"
+			:cardsBlockData="animeUpcoming")
 
 </template>
 
@@ -33,17 +37,25 @@
 			Hero,
 			Genres,
 			Studios,
-			CardsBlock,
+			CardsBlock
 		},
 		computed: {
 			...mapGetters({
-				getAnimeAiring: "anime/getAnimeAiring"
+				getAnimeAiring: "anime/getAnimeAiring",
+				getAnimeUpcoming: "anime/getAnimeUpcoming"
 			}),
 			animeAiring() {
 				return {
 					title: "AIRING ANIME",
 					link: "/anime/airing",
 					data: this.getAnimeAiring
+				}
+			},
+			animeUpcoming() {
+				return {
+					title: "UPCOMING ANIME",
+					link: "/anime/upcoming",
+					data: this.getAnimeUpcoming
 				}
 			},
 			studios() {
@@ -54,13 +66,12 @@
 		},
 		async created() {
 			await this.loadAnimeAiring()
-		},
-		mounted() {
-			document.documentElement.style.setProperty("--item-count", studios.length)
+			await this.loadAnimeUpcoming()
 		},
 		methods: {
 			...mapActions({
-				loadAnimeAiring: "anime/loadAnimeAiring"
+				loadAnimeAiring: "anime/loadAnimeAiring",
+				loadAnimeUpcoming: "anime/loadAnimeUpcoming"
 			})
 		}
 	}
@@ -75,19 +86,5 @@
 
 	.home
 		width: 100%
-
-	.studios
-		display: grid
-		@extend .container-default
-		grid-auto-flow: column
-		justify-content: space-between
-
-		.studio
-			object-fit: contain
-			width: 100px
-			height: 50px
-			&:hover
-				cursor: pointer
-				opacity: 0.6
 
 </style>

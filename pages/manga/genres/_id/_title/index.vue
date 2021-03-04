@@ -1,6 +1,6 @@
 <template lang="pug">
 
-  .manga-genre
+  main.manga-genre
     .manga-genre__container
       .manga-genre__title(v-if="mangaGenre.mal_url")
         | {{ mangaGenre.mal_url.name }}

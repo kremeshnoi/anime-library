@@ -1,24 +1,21 @@
 <template lang="pug">
 
-  footer.main-footer
+  footer.footer
     footer-categories
-    footer-main-info
-    //- footer-note
+    footer-info
 
 </template>
 
 <script>
 
-  import FooterNote from "@/components/blocks/footer/FooterNote"
-  import FooterMainInfo from "@/components/blocks/footer/FooterMainInfo"
+  import FooterInfo from "@/components/blocks/footer/FooterInfo"
   import FooterCategories from "@/components/blocks/footer/FooterCategories"
 
 
   export default {
-    name: "MainFooter",
+    name: "Footer",
     components: {
-      FooterNote,
-      FooterMainInfo,
+      FooterInfo,
       FooterCategories
     }
   }
@@ -30,7 +27,7 @@
 	@import "~/assets/styles/utils/vars"
 	@import "~/assets/styles/utils/mixins"
 
-	.main-footer
+	.footer
 		width: 100%
 
 </style>

@@ -1,6 +1,6 @@
 <template lang="pug">
 
-  .top-airing
+  main.top-airing
     .top-airing__container
       .top-airing__title
         | Airing Anime

@@ -1,22 +1,22 @@
 <template lang="pug">
 
-  .content-wrapper
+  .layout-container
     navbar
     router-view(:key="this.$route.path")
-    main-footer
+    Footer
 
 </template>
 
 <script>
 
   import Navbar from "@/components/navigation/Navbar"
-  import MainFooter from "@/components/navigation/MainFooter"
+  import Footer from "@/components/navigation/Footer"
 
   export default {
     name: "Authorized",
     components: {
       Navbar,
-      MainFooter
+      Footer
     },
     mounted() {
       M.AutoInit()
@@ -30,7 +30,7 @@
 	@import "~/assets/styles/utils/vars"
 	@import "~/assets/styles/utils/mixins"
 
-	.content-wrapper
+	.layout-container
 		margin: 0 auto
 		padding: 54px 0 0 0
 		+flex(initial, center, column)

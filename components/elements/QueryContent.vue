@@ -21,7 +21,7 @@
 	.query-content
 		height: 100%
 		display: grid
-		grid-gap: 20px
+		grid-gap: 10px
 		justify-content: center
 		grid-template-columns: repeat(7, 1fr)
 		+mq(desktop-wide, max)

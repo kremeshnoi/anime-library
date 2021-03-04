@@ -1,6 +1,6 @@
 <template lang="pug">
 
-	.manga-genres
+	main.manga-genres
 		.manga-genres__container
 			.manga-genres__title
 				| Manga Genres

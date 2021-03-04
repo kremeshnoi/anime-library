@@ -67,10 +67,10 @@
 	.navbar
 		top: 0
 		z-index: 99
-		height: 58px
+		height: 54px
 		position: fixed
 		user-select: none
-		line-height: 58px
+		line-height: 54px
 		padding: 0 40px 0 40px
 		background-color: $color-blue
 		+mq(tablet-small, max)

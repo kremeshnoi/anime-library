@@ -1,6 +1,6 @@
 <template lang="pug">
 
-  .top-airing-anime
+  section.top-airing-anime
     .top-airing-anime__container
       router-link.top-airing-anime__title(:to="cardsBlockData.link")
         | {{ cardsBlockData.title }}
@@ -10,7 +10,7 @@
         cards.swiper-slide(
         :key="dataIndex"
         :resultItem="data"
-        v-for="(data, dataIndex) in cardsBlockData.data.slice(0, 7)")
+        v-for="(data, dataIndex) in cardsBlockData.data.slice(0, 12)")
 
 </template>
 

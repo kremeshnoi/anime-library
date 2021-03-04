@@ -1,6 +1,6 @@
 <template lang="pug">
 
-	.library
+	main.library
 		.library__container
 			ul.library__tabs.library__tabs_main
 				li.library__tab.tab(

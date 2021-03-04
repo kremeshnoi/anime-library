@@ -1,7 +1,7 @@
 <template lang="pug">
 
   client-only
-    .sign-up
+    main.sign-up
       h1.sign-up__title
         | Join Otaku Library!
 

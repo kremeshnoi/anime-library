@@ -1,9 +1,9 @@
 <template lang="pug">
 
-  .top-manga
+  main.top-manga
     .top-manga__container
       .top-manga__title
-        | Viewers" Favorite Manga
+        | Viewers Favorite Manga
 
       query-content
         cards(

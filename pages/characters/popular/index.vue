@@ -1,6 +1,6 @@
 <template lang="pug">
 
-  .top-characters
+  main.top-characters
     .top-characters__container
       .top-characters__title
         | Most Popular Characters

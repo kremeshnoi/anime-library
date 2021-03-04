@@ -1,39 +1,39 @@
 <template lang="pug">
 
-	.footer-main-info.page-footer
-		.footer-main-info__container
-			.footer-main-info__item
-				h5.footer-main-info__title
+	.footer-info
+		.footer-info__container
+			.footer-info__item
+				h5.footer-info__title
 					| Discord channel
-				p.footer-main-info__description
+				p.footer-info__description
 					| We will also be happy to meet you on our channel, where you can always find like-minded people. Feel free to come in.
-				a.footer-main-info__link_decor.btn(
+				a.footer-info__link_decor.btn(
 					target="_blank"
 					href="https://discord.com/invite/Ku72D5/")
 					| Chat
 
-			.footer-main-info__item
-				h5.footer-main-info__title.footer-main-info__subtitle
+			.footer-info__item
+				h5.footer-info__title.footer-info__subtitle
 					| Donation
-				a.footer-main-info__link.footer-main-info__link_support(
+				a.footer-info__link.footer-info__link_support(
 					target="_blank"
 					href="https://www.patreon.com/otaku_library")
-					img.footer-main-info__support(
+					img.footer-info__support(
 						draggable="false"
 						src="@/assets/images/patreon.png")
 
-			.footer-main-info__item
-				h5.footer-main-info__title
+			.footer-info__item
+				h5.footer-info__title
 					| Help
-				router-link.footer-main-info__link.footer-main-info__link_disabled(to="/faq")
+				router-link.footer-info__link.footer-info__link_disabled(to="/faq")
 					| FAQ
-				router-link.footer-main-info__link(
+				router-link.footer-info__link(
 					to="/sign-up"
-					:class="{ 'footer-main-info__link_disabled': this.user[0] !== null }")
+					:class="{ 'footer-info__link_disabled': this.user[0] !== null }")
 					| Registration
-				router-link.footer-main-info__link(
+				router-link.footer-info__link(
 					to="/recovery"
-					:class="{ 'footer-main-info__link_disabled': this.user[0] !== null }")
+					:class="{ 'footer-info__link_disabled': this.user[0] !== null }")
 					| Forgot Password?
 
 </template>
@@ -43,7 +43,7 @@
 	import { mapActions } from "vuex"
 
 	export default {
-		name: "FooterMainInfo",
+		name: "FooterInfo",
 		data() {
 			return {
 				user: []
@@ -67,7 +67,8 @@
 	@import "~/assets/styles/utils/mixins"
 	@import "~/assets/styles/modules/buttons"
 
-	.footer-main-info
+	.footer-info
+		color: $color-white
 		padding: 0
 		text-align: start
 		background-color: $color-blue

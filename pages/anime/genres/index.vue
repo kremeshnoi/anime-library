@@ -1,6 +1,6 @@
 <template lang="pug">
 
-	.anime-genres
+	main.anime-genres
 		.anime-genres__container
 			.anime-genres__title
 				| Anime Genres

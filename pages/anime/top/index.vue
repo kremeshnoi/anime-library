@@ -1,6 +1,6 @@
 <template lang="pug">
 
-  .top-anime
+  main.top-anime
     .top-anime__container
       .top-anime__title
         | Viewers" Favorite Anime

@@ -1,27 +1,29 @@
 <template lang="pug">
 
-	.genres
-		.genres__content
-			.genres__wrapper(
-				:key="resultIndex"
-				v-for="(genresResult, resultIndex) in genres")
-				router-link.genres__title(:to="genresResult.link")
-					| {{ genresResult.title }} Genres
-					.top-airing-anime__icon.material-icons keyboard_arrow_right
+	section.genres
+		.genres__container
+			.genres__content
 
-				.genres__anime
-					a.genres__item(
-						:key="genreIndex"
-						v-for="(genre, genreIndex) in genresResult.data"
-						@click="computeRouteByGenre({ genresResult, genre })"
-						@click.middle="computeRouteByGenre({ genresResult, genre, clickType })")
-						img.genres__item-image(
-							:src="genre.img"
-							draggable="false")
+				.genres__block(
+					:key="resultIndex"
+					v-for="(genresResult, resultIndex) in genres")
+					router-link.genres__title(:to="genresResult.link")
+						| {{ genresResult.title }} Genres
+						.material-icons keyboard_arrow_right
 
-						.genres__title-wrapper
-							span.genres__item-title
-								| {{ genre.title }}
+					.genres-cards
+						a.genres-cards__item(
+							:key="genreIndex"
+							v-for="(genre, genreIndex) in genresResult.data"
+							@click="computeRouteByGenre({ genresResult, genre })"
+							@click.middle="computeRouteByGenre({ genresResult, genre, clickType })")
+							img.genres-cards__image(
+								:src="genre.img"
+								draggable="false")
+
+							.genres-cards__title-container
+								span.genres-cards__title
+									| {{ genre.title }}
 
 </template>
 
@@ -72,7 +74,15 @@
 	@import "~/assets/styles/modules/containers"
 
 	.genres
-		@extend .container-default
+		width: 100%
+
+		&__container
+			@extend .container-default
+
+		&__content
+			display: grid
+			column-gap: 10px
+			grid-template-columns: 1fr 1fr
 
 		&__title
 			@extend .title-bordered
@@ -82,10 +92,10 @@
 				.top-airing-anime__icon
 					color: inherit
 
-		&__content
-			display: grid
-			column-gap: 20px
-			grid-template-columns: 1fr 1fr
+	.genres-cards
+		display: grid
+		column-gap: 10px
+		grid-template-columns: 1fr 1fr
 
 		&__item
 			width: 100%
@@ -95,14 +105,14 @@
 			font-weight: 300
 			position: relative
 
-		&__item-image
+		&__image
 			width: 100%
 			height: 100%
 			display: block
 			&:hover
 				opacity: 0.8
 
-		&__title-wrapper
+		&__title-container
 			bottom: 0
 			width: 100%
 			display: flex
@@ -113,10 +123,5 @@
 			justify-content: center
 			flex-direction: initial
 			background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0) 100%)
-
-		&__anime, &__manga
-			display: grid
-			column-gap: 20px
-			grid-template-columns: 1fr 1fr
 
 </style>

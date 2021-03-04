@@ -54,13 +54,13 @@ export const actions = {
       else if (type === "Doujinshi") type = "manga"
       else if (type !== "Manga" && type !== "manga") type = "anime"
 
-      if (clickType) {
-        const routeData = $nuxt.$router.resolve({ name: `${ type }` + "-id-title", params: { id, title } })
-        window.open(routeData.href, "_blank")
-      } else {
-        $nuxt.$router.push({ name: `${ type }` + "-id-title", params: { id, title } })
-      }
-
+      // if (clickType) {
+      //   const routeData = $nuxt.$router.resolve({ name: `${ type }` + "-id-title", params: { id, title } })
+      //   window.open(routeData.href, "_blank")
+      // } else {
+      //   $nuxt.$router.push({ name: `${ type }` + "-id-title", params: { id, title } })
+      // }
+      $nuxt.$router.push({ name: `${ type }` + "-id-title", params: { id, title } })
     } catch (error) {
       throw error.message
     }
@@ -85,13 +85,13 @@ export const actions = {
           break
       }
 
-      if (clickType) {
-        const routeData = $nuxt.$router.resolve({ name: `${ type }` + "-id-title", params: { id, title } })
-        window.open(routeData.href, "_blank")
-      } else {
-        $nuxt.$router.push({ name: `${ type }` + "-id-title", params: { id, title } })
-      }
-
+      // if (clickType) {
+      //   const routeData = $nuxt.$router.resolve({ name: `${ type }` + "-id-title", params: { id, title } })
+      //   window.open(routeData.href, "_blank")
+      // } else {
+      //   $nuxt.$router.push({ name: `${ type }` + "-id-title", params: { id, title } })
+      // }
+      $nuxt.$router.push({ name: `${ type }` + "-id-title", params: { id, title } })
     } catch (error) {
       throw error.message
     }
@@ -128,13 +128,14 @@ export const actions = {
       else if (type === "Doujinshi") type = "manga"
       else if (type !== "Manga" && type !== "manga") type = "anime"
 
-      if (clickType) {
-        const routeData = $nuxt.$router.resolve({ name: `${ type }` + "-id-title-related", params: { id, title, related, name } })
-        window.open(routeData.href, "_blank")
-      } else {
-        $nuxt.$router.push({ name: `${ type }` + "-id-title-related", params: { id, title, related, name } })
-      }
+      // if (clickType) {
+      //   const routeData = $nuxt.$router.resolve({ name: `${ type }` + "-id-title-related", params: { id, title, related, name } })
+      //   window.open(routeData.href, "_blank")
+      // } else {
+      //   $nuxt.$router.push({ name: `${ type }` + "-id-title-related", params: { id, title, related, name } })
+      // }
 
+      $nuxt.$router.push({ name: `${ type }` + "-id-title-related", params: { id, title, related, name } })
     } catch (error) {
       throw error.message
     }

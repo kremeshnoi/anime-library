@@ -194,7 +194,7 @@
 
     .overlay
       left: 0
-      top: 58px
+      top: 54px
       z-index: 1
       width: 100%
       height: 100%

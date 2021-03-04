@@ -1,7 +1,7 @@
 <template lang="pug">
 
   client-only
-    .sign-in
+    main.sign-in
       h1.sign-in__title
         | Start using account
 

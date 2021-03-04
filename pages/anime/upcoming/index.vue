@@ -1,6 +1,6 @@
 <template lang="pug">
 
-  .anime-by-popularity
+  main.anime-by-popularity
     .anime-by-popularity__container
       .anime-by-popularity__title
         | Upcoming Anime

@@ -1,6 +1,6 @@
 <template lang="pug">
 
-  .content-wrapper
+  .layout-container
     .progress.auth-progress
       .indeterminate
     router-view
@@ -34,7 +34,7 @@ export default {
   @import "~/assets/styles/utils/vars"
   @import "~/assets/styles/utils/mixins"
 
-  .content-wrapper
+  .layout-container
     height: 100vh
     background: url("../assets/images/clouds.png"), $color-blue-light
 
