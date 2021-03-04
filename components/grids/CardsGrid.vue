@@ -8,7 +8,7 @@
 <script>
 
   export default {
-    name: "QueryContent"
+    name: "CardsGrid"
   }
 
 </script>

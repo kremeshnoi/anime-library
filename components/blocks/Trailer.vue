@@ -1,6 +1,6 @@
 <template lang="pug">
 
-  .trailer
+  section.trailer
     .trailer__title
       | Watch Trailer
 

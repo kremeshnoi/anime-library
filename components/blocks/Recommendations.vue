@@ -1,12 +1,12 @@
 <template lang="pug">
 
-  .recommendations(v-if="recommendationsData")
+  section.recommendations(v-if="recommendationsData")
     .recommendations__wrapper
       .recommendations__title
         | Recommendations
 
-      swiper-carousel(v-if="recommendationsData.length >= 7")
-        cards.swiper-slide(
+      Carousel(v-if="recommendationsData.length >= 7")
+        Card.swiper-slide(
           :key="recommendationIndex"
           :resultItem="recommendation"
           v-for="(recommendation, recommendationIndex) in recommendationsData")
@@ -18,15 +18,15 @@
 
 <script>
 
-  import Cards from "@/components/elements/Cards"
-  import SwiperCarousel from "@/components/elements/SwiperCarousel"
+  import Card from "@/components/elements/Card"
+  import Carousel from "@/components/grids/Carousel"
 
   export default {
     name: "Recommendations",
     props: ["recommendationsData"],
     components: {
-      Cards,
-      SwiperCarousel
+      Card,
+      Carousel
     }
   }
 

@@ -5,13 +5,13 @@
       .top-characters__title
         | Most Popular Characters
 
-      query-content
-        cards(
+      CardsGrid
+        Card(
           v-for="(character) in favoriteCharacters",
           :key="character.name",
           :resultItem="character")
 
-        cards(
+        Card(
           v-for="(character) in list",
           :key="character.name",
           :resultItem="character")
@@ -24,9 +24,9 @@
 
   import axios from "axios"
   import jikanjs from "jikanjs/lib/jikan"
-  import Cards from "@/components/elements/Cards"
+  import Card from "@/components/elements/Card"
   import InfiniteLoading from "vue-infinite-loading"
-  import QueryContent from "@/components/elements/QueryContent"
+  import CardsGrid from "@/components/grids/CardsGrid"
   import layoutMiddleware from "@/middleware/layoutMiddleware"
 
   export default {
@@ -36,8 +36,8 @@
     },
     layout: layoutMiddleware,
     components: {
-      Cards,
-      QueryContent,
+      Card,
+      CardsGrid,
       InfiniteLoading
     },
     data() {

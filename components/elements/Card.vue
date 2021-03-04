@@ -19,7 +19,7 @@
 	import { mapActions } from "vuex"
 
 	export default {
-		name: "Cards",
+		name: "Card",
 		props: ["resultItem"],
 		data() {
 			return {

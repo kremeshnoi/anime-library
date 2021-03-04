@@ -101,9 +101,8 @@
 
 	import { mapActions } from "vuex"
 	import jikanjs from "jikanjs/lib/jikan"
-	import Cards from "@/components/elements/Cards"
 	import layoutMiddleware from "@/middleware/layoutMiddleware"
-	import SwiperCarousel from "@/components/elements/SwiperCarousel"
+	import Carousel from "@/components/grids/Carousel"
 
 	export default {
 		name: "Character",
@@ -114,8 +113,7 @@
 		},
 		layout: layoutMiddleware,
 		components: {
-			Cards,
-			SwiperCarousel
+			Carousel
 		},
 		data() {
 			return {

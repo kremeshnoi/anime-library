@@ -1,6 +1,6 @@
 <template lang="pug">
 
-  .description
+  section.description
     .description__title
       | Description
 

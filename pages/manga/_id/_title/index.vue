@@ -12,37 +12,36 @@
 						draggable="false"
 						:src="mangaById.image_url")
 
-					select-options.manga__input-field(
+					Select.manga__input-field(
 						v-if="mangaById.type"
 						:type="mangaById.type"
 						:wholeResult="mangaById")
 
-				info.manga__info(:infoData="mangaById")
+				Info.manga__info(:infoData="mangaById")
 
 			.manga__sub-content
-				characters.manga__characters(:charactersData="mangaCharactersById.characters")
+				Characters.manga__characters(:charactersData="mangaCharactersById.characters")
 
-				related.manga__related(
+				Related.manga__related(
 					:wholeData="mangaById"
 					:relatedData="mangaById.related")
 
-			description.manga__description(:descriptionData="mangaById.synopsis")
+			Description.manga__description(:descriptionData="mangaById.synopsis")
 
-			recommendations.manga__recommendations(:recommendationsData="mangaRecommendationsById.recommendations")
+			Recommendations.manga__recommendations(:recommendationsData="mangaRecommendationsById.recommendations")
 
 </template>
 
 <script>
 
 	import jikanjs from "jikanjs/lib/jikan"
-	import Info from "@/components/elements/Info"
-	import Cards from "@/components/elements/Cards"
-	import Related from "@/components/elements/Related"
-	import Characters from "@/components/elements/Characters"
-	import Description from "@/components/elements/Description"
+	import Info from "@/components/blocks/Info"
+	import Related from "@/components/blocks/Related"
+	import Characters from "@/components/blocks/Characters"
+	import Select from "@/components/elements/Select"
+	import Description from "@/components/blocks/Description"
 	import layoutMiddleware from "@/middleware/layoutMiddleware"
-	import SelectOptions from "@/components/elements/SelectOptions"
-	import Recommendations from "@/components/elements/Recommendations"
+	import Recommendations from "@/components/blocks/Recommendations"
 
 	export default {
 		name: "Manga",
@@ -54,10 +53,10 @@
 		components: {
 			Info,
 			Cards,
+			Select,
 			Related,
 			Characters,
 			Description,
-			SelectOptions,
 			Recommendations
 		},
 		layout: layoutMiddleware,

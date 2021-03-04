@@ -1,17 +1,17 @@
 <template lang="pug">
 
 	main.home
-		hero
+		Hero
 
-		studios
+		Studios
 
-		genres
+		Genres
 
-		cards-block(
+		Cards(
 			v-if="animeAiring"
 			:cardsBlockData="animeAiring")
 
-		cards-block(
+		Cards(
 			v-if="animeUpcoming"
 			:cardsBlockData="animeUpcoming")
 
@@ -22,9 +22,9 @@
 	import { studios } from "@/utils/studios"
 	import Hero from "@/components/blocks/Hero"
 	import { mapActions, mapGetters } from "vuex"
+	import Cards from "@/components/blocks/Cards"
 	import Genres from "@/components/blocks/Genres"
 	import Studios from "@/components/blocks/Studios"
-	import CardsBlock from "@/components/blocks/CardsBlock"
 	import layoutMiddleware from "@/middleware/layoutMiddleware"
 
 	export default {
@@ -35,9 +35,9 @@
 		},
 		components: {
 			Hero,
+			Cards,
 			Genres,
-			Studios,
-			CardsBlock
+			Studios
 		},
 		computed: {
 			...mapGetters({

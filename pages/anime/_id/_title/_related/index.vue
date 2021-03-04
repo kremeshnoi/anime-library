@@ -23,7 +23,6 @@
 
   import { mapActions } from "vuex"
   import jikanjs from "jikanjs/lib/jikan"
-  import Info from "@/components/elements/Info"
   import layoutMiddleware from "@/middleware/layoutMiddleware"
 
   export default {
@@ -34,9 +33,6 @@
       }
     },
     layout: layoutMiddleware,
-    components: {
-      Info
-    },
     data() {
       return {
         clickType: "middle"

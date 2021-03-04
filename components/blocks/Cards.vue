@@ -6,8 +6,8 @@
         | {{ cardsBlockData.title }}
         .top-airing-anime__icon.material-icons keyboard_arrow_right
 
-      swiper-carousel
-        cards.swiper-slide(
+      Carousel
+        Card.swiper-slide(
         :key="dataIndex"
         :resultItem="data"
         v-for="(data, dataIndex) in cardsBlockData.data.slice(0, 12)")
@@ -16,15 +16,15 @@
 
 <script>
 
-  import Cards from "@/components/elements/Cards"
-  import SwiperCarousel from "@/components/elements/SwiperCarousel"
+  import Card from "@/components/elements/Card"
+  import Carousel from "@/components/grids/Carousel"
 
   export default {
-    name: "CardsBlock",
+    name: "Cards",
     props: ["cardsBlockData"],
     components: {
-      Cards,
-      SwiperCarousel
+      Card,
+      Carousel
     }
   }
 

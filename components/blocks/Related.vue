@@ -1,6 +1,6 @@
 <template lang="pug">
 
-  .related
+  section.related
     .related__title
       | Related
     .related__content

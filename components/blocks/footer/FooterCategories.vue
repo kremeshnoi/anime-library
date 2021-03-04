@@ -1,6 +1,6 @@
 <template lang="pug">
 
-  .footer-categories
+  section.footer-categories
     .footer-categories__container
       .footer-categories__item.footer-categories-item(
         :key="categoryIndex"

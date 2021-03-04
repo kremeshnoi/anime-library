@@ -1,6 +1,6 @@
 <template lang="pug">
 
-	.footer-info
+	section.footer-info
 		.footer-info__container
 			.footer-info__item
 				h5.footer-info__title

@@ -5,13 +5,13 @@
       .top-airing__title
         | Airing Anime
 
-      query-content
-        cards(
+      CardsGrid
+        Card(
           :key="anime.mal_id"
           :resultItem="anime"
           v-for="(anime) in animeAiring")
 
-        cards(
+        Card(
           :key="anime.mal_id"
           :resultItem="anime"
           v-for="(anime) in list")
@@ -24,10 +24,10 @@
 
   import axios from "axios"
   import jikanjs from "jikanjs/lib/jikan"
-  import Cards from "@/components/elements/Cards"
+  import Card from "@/components/elements/Card"
   import InfiniteLoading from "vue-infinite-loading"
   import layoutMiddleware from "@/middleware/layoutMiddleware"
-  import QueryContent from "@/components/elements/QueryContent"
+  import CardsGrid from "@/components/grids/CardsGrid"
 
 export default {
   name: "TopAiring",
@@ -36,8 +36,8 @@ export default {
   },
   layout: layoutMiddleware,
   components: {
-    Cards,
-    QueryContent,
+    Card,
+    CardsGrid,
     InfiniteLoading
   },
   data() {

@@ -12,7 +12,7 @@
 <script>
 
   export default {
-    name: "SwiperCarousel",
+    name: "Carousel",
     data() {
       return {
         init: false,

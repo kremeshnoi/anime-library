@@ -5,13 +5,13 @@
       .top-manga__title
         | Viewers Favorite Manga
 
-      query-content
-        cards(
+      CardsGrid
+        Card(
           :key="manga.mal_id"
           :resultItem="manga"
           v-for="(manga) in topManga")
 
-        cards(
+        Card(
           :key="manga.mal_id"
           :resultItem="manga"
           v-for="(manga) in list")
@@ -24,10 +24,10 @@
 
   import axios from "axios"
   import jikanjs from "jikanjs/lib/jikan"
-  import Cards from "@/components/elements/Cards"
+  import Card from "@/components/elements/Card"
   import InfiniteLoading from "vue-infinite-loading"
   import layoutMiddleware from "@/middleware/layoutMiddleware"
-  import QueryContent from "@/components/elements/QueryContent"
+  import CardsGrid from "@/components/grids/CardsGrid"
 
   export default {
     name: "TopManga",
@@ -36,8 +36,8 @@
     },
     layout: layoutMiddleware,
     components: {
-      Cards,
-      QueryContent,
+      Card,
+      CardsGrid,
       InfiniteLoading
     },
     data() {

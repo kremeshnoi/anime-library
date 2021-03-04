@@ -1,12 +1,12 @@
 <template lang="pug">
 
-	.manga-characters
+	section.manga-characters
 		.manga-characters__wrapper
 			.manga-characters__title
 				| Characters
 
 			.manga-characters__cards-container(v-if="charactersData && charactersData.length")
-				cards.manga-characters__card(
+				Card.manga-characters__card(
 					:key="dataIndex"
 					:resultItem="data"
 					v-for="(data, dataIndex) in charactersData.slice(0, 2)")
@@ -24,17 +24,17 @@
 <script>
 
 	import { mapActions } from "vuex"
-	import Cards from "@/components/elements/Cards"
-	import SwiperCarousel from "@/components/elements/SwiperCarousel"
+  import Card from "@/components/elements/Card"
+	import Carousel from "@/components/grids/Carousel"
 	import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper"
 
 	export default {
 		name: "Characters",
 		props: ["charactersData"],
 		components: {
-			Cards,
-			SwiperCarousel,
+			Card,
 			Swiper,
+			Carousel,
 			SwiperSlide
 		},
 		directives: {

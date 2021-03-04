@@ -5,13 +5,13 @@
       .manga-genre__title(v-if="mangaGenre.mal_url")
         | {{ mangaGenre.mal_url.name }}
 
-      query-content
-        cards(
+      CardsGrid
+        Card(
           :key="manga.mal_id"
           :resultItem="manga"
           v-for="(manga) in mangaGenre.manga")
 
-        cards(
+        Card(
           :key="manga.mal_id"
           :resultItem="manga"
           v-for="(manga) in list")
@@ -24,10 +24,10 @@
 
   import axios from "axios"
   import jikanjs from "jikanjs/lib/jikan"
-  import Cards from "@/components/elements/Cards"
+  import Card from "@/components/elements/Card"
   import InfiniteLoading from "vue-infinite-loading"
+  import CardsGrid from "@/components/grids/CardsGrid"
   import layoutMiddleware from "@/middleware/layoutMiddleware"
-  import QueryContent from "@/components/elements/QueryContent"
 
   export default {
     name: "MangaGenre",
@@ -36,8 +36,8 @@
     },
     layout: layoutMiddleware,
     components: {
-      Cards,
-      QueryContent,
+      Card,
+      CardsGrid,
       InfiniteLoading
     },
     data() {

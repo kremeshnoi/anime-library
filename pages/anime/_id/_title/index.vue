@@ -11,36 +11,36 @@
         .anime__cover-container
           img.anime__cover(:src="animeById.image_url")
 
-          select-options.anime__input-field(
+          Select.anime__input-field(
             v-if="animeById.type"
             :type="animeById.type"
             :wholeResult="animeById")
 
-        info.anime__info(:infoData="animeById")
+        Info.anime__info(:infoData="animeById")
 
       .anime__sub-content
-        trailer.anime__trailer(:trailerData="animeById.trailer_url")
+        Trailer.anime__trailer(:trailerData="animeById.trailer_url")
 
-        related.anime__related(
+        Related.anime__related(
           :wholeData="animeById"
           :relatedData="animeById.related")
 
-      description.anime__description(:descriptionData="animeById.synopsis")
+      Description.anime__description(:descriptionData="animeById.synopsis")
 
-      recommendations.anime__recommendations(:recommendationsData="animeRecommendationsById.recommendations")
+      Recommendations.anime__recommendations(:recommendationsData="animeRecommendationsById.recommendations")
 
 </template>
 
 <script>
 
   import jikanjs from "jikanjs/lib/jikan"
-  import Info from "@/components/elements/Info"
-  import Related from "@/components/elements/Related"
-  import Trailer from "@/components/elements/Trailer"
-  import Description from "@/components/elements/Description"
+  import Info from "@/components/blocks/Info"
+  import Related from "@/components/blocks/Related"
+  import Trailer from "@/components/blocks/Trailer"
+  import Select from "@/components/elements/Select"
+  import Description from "@/components/blocks/Description"
   import layoutMiddleware from "@/middleware/layoutMiddleware"
-  import SelectOptions from "@/components/elements/SelectOptions"
-  import Recommendations from "@/components/elements/Recommendations"
+  import Recommendations from "@/components/blocks/Recommendations"
 
   export default {
     name: "Anime",
@@ -52,10 +52,10 @@
     layout: layoutMiddleware,
     components: {
       Info,
+      Select,
       Related,
       Trailer,
       Description,
-      SelectOptions,
       Recommendations
     },
     async asyncData({ params }) {

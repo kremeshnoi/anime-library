@@ -5,13 +5,13 @@
       .top-anime__title
         | Viewers" Favorite Anime
 
-      query-content
-        cards(
+      CardsGrid
+        Card(
           :key="anime.mal_id"
           :resultItem="anime"
           v-for="(anime) in topAnime")
 
-        cards(
+        Card(
           :key="anime.mal_id"
           :resultItem="anime"
           v-for="(anime) in list")
@@ -24,10 +24,10 @@
 
   import axios from "axios"
   import jikanjs from "jikanjs/lib/jikan"
-  import Cards from "@/components/elements/Cards"
+  import Card from "@/components/elements/Card"
   import InfiniteLoading from "vue-infinite-loading"
+  import CardsGrid from "@/components/grids/CardsGrid"
   import layoutMiddleware from "@/middleware/layoutMiddleware"
-  import QueryContent from "@/components/elements/QueryContent"
 
   export default {
     name: "TopAnime",
@@ -36,8 +36,8 @@
     },
     layout: layoutMiddleware,
     components: {
-      Cards,
-      QueryContent,
+      Card,
+      CardsGrid,
       InfiniteLoading
     },
     data() {

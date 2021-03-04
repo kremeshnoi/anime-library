@@ -1,6 +1,6 @@
 <template lang="pug">
 
-  .info
+  section.info
     h2.info__title
       | Info
     ul.info__list

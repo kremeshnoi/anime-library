@@ -5,13 +5,13 @@
       .anime-genre__title(v-if="animeGenre.mal_url")
         | {{ animeGenre.mal_url.name }}
 
-      query-content
-        cards(
+      CardsGrid
+        Card(
           :key="anime.mal_id"
           :resultItem="anime"
           v-for="(anime) in animeGenre.anime")
 
-        cards(
+        Card(
           :key="anime.mal_id"
           :resultItem="anime"
           v-for="(anime) in list")
@@ -25,9 +25,9 @@
 
   import axios from "axios"
   import jikanjs from "jikanjs/lib/jikan"
-  import Cards from "@/components/elements/Cards"
+  import Card from "@/components/elements/Card"
   import InfiniteLoading from "vue-infinite-loading"
-  import QueryContent from "@/components/elements/QueryContent"
+  import CardsGrid from "@/components/grids/CardsGrid"
   import layoutMiddleware from "@/middleware/layoutMiddleware"
 
   export default {
@@ -38,7 +38,7 @@
     layout: layoutMiddleware,
     components: {
       Cards,
-      QueryContent,
+      CardsGrid,
       InfiniteLoading
     },
     data() {

@@ -5,7 +5,7 @@
 			.anime-genres__title
 				| Anime Genres
 
-			query-content
+			CardsGrid
 				a.genres__item(
 					:key="genreIndex"
 					v-for="(genre, genreIndex) in genresResult.data"
@@ -25,9 +25,8 @@
 
 	import { mapActions } from "vuex"
 	import { anime } from "@/utils/genres"
-	import Cards from "@/components/elements/Cards"
 	import layoutMiddleware from "@/middleware/layoutMiddleware"
-	import QueryContent from "@/components/elements/QueryContent"
+	import CardsGrid from "@/components/grids/CardsGrid"
 
 	export default {
 		name: "AnimeGenres",
@@ -36,8 +35,7 @@
 		},
 		layout: layoutMiddleware,
 		components: {
-			Cards,
-			QueryContent
+			CardsGrid
 		},
 		data() {
 			return {
