@@ -29,6 +29,7 @@ export default {
     { src: "@/plugins/messages" },
     { src: "@/plugins/vue-meta" },
     { src: "@/plugins/vuelidate" },
+    { src: "@/plugins/vue-wysiwyg"},
     { src: "@/plugins/vue-recaptcha" },
     { src: "@/plugins/vue-awesome-swiper"},
     { src: "@/plugins/materialize", mode: "client" }

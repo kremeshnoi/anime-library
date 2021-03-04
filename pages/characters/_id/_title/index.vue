@@ -44,7 +44,7 @@
 							:id="name"
 							:key="name"
 							v-for="(value, name) in characterById.voice_actors")
-							table.character-voice-actors__table(v-if="value.language === 'English' || value.language === 'Japanese'")
+							table.character-voice-actors__table(v-if="value.language === 'English'|| value.language === 'Japanese'")
 								tbody.character-voice-actors__tbody
 									tr.character-voice-actors__tr
 										td.character-voice-actors__td
