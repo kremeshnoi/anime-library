@@ -1,72 +1,72 @@
 <template lang="pug">
 
-  main.top-manga
-    .top-manga__container
-      .top-manga__title
-        | Viewers Favorite Manga
+	main.top-manga
+		.top-manga__container
+			.top-manga__title
+				| Viewers Favorite Manga
 
-      CardsGrid
-        Card(
-          :key="manga.mal_id"
-          :resultItem="manga"
-          v-for="(manga) in topManga")
+			CardsGrid
+				Card(
+					:key="manga.mal_id"
+					:resultItem="manga"
+					v-for="(manga) in topManga")
 
-        Card(
-          :key="manga.mal_id"
-          :resultItem="manga"
-          v-for="(manga) in list")
+				Card(
+					:key="manga.mal_id"
+					:resultItem="manga"
+					v-for="(manga) in list")
 
-        infinite-loading(@infinite="infiniteHandler")
+				infinite-loading(@infinite="infiniteHandler")
 
 </template>
 
 <script>
 
-  import axios from "axios"
-  import jikanjs from "jikanjs/lib/jikan"
-  import Card from "@/components/elements/Card"
-  import InfiniteLoading from "vue-infinite-loading"
-  import layoutMiddleware from "@/middleware/layoutMiddleware"
-  import CardsGrid from "@/components/grids/CardsGrid"
+	import axios from "axios"
+	import jikanjs from "jikanjs/lib/jikan"
+	import Card from "@/components/elements/Card"
+	import InfiniteLoading from "vue-infinite-loading"
+	import layoutMiddleware from "@/middleware/layoutMiddleware"
+	import CardsGrid from "@/components/grids/CardsGrid"
 
-  export default {
-    name: "TopManga",
-    metaInfo: {
-      title: "Otaku Library – Top rated manga"
-    },
-    layout: layoutMiddleware,
-    components: {
-      Card,
-      CardsGrid,
-      InfiniteLoading
-    },
-    data() {
-      return {
-        page: 2,
-        list: []
-      }
-    },
-    async asyncData() {
-      const topMangaResponse = await jikanjs.loadTop("manga", 1, "favorite")
-      return {
-        topManga: topMangaResponse.top,
-      }
-    },
-    methods: {
-      infiniteHandler($state) {
-        axios.get(`https://api.jikan.moe/v3/top/manga/${ this.page }/favorite`)
-        .then(({data}) => {
-          if (data.top.length) {
-            this.page += 1
-            this.list.push(...data.top)
-            $state.loaded()
-          } else {
-            $state.complete()
-          }
-        })
-      }
-    }
-  }
+	export default {
+		name: "TopManga",
+		metaInfo: {
+			title: "Otaku Library – Top rated manga"
+		},
+		layout: layoutMiddleware,
+		components: {
+			Card,
+			CardsGrid,
+			InfiniteLoading
+		},
+		data() {
+			return {
+				page: 2,
+				list: []
+			}
+		},
+		async asyncData() {
+			const topMangaResponse = await jikanjs.loadTop("manga", 1, "favorite")
+			return {
+				topManga: topMangaResponse.top,
+			}
+		},
+		methods: {
+			infiniteHandler($state) {
+				axios.get(`https://api.jikan.moe/v3/top/manga/${ this.page }/favorite`)
+				.then(({data}) => {
+					if (data.top.length) {
+						this.page += 1
+						this.list.push(...data.top)
+						$state.loaded()
+					} else {
+						$state.complete()
+					}
+				})
+			}
+		}
+	}
 
 </script>
 
@@ -79,6 +79,7 @@
 
 	.top-manga
 		&__container
+			margin-top: 20px
 			@extend .container-default
 
 		&__title

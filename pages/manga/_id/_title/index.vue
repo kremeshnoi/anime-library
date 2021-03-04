@@ -37,8 +37,8 @@
 	import jikanjs from "jikanjs/lib/jikan"
 	import Info from "@/components/blocks/Info"
 	import Related from "@/components/blocks/Related"
-	import Characters from "@/components/blocks/Characters"
 	import Select from "@/components/elements/Select"
+	import Characters from "@/components/blocks/Characters"
 	import Description from "@/components/blocks/Description"
 	import layoutMiddleware from "@/middleware/layoutMiddleware"
 	import Recommendations from "@/components/blocks/Recommendations"
@@ -52,7 +52,6 @@
 		},
 		components: {
 			Info,
-			Cards,
 			Select,
 			Related,
 			Characters,

@@ -13,6 +13,7 @@ export default {
   target: "static",
   css: [
     { src: "node_modules/swiper/css/swiper.min.css" },
+    { src: "node_modules/vue-wysiwyg/dist/vueWysiwyg.css"},
     { src: "node_modules/materialize-css/dist/css/materialize.min.css" },
     { src: "~/assets/styles/base/base.sass" },
     { src: "~/assets/styles/base/reset.sass" },

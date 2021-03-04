@@ -1,73 +1,73 @@
 <template lang="pug">
 
-  main.top-anime
-    .top-anime__container
-      .top-anime__title
-        | Viewers" Favorite Anime
+	main.top-anime
+		.top-anime__container
+			.top-anime__title
+				| Viewers" Favorite Anime
 
-      CardsGrid
-        Card(
-          :key="anime.mal_id"
-          :resultItem="anime"
-          v-for="(anime) in topAnime")
+			CardsGrid
+				Card(
+					:key="anime.mal_id"
+					:resultItem="anime"
+					v-for="(anime) in topAnime")
 
-        Card(
-          :key="anime.mal_id"
-          :resultItem="anime"
-          v-for="(anime) in list")
+				Card(
+					:key="anime.mal_id"
+					:resultItem="anime"
+					v-for="(anime) in list")
 
-        infinite-loading(@infinite="infiniteHandler")
+				infinite-loading(@infinite="infiniteHandler")
 
 </template>
 
 <script>
 
-  import axios from "axios"
-  import jikanjs from "jikanjs/lib/jikan"
-  import Card from "@/components/elements/Card"
-  import InfiniteLoading from "vue-infinite-loading"
-  import CardsGrid from "@/components/grids/CardsGrid"
-  import layoutMiddleware from "@/middleware/layoutMiddleware"
+	import axios from "axios"
+	import jikanjs from "jikanjs/lib/jikan"
+	import Card from "@/components/elements/Card"
+	import InfiniteLoading from "vue-infinite-loading"
+	import CardsGrid from "@/components/grids/CardsGrid"
+	import layoutMiddleware from "@/middleware/layoutMiddleware"
 
-  export default {
-    name: "TopAnime",
-    metaInfo: {
-      title: "Otaku Library - Top rated anime"
-    },
-    layout: layoutMiddleware,
-    components: {
-      Card,
-      CardsGrid,
-      InfiniteLoading
-    },
-    data() {
-      return {
-        page: 2,
-        list: []
-      }
-    },
-    async asyncData() {
-      const topAnimeResponse = await jikanjs.loadTop("anime", 1, "favorite")
-      return {
-        topAnime: topAnimeResponse.top
-      }
-    },
-    methods: {
-      infiniteHandler($state) {
-        axios.get(`https://api.jikan.moe/v3/top/anime/${ this.page }/favorite`)
-        .then(({data}) => {
-          if (data.top.length) {
-            this.page += 1
-            this.list.push(...data.top)
-            $state.loaded()
-          } else {
-            $state.complete()
-          }
-        })
-      }
-    },
-    fetchDelay: 10000
-  }
+	export default {
+		name: "TopAnime",
+		metaInfo: {
+			title: "Otaku Library - Top rated anime"
+		},
+		layout: layoutMiddleware,
+		components: {
+			Card,
+			CardsGrid,
+			InfiniteLoading
+		},
+		data() {
+			return {
+				page: 2,
+				list: []
+			}
+		},
+		async asyncData() {
+			const topAnimeResponse = await jikanjs.loadTop("anime", 1, "favorite")
+			return {
+				topAnime: topAnimeResponse.top
+			}
+		},
+		methods: {
+			infiniteHandler($state) {
+				axios.get(`https://api.jikan.moe/v3/top/anime/${ this.page }/favorite`)
+				.then(({data}) => {
+					if (data.top.length) {
+						this.page += 1
+						this.list.push(...data.top)
+						$state.loaded()
+					} else {
+						$state.complete()
+					}
+				})
+			}
+		},
+		fetchDelay: 10000
+	}
 
 </script>
 
@@ -80,6 +80,7 @@
 
 	.top-anime
 		&__container
+			margin-top: 20px
 			@extend .container-default
 
 		&__title

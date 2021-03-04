@@ -29,6 +29,8 @@
 
       Recommendations.anime__recommendations(:recommendationsData="animeRecommendationsById.recommendations")
 
+      Comments.anime__comments
+
 </template>
 
 <script>
@@ -38,6 +40,7 @@
   import Related from "@/components/blocks/Related"
   import Trailer from "@/components/blocks/Trailer"
   import Select from "@/components/elements/Select"
+  import Comments from "@/components/blocks/Comments"
   import Description from "@/components/blocks/Description"
   import layoutMiddleware from "@/middleware/layoutMiddleware"
   import Recommendations from "@/components/blocks/Recommendations"
@@ -55,6 +58,7 @@
       Select,
       Related,
       Trailer,
+      Comments,
       Description,
       Recommendations
     },
@@ -94,11 +98,11 @@
       column-gap: 20px
       row-gap: 20px
       grid-template-columns: 1fr 1fr
-      grid-template-areas: "main sub" "description description" "recommendations recommendations"
+      grid-template-areas: "main sub" "description description" "recommendations recommendations" "comments comments"
       @extend .container-default
       +mq(tablet-mid, max)
         grid-template-columns: 1fr
-        grid-template-areas: "main" "sub" "description" "recommendations"
+        grid-template-areas: "main" "sub" "description" "recommendations" "comments"
 
     &__main-content
       grid-area: main

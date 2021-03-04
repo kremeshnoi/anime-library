@@ -1,72 +1,72 @@
 <template lang="pug">
 
-  main.anime-by-popularity
-    .anime-by-popularity__container
-      .anime-by-popularity__title
-        | Upcoming Anime
+	main.anime-by-popularity
+		.anime-by-popularity__container
+			.anime-by-popularity__title
+				| Upcoming Anime
 
-      CardsGrid
-        Card(
-          :key="anime.mal_id"
-          :resultItem="anime"
-          v-for="(anime) in animeUpcoming")
+			CardsGrid
+				Card(
+					:key="anime.mal_id"
+					:resultItem="anime"
+					v-for="(anime) in animeUpcoming")
 
-        Card(
-          :resultItem="anime"
-          :key="anime.mal_id"
-          v-for="(anime) in list")
+				Card(
+					:resultItem="anime"
+					:key="anime.mal_id"
+					v-for="(anime) in list")
 
-        infinite-loading(@infinite="infiniteHandler")
+				infinite-loading(@infinite="infiniteHandler")
 
 </template>
 
 <script>
 
-  import axios from "axios"
-  import jikanjs from "jikanjs/lib/jikan"
-  import Card from "@/components/elements/Card"
-  import InfiniteLoading from "vue-infinite-loading"
-  import layoutMiddleware from "@/middleware/layoutMiddleware"
-  import CardsGrid from "@/components/grids/CardsGrid"
+	import axios from "axios"
+	import jikanjs from "jikanjs/lib/jikan"
+	import Card from "@/components/elements/Card"
+	import InfiniteLoading from "vue-infinite-loading"
+	import layoutMiddleware from "@/middleware/layoutMiddleware"
+	import CardsGrid from "@/components/grids/CardsGrid"
 
-  export default {
-    name: "AnimeUpcoming",
-    metaInfo: {
-      title: "Otaku Library - Upcoming anime"
-    },
-    layout: layoutMiddleware,
-    components: {
-      Card,
-      CardsGrid,
-      InfiniteLoading
-    },
-    data() {
-      return {
-        page: 2,
-        list: []
-      }
-    },
-    async asyncData() {
-      const animeUpcomingResponse = await jikanjs.loadTop("anime", 1, "upcoming")
-      return {
-        animeUpcoming: animeUpcomingResponse.top
-      }
-    },
-    methods: {
-      infiniteHandler($state) {
-        axios.get(`https://api.jikan.moe/v3/top/anime/${ this.page }/upcoming`)
-        .then(({data}) => {
-          if (data.top.length) {
-            this.page += 1
-            this.list.push(...data.top)
-            $state.loaded()
-          } else {
-            $state.complete()
-          }
-        })
-      }
-    }
-  }
+	export default {
+		name: "AnimeUpcoming",
+		metaInfo: {
+			title: "Otaku Library - Upcoming anime"
+		},
+		layout: layoutMiddleware,
+		components: {
+			Card,
+			CardsGrid,
+			InfiniteLoading
+		},
+		data() {
+			return {
+				page: 2,
+				list: []
+			}
+		},
+		async asyncData() {
+			const animeUpcomingResponse = await jikanjs.loadTop("anime", 1, "upcoming")
+			return {
+				animeUpcoming: animeUpcomingResponse.top
+			}
+		},
+		methods: {
+			infiniteHandler($state) {
+				axios.get(`https://api.jikan.moe/v3/top/anime/${ this.page }/upcoming`)
+				.then(({data}) => {
+					if (data.top.length) {
+						this.page += 1
+						this.list.push(...data.top)
+						$state.loaded()
+					} else {
+						$state.complete()
+					}
+				})
+			}
+		}
+	}
 
 </script>
 
@@ -79,6 +79,7 @@
 
 	.anime-by-popularity
 		&__container
+			margin-top: 20px
 			@extend .container-default
 
 		&__title

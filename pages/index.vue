@@ -1,17 +1,17 @@
 <template lang="pug">
 
 	main.home
-		Hero
+		Hero.home__section
 
-		Studios
+		Studios.home__section
 
-		Genres
+		Genres.home__section
 
-		Cards(
+		Cards.home__section(
 			v-if="animeAiring"
 			:cardsBlockData="animeAiring")
 
-		Cards(
+		Cards.home__section(
 			v-if="animeUpcoming"
 			:cardsBlockData="animeUpcoming")
 
@@ -86,5 +86,8 @@
 
 	.home
 		width: 100%
+
+		&__section
+			margin: 54px 0 54px 0
 
 </style>

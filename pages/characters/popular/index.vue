@@ -1,72 +1,72 @@
 <template lang="pug">
 
-  main.top-characters
-    .top-characters__container
-      .top-characters__title
-        | Most Popular Characters
+	main.top-characters
+		.top-characters__container
+			.top-characters__title
+				| Most Popular Characters
 
-      CardsGrid
-        Card(
-          v-for="(character) in favoriteCharacters",
-          :key="character.name",
-          :resultItem="character")
+			CardsGrid
+				Card(
+					v-for="(character) in favoriteCharacters",
+					:key="character.name",
+					:resultItem="character")
 
-        Card(
-          v-for="(character) in list",
-          :key="character.name",
-          :resultItem="character")
+				Card(
+					v-for="(character) in list",
+					:key="character.name",
+					:resultItem="character")
 
-        infinite-loading(@infinite="infiniteHandler")
+				infinite-loading(@infinite="infiniteHandler")
 
 </template>
 
 <script>
 
-  import axios from "axios"
-  import jikanjs from "jikanjs/lib/jikan"
-  import Card from "@/components/elements/Card"
-  import InfiniteLoading from "vue-infinite-loading"
-  import CardsGrid from "@/components/grids/CardsGrid"
-  import layoutMiddleware from "@/middleware/layoutMiddleware"
+	import axios from "axios"
+	import jikanjs from "jikanjs/lib/jikan"
+	import Card from "@/components/elements/Card"
+	import InfiniteLoading from "vue-infinite-loading"
+	import CardsGrid from "@/components/grids/CardsGrid"
+	import layoutMiddleware from "@/middleware/layoutMiddleware"
 
-  export default {
-    name: "TopCharacters",
-    metaInfo: {
-      title: "Otaku Library - Most popular characters"
-    },
-    layout: layoutMiddleware,
-    components: {
-      Card,
-      CardsGrid,
-      InfiniteLoading
-    },
-    data() {
-      return {
-        page: 2,
-        list: []
-      }
-    },
-    async asyncData() {
-      const favoriteCharactersResponse = await jikanjs.loadTop("characters")
-      return {
-        favoriteCharacters: favoriteCharactersResponse.top,
-      }
-    },
-    methods: {
-      infiniteHandler($state) {
-        axios.get(`https://api.jikan.moe/v3/top/characters/${ this.page }`)
-        .then(({data}) => {
-          if (data.top.length) {
-            this.page += 1
-            this.list.push(...data.top)
-            $state.loaded()
-          } else {
-            $state.complete()
-          }
-        })
-      }
-    }
-  }
+	export default {
+		name: "TopCharacters",
+		metaInfo: {
+			title: "Otaku Library - Most popular characters"
+		},
+		layout: layoutMiddleware,
+		components: {
+			Card,
+			CardsGrid,
+			InfiniteLoading
+		},
+		data() {
+			return {
+				page: 2,
+				list: []
+			}
+		},
+		async asyncData() {
+			const favoriteCharactersResponse = await jikanjs.loadTop("characters")
+			return {
+				favoriteCharacters: favoriteCharactersResponse.top,
+			}
+		},
+		methods: {
+			infiniteHandler($state) {
+				axios.get(`https://api.jikan.moe/v3/top/characters/${ this.page }`)
+				.then(({data}) => {
+					if (data.top.length) {
+						this.page += 1
+						this.list.push(...data.top)
+						$state.loaded()
+					} else {
+						$state.complete()
+					}
+				})
+			}
+		}
+	}
 
 </script>
 
@@ -79,6 +79,7 @@
 
 	.top-characters
 		&__container
+			margin-top: 20px
 			@extend .container-default
 		&__title
 			color: $color-black

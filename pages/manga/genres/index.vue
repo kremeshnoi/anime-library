@@ -12,8 +12,8 @@
 					@click="computeRouteByGenre({ genresResult, genre })"
 					@click.middle="computeRouteByGenre({ genresResult, genre, clickType })")
 					img.genres__item-image(
-						draggable="false"
-						:src="genre.img")
+						:src="genre.img"
+						draggable="false")
 
 					.genres__title-wrapper
 						span.genres__item-title
@@ -73,6 +73,7 @@
 
 	.manga-genres
 		&__container
+			margin-top: 20px
 			@extend .container-default
 
 		&__title

@@ -5,7 +5,7 @@
 			.anime-genres__title
 				| Anime Genres
 
-			CardsGrid
+			CardsGrid.anime-genres__grid
 				a.genres__item(
 					:key="genreIndex"
 					v-for="(genre, genreIndex) in genresResult.data"
@@ -25,8 +25,8 @@
 
 	import { mapActions } from "vuex"
 	import { anime } from "@/utils/genres"
-	import layoutMiddleware from "@/middleware/layoutMiddleware"
 	import CardsGrid from "@/components/grids/CardsGrid"
+	import layoutMiddleware from "@/middleware/layoutMiddleware"
 
 	export default {
 		name: "AnimeGenres",
@@ -68,12 +68,13 @@
 	@import "~/assets/styles/modules/titles"
 	@import "~/assets/styles/modules/containers"
 
-	.query-content
-		grid-template-columns: repeat(4, 1fr)
-
 	.anime-genres
 		&__container
+			margin-top: 20px
 			@extend .container-default
+
+		&__grid
+			grid-template-columns: repeat(4, 1fr)
 
 		&__title
 			width: 100%
