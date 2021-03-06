@@ -11,9 +11,9 @@
 			v-if="animeAiring"
 			:cardsBlockData="animeAiring")
 
-		Cards.home__section(
-			v-if="animeUpcoming"
-			:cardsBlockData="animeUpcoming")
+		//- Cards.home__section(
+		//- 	v-if="animeUpcoming"
+		//- 	:cardsBlockData="animeUpcoming")
 
 </template>
 
@@ -42,7 +42,7 @@
 		computed: {
 			...mapGetters({
 				getAnimeAiring: "anime/getAnimeAiring",
-				getAnimeUpcoming: "anime/getAnimeUpcoming"
+				// getAnimeUpcoming: "anime/getAnimeUpcoming"
 			}),
 			animeAiring() {
 				return {
@@ -51,13 +51,13 @@
 					data: this.getAnimeAiring
 				}
 			},
-			animeUpcoming() {
-				return {
-					title: "UPCOMING ANIME",
-					link: "/anime/upcoming",
-					data: this.getAnimeUpcoming
-				}
-			},
+			// animeUpcoming() {
+			// 	return {
+			// 		title: "UPCOMING ANIME",
+			// 		link: "/anime/upcoming",
+			// 		data: this.getAnimeUpcoming
+			// 	}
+			// },
 			studios() {
 				return {
 					data: studios
@@ -66,12 +66,12 @@
 		},
 		async created() {
 			await this.loadAnimeAiring()
-			await this.loadAnimeUpcoming()
+			// await this.loadAnimeUpcoming()
 		},
 		methods: {
 			...mapActions({
 				loadAnimeAiring: "anime/loadAnimeAiring",
-				loadAnimeUpcoming: "anime/loadAnimeUpcoming"
+				// loadAnimeUpcoming: "anime/loadAnimeUpcoming"
 			})
 		}
 	}

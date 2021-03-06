@@ -44,6 +44,7 @@
 		display: grid
 		grid-gap: 20px
 		text-align: start
+		align-items: flex-end
 		justify-content: start
 		grid-template-rows: 50px auto
 

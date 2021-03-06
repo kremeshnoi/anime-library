@@ -78,6 +78,7 @@
     display: grid
     grid-gap: 20px
     text-align: start
+    align-items: flex-end
     justify-content: start
     grid-template-columns: 100%
     grid-template-rows: 50px auto
@@ -87,8 +88,7 @@
       text-align: start
 
     &__title
-      display: flex
-      align-items: center
+      align-items: flex-end
       @extend .title-default
 
     &__tr

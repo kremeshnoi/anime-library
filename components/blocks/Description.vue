@@ -30,6 +30,7 @@
 		display: grid
 		grid-gap: 20px
 		text-align: start
+		align-items: flex-end
 		grid-area: description
 
 		&__disaster
@@ -37,6 +38,7 @@
 			text-align: start
 
 		&__title
+			align-items: flex-end
 			@extend .title-default
 
 </style>

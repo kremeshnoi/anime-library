@@ -1,7 +1,7 @@
 <template lang="pug">
 
 	.input-wrapper
-		.input-field(:class="{ disabled: this.user[0] === null }")
+		.input-field(:class="{ disabled: user[0] === null }")
 			select(v-model="payload.status")
 				option(
 					:key="optionIndex"
@@ -12,8 +12,8 @@
 			.btn-small(@click="addToLibrary(payload)")
 				| Add
 
-		span.coupontooltip
-			| Sign in to acceess
+		//- span.coupontooltip
+		//- 	| Sign in to acceess
 
 </template>
 
@@ -115,7 +115,6 @@
 	@import "~/assets/styles/utils/mixins"
 
 	.input-wrapper:hover
-		cursor: pointer
 		.coupontooltip
 			display: block
 
