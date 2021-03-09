@@ -4,13 +4,13 @@
     .anime__container
       .related
         .related__title
-          | {{ relateName }}
+          | {{ relatedName }}
         .related__item
           table.related__table
             tbody.related__tbody
               tr.related__tr(
                 :key="dataIndex"
-                v-for="(resultItem, dataIndex) in animeById.related[`${ relateName }`]")
+                v-for="(resultItem, dataIndex) in animeById.related[`${ relatedName }`]")
                 td.related__td
                   a.related__link(
                     @click="computeRoute({ resultItem })"
@@ -38,15 +38,18 @@
         clickType: "middle"
       }
     },
-    computed: {
-      relateName() {
-        return this.$nuxt.$route.params.name
-      }
-    },
     async asyncData({ params }) {
       const animeByIdResponse = await jikanjs.loadAnime(params.id)
       return {
         animeById: animeByIdResponse
+      }
+    },
+    computed: {
+      relatedName() {
+        return this.$nuxt.$route.params.related
+          .split("-")
+          .join(" ")
+          .replace(/^\w/, (c) => c.toUpperCase())
       }
     },
     methods: {

@@ -38,15 +38,18 @@
         clickType: "middle"
       }
     },
-    computed: {
-      relateName() {
-        return this.$nuxt.$route.params.name
-      }
-    },
     async asyncData({ params }) {
       const mangaByIdResponse = await jikanjs.loadManga(params.id)
       return {
         mangaById: mangaByIdResponse
+      }
+    },
+    computed: {
+      relatedName() {
+        return this.$nuxt.$route.params.related
+          .split("-")
+          .join(" ")
+          .replace(/^\w/, (c) => c.toUpperCase())
       }
     },
     methods: {

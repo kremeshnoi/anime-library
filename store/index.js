@@ -129,13 +129,13 @@ export const actions = {
       else if (type !== "Manga" && type !== "manga") type = "anime"
 
       // if (clickType) {
-      //   const routeData = $nuxt.$router.resolve({ name: `${ type }` + "-id-title-related", params: { id, title, related, name } })
+      //   const routeData = $nuxt.$router.resolve({ name: `${ type }` + "-id-title-related", params: { id, title, related } })
       //   window.open(routeData.href, "_blank")
       // } else {
-      //   $nuxt.$router.push({ name: `${ type }` + "-id-title-related", params: { id, title, related, name } })
+      //   $nuxt.$router.push({ name: `${ type }` + "-id-title-related", params: { id, title, related } })
       // }
 
-      $nuxt.$router.push({ name: `${ type }` + "-id-title-related", params: { id, title, related, name } })
+      $nuxt.$router.push({ name: `${ type }` + "-id-title-related", params: { id, title, related } })
     } catch (error) {
       throw error.message
     }
