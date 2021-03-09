@@ -91,6 +91,9 @@
       align-items: flex-end
       @extend .title-default
 
+    &__td
+      padding: 0 0 15px 0
+
     &__tr
       display: block
       position: relative
@@ -104,13 +107,13 @@
 
     &__tab
       flex-grow: 0
-      height: initial !important
+      height: min-content
 
     &__tab-item
       text-align: start
       line-height: initial
       padding: 0 !important
-      margin: 0 24px 14px 0
+      margin: 0 20px 20px 0
       width: auto !important
       color: $color-blue-light !important
       &:focus

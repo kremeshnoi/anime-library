@@ -1,15 +1,15 @@
 <template lang="pug">
 
-	.cards
-		.cards__image-wrapper(
+	.card
+		.card__image-wrapper(
 			@click="computeRoute({ resultItem })"
 			@click.middle="computeRoute({ resultItem, clickType })")
-			img.cards__image(
+			img.card__image(
 				draggable="false"
 				:src="resultItem.image_url")
 
-			.cards__title-wrapper
-				span.cards__title
+			.card__title-wrapper
+				span.card__title
 					| {{ resultItem.title || resultItem.name }}
 
 </template>
@@ -41,23 +41,25 @@
 	@import "~/assets/styles/utils/mixins"
 	@import "~/assets/styles/modules/titles"
 
-	.cards
-		width: 160px
-		box-shadow: none
+	.card
+		margin: 0
+		width: 100%
+		max-width: 160px
 		position: relative
+		box-shadow: 0 8px 7px -7px rgba(0, 0, 0, 1)
 		&:hover
 			opacity: 0.8
 
 		&__image
-			width: 160px
+			width: 100%
 			height: 240px
 			display: block
 			transform: scale(1.01)
 
 		&__image-wrapper
+			width: 100%
 			cursor: pointer
 			overflow: hidden
-			width: min-content
 			position: relative
 
 		&__title

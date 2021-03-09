@@ -5,11 +5,11 @@
 
 		Studios.home__section
 
-		Genres.home__section
-
 		Cards.home__section(
 			v-if="animeAiring"
 			:cardsBlockData="animeAiring")
+
+		Genres.home__section
 
 		//- Cards.home__section(
 		//- 	v-if="animeUpcoming"

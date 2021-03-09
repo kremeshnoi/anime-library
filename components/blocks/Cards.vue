@@ -1,10 +1,10 @@
 <template lang="pug">
 
-  section.top-airing-anime
-    .top-airing-anime__container
-      router-link.top-airing-anime__title(:to="cardsBlockData.link")
+  section.cards
+    .cards__container
+      router-link.cards__title(:to="cardsBlockData.link")
         | {{ cardsBlockData.title }}
-        .top-airing-anime__icon.material-icons keyboard_arrow_right
+        .cards__icon.material-icons keyboard_arrow_right
 
       Carousel
         Card.swiper-slide(
@@ -37,7 +37,7 @@
 	@import "~/assets/styles/modules/titles"
 	@import "~/assets/styles/modules/containers"
 
-	.top-airing-anime
+	.cards
 		width: 100%
 
 		&__container
@@ -48,7 +48,7 @@
 			+flex(space-between, center, row)
 			&:hover
 				color: orange
-				.top-airing-anime__icon
+				.cards__icon
 					color: inherit
 
 		&__icon

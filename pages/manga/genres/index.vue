@@ -5,17 +5,14 @@
 			.manga-genres__title
 				| Manga Genres
 
-			CardsGrid
+			CardsGrid.manga-genres__grid
 				a.genres__item(
 					:key="genreIndex"
 					v-for="(genre, genreIndex) in genresResult.data"
 					@click="computeRouteByGenre({ genresResult, genre })"
 					@click.middle="computeRouteByGenre({ genresResult, genre, clickType })")
-					img.genres__item-image(
-						:src="genre.img"
-						draggable="false")
 
-					.genres__title-wrapper
+					.genres__title-container
 						span.genres__item-title
 							| {{ genre.title }}
 
@@ -68,13 +65,14 @@
 	@import "~/assets/styles/modules/titles"
 	@import "~/assets/styles/modules/containers"
 
-	.query-content
-		grid-template-columns: repeat(4, 1fr)
-
 	.manga-genres
 		&__container
 			margin-top: 20px
 			@extend .container-default
+
+		&__grid
+			grid-auto-flow: row
+			grid-template-columns: repeat(auto-fit, minmax(120px, 1fr))
 
 		&__title
 			width: 100%
@@ -99,20 +97,17 @@
 
 			&__item
 				width: 100%
-				height: 120px
+				height: 32px
 				color: #FFFFFF
 				font-size: 16px
+				max-width: 120px
 				font-weight: 300
 				position: relative
-
-			&__item-image
-				width: 100%
-				height: 100%
-				display: block
+				box-shadow: 0 8px 7px -7px rgba(0, 0, 0, 1)
 				&:hover
 					opacity: 0.8
 
-			&__title-wrapper
+			&__title-container
 				bottom: 0
 				width: 100%
 				display: flex
@@ -122,6 +117,6 @@
 				padding: 4px 0 4px 0
 				justify-content: center
 				flex-direction: initial
-				background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0) 100%)
+				background: rgba(57, 112, 229, 1)
 
 </style>

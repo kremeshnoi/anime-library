@@ -2,9 +2,9 @@
 
 	section.studios
 		.studios__container
-			router-link.studios__title(to="/")
-				| Studios
-				.studios__icon.material-icons keyboard_arrow_right
+			//- router-link.studios__title(to="/")
+			//- 	| Studios
+			//- 	.studios__icon.material-icons keyboard_arrow_right
 			.studios__items
 				img.studios__item(
 					draggable="false"

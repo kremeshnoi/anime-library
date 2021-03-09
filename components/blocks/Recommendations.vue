@@ -1,34 +1,34 @@
 <template lang="pug">
 
-  section.recommendations(v-if="recommendationsData")
-    .recommendations__wrapper
-      .recommendations__title
-        | Recommendations
+	section.recommendations(v-if="recommendationsData")
+		.recommendations__wrapper
+			.recommendations__title
+				| Recommendations
 
-      Carousel(v-if="recommendationsData.length >= 7")
-        Card.swiper-slide(
-          :key="recommendationIndex"
-          :resultItem="recommendation"
-          v-for="(recommendation, recommendationIndex) in recommendationsData")
+			Carousel(v-if="recommendationsData.length >= 7")
+				Card.swiper-slide(
+					:key="recommendationIndex"
+					:resultItem="recommendation"
+					v-for="(recommendation, recommendationIndex) in recommendationsData")
 
-      h4.recommendations__disaster(v-else)
-        | Not found
+			h4.recommendations__disaster(v-else)
+				| Not found
 
 </template>
 
 <script>
 
-  import Card from "@/components/elements/Card"
-  import Carousel from "@/components/grids/Carousel"
+	import Card from "@/components/elements/Card"
+	import Carousel from "@/components/grids/Carousel"
 
-  export default {
-    name: "Recommendations",
-    props: ["recommendationsData"],
-    components: {
-      Card,
-      Carousel
-    }
-  }
+	export default {
+		name: "Recommendations",
+		props: ["recommendationsData"],
+		components: {
+			Card,
+			Carousel
+		}
+	}
 
 </script>
 
@@ -44,11 +44,8 @@
 			font-size: 30px
 			text-align: start
 
-		&__wrapper
-			display: grid
-			grid-gap: 20px
-
 		&__title
+			margin: 0 0 20px 0
 			@extend .title-default
 
 </style>

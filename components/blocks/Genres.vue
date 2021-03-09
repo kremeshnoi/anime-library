@@ -11,15 +11,12 @@
 						| {{ genresResult.title }} Genres
 						.material-icons keyboard_arrow_right
 
-					.genres-cards
-						a.genres-cards__item(
+					Carousel.genres-cards(type="genres")
+						a.genres-cards__item.swiper-slide(
 							:key="genreIndex"
 							v-for="(genre, genreIndex) in genresResult.data"
 							@click="computeRouteByGenre({ genresResult, genre })"
 							@click.middle="computeRouteByGenre({ genresResult, genre, clickType })")
-							img.genres-cards__image(
-								:src="genre.img"
-								draggable="false")
 
 							.genres-cards__title-container
 								span.genres-cards__title
@@ -31,9 +28,13 @@
 
 	import { mapActions } from "vuex"
 	import { anime, manga } from "@/utils/genres"
+	import Carousel from "@/components/grids/Carousel"
 
 	export default {
 		name: "Genres",
+		components: {
+			Carousel
+		},
 		data() {
 			return {
 				clickType: "middle"
@@ -43,13 +44,13 @@
 			genres() {
 				return {
 					animeGenres: {
-						data: anime.slice(0, 2),
+						data: anime,
 						type: "anime",
 						title: "Anime",
 						link: "anime/genres"
 					},
 					mangaGenres: {
-						data: manga.slice(0, 2),
+						data: manga,
 						type: "manga",
 						title: "Manga",
 						link: "manga/genres"
@@ -81,8 +82,9 @@
 
 		&__content
 			display: grid
-			column-gap: 10px
-			grid-template-columns: 1fr 1fr
+			row-gap: 40px
+			grid-auto-flow: row
+
 
 		&__title
 			@extend .title-bordered
@@ -93,17 +95,17 @@
 					color: inherit
 
 	.genres-cards
-		display: grid
-		column-gap: 10px
-		grid-template-columns: 1fr 1fr
-
 		&__item
 			width: 100%
-			height: 120px
+			height: 32px
 			color: #FFFFFF
 			font-size: 16px
+			max-width: 120px
 			font-weight: 300
 			position: relative
+			box-shadow: 0 8px 7px -7px rgba(0, 0, 0, 1)
+			&:hover
+				opacity: 0.8
 
 		&__image
 			width: 100%
@@ -122,6 +124,6 @@
 			padding: 4px 0 4px 0
 			justify-content: center
 			flex-direction: initial
-			background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0) 100%)
+			background: rgba(57, 112, 229, 1)
 
 </style>

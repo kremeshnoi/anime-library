@@ -1,11 +1,16 @@
 <template lang="pug">
 
-    .swiper-carousel(v-swiper="swiperOptions")
-      .swiper-carousel__container.swiper-wrapper
+  .swiper
+    .swiper-carousel(v-swiper="cardsSwiperOptions" v-if="type !== 'genres'")
+      .swiper-wrapper
         slot
 
       .swiper-button-next(v-show="init")
       .swiper-button-prev(v-show="init")
+
+    .swiper-carousel(v-swiper="genresSwiperOptions" v-if="type === 'genres'")
+      .swiper-wrapper
+        slot
 
 </template>
 
@@ -13,17 +18,23 @@
 
   export default {
     name: "Carousel",
+    props: ["type"],
     data() {
       return {
         init: false,
-        swiperOptions: {
+        cardsSwiperOptions: {
           spaceBetween: 10,
           slidesPerView: "auto",
           centeredSlidesBounds: true,
           navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev"
-          },
+          }
+        },
+        genresSwiperOptions: {
+          spaceBetween: 10,
+          slidesPerView: "auto",
+          centeredSlidesBounds: true
         }
       }
     },
@@ -41,6 +52,10 @@
 
   .swiper-carousel
     width: 100%
+    overflow: hidden
+
+  .swiper-wrapper
+    margin: 0 0 7px 0
 
   .swiper-button-prev, .swiper-button-next
     top: 20px
