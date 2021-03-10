@@ -4,13 +4,13 @@
     .manga__container
       .related
         .related__title
-          | {{ relateName }}
+          | {{ relatedName }}
         .related__item
           table.related__table
             tbody.related__tbody
               tr.related__tr(
                 :key="dataIndex"
-                v-for="(resultItem, dataIndex) in mangaById.related[`${ relateName }`]")
+                v-for="(resultItem, dataIndex) in mangaById.related[`${ relatedName }`]")
                 td.related__td
                   a.related__link(
                     @click="computeRoute({ resultItem })"
