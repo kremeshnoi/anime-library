@@ -21,10 +21,9 @@
             tr.related__tr(
               :key="dataIndex"
               v-for="(resultItem, dataIndex) in value.slice(0, 1)")
-              a.related__link.related__link_more.modal-trigger(
+              router-link.related__link.related__link_more.modal-trigger(
                 v-if="value.length >= 2"
-                @click="computeRouteByRelated({ wholeData, name })"
-                @click.middle="computeRouteByRelated({ wholeData, name, clickType })")
+                :to="{ name: `anime-id-title-related`, params: { id: wholeData.mal_id, title: wholeData.title, related: relatedData } }")
                 | More
 
               td.related__td
@@ -45,11 +44,6 @@
   export default {
     name: "Related",
     props: ["wholeData", "relatedData"],
-    data() {
-      return {
-        clickType: "middle"
-      }
-    },
     computed: {
       relatedLength() {
         if (typeof this.relatedData === "object") {
@@ -58,11 +52,34 @@
         }
       },
     },
+    computed: {
+      type() {
+        let type
+        if (type === undefined) {
+          if (this.wholeData.role || this.wholeData.name_kanji) type = "characters"
+          else if ($nuxt.$router.app.$route.name === "anime-id-title") type = "anime"
+          else if ($nuxt.$router.app.$route.name === "manga-id-title") type = "manga"
+        }
+
+        else if (type === "manga") type = "manga"
+        else if (type === "Manga") type = "manga"
+        else if (type === "Novel") type = "manga"
+        else if (type === "Manhwa") type = "manga"
+        else if (type === "One-shot") type = "manga"
+        else if (type === "Doujinshi") type = "manga"
+        else if (type !== "Manga" && type !== "manga") type = "anime"
+
+        return type
+      }
+    },
     methods: {
       ...mapActions({
         computeRoute: "computeRoute",
         computeRouteByRelated: "computeRouteByRelated"
       })
+    },
+    created() {
+      console.log(this.wholeData)
     }
   }
 

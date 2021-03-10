@@ -6,11 +6,10 @@
 				| Manga Genres
 
 			CardsGrid.manga-genres__grid
-				a.genres__item(
+				router-link.genres__item(
 					:key="genreIndex"
 					v-for="(genre, genreIndex) in genresResult.data"
-					@click="computeRouteByGenre({ genresResult, genre })"
-					@click.middle="computeRouteByGenre({ genresResult, genre, clickType })")
+					:to="{ name: 'manga-genres-id-title', params: { id: genre.id, title: genre.title } }")
 
 					.genres__title-container
 						span.genres__item-title
@@ -20,7 +19,6 @@
 
 <script>
 
-	import { mapActions } from "vuex"
 	import { manga } from "@/utils/genres"
 	import CardsGrid from "@/components/grids/CardsGrid"
 	import layoutMiddleware from "@/middleware/layoutMiddleware"
@@ -34,11 +32,6 @@
 		components: {
 			CardsGrid
 		},
-		data() {
-			return {
-				clickType: "middle"
-			}
-		},
 		computed: {
 			genresResult() {
 				return {
@@ -48,11 +41,6 @@
 						link: "manga/genres"
 				}
 			}
-		},
-		methods: {
-			...mapActions({
-				computeRouteByGenre: "computeRouteByGenre"
-			})
 		}
 	}
 

@@ -65,37 +65,6 @@ export const actions = {
       throw error.message
     }
   },
-  computeRouteByGenre(ctx, { genresResult, genre, clickType }) {
-    try {
-      let type = genresResult.type
-      const id = genre.id
-      const title = genre.title
-        .split("/")
-        .splice(-1, 1)[0]
-        .toLowerCase()
-        .split("_")
-        .join("-")
-
-      switch (type) {
-        case "anime":
-          type = "anime-genres"
-          break
-        case "manga":
-          type = "manga-genres"
-          break
-      }
-
-      // if (clickType) {
-      //   const routeData = $nuxt.$router.resolve({ name: `${ type }` + "-id-title", params: { id, title } })
-      //   window.open(routeData.href, "_blank")
-      // } else {
-      //   $nuxt.$router.push({ name: `${ type }` + "-id-title", params: { id, title } })
-      // }
-      $nuxt.$router.push({ name: `${ type }` + "-id-title", params: { id, title } })
-    } catch (error) {
-      throw error.message
-    }
-  },
   computeRouteByRelated(ctx, { wholeData, name, clickType }) {
     try {
       let type = wholeData.type

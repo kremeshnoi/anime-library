@@ -22,7 +22,6 @@
 
 <script>
 
-	import { mapActions } from "vuex"
   import Card from "@/components/elements/Card"
 	import Carousel from "@/components/grids/Carousel"
 
@@ -40,11 +39,6 @@
 			title() {
 				return $nuxt.$route.params.title
 			}
-		},
-		methods: {
-			...mapActions({
-				computeRoute: "computeRoute"
-			})
 		}
 	}
 
