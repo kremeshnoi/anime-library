@@ -20,7 +20,7 @@
 				Info.manga__info(:infoData="mangaById")
 
 			.manga__sub-content
-				Characters.manga__characters(:charactersData="mangaCharactersById.characters")
+				Characters.manga__characters(:charactersData="mangaCharactersById.characters" :wholeData="mangaById")
 
 				Related.manga__related(
 					:wholeData="mangaById"

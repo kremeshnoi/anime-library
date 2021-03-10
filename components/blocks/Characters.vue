@@ -5,15 +5,14 @@
 			.manga-characters__title
 				| Characters
 
-			.manga-characters__cards-container(v-if="charactersData && charactersData.length")
-				Card.manga-characters__card(
-					:key="dataIndex"
-					:resultItem="data"
-					v-for="(data, dataIndex) in charactersData.slice(0, 2)")
+			.manga-characters__container(v-if="charactersData && charactersData.length")
+				Carousel
+					Card.swiper-slide.manga-characters__card(
+						:key="dataIndex"
+						:resultItem="data"
+						v-for="(data, dataIndex) in charactersData.slice(0, 12)")
 
-				a.manga-characters__link(
-					@click="computeRoute({ resultItem })"
-					@click.middle="computeRoute({ resultItem, clickType })")
+				router-link.manga-characters__link(:to="{ name: 'manga-id-title-characters', params: { id, title } }")
 					| More
 
 			h4.manga-characters__disaster(v-else)
@@ -26,19 +25,21 @@
 	import { mapActions } from "vuex"
   import Card from "@/components/elements/Card"
 	import Carousel from "@/components/grids/Carousel"
-	import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper"
 
 	export default {
 		name: "Characters",
-		props: ["charactersData"],
+		props: ["charactersData", "wholeData"],
 		components: {
 			Card,
-			Swiper,
-			Carousel,
-			SwiperSlide
+			Carousel
 		},
-		directives: {
-			swiper: directive
+		computed: {
+			id() {
+				return $nuxt.$route.params.id
+			},
+			title() {
+				return $nuxt.$route.params.title
+			}
 		},
 		methods: {
 			...mapActions({
@@ -67,11 +68,8 @@
 			font-size: 30px
 			text-align: start
 
-		&__cards-container
-			display: grid
-			grid-gap: 10px
+		&__container
 			position: relative
-			grid-template-columns: 1fr 1fr
 
 		&__link
 			right: 0
