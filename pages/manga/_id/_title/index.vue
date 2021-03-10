@@ -30,6 +30,8 @@
 
 			Recommendations.manga__recommendations(:recommendationsData="mangaRecommendationsById.recommendations")
 
+			Comments.manga__comments
+
 </template>
 
 <script>
@@ -103,11 +105,11 @@
 			row-gap: 20px
 			column-gap: 20px
 			grid-template-columns: 1fr 1fr
-			grid-template-areas: "main sub" "description description" "recommendations recommendations"
+			grid-template-areas: "main sub" "description description" "recommendations recommendations" "comments comments"
 			@extend .container-default
 			+mq(tablet-mid, max)
 				grid-template-columns: 1fr
-				grid-template-areas: "main" "sub" "description" "recommendations"
+				grid-template-areas: "main" "sub" "description" "recommendations" "comments"
 
 		&__main-content
 			display: grid
@@ -120,6 +122,9 @@
 			+mq(phablet, max)
 				grid-template-rows: auto
 				grid-template-areas: "title" "cover" "info"
+
+		&__comments
+			grid-area: comments
 
 		&__sub-content
 			display: grid

@@ -90,6 +90,8 @@
 												@click.middle="computeRoute({ resultItem, clickType })")
 												| {{ resultItem.name }}
 
+			Comments.character__comments
+
 		#character-info-modal.character-modal.modal
 			.character-modal__content.modal-content
 				p.character-modal__text
@@ -169,10 +171,10 @@
 			column-gap: 20px
 			@extend .container-default
 			grid-template-columns: 1fr 1fr
-			grid-template-areas: "main sub" "related related"
+			grid-template-areas: "main sub" "related related" "comments comments"
 			+mq(tablet-mid, max)
 				grid-template-columns: 1fr
-				grid-template-areas: "main" "sub" "related"
+				grid-template-areas: "main" "sub" "related" "comments"
 
 		&__main-content
 			display: grid
@@ -196,6 +198,9 @@
 			grid-template-columns: minmax(auto, 330px)
 			+mq(tablet-mid, max)
 				justify-content: flex-start
+
+		&__comments
+			grid-area: comments
 
 		&__cover-container
 			display: grid

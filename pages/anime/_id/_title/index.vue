@@ -29,7 +29,7 @@
 
       Recommendations.anime__recommendations(:recommendationsData="animeRecommendationsById.recommendations")
 
-      //- Comments.anime__comments
+      Comments.anime__comments
 
 </template>
 
