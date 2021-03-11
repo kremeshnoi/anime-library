@@ -30,7 +30,7 @@
 
 			Recommendations.manga__recommendations(:recommendationsData="mangaRecommendationsById.recommendations")
 
-			Comments.manga__comments
+			//- Comments.manga__comments
 
 </template>
 

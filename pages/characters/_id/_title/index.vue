@@ -86,7 +86,7 @@
 											nuxt-link.animeography__link(:to="{ name: 'anime-id-title', params: { id: resultItem.mal_id, title: resultItem.name } }")
 												| {{ resultItem.name }}
 
-			Comments.character__comments
+			//- Comments.character__comments
 
 		#character-info-modal.character-modal.modal
 			.character-modal__content.modal-content
