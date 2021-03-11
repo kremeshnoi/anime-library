@@ -23,8 +23,8 @@
 				Characters.manga__characters(:charactersData="mangaCharactersById.characters" :wholeData="mangaById")
 
 				Related.manga__related(
-					:wholeData="mangaById"
-					:relatedData="mangaById.related")
+					relatedType="manga"
+					:wholeData="mangaById")
 
 			Description.manga__description(:descriptionData="mangaById.synopsis")
 

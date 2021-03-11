@@ -7,7 +7,7 @@
           | Organize your library. Find, add, modify, communicate
         p.hero__description
           | Join us to get full access of the site functionality
-        router-link.hero__button.btn(to="/sign-up")
+        nuxt-link.hero__button.btn(to="/sign-up")
           | JOIN US
       .hero__image-side
         .hero__image

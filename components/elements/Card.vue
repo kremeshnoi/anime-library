@@ -1,9 +1,7 @@
 <template lang="pug">
 
-	.card
-		.card__image-wrapper(
-			@click="computeRoute({ resultItem })"
-			@click.middle="computeRoute({ resultItem, clickType })")
+	nuxt-link.card(:to="{ name: `${ type }-id-title`, params: { id: resultItem.mal_id, title: resultItem.title || resultItem.name} }")
+		.card__image-wrapper
 			img.card__image(
 				draggable="false"
 				:src="resultItem.image_url")
@@ -16,20 +14,28 @@
 
 <script>
 
-	import { mapActions } from "vuex"
-
 	export default {
 		name: "Card",
 		props: ["resultItem"],
-		data() {
-			return {
-				clickType: "middle"
+		computed: {
+			type() {
+				let type = this.resultItem.type
+				if (type === undefined) {
+					if (this.resultItem.role || this.resultItem.name_kanji) type = "characters"
+					else if (this.$nuxt.$route.name === "anime-id-title") type = "anime"
+					else if (this.$nuxt.$route.name === "manga-id-title") type = "manga"
+				}
+
+				else if (type === "manga") type = "manga"
+				else if (type === "Manga") type = "manga"
+				else if (type === "Novel") type = "manga"
+				else if (type === "Manhwa") type = "manga"
+				else if (type === "One-shot") type = "manga"
+				else if (type === "Doujinshi") type = "manga"
+				else if (type !== "Manga" && type !== "manga") type = "anime"
+
+				return type
 			}
-		},
-		methods: {
-			...mapActions({
-				computeRoute: "computeRoute"
-			})
 		}
 	}
 

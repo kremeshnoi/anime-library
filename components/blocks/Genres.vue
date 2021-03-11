@@ -7,12 +7,12 @@
 				.genres__block(
 					:key="resultIndex"
 					v-for="(genresResult, resultIndex) in genres")
-					router-link.genres__title(:to="genresResult.link")
+					nuxt-link.genres__title(:to="genresResult.link")
 						| {{ genresResult.title }} Genres
 						.material-icons keyboard_arrow_right
 
 					Carousel.genres-cards(type="genres")
-						router-link.genres-cards__item.swiper-slide(
+						nuxt-link.genres-cards__item.swiper-slide(
 							:key="genreIndex"
 							v-for="(genre, genreIndex) in genresResult.data"
 							:to="{ name: `${ genresResult.type }-genres-id-title`, params: { id: genre.id, title: genre.title } }")
@@ -32,11 +32,6 @@
 		name: "Genres",
 		components: {
 			Carousel
-		},
-		data() {
-			return {
-				clickType: "middle"
-			}
 		},
 		computed: {
 			genres() {

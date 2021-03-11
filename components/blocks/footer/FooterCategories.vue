@@ -5,7 +5,7 @@
       .footer-categories__item.footer-categories-item(
         :key="categoryIndex"
         v-for="(category, categoryIndex) in categories")
-        router-link.footer-categories-item__title(:to="category.link")
+        nuxt-link.footer-categories-item__title(:to="category.link")
           | {{ category.title }}
 
           .footer-categories-item__icon.material-icons keyboard_arrow_right
@@ -15,9 +15,7 @@
           p.footer-categories-item__digit
             | {{ itemIndex + 1 }}
 
-          a.footer-categories-item__link(
-            @click="computeRoute({ resultItem })"
-            @click.middle="computeRoute({ resultItem, clickType })")
+          nuxt-link.footer-categories-item__link(:to="{ name: `${ category.type }-id-title`, params: { id: resultItem.mal_id, title: resultItem.title } }")
             | {{ resultItem.title }}
 
 </template>
@@ -28,11 +26,6 @@
 
   export default {
     name: "FooterCategories",
-    data() {
-      return {
-        clickType: "middle"
-      }
-    },
     computed: {
       ...mapGetters({
         getAnimeFavoriteCategories: "anime/getAnimeFavoriteCategories",
@@ -42,16 +35,19 @@
       categories() {
         const categories = {
           anime: {
+            type: "anime",
             title: "Top Anime",
             link: "/anime/top",
             data: this.getAnimeFavoriteCategories,
           },
           manga: {
+            type: "manga",
             title: "Top Manga",
             link: "/manga/top",
             data: this.getMangaFavoriteCategories,
           },
           characters: {
+            type: "characters",
             title: "Most Popular Characters",
             link: "/characters/popular",
             data: this.getCharactersFavoriteCategories,
@@ -68,7 +64,6 @@
     },
     methods: {
       ...mapActions({
-        computeRoute: "computeRoute",
         loadAnimeFavoriteCategories: "anime/loadAnimeFavoriteCategories",
         loadMangaFavoriteCategories: "manga/loadMangaFavoriteCategories",
         loadCharactersFavoriteCategories: "characters/loadCharactersFavoriteCategories"

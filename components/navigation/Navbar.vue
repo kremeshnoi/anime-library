@@ -2,17 +2,17 @@
 
   nav.navbar
     .navbar__wrapper.nav-wrapper
-      router-link.navbar__logo(to="/")
+      nuxt-link.navbar__logo(to="/")
         | Otaku Library
 
       search-bar.navbar__search-bar
 
       .navbar__sign-in(v-if="this.user[0] === null")
-        router-link.navbar__sign-in-link(to="/sign-in")
+        nuxt-link.navbar__sign-in-link(to="/sign-in")
           | Sign in
           i.navbar__icon.material-icons exit_to_app
 
-        router-link.navbar__sign-in-link_mobile(to="/sign-in")
+        nuxt-link.navbar__sign-in-link_mobile(to="/sign-in")
           i.navbar__icon.material-icons exit_to_app
 
       .navbar__sign-out(v-else)

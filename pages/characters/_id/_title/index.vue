@@ -68,9 +68,7 @@
 										v-for="(resultItem, dataIndex) in characterById.mangaography.slice(0, 1)")
 
 										td.mangaography__td
-											a.mangaography__link(
-												@click="computeRoute({ resultItem })"
-												@click.middle="computeRoute({ resultItem, clickType })")
+											nuxt-link.mangaography__link(:to="{ name: 'manga-id-title', params: { id: resultItem.mal_id, title: resultItem.name } }")
 												| {{ resultItem.name }}
 
 				.animeography
@@ -85,9 +83,7 @@
 										v-for="(resultItem, dataIndex) in characterById.animeography.slice(0, 1)")
 
 										td.animeography__td
-											a.animeography__link(
-												@click="computeRoute({ resultItem })"
-												@click.middle="computeRoute({ resultItem, clickType })")
+											nuxt-link.animeography__link(:to="{ name: 'anime-id-title', params: { id: resultItem.mal_id, title: resultItem.name } }")
 												| {{ resultItem.name }}
 
 			Comments.character__comments
@@ -119,7 +115,6 @@
 		},
 		data() {
 			return {
-				clickType: "middle",
 				aboutCharacterData: []
 			}
 		},
@@ -141,11 +136,8 @@
 			}
 		},
 		methods: {
-			...mapActions({
-				computeRoute: "computeRoute"
-			}),
 			async replaceData() {
-				const data = this.characterById.about
+				const data = await this.characterById.about
 				const result = data.replace(/\\n/g, "")
 				this.aboutCharacterData.push(result)
 			}

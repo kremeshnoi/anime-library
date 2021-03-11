@@ -4,82 +4,66 @@
     .related__title
       | Related
     .related__content
-      ul.related__tabs.tabs(v-if="relatedData")
+      ul.related__tabs.tabs(v-if="wholeData.related")
         li.related__tab.tab(
           :key="name"
-          v-for="(value, name, counter) in relatedData")
+          v-for="(value, name, counter) in wholeData.related")
 
-          a.related__tab-item(:href="`#` + counter")
+          a.related__tab-item(
+            :href="`#` + counter"
+            @click="computeType(name)")
             | {{ name }}
 
       .related__item(
         :key="name"
         :id="counter"
-        v-for="(value, name, counter) in relatedData")
+        v-for="(value, name, counter) in wholeData.related")
         table.related__table
           tbody.related__tbody
             tr.related__tr(
               :key="dataIndex"
               v-for="(resultItem, dataIndex) in value.slice(0, 1)")
-              router-link.related__link.related__link_more.modal-trigger(
+              nuxt-link.related__link.related__link_more.modal-trigger(
                 v-if="value.length >= 2"
-                :to="{ name: `anime-id-title-related`, params: { id: wholeData.mal_id, title: wholeData.title, related: relatedData } }")
+                :to="{ name: `${ relatedType }-id-title-related-type`, params: { id: wholeData.mal_id, title: wholeData.title, related: name, type: titleType } }")
                 | More
 
               td.related__td
-                a.related__link(
-                  @click="computeRoute({ resultItem })"
-                  @click.middle="computeRoute({ resultItem, clickType })")
+                nuxt-link.related__link(
+                  :to="{ name: `${ titleType }-id-title`, params: { id: resultItem.mal_id, title: resultItem.name } }")
                   | {{ resultItem.name }}
 
-      h4.related__disaster(v-if="relatedLength === 0")
+      h4.related__disaster(v-if="wholeData.related.length === 0")
         | Not found
 
 </template>
 
 <script>
 
-  import { mapActions } from "vuex"
-
   export default {
     name: "Related",
-    props: ["wholeData", "relatedData"],
-    computed: {
-      relatedLength() {
-        if (typeof this.relatedData === "object") {
-          const length = Object.keys(this.relatedData).length
-          return length
-        }
-      },
-    },
-    computed: {
-      type() {
-        let type
-        if (type === undefined) {
-          if (this.wholeData.role || this.wholeData.name_kanji) type = "characters"
-          else if ($nuxt.$router.app.$route.name === "anime-id-title") type = "anime"
-          else if ($nuxt.$router.app.$route.name === "manga-id-title") type = "manga"
-        }
-
-        else if (type === "manga") type = "manga"
-        else if (type === "Manga") type = "manga"
-        else if (type === "Novel") type = "manga"
-        else if (type === "Manhwa") type = "manga"
-        else if (type === "One-shot") type = "manga"
-        else if (type === "Doujinshi") type = "manga"
-        else if (type !== "Manga" && type !== "manga") type = "anime"
-
-        return type
+    props: ["wholeData", "relatedType"],
+    data() {
+      return {
+        titleType: this.relatedType,
+        initialActiveTab: ""
       }
     },
     methods: {
-      ...mapActions({
-        computeRoute: "computeRoute",
-        computeRouteByRelated: "computeRouteByRelated"
-      })
+      computeType(name) {
+        if(name === "Adaptation" && this.relatedType !== "manga") this.titleType = "manga"
+        else if(name === "Adaptation" && this.relatedType !== "anime") this.titleType = "anime"
+        else this.titleType = this.relatedType
+      }
     },
-    created() {
-      console.log(this.wholeData)
+    async mounted() {
+      const activeTab = await document.querySelectorAll(".related__tab-item")
+      activeTab.forEach(element => {
+        if(element.classList.contains("active")) this.initialActiveTab = element.textContent
+      })
+
+      if(this.initialActiveTab === "Adaptation" && this.relatedType !== "manga") this.titleType = "manga"
+      else if(this.initialActiveTab === "Adaptation" && this.relatedType !== "anime") this.titleTyp = "anime"
     }
   }
 

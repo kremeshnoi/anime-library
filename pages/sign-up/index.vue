@@ -66,7 +66,7 @@
               v-else-if="$v.password.$dirty && !$v.password.minLength")
 
         .sign-up-form__row
-          router-link(to="/sign-in")
+          nuxt-link(to="/sign-in")
             | Already have an account?
 
         center.sign-up__center
@@ -91,7 +91,7 @@
               | Create Account
 
       .sign-up__link-back
-        router-link(to="/")
+        nuxt-link(to="/")
           | Back to Homepage
 
 </template>

@@ -48,7 +48,7 @@
               | Submit
 
       .recovery__link-back
-        router-link(to="/")
+        nuxt-link(to="/")
           | Back to Homepage
 
 </template>

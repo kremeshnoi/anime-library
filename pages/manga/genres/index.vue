@@ -6,7 +6,7 @@
 				| Manga Genres
 
 			CardsGrid.manga-genres__grid
-				router-link.genres__item(
+				nuxt-link.genres__item(
 					:key="genreIndex"
 					v-for="(genre, genreIndex) in genresResult.data"
 					:to="{ name: 'manga-genres-id-title', params: { id: genre.id, title: genre.title } }")

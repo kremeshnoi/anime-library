@@ -12,16 +12,13 @@
                 :key="dataIndex"
                 v-for="(resultItem, dataIndex) in animeById.related[`${ relatedName }`]")
                 td.related__td
-                  a.related__link(
-                    @click="computeRoute({ resultItem })"
-                    @click.middle="computeRoute({ resultItem, clickType })")
+                  nuxt-link.related__link(:to="{ name: `${ type }-id-title`, params: { id: resultItem.mal_id, title: resultItem.name } }")
                     | {{ resultItem.name }}
 
 </template>
 
 <script>
 
-  import { mapActions } from "vuex"
   import jikanjs from "jikanjs/lib/jikan"
   import layoutMiddleware from "@/middleware/layoutMiddleware"
 
@@ -33,11 +30,6 @@
       }
     },
     layout: layoutMiddleware,
-    data() {
-      return {
-        clickType: "middle"
-      }
-    },
     async asyncData({ params }) {
       const animeByIdResponse = await jikanjs.loadAnime(params.id)
       return {
@@ -45,17 +37,15 @@
       }
     },
     computed: {
+      type() {
+        return this.$nuxt.$route.params.type
+      },
       relatedName() {
         return this.$nuxt.$route.params.related
           .split("-")
           .join(" ")
           .replace(/^\w/, (c) => c.toUpperCase())
       }
-    },
-    methods: {
-      ...mapActions({
-        computeRoute: "computeRoute"
-      })
     }
   }
 

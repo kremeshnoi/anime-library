@@ -22,8 +22,8 @@
         Trailer.anime__trailer(:trailerData="animeById.trailer_url")
 
         Related.anime__related(
-          :wholeData="animeById"
-          :relatedData="animeById.related")
+          relatedType="anime"
+          :wholeData="animeById")
 
       Description.anime__description(:descriptionData="animeById.synopsis")
 

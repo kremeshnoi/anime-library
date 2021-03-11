@@ -2,7 +2,7 @@
 
   section.cards
     .cards__container
-      router-link.cards__title(:to="cardsBlockData.link")
+      nuxt-link.cards__title(:to="cardsBlockData.link")
         | {{ cardsBlockData.title }}
         .cards__icon.material-icons keyboard_arrow_right
 

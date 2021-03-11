@@ -2,7 +2,7 @@
 
 	section.studios
 		.studios__container
-			//- router-link.studios__title(to="/")
+			//- nuxt-link.studios__title(to="/")
 			//- 	| Studios
 			//- 	.studios__icon.material-icons keyboard_arrow_right
 			.studios__items

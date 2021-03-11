@@ -25,13 +25,13 @@
 			.footer-info__item
 				h5.footer-info__title
 					| Help
-				router-link.footer-info__link.footer-info__link_disabled(to="/faq")
+				nuxt-link.footer-info__link.footer-info__link_disabled(to="/faq")
 					| FAQ
-				router-link.footer-info__link(
+				nuxt-link.footer-info__link(
 					to="/sign-up"
 					:class="{ 'footer-info__link_disabled': this.user[0] !== null }")
 					| Registration
-				router-link.footer-info__link(
+				nuxt-link.footer-info__link(
 					to="/recovery"
 					:class="{ 'footer-info__link_disabled': this.user[0] !== null }")
 					| Forgot Password?

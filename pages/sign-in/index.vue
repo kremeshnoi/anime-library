@@ -47,14 +47,14 @@
               v-else-if="$v.password.$dirty && !$v.password.minLength")
 
         .sign-in-form__row
-          router-link(to="/recovery")
+          nuxt-link(to="/recovery")
             | Forgot password?
 
         .sign-in-form__row
           | - or -
 
         .sign-in-form__row
-          router-link(to="/sign-up")
+          nuxt-link(to="/sign-up")
             | Register new account
 
         center.sign-in__center
@@ -98,7 +98,7 @@
               | Sign In
 
       .sign-in__link-back
-        router-link(to="/")
+        nuxt-link(to="/")
           | Back to Homepage
 
 </template>

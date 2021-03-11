@@ -56,7 +56,6 @@
     },
     methods: {
       ...mapActions({
-        computeRoute: "computeRoute",
         loadAnimeSearched: "anime/loadAnimeSearched",
         loadMangaSearched: "manga/loadMangaSearched"
       }),
