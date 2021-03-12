@@ -14,7 +14,7 @@ section.manga-characters
           v-for="(data, dataIndex) in charactersData.slice(0, 12)"
         )
 
-      nuxt-link.manga-characters__link(:to="{ name: 'manga-id-title-characters', params: { id: wholeData.mal_id, title: wholeData.title } }")
+      nuxt-link.manga-characters__link(:to="{ name: 'manga-id-title-characters', params: { id: wholeData.mal_id, title: $formatRouteTitle(wholeData.title) } }")
         | More
 
     h4.manga-characters__disaster(v-else)

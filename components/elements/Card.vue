@@ -1,6 +1,6 @@
 <template lang="pug">
 
-	nuxt-link.card(:to="{ name: `${ type }-id-title`, params: { id: resultItem.mal_id, title: $formatTitle(resultItem.title || resultItem.name)} }")
+	nuxt-link.card(:to="{ name: `${ type }-id-title`, params: { id: resultItem.mal_id, title: $formatRouteTitle(resultItem.title || resultItem.name)} }")
 		.card__image-wrapper
 			img.card__image(
 				draggable="false"

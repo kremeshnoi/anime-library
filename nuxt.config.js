@@ -32,8 +32,9 @@ export default {
     { src: "@/plugins/vuelidate" },
     { src: "@/plugins/vue-wysiwyg"},
     { src: "@/plugins/vue-recaptcha" },
-    { src: "@/plugins/format-title.js" },
     { src: "@/plugins/vue-awesome-swiper"},
+    { src: "@/plugins/format-route-title" },
+    { src: "@/plugins/format-related-title" },
     { src: "@/plugins/materialize", mode: "client" }
   ],
   components: true,

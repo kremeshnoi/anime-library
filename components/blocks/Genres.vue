@@ -15,7 +15,7 @@
 						nuxt-link.genres-cards__item.swiper-slide(
 							:key="genreIndex"
 							v-for="(genre, genreIndex) in genresResult.data"
-							:to="{ name: `${ genresResult.type }-genres-id-title`, params: { id: genre.id, title: genre.title } }")
+							:to="{ name: `${ genresResult.type }-genres-id-title`, params: { id: genre.id, title: $formatRouteTitle(genre.title) } }")
 
 							.genres-cards__title-container
 								span.genres-cards__title

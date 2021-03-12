@@ -1,7 +1,7 @@
 export default (context, inject) => {
-  const formatTitle = (oldTitle) => {
+  const formatRouteTitle = (oldTitle) => {
     const newTitle = oldTitle
-    .split("-")
+    .split("/")
     .splice(-1, 1)[0]
     .toLowerCase()
     .split(" ")
@@ -11,7 +11,7 @@ export default (context, inject) => {
     return newTitle
   }
 
-  inject("formatTitle", formatTitle)
+  inject("formatRouteTitle", formatRouteTitle)
 
-  context.$formatTitle = formatTitle
+  context.$formatRouteTitle = formatRouteTitle
 }
