@@ -4,13 +4,13 @@
     .manga__container
       .related
         .related__title
-          | {{ relatedName }}
+          | {{ $formatRelatedTitle(title) }}
         .related__item
           table.related__table
             tbody.related__tbody
               tr.related__tr(
                 :key="dataIndex"
-                v-for="(resultItem, dataIndex) in mangaById.related[`${ relatedName }`]")
+                v-for="(resultItem, dataIndex) in mangaById.related[`${ $formatRelatedTitle(title) }`]")
                 td.related__td
                   nuxt-link.related__link(:to="{ name: `${ type }-id-title`, params: { id: resultItem.mal_id, title: resultItem.name } }")
                     | {{ resultItem.name }}
@@ -40,11 +40,8 @@
       type() {
         return this.$nuxt.$route.params.type
       },
-      relatedName() {
+      title() {
         return this.$nuxt.$route.params.related
-          .split("-")
-          .join(" ")
-          .replace(/^\w/, (c) => c.toUpperCase())
       }
     }
   }
