@@ -8,9 +8,9 @@ export default function ({ route }) {
   const currentUser = firebase.auth().currentUser
 
   if (route.name === "sign-in") return "Authentication"
-  else if (route.name === "sign-up") return "Authentication"
-  else if (route.name === "recovery") return "Authentication"
+  if (route.name === "sign-up") return "Authentication"
+  if (route.name === "recovery") return "Authentication"
 
+  if (currentUser) return "Authorized"
   if (!currentUser) return "Unauthorized"
-  else if (currentUser) return "Authorized"
 }
