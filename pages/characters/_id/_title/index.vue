@@ -71,6 +71,9 @@
 											nuxt-link.mangaography__link(:to="{ name: 'manga-id-title', params: { id: resultItem.mal_id, title: resultItem.name } }")
 												| {{ resultItem.name }}
 
+											nuxt-link.mangaography__more-link(:to="{ name: 'characters-id-title-related-type', params: { id: characterById.mal_id, title: characterById.name, type: 'manga' } }")
+												| More
+
 				.animeography
 					.animeography__title
 						| Related Anime
@@ -86,6 +89,9 @@
 											nuxt-link.animeography__link(:to="{ name: 'anime-id-title', params: { id: resultItem.mal_id, title: resultItem.name } }")
 												| {{ resultItem.name }}
 
+									nuxt-link.animeography__more-link(:to="{ name: 'characters-id-title-related-type', params: { id: characterById.mal_id, title: characterById.name, type: 'anime' } }")
+										| More
+
 			//- Comments.character__comments
 
 		#character-info-modal.character-modal.modal
@@ -97,10 +103,9 @@
 
 <script>
 
-	import { mapActions } from "vuex"
 	import jikanjs from "jikanjs/lib/jikan"
-	import layoutMiddleware from "@/middleware/layoutMiddleware"
 	import Carousel from "@/components/grids/Carousel"
+	import layoutMiddleware from "@/middleware/layoutMiddleware"
 
 	export default {
 		name: "Character",
@@ -326,6 +331,8 @@
 
 
 	.animeography, .mangaography
+		position: relative
+
 		&__title
 			height: 70px
 			display: flex
@@ -367,11 +374,17 @@
 				max-width: 250px
 			&:hover
 				text-decoration: underline
-			&_more
-				right: 0
-				width: auto
-				bottom: -30px
-				position: absolute
-				color: $color-blue-light
+
+		&__more-link
+			right: 0
+			width: auto
+			bottom: -30px
+			@extend .title-cut
+			position: absolute
+			color: $color-blue-light
+			+mq(phone-wide, max)
+				max-width: 250px
+			&:hover
+				text-decoration: underline
 
 </style>

@@ -1,18 +1,29 @@
 <template lang="pug">
 
-  main.manga
-    .manga__container
+  main.anime
+    .anime__container
       .related
-        .related__title
-          | {{ relatedName }}
+        .related__title(v-if="type === 'anime'")
+          | Related Anime
+        .related__title(v-if="type === 'manga'")
+          | Related Manga
         .related__item
           table.related__table
             tbody.related__tbody
               tr.related__tr(
                 :key="dataIndex"
-                v-for="(resultItem, dataIndex) in mangaById.related[`${ relatedName }`]")
+                v-if="type === 'anime'"
+                v-for="(resultItem, dataIndex) in characterById.animeography")
                 td.related__td
-                  nuxt-link.related__link(:to="{ name: `${ type }-id-title`, params: { id: resultItem.mal_id, title: resultItem.name } }")
+                  nuxt-link.related__link(:to="{ name: 'anime-id-title', params: { id: resultItem.mal_id, title: resultItem.name } }")
+                    | {{ resultItem.name }}
+
+              tr.related__tr(
+                :key="dataIndex"
+                v-if="type === 'manga'"
+                v-for="(resultItem, dataIndex) in characterById.mangaography")
+                td.related__td
+                  nuxt-link.related__link(:to="{ name: 'manga-id-title', params: { id: resultItem.mal_id, title: resultItem.name } }")
                     | {{ resultItem.name }}
 
 </template>
@@ -23,35 +34,29 @@
   import layoutMiddleware from "@/middleware/layoutMiddleware"
 
   export default {
-    name: "MangaRelated",
+    name: "CharactersRelated",
     metaInfo() {
       return {
-        title: `Manga - ${ this.mangaById.title }`
+        title: "Characters - Related"
       }
     },
     layout: layoutMiddleware,
-    async asyncData({ params }) {
-      const mangaByIdResponse = await jikanjs.loadManga(params.id)
-      return {
-        mangaById: mangaByIdResponse
-      }
-    },
+		async asyncData({ params }) {
+			const characterResponse = await jikanjs.loadCharacter(params.id)
+			return {
+				characterById: characterResponse
+			}
+		},
     computed: {
-      type() {
+    type() {
         return this.$nuxt.$route.params.type
-      },
-      relatedName() {
-        return this.$nuxt.$route.params.related
-          .split("-")
-          .join(" ")
-          .replace(/^\w/, (c) => c.toUpperCase())
       }
     }
   }
 
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
 
   @import "~/assets/styles/utils/vars"
   @import "~/assets/styles/utils/mixins"
@@ -59,7 +64,7 @@
   @import "~/assets/styles/modules/dividers"
   @import "~/assets/styles/modules/containers"
 
-  .manga
+  .anime
     width: 100%
 
     &__container
@@ -67,11 +72,9 @@
       row-gap: 20px
       column-gap: 20px
       grid-template-columns: 1fr
-      grid-template-areas: "main"
       @extend .container-default
       +mq(tablet-mid, max)
         grid-template-columns: 1fr
-        grid-template-areas: "main"
 
     &__main-content
       display: grid
@@ -123,8 +126,8 @@
     grid-template-rows: auto auto
 
     &__disaster
-      font-size: 30px
       text-align: start
+      font-size: 30px
 
     &__title
       padding: 0
@@ -162,8 +165,8 @@
       &:focus
         background-color: initial !important
       &.active
-        background-color: initial !important
         color: $color-orange !important
+        background-color: initial !important
 
     &__link
       max-width: 100%
