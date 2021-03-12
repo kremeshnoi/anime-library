@@ -79,8 +79,8 @@
     display: grid
     grid-gap: 20px
     text-align: start
-    align-items: flex-end
     justify-content: start
+    align-items: flex-start
     grid-template-columns: 100%
     grid-template-rows: 50px auto
 
@@ -89,8 +89,8 @@
       text-align: start
 
     &__title
-      align-items: flex-end
       @extend .title-default
+      align-items: flex-start
 
     &__td
       padding: 0 0 15px 0
