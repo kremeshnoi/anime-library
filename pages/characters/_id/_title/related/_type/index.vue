@@ -15,7 +15,7 @@
                 v-if="type === 'anime'"
                 v-for="(resultItem, dataIndex) in characterById.animeography")
                 td.related__td
-                  nuxt-link.related__link(:to="{ name: 'anime-id-title', params: { id: resultItem.mal_id, title: resultItem.name } }")
+                  nuxt-link.related__link(:to="{ name: 'anime-id-title', params: { id: resultItem.mal_id, title: $formatRouteTitle(resultItem.name) } }")
                     | {{ resultItem.name }}
 
               tr.related__tr(
@@ -23,7 +23,7 @@
                 v-if="type === 'manga'"
                 v-for="(resultItem, dataIndex) in characterById.mangaography")
                 td.related__td
-                  nuxt-link.related__link(:to="{ name: 'manga-id-title', params: { id: resultItem.mal_id, title: resultItem.name } }")
+                  nuxt-link.related__link(:to="{ name: 'manga-id-title', params: { id: resultItem.mal_id, title: $formatRouteTitle(resultItem.name) } }")
                     | {{ resultItem.name }}
 
 </template>

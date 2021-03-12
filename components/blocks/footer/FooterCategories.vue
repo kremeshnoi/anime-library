@@ -15,7 +15,7 @@
           p.footer-categories-item__digit
             | {{ itemIndex + 1 }}
 
-          nuxt-link.footer-categories-item__link(:to="{ name: `${ category.type }-id-title`, params: { id: resultItem.mal_id, title: resultItem.title } }")
+          nuxt-link.footer-categories-item__link(:to="{ name: `${ category.type }-id-title`, params: { id: resultItem.mal_id, title: $formatRouteTitle(resultItem.title) } }")
             | {{ resultItem.title }}
 
 </template>

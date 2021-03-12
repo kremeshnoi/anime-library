@@ -68,10 +68,10 @@
 										v-for="(resultItem, dataIndex) in characterById.mangaography.slice(0, 1)")
 
 										td.mangaography__td
-											nuxt-link.mangaography__link(:to="{ name: 'manga-id-title', params: { id: resultItem.mal_id, title: resultItem.name } }")
+											nuxt-link.mangaography__link(:to="{ name: 'manga-id-title', params: { id: resultItem.mal_id, title: $formatRouteTitle(resultItem.name) } }")
 												| {{ resultItem.name }}
 
-											nuxt-link.mangaography__more-link(:to="{ name: 'characters-id-title-related-type', params: { id: characterById.mal_id, title: characterById.name, type: 'manga' } }")
+											nuxt-link.mangaography__more-link(:to="{ name: 'characters-id-title-related-type', params: { id: characterById.mal_id, title: $formatRouteTitle(characterById.name), type: 'manga' } }")
 												| More
 
 				.animeography
@@ -86,10 +86,10 @@
 										v-for="(resultItem, dataIndex) in characterById.animeography.slice(0, 1)")
 
 										td.animeography__td
-											nuxt-link.animeography__link(:to="{ name: 'anime-id-title', params: { id: resultItem.mal_id, title: resultItem.name } }")
+											nuxt-link.animeography__link(:to="{ name: 'anime-id-title', params: { id: resultItem.mal_id, title: $formatRouteTitle(resultItem.name) } }")
 												| {{ resultItem.name }}
 
-									nuxt-link.animeography__more-link(:to="{ name: 'characters-id-title-related-type', params: { id: characterById.mal_id, title: characterById.name, type: 'anime' } }")
+									nuxt-link.animeography__more-link(:to="{ name: 'characters-id-title-related-type', params: { id: characterById.mal_id, title: $formatRouteTitle(characterById.name), type: 'anime' } }")
 										| More
 
 			//- Comments.character__comments

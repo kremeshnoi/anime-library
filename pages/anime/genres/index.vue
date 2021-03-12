@@ -9,7 +9,7 @@
 				nuxt-link.genres__item(
 					:key="genreIndex"
 					v-for="(genre, genreIndex) in genresResult.data"
-					:to="{ name: 'anime-genres-id-title', params: { id: genre.id, title: genre.title } }")
+					:to="{ name: 'anime-genres-id-title', params: { id: genre.id, title: $formatRouteTitle(genre.title) } }")
 
 					.genres__title-container
 						span.genres__item-title

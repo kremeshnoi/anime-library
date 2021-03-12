@@ -12,7 +12,7 @@
                 :key="dataIndex"
                 v-for="(resultItem, dataIndex) in mangaById.related[`${ $formatRelatedTitle(title) }`]")
                 td.related__td
-                  nuxt-link.related__link(:to="{ name: `${ type }-id-title`, params: { id: resultItem.mal_id, title: resultItem.name } }")
+                  nuxt-link.related__link(:to="{ name: `${ type }-id-title`, params: { id: resultItem.mal_id, title: $formatRouteTitle(resultItem.name) } }")
                     | {{ resultItem.name }}
 
 </template>

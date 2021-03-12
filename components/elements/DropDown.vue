@@ -26,7 +26,7 @@
 				v-if="!loaderData"
 				:key="resultIndex"
 				v-for="(resultItem, resultIndex) in searchedData"
-				:to="{ name: `${ type }-id-title`, params: { id: resultItem.mal_id, title: resultItem.title } }")
+				:to="{ name: `${ type }-id-title`, params: { id: resultItem.mal_id, title: $formatRouteTitle(resultItem.title) } }")
 				.cards__wrapper
 					img.cards__image(draggable="false" :src="resultItem.image_url")
 
