@@ -32,6 +32,7 @@ export default {
     { src: "@/plugins/vuelidate" },
     { src: "@/plugins/vue-wysiwyg"},
     { src: "@/plugins/vue-recaptcha" },
+    { src: "@/plugins/format-title.js" },
     { src: "@/plugins/vue-awesome-swiper"},
     { src: "@/plugins/materialize", mode: "client" }
   ],
@@ -58,7 +59,6 @@ export default {
         }
       }
     ],
-    ["cookie-universal-nuxt"]
   ],
   loading: {
     color: "#26A69A",
