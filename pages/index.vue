@@ -3,7 +3,7 @@
 	main.home
 		Hero.home__section
 
-		Studios.home__section
+		//- Studios.home__section
 
 		Cards.home__section(
 			v-if="animeAiring"
