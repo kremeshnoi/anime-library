@@ -114,6 +114,9 @@
 	@import "~/assets/styles/utils/vars"
 	@import "~/assets/styles/utils/mixins"
 
+	.input-field
+		margin: 0
+
 	.input-wrapper:hover
 		.coupontooltip
 			display: block
