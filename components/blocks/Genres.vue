@@ -42,12 +42,12 @@
 						title: "Anime",
 						link: "anime/genres"
 					},
-					mangaGenres: {
-						data: manga,
-						type: "manga",
-						title: "Manga",
-						link: "manga/genres"
-					}
+					// mangaGenres: {
+					// 	data: manga,
+					// 	type: "manga",
+					// 	title: "Manga",
+					// 	link: "manga/genres"
+					// }
 				}
 			}
 		}
