@@ -26,7 +26,7 @@
 
 	@import "~/assets/styles/utils/vars"
 	@import "~/assets/styles/utils/mixins"
-	@import "~/assets/styles/modules/buttons"
+	@import "~/assets/styles/modules/shadow"
 	@import "~/assets/styles/modules/containers"
 
 	.hero
@@ -55,9 +55,7 @@
 
 		&__button
 			margin: 20px 0 0 0
-			@extend .hover-btn
 			@extend .shadow-btn
-			@extend .focus-btn
 			+mq(tablet-small, max)
 				margin: 0 0 0 0
 

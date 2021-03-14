@@ -186,7 +186,7 @@
 
   @import "~/assets/styles/utils/vars"
   @import "~/assets/styles/utils/mixins"
-  @import "~/assets/styles/modules/buttons"
+  @import "~/assets/styles/modules/shadow"
 
   .recaptcha
     position: fixed
@@ -285,8 +285,7 @@
       width: 100%
 
     &__button
-      @extend .hover-btn
-      @extend .focus-btn
+      
       @extend .shadow-btn
 
   .preloader-wrapper

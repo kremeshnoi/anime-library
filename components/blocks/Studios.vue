@@ -64,7 +64,7 @@
 			max-width: 110px
 			object-fit: contain
 			&:hover
-				opacity: 0.6
+				opacity: 0.9
 				cursor: pointer
 
 </style>

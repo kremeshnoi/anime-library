@@ -109,7 +109,7 @@
 
   @import "~/assets/styles/utils/vars"
   @import "~/assets/styles/utils/mixins"
-  @import "~/assets/styles/modules/buttons"
+  @import "~/assets/styles/modules/shadow"
 
   .recovery
     top: 0
@@ -155,8 +155,7 @@
       width: 100%
 
     &__button
-      @extend .hover-btn
-      @extend .focus-btn
+      
       @extend .shadow-btn
 
   .preloader-wrapper

@@ -65,7 +65,7 @@
 
 	@import "~/assets/styles/utils/vars"
 	@import "~/assets/styles/utils/mixins"
-	@import "~/assets/styles/modules/buttons"
+	@import "~/assets/styles/modules/shadow"
 
 	.footer-info
 		color: $color-white
@@ -105,15 +105,13 @@
 			margin: auto 0
 			color: $color-white
 			&:hover
-				opacity: 0.8
+				opacity: 0.9
 			&_disabled
-				opacity: 0.8
+				opacity: 0.9
 				cursor: pointer
 				pointer-events: none
 			&_decor
 				margin: 16px 0 0 0
-				@extend .hover-btn
-				@extend .focus-btn
 				@extend .shadow-btn
 
 		&__item

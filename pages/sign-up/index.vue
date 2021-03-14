@@ -162,7 +162,7 @@
 
   @import "~/assets/styles/utils/vars"
   @import "~/assets/styles/utils/mixins"
-  @import "~/assets/styles/modules/buttons"
+  @import "~/assets/styles/modules/shadow"
 
   .sign-up
     top: 0
@@ -208,8 +208,7 @@
       width: 100%
 
     &__button
-      @extend .focus-btn
-      @extend .hover-btn
+      
       @extend .shadow-btn
 
   .preloader-wrapper

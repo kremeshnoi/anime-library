@@ -93,7 +93,7 @@
 				position: relative
 				box-shadow: 0 8px 7px -7px rgba(0, 0, 0, 1)
 				&:hover
-					opacity: 0.8
+					opacity: 0.9
 
 			&__title-container
 				bottom: 0

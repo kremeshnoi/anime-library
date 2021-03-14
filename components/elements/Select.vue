@@ -9,7 +9,7 @@
 					v-for="(option, optionIndex) in options")
 					span {{ option.title }}
 
-			.btn-small(@click="addToLibrary(payload)")
+			.btn.btn-small(@click="addToLibrary(payload)")
 				| Add
 
 		//- span.coupontooltip
@@ -113,6 +113,7 @@
 
 	@import "~/assets/styles/utils/vars"
 	@import "~/assets/styles/utils/mixins"
+	@import "~/assets/styles/modules/shadow"
 
 	.input-field
 		margin: 0
@@ -126,11 +127,12 @@
 		width: 100%
 
 	.disabled
-		opacity: 0.6
+		opacity: 0.9
 		user-select: none
 		pointer-events: none
 
-	.btn-small
+	.btn
+		@extend .shadow-btn
 		align-self: flex-start
 		text-transform: lowercase
 		background-color: $color-blue-light
