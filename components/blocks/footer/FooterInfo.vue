@@ -105,9 +105,9 @@
 			margin: auto 0
 			color: $color-white
 			&:hover
-				opacity: 0.9
+				text-decoration: underline
 			&_disabled
-				opacity: 0.9
+				color: $color-grey-light
 				cursor: pointer
 				pointer-events: none
 			&_decor
