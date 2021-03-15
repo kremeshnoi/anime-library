@@ -1,7 +1,8 @@
 <template lang="pug">
 
   .layout-container
-    navbar
+    Navbar
+    Breadcrumb
     router-view(:key="this.$route.path")
     Footer
 
@@ -11,12 +12,14 @@
 
   import Navbar from "@/components/navigation/Navbar"
   import Footer from "@/components/navigation/Footer"
+  import Breadcrumb from "@/components/elements/Breadcrumb"
 
   export default {
     name: "Unauthorized",
     components: {
       Navbar,
-      Footer
+      Footer,
+      Breadcrumb
     },
     mounted() {
       M.AutoInit()

@@ -15,13 +15,16 @@ export default {
     { src: "node_modules/swiper/css/swiper.min.css" },
     { src: "node_modules/vue-wysiwyg/dist/vueWysiwyg.css"},
     { src: "node_modules/materialize-css/dist/css/materialize.min.css" },
+
     { src: "~/assets/styles/base/base.sass" },
     { src: "~/assets/styles/base/reset.sass" },
+
     { src: "~/assets/styles/state/tabs.sass" },
     { src: "~/assets/styles/state/toast.sass" },
     { src: "~/assets/styles/state/select.sass" },
     { src: "~/assets/styles/state/recaptcha.sass" },
     { src: "~/assets/styles/state/infinite-scroll.sass" },
+
     { src: "~/assets/styles/theme/scrollbar.sass" },
     { src: "~/assets/styles/theme/fonts/material-icons.sass" },
     { src: "~/assets/styles/theme/fonts/days-one-regular.sass" }
@@ -33,9 +36,10 @@ export default {
     { src: "@/plugins/vue-wysiwyg"},
     { src: "@/plugins/vue-recaptcha" },
     { src: "@/plugins/vue-awesome-swiper"},
-    { src: "@/plugins/format-route-title" },
-    { src: "@/plugins/format-related-title" },
-    { src: "@/plugins/materialize", mode: "client" }
+    { src: "@/plugins/materialize", mode: "client" },
+
+    { src: "@/plugins/methods/format-route-title" },
+    { src: "@/plugins/methods/format-related-title" }
   ],
   components: true,
   buildModules: [
