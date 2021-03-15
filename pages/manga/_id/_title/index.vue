@@ -94,6 +94,7 @@
 	@import "~/assets/styles/utils/vars"
 	@import "~/assets/styles/utils/mixins"
 	@import "~/assets/styles/modules/titles"
+	@import "~/assets/styles/modules/shadow"
 	@import "~/assets/styles/modules/dividers"
 	@import "~/assets/styles/modules/containers"
 
@@ -143,6 +144,9 @@
 			grid-area: cover
 			justify-content: flex-start
 			grid-template-rows: min-content
+
+		&__cover
+			@extend .shadow-generic
 
 		&__title
 			font-size: 20px

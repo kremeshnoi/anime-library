@@ -37,6 +37,7 @@
 	@import "~/assets/styles/utils/vars"
 	@import "~/assets/styles/utils/mixins"
 	@import "~/assets/styles/modules/titles"
+	@import "~/assets/styles/modules/shadow"
 	@import "~/assets/styles/modules/dividers"
 	@import "~/assets/styles/modules/containers"
 
@@ -52,6 +53,7 @@
 			width: 100%
 
 		&__content
+			@extend .shadow-generic
 			+flex(center, flex-start, initial)
 			border-left: 5px solid $color-blue-light
 

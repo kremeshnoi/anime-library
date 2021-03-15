@@ -156,6 +156,7 @@
 	@import "~/assets/styles/utils/vars"
 	@import "~/assets/styles/utils/mixins"
 	@import "~/assets/styles/modules/titles"
+	@import "~/assets/styles/modules/shadow"
 	@import "~/assets/styles/modules/dividers"
 	@import "~/assets/styles/modules/containers"
 
@@ -204,6 +205,9 @@
 			grid-area: cover
 			grid-area: cover
 			justify-content: flex-start
+
+		&__cover
+			@extend .shadow-generic
 
 		&__title
 			font-size: 20px
@@ -293,6 +297,7 @@
 		&__photo
 			width: 100%
 			max-width: 140px
+			@extend .shadow-generic
 
 		&__tr
 			border-bottom: none
