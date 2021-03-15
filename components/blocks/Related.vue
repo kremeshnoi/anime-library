@@ -30,7 +30,7 @@
 
               td.related__td
                 nuxt-link.related__link(
-                  :to="{ name: `${ titleType }-id-title`, params: { id: resultItem.mal_id, title: resultItem.name } }")
+                  :to="{ name: `${ titleType }-id-title`, params: { id: resultItem.mal_id, title: $formatRouteTitle(resultItem.name) } }")
                   | {{ resultItem.name }}
 
       h4.related__disaster(v-if="wholeData.related.length === 0")
