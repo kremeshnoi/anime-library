@@ -3,16 +3,27 @@
   main.anime
     .anime__container
       .related
-        .related__title
-          | {{ $formatRelatedTitle(title) }}
+        .related__title(v-if="type === 'anime'")
+          | Related Anime
+        .related__title(v-if="type === 'manga'")
+          | Related Manga
         .related__item
           table.related__table
             tbody.related__tbody
               tr.related__tr(
                 :key="dataIndex"
-                v-for="(resultItem, dataIndex) in animeById.related[`${ $formatRelatedTitle(title) }`]")
+                v-if="type === 'anime'"
+                v-for="(resultItem, dataIndex) in characterById.animeography")
                 td.related__td
-                  nuxt-link.related__link(:to="{ name: `${ type }-id-title`, params: { id: resultItem.mal_id, title: $formatRouteTitle(resultItem.name) } }")
+                  nuxt-link.related__link(:to="{ name: 'anime-id-title', params: { id: resultItem.mal_id, title: $formatRouteTitle(resultItem.name) } }")
+                    | {{ resultItem.name }}
+
+              tr.related__tr(
+                :key="dataIndex"
+                v-if="type === 'manga'"
+                v-for="(resultItem, dataIndex) in characterById.mangaography")
+                td.related__td
+                  nuxt-link.related__link(:to="{ name: 'manga-id-title', params: { id: resultItem.mal_id, title: $formatRouteTitle(resultItem.name) } }")
                     | {{ resultItem.name }}
 
 </template>
@@ -23,32 +34,29 @@
   import layoutMiddleware from "@/middleware/layoutMiddleware"
 
   export default {
-    name: "Anime",
+    name: "CharactersRelated",
     metaInfo() {
       return {
-        title: `Anime - ${ this.animeById.title }`
+        title: "Characters - Related"
       }
     },
     layout: layoutMiddleware,
-    async asyncData({ params }) {
-      const animeByIdResponse = await jikanjs.loadAnime(params.id)
-      return {
-        animeById: animeByIdResponse
-      }
-    },
+		async asyncData({ params }) {
+			const characterResponse = await jikanjs.loadCharacter(params.id)
+			return {
+				characterById: characterResponse
+			}
+		},
     computed: {
       type() {
-        return this.$nuxt.$route.params.type
-      },
-      title() {
-        return this.$nuxt.$route.params.related
-      }
+          return this.$nuxt.$route.query.type
+        }
     }
   }
 
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
 
   @import "~/assets/styles/utils/vars"
   @import "~/assets/styles/utils/mixins"

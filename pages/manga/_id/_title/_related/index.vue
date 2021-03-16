@@ -38,7 +38,7 @@
     },
     computed: {
       type() {
-        return this.$nuxt.$route.params.type
+        return this.$nuxt.$route.query.type
       },
       title() {
         return this.$nuxt.$route.params.related

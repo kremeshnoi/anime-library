@@ -71,7 +71,7 @@
 											nuxt-link.mangaography__link(:to="{ name: 'manga-id-title', params: { id: resultItem.mal_id, title: $formatRouteTitle(resultItem.name) } }")
 												| {{ resultItem.name }}
 
-											nuxt-link.mangaography__more-link(:to="{ name: 'characters-id-title-related-type', params: { id: characterById.mal_id, title: $formatRouteTitle(characterById.name), type: 'manga' } }")
+											nuxt-link.mangaography__more-link(:to="{ name: 'characters-id-title-related', params: { id: characterById.mal_id, title: $formatRouteTitle(characterById.name) }, query: { type: 'manga' } }")
 												| More
 
 				.animeography
@@ -89,7 +89,7 @@
 											nuxt-link.animeography__link(:to="{ name: 'anime-id-title', params: { id: resultItem.mal_id, title: $formatRouteTitle(resultItem.name) } }")
 												| {{ resultItem.name }}
 
-									nuxt-link.animeography__more-link(:to="{ name: 'characters-id-title-related-type', params: { id: characterById.mal_id, title: $formatRouteTitle(characterById.name), type: 'anime' } }")
+									nuxt-link.animeography__more-link(:to="{ name: 'characters-id-title-related', params: { id: characterById.mal_id, title: $formatRouteTitle(characterById.name) }, query: { type: 'anime' } }")
 										| More
 
 			//- Comments.character__comments

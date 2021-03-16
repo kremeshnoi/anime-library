@@ -25,7 +25,7 @@
               v-for="(resultItem, dataIndex) in value.slice(0, 1)")
               nuxt-link.related__link.related__link_more(
                 v-if="value.length >= 2"
-                :to="{ name: `${ relatedType }-id-title-related-type`, params: { id: wholeData.mal_id, title: $formatRouteTitle(wholeData.title), related: $formatRouteTitle(name), type: titleType } }")
+                :to="{ name: `${ relatedType }-id-title-related`, params: { id: wholeData.mal_id, title: $formatRouteTitle(wholeData.title), related: $formatRouteTitle(name) }, query: { type: titleType } }")
                 | More
 
               td.related__td
