@@ -124,11 +124,9 @@
 			&__list-item
 				width: 100%
 				padding: 20px
-				transition: 0s
 				cursor: pointer
 				text-align: start
 				color: $color-black
-				transition: 0.4s ease
 				+flex(flex-start, center, row)
 				background-color: $color-white-pure
 				border-bottom: 1px solid $color-grey-light
@@ -143,7 +141,6 @@
 				width: 100%
 				display: block
 				cursor: pointer
-				transition: 0.4s ease
 				padding: 10px 0 10px 10px
 				background-color: $color-white-pure
 				border-bottom: 1px solid $color-grey-light

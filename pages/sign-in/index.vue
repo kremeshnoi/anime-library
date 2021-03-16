@@ -239,7 +239,6 @@
         vertical-align: middle
         background-color: #FFFFFF
         box-shadow: 0 2px 4px 0 rgb(0 0 0 / 25%)
-        transition: background-color .218s,border-color .218s,box-shadow .218s
         &:hover
           background-color: #EEEEEE
 

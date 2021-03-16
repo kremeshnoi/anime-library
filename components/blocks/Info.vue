@@ -168,7 +168,6 @@
 
 		&__list-values
 			height: auto
-			transition: 0.5s
 			margin: 0 10px 0 0
 			display: inline-block
 			border-bottom: 1px dashed $color-grey-light
