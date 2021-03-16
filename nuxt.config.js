@@ -11,6 +11,7 @@ export default {
     ]
   },
   target: "static",
+  mode: "ssr",
   css: [
     { src: "node_modules/swiper/css/swiper.min.css" },
     { src: "node_modules/vue-wysiwyg/dist/vueWysiwyg.css"},
@@ -46,6 +47,7 @@ export default {
     { src: "@nuxt/typescript-build" }
   ],
   modules: [
+    ["cookie-universal-nuxt"],
     ["@nuxtjs/firebase",
       {
         config: {
@@ -65,6 +67,8 @@ export default {
       }
     ],
   ],
+  router: {
+  },
   loading: {
     color: "#26A69A",
     height: "4px"

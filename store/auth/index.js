@@ -8,6 +8,7 @@ export const actions = {
   async signIn({ commit }, { email, password }) {
     try {
       await firebase.auth().signInWithEmailAndPassword(email, password)
+      $nuxt.$cookies.set("isAuthenticateted", true)
       $nuxt.$router.push("/")
     } catch (error) {
       commit("SET_ERROR", error, { root: true })
@@ -32,6 +33,7 @@ export const actions = {
   async signOut() {
     try {
       await firebase.auth().signOut()
+      $nuxt.$cookies.set("isAuthenticateted", false)
       await $nuxt.$router.go(0)
     } catch (error) {
       document.querySelector(".auth-progress").style.display = "none"

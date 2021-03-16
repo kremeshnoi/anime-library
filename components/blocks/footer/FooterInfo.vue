@@ -25,38 +25,22 @@
 			.footer-info__item
 				h5.footer-info__title
 					| Help
-				nuxt-link.footer-info__link.footer-info__link_disabled(to="/faq")
+				nuxt-link.footer-info__link(to="/faq")
 					| FAQ
 				nuxt-link.footer-info__link(
-					to="/sign-up"
-					:class="{ 'footer-info__link_disabled': this.user[0] !== null }")
+					v-if="$nuxt.layoutName === 'Unauthorized'"
+					to="/sign-up")
 					| Registration
 				nuxt-link.footer-info__link(
-					to="/recovery"
-					:class="{ 'footer-info__link_disabled': this.user[0] !== null }")
+					to="/recovery")
 					| Forgot Password?
 
 </template>
 
 <script>
 
-	import { mapActions } from "vuex"
-
 	export default {
-		name: "FooterInfo",
-		data() {
-			return {
-				user: []
-			}
-		},
-		async created() {
-			await this.getUid().then((result) => this.user.push(result))
-		},
-		methods: {
-			...mapActions({
-				getUid: "auth/getUid"
-			})
-		}
+		name: "FooterInfo"
 	}
 
 </script>
@@ -102,14 +86,10 @@
 			border-bottom: 1px solid rgba($color-orange, 0.6)
 
 		&__link
-			margin: auto 0
+			margin: 10px 0
 			color: $color-white
 			&:hover
 				text-decoration: underline
-			&_disabled
-				color: $color-grey-light
-				cursor: pointer
-				pointer-events: none
 			&_decor
 				margin: 16px 0 0 0
 				@extend .shadow-btn

@@ -7,7 +7,7 @@
 
       search-bar.navbar__search-bar
 
-      .navbar__sign-in(v-if="this.user[0] === null")
+      .navbar__sign-in(v-if="$nuxt.layoutName === 'Unauthorized'")
         nuxt-link.navbar__sign-in-link(to="/sign-in")
           | Sign in
           i.navbar__icon.material-icons exit_to_app

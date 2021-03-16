@@ -1,7 +1,7 @@
 <template lang="pug">
 
 	.input-wrapper
-		.input-field(:class="{ disabled: user[0] === null }")
+		.input-field(:class="{ disabled: $nuxt.layoutName === 'Unauthorized' }")
 			select(v-model="payload.status")
 				option(
 					:key="optionIndex"
@@ -26,7 +26,6 @@
 		props: ["type", "wholeResult"],
 		data() {
 			return {
-				user: [],
 				payload: {
 					type: this.type,
 					status: "planned",
@@ -77,7 +76,6 @@
 			this.payload.type = this.type
 			this.payload.result = this.wholeResult
 			this.payload.id = this.wholeResult.mal_id
-			await this.getUid().then((result) => this.user.push(result))
 		},
 		mounted() {
 			const select = document.querySelectorAll("select")
@@ -94,10 +92,6 @@
 			}
 		},
 		methods: {
-			...mapActions({
-				getUid: "auth/getUid",
-				addToLibrary: "addToLibrary",
-			}),
 			followCursor() {
 				for (let i = tooltip.length; i--;) {
 					tooltip[i].style.left = e.pageX + "px"
@@ -127,7 +121,7 @@
 		width: 100%
 
 	.disabled
-		opacity: 0.9
+		opacity: 0.4
 		user-select: none
 		pointer-events: none
 

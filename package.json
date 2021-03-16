@@ -15,6 +15,7 @@
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "bootstrap-vue": "^2.21.2",
+    "cookie-universal-nuxt": "^2.1.4",
     "core-js": "^3.8.3",
     "firebase": "^7.15.1",
     "jikanjs": "^0.7.0",

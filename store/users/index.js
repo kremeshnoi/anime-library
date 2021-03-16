@@ -8,19 +8,7 @@ export const mutations = {
   }
 }
 
-export const actions = {
-  async loadUserInfo({ dispatch, commit }) {
-    try {
-      const uid = await dispatch("getUid")
-      const userInfoResponse = await this.$fire.database.ref(`/users/${uid}/info/username`)
-        .on("value", (data) => {
-          commit("SET_USER_INFO", data.val())
-        })
-    } catch (error) {
-      throw error.message
-    }
-  }
-}
+export const actions = {}
 
 export const getters = {
   getUserInfo: state => state.userInfo
