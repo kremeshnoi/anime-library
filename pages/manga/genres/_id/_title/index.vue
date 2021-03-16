@@ -79,7 +79,6 @@
 
 	.manga-genre
 		&__container
-			margin-top: 20px
 			@extend .container-default
 
 		&__title
