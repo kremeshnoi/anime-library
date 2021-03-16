@@ -64,7 +64,7 @@
 
 		&__iframe
 			height: 100%
-			width: 360px
+			width: 380px
 			height: 200px
 
 </style>

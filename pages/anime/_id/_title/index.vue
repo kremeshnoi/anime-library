@@ -124,7 +124,7 @@
       column-gap: 20px
       align-content: flex-start
       justify-content: flex-start
-      grid-template-columns: minmax(auto, 330px)
+      grid-template-columns: minmax(auto, 380px)
       +mq(tablet-mid, max)
         justify-content: flex-start
 

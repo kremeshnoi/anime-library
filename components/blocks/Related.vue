@@ -4,7 +4,7 @@
     .related__title
       | Related
     .related__content
-      ul.related__tabs.tabs(v-if="wholeData.related")
+      .related__tabs.tabs(v-if="wholeData.related")
         li.related__tab.tab(
           :key="name"
           v-for="(value, name, counter) in wholeData.related")
