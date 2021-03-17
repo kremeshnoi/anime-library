@@ -3,14 +3,14 @@
   .swiper
     .swiper-carousel(v-swiper="cardsSwiperOptions" v-if="type !== 'genres'")
       .swiper-wrapper
-        slot
+        slot(v-if="init")
 
       .swiper-button-next(v-show="init")
       .swiper-button-prev(v-show="init")
 
     .swiper-carousel(v-swiper="genresSwiperOptions" v-if="type === 'genres'")
       .swiper-wrapper
-        slot
+        slot(v-if="init")
 
 </template>
 

@@ -54,24 +54,18 @@
 					title: "POPULAR MANGA",
 					link: "/manga/popular",
 					data: mangaPopularResponse.top
-				}
-			}
-		},
-		computed: {
-			animeGenres() {
-				return {
-						data: anime,
-						type: "anime",
-						title: "Anime",
-						link: "anime/genres"
-				}
-			},
-			mangaGenres() {
-				return {
-						data: manga,
-						type: "manga",
-						title: "Manga",
-						link: "manga/genres"
+				},
+				animeGenres: {
+					data: anime,
+					type: "anime",
+					title: "Anime",
+					link: "anime/genres"
+				},
+				mangaGenres: {
+					data: manga,
+					type: "manga",
+					title: "Manga",
+					link: "manga/genres"
 				}
 			}
 		}
