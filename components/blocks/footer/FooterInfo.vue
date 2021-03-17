@@ -66,6 +66,7 @@
 		background-color: $color-blue
 
 		&__support
+			max-width: 300px
 			width: 100%
 
 		&__container
@@ -90,7 +91,7 @@
 
 		&__subtitle
 			width: 100%
-			max-width: 218px
+			max-width: 300px
 			border-bottom: 1px solid rgba($color-orange, 0.6)
 
 		&__link
