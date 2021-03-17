@@ -1,61 +1,58 @@
 <template lang="pug">
 
-  nav.navbar
-    .navbar__wrapper.nav-wrapper
-      nuxt-link.navbar__logo(to="/")
-        | Otaku Library
+	nav.navbar
+		.navbar__wrapper.nav-wrapper
+			nuxt-link.navbar__logo(to="/")
+				| Otaku Library
 
-      search-bar.navbar__search-bar
+			search-bar.navbar__search-bar
 
-      .navbar__sign-in(v-if="$nuxt.layoutName === 'Unauthorized'")
-        nuxt-link.navbar__sign-in-link(to="/sign-in")
-          | Sign in
-          i.navbar__icon.material-icons exit_to_app
+			.navbar__sign-in(v-if="!isAutheticated")
+				nuxt-link.navbar__sign-in-link(to="/sign-in")
+					| Sign in
+					i.navbar__icon.material-icons exit_to_app
 
-        nuxt-link.navbar__sign-in-link_mobile(to="/sign-in")
-          i.navbar__icon.material-icons exit_to_app
+				nuxt-link.navbar__sign-in-link_mobile(to="/sign-in")
+					i.navbar__icon.material-icons exit_to_app
 
-      .navbar__sign-out(v-else)
-        a.navbar__sign-in-link(@click="signOut")
-          | Sign out
-          i.navbar__icon.material-icons exit_to_app
+			.navbar__sign-out(v-else)
+				a.navbar__sign-in-link(@click="signOut")
+					| Sign out
+					i.navbar__icon.material-icons exit_to_app
 
-        a.navbar__sign-in-link_mobile(@click="signOut")
-          i.navbar__icon.material-icons exit_to_app
+				a.navbar__sign-in-link_mobile(@click="signOut")
+					i.navbar__icon.material-icons exit_to_app
 
 </template>
 
 <script>
 
-  import { mapActions } from "vuex"
-  import SearchBar from "@/components/elements/SearchBar"
+	import SearchBar from "@/components/elements/SearchBar"
 
-  export default {
-    name: "Navbar",
-    components: {
-      SearchBar,
-    },
-    data() {
-      return {
-        user: []
-      }
-    },
-    async created() {
-      await this.getUid().then((result) => this.user.push(result))
-    },
-    methods: {
-      ...mapActions({
-        getUid: "auth/getUid"
-      }),
-      signOut() {
-        try {
+	export default {
+		name: "Navbar",
+		components: {
+			SearchBar,
+		},
+		data() {
+			return {
+				init: null,
+				isAutheticated: null
+			}
+		},
+		created() {
+			this.isAutheticated = this.$cookies.get("isAutheticated")
+		},
+		methods: {
+			signOut() {
+				try {
 					this.$store.dispatch("auth/signOut")
-        } catch (error) {
-          throw error.message
-        }
-      }
-    }
-  }
+				} catch (error) {
+					throw error.message
+				}
+			}
+		}
+	}
 
 </script>
 

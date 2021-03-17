@@ -28,7 +28,7 @@
 				nuxt-link.footer-info__link(to="/faq")
 					| FAQ
 				nuxt-link.footer-info__link(
-					v-if="$nuxt.layoutName === 'Unauthorized'"
+					v-if="!isAutheticated"
 					to="/sign-up")
 					| Registration
 				nuxt-link.footer-info__link(
@@ -40,7 +40,15 @@
 <script>
 
 	export default {
-		name: "FooterInfo"
+		name: "FooterInfo",
+		data() {
+			return {
+				isAutheticated: null
+			}
+		},
+		created() {
+			this.isAutheticated = this.$cookies.get("isAutheticated")
+		},
 	}
 
 </script>
