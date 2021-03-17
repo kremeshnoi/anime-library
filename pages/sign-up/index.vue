@@ -100,7 +100,7 @@
 
   import { mapActions } from "vuex"
   import VueRecaptcha from "vue-recaptcha"
-  import layout from "~/middleware/layout"
+  import layout from "@/middleware/layout"
   import { email, required, minLength } from "vuelidate/lib/validators"
 
   export default {

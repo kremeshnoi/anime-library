@@ -105,10 +105,10 @@
 
 <script>
 
-  import firebase from "firebase/app"
   import { mapActions } from "vuex"
+  import firebase from "firebase/app"
   import VueRecaptcha from "vue-recaptcha"
-  import layout from "~/middleware/layout"
+  import layout from "@/middleware/layout"
   import { email, required, minLength } from "vuelidate/lib/validators"
 
   export default {
