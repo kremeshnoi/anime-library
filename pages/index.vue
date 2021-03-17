@@ -22,7 +22,6 @@
 	import { mapActions, mapGetters } from "vuex"
 	import Cards from "@/components/blocks/Cards"
 	import Genres from "@/components/blocks/Genres"
-	import Studios from "@/components/blocks/Studios"
 
 	export default {
 		name: "Home",
@@ -33,8 +32,7 @@
 		components: {
 			Hero,
 			Cards,
-			Genres,
-			Studios
+			Genres
 		},
 		computed: {
 			...mapGetters({
