@@ -17,11 +17,11 @@
 <script>
 
 	import { studios } from "@/utils/studios"
-	import layoutMiddleware from "@/middleware/layoutMiddleware"
+	import layout from "~/middleware/layout"
 
 	export default {
 		name: "Studios",
-		layout: layoutMiddleware,
+		layout: layout,
 		computed: {
 			studios() {
 				return {

@@ -21,14 +21,14 @@
 
 	import { manga } from "@/utils/genres"
 	import CardsGrid from "@/components/grids/CardsGrid"
-	import layoutMiddleware from "@/middleware/layoutMiddleware"
+	import layout from "~/middleware/layout"
 
 	export default {
 		name: "MangaGenres",
 		metaInfo: {
 			title: "Otaku Library - Explore manga genres"
 		},
-		layout: layoutMiddleware,
+		layout: layout,
 		components: {
 			CardsGrid
 		},

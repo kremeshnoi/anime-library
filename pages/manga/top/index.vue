@@ -26,7 +26,7 @@
 	import jikanjs from "jikanjs/lib/jikan"
 	import Card from "@/components/elements/Card"
 	import InfiniteLoading from "vue-infinite-loading"
-	import layoutMiddleware from "@/middleware/layoutMiddleware"
+	import layout from "~/middleware/layout"
 	import CardsGrid from "@/components/grids/CardsGrid"
 
 	export default {
@@ -34,7 +34,7 @@
 		metaInfo: {
 			title: "Otaku Library – Top rated manga"
 		},
-		layout: layoutMiddleware,
+		layout: layout,
 		components: {
 			Card,
 			CardsGrid,

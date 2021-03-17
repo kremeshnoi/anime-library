@@ -42,7 +42,7 @@
 	import Select from "@/components/elements/Select"
 	import Characters from "@/components/blocks/Characters"
 	import Description from "@/components/blocks/Description"
-	import layoutMiddleware from "@/middleware/layoutMiddleware"
+	import layout from "~/middleware/layout"
 	import Recommendations from "@/components/blocks/Recommendations"
 
 	export default {
@@ -60,7 +60,7 @@
 			Description,
 			Recommendations
 		},
-		layout: layoutMiddleware,
+		layout: layout,
 		async asyncData({ params }) {
 			const mangaByIdResponse = await jikanjs.loadManga(params.id)
 			const mangaCharactersResponse = await jikanjs.loadManga(

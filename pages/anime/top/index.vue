@@ -27,14 +27,14 @@
 	import Card from "@/components/elements/Card"
 	import InfiniteLoading from "vue-infinite-loading"
 	import CardsGrid from "@/components/grids/CardsGrid"
-	import layoutMiddleware from "@/middleware/layoutMiddleware"
+	import layout from "~/middleware/layout"
 
 	export default {
 		name: "TopAnime",
 		metaInfo: {
 			title: "Otaku Library - Top rated anime"
 		},
-		layout: layoutMiddleware,
+		layout: layout,
 		components: {
 			Card,
 			CardsGrid,

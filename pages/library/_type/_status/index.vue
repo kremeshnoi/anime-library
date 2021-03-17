@@ -58,14 +58,14 @@
 
 	import firebase from "firebase/app"
 	import jikanjs from "jikanjs/lib/jikan.js"
-	import layoutMiddleware from "@/middleware/layoutMiddleware"
+	import layout from "~/middleware/layout"
 
 	export default {
 		name: "Library",
 		metaInfo: {
 			title: "Otaku Library - Library"
 		},
-		layout: layoutMiddleware,
+		layout: layout,
 		data() {
 			return {
 				buffer: [],

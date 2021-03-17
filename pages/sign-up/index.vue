@@ -100,7 +100,7 @@
 
   import { mapActions } from "vuex"
   import VueRecaptcha from "vue-recaptcha"
-  import layoutMiddleware from "@/middleware/layoutMiddleware"
+  import layout from "~/middleware/layout"
   import { email, required, minLength } from "vuelidate/lib/validators"
 
   export default {
@@ -108,7 +108,7 @@
     metaInfo: {
       title: "Otaku Library - Sign Up"
     },
-    layout: layoutMiddleware,
+    layout: layout,
     components: {
       VueRecaptcha
     },

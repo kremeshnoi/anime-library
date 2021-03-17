@@ -108,7 +108,7 @@
   import firebase from "firebase/app"
   import { mapActions } from "vuex"
   import VueRecaptcha from "vue-recaptcha"
-  import layoutMiddleware from "@/middleware/layoutMiddleware"
+  import layout from "~/middleware/layout"
   import { email, required, minLength } from "vuelidate/lib/validators"
 
   export default {
@@ -116,7 +116,7 @@
     metaInfo: {
       title: "Otaku Library - Sign In"
     },
-    layout: layoutMiddleware,
+    layout: layout,
     components: {
       VueRecaptcha
     },

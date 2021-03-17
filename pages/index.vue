@@ -25,11 +25,11 @@
 	import Cards from "@/components/blocks/Cards"
 	import Genres from "@/components/blocks/Genres"
 	import Studios from "@/components/blocks/Studios"
-	import layoutMiddleware from "@/middleware/layoutMiddleware"
+	import layout from "~/middleware/layout"
 
 	export default {
 		name: "Home",
-		layout: layoutMiddleware,
+		layout: layout,
 		metaInfo: {
 			title: "Otaku Library - Organize your own anime and manga list"
 		},

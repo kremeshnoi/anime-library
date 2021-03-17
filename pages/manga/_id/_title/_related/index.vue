@@ -20,7 +20,7 @@
 <script>
 
   import jikanjs from "jikanjs/lib/jikan"
-  import layoutMiddleware from "@/middleware/layoutMiddleware"
+  import layout from "~/middleware/layout"
 
   export default {
     name: "MangaRelated",
@@ -29,7 +29,7 @@
         title: `Manga - ${ this.mangaById.title }`
       }
     },
-    layout: layoutMiddleware,
+    layout: layout,
     async asyncData({ params }) {
       const mangaByIdResponse = await jikanjs.loadManga(params.id)
       return {

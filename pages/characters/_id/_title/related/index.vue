@@ -31,7 +31,7 @@
 <script>
 
   import jikanjs from "jikanjs/lib/jikan"
-  import layoutMiddleware from "@/middleware/layoutMiddleware"
+  import layout from "~/middleware/layout"
 
   export default {
     name: "CharactersRelated",
@@ -40,7 +40,7 @@
         title: "Characters - Related"
       }
     },
-    layout: layoutMiddleware,
+    layout: layout,
 		async asyncData({ params }) {
 			const characterResponse = await jikanjs.loadCharacter(params.id)
 			return {

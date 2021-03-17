@@ -57,14 +57,14 @@
 
   import VueRecaptcha from "vue-recaptcha"
   import { email, required } from "vuelidate/lib/validators"
-  import layoutMiddleware from "@/middleware/layoutMiddleware"
+  import layout from "~/middleware/layout"
 
   export default {
     name: "Recovery",
     metaInfo: {
       title: "Otaku Library - Password recovery"
     },
-    layout: layoutMiddleware,
+    layout: layout,
     components: {
       VueRecaptcha
     },

@@ -42,7 +42,7 @@
   import Select from "@/components/elements/Select"
   import Comments from "@/components/blocks/Comments"
   import Description from "@/components/blocks/Description"
-  import layoutMiddleware from "@/middleware/layoutMiddleware"
+  import layout from "~/middleware/layout"
   import Recommendations from "@/components/blocks/Recommendations"
 
   export default {
@@ -52,7 +52,7 @@
         title: `Anime - ${ this.animeById.title }`
       }
     },
-    layout: layoutMiddleware,
+    layout: layout,
     components: {
       Info,
       Select,
