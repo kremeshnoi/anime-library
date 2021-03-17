@@ -41,7 +41,9 @@ export default {
   .auth-progress
     top: 0
     margin: 0
+    height: 3px
     display: none
+    color: #26A69A
     position: fixed
 
 </style>

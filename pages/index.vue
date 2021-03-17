@@ -7,11 +7,17 @@
 			v-if="animeAiring"
 			:cardsBlockData="animeAiring")
 
-		Genres.home__section
+		Genres.home__section(
+		v-if="animeGenres"
+		:genresData="animeGenres")
 
 		Cards.home__section(
 			v-if="animeUpcoming"
 			:cardsBlockData="animeUpcoming")
+
+		Genres.home__section(
+			v-if="mangaGenres"
+			:genresData="mangaGenres")
 
 </template>
 
@@ -19,6 +25,7 @@
 
 	import layout from "@/middleware/layout"
 	import Hero from "@/components/blocks/Hero"
+	import { anime, manga } from "@/utils/genres"
 	import { mapActions, mapGetters } from "vuex"
 	import Cards from "@/components/blocks/Cards"
 	import Genres from "@/components/blocks/Genres"
@@ -33,6 +40,11 @@
 			Hero,
 			Cards,
 			Genres
+		},
+		data() {
+			return {
+				loading: false
+			}
 		},
 		computed: {
 			...mapGetters({
@@ -51,6 +63,22 @@
 					title: "UPCOMING ANIME",
 					link: "/anime/upcoming",
 					data: this.getAnimeUpcoming
+				}
+			},
+			animeGenres() {
+				return {
+						data: anime,
+						type: "anime",
+						title: "Anime",
+						link: "anime/genres"
+				}
+			},
+			mangaGenres() {
+				return {
+						data: manga,
+						type: "manga",
+						title: "Manga",
+						link: "manga/genres"
 				}
 			}
 		},

@@ -155,7 +155,6 @@
       width: 100%
 
     &__button
-      
       @extend .shadow-btn
 
   .preloader-wrapper

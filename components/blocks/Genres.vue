@@ -4,18 +4,16 @@
 		.genres__container
 			.genres__content
 
-				.genres__block(
-					:key="resultIndex"
-					v-for="(genresResult, resultIndex) in genres")
-					nuxt-link.genres__title(:to="genresResult.link")
-						| {{ genresResult.title }} Genres
+				.genres__block
+					nuxt-link.genres__title(:to="genresData.link")
+						| {{ genresData.title }} Genres
 						.material-icons keyboard_arrow_right
 
 					Carousel.genres-cards(type="genres")
 						nuxt-link.genres-cards__item.swiper-slide(
 							:key="genreIndex"
-							v-for="(genre, genreIndex) in genresResult.data"
-							:to="{ name: `${ genresResult.type }-genres-id-title`, params: { id: genre.id, title: $formatRouteTitle(genre.title) } }")
+							v-for="(genre, genreIndex) in genresData.data"
+							:to="{ name: `${ genresData.type }-genres-id-title`, params: { id: genre.id, title: $formatRouteTitle(genre.title) } }")
 
 							.genres-cards__title-container
 								span.genres-cards__title
@@ -25,31 +23,13 @@
 
 <script>
 
-	import { anime, manga } from "@/utils/genres"
 	import Carousel from "@/components/grids/Carousel"
 
 	export default {
 		name: "Genres",
+		props: ["genresData"],
 		components: {
 			Carousel
-		},
-		computed: {
-			genres() {
-				return {
-					animeGenres: {
-						data: anime,
-						type: "anime",
-						title: "Anime",
-						link: "anime/genres"
-					},
-					// mangaGenres: {
-					// 	data: manga,
-					// 	type: "manga",
-					// 	title: "Manga",
-					// 	link: "manga/genres"
-					// }
-				}
-			}
 		}
 	}
 

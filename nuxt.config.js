@@ -71,7 +71,8 @@ export default {
   router: {
   },
   loading: {
+    height: "3px",
     color: "#26A69A",
-    height: "4px"
+    continuous: true
   }
 }
