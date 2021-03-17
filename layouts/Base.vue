@@ -1,8 +1,7 @@
 <template lang="pug">
 
 	.base
-		.loading-page(v-show="!loading")
-			| loading...
+		Preloader(v-show="!loading")
 
 		.layout-container(v-show="loading")
 			Navbar
@@ -16,6 +15,7 @@
 
 	import Navbar from "@/components/navigation/Navbar"
 	import Footer from "@/components/navigation/Footer"
+	import Preloader from "@/components/elements/Preloader"
 	import Breadcrumb from "@/components/elements/Breadcrumb"
 
 	export default {
@@ -23,6 +23,7 @@
 		components: {
 			Navbar,
 			Footer,
+			Preloader,
 			Breadcrumb
 		},
 		data() {
@@ -48,17 +49,5 @@
 		padding: 54px 0 0 0
 		+flex(initial, center, column)
 		background-color: $color-white-pure
-
-	.loading-page
-		top: 0
-		left: 0
-		width: 100%
-		height: 100%
-		position: fixed
-		font-size: 30px
-		text-align: center
-		padding-top: 200px
-		font-family: sans-serif
-		background: rgba(255, 255, 255, 0.8)
 
 </style>
