@@ -12,14 +12,9 @@
 			.btn.btn-small(@click="addToLibrary(payload)")
 				| Add
 
-		//- span.coupontooltip
-		//- 	| Sign in to acceess
-
 </template>
 
 <script>
-
-	import { mapActions } from "vuex"
 
 	export default {
 		name: "Select",
@@ -130,16 +125,5 @@
 		align-self: flex-start
 		text-transform: lowercase
 		background-color: $color-blue-light
-
-	.coupontooltip
-		opacity: 0.9
-		display: none
-		padding: 10px
-		z-index: 1000
-		margin-left: 28px
-		position: absolute
-		border-radius: 4px
-		color: $color-white-pure
-		background: $color-black
 
 </style>

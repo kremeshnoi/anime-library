@@ -12,8 +12,8 @@
 		:genresData="animeGenres")
 
 		Cards.home__section(
-			v-if="animeUpcoming"
-			:cardsBlockData="animeUpcoming")
+			v-if="mangaPopular"
+			:cardsBlockData="mangaPopular")
 
 		Genres.home__section(
 			v-if="mangaGenres"
@@ -23,10 +23,10 @@
 
 <script>
 
+	import jikanjs from "jikanjs/lib/jikan"
 	import layout from "@/middleware/layout"
 	import Hero from "@/components/blocks/Hero"
 	import { anime, manga } from "@/utils/genres"
-	import { mapActions, mapGetters } from "vuex"
 	import Cards from "@/components/blocks/Cards"
 	import Genres from "@/components/blocks/Genres"
 
@@ -41,30 +41,23 @@
 			Cards,
 			Genres
 		},
-		data() {
+		async asyncData() {
+			const animeAiringResponse = await jikanjs.loadTop("anime", 1, "airing")
+			const mangaPopularResponse = await jikanjs.loadTop("manga", 1, "bypopularity")
 			return {
-				loading: false
+				animeAiring: {
+					title: "AIRING ANIME",
+					link: "/anime/airing",
+					data: animeAiringResponse.top
+				},
+				mangaPopular: {
+					title: "POPULAR MANGA",
+					link: "/manga/popular",
+					data: mangaPopularResponse.top
+				}
 			}
 		},
 		computed: {
-			...mapGetters({
-				getAnimeAiring: "anime/getAnimeAiring",
-				getAnimeUpcoming: "anime/getAnimeUpcoming"
-			}),
-			animeAiring() {
-				return {
-					title: "AIRING ANIME",
-					link: "/anime/airing",
-					data: this.getAnimeAiring
-				}
-			},
-			animeUpcoming() {
-				return {
-					title: "UPCOMING ANIME",
-					link: "/anime/upcoming",
-					data: this.getAnimeUpcoming
-				}
-			},
 			animeGenres() {
 				return {
 						data: anime,
@@ -81,16 +74,6 @@
 						link: "manga/genres"
 				}
 			}
-		},
-		async created() {
-			await this.loadAnimeAiring()
-			await this.loadAnimeUpcoming()
-		},
-		methods: {
-			...mapActions({
-				loadAnimeAiring: "anime/loadAnimeAiring",
-				loadAnimeUpcoming: "anime/loadAnimeUpcoming"
-			})
 		}
 	}
 
