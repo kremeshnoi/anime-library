@@ -1,8 +1,4 @@
-
-
 import jikanjs from "jikanjs/lib/jikan.js"
-
-
 
 export const state = () => ({
   charactersById: [],
@@ -19,7 +15,7 @@ export const mutations = {
   },
   SET_CHARACTERS_FAVORITE_CATEGORIES(state, charactersFavoriteCategories) {
     state.charactersFavoriteCategories = charactersFavoriteCategories
-  },
+  }
 }
 
 export const actions = {
