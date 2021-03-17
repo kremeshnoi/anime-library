@@ -11,7 +11,8 @@ export default {
     ]
   },
   target: "static",
-  mode: "ssr",
+  mode: "universal",
+  ssr: true,
   css: [
     { src: "node_modules/swiper/css/swiper.min.css" },
     { src: "node_modules/vue-wysiwyg/dist/vueWysiwyg.css"},
