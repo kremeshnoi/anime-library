@@ -30,7 +30,7 @@
 		&__progressbar
 			width: 300px
 			height: 4px
-			margin-top: 10px
+			margin-top: 20px
 			background: $color-grey-light
 			&::after
 				content: ""

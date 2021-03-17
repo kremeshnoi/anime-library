@@ -3,7 +3,7 @@
   .layout-container
     .progress.auth-progress
       .indeterminate
-    router-view
+    Nuxt
 
 </template>
 

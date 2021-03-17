@@ -6,7 +6,7 @@
 		.layout-container(v-show="loading")
 			Navbar
 			Breadcrumb
-			router-view(:key="this.$route.path")
+			Nuxt(:key="this.$route.path")
 			Footer
 
 </template>
