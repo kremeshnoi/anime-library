@@ -58,7 +58,7 @@
 
 	import firebase from "firebase/app"
 	import jikanjs from "jikanjs/lib/jikan.js"
-	import layout from "~/middleware/layout"
+	import layout from "@/middleware/layout"
 
 	export default {
 		name: "Library",

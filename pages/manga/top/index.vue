@@ -26,7 +26,7 @@
 	import jikanjs from "jikanjs/lib/jikan"
 	import Card from "@/components/elements/Card"
 	import InfiniteLoading from "vue-infinite-loading"
-	import layout from "~/middleware/layout"
+	import layout from "@/middleware/layout"
 	import CardsGrid from "@/components/grids/CardsGrid"
 
 	export default {

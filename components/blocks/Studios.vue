@@ -17,7 +17,7 @@
 <script>
 
 	import { studios } from "@/utils/studios"
-	import layout from "~/middleware/layout"
+	import layout from "@/middleware/layout"
 
 	export default {
 		name: "Studios",

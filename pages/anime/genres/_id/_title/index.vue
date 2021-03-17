@@ -27,7 +27,7 @@
 	import Card from "@/components/elements/Card"
 	import InfiniteLoading from "vue-infinite-loading"
 	import CardsGrid from "@/components/grids/CardsGrid"
-	import layout from "~/middleware/layout"
+	import layout from "@/middleware/layout"
 
 	export default {
 		name: "AnimeGenre",

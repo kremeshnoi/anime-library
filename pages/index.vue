@@ -3,29 +3,26 @@
 	main.home
 		Hero.home__section
 
-		//- Studios.home__section
-
 		Cards.home__section(
 			v-if="animeAiring"
 			:cardsBlockData="animeAiring")
 
 		Genres.home__section
 
-		//- Cards.home__section(
-		//- 	v-if="animeUpcoming"
-		//- 	:cardsBlockData="animeUpcoming")
+		Cards.home__section(
+			v-if="animeUpcoming"
+			:cardsBlockData="animeUpcoming")
 
 </template>
 
 <script>
 
-	import { studios } from "@/utils/studios"
+	import layout from "@/middleware/layout"
 	import Hero from "@/components/blocks/Hero"
 	import { mapActions, mapGetters } from "vuex"
 	import Cards from "@/components/blocks/Cards"
 	import Genres from "@/components/blocks/Genres"
 	import Studios from "@/components/blocks/Studios"
-	import layout from "~/middleware/layout"
 
 	export default {
 		name: "Home",
@@ -42,7 +39,7 @@
 		computed: {
 			...mapGetters({
 				getAnimeAiring: "anime/getAnimeAiring",
-				// getAnimeUpcoming: "anime/getAnimeUpcoming"
+				getAnimeUpcoming: "anime/getAnimeUpcoming"
 			}),
 			animeAiring() {
 				return {
@@ -51,27 +48,22 @@
 					data: this.getAnimeAiring
 				}
 			},
-			// animeUpcoming() {
-			// 	return {
-			// 		title: "UPCOMING ANIME",
-			// 		link: "/anime/upcoming",
-			// 		data: this.getAnimeUpcoming
-			// 	}
-			// },
-			studios() {
+			animeUpcoming() {
 				return {
-					data: studios
+					title: "UPCOMING ANIME",
+					link: "/anime/upcoming",
+					data: this.getAnimeUpcoming
 				}
 			}
 		},
 		async created() {
 			await this.loadAnimeAiring()
-			// await this.loadAnimeUpcoming()
+			await this.loadAnimeUpcoming()
 		},
 		methods: {
 			...mapActions({
 				loadAnimeAiring: "anime/loadAnimeAiring",
-				// loadAnimeUpcoming: "anime/loadAnimeUpcoming"
+				loadAnimeUpcoming: "anime/loadAnimeUpcoming"
 			})
 		}
 	}

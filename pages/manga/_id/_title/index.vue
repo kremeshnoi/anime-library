@@ -42,7 +42,7 @@
 	import Select from "@/components/elements/Select"
 	import Characters from "@/components/blocks/Characters"
 	import Description from "@/components/blocks/Description"
-	import layout from "~/middleware/layout"
+	import layout from "@/middleware/layout"
 	import Recommendations from "@/components/blocks/Recommendations"
 
 	export default {

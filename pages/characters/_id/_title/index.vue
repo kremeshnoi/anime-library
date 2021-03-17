@@ -105,7 +105,7 @@
 
 	import jikanjs from "jikanjs/lib/jikan"
 	import Carousel from "@/components/grids/Carousel"
-	import layout from "~/middleware/layout"
+	import layout from "@/middleware/layout"
 
 	export default {
 		name: "Character",

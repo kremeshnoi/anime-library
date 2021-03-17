@@ -21,7 +21,7 @@
 
 	import { anime } from "@/utils/genres"
 	import CardsGrid from "@/components/grids/CardsGrid"
-	import layout from "~/middleware/layout"
+	import layout from "@/middleware/layout"
 
 	export default {
 		name: "AnimeGenres",
