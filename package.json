@@ -9,7 +9,6 @@
     "generate": "nuxt-ts generate"
   },
   "dependencies": {
-    "@nuxtjs/html-validator": "^0.2.2",
     "@nuxt/typescript-runtime": "^2.0.0",
     "@nuxtjs/firebase": "^7.4.1",
     "@nuxtjs/recaptcha": "^0.6.2",
@@ -34,7 +33,6 @@
   "devDependencies": {
     "@nuxt/types": "^2.14.6",
     "@nuxt/typescript-build": "^2.0.3",
-    "@nuxtjs/html-validator": "^0.2.2",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^26.5.0",
     "fibers": "^5.0.0",
