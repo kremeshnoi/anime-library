@@ -1,13 +1,10 @@
 <template lang="pug">
 
-	.base
-		Preloader(v-show="!loading")
-
-		.layout-container(v-show="loading")
-			Navbar
-			Breadcrumb
-			Nuxt(:key="this.$route.path")
-			Footer
+	.layout-container
+		Navbar
+		Breadcrumb
+		Nuxt(:key="this.$route.path")
+		Footer
 
 </template>
 
