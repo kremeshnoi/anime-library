@@ -44,9 +44,6 @@ export default {
     { src: "@/plugins/methods/format-related-title" }
   ],
   components: true,
-  buildModules: [
-    { src: "@nuxt/typescript-build" }
-  ],
   modules: [
     ["@nuxtjs/firebase",
       {

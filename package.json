@@ -4,12 +4,11 @@
   "private": true,
   "scripts": {
     "jest": "jest",
-    "dev": "nuxt-ts",
-    "start": "nuxt-ts start",
-    "generate": "nuxt-ts generate"
+    "dev": "nuxt",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
   },
   "dependencies": {
-    "@nuxt/typescript-runtime": "^2.0.0",
     "@nuxtjs/firebase": "^7.4.1",
     "@nuxtjs/recaptcha": "^0.6.2",
     "axios": "^0.21.1",
@@ -31,8 +30,6 @@
     "vuelidate": "^0.7.6"
   },
   "devDependencies": {
-    "@nuxt/types": "^2.14.6",
-    "@nuxt/typescript-build": "^2.0.3",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^26.5.0",
     "fibers": "^5.0.0",
@@ -41,7 +38,6 @@
     "pug-plain-loader": "^1.1.0",
     "sass": "^1.32.6",
     "sass-loader": "^10.1.1",
-    "ts-jest": "^26.5.0",
     "vue-jest": "^3.0.4"
   }
 }
