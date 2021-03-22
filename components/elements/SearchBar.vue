@@ -4,8 +4,7 @@
     data-target="dropdown"
     @click="showDropdown($event)")
     nav.search-bar__nav
-      .search-bar__wrapper.white.nav-wrapper
-        form.search-bar__form(
+      .search-bar__wrapper.white.nav-wrapper(
           v-model="type"
           @input="search(query)")
 

@@ -1,6 +1,6 @@
 export default {
   head: {
-    title: "nuxt",
+    title: "Otaku Library",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -45,10 +45,10 @@ export default {
   ],
   components: true,
   buildModules: [
-    { src: "@nuxt/typescript-build" }
+    { src: "@nuxt/typescript-build" },
+    { src: "@nuxtjs/html-validator" }
   ],
   modules: [
-    ["cookie-universal-nuxt"],
     ["@nuxtjs/firebase",
       {
         config: {
@@ -67,6 +67,7 @@ export default {
         }
       }
     ],
+    ["cookie-universal-nuxt"]
   ],
   router: {
   },
@@ -74,5 +75,16 @@ export default {
     height: "3px",
     color: "#26A69A",
     continuous: true
-  }
+  },
+  htmlValidator: {
+    usePrettier: true,
+    options: {
+      extends: [
+        "html-validate:document",
+        "html-validate:standard",
+        "html-validate:recommended"
+      ]
+    }
+  },
+  processConditionalComments: false
 }

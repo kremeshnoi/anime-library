@@ -28,7 +28,7 @@
 				v-for="(resultItem, resultIndex) in searchedData"
 				:to="{ name: `${ type }-id-title`, params: { id: resultItem.mal_id, title: $formatRouteTitle(resultItem.title) } }")
 				.cards__wrapper
-					img.cards__image(draggable="false" :src="resultItem.image_url")
+					img.cards__image(draggable="false" :src="resultItem.image_url" alt="title cover")
 
 					ul.cards__description
 						li.cards__title

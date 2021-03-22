@@ -20,7 +20,7 @@
     "firebase": "^7.15.1",
     "jikanjs": "^0.7.0",
     "materialize-css": "^1.0.0",
-    "nuxt": "^2.14.6",
+    "nuxt": "^2.15.3",
     "swiper": "^5.4.5",
     "vue-awesome-swiper": "^4.1.1",
     "vue-infinite-loading": "^2.4.5",
@@ -33,6 +33,7 @@
   "devDependencies": {
     "@nuxt/types": "^2.14.6",
     "@nuxt/typescript-build": "^2.0.3",
+    "@nuxtjs/html-validator": "^0.2.2",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^26.5.0",
     "fibers": "^5.0.0",

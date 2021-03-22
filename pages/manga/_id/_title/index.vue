@@ -5,11 +5,12 @@
 			.manga__main-content
 				h1.manga__title
 					| {{ mangaById.title }}
-					.divider-hidden
+					span.divider-hidden
 					| {{ mangaById.title_japanese }}
 				.manga__cover-container
 					img.manga__cover(
 						draggable="false"
+						alt="manga cover"
 						:src="mangaById.image_url")
 
 					Select.manga__input-field(

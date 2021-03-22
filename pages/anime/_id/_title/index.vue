@@ -5,11 +5,11 @@
       .anime__main-content
         h1.anime__title
           | {{ animeById.title }}
-          .divider-hidden
+          span.divider-hidden
           | {{ animeById.title_japanese }}
 
         .anime__cover-container
-          img.anime__cover(:src="animeById.image_url")
+          img.anime__cover(:src="animeById.image_url" alt="anime cover")
 
           Select.anime__input-field(
             v-if="animeById.type"

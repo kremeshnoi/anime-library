@@ -2,12 +2,12 @@
 
 	.input-wrapper
 		.input-field
-			select(v-model="payload.status")
+			label(for="select-status")
+			select(v-model="payload.status" name="select-status" id="select-status")
 				option(
 					:key="optionIndex"
 					:value="option.value"
-					v-for="(option, optionIndex) in options")
-					span {{ option.title }}
+					v-for="(option, optionIndex) in options") {{ option.title }}
 
 			.btn.btn-small(@click="addToLibrary(payload)")
 				| Add

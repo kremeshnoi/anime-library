@@ -9,6 +9,7 @@
 				.character__cover-container
 					img.character__cover(
 						draggable="false"
+						alt="character cover"
 						:src="characterById.image_url")
 
 				.character__info.character-info
@@ -50,6 +51,7 @@
 										td.character-voice-actors__td
 											img.character-voice-actors__photo(
 												draggable="false"
+												alt="voice actor"
 												:src="value.image_url")
 											.character-voice-actors__info
 												.character-voice-actors__lang

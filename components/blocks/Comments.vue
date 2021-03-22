@@ -8,7 +8,7 @@
 		.comments__content
 			.comment
 				.comment__container
-					img.comment__avatar(src="@/assets/images/user.jpg")
+					img.comment__avatar(src="@/assets/images/user.jpg" alt="avatar")
 					.comment__body
 						a.comment__username
 							| USERNAME

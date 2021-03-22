@@ -3,7 +3,7 @@
 	section.footer-info
 		.footer-info__container
 			.footer-info__item
-				h5.footer-info__title
+				h2.footer-info__title
 					| Discord channel
 				p.footer-info__description
 					| We will also be happy to meet you on our channel, where you can always find like-minded people. Feel free to come in.
@@ -13,17 +13,18 @@
 					| Chat
 
 			.footer-info__item
-				h5.footer-info__title.footer-info__subtitle
+				h2.footer-info__title.footer-info__subtitle
 					| Donation
 				a.footer-info__link.footer-info__link_support(
 					target="_blank"
 					href="https://www.patreon.com/otaku_library")
 					img.footer-info__support(
 						draggable="false"
+						alt="patreon donation"
 						src="@/assets/images/patreon.png")
 
 			.footer-info__item
-				h5.footer-info__title
+				h2.footer-info__title
 					| Help
 				nuxt-link.footer-info__link(to="/faq")
 					| FAQ
@@ -87,6 +88,7 @@
 				grid-template-columns: 1fr
 
 		&__title
+			font-size: 26px
 			padding: 0 0 8px 0
 
 		&__subtitle

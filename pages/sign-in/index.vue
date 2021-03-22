@@ -78,6 +78,7 @@
               .sign-in-form__google-wrapper
                 img.sign-in-form__google-logo(
                   draggable="false"
+                  alt="google logo"
                   src="~/assets/images/g-logo.png")
                 .sign-in-form__google-title
                   | Google
@@ -86,6 +87,7 @@
               .sign-in-form__twitter-wrapper
                 img.sign-in-form__twitter-logo(
                   draggable="false"
+                  alt="twitter logo"
                   src="~/assets/images/t-logo.png")
                 .sign-in-form__twitter-title
                   | Twitter

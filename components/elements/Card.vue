@@ -4,6 +4,7 @@
 		.card__image-wrapper
 			img.card__image(
 				draggable="false"
+				alt="title cover"
 				:src="resultItem.image_url")
 
 			.card__title-wrapper

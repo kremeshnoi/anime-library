@@ -11,7 +11,7 @@
         v-if="trailerData"
         allowfullscreen="true")
 
-      img.trailer__disaster(draggable="false" v-else, src="@/assets/images/not-found.jpg")
+      img.trailer__disaster(draggable="false" v-else, src="@/assets/images/not-found.jpg" alt="not found 404")
 
 </template>
 
