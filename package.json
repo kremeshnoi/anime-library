@@ -9,6 +9,7 @@
     "generate": "nuxt-ts generate"
   },
   "dependencies": {
+    "@nuxtjs/html-validator": "^0.2.2",
     "@nuxt/typescript-runtime": "^2.0.0",
     "@nuxtjs/firebase": "^7.4.1",
     "@nuxtjs/recaptcha": "^0.6.2",

@@ -77,7 +77,7 @@ export default {
     continuous: true
   },
   htmlValidator: {
-    usePrettier: false,
+    usePrettier: true,
     options: {
       extends: [
         "html-validate:document",
