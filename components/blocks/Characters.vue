@@ -5,20 +5,19 @@ section.manga-characters
       | Characters
 
     .manga-characters__container(
-      v-if="charactersData && charactersData.length"
-    )
+      v-if="charactersData && charactersData.length")
+
       Carousel
         Card.swiper-slide.manga-characters__card(
           :key="dataIndex",
           :resultItem="data",
-          v-for="(data, dataIndex) in charactersData.slice(0, 12)"
-        )
+          v-for="(data, dataIndex) in charactersData.slice(0, 12)")
 
       nuxt-link.manga-characters__link(:to="{ name: 'manga-id-title-characters', params: { id: wholeData.mal_id, title: $formatRouteTitle(wholeData.title) } }")
         | More
 
     h4.manga-characters__disaster(v-else)
-      | Not found
+      | Not found (｡•́︿•̀｡)
 
 </template>
 

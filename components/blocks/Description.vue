@@ -8,7 +8,7 @@
       | {{ descriptionData }}
 
     h4.description__disaster(v-else)
-      | Not found
+      | Not found ( ಥ﹏ಥ )
 
 </template>
 

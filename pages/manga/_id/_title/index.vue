@@ -22,10 +22,6 @@
 			.manga__sub-content
 				Characters.manga__characters(:charactersData="mangaCharactersById.characters" :wholeData="mangaById")
 
-				Related.manga__related(
-					relatedType="manga"
-					:wholeData="mangaById")
-
 			Description.manga__description(:descriptionData="mangaById.synopsis")
 
 			Recommendations.manga__recommendations(:recommendationsData="mangaRecommendationsById.recommendations")
@@ -37,12 +33,11 @@
 <script>
 
 	import jikanjs from "jikanjs/lib/jikan"
+	import layout from "@/middleware/layout"
 	import Info from "@/components/blocks/Info"
-	import Related from "@/components/blocks/Related"
 	import Select from "@/components/elements/Select"
 	import Characters from "@/components/blocks/Characters"
 	import Description from "@/components/blocks/Description"
-	import layout from "@/middleware/layout"
 	import Recommendations from "@/components/blocks/Recommendations"
 
 	export default {
@@ -55,7 +50,6 @@
 		components: {
 			Info,
 			Select,
-			Related,
 			Characters,
 			Description,
 			Recommendations
@@ -75,14 +69,6 @@
 				mangaById: mangaByIdResponse,
 				mangaCharactersById: mangaCharactersResponse,
 				mangaRecommendationsById: mangaRecommendationsByIdResponse,
-			}
-		},
-		async mounted() {
-			const modal = document.querySelectorAll(".modal")
-			const modal_instance = M.Modal.init(modal)
-			if (Object.keys(this.mangaById.related).length > 0) {
-				const tabs = document.querySelectorAll(".tabs")
-				const instanceTabs = M.Tabs.init(tabs)
 			}
 		}
 	}

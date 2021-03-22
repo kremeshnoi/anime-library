@@ -28,8 +28,8 @@
 						| Voice Actors
 
 					.character-voice-actors__content(v-if="characterById.voice_actors")
-						h4.manga-related__disaster(v-if="characterById.voice_actors.length === 0")
-							| Not found
+						h4.character__disaster(v-if="characterById.voice_actors.length === 0")
+							| Not found ( ಥ﹏ಥ )
 
 						ul.character-voice-actors__tabs.tabs(v-if="characterById.voice_actors")
 							li.character-voice-actors__tab.tab(
@@ -55,43 +55,6 @@
 												.character-voice-actors__lang
 													| Language: {{ value.language }}
 
-			.character__related-content
-				.mangaography
-					.mangaography__title
-						| Related Manga
-					.mangaography__items
-						.mangaography__item
-							table.mangaography__table
-								tbody.mangaography__tbody
-									tr.mangaography__tr(
-										:key="dataIndex"
-										v-for="(resultItem, dataIndex) in characterById.mangaography.slice(0, 1)")
-
-										td.mangaography__td
-											nuxt-link.mangaography__link(:to="{ name: 'manga-id-title', params: { id: resultItem.mal_id, title: $formatRouteTitle(resultItem.name) } }")
-												| {{ resultItem.name }}
-
-											nuxt-link.mangaography__more-link(:to="{ name: 'characters-id-title-related', params: { id: characterById.mal_id, title: $formatRouteTitle(characterById.name) }, query: { type: 'manga' } }")
-												| More
-
-				.animeography
-					.animeography__title
-						| Related Anime
-					.animeography__items
-						.animeography__item
-							table.animeography__table
-								tbody.animeography__tbody
-									tr.animeography__tr(
-										:key="dataIndex"
-										v-for="(resultItem, dataIndex) in characterById.animeography.slice(0, 1)")
-
-										td.animeography__td
-											nuxt-link.animeography__link(:to="{ name: 'anime-id-title', params: { id: resultItem.mal_id, title: $formatRouteTitle(resultItem.name) } }")
-												| {{ resultItem.name }}
-
-									nuxt-link.animeography__more-link(:to="{ name: 'characters-id-title-related', params: { id: characterById.mal_id, title: $formatRouteTitle(characterById.name) }, query: { type: 'anime' } }")
-										| More
-
 			//- Comments.character__comments
 
 		#character-info-modal.character-modal.modal
@@ -104,8 +67,8 @@
 <script>
 
 	import jikanjs from "jikanjs/lib/jikan"
-	import Carousel from "@/components/grids/Carousel"
 	import layout from "@/middleware/layout"
+	import Carousel from "@/components/grids/Carousel"
 
 	export default {
 		name: "Character",
@@ -169,10 +132,10 @@
 			column-gap: 20px
 			@extend .container-default
 			grid-template-columns: 1fr 1fr
-			grid-template-areas: "main sub" "related related" "comments comments"
+			grid-template-areas: "main sub" "comments comments"
 			+mq(tablet-mid, max)
 				grid-template-columns: 1fr
-				grid-template-areas: "main" "sub" "related" "comments"
+				grid-template-areas: "main" "sub" "comments"
 
 		&__main-content
 			display: grid
@@ -216,12 +179,6 @@
 			grid-area: title
 			text-align: start
 			@extend .title-vertical-cut
-
-		&__related-content
-			display: grid
-			column-gap: 20px
-			grid-area: related
-			grid-template-columns: 1fr 1fr
 
 	.character-info
 		grid-area: info
@@ -317,7 +274,6 @@
 			height: initial !important
 
 		&__tab-item
-			text-align: start
 			line-height: initial
 			padding: 0 !important
 			margin: 0 24px 14px 0
@@ -332,7 +288,6 @@
 		&__text
 			text-align: start
 			white-space: pre-wrap
-
 
 	.animeography, .mangaography
 		position: relative
@@ -384,6 +339,7 @@
 			width: auto
 			bottom: -30px
 			@extend .title-cut
+			z-index: 1
 			position: absolute
 			color: $color-blue-light
 			+mq(phone-wide, max)

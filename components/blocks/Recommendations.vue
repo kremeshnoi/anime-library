@@ -12,7 +12,7 @@
 					v-for="(recommendation, recommendationIndex) in recommendationsData")
 
 			h4.recommendations__disaster(v-else)
-				| Not found
+				| Not found	(╥﹏╥)
 
 </template>
 
