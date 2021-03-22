@@ -12,6 +12,15 @@ export default {
   },
   target: "static",
   ssr: true,
+  analyze: true,
+  build: {
+    minimize: true,
+    extend(config, { isClient }) {
+      if (isClient) {
+        config.optimization.splitChunks.maxSize = 244000
+      }
+    }
+  },
   css: [
     { src: "node_modules/swiper/css/swiper.min.css" },
     { src: "node_modules/vue-wysiwyg/dist/vueWysiwyg.css"},
