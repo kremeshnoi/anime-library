@@ -43,7 +43,7 @@
 								img.library__image(
 									draggable="false"
 									alt="title cover"
-									src="data.image_url")
+									:src="data.image_url")
 							td.library__td
 								a.library__link.library__link_title
 									| {{ data.title }}

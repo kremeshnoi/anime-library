@@ -75,6 +75,25 @@
 		mounted() {
 			const select = document.querySelectorAll("select")
 			const selectInstance = M.FormSelect.init(select)
+		},
+		methods: {
+			async addToLibrary({ type, status, id }) {
+				try {
+					const uid = await this.$store.dispatch("auth/getUid")
+
+					if(type === "Manga") type = "manga"
+					else type = "anime"
+
+					await this.$fire.database
+						.ref(`/users/${ uid }/${ type }/${ id }/`)
+						.set({ status })
+
+					M.toast({ html: "Added to the library", classes: "green", displayLength: 10000 })
+
+				} catch (error) {
+					throw error.message
+				}
+			}
 		}
 	}
 
