@@ -4,7 +4,7 @@ export default {
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "" }
+      { hid: "description", name: "description" }
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" }
@@ -77,7 +77,7 @@ export default {
     continuous: true
   },
   htmlValidator: {
-    usePrettier: true,
+    usePrettier: false,
     options: {
       extends: [
         "html-validate:document",
@@ -85,6 +85,5 @@ export default {
         "html-validate:recommended"
       ]
     }
-  },
-  processConditionalComments: false
+  }
 }
