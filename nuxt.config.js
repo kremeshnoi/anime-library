@@ -11,7 +11,6 @@ export default {
     ]
   },
   target: "static",
-  mode: "universal",
   ssr: true,
   css: [
     { src: "node_modules/swiper/css/swiper.min.css" },
@@ -71,5 +70,13 @@ export default {
     height: "3px",
     color: "#26A69A",
     continuous: true
+  },
+  generate: {
+    crawler: false,
+    exclude: [
+      /^\/anime/,
+      /^\/manga/,
+      /^\/characters/
+    ]
   }
 }

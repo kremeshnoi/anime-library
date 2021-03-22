@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "jest": "jest",
     "dev": "nuxt",
     "start": "nuxt start",
     "generate": "nuxt generate"
