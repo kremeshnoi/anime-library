@@ -12,7 +12,6 @@
 
 	import Navbar from "@/components/navigation/Navbar"
 	import Footer from "@/components/navigation/Footer"
-	import Preloader from "@/components/elements/Preloader"
 	import Breadcrumb from "@/components/elements/Breadcrumb"
 
 	export default {
@@ -20,17 +19,10 @@
 		components: {
 			Navbar,
 			Footer,
-			Preloader,
 			Breadcrumb
-		},
-		data() {
-			return {
-				loading: false
-			}
 		},
 		mounted() {
 			M.AutoInit()
-			this.loading = true
 		}
 	}
 

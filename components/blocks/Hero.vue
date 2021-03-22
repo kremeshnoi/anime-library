@@ -7,9 +7,8 @@
 					| Organize your library. Find, add, modify, communicate
 				p.hero__description
 					| Join us to get full access of the site functionality
-				nuxt-link(to="/sign-up" custom v-slot='{ navigate }')
-					.hero__button.btn(@click="navigate" @keypress.enter="navigate")
-						| JOIN US
+				nuxt-link.hero__button.btn(to="/sign-up")
+					| JOIN US
 			.hero__image-side
 				.hero__image
 
