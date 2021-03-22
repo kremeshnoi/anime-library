@@ -1,7 +1,7 @@
 <template lang="pug">
 
 	.input-wrapper
-		.input-field(:class="{ disabled: $nuxt.layoutName === 'Unauthorized' }")
+		.input-field
 			select(v-model="payload.status")
 				option(
 					:key="optionIndex"
@@ -75,24 +75,6 @@
 		mounted() {
 			const select = document.querySelectorAll("select")
 			const selectInstance = M.FormSelect.init(select)
-			const tooltip = document.querySelectorAll(".coupontooltip")
-
-			document.addEventListener("mousemove", fn, false)
-
-			function fn(e) {
-					for (var i = tooltip.length; i--;) {
-							tooltip[i].style.left = e.pageX + "px"
-							tooltip[i].style.top = e.pageY + "px"
-					}
-			}
-		},
-		methods: {
-			followCursor() {
-				for (let i = tooltip.length; i--;) {
-					tooltip[i].style.left = e.pageX + "px"
-					tooltip[i].style.top = e.pageY + "px"
-				}
-			}
 		}
 	}
 
