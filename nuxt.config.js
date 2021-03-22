@@ -76,24 +76,24 @@ export default {
     color: "#26A69A",
     continuous: true
   },
-  htmlValidator: {
-    usePrettier: true,
-    options: {
-      extends: [
-        "html-validate:document",
-        "html-validate:standard",
-        "html-validate:recommended"
-      ],
-      rules: {
-        "void-style": "off",
-        "require-sri": "off",
-        "svg-focusable": "off",
-        "doctype-style": "off",
-        "no-inline-style": "off",
-        "no-unknown-elements": "error",
-        "no-trailing-whitespace": "off",
-        "attribute-boolean-style": "off"
-      }
-    }
-  }
+  // htmlValidator: {
+  //   usePrettier: true,
+  //   options: {
+  //     extends: [
+  //       "html-validate:document",
+  //       "html-validate:standard",
+  //       "html-validate:recommended"
+  //     ],
+  //     rules: {
+  //       "void-style": "off",
+  //       "require-sri": "off",
+  //       "svg-focusable": "off",
+  //       "doctype-style": "off",
+  //       "no-inline-style": "off",
+  //       "no-unknown-elements": "error",
+  //       "no-trailing-whitespace": "off",
+  //       "attribute-boolean-style": "off"
+  //     }
+  //   }
+  // }
 }
