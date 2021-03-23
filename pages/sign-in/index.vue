@@ -223,6 +223,8 @@
     &__button
       height: 36px
       width: 120px
+      @extend .shadow-btn
+      background-color: $color-aquamarine
 
   .sign-in-form
     width: 100%
@@ -287,10 +289,6 @@
 
     &__helper
       width: 100%
-
-    &__button
-      
-      @extend .shadow-btn
 
   .preloader-wrapper
     display: none

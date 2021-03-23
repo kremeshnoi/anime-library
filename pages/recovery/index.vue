@@ -42,7 +42,7 @@
             sitekey="6LeKfEgaAAAAAGqtaoHk9BjYE18zHwoeOmoOCkhq")
 
           .recovery-form__row
-            button.recovery-form_button.btn(
+            button.recovery-form__button.btn(
               type="submit"
               name="submitRecover")
               | Submit
@@ -158,6 +158,7 @@
 
     &__button
       @extend .shadow-btn
+      background-color: $color-aquamarine
 
   .preloader-wrapper
     display: none

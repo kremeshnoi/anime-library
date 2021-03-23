@@ -56,6 +56,7 @@
 		&__button
 			margin: 20px 0 0 0
 			@extend .shadow-btn
+			background-color: $color-aquamarine
 			+mq(tablet-small, max)
 				margin: 0 0 0 0
 

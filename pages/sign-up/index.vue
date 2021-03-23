@@ -85,7 +85,7 @@
             @expired="onCaptchaExpired"
             sitekey="6LeKfEgaAAAAAGqtaoHk9BjYE18zHwoeOmoOCkhq")
           .sign-up-form__row
-            button.SignUp-button.btn(
+            button.sign-up__button.btn(
               type="submit"
               name="submitSignUp")
               | Create Account
@@ -182,6 +182,10 @@
       border-radius: 0
     +flex(center, center, column)
 
+    &__button
+      @extend .shadow-btn
+      background-color: $color-aquamarine
+
     &__link
       color: $color-blue-light
 
@@ -208,10 +212,6 @@
 
     &__helper
       width: 100%
-
-    &__button
-      
-      @extend .shadow-btn
 
   .preloader-wrapper
     display: none

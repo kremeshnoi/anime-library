@@ -102,6 +102,7 @@
 			&:hover
 				text-decoration: underline
 			&_decor
+				background-color: $color-aquamarine
 				margin: 16px 0 0 0
 				@extend .shadow-btn
 
