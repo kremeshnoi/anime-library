@@ -12,29 +12,28 @@ export default {
   },
   target: "static",
   ssr: true,
-  analyze: true,
   build: {
-    minimize: true,
     extend(config, { isClient }) {
       if (isClient) {
-        config.optimization.splitChunks.maxSize = 244000
+        config.optimization.splitChunks.maxSize = 51200
       }
     }
   },
   css: [
-    { src: "node_modules/swiper/css/swiper.min.css" },
-    { src: "node_modules/vue-wysiwyg/dist/vueWysiwyg.css"},
-    { src: "node_modules/materialize-css/dist/css/materialize.min.css" },
-
+    // packages styles
+    { src: "~/node_modules/swiper/css/swiper.min.css" },
+    { src: "~/node_modules/vue-wysiwyg/dist/vueWysiwyg.css"},
+    { src: "~/node_modules/bootstrap/dist/css/bootstrap.min.css" },
+    { src: "~/node_modules/bootstrap-vue/dist/bootstrap-vue.min.css" },
+    { src: "~/node_modules/materialize-css/dist/css/materialize.min.css" },
+    // custom styles
     { src: "~/assets/styles/base/base.sass" },
     { src: "~/assets/styles/base/reset.sass" },
-
     { src: "~/assets/styles/state/tabs.sass" },
     { src: "~/assets/styles/state/toast.sass" },
     { src: "~/assets/styles/state/select.sass" },
     { src: "~/assets/styles/state/recaptcha.sass" },
     { src: "~/assets/styles/state/infinite-scroll.sass" },
-
     { src: "~/assets/styles/theme/scrollbar.sass" },
     { src: "~/assets/styles/theme/fonts/material-icons.sass" },
     { src: "~/assets/styles/theme/fonts/days-one-regular.sass" }

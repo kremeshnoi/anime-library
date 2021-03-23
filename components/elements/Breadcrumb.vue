@@ -47,8 +47,6 @@
 </script>
 
 <style scoped lang="sass">
-	@import "@/node_modules/bootstrap/dist/css/bootstrap.css"
-	@import "@/node_modules/bootstrap-vue/dist/bootstrap-vue.css"
 
 	@import "~/assets/styles/utils/vars"
 	@import "~/assets/styles/utils/mixins"

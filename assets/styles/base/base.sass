@@ -2,20 +2,24 @@
 @import "~/assets/styles/utils/mixins"
 
 section
-  width: 100%
+  width: 100% !important
 
 a
-  cursor: pointer
+  border: 0 !important
+  cursor: pointer !important
   transition: none !important
+  text-decoration: none !important
+  &:hover
+    color: inherit !important
 
 img
-  object-fit: cover
+  object-fit: cover !important
 
 main
-  width: 100%
+  width: 100% !important
 
 label
-  margin: -6px 0 0 0
+  margin: -6px 0 0 0 !important
 
 iframe, object, embed
-  max-width: 100%
+  max-width: 100% !important
