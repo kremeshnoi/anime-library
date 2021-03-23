@@ -50,6 +50,7 @@
 
 	.card
 		margin: 0
+		border: 0
 		width: 100%
 		max-width: 160px
 		position: relative

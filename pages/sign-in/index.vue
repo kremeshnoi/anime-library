@@ -47,14 +47,14 @@
               v-else-if="$v.password.$dirty && !$v.password.minLength")
 
         .sign-in-form__row
-          nuxt-link(to="/recovery")
+          nuxt-link.sign-in__link(to="/recovery")
             | Forgot password?
 
         .sign-in-form__row
           | - or -
 
         .sign-in-form__row
-          nuxt-link(to="/sign-up")
+          nuxt-link.sign-in__link(to="/sign-up")
             | Register new account
 
         center.sign-in__center
@@ -100,7 +100,7 @@
               | Sign In
 
       .sign-in__link-back
-        nuxt-link(to="/")
+        nuxt-link.sign-in__link(to="/")
           | Back to Homepage
 
 </template>
@@ -212,6 +212,9 @@
       max-height: 100%
       border-radius: 0
     +flex(center, center, column)
+
+    &__link
+      color: $color-blue-light
 
     &__title
       font-size: 22px

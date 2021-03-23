@@ -47,9 +47,8 @@
               name="submitRecover")
               | Submit
 
-      .recovery__link-back
-        nuxt-link(to="/")
-          | Back to Homepage
+      nuxt-link.recovery__link(to="/")
+        | Back to Homepage
 
 </template>
 
@@ -129,6 +128,9 @@
       max-height: 100%
       border-radius: 0
     +flex(center, center, column)
+
+    &__link
+      color: $color-blue-light
 
     &__title
       font-size: 22px

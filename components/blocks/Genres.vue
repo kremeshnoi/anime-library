@@ -55,6 +55,7 @@
 
 
 		&__title
+			text-decoration: none
 			@extend .title-bordered
 			+flex(space-between, center, row)
 			&:hover

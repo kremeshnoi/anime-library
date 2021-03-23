@@ -118,6 +118,7 @@
         color: $color-grey-dark !important
 
     &__label
+      top: 6px
       margin: 0
       left: 14px !important
 

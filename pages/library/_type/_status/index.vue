@@ -211,6 +211,7 @@
 			text-align: center
 			line-height: initial
 			padding: 0 !important
+			text-decoration: none
 			height: initial !important
 			color: $color-blue-light !important
 			+mq(phone-wide, max)

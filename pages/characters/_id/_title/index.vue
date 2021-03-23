@@ -273,6 +273,7 @@
 			height: min-content
 
 		&__tab
+			text-align: unset
 			height: initial !important
 
 		&__tab-item
@@ -290,63 +291,5 @@
 		&__text
 			text-align: start
 			white-space: pre-wrap
-
-	.animeography, .mangaography
-		position: relative
-
-		&__title
-			height: 70px
-			display: flex
-			align-items: center
-			@extend .title-default
-
-		&__tr
-			display: block
-			position: relative
-
-		&__tabs
-			display: flex
-			flex-wrap: wrap
-			overflow-x: initial
-			overflow-y: initial
-			height: min-content
-
-		&__tab
-			flex-grow: 0
-			height: initial !important
-
-		&__tab-item
-			text-align: start
-			line-height: initial
-			padding: 0 !important
-			margin: 0 24px 14px 0
-			width: auto !important
-			color: $color-blue-light !important
-			&:focus
-				background-color: initial !important
-			&.active
-				color: $color-orange !important
-				background-color: initial !important
-
-		&__link
-			@extend .title-cut
-			color: $color-grey-dark
-			+mq(phone-wide, max)
-				max-width: 250px
-			&:hover
-				text-decoration: underline
-
-		&__more-link
-			right: 0
-			width: auto
-			bottom: -30px
-			@extend .title-cut
-			z-index: 1
-			position: absolute
-			color: $color-blue-light
-			+mq(phone-wide, max)
-				max-width: 250px
-			&:hover
-				text-decoration: underline
 
 </style>

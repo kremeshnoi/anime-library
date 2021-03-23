@@ -1,32 +1,32 @@
 <template lang="pug">
 
-  section.cards
-    .cards__container
-      nuxt-link.cards__title(:to="cardsBlockData.link")
-        | {{ cardsBlockData.title }}
-        .cards__icon.material-icons keyboard_arrow_right
+	section.cards
+		.cards__container
+			nuxt-link.cards__title(:to="cardsBlockData.link")
+				| {{ cardsBlockData.title }}
+				.cards__icon.material-icons keyboard_arrow_right
 
-      Carousel
-        Card.swiper-slide(
-        :key="dataIndex"
-        :resultItem="data"
-        v-for="(data, dataIndex) in cardsBlockData.data.slice(0, 12)")
+			Carousel
+				Card.swiper-slide(
+				:key="dataIndex"
+				:resultItem="data"
+				v-for="(data, dataIndex) in cardsBlockData.data.slice(0, 12)")
 
 </template>
 
 <script>
 
-  import Card from "@/components/elements/Card"
-  import Carousel from "@/components/grids/Carousel"
+	import Card from "@/components/elements/Card"
+	import Carousel from "@/components/grids/Carousel"
 
-  export default {
-    name: "Cards",
-    props: ["cardsBlockData"],
-    components: {
-      Card,
-      Carousel
-    }
-  }
+	export default {
+		name: "Cards",
+		props: ["cardsBlockData"],
+		components: {
+			Card,
+			Carousel
+		}
+	}
 
 </script>
 
@@ -44,6 +44,7 @@
 			@extend .container-default
 
 		&__title
+			text-decoration: none
 			@extend .title-bordered
 			+flex(space-between, center, row)
 			&:hover

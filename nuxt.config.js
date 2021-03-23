@@ -32,6 +32,7 @@ export default {
     { src: "~/assets/styles/state/tabs.sass" },
     { src: "~/assets/styles/state/toast.sass" },
     { src: "~/assets/styles/state/select.sass" },
+    { src: "~/assets/styles/state/buttons.sass" },
     { src: "~/assets/styles/state/recaptcha.sass" },
     { src: "~/assets/styles/state/infinite-scroll.sass" },
     { src: "~/assets/styles/theme/scrollbar.sass" },

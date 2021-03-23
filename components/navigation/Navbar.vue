@@ -92,12 +92,15 @@
 			font-size: 26px
 			color: $color-white
 			font-family: "Days One", sans-serif
+			text-decoration: none
 			+mq(tablet, max)
 				display: none
 
 		&__sign-in-link
+			color: $color-white-pure
 			margin-left: auto
 			width: max-content
+			text-decoration: none
 			+flex(flex-end, center, row)
 			+mq(phablet, max)
 				display: none
