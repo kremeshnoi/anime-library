@@ -9,6 +9,7 @@
 					| We will also be happy to meet you on our channel, where you can always find like-minded people. Feel free to come in.
 				a.footer-info__link_decor.btn(
 					target="_blank"
+					rel="noreferrer"
 					href="https://discord.com/invite/Ku72D5/")
 					| Chat
 
@@ -17,6 +18,7 @@
 					| Donation
 				a.footer-info__link.footer-info__link_support(
 					target="_blank"
+					rel="noreferrer"
 					href="https://www.patreon.com/otaku_library")
 					img.footer-info__support(
 						draggable="false"
@@ -67,8 +69,9 @@
 		background-color: $color-blue
 
 		&__support
-			max-width: 300px
 			width: 100%
+			height: auto
+			max-width: 300px
 
 		&__container
 			width: 100%
