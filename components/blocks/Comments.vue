@@ -41,7 +41,8 @@
 		grid-area: comments
 
 		&__title
-			@extend .title-default
+			margin: 0
+			@extend .title-bordered
 
 	.comment
 		&__container

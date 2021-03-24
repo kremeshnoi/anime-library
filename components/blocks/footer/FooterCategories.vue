@@ -79,7 +79,7 @@
 	@import "~/assets/styles/utils/mixins"
 
 	.footer-categories
-		background-color: $color-white-dark
+		background-color: $color-white
 
 		&__container
 			width: 100%

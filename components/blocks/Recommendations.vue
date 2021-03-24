@@ -45,7 +45,6 @@
 			text-align: start
 
 		&__title
-			margin: 0 0 20px 0
-			@extend .title-default
+			@extend .title-bordered
 
 </style>

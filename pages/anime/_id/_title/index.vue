@@ -2,12 +2,11 @@
 
   .anime
     .anime__container
+      h1.anime__title
+        | {{ animeById.title }}
+        span.divider-hidden
+        | {{ animeById.title_japanese }}
       .anime__main-content
-        h1.anime__title
-          | {{ animeById.title }}
-          span.divider-hidden
-          | {{ animeById.title_japanese }}
-
         .anime__cover-container
           img.anime__cover(:src="animeById.image_url" alt="anime cover")
 
@@ -20,13 +19,14 @@
 
       .anime__sub-content
         Score(:score="animeById.score")
-        //- Trailer.anime__trailer(:trailerData="animeById.trailer_url")
+
+        Studios(:studios="animeById.studios")
 
       Description.anime__description(:descriptionData="animeById.synopsis")
 
       Recommendations.anime__recommendations(:recommendationsData="animeRecommendationsById.recommendations")
 
-      //- Comments.anime__comments
+      Comments.anime__comments
 
 </template>
 
@@ -35,12 +35,12 @@
   import jikanjs from "jikanjs/lib/jikan"
   import layout from "@/middleware/layout"
   import Info from "@/components/blocks/Info"
-  import Trailer from "@/components/blocks/Trailer"
+  import Score from "@/components/blocks/Score"
   import Select from "@/components/elements/Select"
+  import Studios from "@/components/blocks/Studios"
   import Comments from "@/components/blocks/Comments"
   import Description from "@/components/blocks/Description"
   import Recommendations from "@/components/blocks/Recommendations"
-  import Score from "@/components/elements/Score"
 
   export default {
     name: "Anime",
@@ -52,9 +52,9 @@
     layout: layout,
     components: {
       Info,
-      Select,
-      Trailer,
       Score,
+      Select,
+      Studios,
       Comments,
       Description,
       Recommendations
@@ -82,35 +82,37 @@
 
   .anime
     width: 100%
+    display: flex
+    justify-content: flex-start
+    @extend .container-default
 
     &__container
       display: grid
-      column-gap: 20px
-      row-gap: 20px
-      grid-template-columns: 1fr 1fr
-      grid-template-areas: "main sub" "description description" "recommendations recommendations" "comments comments"
-      @extend .container-default
+      column-gap: 40px
+      row-gap: 40px
+      max-width: 920px
+      grid-template-columns: minmax(auto, 520px) 1fr
+      grid-template-areas: "title title" "main sub" "description description" "recommendations recommendations" "comments comments"
       +mq(tablet-mid, max)
         grid-template-columns: 1fr
-        grid-template-areas: "main" "sub" "description" "recommendations" "comments"
+        grid-template-areas: "title" "main" "sub" "description" "recommendations" "comments"
 
     &__main-content
-      grid-area: main
       display: grid
-      justify-content: start
-      grid-template-areas: "title title" "cover info"
-      grid-gap: 20px
+      grid-area: main
+      column-gap: 20px
       align-content: start
-      grid-template-rows: 50 auto
+      justify-content: start
+      grid-template-columns: minmax(auto, 200px) minmax(auto, 300px)
+      grid-template-areas: "title title" "cover info"
       +mq(phablet, max)
-        grid-template-rows: auto
         grid-template-areas: "title" "cover" "info"
 
     &__sub-content
       display: grid
-      row-gap: 20px
+      row-gap: 40px
       grid-area: sub
-      column-gap: 20px
+      column-gap: 40px
       align-content: flex-start
       justify-content: flex-start
       grid-template-columns: minmax(auto, 380px)
@@ -121,18 +123,15 @@
       display: grid
       grid-area: cover
       justify-content: flex-start
-      grid-template-rows: min-content
 
     &__cover
-      @extend .shadow-generic
+      width: 100%
 
     &__title
       font-size: 20px
       max-width: 460px
       grid-area: title
       text-align: start
-      -webkit-line-clamp: 2
-      @extend .title-vertical-cut
 
     &__input-field
       margin: 0

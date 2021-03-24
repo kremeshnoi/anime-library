@@ -38,7 +38,7 @@
 			text-align: start
 
 		&__title
-			align-items: flex-end
-			@extend .title-default
+			margin: 0
+			@extend .title-bordered
 
 </style>
