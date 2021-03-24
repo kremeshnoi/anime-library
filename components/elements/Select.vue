@@ -13,7 +13,7 @@
 				.btn.btn-small(@click="addToLibrary(payload)")
 					| Add
 
-				SpinButton(:count="wholeResult.episodes")
+				SpinButton(:count="wholeResult.episodes || wholeResult.chapters")
 
 </template>
 
