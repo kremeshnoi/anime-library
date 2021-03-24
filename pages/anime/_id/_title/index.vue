@@ -6,6 +6,7 @@
         | {{ animeById.title }}
         span.divider-hidden
         | {{ animeById.title_japanese }}
+
       .anime__main-content
         .anime__cover-container
           img.anime__cover(:src="animeById.image_url" alt="anime cover")
@@ -20,7 +21,7 @@
       .anime__sub-content
         Score(:score="animeById.score")
 
-        Studios(:studios="animeById.studios")
+        Studios(:studios="animeById.studios" source_type="anime")
 
       Description.anime__description(:descriptionData="animeById.synopsis")
 
@@ -88,8 +89,8 @@
 
     &__container
       display: grid
-      column-gap: 40px
       row-gap: 40px
+      column-gap: 40px
       max-width: 920px
       grid-template-columns: minmax(auto, 520px) 1fr
       grid-template-areas: "title title" "main sub" "description description" "recommendations recommendations" "comments comments"

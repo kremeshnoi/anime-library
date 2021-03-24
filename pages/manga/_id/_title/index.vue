@@ -2,11 +2,12 @@
 
 	main.manga
 		.manga__container
+			h1.manga__title
+				| {{ mangaById.title }}
+				span.divider-hidden
+				| {{ mangaById.title_japanese }}
+
 			.manga__main-content
-				h1.manga__title
-					| {{ mangaById.title }}
-					span.divider-hidden
-					| {{ mangaById.title_japanese }}
 				.manga__cover-container
 					img.manga__cover(
 						draggable="false"
@@ -21,13 +22,15 @@
 				Info.manga__info(:infoData="mangaById")
 
 			.manga__sub-content
-				//- Characters.manga__characters(:charactersData="mangaCharactersById.characters" :wholeData="mangaById")
+				Score(:score="mangaById.score")
+
+				Studios(:studios="mangaById.serializations" source_type="manga")
 
 			Description.manga__description(:descriptionData="mangaById.synopsis")
 
 			Recommendations.manga__recommendations(:recommendationsData="mangaRecommendationsById.recommendations")
 
-			//- Comments.manga__comments
+			Comments.manga__comments
 
 </template>
 
@@ -36,8 +39,10 @@
 	import jikanjs from "jikanjs/lib/jikan"
 	import layout from "@/middleware/layout"
 	import Info from "@/components/blocks/Info"
+	import Score from "@/components/blocks/Score"
 	import Select from "@/components/elements/Select"
-	import Characters from "@/components/blocks/Characters"
+	import Studios from "@/components/blocks/Studios"
+	import Comments from "@/components/blocks/Comments"
 	import Description from "@/components/blocks/Description"
 	import Recommendations from "@/components/blocks/Recommendations"
 
@@ -50,25 +55,22 @@
 		},
 		components: {
 			Info,
+			Score,
 			Select,
-			Characters,
+			Studios,
+			Comments,
 			Description,
 			Recommendations
 		},
 		layout: layout,
 		async asyncData({ params }) {
 			const mangaByIdResponse = await jikanjs.loadManga(params.id)
-			const mangaCharactersResponse = await jikanjs.loadManga(
-				params.id,
-				"characters"
-			)
 			const mangaRecommendationsByIdResponse = await jikanjs.loadManga(
 				params.id,
 				"recommendations"
 			)
 			return {
 				mangaById: mangaByIdResponse,
-				mangaCharactersById: mangaCharactersResponse,
 				mangaRecommendationsById: mangaRecommendationsByIdResponse,
 			}
 		}
@@ -87,28 +89,30 @@
 
 	.manga
 		width: 100%
+		display: flex
+		justify-content: flex-start
+		@extend .container-default
 
 		&__container
 			display: grid
-			row-gap: 20px
-			column-gap: 20px
-			grid-template-columns: 1fr 1fr
-			grid-template-areas: "main sub" "description description" "recommendations recommendations" "comments comments"
-			@extend .container-default
+			row-gap: 40px
+			column-gap: 40px
+			max-width: 920px
+			grid-template-columns: minmax(auto, 520px) 1fr
+			grid-template-areas: "title title" "main sub" "description description" "recommendations recommendations" "comments comments"
 			+mq(tablet-mid, max)
 				grid-template-columns: 1fr
-				grid-template-areas: "main" "sub" "description" "recommendations" "comments"
+				grid-template-areas: "title" "main" "sub" "description" "recommendations" "comments"
 
 		&__main-content
 			display: grid
-			grid-gap: 20px
 			grid-area: main
+			column-gap: 20px
 			align-content: start
 			justify-content: start
-			grid-template-rows: 50 auto
+			grid-template-columns: minmax(auto, 200px) minmax(auto, 300px)
 			grid-template-areas: "title title" "cover info"
 			+mq(phablet, max)
-				grid-template-rows: auto
 				grid-template-areas: "title" "cover" "info"
 
 		&__comments
@@ -116,12 +120,12 @@
 
 		&__sub-content
 			display: grid
-			row-gap: 20px
+			row-gap: 40px
 			grid-area: sub
-			column-gap: 20px
+			column-gap: 40px
 			align-content: flex-start
 			justify-content: flex-start
-			grid-template-columns: minmax(auto, 330px)
+			grid-template-columns: minmax(auto, 380px)
 			+mq(tablet-mid, max)
 				justify-content: flex-start
 
@@ -133,7 +137,7 @@
 			grid-template-rows: min-content
 
 		&__cover
-			@extend .shadow-generic
+			width: 100%
 
 		&__title
 			font-size: 20px

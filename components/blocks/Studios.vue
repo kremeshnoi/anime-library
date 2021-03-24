@@ -2,8 +2,11 @@
 
 	section.studios
 		.studios__container
-			h2.studios__title
+			h2.studios__title(v-if="source_type === 'anime'")
 				| Studios
+
+			h2.studios__title(v-if="source_type === 'manga'")
+				| Publisher
 
 			h3.studios__name(
 				:key="name"
@@ -20,7 +23,7 @@
 
 	export default {
 		name: "Studios",
-		props: ["studios"]
+		props: ["studios", "source_type"]
 	}
 
 </script>
