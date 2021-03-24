@@ -9,16 +9,24 @@
 					:value="option.value"
 					v-for="(option, optionIndex) in options") {{ option.title }}
 
-			.btn.btn-small(@click="addToLibrary(payload)")
-				| Add
+			.input-sub
+				.btn.btn-small(@click="addToLibrary(payload)")
+					| Add
+
+				SpinButton(:count="wholeResult.episodes")
 
 </template>
 
 <script>
 
+	import SpinButton from "@/components/elements/SpinButton"
+
 	export default {
 		name: "Select",
 		props: ["type", "wholeResult"],
+		components: {
+			SpinButton
+		},
 		data() {
 			return {
 				payload: {
@@ -126,5 +134,9 @@
 		align-self: flex-start
 		text-transform: lowercase
 		background-color: $color-blue-light
+
+	.input-sub
+		display: flex
+		justify-content: space-between
 
 </style>

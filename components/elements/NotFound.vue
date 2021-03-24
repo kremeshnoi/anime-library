@@ -10,7 +10,7 @@
 <script>
 
 	export default {
-		name: "Not Found",
+		name: "NotFound",
 		computed: {
 			computeEmoji() {
 				const arr = ["(｡•́︿•̀｡)"]

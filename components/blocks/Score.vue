@@ -55,6 +55,7 @@
 
 		&__value
 			font-size: 26px
+			user-select: none
 			line-height: 26px
 			margin: 0 0 0 8px
 
@@ -65,6 +66,7 @@
 		&__form
 			padding: 0
 			font-size: 32px
+			box-shadow: none
 			height: min-content
 
 </style>
