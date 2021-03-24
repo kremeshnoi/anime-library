@@ -96,7 +96,7 @@
 
 		&__subtitle
 			width: 100%
-			max-width: 300px
+			max-width: 240px
 			border-bottom: 1px solid rgba($color-orange, 0.6)
 
 		&__link
