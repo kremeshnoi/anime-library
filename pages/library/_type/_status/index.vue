@@ -153,10 +153,6 @@
 		&__container
 			@extend .container-default
 
-		&__disaster
-			font-size: 30px
-			text-align: start
-
 		&__title
 			display: flex
 			align-items: center

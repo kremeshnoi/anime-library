@@ -19,7 +19,7 @@
 						:type="mangaById.type"
 						:wholeResult="mangaById")
 
-				Info.manga__info(:infoData="mangaById")
+				Info.manga__info(:infoData="mangaById" title_type="manga")
 
 			.manga__sub-content
 				Score(:score="mangaById.score")

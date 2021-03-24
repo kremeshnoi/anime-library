@@ -16,21 +16,23 @@ section.manga-characters
       nuxt-link.manga-characters__link(:to="{ name: 'manga-id-title-characters', params: { id: wholeData.mal_id, title: $formatRouteTitle(wholeData.title) } }")
         | More
 
-    h4.manga-characters__disaster(v-else)
-      | Not found (｡•́︿•̀｡)
+    NotFound(v-else)
 
 </template>
 
 <script>
-  import Card from "@/components/elements/Card";
-  import Carousel from "@/components/grids/Carousel";
+
+  import Card from "@/components/elements/Card"
+  import Carousel from "@/components/grids/Carousel"
+  import NotFound from "@@/components/elements/NotFound"
 
   export default {
     name: "Characters",
     props: ["charactersData", "wholeData"],
     components: {
       Card,
-      Carousel
+      Carousel,
+      NotFound
     }
   };
 </script>
@@ -47,10 +49,6 @@ section.manga-characters
 	&__wrapper
 		display: grid
 		grid-gap: 20px
-
-	&__disaster
-		font-size: 30px
-		text-align: start
 
 	&__container
 		position: relative

@@ -44,7 +44,7 @@
 				background-size: 100px 100px
 				background-repeat: no-repeat
 				background-position: bottom right
-				background-image: url("../../assets/images/hero-min.png")
+				// background-image: url("../../assets/images/hero-min.png")
 
 		&__text-side
 			text-align: start
@@ -90,7 +90,7 @@
 			background-size: contain
 			background-position: center
 			background-repeat: no-repeat
-			background-image: url("../../assets/images/hero-min.png"), url("../../assets/images/clouds.png")
+			// background-image: url("../../assets/images/hero-min.png"), url("../../assets/images/clouds.png")
 			+mq(tablet-small, max)
 				display: none
 	@media (max-height: 800px) and (min-width: 600px)

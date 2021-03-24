@@ -7,16 +7,20 @@
     .description__synopsis(v-if="descriptionData")
       | {{ descriptionData }}
 
-    h4.description__disaster(v-else)
-      | Not found ( ಥ﹏ಥ )
+    NotFound(v-else)
 
 </template>
 
 <script>
 
+  import NotFound from "@/components/elements/NotFound"
+
   export default {
     name: "Description",
-    props: ["descriptionData"]
+    props: ["descriptionData"],
+		components: {
+			NotFound
+		}
   }
 
 </script>
@@ -32,10 +36,6 @@
 		text-align: start
 		align-items: flex-end
 		grid-area: description
-
-		&__disaster
-			font-size: 30px
-			text-align: start
 
 		&__title
 			margin: 0

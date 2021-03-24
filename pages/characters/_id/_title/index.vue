@@ -2,10 +2,10 @@
 
 	main.character
 		.character__container
-			.character__main-content
-				h1.character__title
-					| {{ characterById.name }}
+			h1.character__title
+				| {{ characterById.name }}
 
+			.character__main-content
 				.character__cover-container
 					img.character__cover(
 						draggable="false"
@@ -17,11 +17,27 @@
 						| Info
 					ul.character-info__list
 						li.character-info__list-item
-							.character-info__list-value
+							span.character-info__list-key
+								| Name:
 								|
-								| {{ aboutCharacterData[0] }}
-
-					.character-info__list-icon.material-icons.modal-trigger(href="#character-info-modal") more_horiz
+								span.character-info__list-value
+									| {{ characterById.name }}
+						li.character-info__list-item
+							span.character-info__list-key
+								| Name Kanji:
+								|
+								span.character-info__list-value(v-if="characterById.name_kanji")
+									| {{ characterById.name_kanji }}
+								span.character-info__list-value(v-else)
+									| Unknown
+						li.character-info__list-item
+							span.character-info__list-key
+								| Other names:
+								|
+								span.character-info__list-values(v-for="(name, nameIndex) in characterById.nicknames" v-if="characterById.nicknames.length")
+									| {{ name }}
+								span.character-info__list-value(v-if="characterById.nicknames.length === 0")
+									| Unknown
 
 			.character__sub-content
 				.character__voice-actors.character-voice-actors
@@ -29,8 +45,7 @@
 						| Voice Actors
 
 					.character-voice-actors__content(v-if="characterById.voice_actors")
-						h4.character__disaster(v-if="characterById.voice_actors.length === 0")
-							| Not found ( ಥ﹏ಥ )
+						NotFound(v-if="characterById.voice_actors.length === 0")
 
 						ul.character-voice-actors__tabs.tabs(v-if="characterById.voice_actors")
 							li.character-voice-actors__tab.tab(
@@ -57,12 +72,9 @@
 												.character-voice-actors__lang
 													| Language: {{ value.language }}
 
-			//- Comments.character__comments
+			Description.character__description(:descriptionData="formatDescription")
 
-		#character-info-modal.character-modal.modal
-			.character-modal__content.modal-content
-				p.character-modal__text
-					| {{ aboutCharacterData[0] }}
+			Comments.character__comments
 
 </template>
 
@@ -71,6 +83,9 @@
 	import jikanjs from "jikanjs/lib/jikan"
 	import layout from "@/middleware/layout"
 	import Carousel from "@/components/grids/Carousel"
+	import Comments from "@/components/blocks/Comments"
+	import NotFound from "@/components/elements/NotFound"
+	import Description from "@/components/blocks/Description"
 
 	export default {
 		name: "Character",
@@ -81,12 +96,10 @@
 		},
 		layout: layout,
 		components: {
-			Carousel
-		},
-		data() {
-			return {
-				aboutCharacterData: []
-			}
+			NotFound,
+			Carousel,
+			Comments,
+			Description
 		},
 		async asyncData({ params }) {
 			const characterResponse = await jikanjs.loadCharacter(params.id)
@@ -94,8 +107,11 @@
 				characterById: characterResponse
 			}
 		},
-		async created() {
-			await this.replaceData()
+		computed: {
+			formatDescription() {
+				const description = this.characterById.about
+				return description.replace(/\\n/g, "")
+			}
 		},
 		mounted() {
 			const modal = document.querySelectorAll(".modal")
@@ -103,13 +119,6 @@
 			if (Object.keys(this.characterById.voice_actors).length) {
 				const tabs = document.querySelectorAll(".tabs")
 				const instanceTabs = M.Tabs.init(tabs)
-			}
-		},
-		methods: {
-			async replaceData() {
-				const data = await this.characterById.about
-				const result = data.replace(/\\n/g, "")
-				this.aboutCharacterData.push(result)
 			}
 		}
 	}
@@ -127,40 +136,46 @@
 
 	.character
 		width: 100%
+		display: flex
+		@extend .container-default
+		justify-content: flex-start
 
 		&__container
 			display: grid
-			row-gap: 20px
-			column-gap: 20px
-			@extend .container-default
-			grid-template-columns: 1fr 1fr
-			grid-template-areas: "main sub" "comments comments"
+			row-gap: 40px
+			column-gap: 40px
+			max-width: 920px
+			grid-template-columns: minmax(auto, 520px) 1fr
+			grid-template-areas: "title title" "main sub" "description description" "comments comments"
 			+mq(tablet-mid, max)
 				grid-template-columns: 1fr
-				grid-template-areas: "main" "sub" "comments"
+				grid-template-areas: "title" "main" "sub" "description" "comments"
 
 		&__main-content
 			display: grid
-			grid-gap: 20px
 			grid-area: main
+			column-gap: 20px
 			align-content: start
 			justify-content: start
-			grid-template-rows: 50px auto
-			grid-template-areas: "title title" "cover info"
+			grid-template-columns: minmax(auto, 200px) minmax(auto, 300px)
+			grid-template-areas: "cover info"
 			+mq(phablet, max)
 				grid-template-rows: auto
-				grid-template-areas: "title" "cover" "info"
+				grid-template-areas: "cover" "info"
 
 		&__sub-content
 			display: grid
-			row-gap: 20px
+			row-gap: 40px
 			grid-area: sub
-			column-gap: 20px
+			column-gap: 40px
 			align-content: flex-start
 			justify-content: flex-start
-			grid-template-columns: minmax(auto, 330px)
+			grid-template-columns: minmax(auto, 380px)
 			+mq(tablet-mid, max)
 				justify-content: flex-start
+
+		&__cdescription
+			grid-area: description
 
 		&__comments
 			grid-area: comments
@@ -168,11 +183,10 @@
 		&__cover-container
 			display: grid
 			grid-area: cover
-			grid-area: cover
 			justify-content: flex-start
 
 		&__cover
-			@extend .shadow-generic
+			width: 100%
 
 		&__title
 			font-size: 20px
@@ -180,7 +194,6 @@
 			max-width: 460px
 			grid-area: title
 			text-align: start
-			@extend .title-vertical-cut
 
 	.character-info
 		grid-area: info
@@ -188,14 +201,8 @@
 		+flex(initial, initial, column)
 
 		&__title
-			width: 100%
-			font-size: 16px
-			font-weight: 700
-			text-align: start
-			color: $color-black
-			text-transform: uppercase
-			padding: 14px 0 14px 14px
-			border-left: 5px solid $color-blue-light
+			margin: 0
+			@extend .title-bordered
 
 		&__list
 			width: 100%
@@ -215,42 +222,25 @@
 		&__list-item
 			margin: 6px 0
 			&:last-of-type
-				margin: 0
+				margin: 6px 0 0 0
 				height: 100%
 				+flex(space-between, initial, column)
-
-		&__list-value
-			max-height: 300px
-			white-space: pre-wrap
-			-webkit-line-clamp: 10
-			@extend .title-vertical-cut
-			&_decor
-				padding: 0 6px
-				border-radius: 4px
-				color: $color-white-pure
-				background-color: $color-yellow
 
 		&__list-values
 			height: auto
 			margin: 0 10px 0 0
 			display: inline-block
 			border-bottom: 1px dashed $color-grey-light
-			&:hover
-				cursor: pointer
-				border-bottom: 1px dashed $color-blue
 
 	.character-voice-actors
-		height: 100%
 		display: grid
 		grid-gap: 20px
-		justify-content: start
-		grid-template-rows: 50px auto
+		text-align: start
+		align-items: flex-end
 
 		&__title
-			height: 70px
-			display: flex
-			align-items: center
-			@extend .title-default
+			margin: 0
+			@extend .title-bordered
 
 		&__photo
 			width: 100%
@@ -262,7 +252,6 @@
 
 		&__td
 			display: grid
-			grid-gap: 20px
 			grid-template-columns: 1fr 1fr
 
 		&__tabs

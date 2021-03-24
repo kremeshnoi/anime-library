@@ -8,22 +8,26 @@
 			h2.studios__title(v-if="source_type === 'manga'")
 				| Publisher
 
-			h3.studios__name(
+			span.studios__name(
 				:key="name"
 				v-if="studios.length"
 				v-for="(studio, name) in studios")
 				|	{{ studio.name }}
 
-			h3.studios__disaster(v-if="studios.length === 0")
-				| Not found ( ಥ﹏ಥ )
+			NotFound(v-if="studios.length === 0")
 
 </template>
 
 <script>
 
+	import NotFound from "@/components/elements/NotFound"
+
 	export default {
 		name: "Studios",
-		props: ["studios", "source_type"]
+		props: ["studios", "source_type"],
+		components: {
+			NotFound
+		}
 	}
 
 </script>
@@ -53,9 +57,5 @@
 			&:hover
 				cursor: pointer
 				border-bottom: 1px dashed $color-blue-light
-
-		&__disaster
-			font-size: 24px
-			text-align: start
 
 </style>

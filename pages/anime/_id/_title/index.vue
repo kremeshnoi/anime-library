@@ -16,7 +16,7 @@
             :type="animeById.type"
             :wholeResult="animeById")
 
-        Info.anime__info(:infoData="animeById")
+        Info.anime__info(:infoData="animeById" title_type="anime")
 
       .anime__sub-content
         Score(:score="animeById.score")

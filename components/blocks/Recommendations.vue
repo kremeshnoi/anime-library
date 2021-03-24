@@ -11,8 +11,7 @@
 					:resultItem="recommendation"
 					v-for="(recommendation, recommendationIndex) in recommendationsData")
 
-			h4.recommendations__disaster(v-else)
-				| Not found	(╥﹏╥)
+			NotFound(v-else)
 
 </template>
 
@@ -20,13 +19,15 @@
 
 	import Card from "@/components/elements/Card"
 	import Carousel from "@/components/grids/Carousel"
+	import NotFound from "@@/components/elements/NotFound"
 
 	export default {
 		name: "Recommendations",
 		props: ["recommendationsData"],
 		components: {
 			Card,
-			Carousel
+			Carousel,
+			NotFound
 		}
 	}
 
@@ -39,10 +40,6 @@
 
 	.recommendations
 		grid-area: recommendations
-
-		&__disaster
-			font-size: 30px
-			text-align: start
 
 		&__title
 			@extend .title-bordered

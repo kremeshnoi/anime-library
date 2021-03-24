@@ -7,23 +7,15 @@
 			li.info__list-item
 				span.info__list-key
 					| Type:
-				| &nbsp
+					|
 				span.info__list-value(v-if="infoData.type")
 					| {{ infoData.type }}
 				span.info__list-value(v-else)
 					| Unknown
-			//- li.info__list-item
-			//-   span.info__list-key
-			//-     | Score:
-			//-   | &nbsp
-			//-   span.info__list-value.info__list-value_decor(v-if="infoData.score")
-			//-     | {{ infoData.score }}
-			//-   span.info__list-value(v-else)
-			//-     | Unknown
 			li.info__list-item
 				span.info__list-key
 					| Status:
-				| &nbsp
+					|
 				span.info__list-value(v-if="infoData.status")
 					| {{ infoData.status }}
 				span.info__list-value(v-else)
@@ -31,7 +23,7 @@
 			li.info__list-item(v-if="infoData.aired")
 				span.info__list-key
 					| Aired:
-				| &nbsp
+					|
 				span.info__list-value(v-if="infoData.aired")
 					| {{ infoData.aired.string }}
 				span.info__list-value(v-else)
@@ -39,7 +31,7 @@
 			li.info__list-item(v-if="infoData.published")
 				span.info__list-key
 					| Published:
-				| &nbsp
+					|
 				span.info__list-value(v-if="infoData.published")
 					| {{ infoData.published.string }}
 				span.info__list-value(v-else)
@@ -47,70 +39,47 @@
 			li.info__list-item
 				span.info__list-key
 					| Genres:
-				| &nbsp
+					|
 				span.info__list-values(
 					v-for="(genre, genreIndex) in infoData.genres",
-					:key="genreIndex"
-				)
+					:key="genreIndex")
 					| {{ genre.name }}
-			li.info__list-item(v-if="infoData.volumes")
+			li.info__list-item(v-if="title_type === 'manga'")
 				span.info__list-key
 					| Volumes:
-				| &nbsp
+					|
 				span.info__list-value(v-if="infoData.volumes")
 					| {{ infoData.volumes }}
 				span.info__list-value(v-else)
 					| Unknown
-			li.info__list-item(v-if="infoData.chapters")
+			li.info__list-item(v-if="title_type === 'manga'")
 				span.info__list-key
 					| Chapters:
-				| &nbsp
+					|
 				span.info__list-value(v-if="infoData.chapters")
 					| {{ infoData.chapters }}
 				span.info__list-value(v-else)
 					| Unknown
-			li.info__list-item(v-if="infoData.episodes")
+			li.info__list-item(v-if="title_type === 'anime'")
 				span.info__list-key
 					| Episodes:
-				| &nbsp
+					|
 				span.info__list-value(v-if="infoData.episodes")
 					| {{ infoData.episodes }}
 				span.info__list-value(v-else)
 					| Unknown
-			li.info__list-item(v-if="infoData.duration")
+			li.info__list-item(v-if="title_type === 'anime'")
 				span.info__list-key
 					| Duration:
-				| &nbsp
+					|
 				span.info__list-value(v-if="infoData.duration")
 					| {{ infoData.duration }}
 				span.info__list-value(v-else)
 					| Unknown
-			//- li.info__list-item(v-if="infoData.studios")
-			//-   span.info__list-key
-			//-     | Studios:
-			//-   | &nbsp
-			//-   span.info__list-values(
-			//-     v-for="(studio, studioIndex) in infoData.studios",
-			//-     :key="studioIndex"
-			//-   )
-			//-     | {{ studio.name }}
-			//-   span.info__list-value(v-if="infoData.studios.length === 0")
-			//-     | Unknown
-			//- li.info__list-item(v-if="infoData.serializations")
-			//-   span.info__list-key
-			//-     | Publication:
-			//-   | &nbsp
-			//-   span.info__list-values(
-			//-     v-for="(serialization, serializationIndex) in infoData.serializations",
-			//-     :key="serializationIndex"
-			//-   )
-			//-     | {{ serialization.name }}
-			//-   span.info__list-value(v-if="infoData.serializations.length === 0")
-			//-     | Unknown
-			li.info__list-item(v-if="infoData.rating")
+			li.info__list-item
 				span.info__list-key
 					| Rating:
-				| &nbsp
+					|
 				span.info__list-value(v-if="infoData.rating")
 					| {{ infoData.rating }}
 				span.info__list-value(v-else)
@@ -122,7 +91,7 @@
 
 	export default {
 		name: "Info",
-		props: ["infoData"]
+		props: ["infoData", "title_type"]
 	}
 
 </script>
