@@ -19,7 +19,8 @@
         Info.anime__info(:infoData="animeById")
 
       .anime__sub-content
-        Trailer.anime__trailer(:trailerData="animeById.trailer_url")
+        Score(:score="animeById.score")
+        //- Trailer.anime__trailer(:trailerData="animeById.trailer_url")
 
       Description.anime__description(:descriptionData="animeById.synopsis")
 
@@ -39,6 +40,7 @@
   import Comments from "@/components/blocks/Comments"
   import Description from "@/components/blocks/Description"
   import Recommendations from "@/components/blocks/Recommendations"
+  import Score from "@/components/elements/Score"
 
   export default {
     name: "Anime",
@@ -52,6 +54,7 @@
       Info,
       Select,
       Trailer,
+      Score,
       Comments,
       Description,
       Recommendations

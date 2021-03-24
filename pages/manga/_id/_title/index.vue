@@ -21,7 +21,7 @@
 				Info.manga__info(:infoData="mangaById")
 
 			.manga__sub-content
-				Characters.manga__characters(:charactersData="mangaCharactersById.characters" :wholeData="mangaById")
+				//- Characters.manga__characters(:charactersData="mangaCharactersById.characters" :wholeData="mangaById")
 
 			Description.manga__description(:descriptionData="mangaById.synopsis")
 

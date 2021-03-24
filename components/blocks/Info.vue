@@ -12,14 +12,14 @@
           | {{ infoData.type }}
         span.info__list-value(v-else)
           | Unknown
-      li.info__list-item
-        span.info__list-key
-          | Score:
-        | &nbsp
-        span.info__list-value.info__list-value_decor(v-if="infoData.score")
-          | {{ infoData.score }}
-        span.info__list-value(v-else)
-          | Unknown
+      //- li.info__list-item
+      //-   span.info__list-key
+      //-     | Score:
+      //-   | &nbsp
+      //-   span.info__list-value.info__list-value_decor(v-if="infoData.score")
+      //-     | {{ infoData.score }}
+      //-   span.info__list-value(v-else)
+      //-     | Unknown
       li.info__list-item
         span.info__list-key
           | Status:
@@ -85,28 +85,28 @@
           | {{ infoData.duration }}
         span.info__list-value(v-else)
           | Unknown
-      li.info__list-item(v-if="infoData.studios")
-        span.info__list-key
-          | Studios:
-        | &nbsp
-        span.info__list-values(
-          v-for="(studio, studioIndex) in infoData.studios",
-          :key="studioIndex"
-        )
-          | {{ studio.name }}
-        span.info__list-value(v-if="infoData.studios.length === 0")
-          | Unknown
-      li.info__list-item(v-if="infoData.serializations")
-        span.info__list-key
-          | Publication:
-        | &nbsp
-        span.info__list-values(
-          v-for="(serialization, serializationIndex) in infoData.serializations",
-          :key="serializationIndex"
-        )
-          | {{ serialization.name }}
-        span.info__list-value(v-if="infoData.serializations.length === 0")
-          | Unknown
+      //- li.info__list-item(v-if="infoData.studios")
+      //-   span.info__list-key
+      //-     | Studios:
+      //-   | &nbsp
+      //-   span.info__list-values(
+      //-     v-for="(studio, studioIndex) in infoData.studios",
+      //-     :key="studioIndex"
+      //-   )
+      //-     | {{ studio.name }}
+      //-   span.info__list-value(v-if="infoData.studios.length === 0")
+      //-     | Unknown
+      //- li.info__list-item(v-if="infoData.serializations")
+      //-   span.info__list-key
+      //-     | Publication:
+      //-   | &nbsp
+      //-   span.info__list-values(
+      //-     v-for="(serialization, serializationIndex) in infoData.serializations",
+      //-     :key="serializationIndex"
+      //-   )
+      //-     | {{ serialization.name }}
+      //-   span.info__list-value(v-if="infoData.serializations.length === 0")
+      //-     | Unknown
       li.info__list-item(v-if="infoData.rating")
         span.info__list-key
           | Rating:

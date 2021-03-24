@@ -11,13 +11,13 @@
 		v-if="animeGenres"
 		:genresData="animeGenres")
 
-		Cards.home__section(
-			v-if="mangaPopular"
-			:cardsBlockData="mangaPopular")
+		//- Cards.home__section(
+		//- 	v-if="mangaPopular"
+		//- 	:cardsBlockData="mangaPopular")
 
-		Genres.home__section(
-			v-if="mangaGenres"
-			:genresData="mangaGenres")
+		//- Genres.home__section(
+		//- 	v-if="mangaGenres"
+		//- 	:genresData="mangaGenres")
 
 </template>
 
