@@ -59,7 +59,7 @@ section.manga-characters
 		bottom: -30px
 		@extend .title-cut
 		position: absolute
-		color: $color-blue-light
+		color: $color-blue
 		+mq(phone-wide, max)
 			max-width: 250px
 		&:hover

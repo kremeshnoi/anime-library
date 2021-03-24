@@ -53,9 +53,7 @@
 			width: 100%
 
 		&__content
-			@extend .shadow-generic
 			+flex(center, flex-start, initial)
-			border-left: 5px solid $color-blue-light
 
 		&__title
 			display: flex

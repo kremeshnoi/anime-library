@@ -269,7 +269,9 @@
 			line-height: initial
 			padding: 0 !important
 			margin: 0 24px 14px 0
-			color: $color-blue-light !important
+			font-size: 16px !important
+			color: $color-blue !important
+			text-transform: initial !important
 			&:focus
 				background-color: initial !important
 			&.active

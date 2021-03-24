@@ -49,9 +49,14 @@
 			display: grid
 			column-gap: 20px
 			grid-template-columns: 70px auto
+
 		&__avatar
 			width: 100%
 			border-radius: 50%
+
+		&__username
+			color: $color-blue
+
 		&__body
 			display: grid
 			row-gap: 10px
