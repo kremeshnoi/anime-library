@@ -69,9 +69,8 @@
 		background-color: $color-blue
 
 		&__support
-			width: 100%
-			height: auto
-			max-width: 300px
+			width: 240px
+			height: 92px
 
 		&__container
 			width: 100%
