@@ -49,6 +49,20 @@ export default {
   ],
   components: true,
   modules: [
+    ["@nuxtjs/html-validator",
+      {
+        usePrettier: true,
+        options: {
+          extends: [
+            'html-validate:document',
+            'html-validate:recommended',
+            'html-validate:standard'
+          ]
+        }
+      }
+    ],
+    ["@nuxtjs/robots", {}
+    ],
     ["@nuxtjs/firebase",
       {
         config: {

@@ -5,7 +5,7 @@
 			.hero__text-side
 				h1.hero__title
 					| Organize your library. Find, add, modify, communicate
-				p.hero__description
+				h2.hero__description
 					| Join us to get full access of the site functionality
 				nuxt-link.hero__button.btn(to="/sign-up")
 					| JOIN US
@@ -76,8 +76,8 @@
 		&__description
 			margin: 14px 0
 			font-size: 20px
-			font-weight: 300
 			max-width: 560px
+			font-weight: 300
 			color: $color-grey-dark
 			+mq(phablet-small, max)
 				font-size: 16px

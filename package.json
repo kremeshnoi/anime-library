@@ -10,14 +10,17 @@
   "dependencies": {
     "@nuxtjs/firebase": "^7.4.1",
     "@nuxtjs/recaptcha": "^0.6.2",
+    "@nuxtjs/robots": "^2.5.0",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "bootstrap-vue": "^2.21.2",
     "cookie-universal-nuxt": "^2.1.4",
     "core-js": "^3.8.3",
     "firebase": "^8.3.1",
+    "install": "^0.13.0",
     "jikanjs": "^0.7.0",
     "materialize-css": "^1.0.0",
+    "npm": "^7.7.4",
     "nuxt": "^2.15.3",
     "swiper": "^5.4.5",
     "vue-awesome-swiper": "^4.1.1",
@@ -29,6 +32,7 @@
     "vuelidate": "^0.7.6"
   },
   "devDependencies": {
+    "@nuxtjs/html-validator": "^0.2.2",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^26.5.0",
     "fibers": "^5.0.0",

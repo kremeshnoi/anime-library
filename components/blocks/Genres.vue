@@ -53,7 +53,6 @@
 			row-gap: 40px
 			grid-auto-flow: row
 
-
 		&__title
 			text-decoration: none
 			@extend .title-bordered
@@ -76,13 +75,6 @@
 			&:hover
 				opacity: 0.9
 
-		&__image
-			width: 100%
-			height: 100%
-			display: block
-			&:hover
-				opacity: 0.9
-
 		&__title-container
 			bottom: 0
 			width: 100%
@@ -93,6 +85,6 @@
 			padding: 4px 0 4px 0
 			justify-content: center
 			flex-direction: initial
-			background: rgba(57, 112, 229, 1)
+			background: $color-blue-light
 
 </style>
