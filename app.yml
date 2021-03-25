@@ -1,0 +1,5 @@
+handlers:
+  - url: /_nuxt
+    static_dir: .nuxt/dist/client
+    expiration: 4d 5h
+    secure: always
