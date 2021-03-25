@@ -1,41 +1,11 @@
 {
   "headers": [
     {
-      "source": "/service-worker.js",
+      "source": "https://cdn.myanimelist.net/images/",
       "headers" : [
         {
           "key" : "Cache-Control",
-          "value" : "public, max-age=0, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/api/feed",
-      "headers" : [
-        {
-          "key" : "Content-Type",
-          "value" : "application/rss+xml"
-        },
-        {
-          "key" : "Cache-Control",
-          "value" : "public, max-age=3600"
-        }
-      ]
-    },
-    {
-      "source": "/(.*)",
-      "headers" : [
-        {
-          "key" : "X-Content-Type-Options",
-          "value" : "nosniff"
-        },
-        {
-          "key" : "X-Frame-Options",
-          "value" : "DENY"
-        },
-        {
-          "key" : "X-XSS-Protection",
-          "value" : "1; mode=block"
+          "value" : "max-age=604800"
         }
       ]
     }

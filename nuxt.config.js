@@ -8,6 +8,10 @@ export default {
   target: "static",
   ssr: true,
   build: {
+    analyze: true,
+    analyze: {
+      analyzerMode: "static"
+    },
     extend(config, { isClient }) {
       if (isClient) {
         config.optimization.splitChunks.maxSize = 51200
@@ -43,7 +47,6 @@ export default {
     { src: "@/plugins/vue-recaptcha" },
     { src: "@/plugins/vue-awesome-swiper"},
     { src: "@/plugins/materialize", mode: "client" },
-
     { src: "@/plugins/methods/format-route-title" },
     { src: "@/plugins/methods/format-related-title" }
   ],
@@ -61,8 +64,8 @@ export default {
         }
       }
     ],
-    ["@nuxtjs/robots", {}
-    ],
+    ["@nuxtjs/robots"],
+    ["cookie-universal-nuxt"],
     ["@nuxtjs/firebase",
       {
         config: {
@@ -80,8 +83,7 @@ export default {
           database: true
         }
       }
-    ],
-    ["cookie-universal-nuxt"]
+    ]
   ],
   router: {
   },
