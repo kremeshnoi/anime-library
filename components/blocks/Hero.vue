@@ -76,7 +76,7 @@
 		&__description
 			margin: 14px 0
 			font-size: 20px
-			font-weight: 400
+			font-weight: 300
 			max-width: 560px
 			color: $color-grey-dark
 			+mq(phablet-small, max)
