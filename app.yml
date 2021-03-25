@@ -1,7 +1,0 @@
-handlers:
-  - url: /_nuxt
-    static_dir: .nuxt/dist/client
-    expiration: 4d 5h
-    secure: always
-    http_headers:
-      Access-Control-Allow-Origin: https://cdn.myanimelist.net
