@@ -14,11 +14,6 @@ export default {
       }
     }
   },
-  render: {
-    static: {
-      maxAge: 1000 * 60 * 60 * 24 * 7
-    }
-  },
   css: [
     // packages styles
     { src: "~/node_modules/swiper/css/swiper.min.css" },
