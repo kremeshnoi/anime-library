@@ -1,7 +1,7 @@
 {
   "headers": [
     {
-      "source": "**/*.@(jpg|jpeg|gif|png)",
+      "source": "https://cdn.myanimelist.net/",
       "headers" : [
         {
           "key" : "Cache-Control",
