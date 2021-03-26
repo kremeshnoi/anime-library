@@ -51,7 +51,7 @@
 
 		&__title
 			margin: 0
-			@extend .title-bordered
+			@extend .title_is-bordered
 
 		&__value
 			font-size: 26px

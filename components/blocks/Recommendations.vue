@@ -42,6 +42,6 @@
 		grid-area: recommendations
 
 		&__title
-			@extend .title-bordered
+			@extend .title_is-bordered
 
 </style>

@@ -34,7 +34,8 @@ section.manga-characters
       Carousel,
       NotFound
     }
-  };
+  }
+
 </script>
 
 <style lang="sass" scoped>
@@ -44,7 +45,7 @@ section.manga-characters
 
 .manga-characters
 	&__title
-		@extend .title-default
+		@extend .title
 
 	&__wrapper
 		display: grid
@@ -57,7 +58,7 @@ section.manga-characters
 		right: 0
 		width: auto
 		bottom: -30px
-		@extend .title-cut
+		@extend .title_is-cropped
 		position: absolute
 		color: $color-blue
 		+mq(phone-wide, max)

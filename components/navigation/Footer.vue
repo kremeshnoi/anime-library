@@ -8,8 +8,8 @@
 
 <script>
 
-  import FooterInfo from "@/components/blocks/footer/FooterInfo"
-  import FooterCategories from "@/components/blocks/footer/FooterCategories"
+  import FooterInfo from "@/components/blocks/FooterInfo"
+  import FooterCategories from "@/components/blocks/FooterCategories"
 
 
   export default {

@@ -109,7 +109,7 @@
 
 		&__title
 			margin: 0
-			@extend .title-bordered
+			@extend .title_is-bordered
 
 		&__list
 			width: 100%
@@ -122,7 +122,7 @@
 			&_decor
 				border-radius: 4px
 				padding: 4px 6px 4px 6px
-				color: $color-white-pure
+				color: $color-white
 				background-color: $color-yellow
 
 		&__list-item
@@ -134,9 +134,9 @@
 			height: auto
 			margin: 0 10px 0 0
 			display: inline-block
-			border-bottom: 1px dashed $color-grey-light
+			border-bottom: 1px dashed $color-grey_light
 			&:hover
 				cursor: pointer
-				border-bottom: 1px dashed $color-blue-light
+				border-bottom: 1px dashed $color-blue_light
 
 </style>

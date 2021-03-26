@@ -1,13 +1,13 @@
 <template lang="pug">
 
-	section.breadcrumb-navigation(v-show="crumbs.length")
+	.breadcrumb-navigation(v-show="crumbs.length")
 		b-breadcrumb
 			b-breadcrumb-item(to="/" text="Home")
 			b-breadcrumb-item(
 				:key="index"
 				:to="item.to"
 				:class="{ 'active': index === crumbs.length -1 }"
-				v-for="(item, index) in crumbs") {{ $formatRelatedTitle(item.text) }}
+				v-for="(item, index) in crumbs") {{ $formatBreadCrumbTitle(item.text) }}
 
 </template>
 
@@ -54,13 +54,13 @@
 
 	.breadcrumb-navigation
 		margin: 40px 0 0 0
-		@extend .container-default
+		@extend .container
 
 	.breadcrumb
 		margin: 0
 		padding: 0
 		font-size: 16px
-		background-color: $color-white-pure
+		background-color: $color-white
 		a
 			color: $color-blue
 
@@ -69,6 +69,6 @@
 		cursor: pointer
 		pointer-events: none
 		a
-			color: $color-grey-dark
+			color: $color-grey_dark
 
 </style>

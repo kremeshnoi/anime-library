@@ -73,7 +73,7 @@
 		&__title
 			margin: 0
 			font-size: 14px
-			@extend .title-cut
+			@extend .title_is-cropped
 			color: $color-white
 			padding: 0 10px 0 10px
 			text-shadow: rgba(0,0,0,.8) 1px 1px 0

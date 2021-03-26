@@ -36,7 +36,7 @@
 		&__container
 			height: 100%
 			display: grid
-			@extend .container-default
+			@extend .container
 			grid-template-columns: 1fr 1fr
 			+mq(tablet-small, max)
 				grid-template-rows: 1fr
@@ -55,7 +55,7 @@
 
 		&__button
 			margin: 20px 0 0 0
-			@extend .shadow-btn
+			@extend .shadow
 			background-color: $color-aquamarine
 			+mq(tablet-small, max)
 				margin: 0 0 0 0
@@ -78,7 +78,7 @@
 			font-size: 20px
 			max-width: 560px
 			font-weight: 300
-			color: $color-grey-dark
+			color: $color-grey_dark
 			+mq(phablet-small, max)
 				font-size: 16px
 				max-width: 330px

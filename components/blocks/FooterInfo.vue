@@ -106,7 +106,7 @@
 			&_decor
 				background-color: $color-aquamarine
 				margin: 16px 0 0 0
-				@extend .shadow-btn
+				@extend .shadow
 
 		&__item
 			height: 100%

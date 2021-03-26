@@ -2,7 +2,7 @@
 
 		h4.not-found
 			| Not found
-			span.divider-hidden
+			span.divider_is-hidden
 			| (｡•́︿•̀｡)
 
 </template>

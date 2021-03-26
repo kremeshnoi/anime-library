@@ -46,16 +46,16 @@
 
 		&__title
 			margin: 0
-			@extend .title-bordered
+			@extend .title_is-bordered
 
 		&__name
 			font-size: 16px
 			height: auto
 			margin: 0 10px 0 0
 			display: inline-block
-			border-bottom: 1px dashed $color-grey-light
+			border-bottom: 1px dashed $color-grey_light
 			&:hover
 				cursor: pointer
-				border-bottom: 1px dashed $color-blue-light
+				border-bottom: 1px dashed $color-blue_light
 
 </style>

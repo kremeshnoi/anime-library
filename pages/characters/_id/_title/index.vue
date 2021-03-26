@@ -74,7 +74,7 @@
 
 			Description.character__description(:descriptionData="formatDescription")
 
-			Comments.character__comments
+			//- Comments.character__comments
 
 </template>
 
@@ -137,7 +137,7 @@
 	.character
 		width: 100%
 		display: flex
-		@extend .container-default
+		@extend .container
 		justify-content: flex-start
 
 		&__container
@@ -147,7 +147,7 @@
 			max-width: 920px
 			grid-template-columns: minmax(auto, 520px) 1fr
 			grid-template-areas: "title title" "main sub" "description description" "comments comments"
-			+mq(tablet-mid, max)
+			+mq(tablet-middle, max)
 				grid-template-columns: 1fr
 				grid-template-areas: "title" "main" "sub" "description" "comments"
 
@@ -171,7 +171,7 @@
 			align-content: flex-start
 			justify-content: flex-start
 			grid-template-columns: minmax(auto, 380px)
-			+mq(tablet-mid, max)
+			+mq(tablet-middle, max)
 				justify-content: flex-start
 
 		&__cdescription
@@ -202,7 +202,7 @@
 
 		&__title
 			margin: 0
-			@extend .title-bordered
+			@extend .title_is-bordered
 
 		&__list
 			width: 100%
@@ -230,7 +230,7 @@
 			height: auto
 			margin: 0 10px 0 0
 			display: inline-block
-			border-bottom: 1px dashed $color-grey-light
+			border-bottom: 1px dashed $color-grey_light
 
 	.character-voice-actors
 		display: grid
@@ -240,12 +240,12 @@
 
 		&__title
 			margin: 0
-			@extend .title-bordered
+			@extend .title_is-bordered
 
 		&__photo
 			width: 100%
 			max-width: 140px
-			@extend .shadow-generic
+			@extend .shadow
 
 		&__tr
 			border-bottom: none

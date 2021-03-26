@@ -4,7 +4,7 @@
 		.manga__container
 			h1.manga__title
 				| {{ mangaById.title }}
-				span.divider-hidden
+				span.divider_is-hidden
 				| {{ mangaById.title_japanese }}
 
 			.manga__main-content
@@ -30,7 +30,7 @@
 
 			Recommendations.manga__recommendations(:recommendationsData="mangaRecommendationsById.recommendations")
 
-			Comments.manga__comments
+			//- Comments.manga__comments
 
 </template>
 
@@ -91,7 +91,7 @@
 		width: 100%
 		display: flex
 		justify-content: flex-start
-		@extend .container-default
+		@extend .container
 
 		&__container
 			display: grid
@@ -100,7 +100,7 @@
 			max-width: 920px
 			grid-template-columns: minmax(auto, 520px) 1fr
 			grid-template-areas: "title title" "main sub" "description description" "recommendations recommendations" "comments comments"
-			+mq(tablet-mid, max)
+			+mq(tablet-middle, max)
 				grid-template-columns: 1fr
 				grid-template-areas: "title" "main" "sub" "description" "recommendations" "comments"
 
@@ -126,7 +126,7 @@
 			align-content: flex-start
 			justify-content: flex-start
 			grid-template-columns: minmax(auto, 380px)
-			+mq(tablet-mid, max)
+			+mq(tablet-middle, max)
 				justify-content: flex-start
 
 		&__cover-container
@@ -144,8 +144,6 @@
 			max-width: 460px
 			grid-area: title
 			text-align: start
-			-webkit-line-clamp: 2
-			@extend .title-vertical-cut
 
 		&__input-field
 			margin: 0

@@ -1,5 +1,5 @@
 export default (context, inject) => {
-  const formatRelatedTitle = (title) => {
+  const formatBreadCrumbTitle = (title) => {
     if(title === "spin-off") {
       return title
         .split(" ")
@@ -13,7 +13,7 @@ export default (context, inject) => {
     }
   }
 
-  inject("formatRelatedTitle", formatRelatedTitle)
+  inject("formatBreadCrumbTitle", formatBreadCrumbTitle)
 
-  context.$formatRelatedTitle = formatRelatedTitle
+  context.$formatBreadCrumbTitle = formatBreadCrumbTitle
 }

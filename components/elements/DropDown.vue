@@ -97,7 +97,7 @@
 			flex-direction: column
 			align-items: flex-start
 			justify-content: space-between
-			background-color: $color-white-pure
+			background-color: $color-white
 			z-index: 99
 			border-bottom-left-radius: 3px
 			border-bottom-right-radius: 3px
@@ -128,8 +128,8 @@
 				text-align: start
 				color: $color-black
 				+flex(flex-start, center, row)
-				background-color: $color-white-pure
-				border-bottom: 1px solid $color-grey-light
+				background-color: $color-white
+				border-bottom: 1px solid $color-grey_light
 				&:hover
 					.dropdown__icon
 						color: $color-orange
@@ -142,8 +142,8 @@
 				display: block
 				cursor: pointer
 				padding: 10px 0 10px 10px
-				background-color: $color-white-pure
-				border-bottom: 1px solid $color-grey-light
+				background-color: $color-white
+				border-bottom: 1px solid $color-grey_light
 				&:hover
 					border-bottom: 1px solid $color-blue
 
@@ -157,7 +157,7 @@
 					height: 125px
 					display: block
 					margin: 0 20px 0 0
-					background-color: $color-blue-light
+					background-color: $color-blue_light
 					+mq(phone, max)
 						margin: 0 0 10px 0
 

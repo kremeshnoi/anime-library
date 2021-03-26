@@ -4,13 +4,12 @@
     .anime__container
       h1.anime__title
         | {{ animeById.title }}
-        span.divider-hidden
+        span.divider_is-hidden
         | {{ animeById.title_japanese }}
 
       .anime__main-content
         .anime__cover-container
           img.anime__cover(:src="animeById.image_url" alt="anime cover")
-
           Select.anime__input-field(
             v-if="animeById.type"
             :type="animeById.type"
@@ -23,11 +22,13 @@
 
         Studios(:studios="animeById.studios" source_type="anime")
 
+      InFavorites
+
       Description.anime__description(:descriptionData="animeById.synopsis")
 
       Recommendations.anime__recommendations(:recommendationsData="animeRecommendationsById.recommendations")
 
-      Comments.anime__comments
+      //- Comments.anime__comments
 
 </template>
 
@@ -41,6 +42,7 @@
   import Studios from "@/components/blocks/Studios"
   import Comments from "@/components/blocks/Comments"
   import Description from "@/components/blocks/Description"
+  import InFavorites from "@/components/blocks/InFavorites"
   import Recommendations from "@/components/blocks/Recommendations"
 
   export default {
@@ -58,6 +60,7 @@
       Studios,
       Comments,
       Description,
+      InFavorites,
       Recommendations
     },
     async asyncData({ params }) {
@@ -85,23 +88,23 @@
     width: 100%
     display: flex
     justify-content: flex-start
-    @extend .container-default
+    @extend .container
 
     &__container
       display: grid
       row-gap: 40px
       column-gap: 40px
-      max-width: 920px
-      grid-template-columns: minmax(auto, 520px) 1fr
-      grid-template-areas: "title title" "main sub" "description description" "recommendations recommendations" "comments comments"
-      +mq(tablet-mid, max)
+
+      grid-template-columns: minmax(auto, 520px) minmax(auto, 310px) minmax(auto, 310px)
+      grid-template-areas: "title title title" "main sub in-favorites" "description description none" "recommendations recommendations none" "comments comments none"
+      +mq(tablet-middle, max)
         grid-template-columns: 1fr
         grid-template-areas: "title" "main" "sub" "description" "recommendations" "comments"
 
     &__main-content
       display: grid
       grid-area: main
-      column-gap: 20px
+      column-gap: 40px
       align-content: start
       justify-content: start
       grid-template-columns: minmax(auto, 200px) minmax(auto, 300px)
@@ -117,7 +120,7 @@
       align-content: flex-start
       justify-content: flex-start
       grid-template-columns: minmax(auto, 380px)
-      +mq(tablet-mid, max)
+      +mq(tablet-middle, max)
         justify-content: flex-start
 
     &__cover-container

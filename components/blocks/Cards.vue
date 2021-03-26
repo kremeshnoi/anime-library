@@ -41,11 +41,11 @@
 		width: 100%
 
 		&__container
-			@extend .container-default
+			@extend .container
 
 		&__title
 			text-decoration: none
-			@extend .title-bordered
+			@extend .title_is-bordered
 			+flex(space-between, center, row)
 			&:hover
 				color: orange

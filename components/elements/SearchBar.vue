@@ -115,7 +115,7 @@
       padding-left: 50px !important
       width: calc(100% - 50px) !important
       &::placeholder
-        color: $color-grey-dark !important
+        color: $color-grey_dark !important
 
     &__label
       top: 6px

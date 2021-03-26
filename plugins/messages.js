@@ -1,4 +1,9 @@
 import Vue from "vue"
-import Messages from "@/utils/messages.plugin.js"
 
-Vue.use(Messages)
+Vue.prototype.$message = function (html) {
+  M.toast({ html, classes: "green" })
+}
+
+Vue.prototype.$error = function (html) {
+  M.toast({ html: `[Error]: ${html}`, classes: "red" })
+}

@@ -151,12 +151,12 @@
 		width: 100%
 
 		&__container
-			@extend .container-default
+			@extend .container
 
 		&__title
 			display: flex
 			align-items: center
-			@extend .title-default
+			@extend .title
 
 		&__icon
 			cursor: pointer
@@ -192,7 +192,7 @@
 		&__tab
 			height: initial !important
 			text-transform: uppercase
-			+mq(tablet-mid, max)
+			+mq(tablet-middle, max)
 				flex-grow: initial
 			+mq(phone-wide, max)
 				width: 100%
@@ -209,14 +209,14 @@
 			padding: 0 !important
 			text-decoration: none
 			height: initial !important
-			color: $color-blue-light !important
+			color: $color-blue_light !important
 			+mq(phone-wide, max)
 				margin: 0 0 0 0
 			&:focus
 				background-color: initial !important
 			&.active
 				background-color: initial !important
-				border-bottom: 3px solid $color-blue-light
+				border-bottom: 3px solid $color-blue_light
 			&_main
 				line-height: initial
 				&.active
@@ -226,13 +226,13 @@
 					color: $color-orange !important
 
 		&__link
-			color: $color-grey-dark
+			color: $color-grey_dark
 			&:hover
 				text-decoration: underline
 			&_title
 				font-size: 16px
 				font-weight: 600
-				color: $color-blue-light
+				color: $color-blue_light
 				&:hover
 					color: $color-orange
 					text-decoration: initial

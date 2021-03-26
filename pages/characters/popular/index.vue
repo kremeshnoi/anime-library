@@ -79,7 +79,7 @@
 
 	.top-characters
 		&__container
-			@extend .container-default
+			@extend .container
 		&__title
 			color: $color-black
 			width: 100%
@@ -88,6 +88,6 @@
 			text-transform: uppercase
 			margin: 0 0 20px 0
 			text-align: start
-			@extend .title-bordered
+			@extend .title_is-bordered
 
 </style>

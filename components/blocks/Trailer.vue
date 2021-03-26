@@ -58,7 +58,7 @@
 		&__title
 			display: flex
 			align-items: flex-end
-			@extend .title-default
+			@extend .title
 
 		&__iframe
 			height: 100%

@@ -46,7 +46,7 @@
 		width: 100%
 
 		&__container
-			@extend .container-default
+			@extend .container
 
 		&__content
 			display: grid
@@ -55,7 +55,7 @@
 
 		&__title
 			text-decoration: none
-			@extend .title-bordered
+			@extend .title_is-bordered
 			+flex(space-between, center, row)
 			&:hover
 				color: orange
@@ -85,6 +85,6 @@
 			padding: 4px 0 4px 0
 			justify-content: center
 			flex-direction: initial
-			background: $color-blue-light
+			background: $color-blue_light
 
 </style>

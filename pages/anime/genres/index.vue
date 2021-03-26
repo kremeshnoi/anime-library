@@ -55,7 +55,7 @@
 
 	.anime-genres
 		&__container
-			@extend .container-default
+			@extend .container
 
 		&__grid
 			grid-auto-flow: row
@@ -68,14 +68,14 @@
 			text-align: start
 			margin: 0 0 20px 0
 			color: $color-black
-			@extend .title-bordered
+			@extend .title_is-bordered
 			text-transform: uppercase
 
 		.genres
-			@extend .container-default
+			@extend .container
 
 			&__title
-				@extend .title-bordered
+				@extend .title_is-bordered
 				+flex(space-between, center, row)
 				&:hover
 					color: orange

@@ -37,6 +37,6 @@
 		margin: 0 auto
 		padding: 54px 0 0 0
 		+flex(initial, center, column)
-		background-color: $color-white-pure
+		background-color: $color-white
 
 </style>

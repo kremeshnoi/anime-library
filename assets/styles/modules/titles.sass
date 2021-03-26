@@ -1,4 +1,4 @@
-.title-default
+.title
 	width: 100%
 	height: 40px
 	display: flex
@@ -10,23 +10,17 @@
 	padding: 14px 0 0 0
 	text-transform: uppercase
 
-.title-cut
-	width: 100%
-	display: block
-	max-width: 300px
-	overflow: hidden
-	white-space: nowrap
-	text-overflow: ellipsis
+	&_is-cropped
+		width: 100%
+		display: block
+		max-width: 300px
+		overflow: hidden
+		white-space: nowrap
+		text-overflow: ellipsis
 
-.title-vertical-cut
-	overflow: hidden
-	display: -webkit-box
-	text-overflow: ellipsis
-	-webkit-box-orient: vertical
-
-.title-bordered
-	margin: 0 0 20px 0
-	@extend .title-default
-	padding: 14px 14px 14px 14px
-	background-color: $color-white
-	border-left: 3px solid $color-blue-light
+	&_is-bordered
+		margin: 0 0 20px 0
+		@extend .title
+		padding: 14px 14px 14px 14px
+		background-color: $color-white_dark
+		border-left: 3px solid $color-blue_light

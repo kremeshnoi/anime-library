@@ -121,7 +121,7 @@
     max-height: 640px
     border-radius: 4px
     padding: 20px 20px 20px 20px
-    background-color: $color-white-pure
+    background-color: $color-white
     box-shadow: 10px 10px 5px 0 rgba(0, 0, 0, 0.75)
     +mq(phablet, max)
       max-width: 100%
@@ -130,7 +130,7 @@
     +flex(center, center, column)
 
     &__link
-      color: $color-blue-light
+      color: $color-blue_light
 
     &__title
       font-size: 22px
@@ -157,7 +157,7 @@
       width: 100%
 
     &__button
-      @extend .shadow-btn
+      @extend .shadow
       background-color: $color-aquamarine
 
   .preloader-wrapper

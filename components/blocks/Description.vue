@@ -39,6 +39,6 @@
 
 		&__title
 			margin: 0
-			@extend .title-bordered
+			@extend .title_is-bordered
 
 </style>

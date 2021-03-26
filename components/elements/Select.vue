@@ -130,10 +130,10 @@
 		pointer-events: none
 
 	.btn
-		@extend .shadow-btn
+		@extend .shadow
 		align-self: flex-start
 		text-transform: lowercase
-		background-color: $color-blue-light
+		background-color: $color-blue_light
 
 	.input-sub
 		display: flex

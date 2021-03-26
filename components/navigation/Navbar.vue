@@ -80,8 +80,6 @@
 			align-items: center
 			justify-content: space-between
 			grid-template-columns: 200px minmax(auto, 1220px) 200px
-			+mq(temp-wide, max)
-				grid-template-columns: 200px minmax(auto, 1220px) 87px
 			+mq(tablet, max)
 				grid-gap: 20px
 				grid-template-columns: minmax(auto, 1220px) 87px
@@ -97,7 +95,7 @@
 				display: none
 
 		&__sign-in-link
-			color: $color-white-pure
+			color: $color-white
 			margin-left: auto
 			width: max-content
 			text-decoration: none

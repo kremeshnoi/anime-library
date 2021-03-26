@@ -16,8 +16,6 @@
 							| TEXT
 
 		.comments__input
-			wysiwyg.comments__wysiwyq
-			.comments__submit
 
 </template>
 
@@ -42,7 +40,7 @@
 
 		&__title
 			margin: 0
-			@extend .title-bordered
+			@extend .title_is-bordered
 
 	.comment
 		&__container

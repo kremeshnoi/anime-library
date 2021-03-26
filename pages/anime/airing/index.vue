@@ -78,7 +78,7 @@ export default {
 
 .top-airing
   &__container
-    @extend .container-default
+    @extend .container
 
   &__title
     width: 100%
@@ -87,7 +87,7 @@ export default {
     text-align: start
     margin: 0 0 20px 0
     color: $color-black
-    @extend .title-bordered
+    @extend .title_is-bordered
     text-transform: uppercase
 
 </style>

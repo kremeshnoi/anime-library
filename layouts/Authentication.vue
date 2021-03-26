@@ -41,7 +41,7 @@ export default {
 
   .layout-container
     height: 100vh
-    background: url("../assets/images/clouds.png"), $color-blue-light
+    background: url("../assets/images/clouds.png"), $color-blue_light
 
   .auth-progress
     top: 0
