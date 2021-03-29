@@ -11,12 +11,12 @@
 					:resultItem="characters"
 					v-for="(characters) in mangaCharactersById.characters")
 
-				//- Card(
-				//- 	:resultItem="characters"
-				//- 	:key="characters.name"
-				//- 	v-for="(characters) in list")
+				Card(
+					:resultItem="characters"
+					:key="characters.name"
+					v-for="(characters) in list")
 
-				//- infinite-loading(@infinite="infiniteHandler")
+				InfiniteLoading(@infinite="infiniteHandler")
 
 </template>
 
@@ -24,18 +24,18 @@
 
 	import axios from "axios"
 	import jikanjs from "jikanjs/lib/jikan"
+	import layout from "@/middleware/layout"
 	import Card from "@/components/elements/Card"
 	import InfiniteLoading from "vue-infinite-loading"
 	import CardsGrid from "@/components/grids/CardsGrid"
-	import layout from "@/middleware/layout"
 
 	export default {
 		name: "MangaTitleCharacters",
-    metaInfo() {
-      return {
-        title: `${ this.mangaResponseById.title } - characters`
-      }
-    },
+		metaInfo() {
+			return {
+				title: `${ this.mangaResponseById.title } - characters`
+			}
+		},
 		layout: layout,
 		components: {
 			Card,
@@ -56,20 +56,20 @@
 				mangaCharactersById: mangaCharactersResponse
 			}
 		},
-		// methods: {
-		// 	infiniteHandler($state) {
-		// 		axios.get(`https://api.jikan.moe/v3/top/anime/${ this.page }/upcoming`)
-		// 		.then(({data}) => {
-		// 			if (data.top.length) {
-		// 				this.page += 1
-		// 				this.list.push(...data.top)
-		// 				$state.loaded()
-		// 			} else {
-		// 				$state.complete()
-		// 			}
-		// 		})
-		// 	}
-		// }
+		methods: {
+			infiniteHandler($state) {
+				axios.get(`https://api.jikan.moe/v3/top/anime/${ this.page }/upcoming`)
+				.then(({data}) => {
+					if (data.top.length) {
+						this.page += 1
+						this.list.push(...data.top)
+						$state.loaded()
+					} else {
+						$state.complete()
+					}
+				})
+			}
+		}
 	}
 
 </script>
@@ -94,5 +94,10 @@
 			color: $color-black
 			@extend .title_is-bordered
 			text-transform: uppercase
+
+	.infinite-loading-container
+		display: flex
+		align-items: center
+		justify-content: center
 
 </style>

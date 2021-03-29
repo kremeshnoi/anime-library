@@ -16,7 +16,7 @@
 					:resultItem="manga"
 					v-for="(manga) in list")
 
-				infinite-loading(@infinite="infiniteHandler")
+				InfiniteLoading(@infinite="infiniteHandler")
 
 </template>
 
@@ -24,9 +24,9 @@
 
 	import axios from "axios"
 	import jikanjs from "jikanjs/lib/jikan"
+	import layout from "@/middleware/layout"
 	import Card from "@/components/elements/Card"
 	import InfiniteLoading from "vue-infinite-loading"
-	import layout from "@/middleware/layout"
 	import CardsGrid from "@/components/grids/CardsGrid"
 
 	export default {
@@ -90,6 +90,11 @@
 			color: $color-black
 			@extend .title_is-bordered
 			text-transform: uppercase
+
+	.infinite-loading-container
+		display: flex
+		align-items: center
+		justify-content: center
 
 </style>
 

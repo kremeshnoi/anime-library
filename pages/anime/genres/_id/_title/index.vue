@@ -24,10 +24,10 @@
 
 	import axios from "axios"
 	import jikanjs from "jikanjs/lib/jikan"
+	import layout from "@/middleware/layout"
 	import Card from "@/components/elements/Card"
 	import InfiniteLoading from "vue-infinite-loading"
 	import CardsGrid from "@/components/grids/CardsGrid"
-	import layout from "@/middleware/layout"
 
 	export default {
 		name: "AnimeGenre",
@@ -90,5 +90,10 @@
 			color: $color-black
 			@extend .title_is-bordered
 			text-transform: uppercase
+
+	.infinite-loading-container
+		display: flex
+		align-items: center
+		justify-content: center
 
 </style>
