@@ -118,9 +118,8 @@
         color: $color-grey_dark !important
 
     &__label
-      top: 6px
       margin: 0
-      left: 14px !important
+      left: 12px
 
     &__icon
       height: 34px
