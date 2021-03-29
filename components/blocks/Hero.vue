@@ -53,8 +53,10 @@
 				text-align: center
 
 		&__button
-			margin: 20px 0 0 0
 			@extend .shadow
+			transition: none
+			margin: 20px 0 0 0
+			color: $color-white
 			background-color: $color-aquamarine
 			+mq(tablet-small, max)
 				margin: 0 0 0 0

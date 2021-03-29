@@ -7,7 +7,7 @@
 					| Discord channel
 				p.footer-info__description
 					| We will also be happy to meet you on our channel, where you can always find like-minded people. Feel free to come in.
-				a.footer-info__link_decor.btn(
+				a.footer-info__link.footer-info__link_decor.btn(
 					target="_blank"
 					rel="noreferrer"
 					href="https://discord.com/invite/Ku72D5/")
@@ -100,13 +100,15 @@
 
 		&__link
 			margin: 10px 0
+			transition: none
 			color: $color-white
 			&:hover
 				text-decoration: underline
 			&_decor
-				background-color: $color-aquamarine
-				margin: 16px 0 0 0
 				@extend .shadow
+				margin: 16px 0 0 0
+				text-decoration: none !important
+				background-color: $color-aquamarine
 
 		&__item
 			height: 100%

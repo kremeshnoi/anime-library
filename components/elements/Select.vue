@@ -10,7 +10,7 @@
 					v-for="(option, optionIndex) in options") {{ option.title }}
 
 			.input-sub
-				.btn.btn-small(@click="addToLibrary(payload)")
+				.select__button.btn.btn-small(@click="addToLibrary(payload)")
 					| Add
 
 				SpinButton(:count="wholeResult.episodes || wholeResult.chapters")
@@ -138,5 +138,10 @@
 	.input-sub
 		display: flex
 		justify-content: space-between
+
+	.select
+		&__button
+			transition: none
+			color: $color-white
 
 </style>

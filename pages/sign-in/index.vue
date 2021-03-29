@@ -224,6 +224,8 @@
       height: 36px
       width: 120px
       @extend .shadow
+      transition: none
+      color: $color-white
       background-color: $color-aquamarine
 
   .sign-in-form

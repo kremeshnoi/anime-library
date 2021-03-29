@@ -158,6 +158,8 @@
 
     &__button
       @extend .shadow
+      transition: none
+      color: $color-white
       background-color: $color-aquamarine
 
   .preloader-wrapper
