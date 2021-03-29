@@ -125,7 +125,7 @@
 
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
 
 	@import "~/assets/styles/utils/vars"
 	@import "~/assets/styles/utils/mixins"
@@ -133,6 +133,9 @@
 	@import "~/assets/styles/modules/shadow"
 	@import "~/assets/styles/modules/dividers"
 	@import "~/assets/styles/modules/containers"
+
+	.tabs .indicator
+		display: none !important
 
 	.character
 		width: 100%

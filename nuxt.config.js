@@ -10,13 +10,6 @@ export default {
     { src: "~/assets/styles/base/base.sass" },
     { src: "~/assets/styles/base/reset.sass" },
 
-    // states
-    { src: "~/assets/styles/state/tabs.sass" },
-    { src: "~/assets/styles/state/toast.sass" },
-    { src: "~/assets/styles/state/select.sass" },
-    { src: "~/assets/styles/state/recaptcha.sass" },
-    { src: "~/assets/styles/state/score-stars.sass" },
-
     // themes
     { src: "~/assets/styles/theme/scrollbar.sass" },
     { src: "~/assets/styles/theme/fonts/material-icons.sass" },

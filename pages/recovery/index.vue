@@ -110,6 +110,10 @@
   @import "~/assets/styles/utils/mixins"
   @import "~/assets/styles/modules/shadow"
 
+  .recaptcha
+    top: 50%
+    position: fixed
+
   .recovery
     top: 0
     left: 0

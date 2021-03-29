@@ -22,7 +22,7 @@
 
         Studios(:studios="animeById.studios" source_type="anime")
 
-      InFavorites
+      //- InFavorites
 
       Description.anime__description(:descriptionData="animeById.synopsis")
 

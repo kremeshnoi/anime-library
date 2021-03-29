@@ -191,8 +191,8 @@
   @import "~/assets/styles/modules/shadow"
 
   .recaptcha
-    position: fixed
     top: 50%
+    position: fixed
 
   .sign-in
     top: 0

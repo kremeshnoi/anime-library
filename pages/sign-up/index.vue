@@ -163,6 +163,10 @@
   @import "~/assets/styles/utils/mixins"
   @import "~/assets/styles/modules/shadow"
 
+  .recaptcha
+    top: 50%
+    position: fix
+
   .sign-up
     top: 0
     left: 0

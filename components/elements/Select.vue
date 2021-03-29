@@ -5,6 +5,7 @@
 			label(for="select-status")
 			select(v-model="payload.status" name="select-status" id="select-status")
 				option(
+					id="option"
 					:key="optionIndex"
 					:value="option.value"
 					v-for="(option, optionIndex) in options") {{ option.title }}
@@ -107,11 +108,20 @@
 
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
 
 	@import "~/assets/styles/utils/vars"
 	@import "~/assets/styles/utils/mixins"
 	@import "~/assets/styles/modules/shadow"
+
+	.dropdown-content li>a, .dropdown-content li>span
+		font-size: 15px
+		color: rgba(0,0,0,0.87)
+
+	.select-wrapper input.select-dropdown
+		border-bottom: 1px solid rgba(0,0,0,0.87)
+		&:focus
+			border-bottom: 1px solid rgba(0,0,0,0.87)
 
 	.input-field
 		margin: 10px 0 0 0

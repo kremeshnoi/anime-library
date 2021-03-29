@@ -68,7 +68,6 @@
 <style lang="sass" scoped>
 
 	@import "~/assets/styles/utils/vars"
-	@import "~/assets/styles/state/scroll"
 	@import "~/assets/styles/modules/containers"
 
 	.home
