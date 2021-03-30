@@ -1,6 +1,7 @@
 <template lang="pug">
 
-		h4.not-found
+	.not-found
+		h4.not-found__title
 			| Not found
 			span.divider_is-hidden
 			| (｡•́︿•̀｡)
@@ -25,7 +26,8 @@
 	@import "~/assets/styles/modules/dividers"
 
 	.not-found
-		font-size: 26px
-		text-align: start
+		&__title
+			font-size: 26px
+			text-align: start
 
 </style>
