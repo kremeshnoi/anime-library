@@ -1,6 +1,6 @@
 <template lang="pug">
 
-	.not-found
+	div.not-found
 		h4.not-found__title
 			| Not found
 			span.divider_is-hidden

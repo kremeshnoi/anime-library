@@ -1,6 +1,6 @@
 <template lang="pug">
 
-  .layout-container
+  .authentication-layout
     .progress.auth-progress
       .indeterminate
     Nuxt
@@ -9,29 +9,30 @@
 
 <script>
 
-import Messages from "@/utils/messages"
+  import Messages from "@/utils/messages"
 
-export default {
-  name: "Authentication",
-  computed: {
-    error() {
-      return this.$store.getters.error
+  export default {
+    name: "Authentication",
+    computed: {
+      error() {
+        return this.$store.getters.error
+      }
+    },
+    watch: {
+      error(fireBaseError) {
+        this.$error(Messages[fireBaseError.code])
+      }
+    },
+    mounted() {
+      M.AutoInit()
+      const head = document.getElementsByTagName("head")[0]
+      const script = document.createElement("script")
+      script.type = "text/javascript"
+      script.src = "https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit"
+      head.appendChild(script)
     }
-  },
-  watch: {
-    error(fireBaseError) {
-      this.$error(Messages[fireBaseError.code])
-    }
-  },
-  mounted() {
-    M.AutoInit()
-    const head = document.getElementsByTagName("head")[0]
-    const script = document.createElement("script")
-    script.type = "text/javascript"
-    script.src = "https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit"
-    head.appendChild(script)
   }
-}
+
 </script>
 
 <style lang="sass" scoped>
@@ -39,7 +40,7 @@ export default {
   @import "~/assets/styles/utils/vars"
   @import "~/assets/styles/utils/mixins"
 
-  .layout-container
+  .authentication-layout
     height: 100vh
 
   .auth-progress

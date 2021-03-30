@@ -1,15 +1,16 @@
 <template lang="pug">
 
-	nuxt-link.card(:to="{ name: `${ type }-id-title`, params: { id: resultItem.mal_id, title: $formatRouteTitle(resultItem.title || resultItem.name)} }")
-		.card__image-wrapper
-			img.card__image(
-				draggable="false"
-				alt="title cover"
-				:src="resultItem.image_url")
+	div.card
+		nuxt-link.card__link(:to="{ name: `${ type }-id-title`, params: { id: resultItem.mal_id, title: $formatRouteTitle(resultItem.title || resultItem.name)} }")
+			.card__image-wrapper
+				img.card__image(
+					draggable="false"
+					alt="title cover"
+					:src="resultItem.image_url")
 
-			.card__title-wrapper
-				span.card__title
-					| {{ resultItem.title || resultItem.name }}
+				.card__title-wrapper
+					span.card__title
+						| {{ resultItem.title || resultItem.name }}
 
 </template>
 
@@ -49,14 +50,16 @@
 	@import "~/assets/styles/modules/titles"
 
 	.card
-		margin: 0
-		border: 0
-		width: 100%
-		max-width: 160px
-		position: relative
-		box-shadow: 0 8px 7px -7px rgba(0, 0, 0, 1)
-		&:hover
-			opacity: 0.8
+		width: auto
+		&__link
+			margin: 0
+			border: 0
+			width: 100%
+			max-width: 160px
+			position: relative
+			box-shadow: 0 8px 7px -7px rgba(0, 0, 0, 1)
+			&:hover
+				opacity: 0.8
 
 		&__image
 			width: 100%

@@ -1,6 +1,6 @@
 <template lang="pug">
 
-  .search-bar(
+  div.search-bar(
     data-target="dropdown"
     @click="showDropdown($event)")
     nav.search-bar__nav

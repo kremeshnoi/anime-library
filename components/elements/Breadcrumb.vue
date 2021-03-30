@@ -1,6 +1,6 @@
 <template lang="pug">
 
-	.breadcrumb-navigation(v-show="crumbs.length")
+	div.breadcrumb-navigation(v-show="crumbs.length")
 		b-breadcrumb
 			b-breadcrumb-item(to="/" text="Home")
 			b-breadcrumb-item(

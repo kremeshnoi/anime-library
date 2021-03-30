@@ -57,15 +57,6 @@
           nuxt-link.sign-in__link(to="/sign-up")
             | Register new account
 
-        center.sign-in__center
-          .preloader-wrapper.big.active
-            .spinner-layer.spinner-blue-only
-              .circle-clipper.left
-                .circle
-              .gap-patch
-                .circle
-              .circle-clipper.right
-                .circle
           vue-recaptcha.recaptcha(
             ref="recaptcha"
             size="invisible"
@@ -152,11 +143,8 @@
           password: this.password
         }
 
-        if (window.screen.width <= 560) {
-          document.querySelector(".preloader-wrapper").style.display = "block"
-        } else {
-          document.querySelector(".auth-progress").style.display = "block"
-        }
+        document.querySelector(".auth-progress").style.display = "block"
+
         await this.signIn(signInData)
       },
       validate () {
@@ -291,13 +279,5 @@
 
     &__helper
       width: 100%
-
-  .preloader-wrapper
-    display: none
-    right: 20px !important
-    width: 30px !important
-    bottom: 20px !important
-    height: 30px !important
-    position: absolute !important
 
 </style>

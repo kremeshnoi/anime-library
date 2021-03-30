@@ -1,6 +1,6 @@
 <template lang="pug">
 
-	#dropdown.dropdown
+	div#dropdown.dropdown
 		.dropdown__search-type(v-if="!searchedData.length && !loaderData")
 			ul.dropdown__list
 				button.dropdown__list-item(

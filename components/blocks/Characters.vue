@@ -1,22 +1,23 @@
 <template lang="pug">
-section.manga-characters
-  .manga-characters__wrapper
-    .manga-characters__title
-      | Characters
 
-    .manga-characters__container(
-      v-if="charactersData && charactersData.length")
+  section.manga-characters
+    .manga-characters__wrapper
+      .manga-characters__title
+        | Characters
 
-      Carousel
-        Card.swiper-slide.manga-characters__card(
-          :key="dataIndex",
-          :resultItem="data",
-          v-for="(data, dataIndex) in charactersData.slice(0, 12)")
+      .manga-characters__container(
+        v-if="charactersData && charactersData.length")
 
-      nuxt-link.manga-characters__link(:to="{ name: 'manga-id-title-characters', params: { id: wholeData.mal_id, title: $formatRouteTitle(wholeData.title) } }")
-        | More
+        Carousel
+          Card.swiper-slide.manga-characters__card(
+            :key="dataIndex",
+            :resultItem="data",
+            v-for="(data, dataIndex) in charactersData.slice(0, 12)")
 
-    NotFound(v-else)
+        nuxt-link.manga-characters__link(:to="{ name: 'manga-id-title-characters', params: { id: wholeData.mal_id, title: $formatRouteTitle(wholeData.title) } }")
+          | More
+
+      NotFound(v-else)
 
 </template>
 

@@ -13,7 +13,6 @@ export const actions = {
     } catch (error) {
       commit("SET_ERROR", error, { root: true })
       document.querySelector(".auth-progress").style.display = "none"
-      document.querySelector(".preloader-wrapper").style.display = "none"
     }
   },
   async signUp({ dispatch, commit }, { email, password, username }) {
@@ -28,7 +27,6 @@ export const actions = {
     } catch (error) {
       commit("SET_ERROR", error, { root: true })
       document.querySelector(".auth-progress").style.display = "none"
-      document.querySelector(".preloader-wrapper").style.display = "none"
     }
   },
   async signOut() {
@@ -38,7 +36,6 @@ export const actions = {
       await $nuxt.$router.go(0)
     } catch (error) {
       document.querySelector(".auth-progress").style.display = "none"
-      document.querySelector(".preloader-wrapper").style.display = "none"
     }
   },
   async recoverPassword({ commit }, { email }) {
@@ -48,7 +45,6 @@ export const actions = {
     } catch (error) {
       commit("SET_ERROR", error, { root: true })
       document.querySelector(".auth-progress").style.display = "none"
-      document.querySelector(".preloader-wrapper").style.display = "none"
     }
   },
   async deleteAccount() {

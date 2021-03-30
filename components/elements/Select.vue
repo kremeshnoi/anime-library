@@ -1,6 +1,6 @@
 <template lang="pug">
 
-	.input-wrapper
+	div.input-wrapper
 		.input-field
 			label(for="select-status")
 			select(v-model="payload.status" name="select-status" id="select-status")
