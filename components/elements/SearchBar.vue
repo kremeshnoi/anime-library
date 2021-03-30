@@ -111,6 +111,7 @@
       background-color: $color-white
 
     &__input
+      margin: 0 !important
       border-radius: 3px !important
       padding-left: 50px !important
       width: calc(100% - 50px) !important
