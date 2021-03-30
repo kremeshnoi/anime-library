@@ -16,7 +16,6 @@ export default {
     { src: "~/assets/styles/theme/fonts/days-one-regular.sass" }
   ],
   plugins: [
-    { src: "@/plugins/messages" },
     { src: "@/plugins/materialize", mode: "client" },
 
     // vue
