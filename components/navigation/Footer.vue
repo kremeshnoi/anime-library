@@ -1,24 +1,20 @@
 <template lang="pug">
 
-  footer.footer
-    footer-categories
-    footer-info
+	footer.footer
+		footer-info
 
 </template>
 
 <script>
 
-  import FooterInfo from "@/components/blocks/FooterInfo"
-  import FooterCategories from "@/components/blocks/FooterCategories"
+	import FooterInfo from "@/components/blocks/FooterInfo"
 
-
-  export default {
-    name: "Footer",
-    components: {
-      FooterInfo,
-      FooterCategories
-    }
-  }
+	export default {
+		name: "Footer",
+		components: {
+			FooterInfo
+		}
+	}
 
 </script>
 
@@ -28,6 +24,7 @@
 	@import "~/assets/styles/utils/mixins"
 
 	.footer
+		flex: 0
 		width: 100%
 
 </style>

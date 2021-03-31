@@ -1,21 +1,21 @@
 <template lang="pug">
 
-	section.footer-categories
-		.footer-categories__container
-			.footer-categories__item.footer-categories-item(
+	section.top-categories
+		.top-categories__container
+			.top-categories__item.top-categories-item(
 				:key="categoryIndex"
 				v-for="(category, categoryIndex) in categories")
-				nuxt-link.footer-categories-item__title(:to="category.link")
+				nuxt-link.top-categories-item__title(:to="category.link")
 					| {{ category.title }}
 
-					.footer-categories-item__icon.material-icons keyboard_arrow_right
-				.footer-categories-item__content(
+					.top-categories-item__icon.material-icons keyboard_arrow_right
+				.top-categories-item__content(
 					:key="itemIndex"
 					v-for="(resultItem, itemIndex) in category.data")
-					p.footer-categories-item__digit
+					p.top-categories-item__digit
 						| {{ itemIndex + 1 }}
 
-					nuxt-link.footer-categories-item__link(:to="{ name: `${ category.type }-id-title`, params: { id: resultItem.mal_id, title: $formatRouteTitle(resultItem.title) } }")
+					nuxt-link.top-categories-item__link(:to="{ name: `${ category.type }-id-title`, params: { id: resultItem.mal_id, title: $formatRouteTitle(resultItem.title) } }")
 						| {{ resultItem.title }}
 
 </template>
@@ -25,7 +25,7 @@
 	import { mapActions, mapGetters } from "vuex"
 
 	export default {
-		name: "FooterCategories",
+		name: "TopCategories",
 		computed: {
 			...mapGetters({
 				getAnimeFavoriteCategories: "anime/getAnimeFavoriteCategories",
@@ -78,8 +78,8 @@
 	@import "~/assets/styles/utils/vars"
 	@import "~/assets/styles/utils/mixins"
 
-	.footer-categories
-		background-color: $color-white_dark
+	.top-categories
+		background-color: $color-white_dim
 
 		&__container
 			width: 100%
@@ -96,7 +96,7 @@
 			+mq(tablet-small, max)
 				grid-template-columns: 1fr
 
-	.footer-categories-item
+	.top-categories-item
 		+flex(flex-start, flex-start, column)
 
 		&__title

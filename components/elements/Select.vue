@@ -142,7 +142,6 @@
 	.btn
 		@extend .shadow
 		align-self: flex-start
-		text-transform: lowercase
 		background-color: $color-blue_light
 
 	.input-sub

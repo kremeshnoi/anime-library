@@ -1,157 +1,45 @@
 <template lang="pug">
 
-  client-only
-    main.recovery
-      h1.recovery__title
-        | Reset your password
+	main.recovery
+		h1.recovery__title
+			| Reset your password
 
-      form.recovery__form.recovery-form(@submit.prevent="validate")
-        .recovery-form__row
-          .recovery-form__field.input-field
-            input#email.recovery-form__input(
-              type="email"
-              name="email"
-              v-model.trim="email"
-              :class="{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }")
-
-            label.recovery-form__label(for="email")
-              | Email
-
-            span.recovery-form__helper.helper-text(
-              data-error="The field is empty"
-              v-if="$v.email.$dirty && !$v.email.required")
-
-            span.recovery-form__helper.helper-text(
-              data-error="Incorrect email"
-              v-else-if="$v.email.$dirty && !$v.email.email")
-
-          vue-recaptcha.recaptcha(
-            ref="recaptcha"
-            size="invisible"
-            @verify="submit"
-            @expired="onCaptchaExpired"
-            sitekey="6LeKfEgaAAAAAGqtaoHk9BjYE18zHwoeOmoOCkhq")
-
-          .recovery-form__row
-            button.recovery-form__button.btn(
-              type="submit"
-              name="submitRecover")
-              | Submit
-
-      nuxt-link.recovery__link(to="/")
-        | Back to Homepage
+		AutheticationForm(type="recovery")
 
 </template>
 
 <script>
 
-  import VueRecaptcha from "vue-recaptcha"
-  import { email, required } from "vuelidate/lib/validators"
-  import layout from "@/middleware/layout"
+	import layout from "@/middleware/layout"
+	import AutheticationForm from "@/components/elements/AutheticationForm"
 
-  export default {
-    name: "Recovery",
-    metaInfo: {
-      title: "Otaku Library - Password recovery"
-    },
-    layout: layout,
-    components: {
-      VueRecaptcha
-    },
-    data() {
-      return {
-      email: "",
-      recaptcha: null
-      }
-    },
-    validations: {
-      email: { email, required }
-    },
-    methods: {
-      async submit() {
-        if (this.$v.$invalid) {
-          return this.$v.$touch()
-        }
-
-        const RecoveryData = {
-          email: this.email
-        }
-
-        document.querySelector(".auth-progress").style.display = "block"
-
-        await this.$store.dispatch("auth/recoverPassword", RecoveryData)
-      },
-      validate () {
-        this.$refs.recaptcha.execute()
-      },
-      onCaptchaExpired () {
-        this.$refs.recaptcha.reset()
-      }
-    }
-  }
+	export default {
+		name: "Recovery",
+		metaInfo: {
+			title: "Otaku Library - Password recovery"
+		},
+		layout: layout,
+		components: {
+			AutheticationForm
+		}
+	}
 
 </script>
 
 <style lang="sass" scoped>
 
-  @import "~/assets/styles/utils/vars"
-  @import "~/assets/styles/utils/mixins"
-  @import "~/assets/styles/modules/shadow"
+	@import "~/assets/styles/utils/vars"
+	@import "~/assets/styles/utils/mixins"
+	@import "~/assets/styles/modules/containers"
 
-  .recaptcha
-    top: 50%
-    position: fixed
+	.recovery
+		flex: 1
+		margin-top: 54px
+		@extend .container
+		+flex(center, flex-start, column)
 
-  .recovery
-    top: 0
-    left: 0
-    right: 0
-    bottom: 0
-    margin: auto
-    position: fixed
-    max-width: 400px
-    max-height: 640px
-    border-radius: 4px
-    padding: 20px 20px 20px 20px
-    background-color: $color-white
-    box-shadow: 10px 10px 5px 0 rgba(0, 0, 0, 0.75)
-    +mq(phablet, max)
-      max-width: 100%
-      max-height: 100%
-      border-radius: 0
-    +flex(center, center, column)
-
-    &__link
-      color: $color-blue_light
-
-    &__title
-      font-size: 22px
-      padding: 30px 0 30px 0
-
-  .recovery-form
-    width: 100%
-    text-align: center
-
-    &__row
-      max-width: 304px
-      margin: 20px auto 20px auto
-      &_center
-        +flex(center, center, column)
-
-    &__field
-      +flex(center, stretch, column)
-
-    &__input
-      width: auto !important
-      padding: 0 0 0 20px !important
-
-    &__helper
-      width: 100%
-
-    &__button
-      @extend .shadow
-      transition: none
-      color: $color-white
-      background-color: $color-aquamarine
+		&__title
+			font-size: 22px
+			padding: 30px 0 30px 0
 
 </style>

@@ -50,12 +50,13 @@
 	@import "~/assets/styles/modules/titles"
 
 	.card
-		width: auto
+		border: none
+		max-width: 160px
+
 		&__link
 			margin: 0
 			border: 0
 			width: 100%
-			max-width: 160px
 			position: relative
 			box-shadow: 0 8px 7px -7px rgba(0, 0, 0, 1)
 			&:hover

@@ -1,9 +1,10 @@
 <template lang="pug">
 
-	.layout-container
+	.base-layout
 		Navbar
 		Breadcrumb
 		Nuxt(:key="this.$route.path")
+		TopCategories
 		Footer
 
 </template>
@@ -13,13 +14,15 @@
 	import Navbar from "@/components/navigation/Navbar"
 	import Footer from "@/components/navigation/Footer"
 	import Breadcrumb from "@/components/elements/Breadcrumb"
+	import TopCategories from "@/components/blocks/TopCategories"
 
 	export default {
 		name: "Base",
 		components: {
 			Navbar,
 			Footer,
-			Breadcrumb
+			Breadcrumb,
+			TopCategories
 		},
 		mounted() {
 			M.AutoInit()
@@ -33,7 +36,7 @@
 	@import "~/assets/styles/utils/vars"
 	@import "~/assets/styles/utils/mixins"
 
-	.layout-container
+	.base-layout
 		margin: 0 auto
 		padding: 54px 0 0 0
 		+flex(initial, center, column)
