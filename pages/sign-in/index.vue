@@ -40,9 +40,6 @@
 		@extend .container
 		+flex(center, flex-start, column)
 
-		&__link
-			color: $color-blue_light
-
 		&__title
 			font-size: 32px
 			padding: 40px 0 0 0

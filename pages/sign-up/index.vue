@@ -3,6 +3,8 @@
 	main.sign-up
 		h1.sign-up__title
 			| Join Otaku Library!
+		p.sign-in__description
+			| (Registration on out website)
 
 		AutheticationForm(type="sign-up")
 
@@ -39,7 +41,10 @@
 		+flex(center, flex-start, column)
 
 		&__title
-			font-size: 22px
-			padding: 30px 0 30px 0
+			font-size: 32px
+			padding: 40px 0 0 0
+
+		&__description
+			font-size: 14px
 
 </style>

@@ -1,99 +1,99 @@
 <template lang="pug">
 
-		form.authentication-form(@submit.prevent="validate")
-			.authentication-form__row
-				.authentication-form__field.input-field
-					label(for="email")
-						| Email
-					input.authentication-form__input(
-						id="email"
-						type="email"
-						name="username"
-						v-model.trim="email"
-						autocomplete="username"
-						:class="{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }")
+	form.authentication-form(@submit.prevent="validate" novalidate)
+		.authentication-form__row
+			.authentication-form__field.input-field
+				label(for="email")
+					| Email
+				input.authentication-form__input(
+					id="email"
+					type="email"
+					name="username"
+					v-model.trim="email"
+					autocomplete="username"
+					:class="{ invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email) }")
 
-					span.authentication-form__helper.helper-text(
-						data-error="The field is empty"
-						v-if="$v.email.$dirty && !$v.email.required")
+				span.authentication-form__helper.helper-text(
+					data-error="The field is empty"
+					v-if="$v.email.$dirty && !$v.email.required")
 
-					span.authentication-form__helper.helper-text(
-						data-error="Incorrect email"
-						v-else-if="$v.email.$dirty && !$v.email.email")
+				span.authentication-form__helper.helper-text(
+					data-error="Incorrect email"
+					v-if="$v.email.$dirty && !$v.email.email")
 
-			.authentication-form__row(v-if="type === 'sign-up'")
-				.authentication-form__field.input-field
-					label(for="username")
-						| Username
-					input.authentication-form__input(
-						type="text"
-						id="username"
-						autocomplete="off"
-						v-model.trim="username"
-						:class="{ invalid: ($v.username.$dirty && !$v.username.required) || ($v.username.$dirty && !$v.username.minLength) }")
+		.authentication-form__row(v-if="type === 'sign-up'")
+			.authentication-form__field.input-field
+				label(for="username")
+					| Username
+				input.authentication-form__input(
+					type="text"
+					id="username"
+					autocomplete="off"
+					v-model.trim="username"
+					:class="{ invalid: ($v.username.$dirty && !$v.username.required) || ($v.username.$dirty && !$v.username.minLength) }")
 
-					span.authentication-form__helper.helper-text(
-						data-error="The field is empty"
-						v-if="$v.username.$dirty && !$v.username.required")
+				span.authentication-form__helper.helper-text(
+					data-error="The field is empty"
+					v-if="$v.username.$dirty && !$v.username.required")
 
-					span.authentication-form__helper.helper-text(
-						data-error="Username is too short"
-						v-else-if="$v.username.$dirty && !$v.username.minLength")
+				span.authentication-form__helper.helper-text(
+					data-error="Username is too short"
+					v-if="$v.username.$dirty && !$v.username.minLength")
 
-			.authentication-form__row(v-if="type !== 'recovery'")
-				.authentication-form__field.input-field
-					label(for="password")
-						| Password
-					input.authentication-form__input(
-						type="password"
-						name="password"
-						id="password"
-						v-model.trim="password"
-						autocomplete="current-password"
-						:class="{ invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength) }")
+		.authentication-form__row(v-if="type !== 'recovery'")
+			.authentication-form__field.input-field
+				label(for="password")
+					| Password
+				input.authentication-form__input(
+					type="password"
+					name="password"
+					id="password"
+					v-model.trim="password"
+					autocomplete="current-password"
+					:class="{ invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength) }")
 
-					span.authentication-form__helper.helper-text(
-						data-error="The field is empty"
-						v-if="$v.password.$dirty && !$v.password.required")
+				span.authentication-form__helper.helper-text(
+					data-error="The field is empty"
+					v-if="$v.password.$dirty && !$v.password.required")
 
-					span.authentication-form__helper.helper-text(
-						data-error="Password is too short"
-						v-else-if="$v.password.$dirty && !$v.password.minLength")
+				span.authentication-form__helper.helper-text(
+					data-error="Password is too short"
+					v-if="$v.password.$dirty && !$v.password.minLength")
 
-			.authentication-form__row
-				button.authentication-form__submit-button.btn(
-					type="submit"
-					name="submit")
-					| SUBMIT
+		.authentication-form__row
+			button.authentication-form__submit-button.btn(
+				type="submit"
+				name="submit")
+				| SUBMIT
 
-			.authentication-form__row(v-if="type === 'sign-in'")
-				span.authentication-form__text
-					| - or -
+		.authentication-form__row(v-if="type === 'sign-in'")
+			span.authentication-form__text
+				| - or -
 
-			.authentication-form__row(v-if="type === 'sign-in'")
-				.authentication-form__social-buttons
-					button.authentication-form__google-button(@click="googleAuth" type="button")
-						img.authentication-form__google-logo(
+		.authentication-form__row(v-if="type === 'sign-in'")
+			.authentication-form__social-buttons
+				button.authentication-form__google-button(@click="googleAuth" type="button")
+					img.authentication-form__google-logo(
+						draggable="false"
+						alt="google logo"
+						src="~/assets/images/google-logo.png")
+					span.authentication-form__google-text
+						| Google
+
+				button.authentication-form__twitter-button(@click="twitterAuth" type="button")
+						img.authentication-form__twitter-logo(
 							draggable="false"
-							alt="google logo"
-							src="~/assets/images/google-logo.png")
-						span.authentication-form__google-text
-							| Google
+							alt="twitter logo"
+							src="~/assets/images/twitter-logo.png")
+						span.authentication-form__twitter-text
+							| Twitter
 
-					button.authentication-form__twitter-button(@click="twitterAuth" type="button")
-							img.authentication-form__twitter-logo(
-								draggable="false"
-								alt="twitter logo"
-								src="~/assets/images/twitter-logo.png")
-							span.authentication-form__twitter-text
-								| Twitter
-
-			VueRecaptcha.recaptcha(
-				ref="recaptcha"
-				size="invisible"
-				@verify="submit"
-				@expired="onCaptchaExpired"
-				sitekey="6LeKfEgaAAAAAGqtaoHk9BjYE18zHwoeOmoOCkhq")
+		VueRecaptcha.recaptcha(
+			ref="recaptcha"
+			size="invisible"
+			@verify="submit"
+			@expired="reset"
+			sitekey="6LeKfEgaAAAAAGqtaoHk9BjYE18zHwoeOmoOCkhq")
 
 </template>
 
@@ -102,7 +102,7 @@
 	import firebase from "firebase/app"
 	import { mapActions } from "vuex"
 	import VueRecaptcha from "vue-recaptcha"
-	import { email, required, minLength } from "vuelidate/lib/validators"
+	import { email, required, requiredIf, minLength } from "vuelidate/lib/validators"
 
 	export default {
 		name: "AutheticationForm",
@@ -118,9 +118,13 @@
 			}
 		},
 		validations: {
-			email: { email, required },
-			username: { required, minLength: minLength(3) },
-			password: { required, minLength: minLength(5) }
+			email: { required, email },
+			username: {
+				required: requiredIf(function() { this.type === "sign-up" }),
+				minLength: minLength(3) },
+			password: {
+				required: requiredIf(function() { this.type === "recovery" }),
+				minLength: minLength(5) }
 		},
 		methods: {
 			...mapActions({
@@ -128,10 +132,10 @@
 				signUp: "auth/signUp",
 				recovery: "auth/recoverPassword"
 			}),
-			validate () {
+			validate() {
 				this.$refs.recaptcha.execute()
 			},
-			onCaptchaExpired () {
+			reset () {
 				this.$refs.recaptcha.reset()
 			},
 			googleAuth () {
@@ -147,10 +151,12 @@
 				.catch((error) => { M.toast({ html: `${ error.message }`, classes: "red", displayLength: 10000 })})
 			},
 			async submit() {
-
 				if (this.$v.$invalid) {
+					this.$refs.recaptcha.reset()
 					return this.$v.$touch()
 				}
+
+				this.$refs.recaptcha.reset()
 
 				const signInData = {
 					email: this.email,
@@ -169,13 +175,9 @@
 
 				document.querySelector(".auth-progress").style.display = "block"
 
-				if (this.type === "sign-in") {
-					await this.signIn(signInData)
-				} else if (this.type === "sign-up")  {
-					await this.signUp(signUpData)
-				} else if (this.type === "recovery") {
-					await this.recovery(recoveryData)
-				}
+				if (this.type === "sign-in") await this.signIn(signInData)
+				if (this.type === "sign-up") await this.signUp(signUpData)
+				if (this.type === "recovery") await this.recovery(recoveryData)
 			}
 		}
 	}
@@ -206,11 +208,12 @@
 		&__row
 			width: 100%
 			max-width: 400px
-			margin: 20px 0 20px 0
+			margin: 40px 0 0 0
 			+flex(flex-start, flex-start, column)
 
 		&__field, &__input , &__helper, &__text
 			width: 100%
+			margin: 0 !important
 
 		&__text
 			text-align: center
