@@ -20,7 +20,8 @@ export const actions = {
       await firebase.auth().createUserWithEmailAndPassword(email, password)
       const uid = await dispatch("getUid")
       await firebase.database().ref(`/users/${uid}/info`).set({
-        username
+        username,
+        hasUsername: true
       })
       $nuxt.$cookies.set("isAutheticated", true)
       $nuxt.$router.push("/")
@@ -33,7 +34,7 @@ export const actions = {
     try {
       await firebase.auth().signOut()
       $nuxt.$cookies.set("isAutheticated", false)
-      await $nuxt.$router.go(0)
+      $nuxt.$router.push("/") || $nuxt.$router.go(0)
     } catch (error) {
       document.querySelector(".auth-progress").style.display = "none"
     }
@@ -53,6 +54,51 @@ export const actions = {
       $nuxt.$router.push("/")
     } catch (error) {
       commit("SET_ERROR", error, { root: true })
+    }
+  },
+  async googleAuth ({ dispatch }) {
+    const provider = new firebase.auth.GoogleAuthProvider()
+
+    firebase.auth().signInWithPopup(provider)
+    .then((result) => {
+      const uid = dispatch("getUid")
+      return uid
+    })
+    .then((result) => {
+      $nuxt.$cookies.set("isAutheticated", true)
+      return result
+    })
+    .then((result) => { firebase.database().ref(`/users/${result}/info`).set({ hasUserName: false })})
+    .then((result) => { this.$router.push("/")})
+    .catch((error) => { M.toast({ html: `${ error.message }`, classes: "red", displayLength: 10000 })})
+  },
+  async twitterAuth ({ dispatch }) {
+    const provider = new firebase.auth.TwitterAuthProvider()
+
+    firebase.auth().signInWithPopup(provider)
+    .then((result) => {
+      const uid = dispatch("getUid")
+      return uid
+    })
+    .then((result) => {
+      $nuxt.$cookies.set("isAutheticated", true)
+      return result
+    })
+    .then((result) => { firebase.database().ref(`/users/${result}/info`).set({ hasUserName: false })})
+    .then((result) => { this.$router.push("/")})
+    .catch((error) => { M.toast({ html: `${ error.message }`, classes: "red", displayLength: 10000 })})
+  },
+  async setUsername ({ dispatch, commit }, { username }) {
+    try {
+      const uid = await dispatch("getUid")
+      await firebase.database().ref(`/users/${uid}/info`).set({
+        username,
+        hasUsername: true
+      })
+      $nuxt.$router.push("/")
+    } catch (error) {
+      commit("SET_ERROR", error, { root: true })
+      document.querySelector(".auth-progress").style.display = "none"
     }
   }
 }

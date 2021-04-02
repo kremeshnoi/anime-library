@@ -1,7 +1,7 @@
 <template lang="pug">
 
 	form.authentication-form(@submit.prevent="validate" novalidate)
-		.authentication-form__row
+		.authentication-form__row(v-if="type !== 'set-username'")
 			.authentication-form__field.input-field
 				label(for="email")
 					| Email
@@ -21,7 +21,7 @@
 					data-error="Incorrect email"
 					v-if="$v.email.$dirty && !$v.email.email")
 
-		.authentication-form__row(v-if="type === 'sign-up'")
+		.authentication-form__row(v-if="type === 'sign-up' || type === 'set-username'")
 			.authentication-form__field.input-field
 				label(for="username")
 					| Username
@@ -40,7 +40,7 @@
 					data-error="Username is too short"
 					v-if="$v.username.$dirty && !$v.username.minLength")
 
-		.authentication-form__row(v-if="type !== 'recovery'")
+		.authentication-form__row(v-if="type !== 'recovery' && type !== 'set-username'")
 			.authentication-form__field.input-field
 				label(for="password")
 					| Password
@@ -99,7 +99,6 @@
 
 <script>
 
-	import firebase from "firebase/app"
 	import { mapActions } from "vuex"
 	import VueRecaptcha from "vue-recaptcha"
 	import { email, required, requiredIf, minLength } from "vuelidate/lib/validators"
@@ -118,18 +117,23 @@
 			}
 		},
 		validations: {
-			email: { required, email },
+			email: {
+				required: requiredIf(function() { this.type !== "set-username" }),
+				email },
 			username: {
-				required: requiredIf(function() { this.type === "sign-up" }),
+				required: requiredIf(function() { this.type === "sign-up" || this.type === "set-username" }),
 				minLength: minLength(3) },
 			password: {
-				required: requiredIf(function() { this.type === "recovery" }),
+				required: requiredIf(function() { this.type !== "recovery" || this.type !== "set-username"}),
 				minLength: minLength(5) }
 		},
 		methods: {
 			...mapActions({
 				signIn: "auth/signIn",
 				signUp: "auth/signUp",
+				googleAuth: "auth/googleAuth",
+				setUsername: "auth/setUsername",
+				twitterAuth: "auth/twitterAuth",
 				recovery: "auth/recoverPassword"
 			}),
 			validate() {
@@ -138,46 +142,31 @@
 			reset () {
 				this.$refs.recaptcha.reset()
 			},
-			googleAuth () {
-				const provider = new firebase.auth.GoogleAuthProvider()
-				firebase.auth().signInWithPopup(provider)
-				.then((result) => { this.$router.push("/")})
-				.catch((error) => { throw error.message })
-			},
-			twitterAuth () {
-				const provider = new firebase.auth.TwitterAuthProvider()
-				firebase.auth().signInWithPopup(provider)
-				.then((result) => { this.$router.push("/")})
-				.catch((error) => { M.toast({ html: `${ error.message }`, classes: "red", displayLength: 10000 })})
-			},
 			async submit() {
 				if (this.$v.$invalid) {
 					this.$refs.recaptcha.reset()
 					return this.$v.$touch()
 				}
 
-				this.$refs.recaptcha.reset()
-
-				const signInData = {
-					email: this.email,
-					password: this.password
-				}
-
-				const signUpData = {
-          email: this.email,
-          password: this.password,
-          username: this.username
-        }
-
-				const recoveryData = {
-					email: this.email
-				}
-
 				document.querySelector(".auth-progress").style.display = "block"
 
-				if (this.type === "sign-in") await this.signIn(signInData)
-				if (this.type === "sign-up") await this.signUp(signUpData)
-				if (this.type === "recovery") await this.recovery(recoveryData)
+				this.$refs.recaptcha.reset()
+
+				if (this.type === "sign-in") await this.signIn({
+					email: this.email,
+					password: this.password
+				})
+				if (this.type === "sign-up") await this.signUp({
+					email: this.email,
+          password: this.password,
+          username: this.username
+				})
+				if (this.type === "recovery") await this.recovery({
+					email: this.email
+				})
+				if (this.type === "set-username") await this.setUsername({
+					username: this.username
+				})
 			}
 		}
 	}
